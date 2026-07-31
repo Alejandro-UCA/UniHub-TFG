@@ -7,6 +7,7 @@ from datetime import datetime
 from config import (
     UNIVERSIDADES_JSON,
     TITULACIONES_JSON,
+    ERRORES_JSON,
     PLANES_DIR,
     TEMP_PDF_DIR,
     URL_UNIVERSIDADES_LIST,
@@ -22,6 +23,13 @@ from parsers import (
     parse_degree_detail_html,
     parse_boe_pdf
 )
+
+# Ensure Windows terminal stdout handles unicode characters safely
+if sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
+    try:
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    except Exception:
+        pass
 
 def run_crawler(limit_univ: int = None, limit_degrees: int = None):
     print("=" * 70)
@@ -135,7 +143,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
             
             plan_file = os.path.join(PLANES_DIR, f"{d_code}.json")
             if checkpoint.is_degree_processed(d_code) and os.path.exists(plan_file):
-                print(f"    └─ Ya procesada previamente ({d_code}.json). Omite descarga.")
+                print(f"     -> Ya procesada previamente ({d_code}.json). Omite descarga.")
                 continue
 
             detail_url = URL_DETALLE_ESTUDIO_TEMPLATE.format(codigo_estudio=d_code)
@@ -145,7 +153,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                 
                 latest_boe_url = boe_info.get("latest_boe_url")
                 if not latest_boe_url:
-                    print(f"    └─ [AVISO] No se encontró enlace a BOE en la página de detalle.")
+                    print(f"     -> [AVISO] No se encontró enlace a BOE en la página de detalle.")
                     logger.log_error("paso_3_boe_link", d_code, detail_url, "Sin enlace a BOE", "No PDF links found in HTML")
                     # Still save basic degree info JSON without curriculum
                     degree_data = {
@@ -165,7 +173,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
 
                 # Download latest BOE PDF
                 pdf_path = os.path.join(TEMP_PDF_DIR, f"{d_code}_latest.pdf")
-                print(f"    └─ Descargando BOE más reciente ({boe_info.get('boe_date') or 'fecha desconocida'})...")
+                print(f"     -> Descargando BOE más reciente ({boe_info.get('boe_date') or 'fecha desconocida'})...")
                 downloader.download_file(latest_boe_url, pdf_path)
 
                 # Parse BOE PDF
@@ -192,11 +200,11 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                     os.remove(pdf_path)
 
                 checkpoint.mark_degree_processed(d_code)
-                print(f"    └─ Extraídas {curriculum_data.get('total_asignaturas', 0)} asignaturas. Guardado en '{d_code}.json'. PDF borrado.")
+                print(f"     -> Extraídas {curriculum_data.get('total_asignaturas', 0)} asignaturas. Guardado en '{d_code}.json'. PDF borrado.")
 
             except Exception as e:
                 err_msg = f"Error al procesar titulación {d_code}"
-                print(f"    └─ [ERROR] {err_msg}: {e}")
+                print(f"     -> [ERROR] {err_msg}: {e}")
                 logger.log_error("paso_3_boe_parsing", d_code, detail_url, err_msg, str(e))
                 # Clean up PDF if left over
                 pdf_path = os.path.join(TEMP_PDF_DIR, f"{d_code}_latest.pdf")

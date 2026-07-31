@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+import traceback
 import argparse
 from datetime import datetime
 
@@ -34,7 +35,7 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
 def run_crawler(limit_univ: int = None, limit_degrees: int = None):
     print("=" * 70)
     print("      INICIANDO CRAWLER RUCT - UNIVERSIDADES Y TITULACIONES DE ESPAÑA")
-    print("=" * 70)
+    print("======================================================================")
     
     downloader = RUCTDownloader()
     logger = ErrorLogger()
@@ -51,7 +52,6 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
             downloader.download_file(URL_UNIVERSIDADES_LIST, temp_univ_xls)
             universities = parse_universities_xls(temp_univ_xls)
             
-            # Save to universidades.json
             with open(UNIVERSIDADES_JSON, "w", encoding="utf-8") as f:
                 json.dump(universities, f, ensure_ascii=False, indent=2)
                 
@@ -61,15 +61,20 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
             checkpoint.mark_universities_downloaded()
             print(f" -> Se han encontrado y guardado {len(universities)} universidades en '{UNIVERSIDADES_JSON}'.")
         except Exception as e:
-            err_msg = f"Error al descargar o procesar la lista de universidades: {e}"
+            err_msg = f"Error crítico al descargar lista de universidades: {e}"
             print(f" [ERROR] {err_msg}")
-            logger.log_error("paso_1_universidades", "TODAS", URL_UNIVERSIDADES_LIST, "Fallo descarga lista universidades", str(e))
+            logger.log_error("paso_1_universidades", "TODAS", URL_UNIVERSIDADES_LIST, err_msg, traceback.format_exc())
             return
     else:
         print(f"\n[Paso 1] Cargando universidades guardadas previamente en '{UNIVERSIDADES_JSON}'...")
-        with open(UNIVERSIDADES_JSON, "r", encoding="utf-8") as f:
-            universities = json.load(f)
-        print(f" -> {len(universities)} universidades cargadas.")
+        try:
+            with open(UNIVERSIDADES_JSON, "r", encoding="utf-8") as f:
+                universities = json.load(f)
+            print(f" -> {len(universities)} universidades cargadas.")
+        except Exception as e:
+            print(f" [ERROR] No se pudo leer '{UNIVERSIDADES_JSON}': {e}")
+            logger.log_error("paso_1_lectura_json", "TODAS", UNIVERSIDADES_JSON, "Error lectura universidades.json", traceback.format_exc())
+            return
 
     if limit_univ:
         universities = universities[:limit_univ]
@@ -85,35 +90,35 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
             titulaciones_por_universidad = {}
 
     # -------------------------------------------------------------------------
-    # PASO 2 y 3: Recorrer universidades y descargar titulaciones vigentes + BOEs
+    # PASO 2 y 3: Recorrer universidades y procesar titulaciones VIGENTES y RENOVADAS
     # -------------------------------------------------------------------------
     print("\n[Paso 2 y 3] Extrayendo titulaciones vigentes y planes de estudio BOE por universidad...")
     total_univ = len(universities)
     
     for u_idx, univ in enumerate(universities, 1):
-        u_code = univ["codigo"]
-        u_name = univ["nombre"]
+        u_code = univ.get("codigo", "")
+        u_name = univ.get("nombre", "")
         print(f"\n({u_idx}/{total_univ}) Procesando Universidad [{u_code}]: {u_name}")
         
-        # Download degree list for this university if not already saved
         active_degrees = []
-        if u_code in titulaciones_por_universidad and checkpoint.is_university_processed(u_code):
-            active_degrees = titulaciones_por_universidad[u_code].get("titulaciones_vigentes", [])
-            print(f" -> Universidad ya procesada previamente ({len(active_degrees)} titulaciones vigentes).")
-        else:
-            degrees_url = URL_ESTUDIOS_UNIV_TEMPLATE.format(codigo=u_code)
-            temp_degrees_xls = os.path.join(TEMP_PDF_DIR, f"degrees_{u_code}.xls")
-            try:
+        try:
+            if u_code in titulaciones_por_universidad and checkpoint.is_university_processed(u_code):
+                active_degrees = titulaciones_por_universidad[u_code].get("titulaciones_vigentes", [])
+                print(f"     -> Universidad procesada previamente ({len(active_degrees)} titulaciones vigentes/renovadas).")
+            else:
+                degrees_url = URL_ESTUDIOS_UNIV_TEMPLATE.format(codigo=u_code)
+                temp_degrees_xls = os.path.join(TEMP_PDF_DIR, f"degrees_{u_code}.xls")
+                
                 downloader.download_file(degrees_url, temp_degrees_xls)
+                # Parse and deduplicate renovated degrees
                 active_degrees = parse_degrees_xls(temp_degrees_xls)
                 
-                # Save into structure
                 titulaciones_por_universidad[u_code] = {
                     "universidad_codigo": u_code,
                     "universidad_nombre": u_name,
                     "universidad_tipo": univ.get("tipo", ""),
                     "comunidad_autonoma": univ.get("comunidad_autonoma", ""),
-                    "total_titulaciones_vigentes": len(active_degrees),
+                    "total_titulaciones_vigentes_renovadas": len(active_degrees),
                     "titulaciones_vigentes": active_degrees
                 }
                 
@@ -123,23 +128,25 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                 if os.path.exists(temp_degrees_xls):
                     os.remove(temp_degrees_xls)
                     
-                print(f" -> Encontradas {len(active_degrees)} titulaciones VIGENTES (excluidas no vigentes).")
-            except Exception as e:
-                err_msg = f"Error al obtener titulaciones de la universidad {u_code}"
-                print(f" [ERROR] {err_msg}: {e}")
-                logger.log_error("paso_2_titulaciones", u_code, degrees_url, err_msg, str(e))
-                continue
+                print(f"     -> Encontradas {len(active_degrees)} titulaciones VIGENTES y RENOVADAS (excluidas no vigentes y obsoletas).")
+
+        except Exception as e:
+            err_msg = f"Error al obtener listado de titulaciones para la universidad {u_code}"
+            print(f"     -> [ERROR NO BLOQUEANTE] {err_msg}: {e}")
+            logger.log_error("paso_2_titulaciones_xls", u_code, URL_ESTUDIOS_UNIV_TEMPLATE.format(codigo=u_code), err_msg, traceback.format_exc())
+            # CONTINUE to next university on failure!
+            continue
 
         # Filter limit if testing
         degrees_to_process = active_degrees
         if limit_degrees:
             degrees_to_process = degrees_to_process[:limit_degrees]
 
-        # Process each degree: detail HTML -> latest BOE PDF -> extract curriculum
+        # Process each degree for this university
         for d_idx, deg in enumerate(degrees_to_process, 1):
-            d_code = deg["codigo_estudio"]
-            d_title = deg["titulo"]
-            print(f"   [{d_idx}/{len(degrees_to_process)}] Titulación [{d_code}]: {d_title[:60]}...")
+            d_code = deg.get("codigo_estudio", "")
+            d_title = deg.get("titulo", "")
+            print(f"   [{d_idx}/{len(degrees_to_process)}] Titulación [{d_code}]: {d_title[:65]}...")
             
             plan_file = os.path.join(PLANES_DIR, f"{d_code}.json")
             if checkpoint.is_degree_processed(d_code) and os.path.exists(plan_file):
@@ -154,8 +161,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                 latest_boe_url = boe_info.get("latest_boe_url")
                 if not latest_boe_url:
                     print(f"     -> [AVISO] No se encontró enlace a BOE en la página de detalle.")
-                    logger.log_error("paso_3_boe_link", d_code, detail_url, "Sin enlace a BOE", "No PDF links found in HTML")
-                    # Still save basic degree info JSON without curriculum
+                    logger.log_error("paso_3_enlace_boe", d_code, detail_url, "Sin enlace a BOE en detalle HTML", "No PDF links in HTML")
                     degree_data = {
                         "codigo_estudio": d_code,
                         "titulo": d_title,
@@ -176,7 +182,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                 print(f"     -> Descargando BOE más reciente ({boe_info.get('boe_date') or 'fecha desconocida'})...")
                 downloader.download_file(latest_boe_url, pdf_path)
 
-                # Parse BOE PDF
+                # Parse BOE PDF meticulously
                 curriculum_data = parse_boe_pdf(pdf_path)
 
                 # Save degree JSON output
@@ -200,26 +206,30 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                     os.remove(pdf_path)
 
                 checkpoint.mark_degree_processed(d_code)
-                print(f"     -> Extraídas {curriculum_data.get('total_asignaturas', 0)} asignaturas. Guardado en '{d_code}.json'. PDF borrado.")
+                num_elem = curriculum_data.get("total_elementos", 0)
+                print(f"     -> Extraídos {num_elem} elementos curriculares (asignaturas/módulos). Guardado en '{d_code}.json'. PDF borrado.")
 
             except Exception as e:
                 err_msg = f"Error al procesar titulación {d_code}"
-                print(f"     -> [ERROR] {err_msg}: {e}")
-                logger.log_error("paso_3_boe_parsing", d_code, detail_url, err_msg, str(e))
+                print(f"     -> [ERROR NO BLOQUEANTE] {err_msg}: {e}")
+                logger.log_error("paso_3_procesamiento_titulacion", d_code, detail_url, err_msg, traceback.format_exc())
                 # Clean up PDF if left over
                 pdf_path = os.path.join(TEMP_PDF_DIR, f"{d_code}_latest.pdf")
                 if os.path.exists(pdf_path):
-                    os.remove(pdf_path)
+                    try:
+                        os.remove(pdf_path)
+                    except Exception:
+                        pass
 
         checkpoint.mark_university_processed(u_code)
 
-    print("\n" + "=" * 70)
+    print("\n======================================================================")
     print("      CRAWLER COMPLETADO CON ÉXITO")
     print(f" Universidades guardadas: {UNIVERSIDADES_JSON}")
     print(f" Titulaciones por universidad: {TITULACIONES_JSON}")
     print(f" Planes de estudio guardados en: {PLANES_DIR}")
     print(f" Registro de errores en: {ERRORES_JSON}")
-    print("=" * 70)
+    print("======================================================================")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Crawler RUCT de Universidades y Titulaciones de España")

@@ -17,7 +17,6 @@ def parse_universities_xls(filepath: str) -> list:
     if sheet.nrows == 0:
         return []
     
-    # Read headers from row 0
     headers = [str(cell).strip() for cell in sheet.row_values(0)]
     universities = []
     
@@ -26,12 +25,10 @@ def parse_universities_xls(filepath: str) -> list:
         row_dict = {}
         for idx, header in enumerate(headers):
             val = str(row[idx]).strip() if idx < len(row) else ""
-            # Fix floating point code formatting if xlrd parsed code as float (e.g., 89.0 -> 089)
             if header in ["Código", "CÃ³digo"] and val.endswith(".0"):
                 val = val[:-2].zfill(3)
             row_dict[header] = val
         
-        # Standardized dictionary keys
         code = row_dict.get("Código", row_dict.get("CÃ³digo", ""))
         name = row_dict.get("Universidad", "")
         tipo = row_dict.get("Tipo", "")
@@ -57,8 +54,9 @@ def parse_universities_xls(filepath: str) -> list:
 def parse_degrees_xls(filepath: str) -> list:
     """
     Parses the XLS file downloaded from RUCT for a specific university.
-    FILTERS OUT INACTIVE / EXTINGUISHED DEGREES.
-    Only returns degrees that are active/vigente (e.g. 'Publicado en B.O.E.').
+    1. FILTERS OUT INACTIVE / EXTINGUISHED DEGREES.
+    2. DEDUPLICATES RENOVATED DEGREES within the same university:
+       If multiple active versions of the same title exist, keeps ONLY the latest / renovated version.
     """
     wb = xlrd.open_workbook(filepath)
     sheet = wb.sheet_by_index(0)
@@ -67,7 +65,7 @@ def parse_degrees_xls(filepath: str) -> list:
         return []
     
     headers = [str(cell).strip() for cell in sheet.row_values(0)]
-    active_degrees = []
+    raw_active_degrees = []
     
     for r in range(1, sheet.nrows):
         row = sheet.row_values(r)
@@ -83,21 +81,60 @@ def parse_degrees_xls(filepath: str) -> list:
         nivel = row_dict.get("Nivel académico", row_dict.get("Nivel acadÃ©mico", ""))
         estado = row_dict.get("Estado", "")
         
-        # Check active status requirement:
-        # Non-active states include 'Extinguido', 'No vigente', 'En extinción', 'Derogado'.
-        # Active state in RUCT is primarily 'Publicado en B.O.E.'.
+        # Filter inactive statuses
         estado_lower = estado.lower()
         is_inactive = any(term in estado_lower for term in ["extinguido", "no vigente", "en extinción", "extincion", "derogado"])
         
         if code and title and not is_inactive:
-            active_degrees.append({
+            raw_active_degrees.append({
                 "codigo_estudio": code,
                 "titulo": title,
                 "nivel_academico": nivel,
                 "estado": estado
             })
+
+    # Deduplicate renovated degrees within the same university
+    def normalize_title(full_title: str) -> str:
+        # Standardize title base without trailing university name
+        base = full_title.split(" por la ")[0].split(" por ")[0].strip().lower()
+        return re.sub(r"\s+", " ", base)
+
+    def get_rd_rank(nivel_str: str) -> int:
+        nivel_lower = nivel_str.lower()
+        if "822/2021" in nivel_lower:
+            return 4
+        elif "1393/2007" in nivel_lower:
+            return 3
+        elif "56/2005" in nivel_lower:
+            return 2
+        elif "bolet" in nivel_lower or "b.o.e" in nivel_lower:
+            return 1
+        return 0
+
+    grouped_degrees = {}
+    for deg in raw_active_degrees:
+        norm_title = normalize_title(deg["titulo"])
+        if norm_title not in grouped_degrees:
+            grouped_degrees[norm_title] = deg
+        else:
+            existing = grouped_degrees[norm_title]
+            rank_existing = get_rd_rank(existing["nivel_academico"])
+            rank_new = get_rd_rank(deg["nivel_academico"])
             
-    return active_degrees
+            # Prefer higher Real Decreto rank (newer decree)
+            if rank_new > rank_existing:
+                grouped_degrees[norm_title] = deg
+            elif rank_new == rank_existing:
+                # Prefer higher numeric code (newer registration/renovation ID)
+                try:
+                    code_existing = int(existing["codigo_estudio"])
+                    code_new = int(deg["codigo_estudio"])
+                    if code_new > code_existing:
+                        grouped_degrees[norm_title] = deg
+                except ValueError:
+                    pass
+
+    return list(grouped_degrees.values())
 
 
 def parse_degree_detail_html(html_content: str) -> dict:
@@ -108,14 +145,11 @@ def parse_degree_detail_html(html_content: str) -> dict:
     soup = BeautifulSoup(html_content, "html.parser")
     boe_candidates = []
     
-    # Search all anchors
     for a in soup.find_all("a", href=True):
         href = a["href"].strip()
         text = a.get_text(strip=True)
         
-        # Check if link points to BOE
         if "boe.es" in href.lower() or "boe" in text.lower() or ".pdf" in href.lower():
-            # Try to extract date from link text (e.g. BOE 16/01/2025)
             date_obj = None
             text_date_match = re.search(r"(\d{1,2})/(\d{1,2})/(\d{4})", text)
             if text_date_match:
@@ -125,7 +159,6 @@ def parse_degree_detail_html(html_content: str) -> dict:
                 except ValueError:
                     pass
             
-            # Try to extract date from URL path (e.g. /boe/dias/2025/01/16/...)
             if not date_obj:
                 url_date_match = re.search(r"(\d{4})/(\d{2})/(\d{2})", href)
                 if url_date_match:
@@ -144,12 +177,10 @@ def parse_degree_detail_html(html_content: str) -> dict:
     if not boe_candidates:
         return {"latest_boe_url": None, "boe_date": None, "all_boe_links": []}
     
-    # Sort candidates by extracted date (descending)
     dated_candidates = [c for c in boe_candidates if c["date"] is not None]
     if dated_candidates:
         latest = max(dated_candidates, key=lambda c: c["date"])
     else:
-        # Fallback to the last candidate link if no dates could be parsed
         latest = boe_candidates[-1]
         
     return {
@@ -161,14 +192,14 @@ def parse_degree_detail_html(html_content: str) -> dict:
 
 def parse_boe_pdf(pdf_filepath: str) -> dict:
     """
-    Extracts structured curriculum data (credit summaries, courses, subjects, ECTS, types)
-    from a BOE PDF file using pdfplumber and pypdf.
+    Extracts METICULOUS curriculum data (resumen creditos, asignaturas, modulos, materias, 
+    unidades formativas, bloques, ECTS, carácter, curso, cuatrimestre) from a BOE PDF file.
     """
     resumen_creditos = {}
-    asignaturas = []
+    elementos_curriculares = []
     raw_text_parts = []
     
-    # Extract plain text using pypdf
+    # Extract plain text with pypdf
     try:
         reader = pypdf.PdfReader(pdf_filepath)
         for idx, page in enumerate(reader.pages):
@@ -179,7 +210,7 @@ def parse_boe_pdf(pdf_filepath: str) -> dict:
 
     full_text = "\n".join(raw_text_parts)
 
-    # Extract tables using pdfplumber
+    # Extract tables with pdfplumber
     try:
         with pdfplumber.open(pdf_filepath) as pdf:
             for page_idx, page in enumerate(pdf.pages):
@@ -188,77 +219,87 @@ def parse_boe_pdf(pdf_filepath: str) -> dict:
                     if not table or len(table) < 2:
                         continue
                     
-                    # Inspect header row to categorize table type
                     header_row = [str(cell).strip().replace("\n", " ") for cell in table[0] if cell]
                     header_text = " ".join(header_row).lower()
                     
                     # Case 1: Credit Distribution Summary Table
-                    if "carácter" in header_text or "tipo" in header_text or "créditos" in header_text and len(table[0]) <= 3:
+                    if any(term in header_text for term in ["carácter", "caracter", "tipo", "créditos", "creditos"]) and len(table[0]) <= 3:
                         for row in table[1:]:
                             if len(row) >= 2 and row[0] and row[1]:
                                 key = str(row[0]).strip().replace("\n", " ")
                                 val = str(row[1]).strip().replace("\n", " ")
-                                resumen_creditos[key] = val
+                                if key:
+                                    resumen_creditos[key] = val
                     
-                    # Case 2: Subjects Breakdown Table
-                    # Common headers: ['Materia', 'Asignatura', 'Créditos ECTS', 'Carácter', 'Curso', 'Cuatrimestre']
-                    if "asignatura" in header_text or "materia" in header_text:
-                        # Find column indices dynamically
-                        col_map = {}
-                        for col_idx, col_name in enumerate(header_row):
-                            col_name_lower = col_name.lower()
-                            if "materia" in col_name_lower:
-                                col_map["materia"] = col_idx
-                            elif "asignatura" in col_name_lower:
-                                col_map["asignatura"] = col_idx
-                            elif "crédito" in col_name_lower or "ects" in col_name_lower:
-                                col_map["creditos"] = col_idx
-                            elif "carácter" in col_name_lower or "tipo" in col_name_lower:
-                                col_map["caracter"] = col_idx
-                            elif "curso" in col_name_lower:
-                                col_map["curso"] = col_idx
-                            elif "cuatrimestre" in col_name_lower or "periodo" in col_name_lower:
-                                col_map["cuatrimestre"] = col_idx
-                                
+                    # Case 2: Detailed Curricular Elements (Asignaturas / Módulos / Materias / Bloques)
+                    col_map = {}
+                    for col_idx, col_name in enumerate(header_row):
+                        col_lower = col_name.lower()
+                        if "módulo" in col_lower or "modulo" in col_lower:
+                            col_map["modulo"] = col_idx
+                        elif "materia" in col_lower:
+                            col_map["materia"] = col_idx
+                        elif any(k in col_lower for k in ["asignatura", "enseñanza", "unidad", "bloque", "denominación", "denominacion"]):
+                            col_map["asignatura"] = col_idx
+                        elif "crédito" in col_lower or "ects" in col_lower:
+                            col_map["creditos"] = col_idx
+                        elif "carácter" in col_lower or "caracter" in col_lower or "tipo" in col_lower:
+                            col_map["caracter"] = col_idx
+                        elif "curso" in col_lower or "año" in col_lower:
+                            col_map["curso"] = col_idx
+                        elif any(k in col_lower for k in ["cuatrimestre", "semestre", "periodo"]):
+                            col_map["cuatrimestre"] = col_idx
+
+                    # If table contains subject or module or credit information
+                    if "asignatura" in col_map or "modulo" in col_map or "materia" in col_map or ("creditos" in col_map and "caracter" in col_map):
+                        last_modulo = ""
                         last_materia = ""
                         for row in table[1:]:
                             if not row or all(c is None for c in row):
                                 continue
                             
-                            # Safely extract cells
                             def get_cell(idx_key):
-                                col_idx = col_map.get(idx_key)
-                                if col_idx is not None and col_idx < len(row) and row[col_idx]:
-                                    return str(row[col_idx]).strip().replace("\n", " ")
+                                c_idx = col_map.get(idx_key)
+                                if c_idx is not None and c_idx < len(row) and row[c_idx]:
+                                    return str(row[c_idx]).strip().replace("\n", " ")
                                 return ""
                             
-                            materia_val = get_cell("materia")
-                            if materia_val:
-                                last_materia = materia_val
+                            mod_val = get_cell("modulo")
+                            if mod_val:
+                                last_modulo = mod_val
                             else:
-                                materia_val = last_materia
+                                mod_val = last_modulo
+
+                            mat_val = get_cell("materia")
+                            if mat_val:
+                                last_materia = mat_val
+                            else:
+                                mat_val = last_materia
                                 
-                            asignatura_val = get_cell("asignatura")
-                            creditos_val = get_cell("creditos")
-                            caracter_val = get_cell("caracter")
+                            asig_val = get_cell("asignatura")
+                            cred_val = get_cell("creditos")
+                            carac_val = get_cell("caracter")
                             curso_val = get_cell("curso")
-                            cuatrimestre_val = get_cell("cuatrimestre")
+                            cuatri_val = get_cell("cuatrimestre")
                             
-                            if asignatura_val:
-                                asignaturas.append({
-                                    "materia": materia_val,
-                                    "nombre_asignatura": asignatura_val,
-                                    "creditos_ects": creditos_val,
-                                    "caracter": caracter_val,
+                            # Standardize element name (Asignatura or Module or Row text if nameless)
+                            elem_name = asig_val or mat_val or mod_val
+                            if elem_name and elem_name.lower() not in ["total", "subtotal", "suma"]:
+                                elementos_curriculares.append({
+                                    "modulo": mod_val,
+                                    "materia": mat_val,
+                                    "nombre_elemento": elem_name,
+                                    "creditos_ects": cred_val,
+                                    "caracter": carac_val,
                                     "curso": curso_val,
-                                    "cuatrimestre": cuatrimestre_val
+                                    "cuatrimestre": cuatri_val
                                 })
     except Exception as e:
         pass
         
     return {
         "resumen_creditos": resumen_creditos,
-        "asignaturas": asignaturas,
-        "total_asignaturas": len(asignaturas),
+        "elementos_curriculares": elementos_curriculares,
+        "total_elementos": len(elementos_curriculares),
         "texto_extraido_muestra": full_text[:1000]
     }

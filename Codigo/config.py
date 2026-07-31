@@ -16,6 +16,7 @@ UNIVERSIDADES_JSON = os.path.join(DATA_DIR, "universidades.json")
 TITULACIONES_JSON = os.path.join(DATA_DIR, "titulaciones_universidad.json")
 ERRORES_JSON = os.path.join(DATA_DIR, "errores_crawler.json")
 CHECKPOINT_JSON = os.path.join(DATA_DIR, "checkpoint.json")
+ESTADISTICAS_JSON = os.path.join(DATA_DIR, "estadisticas_rendimiento.json")
 
 # RUCT Endpoints
 URL_UNIVERSIDADES_LIST = (

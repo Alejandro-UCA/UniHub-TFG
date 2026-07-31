@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+import time
 import traceback
 import argparse
 from datetime import datetime
@@ -9,6 +10,8 @@ from config import (
     UNIVERSIDADES_JSON,
     TITULACIONES_JSON,
     ERRORES_JSON,
+    CHECKPOINT_JSON,
+    ESTADISTICAS_JSON,
     PLANES_DIR,
     TEMP_PDF_DIR,
     URL_UNIVERSIDADES_LIST,
@@ -18,6 +21,7 @@ from config import (
 from downloader import RUCTDownloader
 from error_logger import ErrorLogger
 from checkpoint import CheckpointManager
+from metrics import PerformanceTracker
 from parsers import (
     parse_universities_xls,
     parse_degrees_xls,
@@ -37,7 +41,8 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
     print("      INICIANDO CRAWLER RUCT - UNIVERSIDADES Y TITULACIONES DE ESPAÑA")
     print("======================================================================")
     
-    downloader = RUCTDownloader()
+    metrics = PerformanceTracker()
+    downloader = RUCTDownloader(metrics_tracker=metrics)
     logger = ErrorLogger()
     checkpoint = CheckpointManager()
     
@@ -63,6 +68,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
         err_msg = f"Error al descargar lista de universidades: {e}"
         print(f" [ERROR NO BLOQUEANTE] {err_msg}")
         logger.log_error("paso_1_universidades", "TODAS", URL_UNIVERSIDADES_LIST, err_msg, traceback.format_exc())
+        metrics.errores_detectados += 1
         if os.path.exists(UNIVERSIDADES_JSON):
             with open(UNIVERSIDADES_JSON, "r", encoding="utf-8") as f:
                 universities = json.load(f)
@@ -70,6 +76,8 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
     if limit_univ:
         universities = universities[:limit_univ]
         print(f" [INFO] Modo de prueba activado: limitado a {limit_univ} universidades.")
+
+    metrics.universidades_inspeccionadas = len(universities)
 
     # Structure for titulaciones_universidad.json
     titulaciones_por_universidad = {}
@@ -96,7 +104,6 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
             degrees_url = URL_ESTUDIOS_UNIV_TEMPLATE.format(codigo=u_code)
             temp_degrees_xls = os.path.join(TEMP_PDF_DIR, f"degrees_{u_code}.xls")
             
-            # ALWAYS fetch degrees XLS to capture any newly added degrees or state updates
             downloader.download_file(degrees_url, temp_degrees_xls)
             active_degrees = parse_degrees_xls(temp_degrees_xls)
             
@@ -121,6 +128,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
             err_msg = f"Error al obtener listado de titulaciones para la universidad {u_code}"
             print(f"     -> [ERROR NO BLOQUEANTE] {err_msg}: {e}")
             logger.log_error("paso_2_titulaciones_xls", u_code, URL_ESTUDIOS_UNIV_TEMPLATE.format(codigo=u_code), err_msg, traceback.format_exc())
+            metrics.errores_detectados += 1
             continue
 
         degrees_to_process = active_degrees
@@ -129,6 +137,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
 
         # Inspect each degree for latest BOE and update incrementally if new
         for d_idx, deg in enumerate(degrees_to_process, 1):
+            metrics.titulaciones_inspeccionadas += 1
             d_code = deg.get("codigo_estudio", "")
             d_title = deg.get("titulo", "")
             print(f"   [{d_idx}/{len(degrees_to_process)}] Titulación [{d_code}]: {d_title[:65]}...")
@@ -137,21 +146,22 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
             detail_url = URL_DETALLE_ESTUDIO_TEMPLATE.format(codigo_estudio=d_code)
             
             try:
-                # Fetch detail HTML to check latest BOE link
                 html_content = downloader.fetch_text(detail_url)
                 boe_info = parse_degree_detail_html(html_content)
                 
                 latest_boe_url = boe_info.get("latest_boe_url")
                 latest_boe_fecha = boe_info.get("boe_date")
                 
-                # INCREMENTAL CHECK: If file exists and BOE matches existing record, skip re-download!
+                # Check if degree is already up to date
                 if os.path.exists(plan_file) and checkpoint.is_degree_up_to_date(d_code, latest_boe_url, latest_boe_fecha):
+                    metrics.titulaciones_al_dia += 1
                     print(f"     -> Información al día (BOE {latest_boe_fecha or 'coincide'}). Sin cambios necesarios.")
                     continue
 
                 if not latest_boe_url:
                     print(f"     -> [AVISO] No se encontró enlace a BOE en la página de detalle.")
                     logger.log_error("paso_3_enlace_boe", d_code, detail_url, "Sin enlace a BOE en detalle HTML", "No PDF links in HTML")
+                    metrics.errores_detectados += 1
                     degree_data = {
                         "codigo_estudio": d_code,
                         "titulo": d_title,
@@ -172,8 +182,12 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                 print(f"     -> DESCARGANDO NUEVO/ACTUALIZADO BOE ({latest_boe_fecha or 'fecha desconocida'})...")
                 downloader.download_file(latest_boe_url, pdf_path)
 
-                # Parse BOE PDF meticulously
+                # Measure PDF parsing duration
+                t_parse_start = time.perf_counter()
                 curriculum_data = parse_boe_pdf(pdf_path)
+                t_parse_elapsed = time.perf_counter() - t_parse_start
+                metrics.record_pdf_parse_time(t_parse_elapsed)
+                metrics.titulaciones_descargadas_actualizadas += 1
 
                 # Save / update degree JSON file
                 degree_data = {
@@ -191,7 +205,6 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                 with open(plan_file, "w", encoding="utf-8") as f:
                     json.dump(degree_data, f, ensure_ascii=False, indent=2)
 
-                # CLEAN UP downloaded PDF immediately!
                 if os.path.exists(pdf_path):
                     os.remove(pdf_path)
 
@@ -203,6 +216,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                 err_msg = f"Error al procesar titulación {d_code}"
                 print(f"     -> [ERROR NO BLOQUEANTE] {err_msg}: {e}")
                 logger.log_error("paso_3_procesamiento_titulacion", d_code, detail_url, err_msg, traceback.format_exc())
+                metrics.errores_detectados += 1
                 pdf_path = os.path.join(TEMP_PDF_DIR, f"{d_code}_latest.pdf")
                 if os.path.exists(pdf_path):
                     try:
@@ -211,13 +225,22 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                         pass
 
         checkpoint.mark_university_processed(u_code)
+        metrics.save()
+
+    # Save final performance report
+    metrics.save()
+    rep = metrics.generate_report()
 
     print("\n======================================================================")
     print("      CRAWLER COMPLETADO CON ÉXITO")
-    print(f" Universidades guardadas: {UNIVERSIDADES_JSON}")
-    print(f" Titulaciones por universidad: {TITULACIONES_JSON}")
-    print(f" Planes de estudio guardados en: {PLANES_DIR}")
-    print(f" Registro de errores en: {ERRORES_JSON}")
+    print("======================================================================")
+    print(" ESTADÍSTICAS DE RENDIMIENTO GUARDADAS EN:", ESTADISTICAS_JSON)
+    print(f"  - Memoria actual usada:      {rep['rendimiento_memoria']['uso_memoria_actual_mb']} MB")
+    print(f"  - Pico máximo de memoria:    {rep['rendimiento_memoria']['pico_maximo_memoria_mb']} MB")
+    print(f"  - Tiempo total reloj:        {rep['rendimiento_tiempo']['tiempo_total_ejecucion_seg']} s")
+    print(f"  - Tiempo computación CPU:    {rep['rendimiento_tiempo']['tiempo_procesamiento_cpu_seg']} s")
+    print(f"  - Tiempo espera E/S y Red:   {rep['rendimiento_tiempo']['tiempo_espera_io_red_seg']} s")
+    print(f"  - Titulaciones procesadas:   {rep['operaciones_crawler']['titulaciones_inspeccionadas']} (Al día: {rep['operaciones_crawler']['titulaciones_al_dia_sin_cambios']}, Nuevas/Actualizadas: {rep['operaciones_crawler']['titulaciones_nuevas_o_actualizadas']})")
     print("======================================================================")
 
 if __name__ == "__main__":

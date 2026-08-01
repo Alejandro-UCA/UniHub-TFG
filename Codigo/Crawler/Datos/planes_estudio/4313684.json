@@ -1,0 +1,806 @@
+{
+  "codigo_estudio": "4313684",
+  "titulo": "Máster Universitario en Formación del Profesorado de Educación Secundaria Obligatoria y Bachillerato, Formación Profesional y Enseñanza de Idiomas por la Universidad Antonio de Nebrija",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "052",
+  "universidad_nombre": "Universidad Antonio de Nebrija",
+  "fecha_procesado": "2026-07-31T14:41:44.324543",
+  "boe_url": "http://www.boe.es/boe/dias/2023/04/03/pdfs/BOE-A-2023-8451.pdf",
+  "boe_fecha": "2023-04-03",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Asignaturas Obligatorias.": "16",
+      "Asignaturas Optativas.": "26",
+      "Prácticas Externas.": "12",
+      "Trabajo Fin de Máster.": "6",
+      "Créditos totales.": "60",
+      "Didáctica de la aritmética y el álgebra.": "6",
+      "Didáctica de la geometría, la medida de magnitudes y la estadística.": "6",
+      "La ciencia y su metodología.": "4",
+      "Matemáticas para profesores de Educación Secundaria, Bachillerato y FP.": "4",
+      "Diseño de propuestas didácticas de matemáticas.": "6",
+      "Didáctica de la Física.": "6",
+      "Didáctica de la Química.": "6",
+      "Física y Química para profesores de Secundaria, Bachillerato y FP.": "4",
+      "Diseño de propuestas didácticas de Física y Química.": "6",
+      "Didáctica de la Biología.": "6",
+      "Didáctica de la Geología.": "6",
+      "Biología y Geología para profesores de Secundaria, Bachillerato y FP.": "4",
+      "Diseño de propuestas didácticas de Biología y Geología.": "6",
+      "Didáctica de la tecnología y la informática.": "6",
+      "Didáctica de la informática.": "6",
+      "Tecnología e informática para profesores de educación Secundaria, Bachillerato y FP.": "4",
+      "Diseño de propuestas didácticas de tecnología e informática.": "6",
+      "Didáctica de la economía.": "6",
+      "Didáctica de la empresa y su entorno.": "6",
+      "La formación profesional en economía, empresa y comercio.": "4",
+      "Orientación profesional.": "4",
+      "Diseño de propuestas didácticas en economía, empresa y comercio.": "6",
+      "Aspectos fundamentales de la didáctica en hostelería y turismo.": "6",
+      "Aprendizaje y enseñanza de las materias en hostelería y turismo.": "6",
+      "La formación profesional en hostelería y turismo.": "4",
+      "Diseño de propuestas didácticas en hostelería y turismo.": "6",
+      "Aprendizaje y enseñanza de los procesos sanitarios I.": "6",
+      "Aprendizaje y enseñanza de los procesos sanitarios II.": "6",
+      "La formación profesional en procesos sanitarios.": "4",
+      "Diseño de propuestas didácticas en procesos sanitarios.": "6",
+      "Tecnologías y procesos industriales I.": "6",
+      "Tecnologías y procesos industriales II.": "6",
+      "La formación profesional en Tecnología Industrial.": "4",
+      "Diseño de propuestas didácticas en Tecnología Industrial.": "6",
+      "Didáctica de la Geografía.": "6",
+      "Didáctica de la Historia.": "6",
+      "Ciencias sociales y educación I.": "4",
+      "Ciencias sociales y educación II.": "4",
+      "Diseño de propuestas didácticas en Ciencias Sociales, Geografía e Historia.": "6",
+      "Didáctica de la lengua inglesa.": "6",
+      "Didáctica de la cultura inglesa.": "6",
+      "Enseñanza y aprendizaje de lenguas.": "4",
+      "Lengua extranjera para profesores de educación Secundaria, Bachillerato y FP.": "4",
+      "Diseño de propuestas didácticas en lengua y cultura inglesas.": "6",
+      "Didáctica de la lengua española.": "6",
+      "Didáctica de la literatura española.": "6",
+      "Lengua y literatura españolas para profesores de educación Secundaria, Bachillerato y FP.": "4",
+      "Diseño de propuestas didácticas en lengua y literatura españolas.": "6",
+      "Didáctica de la educación artística: estrategias y metodología.": "6",
+      "Diseño gráfico y arte digital.": "6",
+      "Teoría del movimiento.": "4",
+      "Educación visual.": "4",
+      "Diseño de propuestas didácticas en Artes Plásticas.": "6",
+      "Planificación y organización de actividades deportivas.": "6",
+      "Dinámica de grupos y diversidad.": "6",
+      "Didáctica de la educación física.": "4",
+      "Diseño de propuestas didácticas en Educación Física.": "6",
+      "Orientación personal, académica y profesional.": "4",
+      "Intervención educativa en problemas de aprendizaje y convivencia.": "4",
+      "Atención temprana, diagnóstico e intervención psicopedagógica.": "4",
+      "Apoyo a la acción tutorial en el centro.": "4",
+      "Educación inclusiva y atención a la diversidad.": "6",
+      "La investigación e innovación educativa y la gestión del cambio.": "4"
+    },
+    "asignaturas": [
+      {
+        "materia": "",
+        "nombre_asignatura": "Asignaturas Obligatorias.",
+        "creditos_ects": "16",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Asignaturas Optativas.",
+        "creditos_ects": "26",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas Externas.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Créditos totales.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "1. Especialidad en Matemáticas",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Didáctica de la aritmética y el álgebra.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Didáctica de la geometría, la medida de magnitudes y la estadística.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "La ciencia y su metodología.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas para profesores de Educación Secundaria, Bachillerato y FP.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño de propuestas didácticas de matemáticas.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "2. Especialidad en Ciencias Experimentales: Física y Química",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Didáctica de la Física.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Didáctica de la Química.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "La ciencia y su metodología.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física y Química para profesores de Secundaria, Bachillerato y FP.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño de propuestas didácticas de Física y Química.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "3. Especialidad en Ciencias Experimentales: Biología y Geología",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Didáctica de la Biología.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Didáctica de la Geología.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "La ciencia y su metodología.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Biología y Geología para profesores de Secundaria, Bachillerato y FP.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño de propuestas didácticas de Biología y Geología.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "4. Especialidad en Tecnología e Informática",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Didáctica de la tecnología y la informática.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Didáctica de la informática.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "La ciencia y su metodología.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnología e informática para profesores de educación Secundaria, Bachillerato y FP.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño de propuestas didácticas de tecnología e informática.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "5. Especialidad en Economía, Empresa y Comercio",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Didáctica de la economía.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Didáctica de la empresa y su entorno.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "La formación profesional en economía, empresa y comercio.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Orientación profesional.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño de propuestas didácticas en economía, empresa y comercio.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "6. Especialidad en Hostelería y Turismo",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Aspectos fundamentales de la didáctica en hostelería y turismo.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Aprendizaje y enseñanza de las materias en hostelería y turismo.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "La formación profesional en hostelería y turismo.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Orientación profesional.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño de propuestas didácticas en hostelería y turismo.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "7. Especialidad en Procesos Sanitarios",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Aprendizaje y enseñanza de los procesos sanitarios I.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Aprendizaje y enseñanza de los procesos sanitarios II.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "La formación profesional en procesos sanitarios.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Orientación profesional.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño de propuestas didácticas en procesos sanitarios.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "8. Especialidad en Tecnologías Industriales",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnologías y procesos industriales I.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnologías y procesos industriales II.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "La formación profesional en Tecnología Industrial.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Orientación profesional.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño de propuestas didácticas en Tecnología Industrial.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "9. Especialidad en Ciencias Sociales: Geografía e Historia",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Didáctica de la Geografía.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Didáctica de la Historia.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ciencias sociales y educación I.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ciencias sociales y educación II.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño de propuestas didácticas en Ciencias Sociales, Geografía e Historia.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "10. Especialidad en Lengua Extranjera: Inglés",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Didáctica de la lengua inglesa.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Didáctica de la cultura inglesa.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Enseñanza y aprendizaje de lenguas.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Lengua extranjera para profesores de educación Secundaria, Bachillerato y FP.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño de propuestas didácticas en lengua y cultura inglesas.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "11. Especialidad en Lengua y Literatura Españolas",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Didáctica de la lengua española.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Didáctica de la literatura española.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Enseñanza y aprendizaje de lenguas.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Lengua y literatura españolas para profesores de educación Secundaria, Bachillerato y FP.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño de propuestas didácticas en lengua y literatura españolas.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "12. Especialidad en Artes Plásticas y Visuales",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Didáctica de la educación artística: estrategias y metodología.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño gráfico y arte digital.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Teoría del movimiento.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Educación visual.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño de propuestas didácticas en Artes Plásticas.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "13. Especialidad en Educación Física",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Planificación y organización de actividades deportivas.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Dinámica de grupos y diversidad.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Teoría del movimiento.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Didáctica de la educación física.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño de propuestas didácticas en Educación Física.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "14. Especialidad en Orientación Educativa (*)",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Orientación personal, académica y profesional.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Intervención educativa en problemas de aprendizaje y convivencia.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Atención temprana, diagnóstico e intervención psicopedagógica.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Apoyo a la acción tutorial en el centro.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Educación inclusiva y atención a la diversidad.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "La investigación e innovación educativa y la gestión del cambio.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "1",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 90,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n8451 Resolución de 8 de marzo de 2023, de la Universidad Antonio de Nebrija, por \nla que se publica la modificación del plan de estudios de Máster Universitario \nen Formación del Profesorado de Educación Secundaria Obligatoria y \nBachillerato, Formación Profesional y Enseñanza de Idiomas.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, y \nacordado el carácter oficial del título por Acuerdo del Consejo de Ministros de 8 de marzo \nde 2013 (publicado en el BOE de 23 de abril de 2013 por Resolución de la Secretaría \nGeneral de Universidades de 2 de abril de 2013), este Rectorado ha resuelto publicar la \nmodificación del plan de estudios conducentes a la obtención del título de Máster \nUniversitario en Formación del Profesorado de Educación Secundaria Obligatoria y \nBachillerato, Formación Profesional y Enseñanza de Idiomas, que queda estructurado \nsegún consta en el anexo de esta resolución.\nHoyo de Manzanares, 8 de marz"
+  }
+}

@@ -1,0 +1,2049 @@
+{
+  "codigo_estudio": "3500267",
+  "titulo": "Máster Universitario en Salud Escolar por la Universidad a Distancia de Madrid",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "074",
+  "universidad_nombre": "Universidad a Distancia de Madrid",
+  "fecha_procesado": "2026-07-31T14:25:56.125982",
+  "boe_url": "http://www.boe.es/boe/dias/2026/05/25/pdfs/BOE-A-2026-11311.pdf",
+  "boe_fecha": "2026-05-25",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias.": "30",
+      "Prácticas Académicas Externas.": "6",
+      "Trabajo Fin de Máster.": "9",
+      "Total.": "60",
+      "Materia 1. Aprendizaje Inclusivo.": "Atención a la Diversidad. Diseño y Gestión del Currículum Universal de Aprendizaje.",
+      "Materia 2. Evaluación e Intervención en el Proceso de Aprendizaje.": "Evaluación e Intervención Psicopedagógica.",
+      "Materia 3. Trastornos y Dificultades en el Proceso de Aprendizaje.": "Trastornos del Espectro Autista.",
+      "Materia 4. Alteraciones en el Desarrollo Infantil.": "Discapacidad Intelectual.",
+      "Materia 5. Prácticas Académicas Externas.": "Prácticas Académicas Externas.",
+      "Materia 6. Trabajo Fin de Máster.": "Trabajo Fin de Máster.",
+      "Prácticas Clínicas.": "9",
+      "Materia 1. Gestión del Conocimiento.": "Evidencia Científica y Metodología de la Investigación.",
+      "Materia 2. Enfermería Práctica Avanzada en Oncología.": "Introducción a la Oncología y Práctica Avanzada de Enfermería.",
+      "Materia 3. Abordaje Psicológico al Final de la Vida.": "Cuidados Psicoemocionales del Paciente Oncológico y su Familia.",
+      "Materia 4. Prácticas Académicas Externas.": "Prácticas Clínicas.",
+      "Materia 5. Trabajo Fin de Máster.": "Trabajo Fin de Máster.",
+      "Materia 1. Neurociencia y Aprendizaje.": "Bases Neuroanatómicas del Aprendizaje. Neurociencia y Neurodidáctica en el Aula.",
+      "Materia 2. Perfil Cognitivo del Individuo.": "Trastornos del Neurodesarrollo y del Aprendizaje: Definición, Diagnóstico e Intervención.",
+      "Materia 3. Intervención Neuroeducativa.": "Intervención Neurocognitiva de las Funciones Ejecutivas para la Optimización de Capacidades.",
+      "Materia 4. Neurodidáctica.": "Optimización de las Capacidades Personales de la Infancia a la Edad Adulta. Abordando el Cerebro desde su Potencialidad: PCP.",
+      "Materia 1. Salud Escolar.": "Antecedentes y Contextualización Educación y Salud Escolar.",
+      "Materia 2. Educación para la Salud.": "Educación para la Salud en el Ámbito Escolar.",
+      "Materia 3. Educación y TICs.": "Herramientas Tecnológicas en Educación para la Salud.",
+      "Materia 4. Investigación Aplicada a la Salud Escolar.": "Investigación en Salud Escolar.",
+      "Materia 1. Salud Pública.": "Salud Pública Global: Organización, Retos y One Health.",
+      "Materia 2. Gestión del Conocimiento en Salud Pública.": "Bioestadística Aplicada en Salud Pública.",
+      "Materia 3. Salud Digital.": "Documentación Sanitaria, Ética, Protección de Datos y Reputación Digital.",
+      "Materia 4. Trabajo Fin de Máster.": "Trabajo Fin de Máster.",
+      "Asignaturas Optativas (se deberá cursar obligatoriamente una de las dos especialidades).": "18",
+      "Estructura y Función del Sistema Nervioso.": "6",
+      "Métodos y Técnicas en Neurociencia y Neuropsicología.": "6",
+      "Procesos Cognitivos y sus Alteraciones I.": "9",
+      "Procesos Cognitivos y sus Alteraciones II.": "9",
+      "Total ECTS.": "30",
+      "Psicopatología en Infancia y Adolescencia.": "6",
+      "Neuropatología en Infancia y Adolescencia.": "6",
+      "Evaluación y Rehabilitación Neuropsicológica en Infancia y Adolescencia.": "6",
+      "Psicopatología en Adultez y Vejez.": "6",
+      "Neuropatología en Adultez y Vejez.": "6",
+      "Evaluación y Rehabilitación Neuropsicológica en Adultez y Vejez.": "6",
+      "Prácticas Externas.": "6",
+      "Asignaturas Obligatorias.": "51",
+      "Gobernanza, Almacenamiento y Arquitectura de Datos.": "6",
+      "Transformación Digital e Innovación.": "6",
+      "Procesamiento de Datos.": "6",
+      "Inteligencia Artificial.": "6",
+      "Visualización de Datos y Reporting.": "6",
+      "Análisis de Datos Aplicado a las Finanzas.": "4",
+      "Análisis de Datos Aplicado a Logística y Operaciones.": "4",
+      "Análisis de Datos Aplicado al Marketing.": "5",
+      "Análisis de Datos Aplicado a los Recursos Humanos.": "5",
+      "Análisis Avanzado de los Mercados de Capitales.": "6",
+      "Estudio y Análisis de la Financiación Empresarial y Gestión de la Tesorería.": "6",
+      "Análisis de Estados Económico-Financieros y su Incidencia en las Decisiones Empresariales.": "6",
+      "Valoración de Empresas.": "6",
+      "Organización de la Producción y Control de Gestión.": "6",
+      "Finanzas Estructuradas: Viabilidad de Proyectos de Inversión.": "6",
+      "Inversión a través de Capital Riesgo.": "6",
+      "Finanzas en el Entorno Digital.": "6",
+      "Estrategia y Organización.": "6",
+      "Finanzas y Control de Gestión.": "6",
+      "Atracción y Selección del Talento.": "6",
+      "Desarrollo y Fidelización del Talento. Experiencia de Empleado.": "6",
+      "Habilidades Profesionales y Directivas.": "6",
+      "Compensación y Beneficios.": "6",
+      "Cuadro de Mando de Recursos Humanos.": "6",
+      "People Analytics. Innovación Tecnológica.": "6",
+      "Finanzas y Control de Gestión en Recursos Humanos.": "6",
+      "Desarrollo y Fidelización del Talento.": "6",
+      "La Gestión de las Políticas Públicas. Planificación Estratégica y Operativa.": "6",
+      "Gobernanza Pública y Gobierno Abierto. Ética de las Administraciones Públicas.": "6",
+      "Dirección y Gestión de Recursos Humanos en las Administraciones Públicas.": "6",
+      "Desarrollo de Personal en las Administraciones Públicas. Liderazgo.": "6",
+      "Gestión Económica en las Administraciones Públicas.": "6",
+      "Innovación y Transformación Digital en las Organizaciones Públicas.": "6",
+      "La Calidad en las Organizaciones Públicas. Gestión Ambiental y Desarrollo Sostenible.": "6",
+      "Comunicación y Marketing Público.": "6",
+      "Sostenibilidad: Contexto y Marco Regulatorio.": "6",
+      "Estrategia y Gestión de Sostenibilidad.": "6",
+      "Evaluación e Información en Sostenibilidad Ambiental.": "6",
+      "Evaluación e Información en Sostenibilidad Social.": "6",
+      "Sistema de Gobernanza y Sostenibilidad.": "6",
+      "Elaboración de Información en Materia de Sostenibilidad.": "6",
+      "Verificación de la Información sobre Sostenibilidad.": "6",
+      "Finanzas Sostenibles y Fiscalidad de la Sostenibilidad.": "6",
+      "Fundamentos de Inteligencia Artificial en Educación.": "6",
+      "Diseño, Implementación y Evaluación de Proyectos de Innovación Educativa.": "6",
+      "Metodologías Activas Empleando Inteligencia Artificial.": "6",
+      "Inteligencia Artificial y Educación Inclusiva y Personalizada.": "6",
+      "Diseño y Desarrollo de Contenidos con Inteligencia Artificial.": "6",
+      "Dinámicas e Interrelaciones Escolares Mediadas por Inteligencia Artificial.": "6",
+      "Evaluación del Proceso Educativo Mediante Inteligencia Artificial.": "6",
+      "Implicaciones Éticas del Uso de la Inteligencia Artificial en Educación.": "6",
+      "Procedimientos Tributarios.": "6",
+      "Aduanas, Impuestos Especiales y Fiscalidad Sectorial.": "6",
+      "Impuesto sobre la Renta de las Personas Físicas.": "6",
+      "Impuesto sobre el Valor Añadido.": "6",
+      "Tributos Cedidos a las Comunidades Autónomas.": "6",
+      "Impuesto sobre Sociedades.": "6",
+      "Fiscalidad Internacional y Europea.": "6",
+      "Tributación Local.": "3",
+      "Obligaciones Formales del Contribuyente y Planificación Fiscal.": "3",
+      "Fundamentos Teóricos del Trauma Psicológico.": "6",
+      "Factores Asociados al Trauma Psicológico.": "6",
+      "Neurobiología del Trauma.": "6",
+      "Evaluación del Trauma Psicológico a lo Largo de la Vida Aplicada a la Investigación.": "6",
+      "Fundamentos y Metodología de la Investigación en Trauma I.": "6",
+      "Trauma como Elemento Transdiagnóstico en la Psicopatología Aplicado a la Investigación.": "6",
+      "Fundamentos y Metodología de la Investigación en Trauma II.": "6",
+      "Consideraciones Éticas y Legales Dentro de la Investigación Científica del Trauma Psicológico.": "6",
+      "Terapias del Trauma con Evidencia Científica.": "6",
+      "Introducción a la Suicidología.": "6",
+      "Metodología de Investigación.": "6",
+      "Modelos Explicativos del Suicidio.": "6",
+      "Evaluación del Riesgo Suicida en el Ámbito de la Investigación.": "6",
+      "Investigación en Prevención del Suicidio I.": "6",
+      "Investigación en Prevención del Suicidio II.": "9",
+      "Aplicación de la Investigación al Diseño de Programas de Prevención del Suicidio.": "6",
+      "Ética y Legislación.": "6"
+    },
+    "asignaturas": [
+      {
+        "materia": "Materia 1. Aprendizaje Inclusivo.",
+        "nombre_asignatura": "Atención a la Diversidad. Diseño y Gestión del Currículum Universal de Aprendizaje.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 1. Aprendizaje Inclusivo.",
+        "nombre_asignatura": "Neurociencia Aplicada a la Educación Especial.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 1. Aprendizaje Inclusivo.",
+        "nombre_asignatura": "Recursos Digitales Aplicados a la Intervención Educativa.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 2. Evaluación e Intervención en el Proceso de Aprendizaje.",
+        "nombre_asignatura": "Evaluación e Intervención Psicopedagógica.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 2. Evaluación e Intervención en el Proceso de Aprendizaje.",
+        "nombre_asignatura": "Atención Temprana en Educación Especial.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 2. Evaluación e Intervención en el Proceso de Aprendizaje.",
+        "nombre_asignatura": "Estrategias de Aprendizaje en Educación Especial.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 3. Trastornos y Dificultades en el Proceso de Aprendizaje.",
+        "nombre_asignatura": "Trastornos del Espectro Autista.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 3. Trastornos y Dificultades en el Proceso de Aprendizaje.",
+        "nombre_asignatura": "Trastornos del Desarrollo del Lenguaje en la Expresión Oral.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 3. Trastornos y Dificultades en el Proceso de Aprendizaje.",
+        "nombre_asignatura": "Trastorno por Déficit de Atención e Hiperactividad y otras Dificultades Atencionales.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 3. Trastornos y Dificultades en el Proceso de Aprendizaje.",
+        "nombre_asignatura": "Procesos y Dificultades en el Aprendizaje de la Lectoescritura.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 3. Trastornos y Dificultades en el Proceso de Aprendizaje.",
+        "nombre_asignatura": "Altas Capacidades.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 4. Alteraciones en el Desarrollo Infantil.",
+        "nombre_asignatura": "Discapacidad Intelectual.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 4. Alteraciones en el Desarrollo Infantil.",
+        "nombre_asignatura": "Déficits Motores, Visuales y Auditivos.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 5. Prácticas Académicas Externas.",
+        "nombre_asignatura": "Prácticas Académicas Externas.",
+        "creditos_ects": "6",
+        "caracter": "PAE.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 6. Trabajo Fin de Máster.",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "12",
+        "caracter": "TFM.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 1. Gestión del Conocimiento.",
+        "nombre_asignatura": "Evidencia Científica y Metodología de la Investigación.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 2. Enfermería Práctica Avanzada en Oncología.",
+        "nombre_asignatura": "Introducción a la Oncología y Práctica Avanzada de Enfermería.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 2. Enfermería Práctica Avanzada en Oncología.",
+        "nombre_asignatura": "Liderazgo en la Gestión Clínica de los Procesos Asistenciales Oncológicos.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 2. Enfermería Práctica Avanzada en Oncología.",
+        "nombre_asignatura": "Enfermería de Práctica Avanzada con Cuidado y Manejo del Paciente Oncológico en las Diferentes Etapas.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 2. Enfermería Práctica Avanzada en Oncología.",
+        "nombre_asignatura": "Enfermería de Práctica Avanzada en el Manejo del Dolor y Cuidados al Final de la Vida.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 3. Abordaje Psicológico al Final de la Vida.",
+        "nombre_asignatura": "Cuidados Psicoemocionales del Paciente Oncológico y su Familia.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 3. Abordaje Psicológico al Final de la Vida.",
+        "nombre_asignatura": "Aspectos Éticos y Legales al Final de la Vida.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 3. Abordaje Psicológico al Final de la Vida.",
+        "nombre_asignatura": "Intervención Psicoeducativa de la Enfermería de Práctica Avanza en el Paciente Oncológico y su Familia.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 4. Prácticas Académicas Externas.",
+        "nombre_asignatura": "Prácticas Clínicas.",
+        "creditos_ects": "9",
+        "caracter": "PAE.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 5. Trabajo Fin de Máster.",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "12",
+        "caracter": "TFM.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 1. Neurociencia y Aprendizaje.",
+        "nombre_asignatura": "Bases Neuroanatómicas del Aprendizaje. Neurociencia y Neurodidáctica en el Aula.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 1. Neurociencia y Aprendizaje.",
+        "nombre_asignatura": "Atención, Memoria, Emociones y Aprendizaje.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 2. Perfil Cognitivo del Individuo.",
+        "nombre_asignatura": "Trastornos del Neurodesarrollo y del Aprendizaje: Definición, Diagnóstico e Intervención.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 2. Perfil Cognitivo del Individuo.",
+        "nombre_asignatura": "TDAH: Definición, Evaluación e Intervención.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 2. Perfil Cognitivo del Individuo.",
+        "nombre_asignatura": "TEA: Definición, Evaluación e Intervención desde la Neuroeducación.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 2. Perfil Cognitivo del Individuo.",
+        "nombre_asignatura": "Trastornos del Lenguaje Verbal y no Verbal.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 2. Perfil Cognitivo del Individuo.",
+        "nombre_asignatura": "Altas Capacidades: Definición, Evaluación e Intervención.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 3. Intervención Neuroeducativa.",
+        "nombre_asignatura": "Intervención Neurocognitiva de las Funciones Ejecutivas para la Optimización de Capacidades.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 3. Intervención Neuroeducativa.",
+        "nombre_asignatura": "Proceso Neurocognitivo del Lenguaje. Intervención Neurocognitiva.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 3. Intervención Neuroeducativa.",
+        "nombre_asignatura": "Intervención Psicomotriz y Cognición en la Infancia.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 3. Intervención Neuroeducativa.",
+        "nombre_asignatura": "Valoración en la Intervención Optométrica en el Ámbito Educativo.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 3. Intervención Neuroeducativa.",
+        "nombre_asignatura": "Intervención Neurocognitiva de las Capacidades Visoperceptivas.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 4. Neurodidáctica.",
+        "nombre_asignatura": "Optimización de las Capacidades Personales de la Infancia a la Edad Adulta. Abordando el Cerebro desde su Potencialidad: PCP.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 4. Neurodidáctica.",
+        "nombre_asignatura": "Intervención Neurocognitiva: Déficit vs-Potencialidades. Optimización de los Mapas Cognitivos. Casos prácticos.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 5. Prácticas Académicas Externas.",
+        "nombre_asignatura": "Prácticas Académicas Externas.",
+        "creditos_ects": "6",
+        "caracter": "PAE.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 6. Trabajo Fin de Máster.",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "12",
+        "caracter": "TFM.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 1. Salud Escolar.",
+        "nombre_asignatura": "Antecedentes y Contextualización Educación y Salud Escolar.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 1. Salud Escolar.",
+        "nombre_asignatura": "Pedagogía de la Salud en el Ámbito Escolar.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 1. Salud Escolar.",
+        "nombre_asignatura": "Gestión de un Servicio de Salud Escolar y Cuidados en Salud.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 1. Salud Escolar.",
+        "nombre_asignatura": "Afectividad y Bienestar en el Aula.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 2. Educación para la Salud.",
+        "nombre_asignatura": "Educación para la Salud en el Ámbito Escolar.",
+        "creditos_ects": "9",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 3. Educación y TICs.",
+        "nombre_asignatura": "Herramientas Tecnológicas en Educación para la Salud.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 3. Educación y TICs.",
+        "nombre_asignatura": "Recursos y Actividades en Línea.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 4. Investigación Aplicada a la Salud Escolar.",
+        "nombre_asignatura": "Investigación en Salud Escolar.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 5. Prácticas Académicas Externas.",
+        "nombre_asignatura": "Prácticas Académicas Externas.",
+        "creditos_ects": "6",
+        "caracter": "PAE.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 6. Trabajo Fin de Máster.",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "12",
+        "caracter": "TFM.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 1. Salud Pública.",
+        "nombre_asignatura": "Salud Pública Global: Organización, Retos y One Health.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 1. Salud Pública.",
+        "nombre_asignatura": "Diseño, Planificación, Gestión y Evaluación de Programas de Salud Pública y Digital.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 1. Salud Pública.",
+        "nombre_asignatura": "Promoción, Protección de la Salud y Prevención de la Enfermedad.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 2. Gestión del Conocimiento en Salud Pública.",
+        "nombre_asignatura": "Bioestadística Aplicada en Salud Pública.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 2. Gestión del Conocimiento en Salud Pública.",
+        "nombre_asignatura": "Epidemiología y Demografía Sanitaria.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 2. Gestión del Conocimiento en Salud Pública.",
+        "nombre_asignatura": "Metodología de la Investigación Aplicada a la Salud Pública.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 3. Salud Digital.",
+        "nombre_asignatura": "Documentación Sanitaria, Ética, Protección de Datos y Reputación Digital.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 3. Salud Digital.",
+        "nombre_asignatura": "Tecnologías, Sistemas de Información en Salud y Transformación y Soluciones Digitales.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 3. Salud Digital.",
+        "nombre_asignatura": "Big Data y Ciencia de Datos Aplicados a la Salud.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia 4. Trabajo Fin de Máster.",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "12",
+        "caracter": "TFM.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Estructura y Función del Sistema Nervioso.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Métodos y Técnicas en Neurociencia y Neuropsicología.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Procesos Cognitivos y sus Alteraciones I.",
+        "creditos_ects": "9",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Procesos Cognitivos y sus Alteraciones II.",
+        "creditos_ects": "9",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Psicopatología en Infancia y Adolescencia.",
+        "creditos_ects": "6",
+        "caracter": "Optativa de la Especialidad en Neuropsicología en Infancia y Adolescencia.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Neuropatología en Infancia y Adolescencia.",
+        "creditos_ects": "6",
+        "caracter": "Optativa de la Especialidad en Neuropsicología en Infancia y Adolescencia.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Evaluación y Rehabilitación Neuropsicológica en Infancia y Adolescencia.",
+        "creditos_ects": "6",
+        "caracter": "Optativa de la Especialidad en Neuropsicología en Infancia y Adolescencia.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Psicopatología en Adultez y Vejez.",
+        "creditos_ects": "6",
+        "caracter": "Optativa de la Especialidad en Neuropsicología en Adultez y Vejez.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Neuropatología en Adultez y Vejez.",
+        "creditos_ects": "6",
+        "caracter": "Optativa de la Especialidad en Neuropsicología en Adultez y Vejez.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Evaluación y Rehabilitación Neuropsicológica en Adultez y Vejez.",
+        "creditos_ects": "6",
+        "caracter": "Optativa de la Especialidad en Neuropsicología en Adultez y Vejez.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas Externas.",
+        "creditos_ects": "6",
+        "caracter": "Prácticas Externas.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "Trabajo Fin de Máster.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Estructura y Función del Sistema Nervioso.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Métodos y Técnicas en Neurociencia y Neuropsicología.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Procesos Cognitivos y sus Alteraciones I.",
+        "creditos_ects": "9",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "21",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Procesos Cognitivos y sus Alteraciones II.",
+        "creditos_ects": "9",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Psicopatología en Infancia y Adolescencia.",
+        "creditos_ects": "6",
+        "caracter": "Optativa de la Especialidad en Neuropsicología en Infancia y Adolescencia.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Neuropatología en Infancia y Adolescencia.",
+        "creditos_ects": "6",
+        "caracter": "Optativa de la Especialidad en Neuropsicología en Infancia y Adolescencia.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Psicopatología en Adultez y Vejez.",
+        "creditos_ects": "6",
+        "caracter": "Optativa de la Especialidad en Neuropsicología en Adultez y Vejez.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Neuropatología en Adultez y Vejez.",
+        "creditos_ects": "6",
+        "caracter": "Optativa de la Especialidad en Neuropsicología en Adultez y Vejez.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "21",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Evaluación y Rehabilitación Neuropsicológica en Infancia y Adolescencia.",
+        "creditos_ects": "6",
+        "caracter": "Optativa de la Especialidad en Neuropsicología en Infancia y Adolescencia.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Evaluación y Rehabilitación Neuropsicológica en Adultez y Vejez.",
+        "creditos_ects": "6",
+        "caracter": "Optativa de la Especialidad en Neuropsicología en Adultez y Vejez.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas Externas.",
+        "creditos_ects": "6",
+        "caracter": "Prácticas Externas.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "Trabajo Fin de Máster.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Gobernanza, Almacenamiento y Arquitectura de Datos.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Transformación Digital e Innovación.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Procesamiento de Datos.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Inteligencia Artificial.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Visualización de Datos y Reporting.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis de Datos Aplicado a las Finanzas.",
+        "creditos_ects": "4",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis de Datos Aplicado a Logística y Operaciones.",
+        "creditos_ects": "4",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis de Datos Aplicado al Marketing.",
+        "creditos_ects": "5",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis de Datos Aplicado a los Recursos Humanos.",
+        "creditos_ects": "5",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas Académicas Externas.",
+        "creditos_ects": "6",
+        "caracter": "Prácticas Externas.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "Trabajo Fin de Máster.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis Avanzado de los Mercados de Capitales.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Estudio y Análisis de la Financiación Empresarial y Gestión de la Tesorería.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis de Estados Económico-Financieros y su Incidencia en las Decisiones Empresariales.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Valoración de Empresas.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Organización de la Producción y Control de Gestión.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Finanzas Estructuradas: Viabilidad de Proyectos de Inversión.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Inversión a través de Capital Riesgo.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Finanzas en el Entorno Digital.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas Académicas Externas.",
+        "creditos_ects": "6",
+        "caracter": "Prácticas Externas.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "Trabajo Fin de Máster.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Estrategia y Organización.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Finanzas y Control de Gestión.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Atracción y Selección del Talento.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Desarrollo y Fidelización del Talento. Experiencia de Empleado.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Habilidades Profesionales y Directivas.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Compensación y Beneficios.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Cuadro de Mando de Recursos Humanos.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "People Analytics. Innovación Tecnológica.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas Académicas Externas.",
+        "creditos_ects": "6",
+        "caracter": "Prácticas Externas.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "Trabajo Fin de Máster.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Estrategia y Organización.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Finanzas y Control de Gestión en Recursos Humanos.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Atracción y Selección del Talento.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Desarrollo y Fidelización del Talento.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Compensación y Beneficios.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Habilidades Profesionales y Directivas.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "People Analytics. Innovación Tecnológica.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Cuadro de Mando de Recursos Humanos.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas Académicas Externas.",
+        "creditos_ects": "6",
+        "caracter": "Prácticas Externas.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "Trabajo Fin de Máster.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "24",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "La Gestión de las Políticas Públicas. Planificación Estratégica y Operativa.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Gobernanza Pública y Gobierno Abierto. Ética de las Administraciones Públicas.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Dirección y Gestión de Recursos Humanos en las Administraciones Públicas.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Desarrollo de Personal en las Administraciones Públicas. Liderazgo.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Gestión Económica en las Administraciones Públicas.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Innovación y Transformación Digital en las Organizaciones Públicas.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "La Calidad en las Organizaciones Públicas. Gestión Ambiental y Desarrollo Sostenible.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Comunicación y Marketing Público.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas Académicas Externas.",
+        "creditos_ects": "6",
+        "caracter": "Prácticas Externas.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "Trabajo Fin de Máster.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sostenibilidad: Contexto y Marco Regulatorio.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Estrategia y Gestión de Sostenibilidad.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Evaluación e Información en Sostenibilidad Ambiental.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Evaluación e Información en Sostenibilidad Social.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistema de Gobernanza y Sostenibilidad.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Elaboración de Información en Materia de Sostenibilidad.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Verificación de la Información sobre Sostenibilidad.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Finanzas Sostenibles y Fiscalidad de la Sostenibilidad.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas Académicas Externas.",
+        "creditos_ects": "6",
+        "caracter": "Prácticas Externas.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "Trabajo Fin de Máster.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de Inteligencia Artificial en Educación.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño, Implementación y Evaluación de Proyectos de Innovación Educativa.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Metodologías Activas Empleando Inteligencia Artificial.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Inteligencia Artificial y Educación Inclusiva y Personalizada.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño y Desarrollo de Contenidos con Inteligencia Artificial.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Dinámicas e Interrelaciones Escolares Mediadas por Inteligencia Artificial.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Evaluación del Proceso Educativo Mediante Inteligencia Artificial.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Implicaciones Éticas del Uso de la Inteligencia Artificial en Educación.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas Académicas Externas.",
+        "creditos_ects": "6",
+        "caracter": "Prácticas Externas.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "Trabajo Fin de Máster.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de Inteligencia Artificial en Educación.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño, Implementación y Evaluación de Proyectos de Innovación Educativa.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Metodologías Activas Empleando Inteligencia Artificial.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Inteligencia Artificial y Educación Inclusiva y Personalizada.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Dinámicas e Interrelaciones Escolares Mediadas por Inteligencia Artificial.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño y Desarrollo de Contenidos con Inteligencia Artificial.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Evaluación del Proceso Educativo Mediante Inteligencia Artificial.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Implicaciones Éticas del Uso de la Inteligencia Artificial en Educación.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas Académicas Externas.",
+        "creditos_ects": "6",
+        "caracter": "Prácticas Externas.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "Trabajo Fin de Máster.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "24",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Procedimientos Tributarios.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Aduanas, Impuestos Especiales y Fiscalidad Sectorial.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Impuesto sobre la Renta de las Personas Físicas.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Impuesto sobre el Valor Añadido.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tributos Cedidos a las Comunidades Autónomas.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Impuesto sobre Sociedades.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fiscalidad Internacional y Europea.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tributación Local.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Obligaciones Formales del Contribuyente y Planificación Fiscal.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas Académicas Externas.",
+        "creditos_ects": "6",
+        "caracter": "Prácticas Externas.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "Trabajo Fin de Máster.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Procedimientos Tributarios.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tributos Cedidos a las Comunidades Autónomas.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Impuesto sobre la Renta de las Personas Físicas.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Impuesto sobre el Valor Añadido.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tributación Local.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Aduanas, Impuestos Especiales y Fiscalidad Sectorial.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fiscalidad Internacional y Europea.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "21",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Impuesto sobre Sociedades.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Obligaciones Formales del Contribuyente y Planificación Fiscal.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas Académicas Externas.",
+        "creditos_ects": "6",
+        "caracter": "Prácticas Externas.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "Trabajo Fin de Máster.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "21",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos Teóricos del Trauma Psicológico.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Factores Asociados al Trauma Psicológico.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Neurobiología del Trauma.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Evaluación del Trauma Psicológico a lo Largo de la Vida Aplicada a la Investigación.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos y Metodología de la Investigación en Trauma I.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trauma como Elemento Transdiagnóstico en la Psicopatología Aplicado a la Investigación.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos y Metodología de la Investigación en Trauma II.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Consideraciones Éticas y Legales Dentro de la Investigación Científica del Trauma Psicológico.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Terapias del Trauma con Evidencia Científica.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "Trabajo Fin de Máster.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Introducción a la Suicidología.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Metodología de Investigación.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Modelos Explicativos del Suicidio.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Evaluación del Riesgo Suicida en el Ámbito de la Investigación.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Investigación en Prevención del Suicidio I.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Investigación en Prevención del Suicidio II.",
+        "creditos_ects": "9",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Aplicación de la Investigación al Diseño de Programas de Prevención del Suicidio.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ética y Legislación.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "9",
+        "caracter": "Trabajo Fin de Máster.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total ECTS.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 239,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n11311 Resolución de 21 de abril de 2026, de la Universidad a Distancia de Madrid, \npor la que se publican planes de estudios de Máster Universitario.\nObtenida la verificación de los planes de estudios por el Consejo de Universidades, \nprevio informe positivo de la Fundación para el Conocimiento Madri+d, así como la \nautorización de la Comunidad de Madrid, y establecido el carácter oficial de los títulos \npor Acuerdo del Consejo de Ministros,\nEste Rectorado, de conformidad con lo dispuesto por el artículo 8.3 de la Ley \nOrgánica 2/2023, de 22 de marzo, del Sistema Universitario, así como por el \nartículo 27.4 del Real Decreto 822/2021, de 28 de septiembre, ha resuelto publicar \nlos planes de estudios conducentes a la obtención de los títulos oficiales relacionados \na continuación:\n1. Anexo I. Títulos cuyo carácter oficial fue establecido por Acuerdo de Consejo \nde Ministros de 17 de septiembre de 2024 (publicado en el «Boletín Oficial del Estado» \n"
+  }
+}

@@ -1,0 +1,416 @@
+{
+  "codigo_estudio": "4316691",
+  "titulo": "Máster Universitario en Marketing Digital y Redes Sociales por la Universidad a Distancia de Madrid",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "074",
+  "universidad_nombre": "Universidad a Distancia de Madrid",
+  "fecha_procesado": "2026-07-31T14:25:27.991181",
+  "boe_url": "http://www.boe.es/boe/dias/2020/03/18/pdfs/BOE-A-2020-3859.pdf",
+  "boe_fecha": "2020-03-18",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias.": "48",
+      "Trabajo Fin de Máster.": "Trabajo Fin de Máster.",
+      "Prácticas Externas.": "Prácticas Externas.",
+      "Total.": "60",
+      "Ecosistema y Transformación Digital.": "Ecosistema y Transformación Digital.",
+      "El Cliente en la Era Social y Digital.": "Ecosistema y Transformación Digital.",
+      "Plan de Marketing Digital.": "Estrategias Digitales.",
+      "Diseño Web, Comercio Electrónico y Experiencia de Usuario.": "Estrategias Digitales.",
+      "Redes Sociales y Marketing de Contenidos.": "Estrategias Digitales.",
+      "Habilidades Profesionales.": "Habilidades Profesionales.",
+      "Marketing en Buscadores.": "Estrategias Digitales.",
+      "Display Marketing y Planificación Publicitaria.": "Estrategias Digitales.",
+      "Inteligencia de Negocio y Gestión del Dato.": "Herramientas de Análisis y Métricas.",
+      "Analítica Web y en Redes Sociales.": "Herramientas de Análisis y Métricas."
+    },
+    "asignaturas": [
+      {
+        "materia": "Ecosistema y Transformación Digital.",
+        "nombre_asignatura": "Ecosistema y Transformación Digital.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Ecosistema y Transformación Digital.",
+        "nombre_asignatura": "El Cliente en la Era Social y Digital.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estrategias Digitales.",
+        "nombre_asignatura": "Plan de Marketing Digital.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estrategias Digitales.",
+        "nombre_asignatura": "Diseño Web, Comercio Electrónico y Experiencia de Usuario.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estrategias Digitales.",
+        "nombre_asignatura": "Redes Sociales y Marketing de Contenidos.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Habilidades Profesionales.",
+        "nombre_asignatura": "Habilidades Profesionales.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estrategias Digitales.",
+        "nombre_asignatura": "Marketing en Buscadores.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estrategias Digitales.",
+        "nombre_asignatura": "Display Marketing y Planificación Publicitaria.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Herramientas de Análisis y Métricas.",
+        "nombre_asignatura": "Inteligencia de Negocio y Gestión del Dato.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Herramientas de Análisis y Métricas.",
+        "nombre_asignatura": "Analítica Web y en Redes Sociales.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Prácticas Externas.",
+        "nombre_asignatura": "Prácticas Externas.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_asignatura": "Total horas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Ecosistema y Transformación Digital.",
+        "nombre_asignatura": "Ecosistema y Transformación Digital.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Ecosistema y Transformación Digital.",
+        "nombre_asignatura": "El Cliente en la Era Social y Digital.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estrategias Digitales.",
+        "nombre_asignatura": "Plan de Marketing Digital.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estrategias Digitales.",
+        "nombre_asignatura": "Diseño Web, Comercio Electrónico y Experiencia de Usuario.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Habilidades Profesionales.",
+        "nombre_asignatura": "Habilidades Profesionales.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estrategias Digitales.",
+        "nombre_asignatura": "Redes Sociales y Marketing de Contenidos.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estrategias Digitales.",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estrategias Digitales.",
+        "nombre_asignatura": "Total horas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estrategias Digitales.",
+        "nombre_asignatura": "Marketing en Buscadores.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estrategias Digitales.",
+        "nombre_asignatura": "Display Marketing y Planificación Publicitaria.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Herramientas de Análisis y Métricas.",
+        "nombre_asignatura": "Inteligencia de Negocio y Gestión del Dato.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Herramientas de Análisis y Métricas.",
+        "nombre_asignatura": "Analítica Web y en Redes Sociales.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Prácticas Externas.",
+        "nombre_asignatura": "Prácticas Externas.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_asignatura": "Total horas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Ecosistema y Transformación Digital.",
+        "nombre_asignatura": "Ecosistema y Transformación Digital.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Ecosistema y Transformación Digital.",
+        "nombre_asignatura": "El Cliente en la Era Social y Digital.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estrategias Digitales.",
+        "nombre_asignatura": "Plan de Marketing Digital.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Habilidades Profesionales.",
+        "nombre_asignatura": "Habilidades Profesionales.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Habilidades Profesionales.",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Habilidades Profesionales.",
+        "nombre_asignatura": "Total horas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estrategias Digitales.",
+        "nombre_asignatura": "Diseño Web, Comercio Electrónico y Experiencia de Usuario.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estrategias Digitales.",
+        "nombre_asignatura": "Redes Sociales y Marketing de Contenidos.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estrategias Digitales.",
+        "nombre_asignatura": "Marketing en Buscadores.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Herramientas de Análisis y Métricas.",
+        "nombre_asignatura": "Inteligencia de Negocio y Gestión del Dato.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Herramientas de Análisis y Métricas.",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "21",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Herramientas de Análisis y Métricas.",
+        "nombre_asignatura": "Total horas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Herramientas de Análisis y Métricas.",
+        "nombre_asignatura": "Analítica Web y en Redes Sociales.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estrategias Digitales.",
+        "nombre_asignatura": "Display Marketing y Planificación Publicitaria.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Prácticas Externas.",
+        "nombre_asignatura": "Prácticas Externas.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "21",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_asignatura": "Total horas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 48,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n3859 Resolución de 3 de marzo de 2020, de la Universidad a Distancia de Madrid, \npor la que se publica el plan de estudios de Máster en Marketing Digital y \nRedes Sociales.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme favorable de la Fundación Madrid+d y declarado el carácter oficial del título por \nAcuerdo del Consejo de Ministros de 5 de octubre de 2018 (publicado en el BOE de 21 \nde diciembre, por Resolución de la Secretaría General de Universidades de 26 de \nnoviembre de 2018),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención \ndel Título de Máster Universitario en Marketing Digital y Redes Sociales.\nEl plan de estudios a que se refiere la presente Resolución quedará estructurado \nconforme figura en el Anexo de la misma.\nCollado Villalba, 3 de marzo de 2020.–La Rectora, María Concepción Burgos García.\nANEXO\nEstructura de las enseñanzas\nEl Título de Máster Univers"
+  }
+}

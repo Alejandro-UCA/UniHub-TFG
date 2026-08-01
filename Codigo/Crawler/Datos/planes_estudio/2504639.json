@@ -1,0 +1,468 @@
+{
+  "codigo_estudio": "2504639",
+  "titulo": "Graduado o Graduada en Ciencia de Datos / Bachelor in Data Science por la CUNEF Universidad",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "089",
+  "universidad_nombre": "CUNEF Universidad",
+  "fecha_procesado": "2026-07-31T14:09:00.460929",
+  "boe_url": "http://www.boe.es/boe/dias/2026/02/19/pdfs/BOE-A-2026-3900.pdf",
+  "boe_fecha": "2026-02-19",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación básica (FB).": "60",
+      "Obligatorias (OB).": "162",
+      "Optativas (OP).": "12",
+      "Trabajo de Fin de Grado (TFG).": "6",
+      "Créditos totales.": "240",
+      "Matemáticas. Mathematics.": "Álgebra lineal. Linear Algebra.",
+      "Estadística. Statistics.": "Estadística descriptiva. Descriptive Statistics.",
+      "Técnicas informáticas. Computer-based Techniques.": "Programación para Ciencia de Datos I – R. Programming for Data Science I: R.",
+      "Aprendizaje automático. Machine Learning.": "Aprendizaje automático: predicción. Machine Learning: Prediction.",
+      "Los datos en la nube. Cloud Data.": "Almacenamiento en la nube. Cloud Storage.",
+      "Técnicas computacionales. Computational Techniques.": "Investigación operativa. Operational Research.",
+      "Tratamiento de datos. Data Processing.": "Privacidad y protección de datos. Data Protection and Privacy.",
+      "Habilidades blandas. Soft Skills.": "Búsqueda, tratamiento y uso de la información. Search, Processing and Use of Information.",
+      "Los datos en la práctica. Applied Data.": "La empresa y su ecosistema de datos. Corporate Data Ecosystems.",
+      "Proyectos. Projects.": "Herramientas de trabajo colaborativo. Collaboration Tools.",
+      "Optatividad. Elective Courses.": "Internet de las Cosas – IoT. IoT - Internet of Things.",
+      "Prácticas en Empresa. Academic Internship.": "Prácticas Académicas Externas. Academic Internship.",
+      "Trabajo de Fin de Grado. Final Degree Project.": "Trabajo de Fin de Grado. Final Degree Project."
+    },
+    "asignaturas": [
+      {
+        "materia": "Matemáticas. Mathematics.",
+        "nombre_asignatura": "Álgebra lineal. Linear Algebra.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas. Mathematics.",
+        "nombre_asignatura": "Cálculo I. Calculus I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas. Mathematics.",
+        "nombre_asignatura": "Cálculo II. Calculus II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas. Mathematics.",
+        "nombre_asignatura": "Lógica matemática. Mathematical Logic.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estadística. Statistics.",
+        "nombre_asignatura": "Estadística descriptiva. Descriptive Statistics.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estadística. Statistics.",
+        "nombre_asignatura": "Cálculo de probabilidades. Probability Calculus.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Técnicas Informáticas. Computer-based Techniques.",
+        "nombre_asignatura": "Programación para Ciencia de Datos I - R. Programming for Data Science. I: R.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Técnicas Informáticas. Computer-based Techniques.",
+        "nombre_asignatura": "Programación para Ciencia de Datos II - Phyton. Programming for Data Science. II: Python.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Técnicas Informáticas. Computer-based Techniques.",
+        "nombre_asignatura": "Análisis y diseño de algoritmos. Algorithm Analysis and Design.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Técnicas Informáticas. Computer-based Techniques.",
+        "nombre_asignatura": "Bases de Datos I. Databases I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas. Mathematics.",
+        "nombre_asignatura": "Álgebra lineal. Linear Algebra.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Matemáticas. Mathematics.",
+        "nombre_asignatura": "Cálculo I. Calculus I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Matemáticas. Mathematics.",
+        "nombre_asignatura": "Cálculo II. Calculus II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Matemáticas. Mathematics.",
+        "nombre_asignatura": "Lógica matemática. Mathematical Logic.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Matemáticas. Mathematics.",
+        "nombre_asignatura": "Matemática discreta. Discrete Mathematics.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Estadística. Statistics.",
+        "nombre_asignatura": "Estadística descriptiva. Descriptive Statistics.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Estadística. Statistics.",
+        "nombre_asignatura": "Cálculo de probabilidades. Probability Calculus.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Estadística. Statistics.",
+        "nombre_asignatura": "Estadística inferencial. Inferential Statistics.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Estadística. Statistics.",
+        "nombre_asignatura": "Series temporales. Time series.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Técnicas informáticas. Computer-based Techniques.",
+        "nombre_asignatura": "Programación para Ciencia de Datos I – R. Programming for Data Science I: R.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Técnicas informáticas. Computer-based Techniques.",
+        "nombre_asignatura": "Programación para Ciencia de Datos II – Phyton. Programming for Data Science II: Python.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Técnicas informáticas. Computer-based Techniques.",
+        "nombre_asignatura": "Análisis y diseño de algoritmos. Algorithm Analysis and Design.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Técnicas informáticas. Computer-based Techniques.",
+        "nombre_asignatura": "Programación de aplicaciones Web. Web Application Programming.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Técnicas informáticas. Computer-based Techniques.",
+        "nombre_asignatura": "Bases de Datos I. Databases I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Técnicas informáticas. Computer-based Techniques.",
+        "nombre_asignatura": "Bases de Datos II. Databases II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Aprendizaje automático. Machine Learning.",
+        "nombre_asignatura": "Aprendizaje automático: predicción. Machine Learning: Prediction.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Aprendizaje automático. Machine Learning.",
+        "nombre_asignatura": "Aprendizaje automático: clasificación. Machine Learning: Classification.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Aprendizaje automático. Machine Learning.",
+        "nombre_asignatura": "Aprendizaje profundo. Deep Learning.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Los datos en la nube. Cloud Data.",
+        "nombre_asignatura": "Almacenamiento en la nube. Cloud Storage.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Los datos en la nube. Cloud Data.",
+        "nombre_asignatura": "Computación en la nube. Cloud Computing.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Técnicas computacionales. Computational Techniques.",
+        "nombre_asignatura": "Investigación operativa. Operational Research.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Técnicas computacionales. Computational Techniques.",
+        "nombre_asignatura": "Geometría y datos espaciales. Geometry and Spatial Data.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Técnicas computacionales. Computational Techniques.",
+        "nombre_asignatura": "Optimización. Optimisation.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Tratamiento de datos. Data Processing.",
+        "nombre_asignatura": "Privacidad y protección de datos. Data Protection and Privacy.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Tratamiento de datos. Data Processing.",
+        "nombre_asignatura": "Desarrollo de la Inteligencia Natural y de la Inteligencia Artificial. Evolution of Natural and Artificial Intelligence.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Tratamiento de datos. Data Processing.",
+        "nombre_asignatura": "Técnicas de visualización. Visualisation Techniques.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Habilidades blandas. Soft Skills.",
+        "nombre_asignatura": "Búsqueda, tratamiento y uso de la información. Search, Processing and Use of Information.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Habilidades blandas. Soft Skills.",
+        "nombre_asignatura": "Pensamiento crítico y argumentación. Critical Thinking and Argumentation.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Habilidades blandas. Soft Skills.",
+        "nombre_asignatura": "Técnicas de comunicación oral y escrita. Oral and Written Communication Skills.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Los datos en la práctica. Applied Data.",
+        "nombre_asignatura": "La empresa y su ecosistema de datos. Corporate Data Ecosystems.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Los datos en la práctica. Applied Data.",
+        "nombre_asignatura": "Tratamiento de datos económicos y financieros. Processing Economic and Financial Data.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Los datos en la práctica. Applied Data.",
+        "nombre_asignatura": "Logística basada en datos. Data-Driven Logistics.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Los datos en la práctica. Applied Data.",
+        "nombre_asignatura": "Procesamiento del Lenguaje Natural y sus aplicaciones en marketing. Natural Language Processing for Marketing.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Los datos en la práctica. Applied Data.",
+        "nombre_asignatura": "Análisis de riesgos financieros basado en datos. Data-Driven Financial Risk Assessment.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Los datos en la práctica. Applied Data.",
+        "nombre_asignatura": "Inteligencia de negocio. Business Intelligence.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Proyectos. Projects.",
+        "nombre_asignatura": "Herramientas de trabajo colaborativo. Collaboration Tools.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Proyectos. Projects.",
+        "nombre_asignatura": "Gestión de proyectos con metodologías ágiles. Agile Project Management.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Proyectos. Projects.",
+        "nombre_asignatura": "Herramientas de apoyo a la toma de decisiones. Decision-Making Tools.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Optatividad. Elective Courses.",
+        "nombre_asignatura": "Internet de las Cosas – IoT. IoT - Internet of Things.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Optatividad. Elective Courses.",
+        "nombre_asignatura": "Ciberseguridad: una introducción. Cybersecurity: Introductory Course.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Optatividad. Elective Courses.",
+        "nombre_asignatura": "Matemática Computacional. Computational Mathematics.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Optatividad. Elective Courses.",
+        "nombre_asignatura": "Computación Científica. Computational Science.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Prácticas en Empresa. Academic Internship.",
+        "nombre_asignatura": "Prácticas Académicas Externas. Academic Internship.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Trabajo de Fin de Grado. Final Degree Project.",
+        "nombre_asignatura": "Trabajo de Fin de Grado. Final Degree Project.",
+        "creditos_ects": "6",
+        "caracter": "TFG",
+        "curso": "4",
+        "cuatrimestre": "2"
+      }
+    ],
+    "total_asignaturas": 54,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n3900 Resolución de 4 de febrero de 2026, de CUNEF Universidad, por la que se \npublica la modificación del plan de estudios de Graduado o Graduada en \nCiencia de Datos/Bachelor in Data Science.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme favorable de la Agencia Evaluadora Fundación para el Conocimiento Madri+d, \nautorizada su implantación por la Comunidad de Madrid y establecido el carácter oficial \ndel título por Acuerdo de Consejo de Ministros de 18 de julio de 2023 (publicado, por \nResolución de 19 de julio de 2023, de la Secretaría General de Universidades, en el \n«Boletín Oficial del Estado» de 27 de julio de 2023), y habiendo sido modificado el \nmencionado plan de estudios, con informe favorable de la Fundación para el \nConocimiento Madri+d, de fecha 8 de julio de 2025,\nEste Rectorado, de conformidad con lo dispuesto en el artículo 27.4 del Real \nDecreto 822/2021, de 28 de septiembre, por el "
+  }
+}

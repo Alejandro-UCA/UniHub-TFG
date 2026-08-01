@@ -1,0 +1,300 @@
+{
+  "codigo_estudio": "4317753",
+  "titulo": "Máster Universitario en Enseñanza Bilingüe / Master in Bilingual Education por la Universidad a Distancia de Madrid",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "074",
+  "universidad_nombre": "Universidad a Distancia de Madrid",
+  "fecha_procesado": "2026-07-31T14:25:02.764074",
+  "boe_url": "http://www.boe.es/boe/dias/2021/12/04/pdfs/BOE-A-2021-20110.pdf",
+  "boe_fecha": "2021-12-04",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias.": "36",
+      "Optativas.": "12",
+      "Prácticas externas.": "6",
+      "Trabajo fin de Máster.": "6",
+      "Total.": "60",
+      "Fundamentos de la Enseñanza Bilingüe / Foundations of Bilingual Education.": "Enseñanza y Centros Educativos Bilingües / Bilingual Education and Schools.",
+      "El Centro Bilingüe / Working in a Bilingual School.": "Enseñanza y Centros Educativos Bilingües / Bilingual Education and Schools.",
+      "Atención a la Diversidad en el Aula Bilingüe / Diversity in the Bilingual Class.": "Enseñanza y Centros Educativos Bilingües / Bilingual Education and Schools.",
+      "AICLE: de la Teoría a la Práctica / CLIL: from Theory to Practice.": "AICLE: Aprendizaje Integrado de Contenidos y Lengua Extranjera) / CLIL: Content and Language Integrated Learning.",
+      "AICLE: Materiales, Recursos y Evaluación / CLIL: Materials, Resources and Assessment.": "AICLE: Aprendizaje Integrado de Contenidos y Lengua Extranjera) / CLIL: Content and Language Integrated Learning.",
+      "Habilidades Comunicativas Avanzadas (C1) / Advanced Communication Skills (C1).": "Habilidades Lingüísticas / Language Skills.",
+      "Inglés para el Profesorado de Infantil y Primaria / English for Infant and Primary Teachers.": "Materias Optativas / Optional Subjects.",
+      "Inglés para el Profesorado de Secundaria y Formación Profesional / English for Secondary and Vocational Training Teachers.": "Materias Optativas / Optional Subjects.",
+      "Alfabetización Temprana y Fonética / Early Literacy and Phonics.": "Materias Optativas / Optional Subjects.",
+      "Optativa 1 (a elegir entre las tres propuestas).": "Materias Optativas / Optional Subjects.",
+      "Optativa 2 (a elegir entre las tres propuestas).": "Materias Optativas / Optional Subjects.",
+      "Prácticas Externas / External Internship.": "Prácticas Externas / Internship.",
+      "Trabajo Fin de Máster / Final Master's Project /.": "Trabajo Fin de Máster / Final Master's Project."
+    },
+    "asignaturas": [
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de la Enseñanza Bilingüe / Foundations of Bilingual Education.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "El Centro Bilingüe / Working in a Bilingual School.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Atención a la Diversidad en el Aula Bilingüe / Diversity in the Bilingual Class.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "AICLE: de la Teoría a la Práctica / CLIL: from Theory to Practice.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "AICLE: Materiales, Recursos y Evaluación / CLIL: Materials, Resources and Assessment.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Habilidades Comunicativas Avanzadas (C1) / Advanced Communication Skills (C1).",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Inglés para el Profesorado de Infantil y Primaria / English for Infant and Primary Teachers.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Inglés para el Profesorado de Secundaria y Formación Profesional / English for Secondary and Vocational Training Teachers.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Alfabetización Temprana y Fonética / Early Literacy and Phonics.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Enseñanza y Centros Educativos Bilingües / Bilingual Education and Schools.",
+        "nombre_asignatura": "Fundamentos de la Enseñanza Bilingüe / Foundations of Bilingual Education.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Enseñanza y Centros Educativos Bilingües / Bilingual Education and Schools.",
+        "nombre_asignatura": "El Centro Bilingüe / Working in a Bilingual School.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "AICLE: Aprendizaje Integrado de Contenidos y Lengua Extranjera) / CLIL: Content and Language Integrated Learning.",
+        "nombre_asignatura": "AICLE: de la Teoría a la Práctica / CLIL: from Theory to Practice.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "AICLE: Aprendizaje Integrado de Contenidos y Lengua Extranjera) / CLIL: Content and Language Integrated Learning.",
+        "nombre_asignatura": "AICLE: Materiales, Recursos y Evaluación / CLIL: Materials, Resources and Assessment.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Habilidades Lingüísticas / Language Skills.",
+        "nombre_asignatura": "Habilidades Comunicativas Avanzadas (C1) / Advanced Communication Skills (C1).",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Habilidades Lingüísticas / Language Skills.",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Habilidades Lingüísticas / Language Skills.",
+        "nombre_asignatura": "Total horas: 750.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Enseñanza y Centros Educativos Bilingües / Bilingual Education and Schools.",
+        "nombre_asignatura": "Obligatorio.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materias Optativas / Optional Subjects.",
+        "nombre_asignatura": "Optativo.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materias Optativas / Optional Subjects.",
+        "nombre_asignatura": "Optativo.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Prácticas Externas / Internship.",
+        "nombre_asignatura": "Prácticas Externas/ Obligatorio.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo Fin de Máster / Final Master's Project.",
+        "nombre_asignatura": "TFM/ Obligatorio.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Enseñanza y Centros Educativos Bilingües / Bilingual Education and Schools.",
+        "nombre_asignatura": "Fundamentos de la Enseñanza Bilingüe / Foundations of Bilingual Education.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Enseñanza y Centros Educativos Bilingües / Bilingual Education and Schools.",
+        "nombre_asignatura": "El Centro Bilingüe / Working in a Bilingual School.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "AICLE: Aprendizaje Integrado de Contenidos y Lengua Extranjera) / CLIL: Content and Language Integrated Learning.",
+        "nombre_asignatura": "AICLE: de la Teoría a la Práctica / CLIL: from Theory to Practice.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "AICLE: Aprendizaje Integrado de Contenidos y Lengua Extranjera) / CLIL: Content and Language Integrated Learning.",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "AICLE: Aprendizaje Integrado de Contenidos y Lengua Extranjera) / CLIL: Content and Language Integrated Learning.",
+        "nombre_asignatura": "Total horas: 450.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Enseñanza y Centros Educativos Bilingües / Bilingual Education and Schools.",
+        "nombre_asignatura": "Obligatorio.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "AICLE: Aprendizaje Integrado de Contenidos y Lengua Extranjera) / CLIL: Content and Language Integrated Learning.",
+        "nombre_asignatura": "Obligatorio.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Habilidades Lingüísticas / Language Skills.",
+        "nombre_asignatura": "Obligatorio.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materias Optativas / Optional Subjects.",
+        "nombre_asignatura": "Optativo.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materias Optativas / Optional Subjects.",
+        "nombre_asignatura": "Optativo.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Prácticas Externas / Internship.",
+        "nombre_asignatura": "Prácticas Externas/ Obligatorio.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo Fin de Máster / Final Master's Project.",
+        "nombre_asignatura": "TFM/ Obligatorio.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 33,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n20110 Resolución de 16 de noviembre de 2021, de la Universidad a Distancia de \nMadrid, por la que se publica el plan de estudios de Máster Universitario en \nEnseñanza Bilingüe/Master in Bilingual Education.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme favorable de la Fundación Madri+d y declarado el carácter oficial del título por \nAcuerdo del Consejo de Ministros de 5 de octubre de 2021 (publicado en el BOE de 22 \nde octubre de 2021, por Resolución de la Secretaría General de Universidades de 6 de \noctubre de 2021), este Rectorado ha resuelto publicar el plan de estudios conducente a \nla obtención del Título de Máster Universitario en Enseñanza Bilingüe/Master in Bilingual \nEducation.\nEl plan de estudios a que se refiere la presente Resolución quedará estructurado \nconforme figura en el anexo de la misma.\nCollado Villalba, 16 de noviembre de 2021.–La Rectora, María Concepción Burgos \nGarcía.\nANEXO"
+  }
+}

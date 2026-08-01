@@ -1,0 +1,354 @@
+{
+  "codigo_estudio": "2500158",
+  "titulo": "Graduado o Graduada en Ingeniería Informática por la Universidad Alfonso X El Sabio",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "047",
+  "universidad_nombre": "Universidad Alfonso X El Sabio",
+  "fecha_procesado": "2026-07-31T14:31:57.626281",
+  "boe_url": "http://www.boe.es/boe/dias/2025/07/07/pdfs/BOE-A-2025-14008.pdf",
+  "boe_fecha": "2025-07-07",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Materias Básicas.": "60",
+      "Obligatorias.": "153",
+      "Prácticas Académicas Externas.": "12",
+      "Trabajo Fin de Grado.": "15",
+      "Total.": "240",
+      "Materias básicas.": "Estadística.",
+      "Programación.": "Técnicas de programación.",
+      "Redes.": "Redes y plataformas para tratamiento masivo de la Información.",
+      "Ingeniería de computadores.": "Computadores.",
+      "Sistemas operativos.": "Sistemas operativos.",
+      "Sistemas de información y sistemas inteligentes.": "Bases de datos.",
+      "Ingeniería del software y gestión.": "Gestión de la tecnología.",
+      "Nuevas Tecnologías de la información.": "Nuevas Tecnologías de la información.",
+      "Optatividad.": "Optatividad.",
+      "Aspectos profesionales y gestión de las organizaciones.": "Organización de empresas.",
+      "Trabajo fin de grado.": "Trabajo fin de grado."
+    },
+    "asignaturas": [
+      {
+        "materia": "Idioma.",
+        "nombre_asignatura": "Comunicación en lengua extranjera 1/ Communication in a foreign language 1.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Física/Physics.",
+        "creditos_ects": "6",
+        "caracter": "Básica",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Informática 1/Computing 1.",
+        "creditos_ects": "6",
+        "caracter": "Básica",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas 1/Math 1.",
+        "creditos_ects": "6",
+        "caracter": "Básica",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Fundamentos de programación.",
+        "nombre_asignatura": "Fundamentos de programación/Programming fundamentals.",
+        "creditos_ects": "6",
+        "caracter": "Básica",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Técnicas de Comunicación 1/Communication techniques 1.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Fundamentos de programación.",
+        "nombre_asignatura": "Estructura de datos/Data structure.",
+        "creditos_ects": "6",
+        "caracter": "Básica",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Redes y servicios de comunicaciones.",
+        "nombre_asignatura": "Fundamentos de Redes/Networking fundamentals.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas 2/Math 2.",
+        "creditos_ects": "6",
+        "caracter": "Básica",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Sistemas digitales.",
+        "nombre_asignatura": "Sistemas digitales/Digital systems.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Técnicas de comunicación 2/Communication techniques 2.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Fundamentos de programación.",
+        "nombre_asignatura": "Desarrollo orientado a objetos/Object oriented development.",
+        "creditos_ects": "6",
+        "caracter": "Básica",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Economía de la empresa/Company Economy.",
+        "creditos_ects": "6",
+        "caracter": "Básica",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Computadores.",
+        "nombre_asignatura": "Estructura de computadores/Computer structure.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Informática 2/Computing 2.",
+        "creditos_ects": "6",
+        "caracter": "Básica",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Sistemas operativos.",
+        "nombre_asignatura": "Sistemas operativos 1/Operating Systems 1.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Bases de datos.",
+        "nombre_asignatura": "Bases de datos/Data bases.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Idioma.",
+        "nombre_asignatura": "Comunicación en lengua extranjera 2/ Communication in a foreign language 2.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estadística.",
+        "nombre_asignatura": "Estadística/Statistics.",
+        "creditos_ects": "6",
+        "caracter": "Básica",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Redes y servicios de comunicaciones.",
+        "nombre_asignatura": "Redes/Newtworking.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Técnicas de programación.",
+        "nombre_asignatura": "Técnicas de programación/Programming techniques.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Administración de sistemas.",
+        "nombre_asignatura": "Administración de sistemas/Systems administration.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Programación concurrente y distribuida.",
+        "nombre_asignatura": "Programación concurrente/Concurrent programming.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Técnicas de programación.",
+        "nombre_asignatura": "Programación dirigida por eventos/ Programming directed by events.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Sistemas operativos.",
+        "nombre_asignatura": "Sistemas operativos avanzados/Advanced operating systems.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Ingeniería del software.",
+        "nombre_asignatura": "Ingeniería del software/Software engineering.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Computadores.",
+        "nombre_asignatura": "Arquitectura de computadores/Computer architecture.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Administración de redes.",
+        "nombre_asignatura": "Administración de redes/Network Administration.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Inteligencia artificial.",
+        "nombre_asignatura": "Inteligencia artificial/Artificial Intelligence.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Interacción hombre-máquina persona-ordenador.",
+        "nombre_asignatura": "Interacción persona-ordenador/Human- computer interaction.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Bases de datos.",
+        "nombre_asignatura": "Planificación y gestión de sistemas de información/Planning and management of information systems.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Nuevas Tecnologías de la información.",
+        "nombre_asignatura": "Tecnologías avanzadas de la información/ Advanced information technologies.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Optatividad.",
+        "nombre_asignatura": "Optativa 1.",
+        "creditos_ects": "6",
+        "caracter": "Optativa",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Dirección de proyectos.",
+        "nombre_asignatura": "Planificación y dirección de proyectos informáticos/Planning and management of IT projects.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Redes y plataformas para tratamiento masivo de la Información.",
+        "nombre_asignatura": "Redes y plataformas para tratamiento masivo de la Información/Networks and platforms for mass information processing.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Sociedad de la información.",
+        "nombre_asignatura": "Sociedad de la información/Information society.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Optatividad.",
+        "nombre_asignatura": "Optativa 2.",
+        "creditos_ects": "6",
+        "caracter": "Optativa",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Organización de empresas.",
+        "nombre_asignatura": "Administración y dirección de empresas/ Business Administration and Management.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Gestión de la tecnología.",
+        "nombre_asignatura": "Gestión de la Tecnología/Technology Management.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo fin de grado.",
+        "nombre_asignatura": "Trabajo fin de grado.",
+        "creditos_ects": "15",
+        "caracter": "TFG",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 40,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n14008 Resolución de 18 de junio de 2025, de la Universidad Alfonso X el Sabio, por \nla que se publica la modificación del plan de estudios de Graduado o \nGraduada en Ingeniería Informática.\nObtenida la verificación de la modificación, previo informe positivo de la Fundación \npara el Conocimiento Madrid más D, de fecha 4 de junio de 2025,\nEste Rectorado ha resuelto publicar la modificación del plan de estudios conducente \na la obtención Título de Grado en Ingeniería Informática por la Universidad Alfonso X el \nSabio.\nVillanueva de la Cañada, 18 de junio de 2025.–El Rector, Juan Romo Urroz.\nPLAN DE ESTUDIOS DE GRADO EN INGENIERÍA INFORMÁTICA\nDistribución del plan de estudios en créditos ECTS\nTipo de materia Créditos ECTS\nMaterias Básicas. 60\nObligatorias. 153\nPrácticas Académicas Externas. 12\nTrabajo Fin de Grado. 15\n Total. 240\nMódulo Materia Asignatura Carácter ECTS Semestre\nPrimer Curso\nMaterias básicas. Idioma. Comunicación en lengua extranjera "
+  }
+}

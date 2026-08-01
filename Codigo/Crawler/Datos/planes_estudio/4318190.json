@@ -1,0 +1,6141 @@
+{
+  "codigo_estudio": "4318190",
+  "titulo": "Máster Universitario en Sistemas Inteligentes de Energía por la Mondragón Unibertsitatea",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "061",
+  "universidad_nombre": "Mondragón Unibertsitatea",
+  "fecha_procesado": "2026-07-31T14:17:47.039288",
+  "boe_url": "http://www.boe.es/boe/dias/2025/12/25/pdfs/BOE-A-2025-26597.pdf",
+  "boe_fecha": "2025-12-25",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Matemáticas I.": "1.º",
+      "Expresión gráfica.": "1.º",
+      "Física I.": "1.º",
+      "Fundamentos de informática.": "1.º",
+      "Fundamentos metodológicos.": "1.º",
+      "Empresa.": "1.º",
+      "Matemáticas II.": "1.º",
+      "Química.": "1.º",
+      "Física II.": "1.º",
+      "Energía y sostenibilidad.": "1.º",
+      "Matemáticas III.": "2.º",
+      "Tecnología electrónica I.": "2.º",
+      "Automatización I.": "2.º",
+      "Máquinas eléctricas.": "2.º",
+      "Mecánica de fluidos.": "2.º",
+      "Ciencia y tecnología de materiales.": "2.º",
+      "Instrumentación y Control.": "2.º",
+      "Tecnología electrónica II.": "2.º",
+      "Energía térmica.": "2.º",
+      "Microprocesadores.": "2.º",
+      "Conversión de la energía eléctrica.": "3.º",
+      "Control de procesos.": "3.º",
+      "Tecnologías de almacenamiento de energía.": "3.º",
+      "Ciclos de generación termofluídica.": "3.º",
+      "Oficina de proyectos energéticos.": "3.º",
+      "Eficiencia energética en componentes.": "3.º",
+      "Sistemas de adquisición de datos y monitorización.": "3.º",
+      "Conversión de la energía electromecánica.": "3.º",
+      "Generación y transporte de la energía eléctrica.": "3.º",
+      "Generación distribuida y energías renovables.": "3.º",
+      "Prácticas en empresa III.": "4.º",
+      "Trabajo Fin de Grado.": "4.º",
+      "Expresión Gráfica I.": "1.º",
+      "Fundamentos de Informática.": "1.º",
+      "Fundamentos Metodológicos.": "1.º",
+      "Estética y creatividad.": "1.º",
+      "Prototipado.": "1.º",
+      "Expresión Artística I.": "2.º",
+      "Metodología del diseño.": "2.º",
+      "Procesos de Fabricación I.": "2.º",
+      "Expresión gráfica II.": "2.º",
+      "Materiales I.": "2.º",
+      "Procesos de fabricación II.": "2.º",
+      "Expresión Gráfica III.": "2.º",
+      "Diseño de productos eléctricos.": "2.º",
+      "Estética II.": "2.º",
+      "Materiales II.": "2.º",
+      "Elasticidad y resistencia de materiales.": "3.º",
+      "Diseño asistido por ordenador I.": "3.º",
+      "Usabilidad.": "3.º",
+      "Expresión artística II.": "3.º",
+      "Ingeniería térmica y de fluidos.": "2.º",
+      "Aspectos medioambientales.": "3.º",
+      "Metodología del diseño II.": "3.º",
+      "Marketing y comunicación.": "3.º",
+      "Estadística.": "2.º",
+      "Aspectos legales.": "3.º",
+      "Diseño gráfico.": "3.º",
+      "Envase y embalaje.": "3.º",
+      "Diseño asistido por ordenador II.": "3.º",
+      "Prácticas en Empresa III.": "4.º",
+      "Expresión gráfica I.": "1.º",
+      "Máquinas eléctricas y accionamientos.": "2.º",
+      "Tecnologías de fabricación I.": "2.º",
+      "Ciencia de los materiales metálicos.": "2.º",
+      "Tecnologías de fabricación II.": "2.º",
+      "Ingeniería térmica.": "3.º",
+      "Ingeniería y selección de materiales.": "2.º",
+      "Automatización industrial básica.": "3.º",
+      "Optimización ambiental de procesos: Plásticos y compuestos.": "3.º",
+      "Organización industrial.": "3.º",
+      "Optimización ambiental de procesos: Fundición.": "3.º",
+      "Ciencia y tecnología ambiental.": "3.º",
+      "Análisis de ciclo de vida.": "3.º",
+      "Electrónica e instrumentación.": "3.º",
+      "Optimización ambiental de procesos: Mecanizado.": "3.º",
+      "Optimización ambiental de procesos: Conformado.": "3.º",
+      "Ingeniería de calidad.": "2.º",
+      "Teoría de máquinas y mecanismos.": "2.º",
+      "Automatización industrial avanzada.": "4.º",
+      "Fundamentos de electrónica analógica.": "2.º",
+      "Fundamentos de electrónica digital.": "2.º",
+      "Ciencia, tecnología y química de los materiales.": "2.º",
+      "Tecnología Electrónica.": "2.º",
+      "Automatización Industrial Básica.": "2.º",
+      "Tecnologías medioambientales y sostenibilidad.": "2.º",
+      "Electrotécnia.": "2.º",
+      "Modelado, simulación y control de sistemas multifísicos.": "2.º",
+      "Ingeniería de control.": "3.º",
+      "Instrumentación electrónica.": "3.º",
+      "Diseño de equipos electrónicos.": "3.º",
+      "Accionamientos eléctricos.": "3.º",
+      "Electrónica de potencia.": "3.º",
+      "Sistemas productivos y electrotecnologías.": "3.º",
+      "Sistemas robotizados.": "3.º",
+      "Oficina técnica y gestión de proyectos.": "3.º",
+      "Informática y comunicaciones industriales.": "3.º",
+      "Control avanzado.": "3.º",
+      "Prácticas en la Empresa III.": "4.º",
+      "Fundamentos de redes de comunicaciones.": "1.º",
+      "Física.": "1.º",
+      "Programación.": "1.º",
+      "Sistemas digitales electrónicos.": "1.º",
+      "Matemática discreta.": "1.º",
+      "Infraestructuras y sistemas.": "2.º",
+      "Arquitectura de computadores.": "2.º",
+      "Informática industrial.": "2.º",
+      "Redes de comunicaciones I.": "2.º",
+      "Programación avanzada.": "2.º",
+      "Ingeniería Web I.": "2.º",
+      "Análisis y diseño del software.": "2.º",
+      "Bases de Datos.": "2.º",
+      "Redes de comunicaciones II.": "2.º",
+      "Métodos estadísticos.": "2.º",
+      "Sistemas operativos.": "3.º",
+      "Gestión de proyectos.": "3.º",
+      "Ingeniería del Software.": "3.º",
+      "Inteligencia artificial.": "3.º",
+      "Ingeniería Web II.": "3.º",
+      "Seguridad.": "3.º",
+      "Ingeniería de datos.": "3.º",
+      "Sistemas concurrentes y distribuidos.": "3.º",
+      "Interfaz persona-máquina.": "3.º",
+      "Sistemas de información.": "3.º",
+      "Estadística básica.": "1.º",
+      "Estadística industrial.": "2.º",
+      "Procesos de fabricación.": "2.º",
+      "Ciencia e ingeniería de los materiales.": "2.º",
+      "Sistemas fluídicos industriales.": "2.º",
+      "Calidad, Seguridad y Medio Ambiente.": "2.º",
+      "Logística I.": "2.º",
+      "Gestión de activos físicos.": "2.º",
+      "Ingeniería de fabricación.": "2.º",
+      "Métodos Cuantitativos de Organización Industrial I.": "2.º",
+      "Métodos Cuantitativos de Organización Industrial II.": "3.º",
+      "Finanzas y comercio internacional.": "3.º",
+      "Gestión de Proyectos.": "3.º",
+      "Logística II.": "3.º",
+      "Técnicas y herramientas de optimización II.": "3.º",
+      "Modelos de Gestión.": "3.º",
+      "Gestión de Personas.": "3.º",
+      "Técnicas de creatividad.": "3.º",
+      "Ingeniería Ambiental.": "3.º",
+      "Fundamentos metodológicos I.": "1.º",
+      "Fundamentos de ciencia de materiales.": "2.º",
+      "Ingeniería de procesos I.": "2.º",
+      "Mecánica.": "2.º",
+      "Termodinámica.": "2.º",
+      "Elasticidad y Resistencia de Materiales I.": "2.º",
+      "Ingeniería de procesos II.": "2.º",
+      "Ingeniería de producción.": "2.º",
+      "Introducción al diseño mecánico.": "2.º",
+      "Diseño mecánico.": "3.º",
+      "Tecnología de accionamientos neumáticos e hidraúlicos.": "3.º",
+      "Teoría de mecanismos.": "3.º",
+      "Ingeniería de Calidad.": "3.º",
+      "Elasticidad y resistencia de materiales II.": "3.º",
+      "Tecnologías de accionamientos eléctricos.": "3.º",
+      "Oficina técnica: proyectos mecánicos.": "3.º",
+      "Teoría de Estructuras y Construcciones Industriales.": "3.º",
+      "Materiales para la ingeniería.": "3.º",
+      "Ingeniería Medioambiental.": "3.º",
+      "Automatización de máquinas y procesos.": "3.º",
+      "Sistemas electrónicos.": "3.º",
+      "Diseño de máquinas.": "4.º",
+      "Modelización numérica para el diseño.": "4.º",
+      "Modelado avanzado CAD.": "4.º",
+      "Instrumentación industrial para el diseño.": "4.º",
+      "Prácticas de Diseño mecánico en empresa I.": "4.º",
+      "Análisis de Procesos Industriales.": "4.º",
+      "Modelización numérica para la fabricación.": "4.º",
+      "Fabricación asistida/CAM.": "4.º",
+      "Instrumentación industrial para procesos.": "4.º",
+      "Prácticas de procesos de fabricación en empresa I.": "4.º",
+      "Fundamentos Biomédicos y biomateriales.": "4.º",
+      "Procesamiento de señales e imágenes biomédicas.": "4.º",
+      "Imagen biomédica en entorno virtual.": "4.º",
+      "Envejecimiento: Retos y oportunidades.": "4.º",
+      "IoT: Smart connected home.": "4.º",
+      "Sistemas de rehabilitación.": "4.º",
+      "Accesibilidad e interfaces humanas.": "4.º",
+      "Prácticas de biomecánica en empresa I.": "4.º",
+      "Prácticas de Diseño mecánico en empresa II.": "4.º",
+      "Prácticas de procesos de fabricación en empresa II.": "4.º",
+      "Prácticas de biomecánica en empresa II.": "4.º",
+      "Expresión Gráfica.": "1.º",
+      "Mecánica y teoría de mecanismos.": "1.º",
+      "Matemáticas aplicadas a la Ingeniería.": "1.º",
+      "Fundamentos de ingeniería eléctrica. (*)": "1.º",
+      "Fundamentos de ingeniería electrónica. (*)": "1.º",
+      "Tecnología mecánica. (*)": "1.º",
+      "Tecnologías de fabricación. (*)": "1.º",
+      "Condiciones laborales y seguridad laboral. Protección del medio ambiente.": "2.º",
+      "Tecnología mecánica.": "2.º",
+      "Sistemas Mecánicos.": "2.º",
+      "Sistemas eléctricos de potencia.": "2.º",
+      "Tecnologías de fabricación.": "2.º",
+      "Laboratorio de Tecnologías de fabricación.": "2.º",
+      "Introducción a la Automatización.": "2.º",
+      "Laboratorio de Montaje de sistemas mecatrónicos I.": "2.º",
+      "Laboratorio de Montaje de sistemas mecatrónicos II.": "2.º",
+      "Proyecto Mecatrónico.": "2.º",
+      "Elementos Mecánicos.": "2.º",
+      "Introducción a Sistemas de Gestión industrial: Mantenimiento.": "2.º",
+      "Introducción a Sistemas de Gestión industrial: Calidad.": "2.º",
+      "Fundamentos de ingeniería eléctrica.": "2.º",
+      "Fundamentos de ingeniería electrónica.": "2.º",
+      "Documentación técnica de sistemas eléctricos.": "2.º",
+      "Mantenimiento y reparación de equipos electrónicos.": "2.º",
+      "Montaje y puesta en marcha de equipos electrónicos.": "2.º",
+      "Modelado y simulación de sistemas dinámicos.": "3.º",
+      "Sistemas electrómecánicos.": "3.º",
+      "CAD eléctrico avanzado.": "3.º",
+      "Análisis de datos.": "3.º",
+      "Ingeniería de Equipos Productivos y Sistemas Automatizados I.": "3.º",
+      "Gestión de activos industriales.": "3.º",
+      "Automatización industrial.": "3.º",
+      "Ingeniería térmica y de fluídos.": "3.º",
+      "Instrumentación y control.": "3.º",
+      "Sistemas de adquisición de datos y control en tiempo real.": "3.º",
+      "Visión artificial.": "3.º",
+      "Ingeniería de Equipos Productivos y Sistemas Automatizados II.": "3.º",
+      "Gestión de proyectos y personas.": "4.º",
+      "Diseño y ensayo de sistemas mecánicos.": "4.º",
+      "Sistemas robotizados y visión artificial.": "4.º",
+      "Laboratorio de instrumentación.": "4.º",
+      "Introducción a la fabricación aditiva.": "4.º",
+      "Calibración de equipos de medición.": "4.º",
+      "Ingeniería de equipos productivos y sistemas automatizados III.": "4.º",
+      "Prácticas en Empresa I.": "4.º",
+      "Fundamentos de ingeniería eléctrica (*).": "1.º",
+      "Fundamentos de ingeniería electrónica (*).": "1.º",
+      "Tecnología mecánica (*).": "1.º",
+      "Tecnologías de fabricación (*).": "1.º",
+      "Modelizado y dimensionado de transmisiones mecánicas.": "3.º",
+      "Matemáticas avanzadas.": "4.º",
+      "Biología.": "1.º",
+      "Anatomía humana y fisiología I.": "2.º",
+      "Fundamentos de electrónica.": "2.º",
+      "Biomecánica.": "2.º",
+      "Biomateriales I.": "2.º",
+      "Instrumental médico, prótesis e implantes.": "2.º",
+      "Biomateriales II.": "2.º",
+      "Anatomía humana y fisiología II.": "2.º",
+      "Procesamiento de señales biomédicas.": "2.º",
+      "Monitorización y acondicionamiento de señales biomédicas.": "2.º",
+      "Física III.": "2.º",
+      "Fabricación de equipamiento médico.": "3.º",
+      "Diseño mecánico de equipamiento médico.": "3.º",
+      "Equipamientos tecnológicos en medicina.": "3.º",
+      "Tecnologías de control y robótica.": "3.º",
+      "Sistemas de imagen médica.": "3.º",
+      "Sistemas de información en la sanidad.": "3.º",
+      "Procesamiento de imágenes biomédicas.": "3.º",
+      "Ingeniería hospitalaria.": "3.º",
+      "Certificaciones y normativas sanitarias.": "3.º",
+      "Patología general.": "3.º",
+      "Procesado de datos.": "3.º",
+      "Prácticas de tecnologías sanitarias.": "4.º",
+      "ESTRUCTURAS METÁLICAS Y DE HORMIGÓN ARMADO.": "OB",
+      "CONSTRUCCIONES INDUSTRIALES Y URBANISMO.": "OB",
+      "INSTALACIONES.": "OB",
+      "TECNOLOGÍA ELÉCTRICA.": "OB",
+      "GESTIÓN DE PROYECTOS.": "OB",
+      "ADMINISTRACIÓN DE EMPRESAS.": "OB",
+      "TRANSPORTE Y MANUTENCIÓN INDUSTRIAL.": "OB",
+      "AUTOMATIZACIÓN AVANZADA DE PROCESOS INDUSTRIALES.": "OB",
+      "DISEÑO, CÁLCULO Y VERIFICACIÓN DE MÁQUINAS.": "OB",
+      "INGENIERÍA TÉRMICA Y DE FLUIDOS.": "OB",
+      "SISTEMAS ELECTRÓNICOS.": "OB",
+      "INGENIERÍA ENERGÉTICA.": "OB",
+      "OPERACIONES PRODUCTIVAS.": "OB",
+      "GESTIÓN DE PERSONAS.": "OB",
+      "TECNOLOGÍA DE PROCESOS QUÍMICOS.": "OB",
+      "ESTRATEGIA Y GESTIÓN DE LA INNOVACIÓN TECNOLÓGICA.": "OB",
+      "ITINERARIO DUAL.": "PRÁCTICAS DE FORMACIÓN DUAL I.",
+      "ITINERARIO ACADÉMICO.": "PRÁCTICAS EN EMPRESA I.",
+      "ITINERARIO INVESTIGACIÓN.": "PAUTAS METODOLÓGICAS PARA LA ELABORACIÓN DE UNA TESIS DOCTORAL.",
+      "ESTRATEGIA DE MARCA Y PRODUCTO.": "Obligatoria.",
+      "DISEÑO DE SERVICIOS.": "Obligatoria.",
+      "DISEÑO CENTRADO EN LAS PERSONAS.": "Obligatoria.",
+      "GESTIÓN ECONÓMICO FINANCIERA DEL DISEÑO.": "Obligatoria.",
+      "DISEÑO PARTICIPATIVO.": "Obligatoria.",
+      "TALLER DE DISEÑO ESTRATÉGICO.": "Obligatoria.",
+      "TENDENCIAS EN DISEÑO I (*).": "Optativa.",
+      "PRÁCTICAS EN ALTERNANCIA I (*).": "Optativa.",
+      "PRÁCTICAS DE FORMACIÓN DUAL I (*).": "Optativa.",
+      "EXPERIENCIA DE USUARIO Y USABILIDAD.": "Obligatoria.",
+      "METODOLOGIA Y GESTIÓN AVANZADA DEL DISEÑO.": "Optativa.",
+      "COMUNICACIÓN VISUAL AVANZADA.": "Optativa.",
+      "TENDENCIAS EN DISEÑO II.": "Optativa.",
+      "TALLER DE DISEÑO DE INTERACCIÓN.": "Obligatoria.",
+      "DISEÑO DE INTERACCIÓN.": "Obligatoria.",
+      "PROTOTIPADO EN DISEÑO.": "Obligatoria.",
+      "PRÁCTICAS EN ALTERNANCIA II.": "Optativa.",
+      "PRÁCTICAS DE FORMACIÓN DUAL II.": "Optativa.",
+      "Académico.": "Prácticas en empresa I.",
+      "DUAL.": "Prácticas de Formación DUAL III.",
+      "Investigación.": "MÉTODOS CUANTITATIVOS PARA LA INVESTIGACIÓN.",
+      "Diseño de convertidores electrónicos de potencia.": "OB",
+      "Análisis de convertidores electrónicos de potencia.": "OB",
+      "Diseño de máquinas eléctricas.": "OB",
+      "Modelado y análisis de máquinas eléctricas.": "OB",
+      "Accionamientos.": "OB",
+      "Análisis térmico.": "OB",
+      "Prácticas I (*).": "OP",
+      "Proyecto de semestre I (*).": "OP",
+      "Prácticas de Formación DUAL I (*).": "OP",
+      "Almacenamiento de energía.": "OB",
+      "Tracción eléctrica ferroviaria.": "OB",
+      "Electromovilidad.": "OB",
+      "Generación de energía eólica.": "OB",
+      "Transporte y distribución de la energía eléctrica.": "OB",
+      "Generación de energía eléctrica.": "OB",
+      "Aplicaciones de convertidores conectados a la red eléctrica.": "OB",
+      "Prácticas II (*).": "OP",
+      "Proyecto de semestre II (*).": "OP",
+      "Prácticas de Formación DUAL II (*).": "OP",
+      "ACADÉMICO.": "Prácticas en empresa I.",
+      "INVESTIGACIÓN.": "Métodos cuantitativos para la investigación.",
+      "Fundamentos del Aprendizaje Automático.": "OB",
+      "Aprendizaje Automático.": "OB",
+      "Visualización de Datos.": "OB",
+      "Seguridad en Infraestructuras y Redes.": "OB",
+      "Plataformas e Infraestructuras.": "OB",
+      "Arquitecturas Avanzadas de Software.": "OB",
+      "Prácticas en Empresa I (*).": "OP",
+      "Tecnologías IoT I (*).": "OP",
+      "Inteligencia de Datos.": "OB",
+      "Aprendizaje Automático Avanzado.": "OB",
+      "Seguridad Ofensiva.": "OB",
+      "Seguridad del Software.": "OB",
+      "Gestión de la Seguridad.": "OB",
+      "Integración y Despliegue Continuo.": "OB",
+      "Prácticas en Empresa II (*).": "OP",
+      "Tecnologías IoT II (*).": "OP",
+      "Itinerario: Especialización académica.": "Prácticas en empresa III.",
+      "Itinerario: Mención en DUAL.": "Prácticas de Formación DUAL III.",
+      "Itinerario: Iniciación en tareas de investigación.": "Métodos cuantitativos para la investigación.",
+      "Comunes.": "Trabajo Fin de Máster.",
+      "Gemelos digitales para sistemas de energía.": "OB",
+      "Fundamentos de diseño Térmico.": "OB",
+      "Sistemas de almacenamiento.": "OB",
+      "Adquisición de datos y teoría de la señal.": "OB",
+      "Analítica de datos y fundamentos de aprendizaje automático.": "OB",
+      "Modelado y simulación de sistemas de energía.": "OB",
+      "Fundamentos de Labview (*).": "OP",
+      "Prácticas en Alternancia I (*).": "OP",
+      "Control avanzado de sistemas de energía.": "OB",
+      "Sistemas en tiempo real.": "OB",
+      "Diseño de sistemas electrónicos.": "OB",
+      "Plataformas de testeo y validación.": "OB",
+      "Monitorización inteligente.": "OB",
+      "Inteligencia artificial en aplicaciones de energía.": "OB",
+      "Sistemas de prototipado rápido (*).": "OP",
+      "Prácticas en Alternancia II (*).": "OP",
+      "Iniciación en tareas de investigación.": "Métodos cuantitativos para la investigación.",
+      "Aplicaciones Informáticas de la Empresa (AIE).": "OB",
+      "Fundamentos de la cadena de suministro.": "OB",
+      "Finanzas en la dirección de operaciones.": "OB",
+      "Gestión de compras.": "OB",
+      "Conceptos avanzados de producción.": "OB",
+      "Dirección de la producción.": "OB",
+      "Empresa Digital (*).": "OP",
+      "Empresa centrada en las personas.": "OB",
+      "Producción sostenible.": "OB",
+      "Transporte internacional de mercancías.": "OB",
+      "Modelos de mejora continua.": "OB",
+      "Producción ajustada.": "OB",
+      "Análisis de la variabilidad de los procesos.": "OB",
+      "Principio Line Back (*).": "OP"
+    },
+    "asignaturas": [
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Expresión Gráfica.",
+        "nombre_asignatura": "Expresión gráfica.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Física I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Fundamentos de informática.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Fundamentos metodológicos.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Empresa.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Química.",
+        "nombre_asignatura": "Química.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Física II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas III.",
+        "creditos_ects": "7,5",
+        "caracter": "",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "61,5",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Expresión gráfica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de informática.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos metodológicos.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Empresa.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Química.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Energía y sostenibilidad.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas III.",
+        "creditos_ects": "7,5",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnología electrónica I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Automatización I.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Máquinas eléctricas.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Mecánica de fluidos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ciencia y tecnología de materiales.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Instrumentación y Control.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnología electrónica II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Energía térmica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Microprocesadores.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Conversión de la energía eléctrica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Control de procesos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnologías de almacenamiento de energía.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ciclos de generación termofluídica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Oficina de proyectos energéticos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Eficiencia energética en componentes.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas de adquisición de datos y monitorización.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Conversión de la energía electromecánica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Generación y transporte de la energía eléctrica.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Generación distribuida y energías renovables.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en empresa III.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Expresión Gráfica.",
+        "nombre_asignatura": "Expresión Gráfica I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Fundamentos de Informática.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Física I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Química.",
+        "nombre_asignatura": "Química.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Física II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Empresa.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Expresión Artística.",
+        "nombre_asignatura": "Expresión Artística I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Expresión Gráfica.",
+        "nombre_asignatura": "Expresión Gráfica II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Expresión Gráfica.",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Expresión Gráfica I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de Informática.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos Metodológicos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Química.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Estética y creatividad.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prototipado.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Empresa.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Expresión Artística I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Metodología del diseño.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Procesos de Fabricación I.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Expresión gráfica II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Materiales I.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Procesos de fabricación II.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Expresión Gráfica III.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño de productos eléctricos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Estética II.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Materiales II.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Elasticidad y resistencia de materiales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño asistido por ordenador I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Usabilidad.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Expresión artística II.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería térmica y de fluidos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Aspectos medioambientales.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Metodología del diseño II.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Marketing y comunicación.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Estadística.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Aspectos legales.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño gráfico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Envase y embalaje.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño asistido por ordenador II.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en Empresa III.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Expresión Gráfica.",
+        "nombre_asignatura": "Expresión gráfica I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Fundamentos de informática.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Física I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Química.",
+        "nombre_asignatura": "Química.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Física II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Empresa.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas III.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estadística.",
+        "nombre_asignatura": "Estadística.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estadística.",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Expresión gráfica I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de informática.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos metodológicos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Química.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Expresión gráfica II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Empresa.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Elasticidad y resistencia de materiales.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Máquinas eléctricas y accionamientos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnologías de fabricación I.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ciencia de los materiales metálicos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas III.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnologías de fabricación II.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería térmica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería y selección de materiales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Mecánica de fluidos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Estadística.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Automatización industrial básica.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Optimización ambiental de procesos: Plásticos y compuestos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Organización industrial.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Optimización ambiental de procesos: Fundición.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ciencia y tecnología ambiental.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis de ciclo de vida.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Electrónica e instrumentación.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Optimización ambiental de procesos: Mecanizado.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Optimización ambiental de procesos: Conformado.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería de calidad.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Teoría de máquinas y mecanismos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Automatización industrial avanzada.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en empresa III.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Expresión Gráficas.",
+        "nombre_asignatura": "Expresión Gráfica.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Fundamentos de Informática.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Física I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Química.",
+        "nombre_asignatura": "Química.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estadística.",
+        "nombre_asignatura": "Estadística.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Física II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Empresa.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas III.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Expresión gráfica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de informática.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos metodológicos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Química.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Estadística.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Empresa.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de electrónica analógica.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería térmica y de fluidos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Teoría de máquinas y mecanismos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de electrónica digital.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ciencia, tecnología y química de los materiales.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas III.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnología Electrónica.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Automatización Industrial Básica.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Microprocesadores.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnologías medioambientales y sostenibilidad.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Electrotécnia.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Modelado, simulación y control de sistemas multifísicos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Organización industrial.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería de control.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Instrumentación electrónica.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño de equipos electrónicos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Accionamientos eléctricos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Electrónica de potencia.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas productivos y electrotecnologías.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas robotizados.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Oficina técnica y gestión de proyectos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Informática y comunicaciones industriales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Automatización industrial avanzada.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Control avanzado.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en la Empresa III.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Fundamentos de Redes de Comunicaciones.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Fundamentos de Informática.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Física.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Programación.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Empresa.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Sistemas digitales electrónicos.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemática Discreta.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Métodos estadísticos.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de redes de comunicaciones.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de informática.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos metodológicos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Programación.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Empresa.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas digitales electrónicos.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemática discreta.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Infraestructuras y sistemas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Arquitectura de computadores.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Informática industrial.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Redes de comunicaciones I.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Programación avanzada.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería Web I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis y diseño del software.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Bases de Datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Redes de comunicaciones II.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Métodos estadísticos.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas operativos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Gestión de proyectos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería del Software.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Inteligencia artificial.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería Web II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Seguridad.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería de datos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas concurrentes y distribuidos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Interfaz persona-máquina.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas de información.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en empresa III.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Expresión Gráfica.",
+        "nombre_asignatura": "Expresión gráfica.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Fundamentos de informática.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Física I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Química.",
+        "nombre_asignatura": "Química.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estadística.",
+        "nombre_asignatura": "Estadística básica.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Física II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Empresa.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas III.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Expresión gráfica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de informática.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos metodológicos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Química.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Estadística básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Empresa.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Estadística industrial.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería de calidad.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas III.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Procesos de fabricación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ciencia e ingeniería de los materiales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas fluídicos industriales.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Calidad, Seguridad y Medio Ambiente.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Logística I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Gestión de activos físicos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería de fabricación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Métodos Cuantitativos de Organización Industrial I.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Métodos Cuantitativos de Organización Industrial II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Finanzas y comercio internacional.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Gestión de Proyectos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Logística II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Técnicas y herramientas de optimización II.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Modelos de Gestión.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas de información.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Gestión de Personas.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Técnicas de creatividad.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería Ambiental.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en empresa III.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Expresión Gráfica.",
+        "nombre_asignatura": "Expresión Gráfica I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Fundamentos de Informática.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Física I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Química.",
+        "nombre_asignatura": "Química.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Física II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Empresa.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas III.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estadística.",
+        "nombre_asignatura": "Estadística.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estadística.",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Expresión gráfica I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de Informática.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos metodológicos I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Química.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Expresión gráfica II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Empresa.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de ciencia de materiales.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas III.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Estadística.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería de procesos I.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Mecánica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Termodinámica.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Elasticidad y Resistencia de Materiales I.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Mecánica de fluidos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería de procesos II.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería de producción.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Introducción al diseño mecánico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño mecánico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnología de accionamientos neumáticos e hidraúlicos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Teoría de mecanismos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería de Calidad.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Elasticidad y resistencia de materiales II.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnologías de accionamientos eléctricos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Oficina técnica: proyectos mecánicos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Teoría de Estructuras y Construcciones Industriales.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Materiales para la ingeniería.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería Medioambiental.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Automatización de máquinas y procesos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas electrónicos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería térmica.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño de máquinas.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Modelización numérica para el diseño.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Modelado avanzado CAD.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Instrumentación industrial para el diseño.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas de Diseño mecánico en empresa I.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis de Procesos Industriales.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Modelización numérica para la fabricación.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fabricación asistida/CAM.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Instrumentación industrial para procesos.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas de procesos de fabricación en empresa I.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos Biomédicos y biomateriales.",
+        "creditos_ects": "5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Procesamiento de señales e imágenes biomédicas.",
+        "creditos_ects": "5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Imagen biomédica en entorno virtual.",
+        "creditos_ects": "5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Envejecimiento: Retos y oportunidades.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "IoT: Smart connected home.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas de rehabilitación.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Accesibilidad e interfaces humanas.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas de biomecánica en empresa I.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas de Diseño mecánico en empresa II.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas de procesos de fabricación en empresa II.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas de biomecánica en empresa II.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Física.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Fundamentos Metodológicos.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Fundamentos de informática.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Expresión Gráfica.",
+        "nombre_asignatura": "Expresión Gráfica.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Mecánica y teoría de mecanismos.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas aplicadas a la Ingeniería.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Empresa.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Condiciones laborales y seguridad laboral. Protección del medio ambiente.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de informática.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos metodológicos.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Expresión Gráfica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Mecánica y teoría de mecanismos.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas aplicadas a la Ingeniería.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Perfil de Acceso – Bachillerato",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de ingeniería eléctrica. (*)",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de ingeniería electrónica. (*)",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Perfil de Acceso – CFGS de Fabricación Mecánica e Instalación y Mantenimiento",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de ingeniería eléctrica. (*)",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de ingeniería electrónica. (*)",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Perfil de Acceso – CFGS de Electricidad y Electrónica",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnología mecánica. (*)",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnologías de fabricación. (*)",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Empresa.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Condiciones laborales y seguridad laboral. Protección del medio ambiente.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Perfil de Acceso – Bachillerato",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnología mecánica.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas Mecánicos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Máquinas eléctricas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas eléctricos de potencia.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnologías de fabricación.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Laboratorio de Tecnologías de fabricación.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Introducción a la Automatización.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Laboratorio de Montaje de sistemas mecatrónicos I.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Laboratorio de Montaje de sistemas mecatrónicos II.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Perfil de Acceso – CFGS de Fabricación Mecánica e Instalación y Mantenimiento",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnología mecánica.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas Mecánicos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Proyecto Mecatrónico.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Elementos Mecánicos.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Introducción a Sistemas de Gestión industrial: Mantenimiento.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnologías de fabricación.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Laboratorio de Tecnologías de fabricación.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Introducción a la Automatización.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Laboratorio de Montaje de sistemas mecatrónicos I.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Introducción a Sistemas de Gestión industrial: Calidad.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Perfil de Acceso – CFGS de Electricidad y Electrónica",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Máquinas eléctricas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas eléctricos de potencia.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Proyecto Mecatrónico.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de ingeniería eléctrica.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Laboratorio de Montaje de sistemas mecatrónicos II.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de ingeniería electrónica.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Documentación técnica de sistemas eléctricos.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Mantenimiento y reparación de equipos electrónicos.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Montaje y puesta en marcha de equipos electrónicos.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Modelado y simulación de sistemas dinámicos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Elasticidad y resistencia de materiales.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas electrómecánicos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "CAD eléctrico avanzado.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis de datos.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería de Equipos Productivos y Sistemas Automatizados I.",
+        "creditos_ects": "10,5",
+        "caracter": "OP",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Gestión de activos industriales.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Automatización industrial.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería térmica y de fluídos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Instrumentación y control.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas de adquisición de datos y control en tiempo real.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Visión artificial.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería de Equipos Productivos y Sistemas Automatizados II.",
+        "creditos_ects": "10,5",
+        "caracter": "OP",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Gestión de proyectos y personas.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño y ensayo de sistemas mecánicos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Automatización industrial avanzada.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas robotizados y visión artificial.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Laboratorio de instrumentación.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Introducción a la fabricación aditiva.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Calibración de equipos de medición.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería de equipos productivos y sistemas automatizados III.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en Empresa I.",
+        "creditos_ects": "18",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Física.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Fundamentos Metodológicos.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Fundamentos de informática.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Expresión Gráfica.",
+        "nombre_asignatura": "Expresión Gráfica.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Mecánica y teoría de mecanismos.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas aplicadas a la Ingeniería.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Empresa.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Condiciones laborales y seguridad laboral. Protección del medio ambiente.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de informática.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos metodológicos.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Expresión Gráfica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Mecánica y teoría de mecanismos.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas aplicadas a la Ingeniería.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Perfil de Acceso – Bachillerato",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de ingeniería eléctrica (*).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de ingeniería electrónica (*).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Perfil de Acceso – CFGS de Fabricación Mecánica e Instalación y Mantenimiento",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de ingeniería eléctrica (*).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de ingeniería electrónica (*).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Perfil de Acceso – CFGS de Electricidad y Electrónica",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnología mecánica (*).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnologías de fabricación (*).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Empresa.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Condiciones laborales y seguridad laboral. Protección del medio ambiente.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Perfil de Acceso – Bachillerato",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnología mecánica.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas Mecánicos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Máquinas eléctricas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas eléctricos de potencia.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnologías de fabricación.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Laboratorio de Tecnologías de fabricación.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Introducción a la Automatización.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Laboratorio de Montaje de sistemas mecatrónicos I.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Laboratorio de Montaje de sistemas mecatrónicos II.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Perfil de Acceso – CFGS de Fabricación Mecánica e Instalación y Mantenimiento",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnología mecánica.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas Mecánicos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Proyecto Mecatrónico.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Elementos Mecánicos.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Introducción a Sistemas de Gestión industrial: Mantenimiento.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnologías de fabricación.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Laboratorio de Tecnologías de fabricación.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Introducción a la Automatización.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Laboratorio de Montaje de sistemas mecatrónicos I.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Introducción a Sistemas de Gestión industrial: Calidad.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Perfil de Acceso – CFGS de Electricidad y Electrónica",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Máquinas eléctricas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas eléctricos de potencia.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Proyecto Mecatrónico.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de ingeniería eléctrica.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Laboratorio de Montaje de sistemas mecatrónicos II.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de ingeniería electrónica.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Documentación técnica de sistemas eléctricos.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Mantenimiento y reparación de equipos electrónicos.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Montaje y puesta en marcha de equipos electrónicos.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Modelado y simulación de sistemas dinámicos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Elasticidad y resistencia de materiales.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Modelizado y dimensionado de transmisiones mecánicas.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Accionamientos eléctricos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "CAD eléctrico avanzado.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis de datos.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería de Equipos Productivos y Sistemas Automatizados I.",
+        "creditos_ects": "10,5",
+        "caracter": "OP",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Gestión de activos industriales.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Automatización industrial.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería térmica y de fluídos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Instrumentación y control.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas de adquisición de datos y control en tiempo real.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Visión artificial.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería de Equipos Productivos y Sistemas Automatizados II.",
+        "creditos_ects": "10,5",
+        "caracter": "OP",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Gestión de proyectos y personas.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño y ensayo de sistemas mecánicos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Automatización industrial avanzada.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas robotizados y visión artificial.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Laboratorio de instrumentación.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Introducción a la fabricación aditiva.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Calibración de equipos de medición.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería de equipos productivos y sistemas automatizados III.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Química.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas avanzadas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en Empresa I.",
+        "creditos_ects": "18",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Química.",
+        "nombre_asignatura": "Química.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Fundamentos de Informática.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Física I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Biología.",
+        "nombre_asignatura": "Biología.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Expresión Gráfica.",
+        "nombre_asignatura": "Expresión Gráfica I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Física II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Anatomía humana.",
+        "nombre_asignatura": "Anatomía humana y fisiología I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Anatomía humana.",
+        "nombre_asignatura": "Anatomía humana y fisiología II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Anatomía humana.",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Química.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de Informática.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos Metodológicos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Biología.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Expresión gráfica I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Empresa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Anatomía humana y fisiología I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de electrónica.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Biomecánica.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Biomateriales I.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Instrumental médico, prótesis e implantes.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnologías de fabricación.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Expresión gráfica II.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas III.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Biomateriales II.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Anatomía humana y fisiología II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Procesamiento de señales biomédicas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Monitorización y acondicionamiento de señales biomédicas.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física III.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fabricación de equipamiento médico.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño mecánico de equipamiento médico.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Equipamientos tecnológicos en medicina.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnologías de control y robótica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas de imagen médica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas de información en la sanidad.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Procesamiento de imágenes biomédicas.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingeniería hospitalaria.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Certificaciones y normativas sanitarias.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Patología general.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Procesado de datos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas de tecnologías sanitarias.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en empresa III.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "ESTRUCTURAS METÁLICAS Y DE HORMIGÓN ARMADO.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1/1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "CONSTRUCCIONES INDUSTRIALES Y URBANISMO.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1/1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "INSTALACIONES.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1/1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "TECNOLOGÍA ELÉCTRICA.",
+        "creditos_ects": "4",
+        "caracter": "OB",
+        "curso": "1/1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "GESTIÓN DE PROYECTOS.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1/1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "ADMINISTRACIÓN DE EMPRESAS.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1/1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "TRANSPORTE Y MANUTENCIÓN INDUSTRIAL.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1/1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "AUTOMATIZACIÓN AVANZADA DE PROCESOS INDUSTRIALES.",
+        "creditos_ects": "5",
+        "caracter": "OB",
+        "curso": "1/1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "DISEÑO, CÁLCULO Y VERIFICACIÓN DE MÁQUINAS.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1/2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "INGENIERÍA TÉRMICA Y DE FLUIDOS.",
+        "creditos_ects": "5",
+        "caracter": "OB",
+        "curso": "1/2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "SISTEMAS ELECTRÓNICOS.",
+        "creditos_ects": "4",
+        "caracter": "OB",
+        "curso": "1/2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "INGENIERÍA ENERGÉTICA.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1/2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "OPERACIONES PRODUCTIVAS.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1/2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "GESTIÓN DE PERSONAS.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1/2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "TECNOLOGÍA DE PROCESOS QUÍMICOS.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1/2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "ESTRATEGIA Y GESTIÓN DE LA INNOVACIÓN TECNOLÓGICA.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1/2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "ITINERARIO DUAL.",
+        "creditos_ects": "OP",
+        "caracter": "PRÁCTICAS DE FORMACIÓN DUAL I.",
+        "curso": "15",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "ITINERARIO ACADÉMICO.",
+        "creditos_ects": "OP",
+        "caracter": "PRÁCTICAS EN EMPRESA I.",
+        "curso": "15",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "ITINERARIO INVESTIGACIÓN.",
+        "creditos_ects": "OP",
+        "caracter": "PAUTAS METODOLÓGICAS PARA LA ELABORACIÓN DE UNA TESIS DOCTORAL.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "TRABAJO FIN DE MÁSTER.",
+        "creditos_ects": "TFM",
+        "caracter": "",
+        "curso": "15",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "ESTRATEGIA DE MARCA Y PRODUCTO.",
+        "creditos_ects": "4",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "DISEÑO DE SERVICIOS.",
+        "creditos_ects": "4",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "DISEÑO CENTRADO EN LAS PERSONAS.",
+        "creditos_ects": "4",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "GESTIÓN ECONÓMICO FINANCIERA DEL DISEÑO.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "DISEÑO PARTICIPATIVO.",
+        "creditos_ects": "4",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "TALLER DE DISEÑO ESTRATÉGICO.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "TENDENCIAS EN DISEÑO I (*).",
+        "creditos_ects": "5",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "PRÁCTICAS EN ALTERNANCIA I (*).",
+        "creditos_ects": "5",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "PRÁCTICAS DE FORMACIÓN DUAL I (*).",
+        "creditos_ects": "5",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "EXPERIENCIA DE USUARIO Y USABILIDAD.",
+        "creditos_ects": "4",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "METODOLOGIA Y GESTIÓN AVANZADA DEL DISEÑO.",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "COMUNICACIÓN VISUAL AVANZADA.",
+        "creditos_ects": "4",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "TENDENCIAS EN DISEÑO II.",
+        "creditos_ects": "5",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "TALLER DE DISEÑO DE INTERACCIÓN.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "DISEÑO DE INTERACCIÓN.",
+        "creditos_ects": "4",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "PROTOTIPADO EN DISEÑO.",
+        "creditos_ects": "4",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "PRÁCTICAS EN ALTERNANCIA II.",
+        "creditos_ects": "5",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "PRÁCTICAS DE FORMACIÓN DUAL II.",
+        "creditos_ects": "5",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "PRÁCTICAS I.",
+        "creditos_ects": "15",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "PRÁCTICAS DE FORMACIÓN DUAL III.",
+        "creditos_ects": "15",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "MÉTODOS CUANTITATIVOS PARA LA INVESTIGACIÓN.",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "MODELIZACIÓN Y SIMULACIÓN.",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "PAUTAS METODOLÓGICAS PARA LA ELABORACIÓN DE UNA TESIS DOCTORAL.",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "PRODUCCIÓN DE TEXTOS CIENTÍFICOS.",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "GESTIÓN DE PROYECTO DE INVESTIGACIÓN.",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño de convertidores electrónicos de potencia.",
+        "creditos_ects": "4.5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis de convertidores electrónicos de potencia.",
+        "creditos_ects": "4.5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño de máquinas eléctricas.",
+        "creditos_ects": "4.5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Modelado y análisis de máquinas eléctricas.",
+        "creditos_ects": "4.5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Accionamientos.",
+        "creditos_ects": "4.5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis térmico.",
+        "creditos_ects": "3.5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas I (*).",
+        "creditos_ects": "4",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Proyecto de semestre I (*).",
+        "creditos_ects": "4",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas de Formación DUAL I (*).",
+        "creditos_ects": "4",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Almacenamiento de energía.",
+        "creditos_ects": "3.5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tracción eléctrica ferroviaria.",
+        "creditos_ects": "4",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Electromovilidad.",
+        "creditos_ects": "4",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Generación de energía eólica.",
+        "creditos_ects": "4",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Transporte y distribución de la energía eléctrica.",
+        "creditos_ects": "3.5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Generación de energía eléctrica.",
+        "creditos_ects": "3.5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Aplicaciones de convertidores conectados a la red eléctrica.",
+        "creditos_ects": "3.5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas II (*).",
+        "creditos_ects": "4",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Proyecto de semestre II (*).",
+        "creditos_ects": "4",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas de Formación DUAL II (*).",
+        "creditos_ects": "4",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en empresa I.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas de Formación DUAL III.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Métodos cuantitativos para la investigación.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Modelización y simulación.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Pautas metodológicas para la elaboración de una tesis doctoral.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Producción y redacción de textos científicos.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Gestión de Proyectos de investigación.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos del Aprendizaje Automático.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Aprendizaje Automático.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Visualización de Datos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Seguridad en Infraestructuras y Redes.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Plataformas e Infraestructuras.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Arquitecturas Avanzadas de Software.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en Empresa I (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas de Formación DUAL I (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnologías IoT I (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Inteligencia de Datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Aprendizaje Automático Avanzado.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Seguridad Ofensiva.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Seguridad del Software.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Gestión de la Seguridad.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Integración y Despliegue Continuo.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en Empresa II (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas de Formación DUAL II (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnologías IoT II (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en empresa III.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas de Formación DUAL III.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Métodos cuantitativos para la investigación.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Pautas metodológicas para la elaboración de una tesis doctoral.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Producción de textos científicos.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Gestión de Proyectos de investigación.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Modelización y simulación.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "15",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Gemelos digitales para sistemas de energía.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de diseño Térmico.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas de almacenamiento.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Adquisición de datos y teoría de la señal.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Analítica de datos y fundamentos de aprendizaje automático.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Modelado y simulación de sistemas de energía.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de Labview (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en Alternancia I (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas de Formación DUAL I (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Control avanzado de sistemas de energía.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas en tiempo real.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño de sistemas electrónicos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Plataformas de testeo y validación.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Monitorización inteligente.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Inteligencia artificial en aplicaciones de energía.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas de prototipado rápido (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en Alternancia II (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas de Formación DUAL II (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en empresa I.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas de Formación DUAL III.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Métodos cuantitativos para la investigación.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Pautas metodológicas para la elaboración de una tesis doctoral.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Producción de textos científicos.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Gestión de Proyectos de investigación.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Modelización y simulación.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "15",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Aplicaciones Informáticas de la Empresa (AIE).",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de la cadena de suministro.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Finanzas en la dirección de operaciones.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Gestión de compras.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Conceptos avanzados de producción.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Dirección de la producción.",
+        "creditos_ects": "7,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Empresa Digital (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en Alternancia I (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas de Formación DUAL I (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Empresa centrada en las personas.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Producción sostenible.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Transporte internacional de mercancías.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Modelos de mejora continua.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Producción ajustada.",
+        "creditos_ects": "7,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis de la variabilidad de los procesos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en Alternancia II (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas de Formación DUAL II (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Principio Line Back (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en empresa I.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas de Formación DUAL III.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Métodos cuantitativos para la investigación.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Pautas metodológicas para la elaboración de una tesis doctoral.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Producción de textos científicos.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Gestión de Proyectos de investigación.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Modelización y simulación.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "15",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "45",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 719,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n26597 Resolución de 2 de diciembre de 2025, de la Universidad Mondragon \nUnibertsitatea, por la que se publica la modificación de planes de estudios \nGraduado o Graduada y de Máster Universitario.\nDe conformidad con lo que dispone el artículo 28 del Real Decreto 1393/2007, de 29 \nde octubre, modificado por el Real Decreto 861/2010, de 2 de julio, por el que se \nestablece el procedimiento para la modificación de planes de estudio ya verificados, y \ntras haber obtenido el informe Favorable de la Agencia Nacional de Evaluación de la \nCalidad y Acreditación,\nEste Rectorado ha resuelto publicar la modificación de los siguientes planes de \nestudio:\n– Plan de estudios del Grado en Ingeniería de la Energía por Mondragon \nUnibertsitatea, publicado por Resolución de 19 de abril de 2024 (BOE de 28 de enero \nde 2025) y que quedará estructurado según consta en el anexo de esta resolución.\n– Plan de estudios del Grado en Ingeniería en Diseño Industrial y Desarr"
+  }
+}

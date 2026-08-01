@@ -1,0 +1,385 @@
+{
+  "codigo_estudio": "2504711",
+  "titulo": "Graduado o Graduada en Matemática Aplicada / Bachelor in Applied Mathematics por la IE Universidad",
+  "nivel_academico": "Grado - RD 1393/2007 (1)",
+  "universidad_codigo": "057",
+  "universidad_nombre": "IE Universidad",
+  "fecha_procesado": "2026-07-31T14:12:02.057518",
+  "boe_url": "http://www.boe.es/boe/dias/2024/02/26/pdfs/BOE-A-2024-3730.pdf",
+  "boe_fecha": "2024-02-26",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación básica (B).": "60",
+      "Obligatorias (OB).": "108",
+      "Optativas (OP).": "60",
+      "Trabajo de Fin de Grado (TFG).": "12",
+      "Créditos totales.": "240",
+      "Periodo 1.": "Optativas.",
+      "Periodo 2.": "Optativas."
+    },
+    "asignaturas": [
+      {
+        "materia": "Análisis Matemático.",
+        "nombre_asignatura": "Cálculo I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Análisis Matemático.",
+        "nombre_asignatura": "Cálculo II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Álgebra y Geometría.",
+        "nombre_asignatura": "Álgebra Lineal.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Álgebra y Geometría.",
+        "nombre_asignatura": "Geometría.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Ciencias de la Computación.",
+        "nombre_asignatura": "Matemática Discreta.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Ecuaciones Diferenciales.",
+        "nombre_asignatura": "Ecuaciones diferenciales ordinarias.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Ecuaciones Diferenciales.",
+        "nombre_asignatura": "Cálculo numérico.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estadística.",
+        "nombre_asignatura": "Probabilidad y estadística.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Ciencias de la Computación.",
+        "nombre_asignatura": "Programación I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Ciencias de la Computación.",
+        "nombre_asignatura": "Programación II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "B",
+        "nombre_asignatura": "Cálculo I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": "Periodo 1."
+      },
+      {
+        "materia": "B",
+        "nombre_asignatura": "Álgebra Lineal.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "B",
+        "nombre_asignatura": "Matemática Discreta.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "B",
+        "nombre_asignatura": "Geometría.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "B",
+        "nombre_asignatura": "Programación I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "B",
+        "nombre_asignatura": "Cálculo II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": "Periodo 2."
+      },
+      {
+        "materia": "B",
+        "nombre_asignatura": "Programación II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "B",
+        "nombre_asignatura": "Probabilidad y estadística.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "OB",
+        "nombre_asignatura": "Bases de datos.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "OB",
+        "nombre_asignatura": "Visualización de Datos.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "OB",
+        "nombre_asignatura": "Humanidades.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "B",
+        "nombre_asignatura": "Ecuaciones Diferenciales Ordinarias.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": "Periodo 1."
+      },
+      {
+        "materia": "B",
+        "nombre_asignatura": "Cálculo Numérico.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "OB",
+        "nombre_asignatura": "Optimización I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "OB",
+        "nombre_asignatura": "Machine Learning.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "OB",
+        "nombre_asignatura": "Técnicas de comunicación.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "OB",
+        "nombre_asignatura": "Tecnología.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "OB",
+        "nombre_asignatura": "Modelización Matemática.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": "Periodo 2."
+      },
+      {
+        "materia": "OB",
+        "nombre_asignatura": "Aproximación.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "OB",
+        "nombre_asignatura": "Modelos estadísticos.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "OB",
+        "nombre_asignatura": "Optimización II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "OB",
+        "nombre_asignatura": "Emprendimiento.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "OB",
+        "nombre_asignatura": "Ecuaciones en Derivadas Parciales.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": "Periodo 1."
+      },
+      {
+        "materia": "OB",
+        "nombre_asignatura": "Algoritmia.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "OB",
+        "nombre_asignatura": "Optimización III.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "OB",
+        "nombre_asignatura": "Álgebra Lineal Numérica.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "OB",
+        "nombre_asignatura": "Reto IE.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "OB",
+        "nombre_asignatura": "Estadística Bayesiana y procesos estocásticos.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": "Periodo 2."
+      },
+      {
+        "materia": "OB",
+        "nombre_asignatura": "Dinámica no lineal.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "OB",
+        "nombre_asignatura": "Deep Learning.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "OP",
+        "nombre_asignatura": "Optativa.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "OP",
+        "nombre_asignatura": "Optativa.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "OP",
+        "nombre_asignatura": "Optativas.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": "Periodo 1."
+      },
+      {
+        "materia": "OP",
+        "nombre_asignatura": "Optativas.",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": "Periodo 2."
+      },
+      {
+        "materia": "TFG",
+        "nombre_asignatura": "Trabajo de Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 45,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n3730 Resolución de 14 de febrero de 2024, de IE Universidad, por la que se \npublica el plan de estudios de Graduado o Graduada en Matemática \nAplicada/Bachelor in Applied Mathematics.\nEste Rectorado ha resuelto ordenar la publicación en el «Boletín Oficial del Estado» y \nen el «Boletín Oficial de Castilla y León», del plan de estudios conducente a la obtención \ndel título oficial de Graduado o Graduada en Matemática Aplicada / Bachelor in Applied \nMathematics (2504711). Esta decisión se toma en cumplimiento de lo dispuesto en el \nartículo 8.3 de Ley Orgánica 2/2023, de 22 de marzo, del Sistema Universitario y en el \nartículo 27 del Real Decreto 822/2021, de 28 de septiembre, por el que se establece la \norganización de las enseñanzas universitarias y del procedimiento de aseguramiento de \nsu calidad.\nEl título obtuvo la verificación del plan de estudios por el Consejo de Universidades \nel 30 de mayo de 2023 tras el previo informe favorable de la Ag"
+  }
+}

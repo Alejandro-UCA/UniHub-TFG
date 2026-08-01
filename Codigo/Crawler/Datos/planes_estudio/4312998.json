@@ -1,0 +1,173 @@
+{
+  "codigo_estudio": "4312998",
+  "titulo": "Máster Universitario en Asesoría Jurídico-Laboral por la Universidad a Distancia de Madrid",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "074",
+  "universidad_nombre": "Universidad a Distancia de Madrid",
+  "fecha_procesado": "2026-07-31T14:23:53.424160",
+  "boe_url": "http://www.boe.es/boe/dias/2012/03/28/pdfs/BOE-A-2012-4303.pdf",
+  "boe_fecha": "2012-03-28",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "OBLIGATORIAS": "48",
+      "OPTATIVAS": "-",
+      "PRÁCTICAS EXTERNAS": "6",
+      "TRABAJO FIN DE MÁSTER": "6",
+      "TOTAL": "60",
+      "Informática Aplicada a la Asesoría Jurídico-Laboral": "Informática Aplicada",
+      "Procedimientos Administrativos en el Ámbito Socio-Laboral": "Práctica Administrativa y Procesal Laboral",
+      "Intervención en los Procesos Civiles, Contenciosos y Penales": "Práctica Administrativa y Procesal Laboral",
+      "Práctica Procesal Laboral": "Práctica Administrativa y Procesal Laboral",
+      "Auditoría Jurídico-Laboral": "Auditoría Jurídico- Laboral",
+      "Diseño de Políticas de Contratación, Cláusulas Contractuales y Política Retributiva": "Práctica en Relaciones Laborales",
+      "Efectos Laborales en la Reestructuración y Sucesión de Empresas": "Práctica en Relaciones Laborales",
+      "Estrategia Empresarial en Materia de Despidos e Indemnizaciones": "Práctica en Relaciones Laborales",
+      "Responsabilidad Empresarial por Incumplimientos Socio-Laborales": "Práctica en Relaciones Laborales",
+      "Seguridad Social y Empresa: Políticas de Protección Social": "Práctica en Relaciones Laborales",
+      "Procesos y Estrategias de Negociación Colectiva": "Práctica en Relaciones Laborales",
+      "Habilidades y Competencias Profesionales del Asesor Jurídico- Laboral": "Desarrollo Profesional",
+      "Prácticas Externas": "Prácticas Externas",
+      "Trabajo Fin de Máster": "Trabajo Fin de Máster"
+    },
+    "asignaturas": [
+      {
+        "materia": "Informática Aplicada",
+        "nombre_asignatura": "Informática Aplicada a la Asesoría Jurídico-Laboral",
+        "creditos_ects": "1",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Práctica Administrativa y Procesal Laboral",
+        "nombre_asignatura": "Procedimientos Administrativos en el Ámbito Socio-Laboral",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Práctica Administrativa y Procesal Laboral",
+        "nombre_asignatura": "Intervención en los Procesos Civiles, Contenciosos y Penales",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Práctica Administrativa y Procesal Laboral",
+        "nombre_asignatura": "Práctica Procesal Laboral",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Auditoría Jurídico- Laboral",
+        "nombre_asignatura": "Auditoría Jurídico-Laboral",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Práctica en Relaciones Laborales",
+        "nombre_asignatura": "Diseño de Políticas de Contratación, Cláusulas Contractuales y Política Retributiva",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Práctica en Relaciones Laborales",
+        "nombre_asignatura": "Efectos Laborales en la Reestructuración y Sucesión de Empresas",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Práctica en Relaciones Laborales",
+        "nombre_asignatura": "Estrategia Empresarial en Materia de Despidos e Indemnizaciones",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Práctica en Relaciones Laborales",
+        "nombre_asignatura": "Responsabilidad Empresarial por Incumplimientos Socio-Laborales",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Práctica en Relaciones Laborales",
+        "nombre_asignatura": "Seguridad Social y Empresa: Políticas de Protección Social",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Práctica en Relaciones Laborales",
+        "nombre_asignatura": "Procesos y Estrategias de Negociación Colectiva",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Desarrollo Profesional",
+        "nombre_asignatura": "Habilidades y Competencias Profesionales del Asesor Jurídico- Laboral",
+        "creditos_ects": "5",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Prácticas Externas",
+        "nombre_asignatura": "Prácticas Externas",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo Fin de Máster",
+        "nombre_asignatura": "Trabajo Fin de Máster",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo Fin de Máster",
+        "nombre_asignatura": "TOTAL CREDITOS",
+        "creditos_ects": "60",
+        "caracter": "-",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo Fin de Máster",
+        "nombre_asignatura": "TOTAL HORAS ESTUDIO",
+        "creditos_ects": "",
+        "caracter": "-",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo Fin de Máster",
+        "nombre_asignatura": "ESTIMACIÓN HORAS ESTUDIO DIARIAS",
+        "creditos_ects": "",
+        "caracter": "-",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 17,
+    "texto_extraido_muestra": "BOLETÍN OFICIAL DEL ESTADO\nNúm. 75 Miércoles 28 de marzo de 2012 Sec. III.   Pág. 26249\nIII. OTRAS DISPOSICIONES\nUNIVERSIDADES\n4303 Resolución de 9 de enero de 2012, de la Universidad a Distancia de Madrid, \npor la que se publica el plan de estudios de Máster en Asesoría Jurídico-\nLaboral.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme favorable de la Agencia Nacional de Evaluación de la Calidad y Acreditación y \ndeclarado el carácter oficial del título por Acuerdo del Consejo de Ministros de 16 de \ndiciembre de 2011 (publicado en el BOE de 7 de enero de 2012, por Resolución de la \nSecretaría de Estado de Universidades, de 21 de diciembre de 2011),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención del \ntítulo de Máster Universitario en Asesoría Jurídico-Laboral.\nEl plan de estudios a que se refiere la presente Resolución quedará estructurado \nconforme figura en el anexo de la misma.\nCollado Villalba, 9 de e"
+  }
+}

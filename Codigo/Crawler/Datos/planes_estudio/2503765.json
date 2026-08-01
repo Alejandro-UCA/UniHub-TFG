@@ -1,0 +1,467 @@
+{
+  "codigo_estudio": "2503765",
+  "titulo": "Graduado o Graduada en Comportamiento y Ciencias Sociales / Bachelor in Behavior and Social Sciences por la IE Universidad",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "057",
+  "universidad_nombre": "IE Universidad",
+  "fecha_procesado": "2026-07-31T14:11:26.526763",
+  "boe_url": "http://www.boe.es/boe/dias/2022/05/20/pdfs/BOE-A-2022-8317.pdf",
+  "boe_fecha": "2022-05-20",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica.": "60",
+      "Obligatorias.": "138",
+      "Optativas.": "30",
+      "Trabajo fin de Grado.": "12",
+      "Total créditos.": "240",
+      "Formación básica.": "Psicología.",
+      "Métodos de análisis.": "Métodos cuantitativos.",
+      "Sociología y Antropología.": "Antropología.",
+      "Transversal.": "Reto IE.",
+      "Psicología.": "Aplicaciones de la Psicología.",
+      "Métodos de Análisis.": "Fundamentos y métodos cualitativos.",
+      "Sociología Y Antropología.": "Antropología.",
+      "Economía y Empresa.": "Administración de Empresas.",
+      "Ciencias Políticas y Derecho.": "Ciencias Políticas.",
+      "Desarrollo profesional.": "Optativas.",
+      "Economía y empresa.": "Administración de Empresas.",
+      "Trabajo Fin de Grado.": "Trabajo Fin de Grado."
+    },
+    "asignaturas": [
+      {
+        "materia": "Ciencias Sociales.",
+        "nombre_asignatura": "Fundamentos de las Ciencias Sociales.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología.",
+        "nombre_asignatura": "Fundamentos del comportamiento.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología.",
+        "nombre_asignatura": "La psicología de la cognición y la emoción.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología.",
+        "nombre_asignatura": "Comportamiento organizacional.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estadística.",
+        "nombre_asignatura": "Fundamentos de Probabilidad y Estadística.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estadística.",
+        "nombre_asignatura": "Visualización e interpretación de datos.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estadística.",
+        "nombre_asignatura": "Fundamentos del análisis de datos.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Técnicas de presentación.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Técnicas de escritura.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Cómo convertirse en un científico del comportamiento.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Emprendimiento.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Historia.",
+        "nombre_asignatura": "Humanidades.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Ciencias Sociales.",
+        "nombre_asignatura": "Fundamentos de las Ciencias Sociales.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología.",
+        "nombre_asignatura": "Fundamentos del comportamiento humano.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estadística.",
+        "nombre_asignatura": "Fundamentos de Probabilidad y Estadística.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estadística.",
+        "nombre_asignatura": "Visualización e interpretación de datos.",
+        "creditos_ects": "3",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Técnicas de escritura.",
+        "creditos_ects": "3",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Fundamentos y métodos cualitativos.",
+        "nombre_asignatura": "Técnicas de observación, experimentación y encuestación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estadística.",
+        "nombre_asignatura": "Fundamentos de la analítica de datos.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Técnicas de presentación.",
+        "creditos_ects": "3",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Cómo convertirse en un científico del comportamiento.",
+        "creditos_ects": "3",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Métodos cuantitativos.",
+        "nombre_asignatura": "Simulación y modelos para entender el cambio.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Sociología.",
+        "nombre_asignatura": "Poder y desigualdad: Fundamentos de Teoría Social.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Humanidades.",
+        "nombre_asignatura": "Humanidades.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología.",
+        "nombre_asignatura": "La Psicología de la cognición y la emoción.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Fundamentos de la Psicología.",
+        "nombre_asignatura": "Personalidad, individuo y diferencias culturales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Fundamentos y métodos cualitativos.",
+        "nombre_asignatura": "Métodos cualitativos para el estudio de las personas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Sociología.",
+        "nombre_asignatura": "Población y Demografía.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Tecnología.",
+        "nombre_asignatura": "Tecnología.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología.",
+        "nombre_asignatura": "Comportamiento organizacional.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Emprendimiento.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Antropología.",
+        "nombre_asignatura": "Antropología social y digital.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Economía.",
+        "nombre_asignatura": "Introducción a la Economía.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Métodos cuantitativos.",
+        "nombre_asignatura": "Métodos cuantitativos para el estudio de las personas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Fundamentos de la Psicología.",
+        "nombre_asignatura": "Comportamiento y cerebro.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Fundamentos de la Psicología.",
+        "nombre_asignatura": "Neurociencia comportamental.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Fundamentos de la Psicología.",
+        "nombre_asignatura": "Influencia y persuasión.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho.",
+        "nombre_asignatura": "Derecho y el comportamiento humano.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Aplicaciones de la Psicología.",
+        "nombre_asignatura": "La auto-gestion y la gestión del estrés.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Economía.",
+        "nombre_asignatura": "Economía conductual y la toma de decisiones.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Reto IE.",
+        "nombre_asignatura": "Reto IE.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Aplicaciones de la Psicología.",
+        "nombre_asignatura": "«Nudging» y el diseño comportamental.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Ciencias Políticas.",
+        "nombre_asignatura": "Opinión pública, preferencias y comportamiento del votante.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Ciencias Políticas.",
+        "nombre_asignatura": "EL estado del bienestar y el diseño de políticas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Administración de Empresas.",
+        "nombre_asignatura": "Marketing, Publicidad y Comportamiento del Consumidor.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Antropología.",
+        "nombre_asignatura": "Comunidad, Sociedad y Cultura.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Optativas.",
+        "nombre_asignatura": "Optativas.",
+        "creditos_ects": "30",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Aplicaciones de la Psicología.",
+        "nombre_asignatura": "Tópico avanzado: coaching, asesoramiento e intervención comportamental.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Aplicaciones de la Psicología.",
+        "nombre_asignatura": "Tópico avanzado: Psicología de los medios.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Administración de Empresas.",
+        "nombre_asignatura": "Tópico avanzado: neuromarketing.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Administración de Empresas.",
+        "nombre_asignatura": "Tópico avanzado: liderando el cabio en las organizaciones.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Administración de Empresas.",
+        "nombre_asignatura": "Tópico avanzado: emprendimiento social.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Administración de Empresas.",
+        "nombre_asignatura": "Tópico avanzado: diseño de la experiencia del consumidor.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo Fin de Grado.",
+        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 54,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n8317 Resolución de 3 de mayo de 2022, de IE Universidad, por la que se publica la \nmodificación del plan de estudios de Graduado o Graduada en \nComportamiento y Ciencias Sociales/Bachelor in Behavior and Social \nSciences.\nDe conformidad con lo dispuesto en el artículo 32 del Real Decreto 822/2021, de 28 \nde septiembre, por el que se establece la organización de las enseñanzas universitarias \ny del procedimiento de aseguramiento de su calidad, en el que se regula el \nprocedimiento para la modificación sustancial de los planes de estudios impartidos en \ncentros universitarios no acreditados institucionalmente, y una vez recibido informe \nfavorable de la Agencia para la Calidad del Sistema Universitario de Castilla y León a las \nmodificaciones presentadas al título oficial de Graduado/a en Comportamiento y Ciencias \nSociales / Bachelor in Behavior and Social Sciences por la IE Universidad (2503765) \nestablecido por Acuerdo del Consejo de Ministros de"
+  }
+}

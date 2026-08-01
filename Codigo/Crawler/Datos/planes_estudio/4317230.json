@@ -1,0 +1,445 @@
+{
+  "codigo_estudio": "4317230",
+  "titulo": "Máster Universitario en Ciencia de Datos e Inteligencia Artificial / Master in Data Science and Artificial Intelligence por la CUNEF Universidad",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "089",
+  "universidad_nombre": "CUNEF Universidad",
+  "fecha_procesado": "2026-07-31T14:09:27.598239",
+  "boe_url": "http://www.boe.es/boe/dias/2026/02/19/pdfs/BOE-A-2026-3902.pdf",
+  "boe_fecha": "2026-02-19",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación básica (FB).": "60",
+      "Obligatorias (OB).": "162",
+      "Optativas (OP).": "12",
+      "Trabajo de Fin de Grado (TFG).": "6",
+      "Créditos totales.": "240",
+      "Matemáticas. Mathematics.": "Álgebra Lineal. Linear Algebra.",
+      "Estadística. Statistics.": "Probabilidad y Estadística. Probability and Statistics.",
+      "Programación y Algorítmica. Programming & Algorithmics.": "Lógica. Logic.",
+      "Arquitectura de computadores, redes y sistemas operativos. Computer, Network and Operating System Architecture.": "Fundamentos de computadores. Principles of Computers.",
+      "Bases de Datos. Databases.": "Bases de Datos relacionales. Relational Databases.",
+      "Aprendizaje mente-máquina. Neural Machine Learning.": "Neurociencia computacional. Computational Neuroscience.",
+      "Tratamiento de Datos. Data Processing.": "Adquisición y procesado de datos. Data Collection and Processing.",
+      "Escenarios tecnológicos de la Inteligencia Artificial. Technological Scenarios of Artificial Intelligence.": "Robótica y Visión Artificial. Robotics and Computer Vision.",
+      "Soft skills.": "Búsqueda, uso y tratamiento de la información. Search, Processing and Use of Information.",
+      "Inteligencia Artificial en la práctica. Artificial Intelligence for Practical Purposes.": "Innovación sostenible en Inteligencia Artificial. Sustainable Innovation in Artificial Intelligence.",
+      "La ética y la privacidad de la Inteligencia Artificial. The Ethics and Privacy of Artificial Intelligence.": "Privacidad y protección de datos. Data Protection and Privacy.",
+      "Optatividad. Elective Courses.": "Asignaturas optativas. Elective Courses.",
+      "Prácticas Académicas Externas. Academic Internship.": "Prácticas Académicas Externas. Academic Internship.",
+      "Trabajo de fin de Grado. Final Degree Project.": "Trabajo de fin de Grado. Final Degree Project."
+    },
+    "asignaturas": [
+      {
+        "materia": "Matemáticas. Mathematics.",
+        "nombre_asignatura": "Álgebra Lineal. Linear Algebra.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas. Mathematics.",
+        "nombre_asignatura": "Cálculo I. Calculus I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas. Mathematics.",
+        "nombre_asignatura": "Cálculo II. Calculus II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas. Mathematics.",
+        "nombre_asignatura": "Matemática discreta. Discrete Mathematics.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estadística. Statistics.",
+        "nombre_asignatura": "Probabilidad y estadística. Probability and Statistics.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Programación y Algorítmica. Programming & Algorithmics.",
+        "nombre_asignatura": "Lógica. Logic.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Programación y Algorítmica. Programming & Algorithmics.",
+        "nombre_asignatura": "Fundamentos de Programación I. Principles of Programming I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Programación y Algorítmica. Programming & Algorithmics.",
+        "nombre_asignatura": "Fundamentos de Programación II. Principles of Programming II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Programación y Algorítmica. Programming & Algorithmics.",
+        "nombre_asignatura": "Análisis y diseño de algoritmos. Algorithm Analysis and Design.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Arquitectura de computadores, redes y sistemas operativos. Computer, Network and Operating System Architecture.",
+        "nombre_asignatura": "Fundamentos de los computadores. Principles of Computers.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas. Mathematics.",
+        "nombre_asignatura": "Álgebra Lineal. Linear Algebra.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Matemáticas. Mathematics.",
+        "nombre_asignatura": "Cálculo I. Calculus I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Matemáticas. Mathematics.",
+        "nombre_asignatura": "Cálculo II. Calculus II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Matemáticas. Mathematics.",
+        "nombre_asignatura": "Matemática Discreta. Discrete Mathematics.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Estadística. Statistics.",
+        "nombre_asignatura": "Probabilidad y Estadística. Probability and Statistics.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Estadística. Statistics.",
+        "nombre_asignatura": "Métodos estadísticos. Statistical Methods.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Programación y Algorítmica. Programming & Algorithmics.",
+        "nombre_asignatura": "Lógica. Logic.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Programación y Algorítmica. Programming & Algorithmics.",
+        "nombre_asignatura": "Fundamentos de Programación I. Principles of Programming I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Programación y Algorítmica. Programming & Algorithmics.",
+        "nombre_asignatura": "Fundamentos de Programación II. Principles of Programming II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Programación y Algorítmica. Programming & Algorithmics.",
+        "nombre_asignatura": "Análisis y diseño de algoritmos. Algorithm Analysis and Design.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Programación y Algorítmica. Programming & Algorithmics.",
+        "nombre_asignatura": "Programación de Aplicaciones Inteligentes. Smart Application Programming.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Arquitectura de computadores, redes y sistemas operativos. Computer, Network and Operating System Architecture.",
+        "nombre_asignatura": "Fundamentos de computadores. Principles of Computers.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Arquitectura de computadores, redes y sistemas operativos. Computer, Network and Operating System Architecture.",
+        "nombre_asignatura": "Estructura de computadores. Computer Structure.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Arquitectura de computadores, redes y sistemas operativos. Computer, Network and Operating System Architecture.",
+        "nombre_asignatura": "Redes y sistemas operativos. Networks and Operating Systems.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Arquitectura de computadores, redes y sistemas operativos. Computer, Network and Operating System Architecture.",
+        "nombre_asignatura": "Procesamiento paralelo y sistemas distribuidos. Parallel Processing and Distributed Systems.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Bases de Datos. Databases.",
+        "nombre_asignatura": "Bases de Datos relacionales. Relational Databases.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Bases de Datos. Databases.",
+        "nombre_asignatura": "Bases de Datos no relacionales. Non-Relational Databases.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Aprendizaje mente-máquina. Neural Machine Learning.",
+        "nombre_asignatura": "Neurociencia computacional. Computational Neuroscience.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Aprendizaje mente-máquina. Neural Machine Learning.",
+        "nombre_asignatura": "Procesamiento del Lenguaje Natural. Natural Language Processing.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Aprendizaje mente-máquina. Neural Machine Learning.",
+        "nombre_asignatura": "Aprendizaje automático. Machine Learning.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Aprendizaje mente-máquina. Neural Machine Learning.",
+        "nombre_asignatura": "Redes neuronales. Neural Networks.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Tratamiento de Datos. Data Processing.",
+        "nombre_asignatura": "Adquisición y procesado de datos. Data Collection and Processing.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Tratamiento de Datos. Data Processing.",
+        "nombre_asignatura": "Automatización de informes. Reporting Automation.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Escenarios tecnológicos de la Inteligencia Artificial. Technological Scenarios of Artificial Intelligence.",
+        "nombre_asignatura": "Robótica y Visión Artificial. Robotics and Computer Vision.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Escenarios tecnológicos de la Inteligencia Artificial. Technological Scenarios of Artificial Intelligence.",
+        "nombre_asignatura": "Ciberseguridad. Cybersecurity.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Escenarios tecnológicos de la Inteligencia Artificial. Technological Scenarios of Artificial Intelligence.",
+        "nombre_asignatura": "Internet de las Cosas. Internet of Things.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Escenarios tecnológicos de la Inteligencia Artificial. Technological Scenarios of Artificial Intelligence.",
+        "nombre_asignatura": "Ciudades inteligentes. Smart Cities.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Soft skills.",
+        "nombre_asignatura": "Búsqueda, uso y tratamiento de la información. Search, Processing and Use of Information.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Soft skills.",
+        "nombre_asignatura": "Pensamiento crítico. Critical Thinking and Argumentation.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Soft skills.",
+        "nombre_asignatura": "Comunicación oral y escrita. Oral and Written Communication Skills.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Soft skills.",
+        "nombre_asignatura": "Metodologías ágiles y gestión de proyectos. Agile Project Management.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Inteligencia Artificial en la práctica. Artificial Intelligence for Practical Purposes.",
+        "nombre_asignatura": "Innovación sostenible en Inteligencia Artificial. Sustainable Innovation in Artificial Intelligence.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Inteligencia Artificial en la práctica. Artificial Intelligence for Practical Purposes.",
+        "nombre_asignatura": "Gestión de empresas en Inteligencia Artificial. Artificial Intelligence in Business Management.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Inteligencia Artificial en la práctica. Artificial Intelligence for Practical Purposes.",
+        "nombre_asignatura": "Finanzas e Inteligencia Artificial. Finance and Artificial Intelligence.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Inteligencia Artificial en la práctica. Artificial Intelligence for Practical Purposes.",
+        "nombre_asignatura": "Logística e Inteligencia Artificial. Logistics and Artificial Intelligence.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Inteligencia Artificial en la práctica. Artificial Intelligence for Practical Purposes.",
+        "nombre_asignatura": "Marketing e Inteligencia Artificial. Marketing and Artificial Intelligence.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "La ética y la privacidad de la Inteligencia Artificial. The Ethics and Privacy of Artificial Intelligence.",
+        "nombre_asignatura": "Privacidad y protección de datos. Data Protection and Privacy.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "La ética y la privacidad de la Inteligencia Artificial. The Ethics and Privacy of Artificial Intelligence.",
+        "nombre_asignatura": "Ética y regulación de la Inteligencia Artificial. Artificial Intelligence Ethics and Regulation.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Optatividad. Elective Courses.",
+        "nombre_asignatura": "Asignaturas optativas. Elective Courses.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Prácticas Académicas Externas. Academic Internship.",
+        "nombre_asignatura": "Prácticas Académicas Externas. Academic Internship.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Trabajo de fin de Grado. Final Degree Project.",
+        "nombre_asignatura": "Trabajo de fin de Grado. Final Degree Project.",
+        "creditos_ects": "6",
+        "caracter": "TFG",
+        "curso": "4",
+        "cuatrimestre": "2"
+      }
+    ],
+    "total_asignaturas": 51,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n3902 Resolución de 4 de febrero de 2026, de CUNEF Universidad, por la que se \npublica la modificación del plan de estudios de Graduado o Graduada en \nInteligencia Artificial/Bachelor in Artificial Intelligence.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme favorable de la Agencia Evaluadora Fundación para el Conocimiento Madri+d, \nautorizada su implantación por la Comunidad de Madrid y establecido el carácter oficial \ndel título por Acuerdo de Consejo de Ministros de 17 de septiembre de 2024 (publicado, \npor Resolución de 20 de septiembre de 2024, de la Secretaría General de \nUniversidades, en el «Oficial del Estado» de 27 de septiembre de 2024), y habiendo sido \nmodificado el mencionado plan de estudios, con informe favorable de la Fundación para \nel Conocimiento Madri+d, de fecha 16 de junio de 2025,\nEste Rectorado, de conformidad con lo dispuesto en el artículo 27.4 del Real \nDecreto 822/2021, de"
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "codigo_estudio": "3500299",
+  "titulo": "Máster Universitario en Inteligencia Artificial Aplicada por la Mondragón Unibertsitatea",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "061",
+  "universidad_nombre": "Mondragón Unibertsitatea",
+  "fecha_procesado": "2026-07-31T14:17:25.888788",
+  "boe_url": "http://www.boe.es/boe/dias/2025/07/04/pdfs/BOE-A-2025-13774.pdf",
+  "boe_fecha": "2025-07-04",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Matemática aplicada a la IA.": "OB",
+      "Programación aplicada a la IA.": "OB",
+      "Minería de Datos.": "OB",
+      "Aprendizaje Automático I.": "OB",
+      "Seminarios en Tecnologías Emergentes I.": "OB",
+      "Análisis de Series Temporales.": "OB",
+      "Aprendizaje Profundo.": "OB",
+      "Ingesta de Datos y Almacenamiento.": "OB",
+      "Representación del Conocimiento y Razonamiento.": "OB",
+      "Sensórica y Adquisición de Datos (*).": "OP",
+      "Prácticas en Empresa I (*).": "OP",
+      "Gestión de Proyectos de IA.": "OB",
+      "Aprendizaje Automático II.": "OB",
+      "IA explicativa.": "OB",
+      "Seminarios en Tecnologías Emergentes II.": "OB",
+      "Aprendizaje por Refuerzo.": "OB",
+      "Inteligencia de Datos.": "OB",
+      "Optimización mediante Técnicas de IA.": "OB",
+      "Sistemas Multiagente.": "OB",
+      "Ciberseguridad (*).": "OP",
+      "Prácticas en Empresa II (*).": "OP",
+      "Itinerario: Especialización académica.": "Prácticas en empresa I.",
+      "Itinerario: Iniciación en tareas de investigación.": "Métodos cuantitativos para la investigación.",
+      "Comunes.": "Trabajo Fin de Máster."
+    },
+    "asignaturas": [
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemática aplicada a la IA.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Programación aplicada a la IA.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Minería de Datos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Aprendizaje Automático I.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Seminarios en Tecnologías Emergentes I.",
+        "creditos_ects": "1,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis de Series Temporales.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Aprendizaje Profundo.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ingesta de Datos y Almacenamiento.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Representación del Conocimiento y Razonamiento.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sensórica y Adquisición de Datos (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en Empresa I (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "33",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Gestión de Proyectos de IA.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Aprendizaje Automático II.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "IA explicativa.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Seminarios en Tecnologías Emergentes II.",
+        "creditos_ects": "1,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Aprendizaje por Refuerzo.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Inteligencia de Datos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Optimización mediante Técnicas de IA.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas Multiagente.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ciberseguridad (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en Empresa II (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "33",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Itinerario: Especialización académica.",
+        "creditos_ects": "OP",
+        "caracter": "Prácticas en empresa I.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Itinerario: Iniciación en tareas de investigación.",
+        "creditos_ects": "OP",
+        "caracter": "Métodos cuantitativos para la investigación.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Comunes.",
+        "creditos_ects": "TFM",
+        "caracter": "Trabajo Fin de Máster.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 27,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n13774 Resolución de 11 de junio de 2025, de la Universidad Mondragon \nUnibertsitatea, por la que se publica el plan de estudios de Máster \nUniversitario en Inteligencia Artificial Aplicada.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme favorable de la Agencia de Calidad del Sistema Universitario Vasco, así como la \nautorización de la Comunidad Autónoma Vasca, y establecido el carácter oficial del título \npor Acuerdo de Consejo de Ministros de 17 de septiembre de 2024 (publicado en el BOE \nde 27 de septiembre de 2024),\nEste Rectorado, de conformidad con lo dispuesto en el artículo 35 de la Ley \nOrgánica 6/2001, de Universidades, en la redacción dada por la Ley Orgánica 4/2007, ha \nresuelto publicar el plan de estudios conducente a la obtención del título de Máster \nUniversitario en Inteligencia Artificial Aplicada.\nMondragón, 11 de junio de 2025.–El Rector, Vicente Atxa Uribe.\nANEXO\nContenido del pla"
+  }
+}

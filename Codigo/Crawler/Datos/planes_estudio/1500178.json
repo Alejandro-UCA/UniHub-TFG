@@ -1,0 +1,1175 @@
+{
+  "codigo_estudio": "1500178",
+  "titulo": "Graduado o Graduada en Ingeniería Informática por la ESIC Universidad",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "087",
+  "universidad_nombre": "ESIC Universidad",
+  "fecha_procesado": "2026-07-31T14:10:13.680623",
+  "boe_url": "http://www.boe.es/boe/dias/2026/04/06/pdfs/BOE-A-2026-7822.pdf",
+  "boe_fecha": "2026-04-06",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica.": "60",
+      "Obligatorios.": "126",
+      "Optativos.": "30",
+      "Prácticas Académicas Externas.": "Prácticas Académicas Externas.",
+      "Trabajo Fin de Grado.": "Trabajo Fin de Grado.",
+      "Créditos totales.": "240",
+      "Fundamentos Científicos.": "Métodos Operativos y Estadísticos.",
+      "Informática.": "Introducción a la Informática.",
+      "Programación.": "Procesadores de Lenguajes.",
+      "Empresa y Profesión.": "Deontología y Derecho Informático.",
+      "Arquitectura y Tecnología de Computadores.": "Arquitecturas Avanzadas.",
+      "Algoritmia.": "Algorítmica.",
+      "Bases de Datos.": "Bases de datos.",
+      "Idioma Moderno.": "Idioma Moderno.",
+      "Arquitectura de Redes.": "Redes de Computadores.",
+      "Ingeniería del Software.": "Ampliación de Ingeniería del Software.",
+      "Seguridad Informática.": "Ciberseguridad.",
+      "Computación Gráfica.": "Informática Gráfica.",
+      "Inteligencia Artificial.": "Inteligencia Artificial.",
+      "Retos para el profesional de la Informática.": "Optativa 4.",
+      "Retos para el profesional de la Informática I.": "Programación Funcional.",
+      "Retos para el profesional de la Informática II.": "Visualización.",
+      "Retos para el profesional de la Informática III.": "Metodologías de Desarrollo Seguro.",
+      "Marketing.": "Plan de Marketing.",
+      "Comunicación.": "Publicidad en Buscadores (SEM).",
+      "Derecho.": "Regulación Jurídica en el Ámbito del Marketing y de la Comunicación.",
+      "Empresa y otros.": "Presupuestos para la Comunicación y el Marketing.",
+      "Humanidades.": "Humanismo Digital.",
+      "Optativa A1 Producción.": "Diseño Gráfico / Producción Audiovisual/ Diseño Web/ Radio Digital.",
+      "TFG.": "Trabajo Fin de Grado.",
+      "Optativa A 2 Laboratorios.": "Laboratorios.",
+      "Optativa A3 Habilidades.": "Marca Personal / Gestión de Talento / Gestión de Proyectos / Profesiones de la Industria del Marketing y la Comunicación.",
+      "Optativa B Prácticas.": "Prácticas Académicas Externas I.",
+      "Psicobiología.": "Psicobiología II.",
+      "Metodología de las Ciencias del Comportamiento.": "Métodos, diseño y Técnicas de Investigación en Psicología.",
+      "Psicología Básica.": "Psicología de la Memoria.",
+      "Antropología.": "Bases Antropológicas de la Conducta.",
+      "Psicología del Ciclo Vital y de la Educación.": "Psicología Evolutiva y del Desarrollo.",
+      "Psicología Social y del Trabajo.": "Psicología Forense y Penitenciaria.",
+      "Psicología del ciclo vital y de la educación.": "Psicología de la Educación.",
+      "Personalidad, Evaluación y Tratamiento Psicológico.": "Evaluación en Contextos Sociales y Organizacionales.",
+      "Psicología del Trabajo y de los Recursos Humanos.": "Nuevas Tendencias en Psicología del Trabajo y RRHH: HR Analitics, IA y Transformación Digital.",
+      "Neurociencia y Psicología aplicada al Marketing y la Comunicación.": "Laboratorio de Neurociencia (MindLab).",
+      "Psicología Clínica y de la Salud.": "Nuevas tecnologías (TIC´s) en Psicología de la Salud.",
+      "Reconocimiento Académico de Créditos.": "Reconocimiento Académico de Créditos."
+    },
+    "asignaturas": [
+      {
+        "materia": "Fundamentos Científicos.",
+        "nombre_asignatura": "Álgebra y Matemática Discreta.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Fundamentos Científicos.",
+        "nombre_asignatura": "Física.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Introducción a la Informática.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Programación.",
+        "nombre_asignatura": "Programación.",
+        "creditos_ects": "9",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa y Profesión.",
+        "nombre_asignatura": "Informática y Sociedad.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Fundamentos Científicos.",
+        "nombre_asignatura": "Cálculo.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Fundamentos Científicos.",
+        "nombre_asignatura": "Lógica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Programación.",
+        "nombre_asignatura": "Estructuras de Datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Arquitectura y Tecnología de Computadores.",
+        "nombre_asignatura": "Fundamentos de los Computadores.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Algoritmia.",
+        "nombre_asignatura": "Teoría de Autómatas y Lenguajes Formales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Arquitectura y Tecnología de Computadores.",
+        "nombre_asignatura": "Estructura de Computadores.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Programación.",
+        "nombre_asignatura": "Programación Orientada a Objetos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Bases de Datos.",
+        "nombre_asignatura": "Bases de datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Fundamentos Científicos.",
+        "nombre_asignatura": "Probabilidad y Estadística.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Idioma Moderno.",
+        "nombre_asignatura": "Idioma Moderno.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Arquitectura y Tecnología de Computadores.",
+        "nombre_asignatura": "Arquitectura de Computadores.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa y Profesión.",
+        "nombre_asignatura": "Economía y Empresa.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Algoritmia.",
+        "nombre_asignatura": "Algorítmica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Arquitectura de Redes.",
+        "nombre_asignatura": "Redes de Computadores.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Ingeniería del Software.",
+        "nombre_asignatura": "Ingeniería del Software.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Arquitectura y Tecnología de Computadores.",
+        "nombre_asignatura": "Sistemas Operativos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Programación.",
+        "nombre_asignatura": "Programación Concurrente.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Seguridad Informática.",
+        "nombre_asignatura": "Ciberseguridad.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Fundamentos Científicos.",
+        "nombre_asignatura": "Métodos Operativos y Estadísticos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Programación.",
+        "nombre_asignatura": "Estructuras de Datos Avanzadas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Arquitectura y Tecnología de Computadores.",
+        "nombre_asignatura": "Sistemas Empotrados y de Tiempo Real.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Computación Gráfica.",
+        "nombre_asignatura": "Informática Gráfica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Inteligencia Artificial.",
+        "nombre_asignatura": "Inteligencia Artificial.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Arquitectura y Tecnología de Computadores.",
+        "nombre_asignatura": "Arquitecturas Avanzadas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Programación.",
+        "nombre_asignatura": "Procesadores de Lenguajes.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Ingeniería del Software.",
+        "nombre_asignatura": "Ampliación de Ingeniería del Software.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa y Profesión.",
+        "nombre_asignatura": "Deontología y Derecho Informático.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Retos para el profesional de la Informática.",
+        "nombre_asignatura": "Optativa 1.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Retos para el profesional de la Informática.",
+        "nombre_asignatura": "Optativa 2.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Retos para el profesional de la Informática.",
+        "nombre_asignatura": "Optativa 3.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Retos para el profesional de la Informática.",
+        "nombre_asignatura": "Optativa 4.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Prácticas Académicas Externas.",
+        "nombre_asignatura": "Prácticas Académicas Externas.",
+        "creditos_ects": "18",
+        "caracter": "PAE",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo Fin de Grado.",
+        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Retos para el profesional de la Informática I.",
+        "nombre_asignatura": "Programación Web.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Retos para el profesional de la Informática I.",
+        "nombre_asignatura": "Desarrollo de Aplicaciones para Dispositivos Móviles.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Retos para el profesional de la Informática I.",
+        "nombre_asignatura": "Desarrollo de Experiencias Inmersivas y de Realidad Virtual.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Retos para el profesional de la Informática I.",
+        "nombre_asignatura": "Programación Funcional.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Retos para el profesional de la Informática II.",
+        "nombre_asignatura": "Robótica y Domótica.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Retos para el profesional de la Informática II.",
+        "nombre_asignatura": "Interacción Persona-Computador.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Retos para el profesional de la Informática II.",
+        "nombre_asignatura": "Visión Artificial.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Retos para el profesional de la Informática II.",
+        "nombre_asignatura": "Visualización.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Retos para el profesional de la Informática III.",
+        "nombre_asignatura": "Técnicas de Hacking.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Retos para el profesional de la Informática III.",
+        "nombre_asignatura": "Seguridad en Redes.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Retos para el profesional de la Informática III.",
+        "nombre_asignatura": "Malware y Amenazas Dirigidas.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Retos para el profesional de la Informática III.",
+        "nombre_asignatura": "Metodologías de Desarrollo Seguro.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing.",
+        "nombre_asignatura": "Fundamentos del Marketing.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing.",
+        "nombre_asignatura": "Comportamiento del Consumidor.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Teoría de la Comunicación y la Información.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho.",
+        "nombre_asignatura": "Regulación Jurídica en el Ámbito del Marketing y de la Comunicación.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa y otros.",
+        "nombre_asignatura": "Fundamentos de Estadística.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing.",
+        "nombre_asignatura": "Investigación Comercial.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing.",
+        "nombre_asignatura": "Introducción al Marketing Social y Digital.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Fundamentos de las Relaciones Públicas.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Creación Digital de Contenidos Audiovisuales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa y otros.",
+        "nombre_asignatura": "Informática Aplicada.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing.",
+        "nombre_asignatura": "Dirección y Previsión de Ventas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing.",
+        "nombre_asignatura": "Política de Producto y Precio.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Planificación de Plataformas Digitales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Diseño Digital y Gestión de la Marca y la Identidad Visual.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa y otros.",
+        "nombre_asignatura": "Idioma Moderno.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing.",
+        "nombre_asignatura": "Gestión de Equipos Comerciales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing.",
+        "nombre_asignatura": "Experiencia del Consumidor: Servicio y Contenidos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing.",
+        "nombre_asignatura": "Marketing Relacional y CRM.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Humanidades.",
+        "nombre_asignatura": "Humanismo Digital.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Soportes y Canales de Comunicación Digitales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing.",
+        "nombre_asignatura": "Procesos Logísticos en el Ecosistema Digital.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Estrategias Creativas de Publicidad.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Narrativa en la Comunicación Tradicional y Digital.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Publicidad Digital en Web y Redes Sociales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa y otros.",
+        "nombre_asignatura": "Extracción, Transformación y Visualización de Datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing.",
+        "nombre_asignatura": "Captación y retención en Marketing (Inbound Marketing).",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing.",
+        "nombre_asignatura": "Marketing dirigido por Datos (Data Driven MK).",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing.",
+        "nombre_asignatura": "Política de Distribución y Comercio Electrónico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Arquitectura de la Información y UX/UI.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa y otros.",
+        "nombre_asignatura": "Presupuestos para la Comunicación y el Marketing.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing.",
+        "nombre_asignatura": "Plan de Marketing.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Dirección de Comunicación.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Gestión de la Comunicación Digital.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Posicionamiento en Buscadores (SEO).",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Publicidad en Buscadores (SEM).",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Optativa A1 Producción.",
+        "nombre_asignatura": "Diseño Gráfico / Producción Audiovisual/ Diseño Web/ Radio Digital.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Prácticas Académicas Externas.",
+        "nombre_asignatura": "Prácticas Académicas Externas I.",
+        "creditos_ects": "12",
+        "caracter": "PAE",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "TFG.",
+        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "TFG",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Optativa A 2 Laboratorios.",
+        "nombre_asignatura": "Laboratorios.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Optativa A3 Habilidades.",
+        "nombre_asignatura": "Marca Personal / Gestión de Talento / Gestión de Proyectos / Profesiones de la Industria del Marketing y la Comunicación.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Optativa B Prácticas.",
+        "nombre_asignatura": "Prácticas Académicas Externas I.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicobiología.",
+        "nombre_asignatura": "Fundamentos de la Neurociencia.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Metodología de las Ciencias del Comportamiento.",
+        "nombre_asignatura": "Análisis de Datos Aplicados a la Psicología I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología Básica.",
+        "nombre_asignatura": "Historia de la Psicología, Ciencia y Profesión.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología Básica.",
+        "nombre_asignatura": "Introducción a la Psicología I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología Básica.",
+        "nombre_asignatura": "Emoción y Motivación.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Metodología de las Ciencias del Comportamiento.",
+        "nombre_asignatura": "Análisis de Datos Aplicados a la Piscología II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología Básica.",
+        "nombre_asignatura": "Introducción a la Psicología II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología Básica.",
+        "nombre_asignatura": "Percepción y Atención.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Antropología.",
+        "nombre_asignatura": "Bases Antropológicas de la Conducta.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología del Ciclo Vital y de la Educación.",
+        "nombre_asignatura": "Psicología Evolutiva y del Desarrollo.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología Social y del Trabajo.",
+        "nombre_asignatura": "Psicología Social.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicobiología.",
+        "nombre_asignatura": "Psicobiología I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología Básica.",
+        "nombre_asignatura": "Psicología del Aprendizaje.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Metodología de las Ciencias del Comportamiento.",
+        "nombre_asignatura": "Métodos, diseño y Técnicas de Investigación en Psicología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología del ciclo vital y de la educación.",
+        "nombre_asignatura": "Psicología de la Educación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicobiología.",
+        "nombre_asignatura": "Psicobiología II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Personalidad, Evaluación y Tratamiento Psicológico.",
+        "nombre_asignatura": "Psicometría.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Personalidad, Evaluación y Tratamiento Psicológico.",
+        "nombre_asignatura": "Psicología de la Personalidad.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología Básica.",
+        "nombre_asignatura": "Psicología de la Memoria.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología Social y del Trabajo.",
+        "nombre_asignatura": "Psicología de los Grupos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Personalidad, Evaluación y Tratamiento Psicológico.",
+        "nombre_asignatura": "Psicopatología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Personalidad, Evaluación y Tratamiento Psicológico.",
+        "nombre_asignatura": "Evaluación y Diagnóstico Psicológico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Personalidad, Evaluación y Tratamiento Psicológico.",
+        "nombre_asignatura": "Psicología de las Diferencias Humanas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Personalidad, Evaluación y Tratamiento Psicológico.",
+        "nombre_asignatura": "Psicología del Pensamiento y del Lenguaje.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología Social y del Trabajo.",
+        "nombre_asignatura": "Psicología del Trabajo y de las Organizaciones.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Personalidad, Evaluación y Tratamiento Psicológico.",
+        "nombre_asignatura": "Evaluación de los Procesos Psicológicos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Personalidad, Evaluación y Tratamiento Psicológico.",
+        "nombre_asignatura": "Intervención y Tratamiento Psicológico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Personalidad, Evaluación y Tratamiento Psicológico.",
+        "nombre_asignatura": "Evaluación en Contextos Clínicos y Educativos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Personalidad, Evaluación y Tratamiento Psicológico.",
+        "nombre_asignatura": "Evaluación en Contextos Sociales y Organizacionales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología Social y del Trabajo.",
+        "nombre_asignatura": "Psicología Forense y Penitenciaria.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología del Trabajo y de los Recursos Humanos.",
+        "nombre_asignatura": "Dirección y Gestión de Recursos Humanos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología del Trabajo y de los Recursos Humanos.",
+        "nombre_asignatura": "Atracción del Talento: Reclutamiento, Selección y Evaluación de Personas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología del Trabajo y de los Recursos Humanos.",
+        "nombre_asignatura": "Formación y Desarrollo de las Personas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología del Trabajo y de los Recursos Humanos.",
+        "nombre_asignatura": "Organizaciones Saludables: Salud Laboral, Bienestar Psicológico, Diversidad, Equidad e Inclusión.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología del Trabajo y de los Recursos Humanos.",
+        "nombre_asignatura": "Nuevas Tendencias en Psicología del Trabajo y RRHH: HR Analitics, IA y Transformación Digital.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Neurociencia y Psicología aplicada al Marketing y la Comunicación.",
+        "nombre_asignatura": "Neurociencia y Diseño experimental aplicados en Neuromarketing.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Neurociencia y Psicología aplicada al Marketing y la Comunicación.",
+        "nombre_asignatura": "Fundamentos de Marketing y Psicología aplicada al Comportamiento del Consumidor.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Neurociencia y Psicología aplicada al Marketing y la Comunicación.",
+        "nombre_asignatura": "Técnicas neurocientíficas aplicadas a la comprensión del comportamiento del consumidor.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Neurociencia y Psicología aplicada al Marketing y la Comunicación.",
+        "nombre_asignatura": "Neurociencia aplicada a la Comunicación y la Experiencia Digital del Consumidor.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Neurociencia y Psicología aplicada al Marketing y la Comunicación.",
+        "nombre_asignatura": "Laboratorio de Neurociencia (MindLab).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología Clínica y de la Salud.",
+        "nombre_asignatura": "Psicología Clínica Infanto-Juvenil.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología Clínica y de la Salud.",
+        "nombre_asignatura": "Psicología de la Salud.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología Clínica y de la Salud.",
+        "nombre_asignatura": "Psicología Clínica.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología Clínica y de la Salud.",
+        "nombre_asignatura": "Intervención y Tratamiento en Psicología Clínica.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Psicología Clínica y de la Salud.",
+        "nombre_asignatura": "Nuevas tecnologías (TIC´s) en Psicología de la Salud.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Prácticas Académicas Externas.",
+        "nombre_asignatura": "Prácticas Académicas Externas.",
+        "creditos_ects": "18",
+        "caracter": "PE",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Reconocimiento Académico de Créditos.",
+        "nombre_asignatura": "Reconocimiento Académico de Créditos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo Fin de Grado.",
+        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "TFG",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 139,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n7822 Resolución de 25 de enero de 2026, de ESIC Universidad, por la que se \npublican planes de estudios de Graduado o Graduada.\nObtenida la verificación de los planes de estudios por el Consejo de Universidades, \nprevio informe positivo de la Fundación para el Conocimiento Madri+d, y establecido el \ncarácter oficial de los títulos por Acuerdo del Consejo de Ministros de 7 de octubre \nde 2025 (publicado en el «Boletín Oficial del Estado» de 13 de octubre de 2025 por \nResolución de la Secretaría General de Universidades de 9 de octubre de 2025), este \nRectorado ha resuelto publicar los planes de estudios conducentes a la obtención de los \ntítulos oficiales siguientes:\nGraduado o Graduada en Ingeniería Informática.\nGraduado o Graduada en Marketing y Comunicación Digital.\nGraduado o Graduada en Psicología.\nLos planes de estudios quedan estructurados según constan en los anexos de esta \nresolución.\nPozuelo de Alarcón, 25 de enero de 2026.–El Rector, Ra"
+  }
+}

@@ -1,0 +1,305 @@
+{
+  "codigo_estudio": "3500004",
+  "titulo": "Máster Universitario en Finanzas / Master in Finance por la CUNEF Universidad",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "089",
+  "universidad_nombre": "CUNEF Universidad",
+  "fecha_procesado": "2026-07-31T14:09:29.474461",
+  "boe_url": "http://www.boe.es/boe/dias/2025/01/16/pdfs/BOE-A-2025-707.pdf",
+  "boe_fecha": "2025-01-16",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias (OB).": "30",
+      "Optativas (OP).": "18",
+      "Prácticas académicas externas (PE).": "6",
+      "Trabajo de Fin de Máster (TFM).": "6",
+      "Créditos totales.": "60",
+      "El entorno de las finanzas. The Global Environment of Finance.": "Macroeconomía en la economía global. Macroeconomics in the Global Economy.",
+      "Técnicas estadísticas aplicadas a las finanzas. Statistical Techniques Applied to Finance.": "Datos y decisiones I. Data and Decisions I.",
+      "Marcos analíticos y modelos en finanzas. Analytical Frameworks and Models in Finance.": "Economía financiera. Financial Economics.",
+      "Finanzas aplicadas a la gestión y valoración de empresas. Finance applied to business management and valuation.": "Análisis de estados financieros y valoración. Financial Statement Analysis and Valuation.",
+      "Finanzas corporativas. Corporate Finance.": "Incentivos, información y control corporativo. Incentives, Information and Corporate Control.",
+      "Banca de inversión. Investment Banking.": "Gestión del balance. Balance Sheet Management.",
+      "Inversión y mercados financieros. Markets and Financial Investments.": "Gestión de activos. Asset Management.",
+      "Digitalización, Finanzas descentralizadas y Ciencia de Datos. Digitalization, Decentralized Finance and Data Science.": "Gestión de activos. Asset Management.",
+      "Prácticas Académicas Externas. Academic Internships.": "Prácticas Académicas Externas. Academic Internships.",
+      "Trabajo de fin de Máster. Final Master´s Degree Project.": "Trabajo de fin de Máster. Final Master´s Degree Project."
+    },
+    "asignaturas": [
+      {
+        "materia": "El entorno de las finanzas. The Global Environment of Finance.",
+        "nombre_asignatura": "Macroeconomía en la economía global. Macroeconomics in the Global Economy.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "El entorno de las finanzas. The Global Environment of Finance.",
+        "nombre_asignatura": "Instituciones y mercados financieros. Financial Markets and Institutions.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Técnicas estadísticas aplicadas a las finanzas. Statistical Techniques Applied to Finance.",
+        "nombre_asignatura": "Datos y decisiones I. Data and Decisions I.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Técnicas estadísticas aplicadas a las finanzas. Statistical Techniques Applied to Finance.",
+        "nombre_asignatura": "Datos y decisiones II. Data and Decisions II.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Marcos analíticos y modelos en finanzas. Analytical Frameworks and Models in Finance.",
+        "nombre_asignatura": "Economía financiera. Financial Economics.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Marcos analíticos y modelos en finanzas. Analytical Frameworks and Models in Finance.",
+        "nombre_asignatura": "Derivados financieros. Financial Derivatives.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Finanzas aplicadas a la gestión y valoración de empresas. Finance applied to business management and valuation.",
+        "nombre_asignatura": "Análisis de estados financieros y valoración. Financial Statement Analysis and Valuation.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Finanzas aplicadas a la gestión y valoración de empresas. Finance applied to business management and valuation.",
+        "nombre_asignatura": "Finanzas corporativas. Corporate Finance.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Finanzas corporativas. Corporate Finance.",
+        "nombre_asignatura": "Incentivos, información y control corporativo. Incentives, Information and Corporate Control.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Finanzas corporativas. Corporate Finance.",
+        "nombre_asignatura": "Control, informes contables y gestión de impuestos. Controlling, Reporting and Tax Management.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Finanzas corporativas. Corporate Finance.",
+        "nombre_asignatura": "Dificultades financieras, bancarrota y restructuración. Financial Distress, Bankruptcy and Restructuring.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Finanzas corporativas. Corporate Finance.",
+        "nombre_asignatura": "Instrumentos de financiación y financiación de proyectos. Financing Instruments and Project Finance.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Finanzas corporativas. Corporate Finance.",
+        "nombre_asignatura": "Gestión de riesgos. Risk Management.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Finanzas corporativas. Corporate Finance.",
+        "nombre_asignatura": "Valoración corporativa. Corporate Valuation.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Banca de inversión. Investment Banking.",
+        "nombre_asignatura": "Gestión del balance. Balance Sheet Management.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Banca de inversión. Investment Banking.",
+        "nombre_asignatura": "Análisis de crédito y gestión de carteras. Credit Analysis and Credit Portfolio Management.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Banca de inversión. Investment Banking.",
+        "nombre_asignatura": "Dificultades financieras, bancarrota y restructuración. Financial Distress, Bankruptcy and Restructuring.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Banca de inversión. Investment Banking.",
+        "nombre_asignatura": "Actividades de suscripción. Underwriting Activities.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Banca de inversión. Investment Banking.",
+        "nombre_asignatura": "Financiación estructurada. Structured Financing.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Banca de inversión. Investment Banking.",
+        "nombre_asignatura": "Medición de riesgos de mercado. Measuring Market Risk.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Inversión y mercados financieros. Markets and Financial Investments.",
+        "nombre_asignatura": "Gestión de activos. Asset Management.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Inversión y mercados financieros. Markets and Financial Investments.",
+        "nombre_asignatura": "Gestión pasiva e indexada. Passive Management Indexing.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Inversión y mercados financieros. Markets and Financial Investments.",
+        "nombre_asignatura": "Trading de alta frecuencia y calidad del mercado financiero. High Frecuency Trading and Market Quality.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Inversión y mercados financieros. Markets and Financial Investments.",
+        "nombre_asignatura": "Gestión activa, Factor investing e inversiones alternativas. Active Management, Factor Investing and Alternative Investments.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Inversión y mercados financieros. Markets and Financial Investments.",
+        "nombre_asignatura": "Valoración corporativa. Corporate Valuation.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Inversión y mercados financieros. Markets and Financial Investments.",
+        "nombre_asignatura": "Aprendizaje automático e inversiones. Machine Learning and Investments.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Digitalización, Finanzas descentralizadas y Ciencia de Datos. Digitalization, Decentralized Finance and Data Science.",
+        "nombre_asignatura": "Gestión de activos. Asset Management.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Digitalización, Finanzas descentralizadas y Ciencia de Datos. Digitalization, Decentralized Finance and Data Science.",
+        "nombre_asignatura": "Análisis de datos en finanzas. Data Analytics for Finance.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Digitalización, Finanzas descentralizadas y Ciencia de Datos. Digitalization, Decentralized Finance and Data Science.",
+        "nombre_asignatura": "Métodos numéricos para finanzas. Numerical Methods for Finance.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Digitalización, Finanzas descentralizadas y Ciencia de Datos. Digitalization, Decentralized Finance and Data Science.",
+        "nombre_asignatura": "Fintech y transformación digital. Fintech and Digital Transformation.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Digitalización, Finanzas descentralizadas y Ciencia de Datos. Digitalization, Decentralized Finance and Data Science.",
+        "nombre_asignatura": "Finanzas descentralizadas. Descentralized Finance.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Digitalización, Finanzas descentralizadas y Ciencia de Datos. Digitalization, Decentralized Finance and Data Science.",
+        "nombre_asignatura": "Aprendizaje automático e inversiones. Machine Learning and Investments.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Prácticas Académicas Externas. Academic Internships.",
+        "nombre_asignatura": "Prácticas Académicas Externas. Academic Internships.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Trabajo de fin de Máster. Final Master´s Degree Project.",
+        "nombre_asignatura": "Trabajo de fin de Máster. Final Master´s Degree Project.",
+        "creditos_ects": "6",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": "2"
+      }
+    ],
+    "total_asignaturas": 34,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n707 Resolución de 9 de diciembre de 2024, de CUNEF Universidad, por la que se \npublica el plan de estudios de Máster Universitario en Finanzas/Master in \nFinance.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme favorable de la Agencia Evaluadora Fundación para el Conocimiento Madri+d, \nautorizada su implantación por la Comunidad de Madrid y establecido el carácter oficial \ndel título por Acuerdo de Consejo de Ministros de 17 de septiembre de 2024 (publicado, \npor Resolución de 20 de septiembre de 2024, de la Secretaría General de \nUniversidades, en el «Boletín Oficial del Estado» de 27 de septiembre de 2024),\nEste Rectorado, de conformidad con lo dispuesto en el artículo 27.4 del Real \nDecreto 822/2021, de 28 de septiembre, ha resuelto publicar el plan de estudios \nconducente a la obtención del siguiente título oficial:\n– Máster Universitario en Finanzas/Master in Finance.\nEste plan queda estructurado"
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "codigo_estudio": "3500253",
+  "titulo": "Máster Universitario en Tecnología para los Asuntos Globales / Master in Technology for Global Affairs por la IE Universidad",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "057",
+  "universidad_nombre": "IE Universidad",
+  "fecha_procesado": "2026-07-31T14:14:08.652091",
+  "boe_url": "http://www.boe.es/boe/dias/2025/03/28/pdfs/BOE-A-2025-6293.pdf",
+  "boe_fecha": "2025-03-28",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatoria (OB).": "48",
+      "Optativa (OP).": "6",
+      "Trabajo de fin de máster (TFM).": "6",
+      "Créditos totales.": "60",
+      "Habilidades Profesionales (21 ECTS).": "Datos y computación (9 ECTS).",
+      "El rol de la tecnología en los asuntos globales (27 ECTS).": "Gobernanza global y seguridad internacional (11 ECTS).",
+      "Optativas (6 ECTS).": "Profundización en tecnología y ciudadanía global.",
+      "Trabajo de fin de máster (6 ECTS).": "Trabajo de fin de máster (6 ECTS)."
+    },
+    "asignaturas": [
+      {
+        "materia": "Datos y computación (9 ECTS).",
+        "nombre_asignatura": "Programación en Python y SQL.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Datos y computación (9 ECTS).",
+        "nombre_asignatura": "Analítica de datos para la toma de decisiones.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Datos y computación (9 ECTS).",
+        "nombre_asignatura": "Inteligencia Artificial y Aprendizaje Automático.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Tecnología en el Diseño de Políticas y Proyectos (9 ECTS).",
+        "nombre_asignatura": "Tecnología en el sector público.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Tecnología en el Diseño de Políticas y Proyectos (9 ECTS).",
+        "nombre_asignatura": "Gestión tecnológica de proyectos y evaluación de impacto.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Tecnología en el Diseño de Políticas y Proyectos (9 ECTS).",
+        "nombre_asignatura": "Gestión del riesgo e higiene cibernética.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Liderazgo (3 ECTS).",
+        "nombre_asignatura": "Liderazgo adaptativo.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Gobernanza global y seguridad internacional (11 ECTS).",
+        "nombre_asignatura": "Diplomacia y política exterior en la era digital.",
+        "creditos_ects": "4",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Gobernanza global y seguridad internacional (11 ECTS).",
+        "nombre_asignatura": "Tecnología y gobernanza global.",
+        "creditos_ects": "4",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Gobernanza global y seguridad internacional (11 ECTS).",
+        "nombre_asignatura": "Tecnología, resolución de conflictos y construcción de paz.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Tecnología y ciudadanía global (8 ECTS).",
+        "nombre_asignatura": "La ética del progreso tecnológico.",
+        "creditos_ects": "4",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Tecnología y ciudadanía global (8 ECTS).",
+        "nombre_asignatura": "El impacto de la tecnología en los Derechos Fundamentales.",
+        "creditos_ects": "4",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Tecnología y desarrollo global (8 ECTS).",
+        "nombre_asignatura": "Tecnología y economía global.",
+        "creditos_ects": "4",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Tecnología y desarrollo global (8 ECTS).",
+        "nombre_asignatura": "Start-Ups, negocios digitales y emprendimiento.",
+        "creditos_ects": "4",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Profundización en tecnología y ciudadanía global.",
+        "nombre_asignatura": "Tecnología y transición ecológica.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Profundización en tecnología y ciudadanía global.",
+        "nombre_asignatura": "Política, redes sociales y desinformación.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Profundización en tecnología y desarrollo global.",
+        "nombre_asignatura": "Tecnología financiera y finanzas digitales.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Profundización en tecnología y desarrollo global.",
+        "nombre_asignatura": "Tecnología para el desarrollo inclusivo.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo de fin de máster (6 ECTS).",
+        "nombre_asignatura": "Trabajo de fin de máster.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 19,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n6293 Resolución de 17 de marzo de 2025, de IE Universidad, por la que se publica \nel plan de estudios de Máster Universitario en Tecnología para los Asuntos \nGlobales/Master in Technology for Global Affairs.\nEste Rectorado ha resuelto ordenar la publicación en el «Boletín Oficial del Estado» y \nen el «Boletín Oficial de Castilla y León», del plan de estudios conducente a la obtención \ndel título oficial de Máster Universitario en Tecnología para los Asuntos Globales/Master \nin Technology for Global Affairs (RUCT 3500253). Esta decisión se toma en cumplimiento \nde lo dispuesto en el artículo 8.3 de Ley Orgánica 2/2023, de 22 de marzo, del Sistema \nUniversitario, y en el artículo 27.4 del Real Decreto 822/2021, de 28 de septiembre, por \nel que se establece la organización de las enseñanzas universitarias y del procedimiento \nde aseguramiento de su calidad.\nEl título obtuvo la verificación del plan de estudios por el Consejo de Universidades \nel 5 de"
+  }
+}

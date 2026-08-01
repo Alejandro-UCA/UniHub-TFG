@@ -1,0 +1,424 @@
+{
+  "codigo_estudio": "2503914",
+  "titulo": "Graduado o Graduada en Economía / Bachelor in Economics por la IE Universidad",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "057",
+  "universidad_nombre": "IE Universidad",
+  "fecha_procesado": "2026-07-31T14:11:44.487719",
+  "boe_url": "http://www.boe.es/boe/dias/2022/05/20/pdfs/BOE-A-2022-8322.pdf",
+  "boe_fecha": "2022-05-20",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica.": "60",
+      "Obligatorias.": "108",
+      "Optativas.": "60",
+      "Trabajo fin de Grado.": "12",
+      "Total créditos.": "240",
+      "TEORÍA ECONÓMICA.": "MACROECONOMÍA.",
+      "METODOLOGÍA CUANTITATIVA.": "MATEMÁTICA, ESTADÍSTICA Y ECONOMETRÍA.",
+      "MÓDULO TRANSVERSAL.": "RETO IE.",
+      "HABILIDADES ACADÉMICAS.": "ESCRITURA Y METODOLOGÍA.",
+      "ECONOMÍA APLICADA.": "ECONOMÍA EMPRESARIAL.",
+      "LA NUEVA ECONOMÍA.": "INNOVACIÓN Y TECNOLOGÍA.",
+      "NUEVA ECONOMÍA.": "ECONOMÍA CONDUCTUAL.",
+      "OPTATIVAS.": "OPTATIVAS.",
+      "TRABAJO FIN DE GRADO.": "TRABAJO FIN DE GRADO."
+    },
+    "asignaturas": [
+      {
+        "materia": "ECONOMÍA.",
+        "nombre_asignatura": "INTRODUCCIÓN A LA MACROECONOMÍA.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ECONOMÍA.",
+        "nombre_asignatura": "INTRODUCCIÓN A LA MICROECONOMÍA.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ECONOMÍA.",
+        "nombre_asignatura": "ECONOMÍA INTERNACIONAL: COMERCIO Y SISTEMA MONETARIO.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ECONOMÍA.",
+        "nombre_asignatura": "TEORIA DE JUEGOS.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ECONOMÍA.",
+        "nombre_asignatura": "DESAROLLO Y CRECIMIENTO ECONÓMICO.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ECONOMÍA.",
+        "nombre_asignatura": "ECONOMÍA PÚBLICA.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ECONOMÍA.",
+        "nombre_asignatura": "HISTORIA ECONÓMICA.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ESTADÍSTICA.",
+        "nombre_asignatura": "PROBABILIDAD Y ESTADÍSTICA.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ESTADÍSTICA.",
+        "nombre_asignatura": "ECONOMETRÍA.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "MATEMÁTICAS.",
+        "nombre_asignatura": "MATEMÁTICAS PARA LA ECONOMÍA.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "MACROECONOMÍA.",
+        "nombre_asignatura": "INTRODUCCIÓN A LA MACROECONOMÍA.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "MICROECONOMÍA.",
+        "nombre_asignatura": "INTRODUCCIÓN A LA MICROECONOMÍA.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "DESARROLLO Y CRECIMIENTO ECONÓMICO.",
+        "nombre_asignatura": "HISTORIA ECONÓMICA.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "MATEMÁTICA, ESTADÍSTICA Y ECONOMETRÍA.",
+        "nombre_asignatura": "MATEMÁTICAS PARA LA ECONOMÍA.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "MATEMÁTICA, ESTADÍSTICA Y ECONOMETRÍA.",
+        "nombre_asignatura": "PROBABILIDAD Y ESTADÍSTICA.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "MACROECONOMÍA.",
+        "nombre_asignatura": "LA ECONOMÍA INTERNACIONAL: COMERCIO Y EL SISTEMA MONETARIO.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "MICROECONOMÍA.",
+        "nombre_asignatura": "LA TEORÍA DE JUEGOS.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "DESARROLLO Y CRECIMIENTO.",
+        "nombre_asignatura": "DESARROLLO Y CRECIMIENTO ECONÓMICO.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ANALÍTICA DE DATOS.",
+        "nombre_asignatura": "PROGRAMACIÓN I.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "HUMANIDADES.",
+        "nombre_asignatura": "HUMANIDADES.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ESCRITURA Y METODOLOGÍA.",
+        "nombre_asignatura": "MÉTODOS DE INVESTIGACIÓN PARA ECONOMISTAS.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ECONOMÍA PÚBLICA.",
+        "nombre_asignatura": "LA ECONOMÍA PÚBLICA.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ECONOMÍA EMPRESARIAL.",
+        "nombre_asignatura": "LA ECONOMÍA INDUSTRIAL Y ESTRATEGIA.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ECONOMÍA EMPRESARIAL.",
+        "nombre_asignatura": "LA ECONOMÍA FINANCIERA Y CONTABILIDAD.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "MATEMÁTICA, ESTADÍSTICA Y ECONOMETRÍA.",
+        "nombre_asignatura": "ECONOMETRÍA.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "TECNOLOGÍA.",
+        "nombre_asignatura": "TECNOLOGÍA.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "INNOVACIÓN Y TECNOLOGÍA.",
+        "nombre_asignatura": "LA NUEVA ECONOMÍA: DIGITALIZACIÓN, PLATAFORMAS, Y ECOSISTEMAS.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ECONOMÍA PÚBLICA.",
+        "nombre_asignatura": "MERCADOS, SUBASTAS, Y DISEÑO DE CONTRATOS.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ECONOMÍA PÚBLICA.",
+        "nombre_asignatura": "LA ECONOMÍA INSTITUCIONAL.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ECONOMÍA EMPRESARIAL.",
+        "nombre_asignatura": "FINANZAS CORPORATIVAS.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ANALÍTICA DE DATOS.",
+        "nombre_asignatura": "MODELIZACIÓN ECONÓMICA Y SIMULACIÓN.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ANALÍTICA DE DATOS.",
+        "nombre_asignatura": "PROGRAMACIÓN II.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ESCRITURA Y METODOLOGÍA.",
+        "nombre_asignatura": "INFORMES ECONÓMICOS.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "EMPRENDIMIENTO.",
+        "nombre_asignatura": "EMPRENDIMIENTO.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ECONOMÍA EMPRESARIAL.",
+        "nombre_asignatura": "MERCADOS DE CAPITALES.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ECONOMÍA CONDUCTUAL.",
+        "nombre_asignatura": "LA ECONOMÍA DEL BIENESTAR.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ECONOMÍA CONDUCTUAL.",
+        "nombre_asignatura": "LA ECONOMÍA EXPERIMENTAL.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ECONOMÍA CONDUCTUAL.",
+        "nombre_asignatura": "LA ECONOMÍA CONDUCTUAL Y LA TOMA DE DECISIONES.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "INNOVACIÓN Y TECNOLOGÍA.",
+        "nombre_asignatura": "LA ECONOMÍA DE LA INNOVACIÓN Y DE LA ADAPTACIÓN TECNOLÓGICA.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "INNOVACIÓN Y TECNOLOGÍA.",
+        "nombre_asignatura": "ECONOMÍA LABORAL, DIGITALIZACIÓN E INTELIGENCIA ARTIFICIAL.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "INNOVACIÓN Y TECNOLOGÍA.",
+        "nombre_asignatura": "BLOCKCHAIN Y CRIPTO- MONEDAS.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "RETO IE.",
+        "nombre_asignatura": "RETO IE.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "OPTATIVAS.",
+        "nombre_asignatura": "OPTATIVAS.",
+        "creditos_ects": "30",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "OPTATIVAS.",
+        "nombre_asignatura": "OPTATIVAS.",
+        "creditos_ects": "30",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "MATEMÁTICA, ESTADÍSTICA Y ECONOMETRÍA.",
+        "nombre_asignatura": "APLICACIONES ECONOMÉTRICAS.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ANALÍTICA DE DATOS.",
+        "nombre_asignatura": "APRENDIZAJE AUTOMÁTICO PARA ECONOMISTAS.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ESCRITURA Y METODOLOGÍA.",
+        "nombre_asignatura": "ANÁLISIS ECONÓMICO: REGIONES Y SECTORES.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "ESCRITURA Y METODOLOGÍA.",
+        "nombre_asignatura": "ANÁLISIS ECONÓMICO: MERCADOS Y CONSUMIDORES.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "TRABAJO FIN DE GRADO.",
+        "nombre_asignatura": "TRABAJO FIN DE GRADO.",
+        "creditos_ects": "12",
+        "caracter": "TFG",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 49,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n8322 Resolución de 3 de mayo de 2022, de IE Universidad, por la que se publica la \nmodificación del plan de estudios de Graduado o Graduada en Economía/\nBachelor in Economics.\nDe conformidad con lo dispuesto en el artículo 32 del Real Decreto 822/2021, de 28 \nde septiembre, por el que se establece la organización de las enseñanzas universitarias \ny del procedimiento de aseguramiento de su calidad, en el que se regula el \nprocedimiento para la modificación sustancial de los planes de estudios impartidos en \ncentros universitarios no acreditados institucionalmente, y una vez recibido informe \nfavorable de la Agencia para la Calidad del Sistema Universitario de Castilla y León a las \nmodificaciones presentadas al título oficial de Graduado/a en Economía / Bachelor in \nEconomics por la IE Universidad (2503914) establecido por Acuerdo del Consejo de \nMinistros de 18 de octubre de 2019 por el que se establece el carácter oficial de \ndeterminados títulos"
+  }
+}

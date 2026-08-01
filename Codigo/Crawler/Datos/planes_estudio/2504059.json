@@ -1,0 +1,547 @@
+{
+  "codigo_estudio": "2504059",
+  "titulo": "Graduado o Graduada en Administración y Dirección de Empresas por la CUNEF Universidad",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "089",
+  "universidad_nombre": "CUNEF Universidad",
+  "fecha_procesado": "2026-07-31T14:08:58.713779",
+  "boe_url": "http://www.boe.es/boe/dias/2025/01/16/pdfs/BOE-A-2025-708.pdf",
+  "boe_fecha": "2025-01-16",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica (FB).": "60",
+      "Obligatorias (OB).": "132",
+      "Optativas (OP).": "42",
+      "Trabajo de Fin de Grado (TFG).": "6",
+      "Créditos totales.": "240",
+      "Matemáticas. Mathematics.": "Matemáticas I. Mathematics I.",
+      "Finanzas empresariales. Business Finance.": "Análisis y valoración de empresas. Business Analysis and Valuation.",
+      "Mercados financieros e inversiones. Financial Markets and Investment.": "Inversiones financieras. Financial Investment.",
+      "Contabilidad. Accounting.": "Contabilidad financiera. Financial Accounting.",
+      "Contabilidad de gestión. Managerial Accounting.": "Contabilidad de gestión. Managerial Accounting.",
+      "Métodos cuantitativos. Quantitative Methods.": "Análisis de datos. Data Analysis.",
+      "Fundamentos de la Economía. Principles of Economics.": "Introducción a la Economía. Introduction to Economics.",
+      "Entorno económico y financiero. Economic and Financial Environment.": "Entorno económico internacional. Global Economic Environment.",
+      "Organización. Organisation.": "Dirección de operaciones y logística. Operations and Logistics Management.",
+      "Dirección Estratégica. Strategic Management.": "Análisis y estrategia de negocios. Business Strategy and Analysis.",
+      "Dirección e investigación comercial. Business Management and Research.": "Dirección comercial. Marketing Management.",
+      "Formación transversal. Transversal Skills.": "Búsqueda, tratamiento y uso de la información. Search, Processing and Use of Information.",
+      "Derecho de la empresa. Corporate Law.": "Derecho de la empresa. Corporate Law.",
+      "Creación empresarial e innovación. Entrepreneurship and Innovation.": "Emprendimiento e innovación. Entrepreneurship and Innovation.",
+      "Itinerario en Ciencia de Datos. Specialisation in Data Science.": "Análisis y explotación de la Información. Data Analysis and Information Extraction.",
+      "Itinerario en Derecho y Empresa. Specialisation in Law and Business.": "Privacidad y protección de datos. Data Protection and Privacy.",
+      "Itinerario en Dirección de Empresas. Specialisation in Business Management.": "Ingeniería de datos. Data Engineering.",
+      "Optatividad. Elective Courses.": "Asignaturas optativas. Elective Courses.",
+      "Prácticas Académicas Externas. Internships.": "Prácticas académicas externas. Internships.",
+      "Trabajo de Fin de Grado. Final Degree Project.": "Trabajo de Fin de Grado. Final Degree Project."
+    },
+    "asignaturas": [
+      {
+        "materia": "Matemáticas. Mathematics.",
+        "nombre_asignatura": "Matemáticas I. Mathematics I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas. Mathematics.",
+        "nombre_asignatura": "Matemáticas II. Mathematics II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Métodos cuantitativos. Quantitative Methods.",
+        "nombre_asignatura": "Estadística. Statistics.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Métodos cuantitativos. Quantitative Methods.",
+        "nombre_asignatura": "Análisis de datos. Data Analysis.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Finanzas empresariales. Business Finance.",
+        "nombre_asignatura": "Fundamentos de economía financiera. Principles of Financial Economics.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Fundamentos de la Economía. Principles of Economics.",
+        "nombre_asignatura": "Introducción a la Economía. Introduction to Economics.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Contabilidad. Accounting.",
+        "nombre_asignatura": "Sistemas de información y contabilidad. Accounting Information System.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Organización. Organisation.",
+        "nombre_asignatura": "Economía de la empresa. Business Economics.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho de la empresa. Corporate Law.",
+        "nombre_asignatura": "Derecho de la empresa. Corporate Law.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Formación transversal. Transversal Skills.",
+        "nombre_asignatura": "Programación. Programming.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas. Mathematics.",
+        "nombre_asignatura": "Matemáticas I. Mathematics I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Matemáticas. Mathematics.",
+        "nombre_asignatura": "Matemáticas II. Mathematics II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Finanzas empresariales. Business Finance.",
+        "nombre_asignatura": "Análisis y valoración de empresas. Business Analysis and Valuation.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Finanzas empresariales. Business Finance.",
+        "nombre_asignatura": "Finanzas corporativas. Corporate Finance.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Finanzas empresariales. Business Finance.",
+        "nombre_asignatura": "Fundamentos de economía financiera. Principles of Financial Economics.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Mercados financieros e inversiones. Financial Markets and Investment.",
+        "nombre_asignatura": "Inversiones financieras. Financial Investment.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Mercados financieros e inversiones. Financial Markets and Investment.",
+        "nombre_asignatura": "Mercados financieros e instituciones. Financial Markets and Institutions.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Contabilidad. Accounting.",
+        "nombre_asignatura": "Contabilidad financiera. Financial Accounting.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Contabilidad. Accounting.",
+        "nombre_asignatura": "Sistemas de información y contabilidad. Accounting Information Systems.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Contabilidad de gestión. Managerial Accounting.",
+        "nombre_asignatura": "Contabilidad de gestión. Managerial Accounting.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Métodos cuantitativos. Quantitative Methods.",
+        "nombre_asignatura": "Análisis de datos. Data Analysis.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Métodos cuantitativos. Quantitative Methods.",
+        "nombre_asignatura": "Econometría. Econometrics.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Métodos cuantitativos. Quantitative Methods.",
+        "nombre_asignatura": "Estadística. Statistics.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Fundamentos de la Economía. Principles of Economics.",
+        "nombre_asignatura": "Introducción a la Economía. Introduction to Economics.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Fundamentos de la Economía. Principles of Economics.",
+        "nombre_asignatura": "Macroeconomía. Macroeconomics.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Fundamentos de la Economía. Principles of Economics.",
+        "nombre_asignatura": "Microeconomía. Microeconomics.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Fundamentos de la Economía. Principles of Economics.",
+        "nombre_asignatura": "Fiscalidad de la empresa. Corporate Taxation.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Fundamentos de la Economía. Principles of Economics.",
+        "nombre_asignatura": "Historia de la empresa. Business History.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Entorno económico y financiero. Economic and Financial Environment.",
+        "nombre_asignatura": "Entorno económico internacional. Global Economic Environment.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Organización. Organisation.",
+        "nombre_asignatura": "Dirección de operaciones y logística. Operations and Logistics Management.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Organización. Organisation.",
+        "nombre_asignatura": "Diseño y comportamiento de las organizaciones. Organisational Design and Behaviour.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Organización. Organisation.",
+        "nombre_asignatura": "Economía de la empresa. Business Economics.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Dirección Estratégica. Strategic Management.",
+        "nombre_asignatura": "Análisis y estrategia de negocios. Business Strategy and Analysis.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Dirección Estratégica. Strategic Management.",
+        "nombre_asignatura": "Estrategia corporativa. Corporate Strategy.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Dirección Estratégica. Strategic Management.",
+        "nombre_asignatura": "Ética y responsabilidad social. Ethics and Social Responsibility.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Dirección e investigación comercial. Business Management and Research.",
+        "nombre_asignatura": "Dirección comercial. Marketing Management.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Dirección e investigación comercial. Business Management and Research.",
+        "nombre_asignatura": "Investigación y análisis de mercados. Market Research and Analysis.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Formación transversal. Transversal Skills.",
+        "nombre_asignatura": "Búsqueda, tratamiento y uso de la información. Search, Processing and Use of Information.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Formación transversal. Transversal Skills.",
+        "nombre_asignatura": "Pensamiento crítico y argumentación. Critical Thinking and Argumentation.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Formación transversal. Transversal Skills.",
+        "nombre_asignatura": "Programación. Programming.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Formación transversal. Transversal Skills.",
+        "nombre_asignatura": "Técnicas de comunicación oral y escrita. Verbal and Written Communication Skills.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Derecho de la empresa. Corporate Law.",
+        "nombre_asignatura": "Derecho de la empresa. Corporate Law.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Creación empresarial e innovación. Entrepreneurship and Innovation.",
+        "nombre_asignatura": "Emprendimiento e innovación. Entrepreneurship and Innovation.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Ciencia de Datos. Specialisation in Data Science.",
+        "nombre_asignatura": "Análisis y explotación de la Información. Data Analysis and Information Extraction.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Itinerario en Ciencia de Datos. Specialisation in Data Science.",
+        "nombre_asignatura": "Redes neuronales y aprendizaje profundo. Neural Networks and Deep Learning.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Ciencia de Datos. Specialisation in Data Science.",
+        "nombre_asignatura": "Aprendizaje automático. Machine Learning.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Ciencia de Datos. Specialisation in Data Science.",
+        "nombre_asignatura": "Minería de textos. Text Mining.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Ciencia de Datos. Specialisation in Data Science.",
+        "nombre_asignatura": "Técnicas de visualización. Visualisation Techniques.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Derecho y Empresa. Specialisation in Law and Business.",
+        "nombre_asignatura": "Privacidad y protección de datos. Data Protection and Privacy.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Itinerario en Derecho y Empresa. Specialisation in Law and Business.",
+        "nombre_asignatura": "Derecho del mercado de valores. Capital Markets Law.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Derecho y Empresa. Specialisation in Law and Business.",
+        "nombre_asignatura": "Contratación mercantil y bancaria. Commercial and Banking Contracts.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Derecho y Empresa. Specialisation in Law and Business.",
+        "nombre_asignatura": "Derecho del trabajo y de la Seguridad Social. Labour and Social Security Law.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Derecho y Empresa. Specialisation in Law and Business.",
+        "nombre_asignatura": "Derecho de la Unión Europea. European Union Law.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Itinerario en Derecho y Empresa. Specialisation in Law and Business.",
+        "nombre_asignatura": "Derecho de la competencia. Antitrust Law.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Derecho y Empresa. Specialisation in Law and Business.",
+        "nombre_asignatura": "Arbitraje internacional. International Arbitration.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Dirección de Empresas. Specialisation in Business Management.",
+        "nombre_asignatura": "Ingeniería de datos. Data Engineering.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Itinerario en Dirección de Empresas. Specialisation in Business Management.",
+        "nombre_asignatura": "Dirección de Recursos Humanos. Human Resources Management.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Dirección de Empresas. Specialisation in Business Management.",
+        "nombre_asignatura": "Negocios internacionales y dirección global. International Business and Global Management.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Dirección de Empresas. Specialisation in Business Management.",
+        "nombre_asignatura": "Empresa familiar. Family Business.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Dirección de Empresas. Specialisation in Business Management.",
+        "nombre_asignatura": "Entorno regulatorio. Regulatory Environment.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Optatividad. Elective Courses.",
+        "nombre_asignatura": "Asignaturas optativas. Elective Courses.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Prácticas Académicas Externas. Internships.",
+        "nombre_asignatura": "Prácticas académicas externas. Internships.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Trabajo de Fin de Grado. Final Degree Project.",
+        "nombre_asignatura": "Trabajo de Fin de Grado. Final Degree Project.",
+        "creditos_ects": "6",
+        "caracter": "TFG",
+        "curso": "4",
+        "cuatrimestre": "2"
+      }
+    ],
+    "total_asignaturas": 63,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n708 Resolución de 9 de diciembre de 2024, de CUNEF Universidad, por la que se \npublica la modificación del plan de estudios de Graduado o Graduada en \nAdministración y Dirección de Empresas.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme favorable de la Agencia Evaluadora Fundación para el Conocimiento Madri+d, \nautorizada su implantación por la Comunidad de Madrid y establecido el carácter oficial \ndel título por Acuerdo de Consejo de Ministros de 6 de julio de 2021 (publicado, por \nResolución de 14 de julio de 2021, de la Secretaría General de Universidades, en el \n«Boletín Oficial del Estado» de 27 de julio de 2021), y habiendo sido modificado el \nmencionado plan de estudios, con informe favorable de la Fundación para el \nConocimiento Madri+d, de fecha 9 de julio de 2024,\nEste Rectorado, de conformidad con lo dispuesto en el artículo 27.4 del Real \nDecreto 822/2021, de 28 de septiembre, ha resuelt"
+  }
+}

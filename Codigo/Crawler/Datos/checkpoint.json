@@ -1,0 +1,46 @@
+{
+  "universities_downloaded": true,
+  "processed_universities": [
+    "099",
+    "086",
+    "105",
+    "092",
+    "101",
+    "095",
+    "093",
+    "091",
+    "096",
+    "089",
+    "087",
+    "057",
+    "109",
+    "061",
+    "000",
+    "074",
+    "047",
+    "106",
+    "052"
+  ],
+  "processed_degrees": {
+    "9000164": {
+      "boe_url": "http://www.boe.es/eli/es/lo/1990/10/03/1/dof/spa/pdf",
+      "boe_fecha": "1990-10-04",
+      "last_updated": "2026-07-31T16:40:52.430934"
+    },
+    "9000166": {
+      "boe_url": "http://www.boe.es/eli/es/lo/1990/10/03/1/dof/spa/pdf",
+      "boe_fecha": "1990-10-04",
+      "last_updated": "2026-07-31T16:40:58.813834"
+    },
+    "6000001": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-07-31T16:41:00.083424"
+    },
+    "6000002": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-07-31T16:41:01.076226"
+    }
+  }
+}

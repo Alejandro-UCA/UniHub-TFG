@@ -1,0 +1,180 @@
+{
+  "codigo_estudio": "2502436",
+  "titulo": "Graduado o Graduada en Diseño de Interiores por la Universidad Antonio de Nebrija",
+  "nivel_academico": "Grado - RD 1393/2007 (1)",
+  "universidad_codigo": "052",
+  "universidad_nombre": "Universidad Antonio de Nebrija",
+  "fecha_procesado": "2026-07-31T14:37:54.690870",
+  "boe_url": "http://www.boe.es/boe/dias/2020/07/10/pdfs/BOE-A-2020-7716.pdf",
+  "boe_fecha": "2020-07-10",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Asignaturas de Formación Básica": "60",
+      "Asignaturas Obligatorias": "126",
+      "Asignaturas Optativas": "18",
+      "Prácticas Externas": "18",
+      "Trabajo Fin de Grado": "18",
+      "Créditos totales": "240",
+      "Fotografía y arte digital (Optativa 1).": "6",
+      "Diseño gráfico y comunicación (Optativa 1).": "6",
+      "Fundamentos de ergonomía (Optativa 1).": "6",
+      "Programación web (Optativa 1).": "6",
+      "Tecnologías de Materiales de Interiorismo (Optativa 1).": "6",
+      "Comunicación Digital (Optativa 1).": "6",
+      "Marketing Internacional (Optativa 1).": "6",
+      "Arquitectura efímera (Optativa 2).": "6",
+      "Proyectos de Iluminación (Optativa 2).": "6",
+      "Comercio electrónico (Optativa 2).": "6",
+      "Dirección estratégica (Optativa 2).": "6",
+      "Negocios internacional (Optativa 2).": "6"
+    },
+    "asignaturas": [
+      {
+        "materia": "",
+        "nombre_asignatura": "Asignaturas de Formación Básica",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Asignaturas Obligatorias",
+        "creditos_ects": "126",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Asignaturas Optativas",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas Externas",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Grado",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Créditos totales",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fotografía y arte digital (Optativa 1).",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño gráfico y comunicación (Optativa 1).",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de ergonomía (Optativa 1).",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Programación web (Optativa 1).",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnologías de Materiales de Interiorismo (Optativa 1).",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Comunicación Digital (Optativa 1).",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Marketing Internacional (Optativa 1).",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Arquitectura efímera (Optativa 2).",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Proyectos de Iluminación (Optativa 2).",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Comercio electrónico (Optativa 2).",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Dirección estratégica (Optativa 2).",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Negocios internacional (Optativa 2).",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 18,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n7716 Resolución de 22 de mayo de 2020, de la Universidad Antonio de Nebrija, por \nla que se publica la modificación del plan de estudios de Graduado en Diseño \nde Interiores.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, y \nacordado el carácter oficial del título por Acuerdo del Consejo de Ministros de 17 de junio \nde 2011 (publicado en el BOE de 14 de julio por resolución de la Secretaría General de \nUniversidades de 27 de junio de 2011), este Rectorado ha resuelto publicar la \nmodificación realizada sobre el plan de estudios conducente a la obtención del título de \nGraduado o Graduada en Diseño de Interiores, que queda estructurado según consta en \nel Anexo de esta Resolución.\nHoyo de Manzanares, 22 de mayo de 2020.–El Rector, Juan Cayón Peña.\nANEXO\nLas modificaciones realizadas en el plan de estudios en el Grado en Diseño de \ninteriores son las siguientes:\nLos requerimientos del plan de estudios sufren las sigui"
+  }
+}

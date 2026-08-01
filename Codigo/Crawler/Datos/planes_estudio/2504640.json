@@ -1,0 +1,445 @@
+{
+  "codigo_estudio": "2504640",
+  "titulo": "Graduado o Graduada en Inteligencia Artificial / Bachelor in Artificial Intelligence  por la CUNEF Universidad",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "089",
+  "universidad_nombre": "CUNEF Universidad",
+  "fecha_procesado": "2026-07-31T14:09:19.838063",
+  "boe_url": "http://www.boe.es/boe/dias/2025/01/16/pdfs/BOE-A-2025-706.pdf",
+  "boe_fecha": "2025-01-16",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación básica (FB).": "60",
+      "Obligatorias (OB).": "162",
+      "Optativas (OP).": "12",
+      "Trabajo de Fin de Grado (TFG).": "6",
+      "Créditos totales.": "240",
+      "Matemáticas.": "Álgebra Lineal.",
+      "Estadística.": "Probabilidad y Estadística.",
+      "Programación y Algorítmica.": "Lógica.",
+      "Arquitectura de computadores, redes y sistemas operativos.": "Fundamentos de computadores.",
+      "Bases de Datos.": "Bases de Datos relacionales.",
+      "Aprendizaje mente-máquina.": "Neurociencia computacional.",
+      "Tratamiento de Datos.": "Adquisición y procesado de datos.",
+      "Escenarios tecnológicos de la Inteligencia Artificial.": "Robótica y Visión Artificial.",
+      "Soft skills.": "Búsqueda, uso y tratamiento de la información.",
+      "Inteligencia Artificial en la práctica.": "Innovación sostenible en Inteligencia Artificial.",
+      "La ética y la privacidad de la Inteligencia Artificial.": "Privacidad y protección de datos.",
+      "Optatividad.": "Asignaturas optativas.",
+      "Prácticas Académicas Externas.": "Prácticas académicas externas.",
+      "Trabajo de fin de Grado.": "Trabajo de fin de Grado."
+    },
+    "asignaturas": [
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Álgebra Lineal.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Cálculo I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Cálculo II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemática discreta.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estadística.",
+        "nombre_asignatura": "Probabilidad y estadística.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Programación y Algorítmica.",
+        "nombre_asignatura": "Lógica.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Programación y Algorítmica.",
+        "nombre_asignatura": "Fundamentos de Programación I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Programación y Algorítmica.",
+        "nombre_asignatura": "Fundamentos de Programación II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Programación y Algorítmica.",
+        "nombre_asignatura": "Análisis y diseño de algoritmos.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Arquitectura de computadores, redes y sistemas operativos.",
+        "nombre_asignatura": "Fundamentos de los computadores.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Álgebra Lineal.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Cálculo I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Cálculo II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemática Discreta.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Estadística.",
+        "nombre_asignatura": "Probabilidad y Estadística.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Estadística.",
+        "nombre_asignatura": "Métodos estadísticos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Programación y Algorítmica.",
+        "nombre_asignatura": "Lógica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Programación y Algorítmica.",
+        "nombre_asignatura": "Fundamentos de Programación I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Programación y Algorítmica.",
+        "nombre_asignatura": "Fundamentos de Programación II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Programación y Algorítmica.",
+        "nombre_asignatura": "Análisis y diseño de algoritmos.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Programación y Algorítmica.",
+        "nombre_asignatura": "Programación de Aplicaciones Inteligentes.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Arquitectura de computadores, redes y sistemas operativos.",
+        "nombre_asignatura": "Fundamentos de computadores.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Arquitectura de computadores, redes y sistemas operativos.",
+        "nombre_asignatura": "Estructura de computadores.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Arquitectura de computadores, redes y sistemas operativos.",
+        "nombre_asignatura": "Redes y sistemas operativos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Arquitectura de computadores, redes y sistemas operativos.",
+        "nombre_asignatura": "Procesamiento paralelo y sistemas distribuidos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Bases de Datos.",
+        "nombre_asignatura": "Bases de Datos relacionales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Bases de Datos.",
+        "nombre_asignatura": "Bases de Datos no relacionales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Aprendizaje mente-máquina.",
+        "nombre_asignatura": "Neurociencia computacional.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Aprendizaje mente-máquina.",
+        "nombre_asignatura": "Procesamiento del Lenguaje Natural.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Aprendizaje mente-máquina.",
+        "nombre_asignatura": "Aprendizaje automático.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Aprendizaje mente-máquina.",
+        "nombre_asignatura": "Redes neuronales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Tratamiento de Datos.",
+        "nombre_asignatura": "Adquisición y procesado de datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Tratamiento de Datos.",
+        "nombre_asignatura": "Automatización de informes.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Escenarios tecnológicos de la Inteligencia Artificial.",
+        "nombre_asignatura": "Robótica y Visión Artificial.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Escenarios tecnológicos de la Inteligencia Artificial.",
+        "nombre_asignatura": "Ciberseguridad.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Escenarios tecnológicos de la Inteligencia Artificial.",
+        "nombre_asignatura": "Internet de las Cosas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Escenarios tecnológicos de la Inteligencia Artificial.",
+        "nombre_asignatura": "Ciudades inteligentes.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Soft skills.",
+        "nombre_asignatura": "Búsqueda, uso y tratamiento de la información.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Soft skills.",
+        "nombre_asignatura": "Pensamiento crítico.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Soft skills.",
+        "nombre_asignatura": "Comunicación oral y escrita.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Soft skills.",
+        "nombre_asignatura": "Metodologías ágiles y gestión de proyectos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Inteligencia Artificial en la práctica.",
+        "nombre_asignatura": "Innovación sostenible en Inteligencia Artificial.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Inteligencia Artificial en la práctica.",
+        "nombre_asignatura": "Gestión de empresas en Inteligencia Artificial.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Inteligencia Artificial en la práctica.",
+        "nombre_asignatura": "Finanzas e Inteligencia Artificial.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Inteligencia Artificial en la práctica.",
+        "nombre_asignatura": "Logística e Inteligencia Artificial.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Inteligencia Artificial en la práctica.",
+        "nombre_asignatura": "Marketing e Inteligencia Artificial.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "La ética y la privacidad de la Inteligencia Artificial.",
+        "nombre_asignatura": "Privacidad y protección de datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "La ética y la privacidad de la Inteligencia Artificial.",
+        "nombre_asignatura": "Ética y regulación de la Inteligencia Artificial.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Optatividad.",
+        "nombre_asignatura": "Asignaturas optativas.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Prácticas Académicas Externas.",
+        "nombre_asignatura": "Prácticas académicas externas.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Trabajo de fin de Grado.",
+        "nombre_asignatura": "Trabajo de fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "TFG",
+        "curso": "4",
+        "cuatrimestre": "2"
+      }
+    ],
+    "total_asignaturas": 51,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n706 Resolución de 9 de diciembre de 2024, de CUNEF Universidad, por la que se \npublica el plan de estudios de Graduado o Graduada en Inteligencia Artificial.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme favorable de la Agencia Evaluadora Fundación para el Conocimiento Madri+d, \nautorizada su implantación por la Comunidad de Madrid y establecido el carácter oficial \ndel título por Acuerdo de Consejo de Ministros de 17 de septiembre de 2024 (publicado \npor Resolución de 20 de septiembre de 2024, de la Secretaría General de \nUniversidades, en el «Boletín Oficial del Estado» de 27 de septiembre de 2024),\nEste Rectorado, de conformidad con lo dispuesto en el artículo 27.4 del Real \nDecreto 822/2021, de 28 de septiembre, ha resuelto publicar el plan de estudios \nconducente a la obtención del siguiente título oficial:\n– Graduado o Graduada en Inteligencia Artificial.\nEste plan queda estructurado según con"
+  }
+}

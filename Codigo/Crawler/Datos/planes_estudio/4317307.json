@@ -1,0 +1,179 @@
+{
+  "codigo_estudio": "4317307",
+  "titulo": "Máster Universitario en Ejecutivo en Administración de Empresas / Executive Master in Business Administration por la IE Universidad y Brown University",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "057",
+  "universidad_nombre": "IE Universidad",
+  "fecha_procesado": "2026-07-31T14:13:21.393469",
+  "boe_url": "http://www.boe.es/boe/dias/2021/03/11/pdfs/BOE-A-2021-3835.pdf",
+  "boe_fecha": "2021-03-11",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Materias obligatorias.": "54",
+      "Trabajo fin de Máster.": "6",
+      "Total créditos.": "60",
+      "Gestión empresarial. 18 ECTS": "Emprendimiento.",
+      "Economía y control. 9 ECTS": "Economía.",
+      "Estudios sociales. 12 ECTS": "Fundamentos.",
+      "Habilidades. 6 ECTS": "Liderazgo.",
+      "Compromiso corporativo. 9 ECTS": "Estrategia para el compromiso corporativo.",
+      "Trabajo fin de Máster. 6 ECTS.": "Trabajo fin de Máster."
+    },
+    "asignaturas": [
+      {
+        "materia": "Emprendimiento.",
+        "nombre_asignatura": "Gestión emprendedora.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Emprendimiento.",
+        "nombre_asignatura": "Gestión emprendedora para el desarrollo.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Funciones operativas de la empresa.",
+        "nombre_asignatura": "Dirección de Marketing.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Funciones operativas de la empresa.",
+        "nombre_asignatura": "Gestión de la Tecnología.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Funciones operativas de la empresa.",
+        "nombre_asignatura": "Operaciones y gestión de la cadena de suministro.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Funciones operativas de la empresa.",
+        "nombre_asignatura": "Dirección Financiera.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Economía.",
+        "nombre_asignatura": "Economía y Análisis de Países.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Contabilidad y Control de Gestión.",
+        "nombre_asignatura": "Contabilidad financiera.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Contabilidad y Control de Gestión.",
+        "nombre_asignatura": "Control de gestión.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Fundamentos.",
+        "nombre_asignatura": "Fundamentos de sociedad y cultura.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Fundamentos.",
+        "nombre_asignatura": "Métodos de análisis social.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Aplicaciones.",
+        "nombre_asignatura": "Estudios sociales aplicados I.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Aplicaciones.",
+        "nombre_asignatura": "Estudios sociales aplicados II.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Liderazgo.",
+        "nombre_asignatura": "Liderazgo de personas, equipos y organizaciones.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Comunicación para la persuasión.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estrategia para el compromiso corporativo.",
+        "nombre_asignatura": "Estrategia corporativa sostenible.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estrategia para el compromiso corporativo.",
+        "nombre_asignatura": "Modelos de intersección de los negocios y la sociedad.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Desarrollo.",
+        "nombre_asignatura": "Economía del desarrollo.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo fin de Máster.",
+        "nombre_asignatura": "Trabajo fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 19,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n3835 Resolución de 8 de febrero de 2021, de IE Universidad, por la que se publica \nel plan de estudios de Máster Universitario en Ejecutivo en Administración de \nEmpresas/Executive Master in Business Administration (Máster conjunto de \nIE Universidad y Brown University-Estados Unidos de América).\nEn cumplimiento de lo dispuesto en el artículo 35.4 de la Ley Orgánica 6/2001, de 21 \nde diciembre, de universidades y en el apartado 13 del Real Decreto 861/2010, de 2 de \njulio, que modifica el artículo 26 del Real Decreto 1393/2007, de 30 de octubre, por el \nque se establece la ordenación de las enseñanzas universitarias oficiales; una vez \nobtenida la verificación del plan de estudios por el Consejo de Universidades el 18 de \nmayo de 2020 previo informe positivo de la Agencia para la Calidad del Sistema \nUniversitario de Castilla y León y establecido el carácter oficial del título por Acuerdo de \nConsejo de Ministros de 12 de enero de 2021 por el que "
+  }
+}

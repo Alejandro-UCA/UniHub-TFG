@@ -1,0 +1,178 @@
+{
+  "codigo_estudio": "4317306",
+  "titulo": "Máster Universitario en Administración de Empresas para Arquitectura y Diseño / Master in Business for Architecture and Design por la IE Universidad",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "057",
+  "universidad_nombre": "IE Universidad",
+  "fecha_procesado": "2026-07-31T14:12:17.012050",
+  "boe_url": "http://www.boe.es/boe/dias/2021/03/11/pdfs/BOE-A-2021-3833.pdf",
+  "boe_fecha": "2021-03-11",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Materias obligatorias.": "51",
+      "Trabajo fin de Máster.": "9",
+      "Total créditos.": "60",
+      "Módulo 1. Gestión de Empresas ADMAC. 17 ECTS.": "Economía de los Negocios.",
+      "Módulo 2. Emprendimiento en Empresas ADMAC. 14 ECTS.": "Emprendimiento en el mundo del diseño.",
+      "Módulo 3. Innovación y Tecnología para Empresas ADMAC. 12 ECTS.": "Innovación en los Negocios.",
+      "Módulo 4. Liderazgo en Empresas ADMAC. 8 ECTS.": "Desarrollo del Liderazgo.",
+      "Módulo 5. Trabajo fin de Máster. 9 ECTS.": "Trabajo fin de Máster."
+    },
+    "asignaturas": [
+      {
+        "materia": "Economía de los Negocios.",
+        "nombre_asignatura": "Entorno Económico.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Economía de los Negocios.",
+        "nombre_asignatura": "Planificación financiera.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estrategia en los Negocios.",
+        "nombre_asignatura": "Marketing.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estrategia en los Negocios.",
+        "nombre_asignatura": "Gestión estratégica.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Optimización en los Negocios.",
+        "nombre_asignatura": "Operaciones en empresas de Diseño.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Optimización en los Negocios.",
+        "nombre_asignatura": "Gestión de Proyectos.",
+        "creditos_ects": "2",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Emprendimiento en el mundo del diseño.",
+        "nombre_asignatura": "Principios de Emprendimiento.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Emprendimiento en el mundo del diseño.",
+        "nombre_asignatura": "Gestión de Nuevas Empresas ADMAC.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marcos de Actuación para Emprendedores.",
+        "nombre_asignatura": "Organizaciones Agiles.",
+        "creditos_ects": "2",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marcos de Actuación para Emprendedores.",
+        "nombre_asignatura": "Legislación para. Emprendedores del Diseño.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Herramientas de Emprendimiento.",
+        "nombre_asignatura": "Herramientas de Emprendimiento.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Innovación en los Negocios.",
+        "nombre_asignatura": "Creación de Valor a Través del Diseño.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Innovación en los Negocios.",
+        "nombre_asignatura": "Diseño de Servicios para el Entorno Construido.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "El Negocio del Diseño en la Era Digital.",
+        "nombre_asignatura": "Transformación Digital.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "El Negocio del Diseño en la Era Digital.",
+        "nombre_asignatura": "Herramientas Tecnológicas.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Desarrollo del Liderazgo.",
+        "nombre_asignatura": "Estrategia Personal para Diseñadores.",
+        "creditos_ects": "2",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Desarrollo del Liderazgo.",
+        "nombre_asignatura": "Recursos Humanos en Empresas Creativas.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Comunicación en los Negocios.",
+        "nombre_asignatura": "Comunicación y Estrategia en el Diseño.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo fin de Máster.",
+        "nombre_asignatura": "Trabajo fin de Máster.",
+        "creditos_ects": "9",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 19,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n3833 Resolución de 8 de febrero de 2021, de IE Universidad, por la que se publica \nel plan de estudios de Máster Universitario en Administración de Empresas \npara Arquitectura y Diseño/Master in Business for Architecture and Design.\nEn cumplimiento de lo dispuesto en el artículo 35.4 de la Ley Orgánica 6/2001, de 21 \nde diciembre, de universidades y en el apartado 13 del Real Decreto 861/2010, de 2 de \njulio, que modifica el artículo 26 del Real Decreto 1393/2007, de 30 de octubre, por el \nque se establece la ordenación de las enseñanzas universitarias oficiales; una vez \nobtenida la verificación del plan de estudios por el Consejo de Universidades el 18 de \nmayo de 2020 previo informe positivo de la Agencia para la Calidad del Sistema \nUniversitario de Castilla y León y establecido el carácter oficial del título por Acuerdo de \nConsejo de Ministros de 12 de enero de 2021 por el que se establece el carácter oficial \nde determinados títulos de Grad"
+  }
+}

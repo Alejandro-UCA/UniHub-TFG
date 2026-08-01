@@ -1,0 +1,303 @@
+{
+  "codigo_estudio": "2504500",
+  "titulo": "Graduado o Graduada en Estudios Urbanos / Bachelor in Urban Studies por la IE Universidad",
+  "nivel_academico": "Grado - RD 1393/2007 (1)",
+  "universidad_codigo": "057",
+  "universidad_nombre": "IE Universidad",
+  "fecha_procesado": "2026-07-31T14:11:48.379905",
+  "boe_url": "http://www.boe.es/boe/dias/2023/01/17/pdfs/BOE-A-2023-1174.pdf",
+  "boe_fecha": "2023-01-17",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Créditos de formación básica.": "60",
+      "Materias obligatorias.": "138",
+      "Materias optativas.": "30",
+      "Trabajo fin de grado.": "12",
+      "Total créditos.": "240"
+    },
+    "asignaturas": [
+      {
+        "materia": "Medioambiente Natural. 20 ECTS.",
+        "nombre_asignatura": "Ecosistemas Urbanos y Territoriales.",
+        "creditos_ects": "5",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Medioambiente Natural. 20 ECTS.",
+        "nombre_asignatura": "Hábitat.",
+        "creditos_ects": "5",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Medioambiente Natural. 20 ECTS.",
+        "nombre_asignatura": "Flujos Urbanos y Territoriales.",
+        "creditos_ects": "4",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Medioambiente Natural. 20 ECTS.",
+        "nombre_asignatura": "Huella Ecológica y Ciclo de Vida.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Medioambiente Social. 22 ECTS.",
+        "nombre_asignatura": "Estructura y Grupos Sociales.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Medioambiente Social. 22 ECTS.",
+        "nombre_asignatura": "Demografía Urbana.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Medioambiente Social. 22 ECTS.",
+        "nombre_asignatura": "Accesibilidad y Justicia Social.",
+        "creditos_ects": "4",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Medioambiente Social. 22 ECTS.",
+        "nombre_asignatura": "Gobierno de Ciudades.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Medioambiente construido. 20 ECTS.",
+        "nombre_asignatura": "Estructura Urbana y Relación Territorial.",
+        "creditos_ects": "5",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Medioambiente construido. 20 ECTS.",
+        "nombre_asignatura": "Vivienda.",
+        "creditos_ects": "5",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Medioambiente construido. 20 ECTS.",
+        "nombre_asignatura": "Usos y Actividades Urbanas y Territoriales.",
+        "creditos_ects": "4",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Medioambiente construido. 20 ECTS.",
+        "nombre_asignatura": "Planificación Urbanística.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Laboratorio de Ciudades. 46 ECTS.",
+        "nombre_asignatura": "Laboratorio de Ciudades I. Marco: Ecosistemas y Estructuras.",
+        "creditos_ects": "10",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Laboratorio de Ciudades. 46 ECTS.",
+        "nombre_asignatura": "Laboratorio de Ciudades II. Formas de Habitar: Hábitat y Vivienda.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Laboratorio de Ciudades. 46 ECTS.",
+        "nombre_asignatura": "Laboratorio de Ciudades III. Accesibilidad: Flujos y Movilidad.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Laboratorio de Ciudades. 46 ECTS.",
+        "nombre_asignatura": "Laboratorio de Ciudades IV. Herramientas: Gobernanza.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Tecnologías de la Información. 22 ECTS.",
+        "nombre_asignatura": "Ciencia y Métodos de Toma de Datos.",
+        "creditos_ects": "4",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Tecnologías de la Información. 22 ECTS.",
+        "nombre_asignatura": "Sistemas de Información Geográfica (SIG).",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Tecnologías de la Información. 22 ECTS.",
+        "nombre_asignatura": "Modelización y Simulación de Sistemas Urbanos y Territoriales.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Tecnologías de la Información. 22 ECTS.",
+        "nombre_asignatura": "Ciencia y Programación Informática.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Probabilidad y Estadística. 11 ECTS.",
+        "nombre_asignatura": "Fundamentos de Probabilidad y Estadística.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Probabilidad y Estadística. 11 ECTS.",
+        "nombre_asignatura": "Probabilidad y Estadística Avanzadas.",
+        "creditos_ects": "5",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Expresión y Comunicación Gráfica. 3 ECTS.",
+        "nombre_asignatura": "Expresión y Comunicación Gráfica.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Filosofía y Ciencias de la Complejidad. 3 ECTS.",
+        "nombre_asignatura": "Teoría y Crítica de la Complejidad.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Teoría y Crítica de las Ciudades. 18 ECTS.",
+        "nombre_asignatura": "Teoría y Crítica de la Ciudad Arqueológica y su Patrimonio.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Teoría y Crítica de las Ciudades. 18 ECTS.",
+        "nombre_asignatura": "Teoría y Crítica de la Ciudad Histórica y su Patrimonio.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Teoría y Crítica de las Ciudades. 18 ECTS.",
+        "nombre_asignatura": "Teoría y Crítica de la Ciudad Contemporánea y su Patrimonio.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Economía. 6 ECTS.",
+        "nombre_asignatura": "Economía Circular. Relación Urbana y Territorial.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho. 6 ECTS.",
+        "nombre_asignatura": "Derecho Urbanístico y Medioambiental.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Humanidades. 6 ECTS.",
+        "nombre_asignatura": "Humanidades.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Tecnología. 3 ECTS.",
+        "nombre_asignatura": "Tecnología.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Emprendimiento. 6 ECTS.",
+        "nombre_asignatura": "Emprendimiento.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Reto IE. 6 ECTS.",
+        "nombre_asignatura": "Reto IE.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Optativas. 30 ECTS.",
+        "nombre_asignatura": "Optativas.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo de Fin de Grado. 12 ECTS.",
+        "nombre_asignatura": "Trabajo de Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 35,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n1174 Resolución de 10 de noviembre de 2022, de IE Universidad, por la que se \npublica el plan de estudios de Graduado o Graduada en Estudios Urbanos/\nBachelor In Urban Studies.\nEste Rectorado ha resuelto ordenar la publicación en el «Boletín Oficial del Estado» y \nen el «Boletín Oficial de Castilla y León», del plan de estudios conducente a la obtención \ndel título oficial de Graduado/a en Estudios Urbanos/Bachelor In Urban Studies por la IE \nUniversidad (2504500). Esta decisión se toma en cumplimiento de lo dispuesto en el \nartículo 35.4 de la Ley Orgánica 6/2001, de 21 de diciembre, de Universidades y en \nel artículo 27 del Real Decreto 822/2021, de 28 de septiembre, por el que se establece \nla organización de las enseñanzas universitarias y del procedimiento de aseguramiento \nde su calidad.\nEl título obtuvo la verificación del plan de estudios por el Consejo de Universidades \nel 3 de junio de 2022 tras el previo informe favorable de la Agencia "
+  }
+}

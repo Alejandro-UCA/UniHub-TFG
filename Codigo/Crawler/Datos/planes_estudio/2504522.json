@@ -1,0 +1,591 @@
+{
+  "codigo_estudio": "2504522",
+  "titulo": "Graduado o Graduada en Ingeniería Física Aplicada a la Industria por la Mondragón Unibertsitatea",
+  "nivel_academico": "Grado - RD 1393/2007 (1)",
+  "universidad_codigo": "061",
+  "universidad_nombre": "Mondragón Unibertsitatea",
+  "fecha_procesado": "2026-07-31T14:15:52.301114",
+  "boe_url": "http://www.boe.es/boe/dias/2024/05/11/pdfs/BOE-A-2024-9527.pdf",
+  "boe_fecha": "2024-05-11",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Fundamentos Metodológicos.": "1.º",
+      "Física General I.": "1.º",
+      "Cálculo I.": "1.º",
+      "Álgebra Lineal.": "1.º",
+      "Fundamentos de Informática.": "1.º",
+      "Física General II.": "1.º",
+      "Química.": "1.º",
+      "Economía y Empresa.": "1.º",
+      "Expresión Gráfica.": "1.º",
+      "Cálculo II.": "1.º",
+      "Mecánica.": "2.º",
+      "Métodos Matemáticos Aplicados a la Ingeniería.": "2.º",
+      "Estadística.": "2.º",
+      "Fundamentos de Ingeniería Electrónica.": "2.º",
+      "Técnicas Experimentales I.": "2.º",
+      "Programación I.": "2.º",
+      "Termodinámica.": "2.º",
+      "Física Cuántica I.": "2.º",
+      "Métodos Matemáticos Aplicados a la Física.": "2.º",
+      "Métodos Numéricos.": "2.º",
+      "Física de Fluidos.": "2.º",
+      "Técnicas Experimentales II.": "2.º",
+      "Electrónica y Automática.": "2.º",
+      "Electromagnetismo I.": "2.º",
+      "Modelización Matemática.": "3.º",
+      "Electromagnetismo II.": "3.º",
+      "Programación II.": "3.º",
+      "Física Estadística.": "3.º",
+      "Ciencia e Ingeniería de Materiales.": "3.º",
+      "Física Cuántica II.": "3.º",
+      "Matemática Discreta (*).": "3.º",
+      "Prácticas en alternancia (*).": "3.º",
+      "Óptica y Visión Artificial.": "3.º",
+      "Robótica, Modelado y Control.": "3.º",
+      "Inteligencia Artificial: Aprendizaje Automático.": "3.º",
+      "Instrumentación y tratamiento de señal.": "3.º",
+      "Física Relativista.": "3.º",
+      "Física del Estado Sólido.": "3.º",
+      "Automatización de Procesos (*).": "3.º",
+      "Prácticas en alternancia II (*).": "3.º",
+      "Computación Cuántica.": "4.º",
+      "Inteligencia Artificial: Computación Evolutiva.": "4.º",
+      "Nanotecnología.": "4.º",
+      "Fotónica.": "4.º",
+      "Prácticas en empresa I (*).": "4.º",
+      "Fundamentos Biomédicos (*).": "4.º",
+      "Bioseñales y Procesamiento de Señal (*).": "4.º",
+      "Diseño y Análisis de Sistemas Mecánicos (*).": "4.º",
+      "Electrotecnia (*).": "4.º",
+      "Electrónica de Potencia (*).": "4.º",
+      "Conversión de la Energía Electromecánica (*).": "4.º",
+      "Prácticas en empresa II.": "4.º",
+      "Trabajo Fin de Grado.": "4.º"
+    },
+    "asignaturas": [
+      {
+        "materia": "Comunicación.",
+        "nombre_asignatura": "Fundamentos Metodológicos.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Física General I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Cálculo I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Álgebra Lineal.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Fundamentos de Informática.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Física General II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Química.",
+        "nombre_asignatura": "Química.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Economía y Empresa.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Expresión Gráfica.",
+        "nombre_asignatura": "Expresión Gráfica.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Fundamentos de Ingeniería Electrónica.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos Metodológicos.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física General I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Cálculo I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Álgebra Lineal.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de Informática.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física General II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Química.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Economía y Empresa.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Expresión Gráfica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Cálculo II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Mecánica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Métodos Matemáticos Aplicados a la Ingeniería.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Estadística.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos de Ingeniería Electrónica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Técnicas Experimentales I.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Programación I.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Termodinámica.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física Cuántica I.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Métodos Matemáticos Aplicados a la Física.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Métodos Numéricos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física de Fluidos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Técnicas Experimentales II.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Electrónica y Automática.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Electromagnetismo I.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Modelización Matemática.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Electromagnetismo II.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Programación II.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física Estadística.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ciencia e Ingeniería de Materiales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física Cuántica II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemática Discreta (*).",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en alternancia (*).",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Óptica y Visión Artificial.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Robótica, Modelado y Control.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Inteligencia Artificial: Aprendizaje Automático.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Instrumentación y tratamiento de señal.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física Relativista.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Física del Estado Sólido.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Automatización de Procesos (*).",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en alternancia II (*).",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Computación Cuántica.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Inteligencia Artificial: Computación Evolutiva.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Nanotecnología.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fotónica.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en empresa I (*).",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Opción acceso Máster en Tecnologías Biomédicas",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos Biomédicos (*).",
+        "creditos_ects": "5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Bioseñales y Procesamiento de Señal (*).",
+        "creditos_ects": "5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño y Análisis de Sistemas Mecánicos (*).",
+        "creditos_ects": "5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Opción acceso Máster en Energía y Electrónica de Potencia y Máster en Sistemas Inteligentes de Energía",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Electrotecnia (*).",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Electrónica de Potencia (*).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Conversión de la Energía Electromecánica (*).",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en empresa II.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 65,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n9527 Resolución de 19 de abril de 2024, de la Universidad Mondragon \nUnibertsitatea, por la que se publica el plan de estudios de Graduado o \nGraduada en Ingeniería Física Aplicada a la Industria.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme favorable de la Agencia de Calidad del Sistema Universitario Vasco, así como la \nautorización de la Comunidad Autónoma Vasca, y establecido el carácter oficial del título \npor Acuerdo de Consejo de Ministros de 4 de octubre de 2022 (publicado en el BOE \nde 21 de octubre de 2022),\nEste Rectorado, de conformidad con lo dispuesto en el artículo 35 de la Ley \nOrgánica 6/2001, de Universidades, en la redacción dada por la Ley Orgánica 4/2007, ha \nresuelto publicar el plan de estudios conducente a la obtención del título de Grado en \nIngeniería Física Aplicada a la Industria.\nMondragón, 19 de abril de 2024.–El Rector, Vicente Atxa Uribe.\nANEXO\nContenido del plan de e"
+  }
+}

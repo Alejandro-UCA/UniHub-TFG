@@ -1,0 +1,301 @@
+{
+  "codigo_estudio": "4318506",
+  "titulo": "Máster Universitario en Estudios Jurídicos Internacionales / Master LLM in International Legal Studies por la IE Universidad",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "057",
+  "universidad_nombre": "IE Universidad",
+  "fecha_procesado": "2026-07-31T14:13:26.451835",
+  "boe_url": "http://www.boe.es/boe/dias/2024/02/26/pdfs/BOE-A-2024-3732.pdf",
+  "boe_fecha": "2024-02-26",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatoria (OB).": "27",
+      "Optativa (OP).": "21",
+      "Trabajo Fin de Máster (TFM).": "12",
+      "Créditos totales.": "60",
+      "Materia Bases del Derecho Internacional.": "Derecho Internacional Público.",
+      "Materia Integradora.": "Seminario Avanzado.",
+      "Materia Habilidades.": "Habilidades de liderazgo y negociación.",
+      "Especialidad en Derecho Internacional Económico.": "Derecho Internacional Humanitario.",
+      "Especialidad en Derechos Humanos.": "Derecho Internacional Humanitario.",
+      "Optativas de especialidad.": "Optativas de especialidad.",
+      "Trabajo de Fin de Máster.": "Trabajo de Fin de Máster."
+    },
+    "asignaturas": [
+      {
+        "materia": "Materia Bases del Derecho Internacional.",
+        "nombre_asignatura": "Derecho Internacional Público.",
+        "creditos_ects": "5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia Bases del Derecho Internacional.",
+        "nombre_asignatura": "Derecho de la Unión Europea.",
+        "creditos_ects": "4",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia Bases del Derecho Internacional.",
+        "nombre_asignatura": "Derecho Internacional Privado.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia Bases del Derecho Internacional.",
+        "nombre_asignatura": "Internet, Datos y el Derecho.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia Bases del Derecho Internacional.",
+        "nombre_asignatura": "Derecho del Comercio Internacional.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia Bases del Derecho Internacional.",
+        "nombre_asignatura": "Derecho Internacional del Medioambiente.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia Integradora.",
+        "nombre_asignatura": "Seminario Avanzado.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Materia Habilidades.",
+        "nombre_asignatura": "Habilidades de liderazgo y negociación.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Derecho Internacional de la Propiedad Intelectual.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Derecho Internacional de las Inversiones.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Derecho Internacional del Comercio Digital.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Derecho Fiscal Internacional.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Derechos Humanos y la Sociedad de la Información.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Organismos Internacionales y los Derechos Humanos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Conflictos Internacionales en Tiempos de Paz y Guerra.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Derecho de las Migraciones y de los Refugiados.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Optativas de especialidad.",
+        "nombre_asignatura": "Optativas de especialidad.",
+        "creditos_ects": "9",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo de Fin de Máster.",
+        "nombre_asignatura": "Trabajo de Fin de Máster.",
+        "creditos_ects": "12",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Derecho Internacional Humanitario.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Resolución de Conflictos y Gestión del Riesgo.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Terrorismo y el Derecho Internacional.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Aspectos Legales en el Ciberespacio.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Derecho de la Infancia.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Justicia Transicional.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Derecho Penal Europeo.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "El comercio y el desarrollo sostenible.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Derecho Internacional Humanitario.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Resolución de Conflictos y Gestión del Riesgo.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Terrorismo y el Derecho Internacional.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Aspectos Legales en el Ciberespacio.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Derecho de la Infancia.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Justicia Transicional.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Derecho Penal Europeo.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "El comercio y el desarrollo sostenible.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 34,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n3732 Resolución de 14 de febrero de 2024, de IE Universidad, por la que se \npublica el plan de estudios de Máster Universitario en Estudios Jurídicos \nInternacionales/Master LLM in International Legal Studies.\nEste Rectorado ha resuelto ordenar la publicación en el «Boletín Oficial del Estado» y \nen el «Boletín Oficial de Castilla y León», del plan de estudios conducente a la obtención \ndel título oficial de Máster Universitario en Estudios Jurídicos Internacionales/Master LLM \nin International Legal Studies  (4318506). Esta decisión se toma en cumplimiento de lo \ndispuesto en el artículo 8.3 de Ley Orgánica 2/2023, de 22 de marzo, del Sistema \nUniversitario y en el artículo 27 del Real Decreto 822/2021, de 28 de septiembre, por el \nque se establece la organización de las enseñanzas universitarias y del procedimiento \nde aseguramiento de su calidad.\nEl título obtuvo la verificación del plan de estudios por el Consejo de \nUniversidades 30 de mayo d"
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "codigo_estudio": "3500406",
+  "titulo": "Máster Universitario en Gestión / Master in Management (MIM) por la CUNEF Universidad",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "089",
+  "universidad_nombre": "CUNEF Universidad",
+  "fecha_procesado": "2026-07-31T14:09:31.415638",
+  "boe_url": "http://www.boe.es/boe/dias/2026/02/19/pdfs/BOE-A-2026-3899.pdf",
+  "boe_fecha": "2026-02-19",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias (OB).": "33",
+      "Optativas (OP).": "15",
+      "Prácticas Académicas Externas (PE).": "6",
+      "Trabajo de Fin de Máster (TFM).": "6",
+      "Créditos totales.": "60",
+      "Gestión de empresas. Business Management.": "Fundamentos de gestión. Principles of Management.",
+      "Marco legal contable y financiero. Legal, accounting and financial framework.": "Entorno financiero. Financial Environment.",
+      "Marketing. Marketing.": "Dirección de marketing. Marketing Management.",
+      "Digitalización, nuevas tecnologías y toma de decisiones. Digitalisation, new technologies and decision making.": "Dirección de proyectos. Project Management.",
+      "Gestión en el sector de la moda y el lujo. Management in the Fashion and Luxury Industry.": "Legado, tendencias y evolución de la moda y el lujo a nivel mundial. Legacy, Trends, and Evolution of Fashion and Luxury Worldwide.",
+      "Gestión general. General Management.": "Entorno económico. Economic Environment.",
+      "Prácticas Académicas Externas. Academic Intership.": "Prácticas Académicas Externas. Academic Intership.",
+      "Trabajo de fin de Máster. Final Master’s Degree Project.": "Trabajo de fin de Máster. Final Master’s Degree Project."
+    },
+    "asignaturas": [
+      {
+        "materia": "Gestión de empresas. Business Management.",
+        "nombre_asignatura": "Fundamentos de gestión. Principles of Management.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Gestión de empresas. Business Management.",
+        "nombre_asignatura": "Gestión de personas y liderazgo. People Management and Leadership.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Gestión de empresas. Business Management.",
+        "nombre_asignatura": "Estrategia y emprendimiento. Strategy and Entrepreneurship.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Marco legal contable y financiero. Legal, accounting and financial framework.",
+        "nombre_asignatura": "Entorno financiero. Financial Environment.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Marco legal contable y financiero. Legal, accounting and financial framework.",
+        "nombre_asignatura": "Marco jurídico de la empresa. Corporate Legal Framework.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Marco legal contable y financiero. Legal, accounting and financial framework.",
+        "nombre_asignatura": "Sistemas de información contable. Accounting Information Systems.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Marketing. Marketing.",
+        "nombre_asignatura": "Dirección de marketing. Marketing Management.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Marketing. Marketing.",
+        "nombre_asignatura": "Marketing digital. Digital Marketing.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Marketing. Marketing.",
+        "nombre_asignatura": "Inteligencia del negocio y tratamiento de la información. Business Intelligence and Information Processing.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Digitalización, nuevas tecnologías y toma de decisiones. Digitalisation, new technologies and decision making.",
+        "nombre_asignatura": "Dirección de proyectos. Project Management.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Digitalización, nuevas tecnologías y toma de decisiones. Digitalisation, new technologies and decision making.",
+        "nombre_asignatura": "Transformación digital y metodologías ágiles. Digital Transformation and Agile Methodologies.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Gestión en el sector de la moda y el lujo. Management in the Fashion and Luxury Industry.",
+        "nombre_asignatura": "Legado, tendencias y evolución de la moda y el lujo a nivel mundial. Legacy, Trends, and Evolution of Fashion and Luxury Worldwide.",
+        "creditos_ects": "5",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "1 y 2"
+      },
+      {
+        "materia": "Gestión en el sector de la moda y el lujo. Management in the Fashion and Luxury Industry.",
+        "nombre_asignatura": "Arquitectura de marca y comunicación en el sector de la moda y el lujo. Brand Architecture and Communication in the Fashion and Luxury Industry.",
+        "creditos_ects": "2",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Gestión en el sector de la moda y el lujo. Management in the Fashion and Luxury Industry.",
+        "nombre_asignatura": "Gestión de la cadena de valor en el sector de la moda y el lujo. Value Chain Management in the Fashion and Luxury Sector.",
+        "creditos_ects": "4",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "1 y 2"
+      },
+      {
+        "materia": "Gestión en el sector de la moda y el lujo. Management in the Fashion and Luxury Industry.",
+        "nombre_asignatura": "Fundamentos y tendencias del diseño en el sector de la moda y el lujo. Design Principles and Trends in the Fashion and Luxury Industry.",
+        "creditos_ects": "2",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Gestión en el sector de la moda y el lujo. Management in the Fashion and Luxury Industry.",
+        "nombre_asignatura": "Sostenibilidad y diseño en el sector de la moda y el lujo. Sustainability and Design in the Fashion and Luxury Industry.",
+        "creditos_ects": "2",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Gestión general. General Management.",
+        "nombre_asignatura": "Entorno económico. Economic Environment.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Gestión general. General Management.",
+        "nombre_asignatura": "Microeconomía. Microeconomics.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Gestión general. General Management.",
+        "nombre_asignatura": "Finanzas corporativas. Corporate Finance.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Gestión general. General Management.",
+        "nombre_asignatura": "Sostenibilidad y desarrollo empresarial. Sustainability and Business Development.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Gestión general. General Management.",
+        "nombre_asignatura": "Modelos de simulación empresarial. Business Games.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Prácticas Académicas Externas. Academic Intership.",
+        "nombre_asignatura": "Prácticas Académicas Externas. Academic Intership.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Trabajo de fin de Máster. Final Master’s Degree Project.",
+        "nombre_asignatura": "Trabajo de fin de Máster. Final Master’s Degree Project.",
+        "creditos_ects": "6",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": "2"
+      }
+    ],
+    "total_asignaturas": 23,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n3899 Resolución de 4 de febrero de 2026, de CUNEF Universidad, por la que se \npublica el plan de estudios de Máster Universitario en Gestión/Master in \nManagement (MIM).\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme favorable de la Agencia Evaluadora Fundación para el Conocimiento Madri+d, \nautorizada su implantación por la Comunidad de Madrid y establecido el carácter oficial \ndel título por Acuerdo de Consejo de Ministros de 7 de octubre de 2025 (publicado, por \nResolución de 9 de octubre de 2025, de la Secretaría General de Universidades, en el \n«Boletín Oficial del Estado» de 13 de octubre de 2025),\nEste Rectorado, de conformidad con lo dispuesto en el artículo 27.4 del Real \nDecreto 822/2021, de 28 de septiembre, por el que se establece la organización de las \nenseñanzas universitarias y del procedimiento de aseguramiento de su calidad, ha \nresuelto publicar el plan de estudios conducente a la "
+  }
+}

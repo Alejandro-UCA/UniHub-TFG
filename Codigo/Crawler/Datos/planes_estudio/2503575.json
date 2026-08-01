@@ -1,0 +1,264 @@
+{
+  "codigo_estudio": "2503575",
+  "titulo": "Graduado o Graduada en Psicología por la Universidad Antonio de Nebrija",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "052",
+  "universidad_nombre": "Universidad Antonio de Nebrija",
+  "fecha_procesado": "2026-07-31T14:39:35.610376",
+  "boe_url": "http://www.boe.es/boe/dias/2023/04/03/pdfs/BOE-A-2023-8444.pdf",
+  "boe_fecha": "2023-04-03",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Asignaturas de Formación Básica.": "60",
+      "Asignaturas obligatorias.": "129",
+      "Asignaturas optativas.": "25",
+      "Prácticas externas.": "18",
+      "Trabajo Fin de Grado.": "8",
+      "Créditos totales.": "240"
+    },
+    "asignaturas": [
+      {
+        "materia": "",
+        "nombre_asignatura": "Asignaturas de Formación Básica.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Asignaturas obligatorias.",
+        "creditos_ects": "129",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Asignaturas optativas.",
+        "creditos_ects": "25",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas externas.",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "creditos_ects": "8",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Créditos totales.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Mención en intervención clínica",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Psicofarmacología.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Intervención en salud mental.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Psicología del deporte.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Técnicas de Intervención en Psicología Clínica.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Psicooncología.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Mención en psicología social",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Psicología criminal.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Psicología de la delincuencia y de la exclusión social.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diagnóstico en psicología social.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Psicología de la intervención comunitaria.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Psicología de las drogadicciones.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Mención en psicología educativa",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Orientación psicopedagógica y educativa.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trastornos del desarrollo y el aprendizaje.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Atención e intervención temprana.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Evaluación e intervención en la discapacidad y la diversidad.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Violencia escolar.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Mención en psicología del trabajo, las organizaciones y los recursos humanos",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Psicología de los recursos humanos.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Selección y formación del personal.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Psicología del consumo y del marketing.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Salud laboral.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Coaching.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 30,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n8444 Resolución de 8 de marzo de 2023, de la Universidad Antonio de Nebrija, por \nla que se publica la modificación del plan de estudios de Graduado o \nGraduada en Psicología.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, y \nacordado el carácter oficial del título por Acuerdo del Consejo de Ministros de 19 de \nenero de 2018 (publicado en el BOE de 5 de febrero de 2018 por resolución de \nla Secretaría General de Universidades de 24 de enero de 2018),\nEste Rectorado ha resuelto publicar la modificación del plan de estudios conducentes \na la obtención del título de Graduado o Graduada en Psicología, que queda estructurado \nsegún consta en el anexo de esta resolución.\nHoyo de Manzanares, 8 de marzo de 2023.–El Rector, José Muñiz Fernández.\nANEXO\nPlan de estudios conducente al título de Graduado o Graduada en Psicología\nPLANIFICACIÓN DE LAS ENSEÑANZAS\nDescripción general del plan de estudios: Graduado o Graduada en Psic"
+  }
+}

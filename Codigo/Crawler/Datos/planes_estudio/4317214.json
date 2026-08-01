@@ -1,0 +1,413 @@
+{
+  "codigo_estudio": "4317214",
+  "titulo": "Máster Universitario en  Abogacía Bancaria y Bursátil  por la CUNEF Universidad",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "089",
+  "universidad_nombre": "CUNEF Universidad",
+  "fecha_procesado": "2026-07-31T14:09:21.512232",
+  "boe_url": "http://www.boe.es/boe/dias/2022/01/20/pdfs/BOE-A-2022-939.pdf",
+  "boe_fecha": "2022-01-20",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias (OB).": "32",
+      "Optativas (OP).": "10",
+      "Prácticas externas (PE).": "12",
+      "Trabajo de Fin de Máster (TFM).": "6",
+      "Créditos totales.": "60",
+      "Regulación y normativa de los mercados e instituciones financieras.": "Derecho y regulación de las entidades de crédito.",
+      "Economía y sistema financiero.": "Economía financiera.",
+      "Prácticas externas.": "Prácticas profesionales.",
+      "Especialidad I: Asesoría fiscal y sector financiero.": "Derecho fiscal y contabilidad.",
+      "Especialidad II: Asesoría jurídica y sector financiero.": "Asesoría jurídica y financiación.",
+      "Trabajo de Fin de Máster.": "Trabajo de Fin de Máster.",
+      "Fundamentos financieros.": "Economía financiera.",
+      "Finanzas avanzadas.": "Finanzas corporativas.",
+      "Actividades prácticas empresariales.": "Prácticas profesionales en empresa.",
+      "Especialidad I: Dirección financiera.": "Corporate finance.",
+      "Especialidad II: Banca y dirección de entidades financieras.": "Banca y estrategia.",
+      "Especialidad III: Bolsa y gestión de inversiones.": "Bolsa y gestión de inversiones.",
+      "Especialidad IV: International Finance.": "Finanzas internacionales.",
+      "Especialidad VI: Dirección de riesgos empresariales.": "Riesgos corporativos.",
+      "Régimen jurídico y profesional del abogado.": "El ejercicio de la abogacía: funciones, competencias, deberes y gestión del despacho.",
+      "Práctica jurídica en Derecho Público: asesoría y litigación.": "Asesoría de Derecho Administrativo y proceso contencioso administrativo.",
+      "Práctica jurídica en Derecho Privado: asesoría y litigación.": "Sociedades, empresas y otras formas de asociación empresarial.",
+      "Auditoría.": "Normas jurídicas y profesionales relativas a la Auditoría.",
+      "Contabilidad financiera.": "Normas contables relativas a las cuentas anuales.",
+      "Contabilidad superior I.": "Consolidación de estados financieros y combinaciones de negocios.",
+      "Contabilidad superior II.": "Análisis y proyección de estados financieros.",
+      "Métodos cuantitativos.": "Fundamentos para el análisis de datos y la investigación.",
+      "Programación.": "Herramientas de programación para la Ciencia de Datos.",
+      "Gestión de bases de datos.": "Bases de datos.",
+      "Aprendizaje automático.": "Aprendizaje automático.",
+      "Técnicas de visualización.": "Técnicas de visualización.",
+      "Inteligencia artificial.": "Redes neuronales y aprendizaje profundo.",
+      "Series temporales.": "Técnicas de predicción: series temporales.",
+      "Minería de textos.": "Ciencia de Datos para la gestión de información no estructurada.",
+      "Técnicas de extracción, transformación y carga.": "Extracción, transformación y carga.",
+      "Ética, gobernanza y protección de datos.": "Aspectos jurídicos y legales en el tratamiento de la información, ética profesional y gobernanza del dato.",
+      "Ciencias de Datos aplicada.": "Aplicaciones profesionales de la Ciencia de Datos.",
+      "International business and global management.": "International economics.",
+      "International Finance.": "Global capital markets.",
+      "International marketing & operations.": "Global marketing.",
+      "Management skills.": "Global management skills.",
+      "Internships.": "Internships.",
+      "Research and Final Project.": "Research and Final Project."
+    },
+    "asignaturas": [
+      {
+        "materia": "Auditoría.",
+        "nombre_asignatura": "Normas jurídicas y profesionales relativas a la Auditoría.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Auditoría.",
+        "nombre_asignatura": "Control interno.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Auditoría.",
+        "nombre_asignatura": "Normas internacionales de Auditoría I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Auditoría.",
+        "nombre_asignatura": "Normas internacionales de Auditoría II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Contabilidad financiera.",
+        "nombre_asignatura": "Normas contables relativas a las cuentas anuales.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Contabilidad superior I.",
+        "nombre_asignatura": "Consolidación de estados financieros y combinaciones de negocios.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Contabilidad superior I.",
+        "nombre_asignatura": "Normativa contable específica.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Contabilidad superior II.",
+        "nombre_asignatura": "Análisis y proyección de estados financieros.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Contabilidad superior II.",
+        "nombre_asignatura": "Contabilidad analítica y control de gestión.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Contabilidad superior II.",
+        "nombre_asignatura": "Valoración de empresas.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Prácticas externas.",
+        "nombre_asignatura": "Prácticas externas.",
+        "creditos_ects": "9",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Trabajo de Fin de Máster.",
+        "nombre_asignatura": "Trabajo de Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Métodos cuantitativos.",
+        "nombre_asignatura": "Fundamentos para el análisis de datos y la investigación.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Programación.",
+        "nombre_asignatura": "Herramientas de programación para la Ciencia de Datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Gestión de bases de datos.",
+        "nombre_asignatura": "Bases de datos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Aprendizaje automático.",
+        "nombre_asignatura": "Aprendizaje automático.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Técnicas de visualización.",
+        "nombre_asignatura": "Técnicas de visualización.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Inteligencia artificial.",
+        "nombre_asignatura": "Redes neuronales y aprendizaje profundo.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Series temporales.",
+        "nombre_asignatura": "Técnicas de predicción: series temporales.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Minería de textos.",
+        "nombre_asignatura": "Ciencia de Datos para la gestión de información no estructurada.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Técnicas de extracción, transformación y carga.",
+        "nombre_asignatura": "Extracción, transformación y carga.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Ética, gobernanza y protección de datos.",
+        "nombre_asignatura": "Aspectos jurídicos y legales en el tratamiento de la información, ética profesional y gobernanza del dato.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Ciencias de Datos aplicada.",
+        "nombre_asignatura": "Aplicaciones profesionales de la Ciencia de Datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Prácticas externas.",
+        "nombre_asignatura": "Prácticas profesionales.",
+        "creditos_ects": "12",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Trabajo de Fin de Máster.",
+        "nombre_asignatura": "Trabajo de Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "International business and global management.",
+        "nombre_asignatura": "International economics.",
+        "creditos_ects": "4",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "International business and global management.",
+        "nombre_asignatura": "International management and strategy.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "International business and global management.",
+        "nombre_asignatura": "Data analysis and business statistics.",
+        "creditos_ects": "4",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "International business and global management.",
+        "nombre_asignatura": "Global human resource management.",
+        "creditos_ects": "4",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "International business and global management.",
+        "nombre_asignatura": "International taxation.",
+        "creditos_ects": "4",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "International business and global management.",
+        "nombre_asignatura": "Doing business in international markets.",
+        "creditos_ects": "4",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "International Finance.",
+        "nombre_asignatura": "Global capital markets.",
+        "creditos_ects": "2",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "International Finance.",
+        "nombre_asignatura": "International financial management.",
+        "creditos_ects": "2",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "International Finance.",
+        "nombre_asignatura": "Corporate valuation.",
+        "creditos_ects": "2",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "International Finance.",
+        "nombre_asignatura": "Quantitative financial analysis.",
+        "creditos_ects": "2",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "International Finance.",
+        "nombre_asignatura": "International accounting and IFRS.",
+        "creditos_ects": "2",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "International marketing & operations.",
+        "nombre_asignatura": "Global marketing.",
+        "creditos_ects": "2",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "International marketing & operations.",
+        "nombre_asignatura": "Global supply chain and operations.",
+        "creditos_ects": "2",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "International marketing & operations.",
+        "nombre_asignatura": "Big data analysis.",
+        "creditos_ects": "2",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "International marketing & operations.",
+        "nombre_asignatura": "Digital marketing.",
+        "creditos_ects": "2",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "International marketing & operations.",
+        "nombre_asignatura": "Trade finance and emerging markets finance.",
+        "creditos_ects": "2",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Management skills.",
+        "nombre_asignatura": "Global management skills.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1 y 2"
+      },
+      {
+        "materia": "Internships.",
+        "nombre_asignatura": "Internships.",
+        "creditos_ects": "12",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Research and Final Project.",
+        "nombre_asignatura": "Research and Final Project.",
+        "creditos_ects": "6",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": "2"
+      }
+    ],
+    "total_asignaturas": 44,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n939 Resolución de 10 de enero de 2022, de CUNEF Universidad, por la que se \npublican planes de estudios de Máster Universitario.\nObtenida la verificación de los planes de estudios por el Consejo de Universidades, \nprevio informe favorable de la Agencia Evaluadora Fundación para el Conocimiento \nMadri+d, autorizada su implantación por la Comunidad de Madrid y establecido el \ncarácter oficial de los títulos por Acuerdo de Consejo de Ministros de 6 de julio de 2021 \n(publicado, por Resolución de 14 de julio de 2021, de la Secretaría General de \nUniversidades, en el «Boletín Oficial del Estado» de 27 de julio de 2021),\nEste Rectorado, de conformidad con lo dispuesto en el artículo 35 de la Ley \nOrgánica 6/2001 de Universidades, en la redacción dada por la Ley Orgánica 4/2007, ha \nresuelto publicar los planes de estudios conducentes a la obtención de los títulos \noficiales relacionados a continuación:\n– Máster Universitario en Derecho Bancario y de los"
+  }
+}

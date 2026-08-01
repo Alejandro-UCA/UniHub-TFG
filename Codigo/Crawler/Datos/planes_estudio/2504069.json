@@ -1,0 +1,2425 @@
+{
+  "codigo_estudio": "2504069",
+  "titulo": "Graduado o Graduada en Ingeniería Matemática // Bachelor in Mathematical Engineering por la CUNEF Universidad",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "089",
+  "universidad_nombre": "CUNEF Universidad",
+  "fecha_procesado": "2026-07-31T14:09:17.350686",
+  "boe_url": "http://www.boe.es/boe/dias/2022/01/20/pdfs/BOE-A-2022-938.pdf",
+  "boe_fecha": "2022-01-20",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación básica (FB).": "60",
+      "Obligatorias (OB).": "132",
+      "Optativas (OP).": "42",
+      "Trabajo de Fin de Grado (TFG).": "6",
+      "Créditos totales.": "240",
+      "Finanzas empresariales.": "Análisis y valoración de empresas.",
+      "Mercados financieros e inversiones.": "Inversiones financieras.",
+      "Contabilidad.": "Sistemas de información y contabilidad.",
+      "Contabilidad de gestión.": "Contabilidad de gestión.",
+      "Matemáticas.": "Matemáticas I.",
+      "Métodos cuantitativos.": "Análisis de datos.",
+      "Fundamentos de la economía.": "Introducción a la economía.",
+      "Entorno económico y financiero.": "Entorno económico.",
+      "Organización.": "Dirección de operaciones y logística.",
+      "Dirección estratégica.": "Análisis y estrategia de negocios.",
+      "Creación empresarial e innovación.": "Emprendimiento e innovación.",
+      "Dirección e investigación comercial.": "Dirección comercial.",
+      "Formación transversal.": "Búsqueda, tratamiento y uso de la información.",
+      "Derecho de la empresa.": "Derecho de la empresa.",
+      "Itinerario en Ciencia de Datos.": "Análisis y explotación de la información.",
+      "Itinerario en Derecho y Empresa.": "Privacidad y protección de datos.",
+      "Itinerario en Dirección de empresas.": "Ingeniería de datos.",
+      "Optatividad.": "Asignaturas optativas.",
+      "Prácticas de empresa.": "Prácticas de empresa.",
+      "Trabajo de Fin de Grado.": "Trabajo de Fin de Grado.",
+      "Finanzas.": "Mercados financieros.",
+      "Fundamentos de la microeconomía y de la macroeconomía.": "Historia económica.",
+      "Análisis microeconómico.": "Economía de la información.",
+      "Análisis macroeconómico.": "Macroeconomía monetaria y financiera.",
+      "Dirección de empresas.": "Economía de la empresa.",
+      "Itinerario de Ciencia de Datos.": "Análisis y explotación de la información.",
+      "Itinerario de Derecho y Economía Internacional.": "Introducción al Derecho.",
+      "Prácticas externas.": "Prácticas externas.",
+      "Derecho Civil.": "Derecho de sucesiones.",
+      "Derecho mercantil y de la empresa.": "Derecho societario.",
+      "Derecho penal.": "Teoría jurídica del delito y de la pena.",
+      "Derecho administrativo.": "Derecho de la Administración Pública.",
+      "Derecho constitucional.": "Teoría del Estado y garantías Constitucionales.",
+      "Derecho procesal.": "Instituciones de Derecho procesal.",
+      "Derecho financiero y tributario.": "Sistema tributario español.",
+      "Derecho del trabajo y de la Seguridad Social.": "Derecho del trabajo y de la Seguridad Social.",
+      "Derecho internacional público.": "Derecho internacional público.",
+      "Derecho internacional privado.": "Derecho internacional privado.",
+      "Historia y Derecho Romano.": "Historia del Derecho.",
+      "Teoría del Derecho.": "Teoría del Derecho.",
+      "Economía.": "Fundamentos de economía.",
+      "Formación Transversal.": "Búsqueda, uso y tratamiento de la información.",
+      "Itinerario de Dirección de Empresas.": "Mercados financieros e instituciones.",
+      "Itinerario de Derecho.": "Moot: actuación en tribunales de Justicia.",
+      "Prácticas Externas.": "Asignatura optativa.",
+      "Fundamentos.": "Álgebra y Geometría.",
+      "Programación.": "Programación I.",
+      "Ingeniería de Software.": "Ingeniería de Software.",
+      "Computación y Algorítmica.": "Análisis y diseño de algoritmos.",
+      "Sistemas de información.": "Bases de datos.",
+      "Matemáticas y Estadística.": "Estadística.",
+      "Seguridad y redes.": "Redes de computadoras.",
+      "Arquitectura de computadores.": "Estructura de computadores.",
+      "Ciencia de datos.": "Análisis y explotación de la información.",
+      "Mención en Dirección de Empresas.": "Contabilidad de gestión.",
+      "Mención en Computación.": "Computación numérica.",
+      "Álgebra.": "Álgebra lineal.",
+      "Ecuaciones diferenciales.": "Ecuaciones diferenciales ordinarias.",
+      "Análisis matemático.": "Análisis matemático I.",
+      "Estadística.": "Cálculo de probabilidades.",
+      "Geometría y Topología.": "Geometría lineal.",
+      "Ingeniería de datos.": "Inteligencia artificial.",
+      "Cálculo científico y sus aplicaciones.": "Cálculo numérico I.",
+      "Itinerario de Economía.": "Microeconomía.",
+      "Itinerario de Matemática Computacional.": "Matemática discreta.",
+      "Prácticas en Empresas.": "Prácticas en Empresa."
+    },
+    "asignaturas": [
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estadística.",
+        "nombre_asignatura": "Análisis de datos.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estadística.",
+        "nombre_asignatura": "Estadística.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Economía.",
+        "nombre_asignatura": "Fundamentos de economía financiera.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Economía.",
+        "nombre_asignatura": "Introducción a la economía.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Sistemas de información y contabilidad.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Economía de la empresa.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho.",
+        "nombre_asignatura": "Derecho de la empresa.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Programación.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Finanzas empresariales.",
+        "nombre_asignatura": "Análisis y valoración de empresas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Finanzas empresariales.",
+        "nombre_asignatura": "Finanzas corporativas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Finanzas empresariales.",
+        "nombre_asignatura": "Fundamentos de economía financiera.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Mercados financieros e inversiones.",
+        "nombre_asignatura": "Inversiones financieras.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Mercados financieros e inversiones.",
+        "nombre_asignatura": "Mercados financieros e instituciones.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Contabilidad.",
+        "nombre_asignatura": "Contabilidad financiera.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Contabilidad.",
+        "nombre_asignatura": "Sistemas de información y contabilidad.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Contabilidad de gestión.",
+        "nombre_asignatura": "Contabilidad de gestión.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Métodos cuantitativos.",
+        "nombre_asignatura": "Análisis de datos.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Métodos cuantitativos.",
+        "nombre_asignatura": "Econometría.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Métodos cuantitativos.",
+        "nombre_asignatura": "Estadística.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Fundamentos de la economía.",
+        "nombre_asignatura": "Introducción a la economía.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Fundamentos de la economía.",
+        "nombre_asignatura": "Macroeconomía.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Fundamentos de la economía.",
+        "nombre_asignatura": "Microeconomía.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Fundamentos de la economía.",
+        "nombre_asignatura": "Fiscalidad de la empresa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Fundamentos de la economía.",
+        "nombre_asignatura": "Historia de la empresa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Entorno económico y financiero.",
+        "nombre_asignatura": "Entorno económico internacional.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Organización.",
+        "nombre_asignatura": "Dirección de operaciones y logística.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Organización.",
+        "nombre_asignatura": "Diseño y comportamiento de las organizaciones.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Organización.",
+        "nombre_asignatura": "Economía de la empresa.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Dirección estratégica.",
+        "nombre_asignatura": "Análisis y estrategia de negocios.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Dirección estratégica.",
+        "nombre_asignatura": "Estrategia corporativa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Dirección estratégica.",
+        "nombre_asignatura": "Ética y responsabilidad social.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Creación empresarial e innovación.",
+        "nombre_asignatura": "Emprendimiento e innovación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Dirección e investigación comercial.",
+        "nombre_asignatura": "Dirección comercial.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Dirección e investigación comercial.",
+        "nombre_asignatura": "Investigación y análisis de mercados.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Formación transversal.",
+        "nombre_asignatura": "Búsqueda, tratamiento y uso de la información.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Formación transversal.",
+        "nombre_asignatura": "Pensamiento crítico y argumentación.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Formación transversal.",
+        "nombre_asignatura": "Programación.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Formación transversal.",
+        "nombre_asignatura": "Técnicas de comunicación oral y escrita.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Derecho de la empresa.",
+        "nombre_asignatura": "Derecho de la empresa.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Ciencia de Datos.",
+        "nombre_asignatura": "Análisis y explotación de la información.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Itinerario en Ciencia de Datos.",
+        "nombre_asignatura": "Redes neuronales y aprendizaje profundo.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Ciencia de Datos.",
+        "nombre_asignatura": "Aprendizaje automático.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Ciencia de Datos.",
+        "nombre_asignatura": "Minería de textos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Ciencia de Datos.",
+        "nombre_asignatura": "Técnicas de visualización.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Derecho y Empresa.",
+        "nombre_asignatura": "Privacidad y protección de datos.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Itinerario en Derecho y Empresa.",
+        "nombre_asignatura": "Derecho del mercado de valores.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Derecho y Empresa.",
+        "nombre_asignatura": "Contratación mercantil y bancaria.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Derecho y Empresa.",
+        "nombre_asignatura": "Derecho del trabajo y de la Seguridad Social.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Derecho y Empresa.",
+        "nombre_asignatura": "Derecho de la Unión Europea.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Itinerario en Derecho y Empresa.",
+        "nombre_asignatura": "Derecho de la competencia.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Derecho y Empresa.",
+        "nombre_asignatura": "Arbitraje internacional.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Dirección de empresas.",
+        "nombre_asignatura": "Ingeniería de datos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Itinerario en Dirección de empresas.",
+        "nombre_asignatura": "Dirección de Recursos Humanos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Dirección de empresas.",
+        "nombre_asignatura": "Negocios internacionales y dirección global.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Dirección de empresas.",
+        "nombre_asignatura": "Empresa familiar.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario en Dirección de empresas.",
+        "nombre_asignatura": "Entorno regulatorio.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Optatividad.",
+        "nombre_asignatura": "Asignaturas optativas.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Prácticas de empresa.",
+        "nombre_asignatura": "Prácticas de empresa.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Trabajo de Fin de Grado.",
+        "nombre_asignatura": "Trabajo de Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "TFG",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estadística.",
+        "nombre_asignatura": "Análisis de datos.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estadística.",
+        "nombre_asignatura": "Estadística.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Economía.",
+        "nombre_asignatura": "Microeconomía: demanda, oferta y estructura de mercado.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Economía.",
+        "nombre_asignatura": "Introducción a la economía.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Sistemas de información y contabilidad.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Economía de la empresa.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Economía.",
+        "nombre_asignatura": "Macroeconomía.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Programación.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Finanzas.",
+        "nombre_asignatura": "Mercados financieros.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Finanzas.",
+        "nombre_asignatura": "Finanzas corporativas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Contabilidad.",
+        "nombre_asignatura": "Sistemas de información y contabilidad.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Métodos cuantitativos.",
+        "nombre_asignatura": "Análisis de datos.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Métodos cuantitativos.",
+        "nombre_asignatura": "Estadística.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Métodos cuantitativos.",
+        "nombre_asignatura": "Econometría.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Métodos cuantitativos.",
+        "nombre_asignatura": "Modelos de predicción.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Métodos cuantitativos.",
+        "nombre_asignatura": "Ingeniería de datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Fundamentos de la microeconomía y de la macroeconomía.",
+        "nombre_asignatura": "Historia económica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Fundamentos de la microeconomía y de la macroeconomía.",
+        "nombre_asignatura": "Introducción a la economía.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Fundamentos de la microeconomía y de la macroeconomía.",
+        "nombre_asignatura": "Microeconomía: demanda, oferta y estructura de mercado.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Fundamentos de la microeconomía y de la macroeconomía.",
+        "nombre_asignatura": "Microeconomía: equilibrio general y mercado de factores.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Fundamentos de la microeconomía y de la macroeconomía.",
+        "nombre_asignatura": "Macroeconomía.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Entorno económico y financiero.",
+        "nombre_asignatura": "Entorno económico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Entorno económico y financiero.",
+        "nombre_asignatura": "Banca y otras instituciones financieras.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Entorno económico y financiero.",
+        "nombre_asignatura": "Economía monetaria y bancaria.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Entorno económico y financiero.",
+        "nombre_asignatura": "Economía pública.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Análisis microeconómico.",
+        "nombre_asignatura": "Economía de la información.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Análisis microeconómico.",
+        "nombre_asignatura": "Teoría de juegos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Análisis microeconómico.",
+        "nombre_asignatura": "Economía del comportamiento.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Análisis microeconómico.",
+        "nombre_asignatura": "Organización industrial.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Análisis microeconómico.",
+        "nombre_asignatura": "Regulación y políticas de competencia.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Análisis macroeconómico.",
+        "nombre_asignatura": "Macroeconomía monetaria y financiera.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Análisis macroeconómico.",
+        "nombre_asignatura": "Innovación y cambio tecnológico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Análisis macroeconómico.",
+        "nombre_asignatura": "Crecimiento económico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Formación transversal.",
+        "nombre_asignatura": "Búsqueda, tratamiento y uso de la información.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Formación transversal.",
+        "nombre_asignatura": "Pensamiento crítico y argumentación.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Formación transversal.",
+        "nombre_asignatura": "Técnicas de comunicación.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Formación transversal.",
+        "nombre_asignatura": "Programación.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Dirección de empresas.",
+        "nombre_asignatura": "Economía de la empresa.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Dirección de empresas.",
+        "nombre_asignatura": "Economía de las organizaciones.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Itinerario de Ciencia de Datos.",
+        "nombre_asignatura": "Análisis y explotación de la información.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario de Ciencia de Datos.",
+        "nombre_asignatura": "Redes neuronales y aprendizaje profundo.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Itinerario de Ciencia de Datos.",
+        "nombre_asignatura": "Aprendizaje automático.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Itinerario de Ciencia de Datos.",
+        "nombre_asignatura": "Minería de textos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario de Ciencia de Datos.",
+        "nombre_asignatura": "Técnicas de visualización.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario de Derecho y Economía Internacional.",
+        "nombre_asignatura": "Introducción al Derecho.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario de Derecho y Economía Internacional.",
+        "nombre_asignatura": "Derecho internacional.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Itinerario de Derecho y Economía Internacional.",
+        "nombre_asignatura": "Fiscalidad.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Itinerario de Derecho y Economía Internacional.",
+        "nombre_asignatura": "Macroeconomía internacional.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario de Derecho y Economía Internacional.",
+        "nombre_asignatura": "Economía de la Unión Europea.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Optatividad.",
+        "nombre_asignatura": "Asignaturas optativas.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Prácticas externas.",
+        "nombre_asignatura": "Prácticas externas.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Trabajo de Fin de Grado.",
+        "nombre_asignatura": "Trabajo de Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "TFG",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Derecho.",
+        "nombre_asignatura": "Derecho de sucesiones.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho.",
+        "nombre_asignatura": "Obligaciones y contratos.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho.",
+        "nombre_asignatura": "Derecho de la persona y de la familia.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho.",
+        "nombre_asignatura": "Teoría jurídica del delito y de la pena.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho.",
+        "nombre_asignatura": "Teoría del Estado y garantías constitucionales.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho.",
+        "nombre_asignatura": "Historia del Derecho.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho.",
+        "nombre_asignatura": "Derecho Romano.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho.",
+        "nombre_asignatura": "Teoría del Derecho.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Economía.",
+        "nombre_asignatura": "Fundamentos de economía.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Fundamentos de empresa.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Civil.",
+        "nombre_asignatura": "Derecho de sucesiones.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Derecho Civil.",
+        "nombre_asignatura": "Obligaciones y contratos.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Derecho Civil.",
+        "nombre_asignatura": "Derechos reales y Derecho inmobiliario registral.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Derecho Civil.",
+        "nombre_asignatura": "Derecho de la persona y de la familia.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Derecho mercantil y de la empresa.",
+        "nombre_asignatura": "Derecho societario.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Derecho mercantil y de la empresa.",
+        "nombre_asignatura": "Contratación mercantil y bancaria.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Derecho mercantil y de la empresa.",
+        "nombre_asignatura": "Derecho de la competencia.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Derecho mercantil y de la empresa.",
+        "nombre_asignatura": "Derecho del mercado de valores.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Derecho penal.",
+        "nombre_asignatura": "Teoría jurídica del delito y de la pena.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Derecho penal.",
+        "nombre_asignatura": "Los delitos y las penas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Derecho administrativo.",
+        "nombre_asignatura": "Derecho de la Administración Pública.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Derecho administrativo.",
+        "nombre_asignatura": "Actividad administrativa y control Jurisdiccional.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Derecho administrativo.",
+        "nombre_asignatura": "Derecho de la Unión Europea.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Derecho constitucional.",
+        "nombre_asignatura": "Teoría del Estado y garantías Constitucionales.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Derecho constitucional.",
+        "nombre_asignatura": "Organización constitucional del Estado.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Derecho constitucional.",
+        "nombre_asignatura": "Derechos fundamentales y libertades públicas.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Derecho procesal.",
+        "nombre_asignatura": "Instituciones de Derecho procesal.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Derecho procesal.",
+        "nombre_asignatura": "Proceso civil de declaración y ejecución.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Derecho procesal.",
+        "nombre_asignatura": "Proceso penal.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Derecho financiero y tributario.",
+        "nombre_asignatura": "Sistema tributario español.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Derecho financiero y tributario.",
+        "nombre_asignatura": "Procedimientos tributarios.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Derecho financiero y tributario.",
+        "nombre_asignatura": "Fiscalidad internacional y comunitaria.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Derecho del trabajo y de la Seguridad Social.",
+        "nombre_asignatura": "Derecho del trabajo y de la Seguridad Social.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Derecho internacional público.",
+        "nombre_asignatura": "Derecho internacional público.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Derecho internacional privado.",
+        "nombre_asignatura": "Derecho internacional privado.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Derecho internacional privado.",
+        "nombre_asignatura": "Arbitraje internacional.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Historia y Derecho Romano.",
+        "nombre_asignatura": "Historia del Derecho.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Historia y Derecho Romano.",
+        "nombre_asignatura": "Derecho Romano.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Teoría del Derecho.",
+        "nombre_asignatura": "Teoría del Derecho.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Economía.",
+        "nombre_asignatura": "Fundamentos de economía.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Economía.",
+        "nombre_asignatura": "Fundamentos de empresa.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Economía.",
+        "nombre_asignatura": "Sistemas de información y contabilidad.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Formación Transversal.",
+        "nombre_asignatura": "Búsqueda, uso y tratamiento de la información.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Formación Transversal.",
+        "nombre_asignatura": "Pensamiento crítico y debate.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Formación Transversal.",
+        "nombre_asignatura": "Técnicas de comunicación oral y escrita.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Itinerario de Dirección de Empresas.",
+        "nombre_asignatura": "Mercados financieros e instituciones.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3 o 4",
+        "cuatrimestre": "1 o 2"
+      },
+      {
+        "materia": "Itinerario de Dirección de Empresas.",
+        "nombre_asignatura": "Análisis y estrategia de negocio.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3 o 4",
+        "cuatrimestre": "1 o 2"
+      },
+      {
+        "materia": "Itinerario de Dirección de Empresas.",
+        "nombre_asignatura": "Ética y responsabilidad social.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3 o 4",
+        "cuatrimestre": "1 o 2"
+      },
+      {
+        "materia": "Itinerario de Dirección de Empresas.",
+        "nombre_asignatura": "Emprendimiento e innovación.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3 o 4",
+        "cuatrimestre": "1 o 2"
+      },
+      {
+        "materia": "Itinerario de Dirección de Empresas.",
+        "nombre_asignatura": "Dirección comercial.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3 o 4",
+        "cuatrimestre": "1 o 2"
+      },
+      {
+        "materia": "Itinerario de Derecho.",
+        "nombre_asignatura": "Moot: actuación en tribunales de Justicia.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3 o 4",
+        "cuatrimestre": "1 o 2"
+      },
+      {
+        "materia": "Itinerario de Derecho.",
+        "nombre_asignatura": "Derecho ambiental.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3 o 4",
+        "cuatrimestre": "1 o 2"
+      },
+      {
+        "materia": "Itinerario de Derecho.",
+        "nombre_asignatura": "Derecho penal económico y cumplimiento normativo.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3 o 4",
+        "cuatrimestre": "1 o 2"
+      },
+      {
+        "materia": "Itinerario de Derecho.",
+        "nombre_asignatura": "Teoría general del Common Law.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3 o 4",
+        "cuatrimestre": "1 o 2"
+      },
+      {
+        "materia": "Itinerario de Derecho.",
+        "nombre_asignatura": "Práctica contractual anglosajona.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3 o 4",
+        "cuatrimestre": "1 o 2"
+      },
+      {
+        "materia": "Itinerario de Derecho.",
+        "nombre_asignatura": "Proceso mercantil.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3 o 4",
+        "cuatrimestre": "1 o 2"
+      },
+      {
+        "materia": "Optatividad.",
+        "nombre_asignatura": "Asignaturas optativas.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Prácticas Externas.",
+        "nombre_asignatura": "Asignatura optativa.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Trabajo de Fin de Grado.",
+        "nombre_asignatura": "Trabajo de Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "TFG",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Álgebra.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Cálculo.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Fundamentos de Física para Informática.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Lógica.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Fundamentos de computadores.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Programación I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Programación II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Análisis y diseño de algoritmos.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Bases de datos.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Estadística.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Formación transversal.",
+        "nombre_asignatura": "Búsqueda, uso y tratamiento de la información.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Formación transversal.",
+        "nombre_asignatura": "Pensamiento crítico.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Formación transversal.",
+        "nombre_asignatura": "Comunicación oral y escrita.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Formación transversal.",
+        "nombre_asignatura": "Dirección de proyectos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Formación transversal.",
+        "nombre_asignatura": "Aspectos éticos, legales y profesionales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Fundamentos.",
+        "nombre_asignatura": "Álgebra.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Fundamentos.",
+        "nombre_asignatura": "Cálculo.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Fundamentos.",
+        "nombre_asignatura": "Fundamentos de Física para Informática.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Fundamentos.",
+        "nombre_asignatura": "Gestión de empresas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Fundamentos.",
+        "nombre_asignatura": "Lógica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Fundamentos.",
+        "nombre_asignatura": "Fundamentos de computadores.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Programación.",
+        "nombre_asignatura": "Programación I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Programación.",
+        "nombre_asignatura": "Programación II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Programación.",
+        "nombre_asignatura": "Proyectos de programación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Ingeniería de Software.",
+        "nombre_asignatura": "Ingeniería de Software.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Ingeniería de Software.",
+        "nombre_asignatura": "Sistemas operativos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Computación y Algorítmica.",
+        "nombre_asignatura": "Análisis y diseño de algoritmos.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Computación y Algorítmica.",
+        "nombre_asignatura": "Lenguajes y compiladores.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Computación y Algorítmica.",
+        "nombre_asignatura": "Inteligencia artificial.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Sistemas de información.",
+        "nombre_asignatura": "Bases de datos.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Sistemas de información.",
+        "nombre_asignatura": "Interface de computadoras.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Matemáticas y Estadística.",
+        "nombre_asignatura": "Estadística.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Matemáticas y Estadística.",
+        "nombre_asignatura": "Probabilidad e inferencia estadística.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Matemáticas y Estadística.",
+        "nombre_asignatura": "Matemática discreta.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Seguridad y redes.",
+        "nombre_asignatura": "Redes de computadoras.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Seguridad y redes.",
+        "nombre_asignatura": "Seguridad de redes y ciberseguridad.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Arquitectura de computadores.",
+        "nombre_asignatura": "Estructura de computadores.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Ciencia de datos.",
+        "nombre_asignatura": "Análisis y explotación de la información.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Ciencia de datos.",
+        "nombre_asignatura": "Redes neuronales y aprendizaje profundo.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Ciencia de datos.",
+        "nombre_asignatura": "Aprendizaje automático.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Ciencia de datos.",
+        "nombre_asignatura": "Minería de textos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Ciencia de datos.",
+        "nombre_asignatura": "Técnicas de visualización.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Mención en Dirección de Empresas.",
+        "nombre_asignatura": "Contabilidad de gestión.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Mención en Dirección de Empresas.",
+        "nombre_asignatura": "Dirección de operaciones y logística.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Mención en Dirección de Empresas.",
+        "nombre_asignatura": "Análisis y estrategia de negocios.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Mención en Dirección de Empresas.",
+        "nombre_asignatura": "Estrategia corporativa.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Mención en Dirección de Empresas.",
+        "nombre_asignatura": "Investigación y análisis de mercados Digitales.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Mención en Dirección de Empresas.",
+        "nombre_asignatura": "Creación de empresas digitales.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Mención en Dirección de Empresas.",
+        "nombre_asignatura": "Prácticas en empresas digitales.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Mención en Computación.",
+        "nombre_asignatura": "Computación numérica.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Mención en Computación.",
+        "nombre_asignatura": "Optimización.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Mención en Computación.",
+        "nombre_asignatura": "Diseño interactivo.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Mención en Computación.",
+        "nombre_asignatura": "Bases de datos no estructuradas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Mención en Computación.",
+        "nombre_asignatura": "Programación paralela.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Mención en Computación.",
+        "nombre_asignatura": "Computación en la nube.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Mención en Computación.",
+        "nombre_asignatura": "Programación de servidores web.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Mención en Computación.",
+        "nombre_asignatura": "Verificación de software.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Trabajo de Fin de Grado.",
+        "nombre_asignatura": "Trabajo de Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "TFG",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Álgebra y Geometría.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Cálculo.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Física.",
+        "nombre_asignatura": "Física.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Estadística.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Álgebra lineal I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Programación I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Programación II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Análisis matemático I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Cálculo de probabilidades.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Matemáticas.",
+        "nombre_asignatura": "Geometría lineal.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Fundamentos.",
+        "nombre_asignatura": "Álgebra y Geometría.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Fundamentos.",
+        "nombre_asignatura": "Física.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Fundamentos.",
+        "nombre_asignatura": "Estadística.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Fundamentos.",
+        "nombre_asignatura": "Cálculo.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Formación transversal.",
+        "nombre_asignatura": "Búsqueda, tratamiento y uso de la información.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Formación transversal.",
+        "nombre_asignatura": "Pensamiento crítico y argumentación.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Formación transversal.",
+        "nombre_asignatura": "Técnicas de comunicación.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Programación.",
+        "nombre_asignatura": "Programación I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Programación.",
+        "nombre_asignatura": "Programación II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Álgebra.",
+        "nombre_asignatura": "Álgebra lineal.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Álgebra.",
+        "nombre_asignatura": "Estructuras algebraicas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Ecuaciones diferenciales.",
+        "nombre_asignatura": "Ecuaciones diferenciales ordinarias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Ecuaciones diferenciales.",
+        "nombre_asignatura": "Ecuaciones en derivadas parciales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Computación y Algorítmica.",
+        "nombre_asignatura": "Análisis y diseño de algoritmos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Análisis matemático.",
+        "nombre_asignatura": "Análisis matemático I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Análisis matemático.",
+        "nombre_asignatura": "Análisis matemático II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Análisis matemático.",
+        "nombre_asignatura": "Análisis matemático III.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Estadística.",
+        "nombre_asignatura": "Cálculo de probabilidades.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Estadística.",
+        "nombre_asignatura": "Inferencia estadística.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Estadística.",
+        "nombre_asignatura": "Procesos estocásticos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Geometría y Topología.",
+        "nombre_asignatura": "Geometría lineal.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Geometría y Topología.",
+        "nombre_asignatura": "Topología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Geometría y Topología.",
+        "nombre_asignatura": "Curvas y superficies.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Ingeniería de datos.",
+        "nombre_asignatura": "Inteligencia artificial.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Ingeniería de datos.",
+        "nombre_asignatura": "Análisis y explotación de la información.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Ingeniería de datos.",
+        "nombre_asignatura": "Redes neuronales y aprendizaje profundo.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Ingeniería de datos.",
+        "nombre_asignatura": "Aprendizaje automático.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Ingeniería de datos.",
+        "nombre_asignatura": "Técnicas de visualización.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Cálculo científico y sus aplicaciones.",
+        "nombre_asignatura": "Cálculo numérico I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Cálculo científico y sus aplicaciones.",
+        "nombre_asignatura": "Cálculo numérico II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Cálculo científico y sus aplicaciones.",
+        "nombre_asignatura": "Teoría de la Señal: Análisis de Fourier.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Cálculo científico y sus aplicaciones.",
+        "nombre_asignatura": "Simulación en Ingeniería: logística, control y gestión de la producción.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Cálculo científico y sus aplicaciones.",
+        "nombre_asignatura": "Simulación numérica en Ingeniería.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Optatividad.",
+        "nombre_asignatura": "Asignaturas optativas.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario de Economía.",
+        "nombre_asignatura": "Microeconomía.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Itinerario de Economía.",
+        "nombre_asignatura": "Macroeconomía.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Itinerario de Economía.",
+        "nombre_asignatura": "Econometría.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario de Economía.",
+        "nombre_asignatura": "Mercados financieros.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario de Economía.",
+        "nombre_asignatura": "Modelización Econo- Matemática: modelos de predicción.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario de Matemática Computacional.",
+        "nombre_asignatura": "Matemática discreta.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Itinerario de Matemática Computacional.",
+        "nombre_asignatura": "Estructuras y bases de datos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Itinerario de Matemática Computacional.",
+        "nombre_asignatura": "Computación de altas prestaciones.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario de Matemática Computacional.",
+        "nombre_asignatura": "Modelización en Ciencia y Tecnología.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Itinerario de Matemática Computacional.",
+        "nombre_asignatura": "Modelización en Ingeniería de Datos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Prácticas en Empresas.",
+        "nombre_asignatura": "Prácticas en Empresa.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Trabajo de Fin de Grado.",
+        "nombre_asignatura": "Trabajo de Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "TFG",
+        "curso": "4",
+        "cuatrimestre": "2"
+      }
+    ],
+    "total_asignaturas": 292,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n938 Resolución de 10 de enero de 2022, de CUNEF Universidad, por la que se \npublican planes de estudios de Graduado o Graduada.\nObtenida la verificación de los planes de estudios por el Consejo de Universidades, \nprevio informe favorable de la Agencia Evaluadora Fundación para el Conocimiento \nMadri+d, autorizada su implantación por la Comunidad de Madrid y establecido el \ncarácter oficial de los títulos por Acuerdo de Consejo de Ministros de 6 de julio de 2021 \n(publicado, por Resolución de 14 de julio de 2021, de la Secretaría General de \nUniversidades, en el «Boletín Oficial del Estado» de 27 de julio de 2021),\nEste Rectorado, de conformidad con lo dispuesto en el artículo 35 de la Ley \nOrgánica 6/2001, de Universidades, en la redacción dada por la Ley Orgánica 4/2007, ha \nresuelto publicar los planes de estudios conducentes a la obtención de los títulos \noficiales relacionados a continuación:\n– Graduado o Graduada en Administración y Dirección"
+  }
+}

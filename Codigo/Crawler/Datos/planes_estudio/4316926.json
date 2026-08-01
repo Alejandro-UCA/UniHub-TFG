@@ -1,0 +1,276 @@
+{
+  "codigo_estudio": "4316926",
+  "titulo": "Máster Universitario en Robótica y Sistemas de Control por la Mondragón Unibertsitatea",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "061",
+  "universidad_nombre": "Mondragón Unibertsitatea",
+  "fecha_procesado": "2026-07-31T14:17:38.519654",
+  "boe_url": "http://www.boe.es/boe/dias/2024/10/19/pdfs/BOE-A-2024-21488.pdf",
+  "boe_fecha": "2024-10-19",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Visión artificial.": "OB",
+      "Analítica de datos.": "OB",
+      "Robótica: Mecánica, Modelado y Simulación.": "OB",
+      "Programación de Robots.": "OB",
+      "Control lineal y no lineal.": "OB",
+      "Análisis de Sistemas digitales de control sostenibles (*).": "OP",
+      "Sensores y Captación.": "OB",
+      "Dirección de la innovación (*).": "OP",
+      "Prácticas en Alternancia I (*).": "OP",
+      "Accionamientos Electromecánicos.": "OB",
+      "Normativas de Ciberseguridad (*).": "OP",
+      "Prácticas en Alternancia II (*).": "OP",
+      "Robótica móvil.": "OP",
+      "Percepción.": "OP",
+      "Aprendizaje Profundo.": "OP",
+      "Sistemas de Control Robóticos.": "OP",
+      "Tratamiento de Señales.": "OP",
+      "Comunicaciones Industriales.": "OP",
+      "Interfaces Persona/Máquina y Supervisión, Control y Adquisición de Datos.": "OP",
+      "Programación Avanzada de Autómatas.": "OP",
+      "Control de Ejes Sincronizados.": "OP",
+      "Seguridad en Máquinas.": "OP",
+      "Accionamientos Hidráulicos.": "OP",
+      "Itinerario: Especialización académica.": "Prácticas en empresa.",
+      "Itinerario: Iniciación en tareas de investigación.": "Métodos cuantitativos para la investigación.",
+      "Comunes.": "Trabajo Fin de Máster."
+    },
+    "asignaturas": [
+      {
+        "materia": "",
+        "nombre_asignatura": "Visión artificial.",
+        "creditos_ects": "5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Analítica de datos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Robótica: Mecánica, Modelado y Simulación.",
+        "creditos_ects": "5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Programación de Robots.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Control lineal y no lineal.",
+        "creditos_ects": "5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis de Sistemas digitales de control sostenibles (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sensores y Captación.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Dirección de la innovación (*).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en Alternancia I (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Accionamientos Electromecánicos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Normativas de Ciberseguridad (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas en Alternancia II (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Robótica móvil.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Percepción.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Aprendizaje Profundo.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Sistemas de Control Robóticos.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tratamiento de Señales.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Comunicaciones Industriales.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Interfaces Persona/Máquina y Supervisión, Control y Adquisición de Datos.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Programación Avanzada de Autómatas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Control de Ejes Sincronizados.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Seguridad en Máquinas.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Accionamientos Hidráulicos.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Itinerario: Especialización académica.",
+        "creditos_ects": "OP",
+        "caracter": "Prácticas en empresa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Itinerario: Iniciación en tareas de investigación.",
+        "creditos_ects": "OP",
+        "caracter": "Métodos cuantitativos para la investigación.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Comunes.",
+        "creditos_ects": "TFM",
+        "caracter": "Trabajo Fin de Máster.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 29,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n21488 Resolución de 30 de septiembre de 2024, de la Universidad Mondragon \nUnibertsitatea, por la que se publica la modificación del plan de estudios de \nMáster Universitario en Robótica y Sistemas de Control.\nDe conformidad con lo que dispone el artículo 28 del Real Decreto 1393/2007, de 29 \nde octubre, modificado por el Real Decreto 861/2010, de 2 de julio, por el que se \nestablece el procedimiento para la modificación de planes de estudio ya verificados, y \ntras haber obtenido el informe Favorable de la Agencia Nacional de Evaluación de la \nCalidad y Acreditación, este Rectorado ha resuelto publicar la modificación del plan de \nestudios del Máster Universitario en Robótica y Sistemas de Control por Mondragón \nUnibertsitatea, publicado por Resolución de 22 de abril de 2021 (BOE de 6 de mayo \nde 2021) y que quedará estructurado según consta en el anexo de esta resolución.\nMondragón, 30 de septiembre de 2024.–El Rector, Vicente Atxa Uribe.\nANEXO\nC"
+  }
+}

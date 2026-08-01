@@ -1,0 +1,526 @@
+{
+  "codigo_estudio": "2504272",
+  "titulo": "Graduado o Graduada en Datos y Analítica de Negocio por la ESIC Universidad",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "087",
+  "universidad_nombre": "ESIC Universidad",
+  "fecha_procesado": "2026-07-31T14:10:05.111681",
+  "boe_url": "http://www.boe.es/boe/dias/2023/11/30/pdfs/BOE-A-2023-24487.pdf",
+  "boe_fecha": "2023-11-30",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica.": "60",
+      "Obligatorios.": "48",
+      "Optativos.": "18",
+      "Prácticas Académicas Externas.": "24",
+      "Trabajo Fin de Grado.": "6",
+      "Créditos totales.": "60",
+      "1": "Dirección de Operaciones.",
+      "2": "Trabajo Fin de Máster.",
+      "3": "6",
+      "4": "7",
+      "Prácticas Académicas Externas": "0",
+      "Trabajo Fin de Máster": "12"
+    },
+    "asignaturas": [
+      {
+        "materia": "Empresa I.",
+        "nombre_asignatura": "Fundamentos de gestión de empresas.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing (Empresa II).",
+        "nombre_asignatura": "Introducción al Marketing.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Informática.",
+        "nombre_asignatura": "Informática para la Empresa y la Gestión de Datos.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Métodos Cuantitativos.",
+        "nombre_asignatura": "Álgebra Lineal para la Gestión de Datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Análisis Económico y Financiero (Economía).",
+        "nombre_asignatura": "Fundamentos de Economía.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Análisis de Datos.",
+        "nombre_asignatura": "Gestión de Datos: Tecnología y Bases de Datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho.",
+        "nombre_asignatura": "Deontología Profesional y Principios Jurídicos Básicos.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Métodos Cuantitativos.",
+        "nombre_asignatura": "Matemáticas.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Métodos Cuantitativos.",
+        "nombre_asignatura": "Estadística I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Análisis de Datos.",
+        "nombre_asignatura": "Programación I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing (Empresa II).",
+        "nombre_asignatura": "Marketing Estratégico dirigido por Datos «Data Driven Marketing».",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Idioma Moderno.",
+        "nombre_asignatura": "Idioma Moderno: Inglés.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Sociología.",
+        "nombre_asignatura": "La Sociedad Digital.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Métodos Cuantitativos.",
+        "nombre_asignatura": "Estadística II.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Análisis Económico y Financiero (Economía).",
+        "nombre_asignatura": "Introducción a las Finanzas Empresariales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Ética.",
+        "nombre_asignatura": "Ética Empresarial.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Análisis de Datos.",
+        "nombre_asignatura": "Programación II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa I.",
+        "nombre_asignatura": "Dirección Estratégica de Empresas en la era Digital.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Análisis de Datos.",
+        "nombre_asignatura": "Visualización y Análisis de Datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Análisis de Datos.",
+        "nombre_asignatura": "Organización y Gestión de Proyectos Basados de Datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Métodos Cuantitativos.",
+        "nombre_asignatura": "Econometría.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Análisis de Datos.",
+        "nombre_asignatura": "Arquitecturas de Sistemas y Explotación para la Gestión de Datos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing (Empresa II).",
+        "nombre_asignatura": "Gestión de Datos e Investigación de Mercados.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Análisis de Datos.",
+        "nombre_asignatura": "Proyecto Implementación: Proyecto Big Data I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing (Empresa II).",
+        "nombre_asignatura": "E-Commerce.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa I.",
+        "nombre_asignatura": "Inteligencia de Negocio.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Análisis de Datos.",
+        "nombre_asignatura": "Inteligencia Artificial y Aprendizaje Automatizado (Machine Learning) Aplicados.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Análisis de Datos.",
+        "nombre_asignatura": "Proyecto Implementación: Proyecto Machine Learning.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Análisis de Datos.",
+        "nombre_asignatura": "Proyecto Implementación: Proyecto Big Data II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Análisis de Datos.",
+        "nombre_asignatura": "Proyecto Implementación: Proyecto Predicción.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Análisis de Datos.",
+        "nombre_asignatura": "Proyecto Implementación: Proyecto Transformación Digital.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa I.",
+        "nombre_asignatura": "Innovación y Emprendimiento Digital.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Análisis de Datos.",
+        "nombre_asignatura": "Optativa Análisis de Datos.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa I.",
+        "nombre_asignatura": "Optativa Empresa I.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing (Empresa II).",
+        "nombre_asignatura": "Optativa Marketing (Empresa II).",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Análisis Económico y Financiero (Economía).",
+        "nombre_asignatura": "Optativa Análisis Económico y Financiero (Economía).",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Otros.",
+        "nombre_asignatura": "Reconocimiento Académico de Créditos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Otros.",
+        "nombre_asignatura": "Prácticas Externas (anual).",
+        "creditos_ects": "24",
+        "caracter": "PE",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Otros.",
+        "nombre_asignatura": "Trabajo Fin de Grado (anual).",
+        "creditos_ects": "6",
+        "caracter": "TFG",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Análisis de Datos.",
+        "nombre_asignatura": "Proceso Lenguaje Natural y Chat-Bots.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Análisis de Datos.",
+        "nombre_asignatura": "Análisis avanzado Series Temporales.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Análisis de Datos.",
+        "nombre_asignatura": "Analítica de Datos en Tiempo Real.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa I.",
+        "nombre_asignatura": "Modelos de Negocio digitales basados en Datos.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa I.",
+        "nombre_asignatura": "Gestión del Talento y Recursos Humanos.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa I.",
+        "nombre_asignatura": "RSC.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing (Empresa II).",
+        "nombre_asignatura": "Neuromarketing.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing (Empresa II).",
+        "nombre_asignatura": "Marketing Internacional y Comercio Exterior.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing (Empresa II).",
+        "nombre_asignatura": "Análisis y Previsión de Ventas.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Análisis Económico y Financiero (Economía).",
+        "nombre_asignatura": "Desarrollo Sostenible.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Análisis Económico y Financiero (Economía).",
+        "nombre_asignatura": "Opciones, Futuros y Derivados Financieros.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Análisis Económico y Financiero (Economía).",
+        "nombre_asignatura": "Soluciones de Financiación para emprendedores.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Empresa y Estrategia.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Finanzas Empresariales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Modelos y Sistemas Económicos.",
+        "creditos_ects": "2",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Habilidades Directivas I.",
+        "creditos_ects": "4",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Dirección de Marketing.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Crecimiento y Generación de Valor en Mercados Internacionales.",
+        "creditos_ects": "2",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Dirección de Operaciones.",
+        "creditos_ects": "4",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Analítica de Datos y Nuevas Tecnologías.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Habilidades Directivas II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Innovación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "12",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 62,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n24487 Resolución de 8 de noviembre de 2023, de ESIC Universidad, por la que se \npublican planes de estudios de Graduado o Graduada y de Máster \nUniversitario.\nObtenida la verificación de los planes de estudios por el Consejo de Universidades, \nprevio informe favorable de la Fundación para el Conocimiento Madri+d, así como la \nautorización de su implantación por la Comunidad Autónoma de Madrid, y establecido el \ncarácter oficial de los títulos por Acuerdo de Consejo de Ministros de 11 de julio de 2022, \npublicado en el «Boletín Oficial del Estado» de 20 de julio de 2022 por Resolución de la \nSecretaría General de Universidades de 13 de julio de 2022,\nEste Rectorado, de conformidad con lo dispuesto en el artículo 27.4 del Real \nDecreto 822/2021, de 28 de septiembre, por el que se establece la organización de las \nenseñanzas universitarias y del procedimiento de aseguramiento de su calidad, ha \nresuelto publicar el plan de estudios conducente a la ob"
+  }
+}

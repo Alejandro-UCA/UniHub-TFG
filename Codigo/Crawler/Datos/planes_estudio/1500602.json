@@ -1,0 +1,234 @@
+{
+  "codigo_estudio": "1500602",
+  "titulo": "Graduado o Graduada en Bellas Artes por la Universidad Antonio de Nebrija",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "052",
+  "universidad_nombre": "Universidad Antonio de Nebrija",
+  "fecha_procesado": "2026-07-31T14:37:32.654504",
+  "boe_url": "http://www.boe.es/boe/dias/2025/12/04/pdfs/BOE-A-2025-24715.pdf",
+  "boe_fecha": "2025-12-04",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Asignaturas de Formación Básica.": "60",
+      "Asignaturas Obligatorias.": "132",
+      "Asignaturas Optativas.": "24",
+      "Prácticas Externas.": "18",
+      "Trabajo Fin de Grado.": "6",
+      "Créditos totales.": "240",
+      "Emprendimiento en comunicación.": "6",
+      "Creación de contenidos: redes sociales e influencia.": "6",
+      "Experiencia de marca y creación de eventos.": "6",
+      "Escenografía e iluminación.": "6",
+      "Arte Transmedia.": "6",
+      "Fotografía de moda.": "6",
+      "Identidad corporativa e imagen de marca.": "6",
+      "Didáctica de las Bellas Artes.": "6",
+      "Instalaciones y arte ambiental.": "6",
+      "Edición digital.": "6",
+      "Diseño editorial.": "6",
+      "Medios, arte y cultura.": "6",
+      "Comunicación en tecnología e IA.": "6",
+      "Producción de formatos publicitarios.": "6",
+      "Diseño web y aplicaciones móviles.": "6",
+      "Escenografía y dirección de arte.": "6",
+      "Videoarte.": "6",
+      "Diseño de portfolio.": "6"
+    },
+    "asignaturas": [
+      {
+        "materia": "",
+        "nombre_asignatura": "Asignaturas de Formación Básica.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Asignaturas Obligatorias.",
+        "creditos_ects": "132",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Asignaturas Optativas.",
+        "creditos_ects": "24",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas Externas.",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Créditos totales.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Emprendimiento en comunicación.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Creación de contenidos: redes sociales e influencia.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Experiencia de marca y creación de eventos.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Escenografía e iluminación.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Arte Transmedia.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fotografía de moda.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Identidad corporativa e imagen de marca.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Didáctica de las Bellas Artes.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Instalaciones y arte ambiental.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Edición digital.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño editorial.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Medios, arte y cultura.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Comunicación en tecnología e IA.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Producción de formatos publicitarios.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño web y aplicaciones móviles.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Escenografía y dirección de arte.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Videoarte.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diseño de portfolio.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 24,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n24715 Resolución de 20 de octubre de 2025, de la Universidad Antonio de Nebrija, \npor la que se publica el plan de estudios de Graduado o Graduada en Bellas \nArtes.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, y \nacordado el carácter oficial del título por Acuerdo del Consejo de Ministros de 7 de \noctubre de 2025 (publicado en el BOE de 13 de octubre de 2025, por Resolución de la \nSecretaría General de Universidades de 9 de octubre de 2025),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención \ndel título de Graduado o Graduada en Bellas Artes, que queda estructurado según \nconsta en el anexo de esta resolución.\nHoyo de Manzanares, 20 de octubre de 2025.–La Rectora, Monserrat Gomendio \nKindelan.\nANEXO\nPlan de estudios conducente al título de Graduado o Graduada en Bellas Artes\nPlanificación de las enseñanzas\nDescripción general del plan de estudios - Graduado o Graduada en Bellas Artes"
+  }
+}

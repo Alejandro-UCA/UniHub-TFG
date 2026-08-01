@@ -1,0 +1,894 @@
+{
+  "codigo_estudio": "3500216",
+  "titulo": "Máster Universitario en Relaciones Internacionales y Economía Global / Master in International Relations and Global Economy por la ESIC Universidad",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "087",
+  "universidad_nombre": "ESIC Universidad",
+  "fecha_procesado": "2026-07-31T14:10:58.219847",
+  "boe_url": "http://www.boe.es/boe/dias/2026/01/23/pdfs/BOE-A-2026-1670.pdf",
+  "boe_fecha": "2026-01-23",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica.": "60",
+      "Obligatorios.": "42",
+      "Optativos.": "18",
+      "Prácticas Académicas Externas.": "PAE",
+      "Trabajo Fin de Grado.": "Trabajo Fin de Grado.",
+      "Créditos totales.": "60",
+      "Derecho Constitucional.": "Organización Constitucional del Estado.",
+      "Habilidades Profesionales.": "Comunicación persuasiva en el ejercicio global del Derecho / Power Negotiation and Persuasive Communication as a Business Law Requirement.",
+      "Idioma Moderno.": "Idioma Moderno / Modern Language.",
+      "Derecho Civil.": "Responsabilidad civil, contractual y extracontractual / Contractual and extra-contractual liability.",
+      "Historia.": "Historia del Derecho.",
+      "Derecho Penal.": "Prevención y cumplimiento normativo en el Ámbito Penal / Fraud Prevention and Deterrence.",
+      "Derecho Administrativo.": "Estado de Bienestar: Derechos, Deberes e Igualdad de Oportunidades / Welfare State: Rights, Duties and Equal Opportunities.",
+      "Economía.": "Entorno Económico: Empresa y Gestión estratégica / Economics environment: Strategy for Business.",
+      "Derecho Internacional.": "Derecho Ambiental / Environmental Law.",
+      "Derecho Mercantil.": "Soluciones Jurídicas ante las Crisis Empresariales / Corporate Financial Distress and Bankruptcy: Predict and Avoid Bankruptcy,",
+      "Derecho Procesal.": "Práctica Procesal Penal / Criminal Litigation.",
+      "Derecho Fiscal.": "Tributación internacional de las principales rentas personales y empresariales / International Taxation: Corporate and Individual.",
+      "Derecho Laboral.": "Derecho del Trabajo / Labor Law.",
+      "Empresa.": "Estrategias para la localización y organización internacional de la empresa / International Strategy: Building and Sustaining Competitive Advantage.",
+      "Marketing.": "Marketing Internacional para la Expansión de la Empresa / International Marketing Strategies For Global Competitiveness.",
+      "Trabajo Fin de Máster.": "TFM",
+      "Macroeconomía Internacional / International Macroeconomics.": "Gobernanza Económica Global / Global Economic Governance.",
+      "Globalización y Transformación Digital / Globalization and Digital Transformation.": "Economía Digital y Globalización 4.0 / Digital Economy and Globalization 4.0.",
+      "Objetivos de Desarrollo Sostenible / Sustainable Development Goals.": "Desarrollo Sostenible y Políticas Medioambientales Globales / Sustainable Development and Global Environmental Politics.",
+      "Operativa Internacional.": "Análisis de Riesgos y Gestión de Crisis / Risk Analysis and Crisis Management.",
+      "Relaciones Internacionales / International Relations.": "España, China y América Latina, la Conexión Trilateral / Spain, China and Latam: Trilateral Connection.",
+      "Métodos de Investigación / Research Methods.": "Investigación Científica/ Scientific Research.",
+      "Política Internacional / International Policy.": "Economía Política Internacional /International Political Economy.",
+      "Estrategia Empresarial.": "Sostenibilidad y ética empresarial.",
+      "Operativa de Negocio.": "Transformación digital y analítica de datos.",
+      "Entorno.": "Modelos económicos.",
+      "Habilidades.": "Liderazgo, pensamiento crítico y comunicación.",
+      "Prácticas Externas.": "12",
+      "Mód. 1. Marketing Estratégico": "Marketing Digital I",
+      "Mod 2. Metodología de Investigación": "Modelos de Decisión y Métricas de Marketing",
+      "Mód. 3. Marketing Operativo": "Estrategias de Fijación de Precios",
+      "Mód. 4. Comunicación Empresarial": "Marketing Digital II",
+      "Mód. 7. Habilidades Directivas": "Habilidades de Dirección y Gestión de Personas en Marketing",
+      "Mód. 5. Dirección Comercial": "Dirección y Organización de Ventas",
+      "Mód. 6. Estrategias de Marketing en Entornos Internacionales": "Mercados Internacionales y Negociación Intercultural",
+      "Mód. 8. Marketing Intelligence y Marketing Automation": "Marketing Intelligence y Marketing Automation",
+      "Mód. 9. Prácticas Académicas Externas": "Prácticas Académicas Externas",
+      "Mód. 10. Trabajo Fin de Máster": "Trabajo Fin de Máster",
+      "Comunicación 360.º: Corporativa, Digital y de Crisis.": "OB",
+      "Comunicación Publicitaria.": "OB",
+      "Empresa y Comunicación.": "OB",
+      "Dirección de Comunicación.": "OB",
+      "Habilidades Directivas.": "OB",
+      "Metodología e Investigación en Ciencias de la Comunicación.": "OB",
+      "Tecnologías para la Información, el Marketing y la Comunicación.": "OB",
+      "Seminarios y Conferencias.": "OB"
+    },
+    "asignaturas": [
+      {
+        "materia": "Derecho Constitucional.",
+        "nombre_asignatura": "Estado y Garantías Constitucionales.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Habilidades Profesionales.",
+        "nombre_asignatura": "Oratoria y Redacción Jurídica práctica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Idioma Moderno.",
+        "nombre_asignatura": "Idioma Moderno / Modern Language.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Civil.",
+        "nombre_asignatura": "Principios Jurídicos Básicos. Deontología Profesional.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Historia.",
+        "nombre_asignatura": "Instituciones de Derecho Romano.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Constitucional.",
+        "nombre_asignatura": "Derechos Humanos / Human Rights.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Historia.",
+        "nombre_asignatura": "Historia del Derecho.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Constitucional.",
+        "nombre_asignatura": "Organización Constitucional del Estado.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Civil.",
+        "nombre_asignatura": "Derecho de la Persona, Familia y Sucesiones.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Penal.",
+        "nombre_asignatura": "Fundamentos de Derecho Penal, consecuencias jurídicas del delito y sus penas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Administrativo.",
+        "nombre_asignatura": "Derecho y patrimonio de la Administración Pública.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Civil.",
+        "nombre_asignatura": "Obligaciones y Contratos.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Penal.",
+        "nombre_asignatura": "Delitos y las Penas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Economía.",
+        "nombre_asignatura": "Entorno Económico: Empresa y Gestión estratégica / Economics environment: Strategy for Business.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Internacional.",
+        "nombre_asignatura": "Derecho Internacional Público / International Law.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Internacional.",
+        "nombre_asignatura": "Derecho e Instituciones de la Unión Europea.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Civil.",
+        "nombre_asignatura": "Derechos Reales y Derecho Inmobiliario.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Habilidades Profesionales.",
+        "nombre_asignatura": "Técnicas de gestión y resolución de conflictos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Penal.",
+        "nombre_asignatura": "Prevención y cumplimiento normativo en el Ámbito Penal / Fraud Prevention and Deterrence.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Mercantil.",
+        "nombre_asignatura": "Fundamentos de la Empresa y Derecho societario / Fundamentals of Business Law and Corporate Law.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Procesal.",
+        "nombre_asignatura": "Práctica procesal civil: declaración y ejecución / Litigation: Civil Procedure.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Civil.",
+        "nombre_asignatura": "Responsabilidad civil, contractual y extracontractual / Contractual and extra-contractual liability.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Administrativo.",
+        "nombre_asignatura": "Control jurisdiccional de la actividad administrativa / Control of the administrative activity and effective jurisdictional protection.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Internacional.",
+        "nombre_asignatura": "Derecho Internacional Privado / Private International Law.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Fiscal.",
+        "nombre_asignatura": "Derecho Tributario / Taxation.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Fiscal.",
+        "nombre_asignatura": "Sistema Fiscal Español / Spanish tax system.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Procesal.",
+        "nombre_asignatura": "Práctica Procesal Penal / Criminal Litigation.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Laboral.",
+        "nombre_asignatura": "Derecho del Trabajo / Labor Law.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Habilidades Profesionales.",
+        "nombre_asignatura": "Comunicación persuasiva en el ejercicio global del Derecho / Power Negotiation and Persuasive Communication as a Business Law Requirement.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Mercantil.",
+        "nombre_asignatura": "Derecho de la Competencia, Propiedad Intelectual e Industrial / Competition Policy and Intellectual Property.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Administrativo.",
+        "nombre_asignatura": "Estado de Bienestar: Derechos, Deberes e Igualdad de Oportunidades / Welfare State: Rights, Duties and Equal Opportunities.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Internacional.",
+        "nombre_asignatura": "Derecho Ambiental / Environmental Law.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Optativa Empresa.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing.",
+        "nombre_asignatura": "Optativa Marketing.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Fiscal.",
+        "nombre_asignatura": "Optativa Derecho Fiscal.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Mercantil.",
+        "nombre_asignatura": "Optativa Derecho Mercantil.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo Fin de Grado.",
+        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "TFG",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Prácticas Académicas Externas.",
+        "nombre_asignatura": "Prácticas Académicas Externas.",
+        "creditos_ects": "24",
+        "caracter": "PE",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Logística Internacional / Global Supply Chain Management.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Comercio Internacional: organismos, alianzas y tratados / International Trade.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Empresa.",
+        "nombre_asignatura": "Estrategias para la localización y organización internacional de la empresa / International Strategy: Building and Sustaining Competitive Advantage.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing.",
+        "nombre_asignatura": "Derecho Publicitario / Advertising Law.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing.",
+        "nombre_asignatura": "Derecho de la Comunicación / Communications Law.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Marketing.",
+        "nombre_asignatura": "Marketing Internacional para la Expansión de la Empresa / International Marketing Strategies For Global Competitiveness.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Fiscal.",
+        "nombre_asignatura": "Armonización fiscal y nuevas tendencias de la fiscalidad internacional / International legal framework in the field of taxation.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Fiscal.",
+        "nombre_asignatura": "Precios de Transferencia y atribución de ingresos / Transfer pricing: Practical issues relating to the attribution of profits.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Fiscal.",
+        "nombre_asignatura": "Tributación internacional de las principales rentas personales y empresariales / International Taxation: Corporate and Individual.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Mercantil.",
+        "nombre_asignatura": "Práctica Jurisdiccional Mercantil / Commercial Litigation.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Mercantil.",
+        "nombre_asignatura": "Derecho y tecnología: Regulación y Aplicación en el Ámbito Jurídico / Innovation, Technology and the Law.T.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Derecho Mercantil.",
+        "nombre_asignatura": "Soluciones Jurídicas ante las Crisis Empresariales / Corporate Financial Distress and Bankruptcy: Predict and Avoid Bankruptcy,",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Macroeconomía Internacional / International Macroeconomics.",
+        "nombre_asignatura": "Gobernanza Económica Global / Global Economic Governance.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Globalización y Transformación Digital / Globalization and Digital Transformation.",
+        "nombre_asignatura": "Economía Digital y Globalización 4.0 / Digital Economy and Globalization 4.0.",
+        "creditos_ects": "4",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Objetivos de Desarrollo Sostenible / Sustainable Development Goals.",
+        "nombre_asignatura": "Desarrollo Sostenible y Políticas Medioambientales Globales / Sustainable Development and Global Environmental Politics.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Operativa Internacional.",
+        "nombre_asignatura": "Análisis de Riesgos y Gestión de Crisis / Risk Analysis and Crisis Management.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Relaciones Internacionales / International Relations.",
+        "nombre_asignatura": "Diplomacia Cultural y Poder Blando /Cultural Diplomacy and Soft Power.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Métodos de Investigación / Research Methods.",
+        "nombre_asignatura": "Investigación Científica/ Scientific Research.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Relaciones Internacionales / International Relations.",
+        "nombre_asignatura": "Perspectivas Avanzadas en las Relaciones Internacionales // Advanced Perspectives in International Relations.",
+        "creditos_ects": "5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Política Internacional / International Policy.",
+        "nombre_asignatura": "Economía Política Internacional /International Political Economy.",
+        "creditos_ects": "5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Relaciones Internacionales / International Relations.",
+        "nombre_asignatura": "La Geopolitica de los Negocios /The Geopolitics of Business.",
+        "creditos_ects": "5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Relaciones Internacionales / International Relations.",
+        "nombre_asignatura": "Análisis de Política Exterior China y el Sur Global /Foreign Policy Analysis (FPA): China and the Global South.",
+        "creditos_ects": "5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Relaciones Internacionales / International Relations.",
+        "nombre_asignatura": "España, China y América Latina, la Conexión Trilateral / Spain, China and Latam: Trilateral Connection.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_asignatura": "Trabajo Fin de Máster: GLO LAB / FINAL DISSERTATION:GLO LAB.",
+        "creditos_ects": "6",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estrategia Empresarial.",
+        "nombre_asignatura": "Estrategia y cultura organizativa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Operativa de Negocio.",
+        "nombre_asignatura": "Finanzas para la toma de decisiones.",
+        "creditos_ects": "4",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Operativa de Negocio.",
+        "nombre_asignatura": "Dirección de marketing.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Operativa de Negocio.",
+        "nombre_asignatura": "Gestión de proyectos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Operativa de Negocio.",
+        "nombre_asignatura": "Transformación digital y analítica de datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Entorno.",
+        "nombre_asignatura": "Modelos económicos.",
+        "creditos_ects": "2",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estrategia Empresarial.",
+        "nombre_asignatura": "Innovación y emprendimiento.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Estrategia Empresarial.",
+        "nombre_asignatura": "Sostenibilidad y ética empresarial.",
+        "creditos_ects": "4",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Habilidades.",
+        "nombre_asignatura": "Marca personal y gestión de la carrera profesional.",
+        "creditos_ects": "2",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Habilidades.",
+        "nombre_asignatura": "Liderazgo, pensamiento crítico y comunicación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_asignatura": "Trabajo de Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Prácticas Académicas Externas.",
+        "nombre_asignatura": "Prácticas Académicas Externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Marketing Estratégico",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Plan de Marketing",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Marketing Digital I",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Metodología de Investigación Científica",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Inteligencia Competitiva y del Consumidor",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Dirección de Nuevos Productos y Servicios",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Estrategias de Distribución Omnicanal",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Estrategias de Fijación de Precios",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Dirección de Comunicación y Medios Publicitarios",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Dirección y Gestión de Proyectos",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Modelos de Decisión y Métricas de Marketing",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Marketing Digital II",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Dirección y Organización de Ventas",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Dirección Internacional de Marketing",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Mercados Internacionales y Negociación Intercultural",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Habilidades de Dirección y Gestión de Personas en Marketing",
+        "creditos_ects": "1,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Marketing Intelligence y Marketing Automation",
+        "creditos_ects": "1,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas Académicas Externas",
+        "creditos_ects": "6",
+        "caracter": "PAE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Máster",
+        "creditos_ects": "6",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Comunicación 360.º: Corporativa, Digital y de Crisis.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Comunicación Publicitaria.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Empresa y Comunicación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Dirección de Comunicación.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Habilidades Directivas.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Metodología e Investigación en Ciencias de la Comunicación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnologías para la Información, el Marketing y la Comunicación.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Seminarios y Conferencias.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas Académicas Externas.",
+        "creditos_ects": "6",
+        "caracter": "PAE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 103,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n1670 Resolución de 10 de diciembre de 2024, de ESIC Universidad, por la que se \npublican planes de estudios de Graduado o Graduada y de Máster \nUniversitario.\nObtenida la verificación de los planes de estudios por el Consejo de Universidades, \nprevio informe positivo de la Fundación para el Conocimiento Madri+d, y establecido el \ncarácter oficial de los títulos por Acuerdo del Consejo de Ministros de 17 de septiembre \nde 2024 (publicado en el «Boletín Oficial del Estado» de 27 de septiembre de 2024 por \nResolución de la Secretaría General de Universidades de 20 de septiembre de 2024),\nEste Rectorado ha resuelto publicar los planes de estudios conducentes a la \nobtención de los títulos oficiales siguientes:\nGraduado o Graduada en Derecho/Bachelor in Law.\nMáster Universitario en Relaciones Internacionales y Economía Global/Master in \nInternational Relations and Global Economy.\nMáster Universitario en Gestión de Empresas (MIM).\nLos planes de estudios"
+  }
+}

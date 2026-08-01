@@ -1,0 +1,433 @@
+{
+  "codigo_estudio": "2504638",
+  "titulo": "Graduado o Graduada en Filosofía, Política y Economía / Bachelor in Philosophy, Politics and Economics por la CUNEF Universidad",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "089",
+  "universidad_nombre": "CUNEF Universidad",
+  "fecha_procesado": "2026-07-31T14:09:11.342067",
+  "boe_url": "http://www.boe.es/boe/dias/2026/02/19/pdfs/BOE-A-2026-3901.pdf",
+  "boe_fecha": "2026-02-19",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación básica (FB).": "60",
+      "Obligatorias (OB).": "162",
+      "Optativas (OP).": "12",
+      "Trabajo de Fin de Grado (TFG).": "6",
+      "Créditos totales.": "240",
+      "Quantitative Methods.": "Mathematics.",
+      "Economy.": "Introduction to Economics.",
+      "Political Science.": "Introduction to Political Science.",
+      "Philosophy.": "Introduction to Philosophy.",
+      "History.": "Contemporary History.",
+      "Law.": "Introduction to Legal Systems.",
+      "Soft Skills.": "Data Collection and Processing.",
+      "Elective Courses.": "Elective Courses.",
+      "Internship.": "Internship.",
+      "Final Degree Project.": "Final Degree Project."
+    },
+    "asignaturas": [
+      {
+        "materia": "History.",
+        "nombre_asignatura": "Contemporany History.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Philosophy.",
+        "nombre_asignatura": "Introduction to Philosophy.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Philosophy.",
+        "nombre_asignatura": "Critical Thinking and Argumentation.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Philosophy.",
+        "nombre_asignatura": "Political Philosophy.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Philosophy.",
+        "nombre_asignatura": "Logic.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Philosophy.",
+        "nombre_asignatura": "Ethics.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Law.",
+        "nombre_asignatura": "Introduction to Legal Systems.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Political Science.",
+        "nombre_asignatura": "Introduction to Political Science.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Political Science.",
+        "nombre_asignatura": "Introduction to Political Theory.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Economy.",
+        "nombre_asignatura": "Introduction to Economics.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "Quantitative Methods.",
+        "nombre_asignatura": "Mathematics.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Quantitative Methods.",
+        "nombre_asignatura": "Quantitative Methods for Humanities.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Quantitative Methods.",
+        "nombre_asignatura": "Descriptive Analytics.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Economy.",
+        "nombre_asignatura": "Introduction to Economics.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Economy.",
+        "nombre_asignatura": "Microeconomics.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Economy.",
+        "nombre_asignatura": "Macroeconomics.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Economy.",
+        "nombre_asignatura": "History of Economic Thought.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Economy.",
+        "nombre_asignatura": "International Political Economy.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Economy.",
+        "nombre_asignatura": "Economic Organizations, Markets and Institutions.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Economy.",
+        "nombre_asignatura": "Public Choice.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Economy.",
+        "nombre_asignatura": "Sustainability and the Circular Economy.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Political Science.",
+        "nombre_asignatura": "Introduction to Political Science.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Political Science.",
+        "nombre_asignatura": "Media, Political Elites and the Public.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Political Science.",
+        "nombre_asignatura": "International Relations.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Political Science.",
+        "nombre_asignatura": "Introduction to Political Theory.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Political Science.",
+        "nombre_asignatura": "Democracy and Democratisation.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Political Science.",
+        "nombre_asignatura": "Game Theory for Political Science.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Political Science.",
+        "nombre_asignatura": "Policy Evaluation.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Philosophy.",
+        "nombre_asignatura": "Introduction to Philosophy.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Philosophy.",
+        "nombre_asignatura": "Political Philosophy.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Philosophy.",
+        "nombre_asignatura": "Philosophy, Morals, Politics and Economics.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Philosophy.",
+        "nombre_asignatura": "Digital Transformation and Society.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Philosophy.",
+        "nombre_asignatura": "Logic.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Philosophy.",
+        "nombre_asignatura": "Intermediate Logic and Probability.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Philosophy.",
+        "nombre_asignatura": "Anthropology.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Philosophy.",
+        "nombre_asignatura": "Episthemology.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Philosophy.",
+        "nombre_asignatura": "Ethics.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Philosophy.",
+        "nombre_asignatura": "Rationality and Choice.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Philosophy.",
+        "nombre_asignatura": "Philosophy of Science.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Philosophy.",
+        "nombre_asignatura": "Critical Thinking and Argumentation.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "History.",
+        "nombre_asignatura": "Contemporary History.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "History.",
+        "nombre_asignatura": "Global Economic History.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Law.",
+        "nombre_asignatura": "Introduction to Legal Systems.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Soft Skills.",
+        "nombre_asignatura": "Data Collection and Processing.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Soft Skills.",
+        "nombre_asignatura": "Verbal and Written Communication.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Soft Skills.",
+        "nombre_asignatura": "Entrepreneurship and Innovation.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": "2"
+      },
+      {
+        "materia": "Soft Skills.",
+        "nombre_asignatura": "Leadership and Negotiation Skills.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Elective Courses.",
+        "nombre_asignatura": "Elective Courses.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Internship.",
+        "nombre_asignatura": "Internship.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "materia": "Final Degree Project.",
+        "nombre_asignatura": "Final Degree Project.",
+        "creditos_ects": "6",
+        "caracter": "TFG",
+        "curso": "4",
+        "cuatrimestre": "2"
+      }
+    ],
+    "total_asignaturas": 50,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n3901 Resolución de 4 de febrero de 2026, de CUNEF Universidad, por la que se \npublica la modificación del plan de estudios de Graduado o Graduada en \nFilosofía, Política y Economía/Bachelor in Philosophy, Politics and \nEconomics.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme favorable de la Agencia Evaluadora Fundación para el Conocimiento Madri+d, \nautorizada su implantación por la Comunidad de Madrid y establecido el carácter oficial \ndel título por Acuerdo de Consejo de Ministros de 27 de diciembre de 2023 (publicado, \npor Resolución de 28 de diciembre de 2023, de la Secretaría General de Universidades, \nen el «Boletín Oficial del Estado» de 6 de enero de 2024), y habiendo sido modificado el \nmencionado plan de estudios, con informe favorable de la Fundación para el \nConocimiento Madri+d, de fecha 8 de septiembre de 2025,\nEste Rectorado, de conformidad con lo dispuesto en el artículo 27.4 del Rea"
+  }
+}

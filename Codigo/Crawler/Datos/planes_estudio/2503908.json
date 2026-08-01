@@ -1,0 +1,492 @@
+{
+  "codigo_estudio": "2503908",
+  "titulo": "Graduado o Graduada en Administración de Empresas / Bachelor in Business Administration por la IE Universidad",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "057",
+  "universidad_nombre": "IE Universidad",
+  "fecha_procesado": "2026-07-31T14:11:12.789755",
+  "boe_url": "http://www.boe.es/boe/dias/2022/05/20/pdfs/BOE-A-2022-8316.pdf",
+  "boe_fecha": "2022-05-20",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica.": "64",
+      "Obligatorias.": "98",
+      "Optativas.": "Optativas.",
+      "Trabajo Fin de Grado.": "Trabajo Fin de Grado.",
+      "Total créditos.": "240",
+      "Formación básica.": "Economía.",
+      "Dirección y gestión de la empresa.": "Estrategia empresarial.",
+      "Transversal.": "Reto IE.",
+      "Contabilidad y Finanzas.": "Contabilidad.",
+      "Análisis de datos y tecnologías informáticas.": "Análisis estadístico aplicado."
+    },
+    "asignaturas": [
+      {
+        "materia": "",
+        "nombre_asignatura": "Formación Básica.",
+        "creditos_ects": "64",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Obligatorias.",
+        "creditos_ects": "98",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Optativas.",
+        "creditos_ects": "66",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Total créditos.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Investigación y técnicas de la escritura.",
+        "creditos_ects": "4",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Microeconomía.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Macroeconomía.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Entorno económico global.",
+        "creditos_ects": "5",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Contabilidad financiera.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Contabilidad de costes.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos del marketing.",
+        "creditos_ects": "5",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Emprendimiento.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Estadística aplicada y análisis de datos.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos del análisis estadístico y visualización de datos.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Humanidades.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas aplicadas a la empresa.",
+        "creditos_ects": "5",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnología.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Contabilidad financiera.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos del marketing.",
+        "creditos_ects": "5",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas aplicadas a la empresa.",
+        "creditos_ects": "5",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Investigación y técnicas de la escritura.",
+        "creditos_ects": "4",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Herramientas y principios de gestión.",
+        "creditos_ects": "4",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Construyendo relaciones de impacto.",
+        "creditos_ects": "5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Microeconomía.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Contabilidad de costes.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Humanidades.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Finanzas corporativas.",
+        "creditos_ects": "5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Matemáticas para la gestión.",
+        "creditos_ects": "5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Introducción a la Programación.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Macroeconomía.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Fundamentos del análisis estadístico y visualización de datos.",
+        "creditos_ects": "3",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnologías de la información orientadas a los negocios.",
+        "creditos_ects": "5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Mercados de capitales.",
+        "creditos_ects": "5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Gestión del marketing.",
+        "creditos_ects": "5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Derecho empresarial.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Tecnología.",
+        "creditos_ects": "3",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Entorno económico global.",
+        "creditos_ects": "5",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Estadística aplicada y análisis de datos.",
+        "creditos_ects": "3",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis y reporte financiero.",
+        "creditos_ects": "5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Comportamiento organizacional.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Gestión de operaciones.",
+        "creditos_ects": "5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Proyecto de marketing.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Emprendimiento.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Control de gestión.",
+        "creditos_ects": "5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Startup Bootcamp.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Gestión del capital humano.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Gestión de la cadena de suministro.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Estrategia para la competencia.",
+        "creditos_ects": "5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis de datos económicos.",
+        "creditos_ects": "5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Reto IE.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Optativas / Menciones.",
+        "creditos_ects": "24",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Estrategias para empresas multinacionales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Optativas / Menciones.",
+        "creditos_ects": "30",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Optativas.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Métodos de investigación.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Modelos disruptivos de negocio.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 58,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n8316 Resolución de 3 de mayo de 2022, de IE Universidad, por la que se publica la \nmodificación del plan de estudios de Graduado o Graduada en \nAdministración de Empresas/Bachelor in Business Administration.\nDe conformidad con lo dispuesto en el artículo 32 del Real Decreto 822/2021, de 28 \nde septiembre, por el que se establece la organización de las enseñanzas universitarias \ny del procedimiento de aseguramiento de su calidad, en el que se regula el \nprocedimiento para la modificación sustancial de los planes de estudios impartidos en \ncentros universitarios no acreditados institucionalmente, y una vez recibido informe \nfavorable de la Agencia para la Calidad del Sistema Universitario de Castilla y León a las \nmodificaciones presentadas al título oficial de Graduado/a en Administración de \nEmpresas / Bachelor in Business Administration por la IE Universidad (2503908) \nestablecido por Acuerdo del Consejo de Ministros de 18 de octubre de 2019 por "
+  }
+}

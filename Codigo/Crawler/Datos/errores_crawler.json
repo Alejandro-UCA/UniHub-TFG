@@ -1,0 +1,1882 @@
+[
+  {
+    "timestamp": "2026-07-31T13:43:48.233407",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "6000001",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=6000001&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:43:49.242811",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "6000002",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=6000002&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:49:34.890751",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "6000003",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=6000003&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:49:44.993218",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000084",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000084&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:49:45.896146",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000077",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000077&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:49:46.906039",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000085",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000085&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:49:47.966625",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000078",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000078&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:49:48.923869",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000082",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000082&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:49:49.918678",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000083",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000083&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:49:50.983017",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000080",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000080&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:49:51.995919",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000079",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000079&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:49:52.983915",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000086",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000086&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:49:53.962610",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000088",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000088&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:49:54.906853",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000087",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000087&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:49:55.926067",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000081",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000081&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:49:57.020659",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000101",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000101&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:49:58.959628",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000054",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000054&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:50:00.050132",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000055",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000055&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:50:01.062359",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000053",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000053&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:50:03.083118",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000063",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000063&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:50:03.914538",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000066",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000066&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:51:38.879513",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "8000068",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000068&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 8000068",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6217/1261125.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2840fd732f0>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T13:51:39.169693",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000103",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000103&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:53:14.070400",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "8000067",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000067&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 8000067",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/7142/1506530.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x284136fdf10>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T13:53:14.331137",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000112",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000112&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:53:15.443610",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000102",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000102&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:53:16.338269",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000113",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000113&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:53:20.377902",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000124",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000124&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:53:21.330469",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000125",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000125&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:53:29.972876",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000046",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000046&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:53:30.992112",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000043",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000043&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:53:32.089417",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000047",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000047&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:53:32.952498",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000048",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000048&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:53:34.032704",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000045",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000045&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:53:35.003234",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000044",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000044&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:53:35.968312",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000064",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000064&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:53:36.955094",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000042",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000042&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:55:43.396185",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "8000110",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000110&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 8000110",
+    "detalles_excepcion": "HTTPSConnectionPool(host='www.juntadeandalucia.es', port=443): Read timed out."
+  },
+  {
+    "timestamp": "2026-07-31T13:56:17.562057",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "8000094",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000094&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 8000094",
+    "detalles_excepcion": "('Connection broken: IncompleteRead(74577 bytes read, 132027 more expected)', IncompleteRead(74577 bytes read, 132027 more expected))"
+  },
+  {
+    "timestamp": "2026-07-31T13:56:34.820119",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "8000040",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000040&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 8000040",
+    "detalles_excepcion": "('Connection broken: IncompleteRead(5474 bytes read, 49613 more expected)', IncompleteRead(5474 bytes read, 49613 more expected))"
+  },
+  {
+    "timestamp": "2026-07-31T13:56:35.181661",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000041",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000041&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T13:59:39.917369",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "8000072",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000072&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 8000072",
+    "detalles_excepcion": "HTTPSConnectionPool(host='www.juntadeandalucia.es', port=443): Read timed out."
+  },
+  {
+    "timestamp": "2026-07-31T14:00:01.528300",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000020",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000020&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:06:05.305645",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000018",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000018&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:07:18.318560",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000019",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000019&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:07:19.353247",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000015",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000015&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:07:20.346168",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000016",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000016&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:07:21.330151",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000017",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000017&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:08:36.638043",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000022",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000022&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:08:37.552455",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000023",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000023&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:08:38.562526",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "8000021",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=8000021&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:09:59.479538",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5601523",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5601523&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5601523",
+    "detalles_excepcion": "HTTPConnectionPool(host='https', port=80): Max retries exceeded with url: //www.boe.es/boe/dias/2023/07/27/pdfs/BOE-A-2023-17292.pdf (Caused by NameResolutionError(\"HTTPConnection(host='https', port=80): Failed to resolve 'https' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "timestamp": "2026-07-31T14:10:40.240593",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "2504077",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=2504077&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 2504077",
+    "detalles_excepcion": "HTTPConnectionPool(host='https', port=80): Max retries exceeded with url: //www.boe.es/boe/dias/2021/11/04/pdfs/BOE-A-2021-18029.pdf (Caused by NameResolutionError(\"HTTPConnection(host='https', port=80): Failed to resolve 'https' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "timestamp": "2026-07-31T14:10:59.619987",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "1001000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=1001000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:11:00.593260",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "5067000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5067000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:11:01.613685",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4027000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4027000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:11:02.567045",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "1008000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=1008000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:11:03.642896",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "5101000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5101000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:11:04.668468",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3035000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3035000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:11:05.635254",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3065000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3065000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:11:06.555865",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3062000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3062000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:11:07.567134",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3066000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3066000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:11:08.590136",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3023000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3023000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:12:46.868418",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3001025",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3001025&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:12:54.640251",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3001021",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3001021&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:13:07.656621",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3001024",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3001024&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:13:13.662048",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3001026",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3001026&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:13:14.806688",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3002546",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3002546&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:13:24.406996",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3001027",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3001027&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:13:45.210257",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3002547",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3002547&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:13:48.898122",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3002545",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3002545&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:13:51.893551",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3001028",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3001028&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:06.536204",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3001029",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3001029&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:13.650048",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4011000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4011000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:14.617542",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "1014000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=1014000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:15.617064",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "1013000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=1013000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:16.626672",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "1011000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=1011000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:17.648219",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "1009000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=1009000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:18.629775",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "5103000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5103000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:19.643170",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "5100000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5100000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:20.659202",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "5047000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5047000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:21.618347",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "5048000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5048000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:22.624055",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "5049000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5049000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:23.613947",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "5097000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5097000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:24.616233",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "5095000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5095000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:25.614307",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3037000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3037000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:26.652381",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3069000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3069000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:27.648003",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3073000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3073000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:28.621040",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4036000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4036000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:29.617322",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4035000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4035000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:30.635270",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4033000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4033000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:31.641089",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4030000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4030000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:32.628699",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4031000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4031000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:33.626661",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4032000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4032000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:35.006153",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4000307",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4000307&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:36.125161",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4000306",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4000306&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:36.939965",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4000305",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4000305&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:14:37.667683",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4000304",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4000304&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:16:35.794435",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "4313498",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4313498&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 4313498",
+    "detalles_excepcion": "Failed to parse: http://irecci�n Contable y Financie"
+  },
+  {
+    "timestamp": "2026-07-31T14:17:57.089542",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "4316347",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4316347&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 4316347",
+    "detalles_excepcion": "HTTPConnectionPool(host='pww.boe.es', port=80): Max retries exceeded with url: /boe/dias/2024/10/19/pdfs/BOE-A-2024-21489.pdf (Caused by NameResolutionError(\"HTTPConnection(host='pww.boe.es', port=80): Failed to resolve 'pww.boe.es' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "timestamp": "2026-07-31T14:23:03.306355",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "2500622",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=2500622&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 2500622",
+    "detalles_excepcion": "404 Client Error: Not Found for url: https://www.boe.es/boe/dias/2010/02/05-1/pdfs/BOE-A-2010-1913.pdf"
+  },
+  {
+    "timestamp": "2026-07-31T14:26:12.922476",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4008000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4008000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:26:13.915854",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4009000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4009000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:26:14.937945",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4029000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4029000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:26:15.913311",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4013000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4013000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:26:16.911010",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4017000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4017000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:26:17.908868",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "1004000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=1004000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:26:18.906959",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "1015000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=1015000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:26:19.910569",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3077000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3077000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:26:20.919643",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3078000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3078000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:26:21.903274",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3024000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3024000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:27:56.945954",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "3002000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3002000&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 3002000",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6388/1302915.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2846bb41a60>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T14:27:57.221140",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3030000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3030000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:27:58.196004",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3043000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3043000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:29:33.160749",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "3003000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3003000&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 3003000",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6436/1313524.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2840f465190>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T14:36:27.082969",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3054000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3054000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:36:28.082995",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3039000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3039000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:36:29.085100",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3042000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3042000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:36:30.193000",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4001014",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4001014&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:36:57.212404",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5601523",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5601523&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5601523",
+    "detalles_excepcion": "HTTPConnectionPool(host='https', port=80): Max retries exceeded with url: //www.boe.es/boe/dias/2023/07/27/pdfs/BOE-A-2023-17292.pdf (Caused by NameResolutionError(\"HTTPConnection(host='https', port=80): Failed to resolve 'https' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "timestamp": "2026-07-31T14:38:35.616300",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "2504428",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=2504428&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 2504428",
+    "detalles_excepcion": "HTTPConnectionPool(host='https', port=80): Max retries exceeded with url: //www.boe.es/boe/dias/2023/04/03/pdfs/BOE-A-2023-8439.pdf (Caused by NameResolutionError(\"HTTPConnection(host='https', port=80): Failed to resolve 'https' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "timestamp": "2026-07-31T14:42:19.333028",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3000477",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3000477&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:17.060290",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "3500347",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3500347&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 3500347",
+    "detalles_excepcion": "Invalid URL 'http:///www.boe.es/boe/dias/2024/10/18/pdfs/BOE-A-2024-21398.pdf': No host supplied"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:30.619558",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4021000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4021000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:31.597014",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4004000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4004000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:32.586112",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4020000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4020000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:33.643058",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4019000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4019000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:34.591686",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "1019000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=1019000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:35.644888",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "1012000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=1012000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:36.671596",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "5102000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5102000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:37.677548",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "5098000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5098000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:38.626115",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "5096000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5096000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:39.596582",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3063000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3063000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:40.616489",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3036000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3036000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:41.598990",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3083000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3083000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:42.604155",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3064000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3064000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:43.600472",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3082000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3082000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:44.622778",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3040000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3040000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:45.610411",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3085000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3085000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:46.643438",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3068000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3068000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:47.603534",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3038000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3038000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:48.622605",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3084000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3084000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:49.672312",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3047000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3047000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:50.618942",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3048000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3048000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:51.687168",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3050000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3050000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:52.613960",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3053000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3053000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:53.607348",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3044000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3044000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:54.608257",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3032000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3032000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:55.791730",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3060000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3060000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:56.622538",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3033000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3033000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:57.658301",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3061000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3061000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:58.621918",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3080000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3080000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:43:59.606096",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3034000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3034000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:44:00.656103",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3031000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3031000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:44:01.687607",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3001000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3001000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:44:02.622574",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3072000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3072000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:44:03.929760",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3074000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3074000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:44:04.634399",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3041000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3041000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:44:05.612876",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "3059000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3059000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:45:40.605779",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "3003000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=3003000&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 3003000",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6436/1313524.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x284459a7e60>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T14:45:40.865908",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4034000",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4034000&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:45:41.937121",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4001663",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4001663&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:45:42.907848",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4000110",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4000110&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:45:43.936539",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4000860",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4000860&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:45:44.997564",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4000111",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4000111&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:45:45.918570",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4000112",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4000112&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:45:46.995516",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4000861",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4000861&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:45:47.935982",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4001666",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4001666&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:45:48.972925",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4000113",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4000113&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:45:49.975311",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4000862",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4000862&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:45:50.932584",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4000115",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4000115&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:45:51.945769",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4000863",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4000863&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:45:52.931489",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4000116",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4000116&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:45:53.925915",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4000864",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4000864&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:45:54.968852",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4000114",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4000114&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:45:55.949995",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4000865",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4000865&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:45:56.909045",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4000552",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4000552&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:45:57.934737",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4000553",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4000553&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:45:58.933037",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4000554",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4000554&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:45:59.984548",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4000119",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4000119&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:46:00.953428",
+    "fase": "paso_3_boe_link",
+    "id_entidad": "4000120",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=4000120&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE",
+    "detalles_excepcion": "No PDF links found in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T14:47:49.815280",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5601327",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5601327&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5601327",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/8727/1923179.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x28472dce840>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T14:49:56.034773",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5601056",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5601056&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5601056",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/8052/1781184.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2845a290e60>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T14:53:04.337321",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5311106",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5311106&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5311106",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6606/1350289.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2846977aa50>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T14:54:38.530688",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310018",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310018&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310018",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6606/1350289.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x28459db6240>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T14:56:12.751780",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310019",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310019&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310019",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x284137ab2c0>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T14:57:46.917598",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310020",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310020&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310020",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6908/1433665.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2846a15d0d0>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T14:59:21.105125",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310021",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310021&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310021",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6908/1433665.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x28481ec50a0>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:00:55.309771",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5311907",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5311907&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5311907",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2840f4a1850>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:02:29.491416",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310022",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310022&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310022",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6908/1433665.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x28456f5d7c0>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:04:03.702320",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310024",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310024&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310024",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2840fdd0aa0>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:05:37.876446",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310025",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310025&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310025",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2845eb93d40>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:07:12.077795",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310026",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310026&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310026",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2845eb2e7b0>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:08:46.247364",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310027",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310027&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310027",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6908/1433665.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2840eb16300>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:10:20.459701",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310028",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310028&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310028",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x28410867800>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:11:54.703028",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310029",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310029&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310029",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2840eb14830>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:13:28.930031",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310030",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310030&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310030",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6908/1433665.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2845eb2c680>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:15:03.162981",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310031",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310031&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310031",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2846a5c1760>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:16:37.337261",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5311783",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5311783&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5311783",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2840fdd1610>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:18:11.579552",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5311108",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5311108&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5311108",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x284590a4cb0>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:19:45.798441",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310032",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310032&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310032",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6908/1433665.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2841302a1b0>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:21:19.990594",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310033",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310033&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310033",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x28413102900>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:22:54.200698",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310034",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310034&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310034",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6908/1433665.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x284590a4800>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:24:28.347904",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310035",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310035&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310035",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6908/1433665.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2845eb91040>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:26:02.552607",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310036",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310036&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310036",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2845eb2df70>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:27:36.756687",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310037",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310037&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310037",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6908/1433665.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2840eb15e50>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:29:10.976700",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5311784",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5311784&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5311784",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6908/1433665.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x28479f7d5b0>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:30:45.198492",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5311908",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5311908&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5311908",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6908/1433665.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2840eb16a80>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:32:19.437636",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5311909",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5311909&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5311909",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2845eb2daf0>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:33:53.611785",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5311823",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5311823&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5311823",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2845eb91e50>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:35:27.837653",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310038",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310038&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310038",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2840fdd1e50>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:37:02.017219",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310039",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310039&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310039",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x28456f5fa70>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:38:36.246630",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310040",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310040&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310040",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x28411693ad0>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:40:10.477824",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310041",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310041&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310041",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6908/1433665.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2841302a300>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:41:44.669969",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5311283",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5311283&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5311283",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2840fdd2690>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:43:18.865410",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310042",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310042&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310042",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2845eb92060>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:44:53.060143",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5311785",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5311785&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5311785",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6908/1433665.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2845eb2eea0>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:46:34.126411",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310044",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310044&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310044",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6908/1433665.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2846df3eba0>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:48:08.390359",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310045",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310045&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310045",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2846dee4e00>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:49:42.552646",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310046",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310046&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310046",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6606/1350289.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2840fee2d50>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:51:16.763200",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5311489",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5311489&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5311489",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6908/1433665.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2840ff8f800>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:52:51.002950",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310047",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310047&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310047",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2840fee1520>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:54:25.195237",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310048",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310048&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310048",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2846df3ee10>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:55:59.407809",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310049",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310049&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310049",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2845eb2f620>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:57:33.630439",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310050",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310050&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310050",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2840ff74e60>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T15:59:07.858562",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310051",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310051&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310051",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2840ff6ec60>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T16:00:42.070283",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310052",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310052&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310052",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6606/1350289.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2840ff6dac0>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T16:02:16.336521",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310053",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310053&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310053",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2840177c920>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T16:03:50.546103",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310054",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310054&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310054",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2846df3df40>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T16:05:24.742316",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310055",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310055&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310055",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2840fee19d0>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T16:06:58.952591",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5311109",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5311109&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5311109",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6615/1352998.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2840ff8d730>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T16:08:33.162202",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5310056",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5310056&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5310056",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6908/1433665.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2840ff34140>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T16:10:07.389482",
+    "fase": "paso_3_boe_parsing",
+    "id_entidad": "5311910",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=5311910&actual=universidad",
+    "motivo_fallo": "Error al procesar titulación 5311910",
+    "detalles_excepcion": "HTTPConnectionPool(host='portaldogc.gencat.cat', port=80): Max retries exceeded with url: /utilsEADOP/PDF/6908/1433665.pdf (Caused by ConnectTimeoutError(<HTTPConnection(host='portaldogc.gencat.cat', port=80) at 0x2840ff5ade0>, 'Connection to portaldogc.gencat.cat timed out. (connect timeout=30)'))"
+  },
+  {
+    "timestamp": "2026-07-31T16:41:00.081924",
+    "fase": "paso_3_enlace_boe",
+    "id_entidad": "6000001",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=6000001&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE en detalle HTML",
+    "detalles_excepcion": "No PDF links in HTML"
+  },
+  {
+    "timestamp": "2026-07-31T16:41:01.073726",
+    "fase": "paso_3_enlace_boe",
+    "id_entidad": "6000002",
+    "url": "https://www.educacion.gob.es/ruct/estudiouniversidad.action?codigoCiclo=SC&codigoEstudio=6000002&actual=universidad",
+    "motivo_fallo": "Sin enlace a BOE en detalle HTML",
+    "detalles_excepcion": "No PDF links in HTML"
+  }
+]

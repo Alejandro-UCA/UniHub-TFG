@@ -1,0 +1,288 @@
+{
+  "codigo_estudio": "1500440",
+  "titulo": "Graduado o Graduada en Relaciones Internacionales por la Universidad Antonio de Nebrija",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "052",
+  "universidad_nombre": "Universidad Antonio de Nebrija",
+  "fecha_procesado": "2026-07-31T14:39:43.567884",
+  "boe_url": "http://www.boe.es/boe/dias/2025/12/08/pdfs/BOE-A-2025-25035.pdf",
+  "boe_fecha": "2025-12-08",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Asignaturas de Formación Básica.": "60",
+      "Asignaturas Obligatorias.": "114",
+      "Asignaturas Optativas.": "48",
+      "Prácticas Externas.": "12",
+      "Trabajo Fin de Grado.": "6",
+      "Créditos totales.": "240",
+      "Derecho diplomático y consular (M1).": "6",
+      "Integración regional (M1).": "6",
+      "Comunicación institucional (M1).": "6",
+      "Análisis de conflictos internacionales (M2).": "6",
+      "Análisis geopolítico regional: América del Norte (M2).": "3",
+      "Análisis geopolítico regional: América Latina y el Caribe (M2).": "3",
+      "Análisis geopolítico regional: Europa (M2).": "3",
+      "Civilizaciones actuales (M2).": "3",
+      "Protocolo institucional e internacional (M1).": "6",
+      "Información y Comunicación internacional (M1).": "6",
+      "Ciberseguridad (M2).": "6",
+      "Dimensiones de la seguridad internacional (M2).": "6",
+      "Inteligencia e Información (M2).": "3",
+      "Seguridad y Defensa de España (M2).": "3",
+      "Diplomacia pública (M1).": "3",
+      "Actores no estatales (M1).": "3",
+      "Análisis geopolítico regional: Rusia y espacio exsoviético (M2).": "3",
+      "Análisis geopolítico regional: Asia y el Pacífico (M2).": "3",
+      "Análisis geopolítico regional: Oriente Medio y el Magreb (M2).": "3",
+      "Análisis geopolítico regional: África subsahariana (M2).": "3",
+      "Negociación internacional (M1).": "3",
+      "Estudios para la paz (M1).": "3",
+      "Gobernanza internacional del medio ambiente (M1).": "3",
+      "Política exterior de la Unión Europea (M1).": "3"
+    },
+    "asignaturas": [
+      {
+        "materia": "",
+        "nombre_asignatura": "Asignaturas de Formación Básica.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Asignaturas Obligatorias.",
+        "creditos_ects": "114",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Asignaturas Optativas.",
+        "creditos_ects": "48",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Prácticas Externas.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Créditos totales.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Derecho diplomático y consular (M1).",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Integración regional (M1).",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Comunicación institucional (M1).",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis de conflictos internacionales (M2).",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis geopolítico regional: América del Norte (M2).",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis geopolítico regional: América Latina y el Caribe (M2).",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis geopolítico regional: Europa (M2).",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Civilizaciones actuales (M2).",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Protocolo institucional e internacional (M1).",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Información y Comunicación internacional (M1).",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Ciberseguridad (M2).",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Dimensiones de la seguridad internacional (M2).",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Inteligencia e Información (M2).",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Seguridad y Defensa de España (M2).",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Diplomacia pública (M1).",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Actores no estatales (M1).",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis geopolítico regional: Rusia y espacio exsoviético (M2).",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis geopolítico regional: Asia y el Pacífico (M2).",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis geopolítico regional: Oriente Medio y el Magreb (M2).",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Análisis geopolítico regional: África subsahariana (M2).",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Negociación internacional (M1).",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Estudios para la paz (M1).",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Gobernanza internacional del medio ambiente (M1).",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "materia": "",
+        "nombre_asignatura": "Política exterior de la Unión Europea (M1).",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "4",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_asignaturas": 30,
+    "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n25035 Resolución de 20 de octubre de 2025, de la Universidad Antonio de Nebrija, \npor la que se publica el plan de estudios de Graduado o Graduada en \nRelaciones Internacionales.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, y \nacordado el carácter oficial del título por Acuerdo del Consejo de Ministros de 7 octubre \nde 2025 (publicado en el BOE de 13 de octubre de 2025 por resolución de la Secretaría \nGeneral de Universidades de 9 de octubre de 2025),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención \ndel título de Graduado o Graduada en Relaciones Internacionales, que queda \nestructurado según consta en el anexo de esta resolución.\nHoyo de Manzanares, 20 de octubre de 2025.–La Rectora, Monserrat Gomendio \nKindelan.\nANEXO\nUniversidad Antonio de Nebrija\nPLAN DE ESTUDIOS CONDUCENTE AL TÍTULO DE GRADUADO O GRADUADA \nEN RELACIONES INTERNACIONALES\nPlanificación de las enseñanzas\nDescripc"
+  }
+}

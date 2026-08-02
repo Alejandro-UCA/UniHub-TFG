@@ -1,0 +1,257 @@
+:root {
+  /* Universidad de Cádiz (UCA) Brand Color Tokens */
+  --uca-navy: #002B49;
+  --uca-blue: #003366;
+  --uca-cyan: #0084C8;
+  --uca-azure: #00A8E8;
+  --uca-gold: #F3A712;
+  --uca-sun: #FFC72C;
+  
+  --bg-main: #F4F7FA;
+  --bg-card: #FFFFFF;
+  --bg-glass: rgba(255, 255, 255, 0.85);
+  
+  --text-main: #1A2530;
+  --text-muted: #5A6A7A;
+  --text-light: #94A3B8;
+  
+  --border-light: #E2E8F0;
+  --border-uca: rgba(0, 132, 200, 0.2);
+  
+  --shadow-sm: 0 2px 8px rgba(0, 43, 73, 0.06);
+  --shadow-md: 0 8px 24px rgba(0, 43, 73, 0.1);
+  --shadow-lg: 0 16px 36px rgba(0, 43, 73, 0.16);
+  
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  
+  --font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+[data-theme="dark"] {
+  --bg-main: #0B131E;
+  --bg-card: #142030;
+  --bg-glass: rgba(20, 32, 48, 0.85);
+  
+  --text-main: #F1F5F9;
+  --text-muted: #94A3B8;
+  --text-light: #64748B;
+  
+  --border-light: #2A3B50;
+  --border-uca: rgba(0, 168, 232, 0.3);
+  
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.7);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--uca-cyan);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--uca-blue);
+}
+
+/* Container & Layout */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Glassmorphism Cards */
+.glass-panel {
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-uca);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+/* UCA Gradient Backgrounds */
+.bg-uca-gradient {
+  background: linear-gradient(135deg, var(--uca-navy) 0%, var(--uca-blue) 60%, #005599 100%);
+  color: #FFFFFF;
+}
+
+.bg-uca-accent {
+  background: linear-gradient(135deg, var(--uca-cyan) 0%, var(--uca-azure) 100%);
+  color: #FFFFFF;
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, var(--uca-gold) 0%, var(--uca-sun) 100%);
+  color: var(--uca-navy);
+}
+
+/* Typography Utilities */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.25;
+  color: inherit;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--uca-azure) 0%, var(--uca-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--uca-blue) 0%, var(--uca-cyan) 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(0, 132, 200, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 132, 200, 0.5);
+  background: linear-gradient(135deg, var(--uca-navy) 0%, var(--uca-azure) 100%);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, var(--uca-gold) 0%, var(--uca-sun) 100%);
+  color: var(--uca-navy);
+  box-shadow: 0 4px 14px rgba(243, 167, 18, 0.35);
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(243, 167, 18, 0.5);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--uca-cyan);
+  color: var(--uca-cyan);
+}
+
+.btn-outline:hover {
+  background: rgba(0, 132, 200, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-publica {
+  background: rgba(0, 168, 232, 0.15);
+  color: var(--uca-azure);
+  border: 1px solid rgba(0, 168, 232, 0.3);
+}
+
+.badge-privada {
+  background: rgba(243, 167, 18, 0.15);
+  color: var(--uca-gold);
+  border: 1px solid rgba(243, 167, 18, 0.3);
+}
+
+.badge-grado {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10B981;
+}
+
+.badge-master {
+  background: rgba(139, 92, 246, 0.15);
+  color: #8B5CF6;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 19, 30, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1.5rem;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.modal-content {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 1px solid var(--border-uca);
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(0, 168, 232, 0.4); }
+  50% { box-shadow: 0 0 25px rgba(0, 168, 232, 0.8); }
+}

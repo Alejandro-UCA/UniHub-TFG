@@ -1,10 +1,10 @@
 from typing import List, Optional
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.orm import Session
 
 from database.connection import get_db
-from models.models import Titulacion, PlanEstudios
-from schemas.schemas import TitulacionOut, TitulacionDetalleOut, PlanEstudiosOut
+from models.models import Titulacion, PlanEstudios, Universidad
+from schemas.schemas import TitulacionOut, TitulacionDetalleOut, PlanEstudiosOut, TitulacionCreate, TitulacionUpdate
 
 router = APIRouter(prefix="/api/v1/titulaciones", tags=["Titulaciones y Planes de Estudio"])
 
@@ -43,3 +43,55 @@ def get_plan_estudios(codigo_estudio: str, db: Session = Depends(get_db)):
             detail=f"Plan de estudios extraído del BOE para la titulación '{codigo_estudio}' no encontrado."
         )
     return plan
+
+@router.post("", response_model=TitulacionOut, status_code=status.HTTP_201_CREATED, summary="Crear nueva titulación (Admin)")
+def create_titulacion(data: TitulacionCreate, db: Session = Depends(get_db)):
+    existing = db.query(Titulacion).filter(Titulacion.codigo_estudio == data.codigo_estudio).first()
+    if existing:
+        raise HTTPException(status_code=400, detail=f"La titulación con código '{data.codigo_estudio}' ya existe.")
+
+    univ_code = data.universidad_codigo.zfill(3)
+    univ = db.query(Universidad).filter(Universidad.codigo == univ_code).first()
+    if not univ:
+        univ = db.query(Universidad).filter(Universidad.codigo == data.universidad_codigo).first()
+    if not univ:
+        raise HTTPException(status_code=400, detail=f"Universidad asociada '{data.universidad_codigo}' no existe.")
+
+    new_degree = Titulacion(
+        codigo_estudio=data.codigo_estudio,
+        titulo=data.titulo,
+        nivel_academico=data.nivel_academico,
+        estado=data.estado or "Publicado en B.O.E.",
+        universidad_codigo=univ.codigo
+    )
+    db.add(new_degree)
+    db.commit()
+    db.refresh(new_degree)
+    return new_degree
+
+@router.put("/{codigo_estudio}", response_model=TitulacionOut, summary="Actualizar titulación existente (Admin)")
+def update_titulacion(codigo_estudio: str, data: TitulacionUpdate, db: Session = Depends(get_db)):
+    tit = db.query(Titulacion).filter(Titulacion.codigo_estudio == codigo_estudio).first()
+    if not tit:
+        raise HTTPException(status_code=404, detail=f"Titulación con código '{codigo_estudio}' no encontrada.")
+
+    update_dict = data.model_dump(exclude_unset=True)
+    if "universidad_codigo" in update_dict and update_dict["universidad_codigo"]:
+        update_dict["universidad_codigo"] = update_dict["universidad_codigo"].zfill(3)
+
+    for field, value in update_dict.items():
+        setattr(tit, field, value)
+
+    db.commit()
+    db.refresh(tit)
+    return tit
+
+@router.delete("/{codigo_estudio}", status_code=status.HTTP_204_NO_CONTENT, summary="Eliminar titulación (Admin)")
+def delete_titulacion(codigo_estudio: str, db: Session = Depends(get_db)):
+    tit = db.query(Titulacion).filter(Titulacion.codigo_estudio == codigo_estudio).first()
+    if not tit:
+        raise HTTPException(status_code=404, detail=f"Titulación con código '{codigo_estudio}' no encontrada.")
+
+    db.delete(tit)
+    db.commit()
+    return None

@@ -13,6 +13,19 @@ class UniversidadBase(BaseModel):
     email: Optional[str] = None
     telefono: Optional[str] = None
 
+class UniversidadCreate(UniversidadBase):
+    pass
+
+class UniversidadUpdate(BaseModel):
+    nombre: Optional[str] = None
+    tipo: Optional[str] = None
+    comunidad_autonoma: Optional[str] = None
+    municipio: Optional[str] = None
+    provincia: Optional[str] = None
+    web: Optional[str] = None
+    email: Optional[str] = None
+    telefono: Optional[str] = None
+
 class UniversidadOut(UniversidadBase):
     id: int
     creado_en: Optional[datetime] = None
@@ -26,6 +39,15 @@ class TitulacionBase(BaseModel):
     nivel_academico: Optional[str] = None
     estado: Optional[str] = None
     universidad_codigo: str
+
+class TitulacionCreate(TitulacionBase):
+    pass
+
+class TitulacionUpdate(BaseModel):
+    titulo: Optional[str] = None
+    nivel_academico: Optional[str] = None
+    estado: Optional[str] = None
+    universidad_codigo: Optional[str] = None
 
 class TitulacionOut(TitulacionBase):
     id: int

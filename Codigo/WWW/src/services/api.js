@@ -18,8 +18,13 @@ async function fetchAPI(endpoint, options = {}) {
     const elapsed = performance.now() - startTime;
     perfTracker.recordAPILatency(endpoint, elapsed);
 
+    if (response.status === 204) {
+      return null;
+    }
+
     if (!response.ok) {
-      throw new Error(`Error API (${response.status}): ${response.statusText}`);
+      const errData = await response.json().catch(() => ({}));
+      throw new Error(errData.detail || `Error API (${response.status}): ${response.statusText}`);
     }
 
     const data = await response.json();
@@ -27,13 +32,13 @@ async function fetchAPI(endpoint, options = {}) {
   } catch (error) {
     const elapsed = performance.now() - startTime;
     perfTracker.recordAPILatency(endpoint, elapsed, true);
-    console.warn(`Fallback local data mode active for ${endpoint}:`, error.message);
+    console.warn(`API call error for ${endpoint}:`, error.message);
     throw error;
   }
 }
 
 export const apiService = {
-  // Universities
+  // Universities GET
   async getUniversities(params = {}) {
     const query = new URLSearchParams();
     if (params.tipo) query.append('tipo', params.tipo);
@@ -54,7 +59,28 @@ export const apiService = {
     return fetchAPI(`/universidades/${codigo}/titulaciones`);
   },
 
-  // Degrees
+  // Universities CRUD (Admin)
+  async createUniversity(data) {
+    return fetchAPI('/universidades', {
+      method: 'POST',
+      body: JSON.stringify(data)
+    });
+  },
+
+  async updateUniversity(codigo, data) {
+    return fetchAPI(`/universidades/${codigo}`, {
+      method: 'PUT',
+      body: JSON.stringify(data)
+    });
+  },
+
+  async deleteUniversity(codigo) {
+    return fetchAPI(`/universidades/${codigo}`, {
+      method: 'DELETE'
+    });
+  },
+
+  // Degrees GET
   async getDegrees(params = {}) {
     const query = new URLSearchParams();
     if (params.titulo) query.append('titulo', params.titulo);
@@ -73,6 +99,27 @@ export const apiService = {
 
   async getDegreeCurriculum(codigoEstudio) {
     return fetchAPI(`/titulaciones/${codigoEstudio}/plan-estudios`);
+  },
+
+  // Degrees CRUD (Admin)
+  async createDegree(data) {
+    return fetchAPI('/titulaciones', {
+      method: 'POST',
+      body: JSON.stringify(data)
+    });
+  },
+
+  async updateDegree(codigoEstudio, data) {
+    return fetchAPI(`/titulaciones/${codigoEstudio}`, {
+      method: 'PUT',
+      body: JSON.stringify(data)
+    });
+  },
+
+  async deleteDegree(codigoEstudio) {
+    return fetchAPI(`/titulaciones/${codigoEstudio}`, {
+      method: 'DELETE'
+    });
   },
 
   // Crawler Stats & Error Logs

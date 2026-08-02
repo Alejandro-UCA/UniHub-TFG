@@ -1,16 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import { ShieldCheck, BarChart3, Activity, Server, Eye, Search, MapPin, Cpu, HardDrive, RefreshCw, LogOut } from 'lucide-react';
+import { ShieldCheck, BarChart3, Activity, Server, Eye, Search, MapPin, Cpu, HardDrive, RefreshCw, LogOut, Plus, Edit, Trash2, Database, Building, BookOpen, AlertCircle } from 'lucide-react';
 import usageTracker from '../analytics/usageTracker';
 import perfTracker from '../analytics/perfTracker';
 import { apiService } from '../services/api';
+import AdminFormModal from './AdminFormModal';
 
 export default function AdminDashboard({ onLogout }) {
-  const [activeSubTab, setActiveSubTab] = useState('uso'); // 'uso', 'rendimiento', 'sistema'
+  const [activeSubTab, setActiveSubTab] = useState('uso'); // 'uso', 'crud', 'rendimiento', 'sistema'
+  const [crudTarget, setCrudTarget] = useState('universidades'); // 'universidades', 'titulaciones'
+
+  // Data states
   const [usageStats, setUsageStats] = useState(usageTracker.getAnalyticsSummary());
   const [perfReport, setPerfReport] = useState(perfTracker.getPerformanceReport());
   const [crawlerStats, setCrawlerStats] = useState([]);
   const [crawlerErrors, setCrawlerErrors] = useState([]);
+  const [dbUniversities, setDbUniversities] = useState([]);
+  const [dbDegrees, setDbDegrees] = useState([]);
+
+  // UI & CRUD Modal states
   const [loading, setLoading] = useState(false);
+  const [searchFilter, setSearchFilter] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMode, setModalMode] = useState('create'); // 'create', 'edit'
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [feedbackMsg, setFeedbackMsg] = useState(null);
 
   const refreshData = async () => {
     setLoading(true);
@@ -18,12 +31,19 @@ export default function AdminDashboard({ onLogout }) {
     setPerfReport(perfTracker.getPerformanceReport());
 
     try {
+      const univs = await apiService.getUniversities();
+      if (univs) setDbUniversities(univs);
+
+      const degs = await apiService.getDegrees();
+      if (degs) setDbDegrees(degs);
+
       const statsData = await apiService.getCrawlerStats();
-      setCrawlerStats(statsData);
+      if (statsData) setCrawlerStats(statsData);
+
       const errorsData = await apiService.getCrawlerErrors();
-      setCrawlerErrors(errorsData);
+      if (errorsData) setCrawlerErrors(errorsData);
     } catch (err) {
-      console.warn('API stats not available in offline/local mode:', err);
+      console.warn('API connection fallback active:', err.message);
     } finally {
       setLoading(false);
     }
@@ -31,9 +51,102 @@ export default function AdminDashboard({ onLogout }) {
 
   useEffect(() => {
     refreshData();
-    const interval = setInterval(refreshData, 10000);
-    return () => clearInterval(interval);
   }, []);
+
+  const showFeedback = (msg, isError = false) => {
+    setFeedbackMsg({ text: msg, isError });
+    setTimeout(() => setFeedbackMsg(null), 4000);
+  };
+
+  // CRUD Actions - Universities
+  const handleOpenCreateUniv = () => {
+    setSelectedItem(null);
+    setModalMode('create');
+    setIsModalOpen(true);
+  };
+
+  const handleOpenEditUniv = (univ) => {
+    setSelectedItem(univ);
+    setModalMode('edit');
+    setIsModalOpen(true);
+  };
+
+  const handleDeleteUniv = async (codigo) => {
+    if (!window.confirm(`¿Estás seguro de que deseas eliminar la universidad [${codigo}]? Esta acción es irreversible.`)) {
+      return;
+    }
+    try {
+      await apiService.deleteUniversity(codigo);
+      setDbUniversities(dbUniversities.filter(u => u.codigo !== codigo));
+      showFeedback(`Universidad [${codigo}] eliminada correctamente.`);
+    } catch (err) {
+      showFeedback(`Error al eliminar universidad: ${err.message}`, true);
+    }
+  };
+
+  // CRUD Actions - Degrees
+  const handleOpenCreateDegree = () => {
+    setSelectedItem(null);
+    setModalMode('create');
+    setIsModalOpen(true);
+  };
+
+  const handleOpenEditDegree = (degree) => {
+    setSelectedItem(degree);
+    setModalMode('edit');
+    setIsModalOpen(true);
+  };
+
+  const handleDeleteDegree = async (codigoEstudio) => {
+    if (!window.confirm(`¿Estás seguro de que deseas eliminar la titulación [${codigoEstudio}]?`)) {
+      return;
+    }
+    try {
+      await apiService.deleteDegree(codigoEstudio);
+      setDbDegrees(dbDegrees.filter(d => d.codigo_estudio !== codigoEstudio));
+      showFeedback(`Titulación [${codigoEstudio}] eliminada correctamente.`);
+    } catch (err) {
+      showFeedback(`Error al eliminar titulación: ${err.message}`, true);
+    }
+  };
+
+  // Submit Handler for Form Modal
+  const handleModalSubmit = async (formData) => {
+    try {
+      if (crudTarget === 'universidades') {
+        if (modalMode === 'create') {
+          const created = await apiService.createUniversity(formData);
+          setDbUniversities([created, ...dbUniversities]);
+          showFeedback(`Universidad '${formData.nombre}' creada con éxito.`);
+        } else {
+          const updated = await apiService.updateUniversity(formData.codigo, formData);
+          setDbUniversities(dbUniversities.map(u => u.codigo === formData.codigo ? updated : u));
+          showFeedback(`Universidad '${formData.nombre}' actualizada correctamente.`);
+        }
+      } else {
+        if (modalMode === 'create') {
+          const created = await apiService.createDegree(formData);
+          setDbDegrees([created, ...dbDegrees]);
+          showFeedback(`Titulación '${formData.titulo}' creada con éxito.`);
+        } else {
+          const updated = await apiService.updateDegree(formData.codigo_estudio, formData);
+          setDbDegrees(dbDegrees.map(d => d.codigo_estudio === formData.codigo_estudio ? updated : d));
+          showFeedback(`Titulación '${formData.titulo}' actualizada correctamente.`);
+        }
+      }
+      setIsModalOpen(false);
+    } catch (err) {
+      showFeedback(`Error en la operación: ${err.message}`, true);
+    }
+  };
+
+  const filteredUnivs = dbUniversities.filter(u =>
+    !searchFilter || `${u.codigo} ${u.nombre} ${u.municipio}`.toLowerCase().includes(searchFilter.toLowerCase())
+  );
+
+  const filteredDegs = dbDegrees.filter(d =>
+    !searchFilter || `${d.codigo_estudio} ${d.titulo} ${d.universidad_codigo}`.toLowerCase().includes(searchFilter.toLowerCase())
+  );
 
   return (
     <div className="container" style={{ padding: '2.5rem 1.5rem' }}>
@@ -58,14 +171,14 @@ export default function AdminDashboard({ onLogout }) {
             <div style={{ fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--uca-azure)', fontWeight: 700 }}>
               Panel Exclusivo del Administrador de la Web
             </div>
-            <h2 style={{ fontSize: '1.6rem', fontWeight: 800 }}>Métricas de Uso, Rendimiento y Salud</h2>
+            <h2 style={{ fontSize: '1.6rem', fontWeight: 800 }}>Métricas, Salud y Gestión CRUD de Datos</h2>
           </div>
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           <button className="btn btn-outline" onClick={refreshData} disabled={loading} style={{ color: '#FFFFFF', borderColor: 'rgba(255, 255, 255, 0.3)' }}>
             <RefreshCw size={16} className={loading ? 'spin' : ''} />
-            Actualizar
+            Actualizar Datos
           </button>
           <button className="btn btn-gold" onClick={onLogout} style={{ padding: '0.65rem 1.15rem' }}>
             <LogOut size={16} /> Cerrar Sesión
@@ -73,13 +186,37 @@ export default function AdminDashboard({ onLogout }) {
         </div>
       </div>
 
-      {/* Admin Tabs */}
-      <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '2rem', borderBottom: '2px solid var(--border-light)', paddingBottom: '0.5rem' }}>
+      {/* Feedback Toast */}
+      {feedbackMsg && (
+        <div style={{
+          background: feedbackMsg.isError ? 'rgba(239, 68, 68, 0.15)' : 'rgba(16, 185, 129, 0.15)',
+          border: `1px solid ${feedbackMsg.isError ? '#EF4444' : '#10B981'}`,
+          color: feedbackMsg.isError ? '#EF4444' : '#10B981',
+          padding: '1rem 1.25rem',
+          borderRadius: 'var(--radius-md)',
+          marginBottom: '1.5rem',
+          fontWeight: 600,
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem'
+        }}>
+          <AlertCircle size={20} /> {feedbackMsg.text}
+        </div>
+      )}
+
+      {/* Admin SubTabs */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '2rem', borderBottom: '2px solid var(--border-light)', paddingBottom: '0.5rem' }}>
         <button 
           className={`btn ${activeSubTab === 'uso' ? 'btn-primary' : 'btn-outline'}`}
           onClick={() => setActiveSubTab('uso')}
         >
           <BarChart3 size={18} /> Estadísticas de Uso Web
+        </button>
+        <button 
+          className={`btn ${activeSubTab === 'crud' ? 'btn-gold' : 'btn-outline'}`}
+          onClick={() => setActiveSubTab('crud')}
+        >
+          <Database size={18} /> Gestión CRUD de Datos
         </button>
         <button 
           className={`btn ${activeSubTab === 'rendimiento' ? 'btn-primary' : 'btn-outline'}`}
@@ -98,7 +235,6 @@ export default function AdminDashboard({ onLogout }) {
       {/* TAB 1: ESTADÍSTICAS DE USO WEB */}
       {activeSubTab === 'uso' && (
         <div>
-          {/* Top Counter Cards */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.25rem', marginBottom: '2rem' }}>
             <div className="glass-panel" style={{ padding: '1.25rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'var(--uca-cyan)', marginBottom: '0.5rem' }}>
@@ -125,7 +261,6 @@ export default function AdminDashboard({ onLogout }) {
             </div>
           </div>
 
-          {/* Tables: Top Searches & Popular Items */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '1.75rem' }}>
             <div className="glass-panel" style={{ padding: '1.5rem' }}>
               <h4 style={{ fontSize: '1.05rem', fontWeight: 700, marginBottom: '1rem', color: 'var(--uca-blue)' }}>
@@ -166,7 +301,157 @@ export default function AdminDashboard({ onLogout }) {
         </div>
       )}
 
-      {/* TAB 2: RENDIMIENTO DE LA WEB (WEB VITALS & MEMORY) */}
+      {/* TAB 2: GESTIÓN CRUD DE DATOS (ADMINISTRADOR) */}
+      {activeSubTab === 'crud' && (
+        <div className="glass-panel" style={{ padding: '1.75rem' }}>
+          {/* Sub-selector: Universidades vs Titulaciones */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
+            <div style={{ display: 'flex', gap: '0.5rem' }}>
+              <button 
+                className={`btn ${crudTarget === 'universidades' ? 'btn-primary' : 'btn-outline'}`}
+                onClick={() => { setCrudTarget('universidades'); setSearchFilter(''); }}
+              >
+                <Building size={16} /> Universidades ({dbUniversities.length})
+              </button>
+              <button 
+                className={`btn ${crudTarget === 'titulaciones' ? 'btn-primary' : 'btn-outline'}`}
+                onClick={() => { setCrudTarget('titulaciones'); setSearchFilter(''); }}
+              >
+                <BookOpen size={16} /> Titulaciones ({dbDegrees.length})
+              </button>
+            </div>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+                <Search size={16} color="var(--text-light)" style={{ position: 'absolute', left: '10px' }} />
+                <input
+                  type="text"
+                  placeholder="Filtrar registros..."
+                  value={searchFilter}
+                  onChange={(e) => setSearchFilter(e.target.value)}
+                  style={{
+                    padding: '0.5rem 0.5rem 0.5rem 2rem',
+                    borderRadius: '6px',
+                    border: '1px solid var(--border-light)',
+                    fontSize: '0.88rem',
+                    outline: 'none'
+                  }}
+                />
+              </div>
+
+              {crudTarget === 'universidades' ? (
+                <button className="btn btn-gold" onClick={handleOpenCreateUniv}>
+                  <Plus size={16} /> Añadir Universidad
+                </button>
+              ) : (
+                <button className="btn btn-gold" onClick={handleOpenCreateDegree}>
+                  <Plus size={16} /> Añadir Titulación
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* CRUD Table: Universidades */}
+          {crudTarget === 'universidades' && (
+            <div style={{ overflowX: 'auto', border: '1px solid var(--border-light)', borderRadius: 'var(--radius-md)' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.88rem', textAlign: 'left' }}>
+                <thead>
+                  <tr style={{ background: 'var(--uca-navy)', color: '#FFFFFF' }}>
+                    <th style={{ padding: '0.75rem 1rem' }}>Código</th>
+                    <th style={{ padding: '0.75rem 1rem' }}>Nombre Universidad</th>
+                    <th style={{ padding: '0.75rem 1rem' }}>Tipo</th>
+                    <th style={{ padding: '0.75rem 1rem' }}>C. Autónoma</th>
+                    <th style={{ padding: '0.75rem 1rem' }}>Municipio</th>
+                    <th style={{ padding: '0.75rem 1rem', textAlign: 'right' }}>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredUnivs.length === 0 ? (
+                    <tr>
+                      <td colSpan={6} style={{ padding: '2rem', textAlign: 'center', color: 'var(--text-muted)' }}>
+                        No se encontraron universidades. Pulsa en "Añadir Universidad" para registrar una nueva.
+                      </td>
+                    </tr>
+                  ) : (
+                    filteredUnivs.map((univ) => (
+                      <tr key={univ.codigo} style={{ borderBottom: '1px solid var(--border-light)' }}>
+                        <td style={{ padding: '0.75rem 1rem', fontWeight: 700, color: 'var(--uca-cyan)' }}>{univ.codigo}</td>
+                        <td style={{ padding: '0.75rem 1rem', fontWeight: 600 }}>{univ.nombre}</td>
+                        <td style={{ padding: '0.75rem 1rem' }}>
+                          <span className={`badge ${univ.tipo?.toLowerCase().includes('privada') ? 'badge-privada' : 'badge-publica'}`}>
+                            {univ.tipo || 'Pública'}
+                          </span>
+                        </td>
+                        <td style={{ padding: '0.75rem 1rem' }}>{univ.comunidad_autonoma || '-'}</td>
+                        <td style={{ padding: '0.75rem 1rem' }}>{univ.municipio || '-'}</td>
+                        <td style={{ padding: '0.75rem 1rem', textAlign: 'right' }}>
+                          <div style={{ display: 'inline-flex', gap: '0.35rem' }}>
+                            <button className="btn btn-outline" style={{ padding: '0.35rem 0.6rem' }} onClick={() => handleOpenEditUniv(univ)} title="Editar">
+                              <Edit size={14} />
+                            </button>
+                            <button className="btn btn-outline" style={{ padding: '0.35rem 0.6rem', color: '#EF4444', borderColor: 'rgba(239,68,68,0.3)' }} onClick={() => handleDeleteUniv(univ.codigo)} title="Eliminar">
+                              <Trash2 size={14} />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
+            </div>
+          )}
+
+          {/* CRUD Table: Titulaciones */}
+          {crudTarget === 'titulaciones' && (
+            <div style={{ overflowX: 'auto', border: '1px solid var(--border-light)', borderRadius: 'var(--radius-md)' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.88rem', textAlign: 'left' }}>
+                <thead>
+                  <tr style={{ background: 'var(--uca-navy)', color: '#FFFFFF' }}>
+                    <th style={{ padding: '0.75rem 1rem' }}>Cód. Estudio</th>
+                    <th style={{ padding: '0.75rem 1rem' }}>Título de la Titulación</th>
+                    <th style={{ padding: '0.75rem 1rem' }}>Nivel Académico</th>
+                    <th style={{ padding: '0.75rem 1rem' }}>Cód. Univ.</th>
+                    <th style={{ padding: '0.75rem 1rem', textAlign: 'right' }}>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredDegs.length === 0 ? (
+                    <tr>
+                      <td colSpan={5} style={{ padding: '2rem', textAlign: 'center', color: 'var(--text-muted)' }}>
+                        No se encontraron titulaciones. Pulsa en "Añadir Titulación" para registrar una nueva.
+                      </td>
+                    </tr>
+                  ) : (
+                    filteredDegs.map((deg) => (
+                      <tr key={deg.codigo_estudio} style={{ borderBottom: '1px solid var(--border-light)' }}>
+                        <td style={{ padding: '0.75rem 1rem', fontWeight: 700, color: 'var(--uca-blue)' }}>{deg.codigo_estudio}</td>
+                        <td style={{ padding: '0.75rem 1rem', fontWeight: 600 }}>{deg.titulo}</td>
+                        <td style={{ padding: '0.75rem 1rem' }}>
+                          <span className="badge badge-grado">{deg.nivel_academico || 'Grado'}</span>
+                        </td>
+                        <td style={{ padding: '0.75rem 1rem', fontWeight: 700 }}>{deg.universidad_codigo}</td>
+                        <td style={{ padding: '0.75rem 1rem', textAlign: 'right' }}>
+                          <div style={{ display: 'inline-flex', gap: '0.35rem' }}>
+                            <button className="btn btn-outline" style={{ padding: '0.35rem 0.6rem' }} onClick={() => handleOpenEditDegree(deg)} title="Editar">
+                              <Edit size={14} />
+                            </button>
+                            <button className="btn btn-outline" style={{ padding: '0.35rem 0.6rem', color: '#EF4444', borderColor: 'rgba(239,68,68,0.3)' }} onClick={() => handleDeleteDegree(deg.codigo_estudio)} title="Eliminar">
+                              <Trash2 size={14} />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* TAB 3: RENDIMIENTO DE LA WEB */}
       {activeSubTab === 'rendimiento' && (
         <div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
@@ -219,7 +504,7 @@ export default function AdminDashboard({ onLogout }) {
         </div>
       )}
 
-      {/* TAB 3: SALUD DEL SISTEMA Y CRAWLER (FASE 1 & 2) */}
+      {/* TAB 4: SALUD DEL SISTEMA Y CRAWLER */}
       {activeSubTab === 'sistema' && (
         <div className="glass-panel" style={{ padding: '1.75rem' }}>
           <h4 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '1.25rem', color: 'var(--uca-blue)' }}>
@@ -249,6 +534,16 @@ export default function AdminDashboard({ onLogout }) {
           )}
         </div>
       )}
+
+      {/* CRUD Form Modal */}
+      <AdminFormModal 
+        isOpen={isModalOpen}
+        mode={modalMode}
+        type={crudTarget === 'universidades' ? 'universidad' : 'titulacion'}
+        initialData={selectedItem}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={handleModalSubmit}
+      />
     </div>
   );
 }

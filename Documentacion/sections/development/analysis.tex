@@ -1,0 +1,51 @@
+Este capítulo cubre el análisis del sistema de información **UniHub**, haciendo uso del lenguaje de modelado UML.
+
+\section{Modelo Conceptual}
+El modelo conceptual identifica las clases centrales del dominio y sus asociaciones:
+\begin{itemize}
+    \item \textbf{Universidad:} Representa cada centro universitario público o privado (código, nombre, tipo, CCAA, municipio, provincia, web, email, teléfono).
+    \item \textbf{Titulacion:} Representa una titulación oficial vigente de Grado, Máster o Doctorado (código de estudio, título, nivel académico, estado). Se relaciona mediante agregación con Universidad (1:N).
+    \item \textbf{PlanEstudios:} Contiene la metainformación del documento BOE (URL, fecha de publicación, fecha de procesado). Se relaciona 1:1 con Titulacion.
+    \item \textbf{ResumenCreditos:} Almacena la distribución de créditos ECTS (básica, obligatoria, optativa, TFG, prácticas). Relación N:1 con PlanEstudios.
+    \item \textbf{ElementoCurricular:} Almacena el desglose de asignaturas, módulos, materias, créditos, carácter, curso y cuatrimestre. Relación N:1 con PlanEstudios.
+\end{itemize}
+
+\section{Modelo de Casos de Uso}
+Se identifican tres actores principales:
+\begin1
+    \item \textbf{Usuario No Registrado (Público General):}
+        \begin{itemize}
+            \item CU-01: Buscar y filtrar universidades (públicas primero, privadas después) por tipo, CCAA y nombre.
+            \item CU-02: Consultar titulaciones clasificadas por Grado, Máster y Doctorado y visualizar el modal del plan BOE.
+            \item CU-03: Realizar búsqueda por cercanía a la ubicación geográfica (GPS / Ciudad) viendo la distancia en km en la tarjeta.
+            \item CU-04: Ajustar la paginación a 5, 10, 20, 50 o 100 resultados por página.
+            \item CU-05: Consultar la sección "Sobre Nosotros" (TFG Alejandro Ramos Rodríguez, UCA).
+        \end{itemize}
+    \item \textbf{Administrador de la Web (Único Usuario Registrado):}
+        \begin{itemize}
+            \item CU-06: Autenticarse escribiendo manualmente la ruta URL \texttt{/admin}.
+            \item CU-07: Visualizar la salud individual de los 4 contenedores (RAM RSS MB, CPU \%) y el estado en vivo del rastreador (Fase 1).
+            \item CU-08: Gestionar operaciones CRUD (crear, editar, eliminar) sobre universidades y titulaciones.
+        \end{itemize}
+    \item \textbf{Rastreador Automático (Fase 1 - Sistema):}
+        \begin{itemize}
+            \item CU-09: Descargar catálogos, aplicar filtro estricto de vigencia, escanear PDFs del BOE, notificar a la API REST e informar métricas.
+        \end{itemize}
+\end{enumerate}
+
+\section{Modelo de Interfaz de Usuario}
+El modelo de interfaz se estructura en una aplicación SPA con arquitectura orientada a componentes en React:
+\begin{itemize}
+    \item \textbf{Barra de Navegación Nivel Superior (\texttt{Navbar}):} Logotipo UniHub, pestañas de navegación (Inicio, Universidades, Titulaciones, Cercanía, Sobre Nosotros) y selector de modo oscuro.
+    \item \textbf{Pantalla de Inicio (\texttt{Hero}):} Banner principal estilo UCA, contadores globales y grilla de las 6 "Universidades Destacadas".
+    \item \textbf{Grilla de Tarjetas con Paginación (\texttt{UnivCard} / \texttt{DegreeCard} / \texttt{Pagination}):} Vista de universidades y titulaciones sin códigos internos visibles y selector de 5, 10, 20, 50, 100 por página.
+    \item \textbf{Modal de Plan de Estudios (\texttt{PlanModal}):} Cuadro de diálogo flotante con desenfoque de fondo (*glassmorphism*) que lista la estructura curricular y el enlace al PDF oficial del BOE.
+    \item \textbf{Página de Administración Aislada (\texttt{AdminLogin} / \texttt{AdminDashboard}):} Vista de acceso exclusivo vía URL manual \texttt{/admin} con monitoreo de contenedores y tablas CRUD interactivas.
+\end{itemize}
+
+\section{Modelo de Comportamiento}
+El comportamiento dinámico se modela mediante secuencias de interacción:
+\begin{itemize}
+    \item \textbf{Secuencia de Geolocalización:} El usuario pulsa en "Usar Mi Ubicación Actual", se invoca la API \texttt{navigator.geolocation}, se calculan las distancias Haversine a cada centro y se inserta el distintivo de km directamente en la cabecera de la tarjeta.
+    \item \textbf{Secuencia CRUD de Administración:} El Administrador accede por la URL \texttt{/admin}, se autentica, selecciona un registro, abre el modal de edición, envía la petición \texttt{PUT}/\texttt{POST} a la API REST FastAPI, se actualiza PostgreSQL y se refresca la vista.
+\end{itemize}

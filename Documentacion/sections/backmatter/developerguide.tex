@@ -1,0 +1,30 @@
+A continuación se recogen las instrucciones necesarias para evolucionar el software **UniHub**. Este manual está dirigido a los desarrolladores que pretenden extender o modificar el código fuente, con el fin de incorporar nuevas funcionalidades o modificar las ya existentes.
+
+\section{Introducción}
+El proyecto **UniHub** está estructurado en 4 fases de código totalmente desacopladas situadas en \texttt{d:\textbackslash Proyecto\textbackslash Codigo\textbackslash}: \texttt{Crawler/}, \texttt{API/}, \texttt{WWW/} y \texttt{Docker/}.
+
+\section{Preparación del entorno de trabajo}
+\begin1
+    \item Instalar Python 3.12, Node.js 20+, PostgreSQL 15 y Docker Desktop / Engine.
+    \item Clonar o abrir la carpeta raíz del repositorio \texttt{d:\textbackslash Proyecto}.
+    \item Para desarrollo en local sin Docker:
+        \begin{itemize}
+            \item Entorno virtual Python del Crawler: \texttt{cd Codigo/Crawler; python -m venv .venv; .\.venv\Scripts\activate; pip install -r requirements.txt}.
+            \item Dependencias de la API: \texttt{pip install -r Codigo/API/requirements.txt}.
+            \item Dependencias Web Frontend: \texttt{cd Codigo/WWW; npm install}.
+        \end{itemize}
+\end{enumerate}
+
+\section{Consideraciones generales sobre el desarrollo}
+\begin{itemize}
+    \item \textbf{Gestión de Datos no Vacíos y Filtro Estricto:} Cualquier modificación en el crawler debe respetar el filtro estricto de titulaciones vigentes y la función \texttt{is\_valid\_value} de \texttt{checkpoint.py} para impedir la sobrescritura accidental de registros válidos.
+    \item \textbf{Nuevos Endpoints en la API REST:} Al incorporar nuevos endpoints en FastAPI, defina siempre los esquemas Pydantic correspondientes en \texttt{schemas/schemas.py} y añada el router a \texttt{main.py}.
+    \item \textbf{Sistema de Diseño UCA:} Al añadir componentes visuales en React, utilice las variables CSS corporativas de la UCA (\texttt{--uca-navy}, \texttt{--uca-blue}, \texttt{--uca-cyan}, \texttt{--uca-gold}) y la clase \texttt{.badge-doctorado} definidas en \texttt{src/index.css}.
+\end{itemize}
+
+\section{Instrucciones para construcción}
+\begin{itemize}
+    \item \textbf{Compilar Frontend (Vite Bundle):} \texttt{cd Codigo/WWW; npm run build}.
+    \item \textbf{Construir y Levantar Todo con Docker:} \texttt{cd Codigo/Docker; docker compose up --build -d}.
+    \item \textbf{Ejecutar Carga ETL:} \texttt{docker compose exec api python database/etl_loader.py}.
+\end{itemize}

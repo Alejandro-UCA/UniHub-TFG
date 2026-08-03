@@ -1,0 +1,44 @@
+% ------------------------------------------------------------------------------
+% Este fichero es parte de la plantilla LaTeX para la realización de Proyectos
+% Final de Grado
+% ------------------------------------------------------------------------------
+
+En este capítulo se presenta el plan de pruebas del sistema **UniHub**, incluyendo los diferentes tipos de pruebas unitarias, de integración, de sistema y de aceptación.
+
+\section{Estrategia}
+La estrategia de pruebas abarcó desde la verificación unitaria de módulos individuales (parsers de XLS con clasificación de Doctorados y filtro estricto de vigencia, resiliencia de conexión 5m/15m, funciones de distancia Haversine) hasta pruebas de integración de API REST con PostgreSQL y pruebas de compilación bundle de la SPA en React sin errores.
+
+\section{Pruebas Unitarias}
+\begin{itemize}
+    \item \textbf{Prueba de Clasificación de Doctorados y Filtro de Vigencia (\texttt{parsers.py}):} Se comprobó que el parser de XLS identifique correctamente los doctorados (RD 99/2011) y que descarte de forma estricta titulaciones extinguidas, no vigentes, derogadas o eliminadas.
+    \item \textbf{Prueba de Resiliencia de Conexión (\texttt{downloader.py}):} Se verificó que tras 10 fallos consecutivos de red se aplique una pausa de 5 minutos, y tras 15 minutos acumulados se lance la excepción \texttt{SkipUniversityException} registrando el log de error.
+    \item \textbf{Prueba del Cálculo Haversine y Distancia Integrada (\texttt{distance.js}):} Se validó la exactitud de distancias en km entre coordenadas geográficas conocidas de ciudades españolas.
+\end{itemize}
+
+\section{Pruebas de Integración}
+\begin{itemize}
+    \item \textbf{Prueba de Ingesta ETL (\texttt{etl\_loader.py}):} Se comprobó la inserción automatizada de archivos JSON desde \texttt{Crawler/Datos/} hacia las tablas relacionales de PostgreSQL (109 universidades, 1.552 titulaciones, 1.166 planes BOE).
+    \item \textbf{Prueba de Control de Acceso por Roles y Métricas cgroup:} Se verificó que la API REST operando con el rol \texttt{ruct\_api\_user} tenga permisos \texttt{SELECT} habilitados y que los endpoints muestren métricas físicas de contenedores en tiempo real.
+\end{itemize}
+
+\section{Pruebas de Sistema}
+Se ejecutaron pruebas globales de sistema para validar el cumplimiento de los requisitos planteados.
+
+\subsection{Pruebas Funcionales}
+\begin{itemize}
+    \item \textbf{PF-01:} Búsqueda global de universidades y titulaciones con ordenación prioritaria (Públicas primero, Privadas después) y filtros por tipo y comunidad autónoma.
+    \item \textbf{PF-02:} Despliegue modal del plan de estudios BOE con resumen de ECTS y enlace directo al archivo PDF oficial.
+    \item \textbf{PF-03:} Geolocalización interactiva por GPS/ciudad calculando distancias en tiempo real integradas en las tarjetas.
+    \item \textbf{PF-04:} Paginación configurable (5, 10, 20, 50, 100 resultados por página) en universidades y titulaciones.
+    \item \textbf{PF-05:} Acceso aislado al panel de administración escribiendo la URL manual \texttt{/admin} (\texttt{admin} / \texttt{admin\_pass\_2026}) y ejecución de operaciones CRUD.
+\end{itemize}
+
+\subsection{Pruebas No Funcionales}
+\begin{itemize}
+    \item \textbf{PNF-01 Carga y Compilación Web:} La aplicación web compiló con éxito con Vite en 211ms sin advertencias ni errores.
+    \item \textbf{PNF-02 Latencia de API REST:} Latencia media de respuesta en endpoints de consulta inferior a 50 ms.
+    \item \textbf{PNF-03 Persistencia en Docker:} Se verificó que tras ejecutar \texttt{docker compose down} y reiniciar el sistema, la base de datos PostgreSQL y los archivos JSON permanecen intactos.
+\end{itemize}
+
+\section{Pruebas de Aceptación}
+Las pruebas de aceptación confirmaron la correcta integración de las 4 fases del proyecto **UniHub**, permitiendo la navegación fluida de usuarios no registrados y la gestión segura por parte del Administrador de la Web.

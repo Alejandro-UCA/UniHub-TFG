@@ -1,0 +1,127 @@
+Veremos en cada sección ejemplos para la utilización de Tablas o imágenes entre otras características de \LaTeX{}.
+
+
+% PASOS PARA HACER UNA TABLA
+\section{Tipos de tablas}
+En esta sección mostramos algunos de los tipos de tablas más usuales en los TFG/TFM para que sirvan de ejemplo. Las tablas siguen la estructura de la normativa APA con la referencia y el título en la parte superior.
+
+\begin{table}[ht] 
+\caption{Dispositivos de Gestión Integral} %Título de la tabla
+\begin{center} % Centrar la tabla 
+\begin{tabular}{ c  c  c  c  } % 4 columnas Centradas
+\hline % Pintar linea
+\multicolumn{4}{ c }{Gestión Integral} \\ % Cabecera de la tabla en una sola celda y que ocupa la extensión de cuatro columnas
+\hline
+Fabricante & Modelo & Clase & Motor \\ %Introducimos los datos para rellenar las celdas, y a la vez, metemos & para separarlos
+BMW & Serie 3 & Berlina & Diésel \\
+Peugeot & 508 & Berlina & Gasolina \\
+Chrysler & Voyager & Monovolumen & Gasolina \\
+Land Rover & Defender & Todoterreno & Gasolina \\
+\hline %introducimos la última línea de cierre
+\end{tabular}
+\label{tab:coches}
+\end{center}
+\end{table}
+
+Segundo ejemplo de tabla, en este caso con líneas en todos los bordes, que no cumple la normativa APA, pero puede ser útil para presentar grandes cantidades de datos.
+
+
+\begin{table}[ht]
+\caption{Dispositivos de Gestión Integral} %Título de la tabla
+\begin{center} % Centrar la tabla 
+\begin{tabular}{|p{5cm}|c|c|c|}
+\hline
+\multicolumn{4}{|c|}{Gestión Integral}\\
+\hline
+\textbf{Fabricante} &
+\textbf{Modelo} &
+\textbf{Clase} &
+\textbf{Motor}\\
+\hline
+BMW & Serie 3 & Berlina & Diésel \\
+Peugeot & 508 & Berlina & Gasolina \\
+Chrysler & Voyager & Monovolumen & Gasolina \\
+Land Rover & Defender & Todoterreno & Gasolina \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\section{Una imagen}
+\label{sec:imágenes}
+Para añadir una imagen a Overleaf, hay que subirla desde ''Add Files'' en la carpeta ''figuras''. Luego, utilizamos el comando de ''figure''.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/imagenFreepik03.jpg} % 0.3 sirve para incrementar el tamaño
+    \caption{TFG}
+    \label{fig:my_label}
+\end{figure}
+
+
+\section{Dos imágenes}
+En este caso debemos trabajar con ''subfigure''. Hay que trabajar en este caso con dos tamaños, el primero es el que va a ocupar el espacio donde se va a poner la imagen, y el segundo es el tamaño de la imagen en ese espacio.
+
+% Para incluirlas el el pdf usamos los comandos:
+\begin{figure}[h!]
+\centering
+  \begin{subfigure}[b]{0.4\textwidth} % 0.4 es el tamaño de la imagen
+    \includegraphics[width=0.9\textwidth]{figures/imagenFreepik01.jpg} % 0.9 es el tamaño dentro del espacio anterior
+    \caption{Principio} % Título de la imagen
+    \label{fig:principio} % Etiqueta de la imagen
+  \end{subfigure}
+  %
+  \begin{subfigure}[b]{0.4\textwidth} %Para incluir una segunda figura
+    \includegraphics[width=0.9\textwidth]{figures/imagenFreepik02.jpg}
+    \caption{Final}
+    \label{fig:final}
+  \end{subfigure}
+  \caption{Figuras de dispositivos de RA}
+  \label{fig:dispositivos}
+\end{figure}
+
+
+\section{Para referenciar archivos del documento}
+%Para referenciar archivos del documento escribiremos \ref{y lo que queremos referenciar del texto}
+Aquí tenemos la referencia a cada imagen del grupo de dos imágenes, referencia a la imagen de la izquierda \ref{fig:principio} y esta a la de la derecha \ref{fig:final}, pero también podemos referenciar la imagen completa \ref{fig:dispositivos}. También podemos hacer referencia a una Tabla \ref{tab:coches}
+
+\section{Referenciar citas bibliográficas}
+ Aquí vamos a detallar los pasos necesarios para crear una bibliografía y citar dichas entradas. Primero cuando tengamos el documento que queremos referenciar deberemos su referencia en formato \textit{BixText} y pegarlo en el archivo de ''bibliography.bib''. Una vez ya la tenemos copiada, para citar una referencia bibliográfica escribiremos \textbackslash cite\{y aquí escribiremos la cita correspondiente que queremos citar\}, donde solamente el año de la cita estará entre paréntesis o también podremos escribir \textbackslash citep\{\}, donde no solamente estará el año entre paréntesis sino toda la cita. Este es un ejemplo usando \textit{cite} \cite{mota2018augmented} y usando \textit{citep} \citep{mota2018augmented}.
+
+
+
+
+\section{Listas} 
+A continuación vamos a explicar como poder añadir una lista, ya sean numeradas o no numeradas. Primero antes que nada, señalar que las listas enumeradas son las que siguen una enumeración, y son creadas dentro del entorno \textit{enumerate}. sin embargo, las no numeradas consisten en \textit{ítems} que a su izquierda tienen un símbolo no numérico, y son creadas con el entorno \textit{itemize}\\
+
+ Lista numerada. Así empieza una lista numerada por ejemplo la compra:
+    \begin{enumerate} 
+     \item Pan
+     \item Huevos
+     \item Leche
+     \item Café
+ \end{enumerate} % así concluimos la lista numerada
+ 
+ Lista no numerada. Así empieza una lista no enumerada de por ejemplo, mis aficiones: 
+ \begin{itemize} 
+     \item Hacer deporte
+     \item escuchar música
+     \item ir al cine 
+     \item dar un paseo 
+ \end{itemize} % y así, concluimos una lista no numerada
+
+\section{URL}
+
+Puedes enlazar una web externa mediante el comando url: \url{https://www.uca.es/}. También se puede vincular un enlace a un texto mediante el comando href: \href{https://www.uca.es/}{Universidad de Cádiz}.
+ 
+\section{Notas pie de página}
+ En este capítulo vamos a definir las palabras que consideremos que tengan alguna dificultad en cuanto a su significado. En este caso, son la UCA\footnote{UCA - Universidad de Cádiz}, la asignatura IDA\footnote{IDA - Información y Documentación Administrativa} y la palabra estudiar\footnote{Estudiar - Ejercitar el entendimiento para alcanzar o comprender algo}
+
+\section{Estilos}
+Se pueden aplicar estilos al texto como \textbf{negritas}, \textit{cursiva} y \underline{subrayado}. También se \textcolor{red}{pueden} \textcolor{blue}{aplicar} \textcolor{green}{colores}, y \underline{\textit{combinar}} \textbf{\textcolor{red}{estilos}}. Se recomienda no utilizar negritas, solo para hacer énfasis, pero no demasiado y cursiva solo para señalar términos en inglés.
+ 
+ 
+ 
+ 
+ 

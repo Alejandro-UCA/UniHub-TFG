@@ -1,0 +1,56 @@
+En este capítulo se presentan los objetivos y el catálogo de requisitos del sistema **UniHub**. Opcionalmente, se incluye el análisis de la brecha entre los requisitos planteados y la solución base seleccionada. 
+
+\section{Objetivos de Negocio}
+El objetivo de negocio principal es ofrecer un portal público centralizado de enseñanza superior en España, facilitando la transparencia, la comparativa de planes de estudio BOE y el acceso a la oferta universitaria pública y privada.
+
+\section{Objetivos del Sistema}
+1. Automatizar la extracción periódica de universidades y titulaciones vigentes (Grados, Másteres y Doctorados).
+2. Homogenizar y almacenar relacionalmente los datos en PostgreSQL ordenando públicamente primero las universidades públicas y posteriormente las privadas.
+3. Exponer una API REST documentada en FastAPI con control de permisos y métricas físicas cgroup.
+4. Construir un portal web interactivo con estética corporativa de la Universidad de Cádiz (UCA), paginación configurable (5, 10, 20, 50, 100) y ocultación de códigos internos.
+5. Proporcionar un buscador por geolocalización (cercanía en km con distancia integrada directamente en tarjetas).
+6. Recolectar métricas de uso y clasificar las 6 universidades más visitadas en "Universidades Destacadas".
+7. Incorporar el apartado "Sobre Nosotros" (TFG Alejandro Ramos Rodríguez, UCA).
+8. Aislar el panel de control del Administrador de la Web tras la ruta manual \texttt{/admin}.
+9. Desplegar la infraestructura mediante contenedores Docker orquestados con persistencia garantizada.
+
+\section{Requisitos funcionales}
+\begin{itemize}
+    \item \textbf{RF-01 Descarga de Catálogo Oficial:} Descargar e inspeccionar archivos XLS de universidades y titulaciones.
+    \item \textbf{RF-02 Filtrado Estricto de Vigencia y Clasificación de Doctorados:} Excluir titulaciones extinguidas, no vigentes o eliminadas; conservar únicamente las vigentes o autorizadas y clasificar Doctorados (RD 99/2011).
+    \item \textbf{RF-03 Parseo Meticuloso de BOE:} Escanear todos los PDF candidatos del BOE para extraer asignaturas, módulos, materias, créditos ECTS, curso y cuatrimestre.
+    \item \textbf{RF-04 Resiliencia y Notificación Automática:} Aplicar pausas de 5 min (10 fallos) y cortocircuito a los 15 min ante caídas de red, notificando via POST a la API REST al finalizar.
+    \item \textbf{RF-05 Regla de No Sobrescritura Vacía:} Evitar que campos vacíos o indeterminados (\texttt{""}, \texttt{"undefined"}) sobrescriban información previa válida.
+    \item \textbf{RF-06 API REST de Consulta con Ordenación Prioritaria:} Endpoints para listar universidades (públicas primero, privadas después) y titulaciones por nivel académico.
+    \item \textbf{RF-07 API REST CRUD de Administración y Métricas cgroup:} Endpoints \texttt{POST}, \texttt{PUT} y \texttt{DELETE} para universidades y titulaciones, junto con métricas de uso de RAM/CPU por contenedor.
+    \item \textbf{RF-08 Buscador, Filtros y Paginación Web:} Búsqueda global por nombre, tipo (Pública/Privada), CCAA y nivel (Grado, Máster, Doctorado), con paginación de 5, 10, 20, 50 y 100 resultados.
+    \item \textbf{RF-09 Ocultación de Códigos Internos:} Ocultar códigos internos numéricos en la interfaz pública web.
+    \item \textbf{RF-10 Visor Modal de Planes BOE:} Visualización en la web del desglose ECTS y enlace oficial al PDF del BOE.
+    \item \textbf{RF-11 Búsqueda por Cercanía con Distancia Integrada:} Cálculo de distancias en km mediante la fórmula de Haversine mostrando la distancia dentro de la tarjeta del centro.
+    \item \textbf{RF-12 Universidades Destacadas (Top 6):} Cálculo dinámico de las 6 universidades más consultadas en la plataforma.
+    \item \textbf{RF-13 Sección "Sobre Nosotros":} Página informativa del TFG de Alejandro Ramos Rodríguez (Ingeniería Informática, UCA).
+    \item \textbf{RF-14 Panel del Administrador en Ruta Manual \texttt{/admin}:} Acceso aislado sin botón visible para gestionar CRUD y monitorear la salud individual de contenedores.
+\end{itemize}
+
+\section{Requisitos no funcionales}
+\begin{itemize}
+    \item \textbf{RNF-01 Rendimiento:} Latencia promedio de respuesta de la API REST inferior a 100 ms.
+    \item \textbf{RNF-02 Usabilidad e Identidad Visual:} Interfaz web profesional con paleta corporativa de la Universidad de Cádiz (UCA).
+    \item \textbf{RNF-03 Seguridad:} Rol de solo lectura en base de datos (\texttt{rupt\_api\_user}) y acceso restringido por ruta manual al panel de administración.
+    \item \textbf{RNF-04 Resiliencia a Fallos:} El crawler no se detendrá ante errores individuales de red o parseo de PDFs, registrándolos en \texttt{errores\_crawler.json} y aplicando el cortocircuito de 5m/15m.
+    \item \textbf{RNF-05 Persistencia y Portabilidad:} Despliegue en 4 contenedores Docker independientes con persistencia garantizada en volumen nominado y montaje directo de host.
+\end{itemize}
+
+\section{Requisitos de información}
+El sistema gestiona las siguientes entidades principales de información: \textit{Universidad}, \textit{Titulación}, \textit{PlanEstudios}, \textit{ResumenCréditos}, \textit{ElementoCurricular}, \textit{ErrorCrawler} y \textit{EstadísticaRendimiento}.
+
+\section{Reglas de negocio}
+\begin{itemize}
+    \item \textbf{RN-01 Jerarquía por Real Decreto:} En presencia de múltiples planes de una misma titulación, priorizar RD 822/2021 > RD 1393/2007 > RD 56/2005.
+    \item \textbf{RN-02 No Omisión Entre Universidades:} Misma titulación en distintas universidades debe ser tratada como titulación independiente.
+    \item \textbf{RN-03 Comprobación Incremental Estricta:} No volver a descargar un PDF del BOE si la URL y la fecha coinciden con el registro de \texttt{checkpoint.json}.
+    \item \textbf{RN-04 Ordenación Prioritaria:} Mostrar siempre las universidades públicas en primer lugar y posteriormente las privadas.
+\end{itemize}
+
+\section{Análisis GAP}
+Dado que **UniHub** se ha construido a medida mediante una arquitectura en 4 fases que integra rastreo, API REST propia, frontend con diseño UCA y orquestación Docker, no se requirió la adopción directa de plataformas base de terceros.

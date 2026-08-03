@@ -1,0 +1,48 @@
+% ------------------------------------------------------------------------------
+% Este fichero es parte de la plantilla LaTeX para la realización de Proyectos
+% Final de Grado
+% ------------------------------------------------------------------------------
+
+Este capítulo trata sobre todos los aspectos relacionados con la implementación en código del sistema **UniHub**.
+
+\section{Entorno de Construcción}
+El marco tecnológico de construcción incluye:
+\begin{itemize}
+    \item \textbf{Entorno de Desarrollo (IDE):} Visual Studio Code / Antigravity Agent.
+    \item \textbf{Lenguajes:} Python 3.12, JavaScript (ES6+ / JSX), SQL, HTML5, CSS3.
+    \item \textbf{Librerías Python:} FastAPI, Uvicorn, SQLAlchemy, Pydantic v2, \texttt{psycopg2-binary}, \texttt{xlrd}, \texttt{BeautifulSoup4}, \texttt{pdfplumber}, \texttt{pypdf}, \texttt{psutil}.
+    \item \textbf{Librerías JavaScript:} React 18, Vite 8, Lucide React (iconografía UCA).
+    \item \textbf{Control de Versiones y Despliegue:} Git, Docker Engine, Docker Compose v2, Nginx 1.25-alpine.
+\end{itemize}
+
+\section{Código Fuente}
+El código fuente del proyecto se organiza de forma modular bajo el directorio \texttt{d:\textbackslash Proyecto\textbackslash Codigo\textbackslash}:
+\begin{itemize}
+    \item \texttt{Codigo/Crawler/}: Módulo de la Fase 1. Contiene \texttt{downloader.py} (circuit breaker 5m/15m), \texttt{parsers.py} (clasificación Doctorado, filtro estricto de vigencia, multi-PDF BOE), \texttt{checkpoint.py}, \texttt{error\_logger.py}, \texttt{metrics.py} y \texttt{main.py}.
+    \item \texttt{Codigo/API/}: Módulo de la Fase 2. Contiene \texttt{database/schema.sql}, \texttt{connection.py}, \texttt{etl\_loader.py}, \texttt{models/models.py}, \texttt{schemas/schemas.py}, \texttt{metrics/container\_metrics.py}, \texttt{routes/} y \texttt{main.py}.
+    \item \texttt{Codigo/WWW/}: Módulo de la Fase 3. Contiene \texttt{index.html}, \texttt{src/index.css} (tokens UCA, \texttt{.badge-doctorado}), \texttt{src/App.jsx}, \texttt{src/components/} (\texttt{UnivCard}, \texttt{DegreeCard}, \texttt{Pagination}, \texttt{AboutUs}, \texttt{AdminLogin}, \texttt{AdminDashboard}), \texttt{src/analytics/usageTracker.js} y \texttt{src/services/api.js}.
+    \item \texttt{Codigo/Docker/}: Módulo de la Fase 4. Contiene \texttt{docker-compose.yml}, \texttt{crawler/Dockerfile}, \texttt{api/Dockerfile}, \texttt{www/Dockerfile} y \texttt{www/nginx.conf}.
+\end{itemize}
+
+\section{Scripts de Base de datos}
+La base de datos relacional se crea mediante el script DDL \texttt{schema.sql}:
+\begin{lstlisting}[language=SQL, caption={Creación de tablas en schema.sql con tipos de texto extensos}]
+CREATE TABLE IF NOT EXISTS universidades (
+    id SERIAL PRIMARY KEY,
+    codigo VARCHAR(10) UNIQUE NOT NULL,
+    nombre VARCHAR(255) NOT NULL,
+    tipo VARCHAR(50),
+    comunidad_autonoma VARCHAR(100),
+    municipio VARCHAR(100),
+    provincia VARCHAR(100),
+    web VARCHAR(255),
+    email VARCHAR(255),
+    telefono VARCHAR(50),
+    creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Rol de solo lectura para la API REST
+CREATE ROLE ruct_api_user WITH LOGIN PASSWORD 'rupt_api_pass_2026';
+GRANT CONNECT ON DATABASE ruct_db TO ruct_api_user;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO ruct_api_user;
+\end{lstlisting}

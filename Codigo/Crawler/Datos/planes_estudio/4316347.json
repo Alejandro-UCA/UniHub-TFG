@@ -1,0 +1,174 @@
+{
+  "codigo_estudio": "4316347",
+  "titulo": "Máster Universitario en Tecnologías Biomédicas por la Mondragón Unibertsitatea",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "061",
+  "universidad_nombre": "Mondragón Unibertsitatea",
+  "fecha_procesado": "2026-08-03T18:28:28.705941",
+  "boe_url": "http://www.boe.es/boe/dias/2021/05/06/pdfs/BOE-A-2021-7545.pdf",
+  "boe_fecha": "2021-05-06",
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "6",
+      "Optativas": "15",
+      "Trabajo Fin de Grado / Máster": "15",
+      "Créditos Totales": "30"
+    },
+    "total_elementos": 17,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Mecánica de fluidos y dinámica de fluidos computacional (CFD).",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Laboratorio de sistemas de control y análisis embebido.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Tratamiento avanzado de bioseñales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Imagen Biomédica.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Ingeniería Tisular y Medicina Regenerativa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Planificación y entrenamiento quirúrgico.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "30,0",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Diseño y análisis biomecánico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Fabricación aditiva.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Automatización de sistemas biomédicos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Bioinformática y análisis de datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "7,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Procesado digital de imagen.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "7,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "30,0",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Itinerario: Especialización académica.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Itinerario: Iniciación en tareas de investigación.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Comunes.",
+        "creditos_ects": "15",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+Las instrucciones de uso del software se detallan a continuación. Este manual se dirige al usuario final del sistema **UniHub**.
+
+\section{Introducción}
+El Portal Web de **UniHub** (Fase 3) permite a cualquier usuario consultar el catálogo oficial de universidades de España, explorar sus titulaciones vigentes de Grado, Máster y Doctorado, revisar el desglose de asignaturas y créditos ECTS extraídos del BOE, ajustar la paginación a sus necesidades y localizar los centros más cercanos a su posición actual.
+
+\section{Instalación}
+Para acceder al sistema no se requiere ninguna instalación por parte del usuario final. Únicamente se necesita un navegador web moderno (Google Chrome, Mozilla Firefox, Microsoft Edge o Safari) y conexión a la red donde esté desplegado el servicio (\url{http://localhost} o \url{http://localhost:5173}).
+
+\section{Uso del sistema}
+\begin{enumerate}
+    \item \textbf{Exploración de Universidades:} Acceda a la pestaña "Universidades" para filtrar centros públicos (listados prioritariamente en primer lugar) o privados por nombre o comunidad autónoma.
+    \item \textbf{Buscador de Titulaciones y BOE:} En la pestaña "Titulaciones", busque por cualquier titulación o filtre por Grado, Máster o Doctorado. Al hacer clic sobre una tarjeta, se abrirá el modal interactivo con la estructura de créditos ECTS, el listado de asignaturas y el enlace oficial al PDF del BOE.
+    \item \textbf{Paginación Configurable:} En la parte inferior de las grillas de universidades y titulaciones, seleccione el número de elementos a mostrar por página (5, 10, 20, 50 o 100) y navegue entre páginas con los botones de control.
+    \item \textbf{Búsqueda por Cercanía (Geolocalización):} En la pestaña "Por Cercanía", pulse el botón "Usar Mi Ubicación Actual (GPS)" para permitir que el navegador calcule la distancia exacta en km a cada universidad y visualícela directamente dentro de la tarjeta de cada centro.
+    \item \textbf{Sección "Sobre Nosotros":} Acceda a la pestaña "Sobre Nosotros" para consultar la información institucional del proyecto (Trabajo Fin de Grado de Alejandro Ramos Rodríguez en la Universidad de Cádiz).
+    \item \textbf{Panel del Administrador (Acceso Aislado):} Escriba la ruta manual \url{http://localhost/admin} en la barra de direcciones de su navegador. Ingrese el usuario \texttt{admin} y la contraseña \texttt{admin\_pass\_2026} para acceder al panel de salud física de contenedores, métricas en vivo del crawler y gestión CRUD de universidades y titulaciones.
+\end{enumerate}

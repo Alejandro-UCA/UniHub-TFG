@@ -81,11 +81,22 @@ def parse_degrees_xls(filepath: str) -> list:
         nivel = row_dict.get("Nivel académico", row_dict.get("Nivel acadÃ©mico", ""))
         estado = row_dict.get("Estado", "")
         
-        # Filter inactive statuses
+        # Meticulous filter for active statuses
         estado_lower = estado.lower()
-        is_inactive = any(term in estado_lower for term in ["extinguido", "no vigente", "en extinción", "extincion", "derogado"])
         
-        if code and title and not is_inactive:
+        blacklist = [
+            "extinguido", "no vigente", "en extinción", "extincion", "derogado", 
+            "cancelado", "baja", "eliminado", "sin docencia", "revocado", "suspendido"
+        ]
+        has_blacklist = any(term in estado_lower for term in blacklist)
+        
+        whitelist = [
+            "vigente", "autorizado", "publicado", "b.o.e", "boe", "renovado", 
+            "impartiéndose", "impartiendose", "acreditado", "inscrito", "alta"
+        ]
+        has_whitelist = any(term in estado_lower for term in whitelist)
+        
+        if code and title and has_whitelist and not has_blacklist:
             raw_active_degrees.append({
                 "codigo_estudio": code,
                 "titulo": title,

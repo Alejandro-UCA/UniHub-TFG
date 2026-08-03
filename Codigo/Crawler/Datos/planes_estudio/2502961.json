@@ -4,13 +4,112 @@
   "nivel_academico": "Grado - RD 1393/2007 (1)",
   "universidad_codigo": "052",
   "universidad_nombre": "Universidad Antonio de Nebrija",
-  "fecha_procesado": "2026-07-31T14:37:40.537086",
+  "fecha_procesado": "2026-08-03T13:29:57.296600",
   "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2026/01/02/BOCM-20260102-27.PDF",
   "boe_fecha": "2025-12-11",
   "plan_estudios": {
     "resumen_creditos": {},
-    "asignaturas": [],
-    "total_asignaturas": 0,
-    "texto_extraido_muestra": "VIERNES 2 DE ENERO DE 2026Pág. 198 B.O.C.M. Núm. 1\nBOCM-20260102-27\nBOLETÍN OFICIAL DE LA COMUNIDAD DE MADRIDBOCM\nI. COMUNIDAD DE MADRID\nC) Otras Disposiciones\nConsejería de Educación, Ciencia y Universidades\n27 ORDEN 5714/2025, de 11 de diciembre, del Consejero de Educación, Ciencia\ny Universidades, por la que se autoriza la extinción de enseñanzas universitarias\noficiales de grado y máster en la Universidad Antonio de Nebrija.\nSi bien la Ley Orgánica 2/2023, de 22 de marzo, del Sistema Universitario, no regula\nla competencia para la supresión de enseñanzas universitarias oficiales, a diferencia de la\nanterior Ley Orgánica 6/2001, de 21 de diciembre, de Universidades, que la atribuía a las\nComunidades Autónomas, dado que la autorización para la implantación de enseñanzas co-\nrresponde a estas de conformidad con el artículo 8.2 de la Ley Orgánica 2/2023, de 22 de\nmarzo, procede igualmente que su extinción sea acordada por la correspondiente Comuni-\ndad Autónoma, a efectos de llevar a c"
+    "total_elementos": 11,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "DENOMINACIÓN DEL TÍTULO A EXTINGUIR",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Periodismo",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Bellas Artes",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Diseño de Moda",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Comunicación Audiovisual",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Comunicación Corporativa, Protocolo y Organización de Eventos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Comunicación Corporativa, Protocolo y Organización de Eventos (Centro de Educación Superior “Felipe Moreno- Nebrija”)",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Seguridad",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Psicología General Sanitaria",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 1950/2023, de 1 de junio (BOCM 14.06.23)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Empresas y Destinos Turísticos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 2393/2019, de 1 de agosto (BOCM 12.08.19)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Gestión de Riesgos en Conflictos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
   }
 }

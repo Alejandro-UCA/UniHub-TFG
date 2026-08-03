@@ -1,0 +1,53 @@
+En esta sección se describen todos los aspectos relativos a la gestión del proyecto **UniHub**: metodología, organización, costes, planificación, riesgos y aseguramiento de la calidad.
+
+\section{Metodología de desarrollo}
+Se ha adoptado una metodología de desarrollo ágil e incremental estructurada en 4 fases principales. Cada fase se concibe como un subsistema desacoplado con responsabilidades claras, validado mediante pruebas unitarias e integrales antes de avanzar a la siguiente iteración.
+
+\section{Tecnologías}
+Las tecnologías empleadas se resumen a continuación:
+\begin{itemize}
+    \item \textbf{Fase 1 (Crawler):} Python 3.12, \texttt{xlrd} (lectura de XLS BIFF8), \texttt{BeautifulSoup4} (HTML parsing), \texttt{pdfplumber} y \texttt{pypdf} (extracción de tablas PDF de BOE), \texttt{psutil} (medición de memoria/CPU) y Cron para ejecución mensual programada.
+    \item \textbf{Fase 2 (API & DB):} PostgreSQL 15, SQLAlchemy 2.0 (ORM), FastAPI (framework REST), Pydantic v2 (validación de datos) y \texttt{psycopg2-binary}.
+    \item \textbf{Fase 3 (Web):} Node.js 20, Vite, React 18 (JSX), Vanilla CSS (Tokens UCA), Lucide Icons, Geolocation API y analítica local \texttt{usageTracker}.
+    \item \textbf{Fase 4 (Docker):} Docker Engine, Docker Compose v2, Nginx 1.25-alpine e imágenes base slim de Python 3.12.
+\end{itemize}
+
+\section{Planificación del proyecto}
+El desarrollo del proyecto se ejecutó en 4 hitos secuenciales:
+\begin{enumerate}
+    \item \textbf{Hito 1 - Rastreador (Fase 1):} Implementación de descargas con reintentos, deduplicación de planes renovados por Real Decreto, clasificación de Doctorados, filtro estricto de vigencia (descarte de extinguidas), resiliencia de conexión (5m/15m cortocircuito), parseo de PDF del BOE y notificación automática a la API REST.
+    \item \textbf{Hito 2 - Base de Datos y API REST (Fase 2):} Diseño del esquema DDL en PostgreSQL, rol de solo lectura (\texttt{ruct\_api\_user}), script ETL, ordenación prioritaria (públicas primero) y endpoints de consulta y métricas físicas cgroup.
+    \item \textbf{Hito 3 - Portal Web UCA & CRUD (Fase 3):} Desarrollo de la SPA en React con estética UCA, paginación (5, 10, 20, 50, 100), ocultación de códigos internos, geolocalización por Haversine con distancia en tarjeta, sección de universidades destacadas (top 6 más visitadas), apartado "Sobre Nosotros" (TFG Alejandro Ramos Rodríguez, UCA) y panel de administración aislado en la ruta manual \texttt{/admin}.
+    \item \textbf{Hito 4 - Dockerización & Persistencia (Fase 4):} Creación de Dockerfiles, Nginx proxy inverso, \texttt{docker-compose.yml} y montaje de volúmenes persistentes (\texttt{ruct\_postgres\_data} y datos en host).
+\end{enumerate}
+
+\section{Organización}
+El proyecto ha sido coordinado bajo la estructura de roles de un proyecto de ingeniería de software:
+\begin{itemize}
+    \item \textbf{Jefe de Proyecto / Analista:} Definición de requisitos, arquitectura general y planificación por fases.
+    \item \textbf{Desarrollador Backend / Crawler:} Construcción del rastreador Python, modelos relacionales y API REST FastAPI.
+    \item \textbf{Desarrollador Frontend:} Implementación de la SPA en React, sistema de diseño UCA y motores de métricas.
+    \item \textbf{Ingeniero de DevOps:} Configuración de contenedores Docker, proxies Nginx y persistencia de volúmenes.
+\end{itemize}
+
+\section{Costes}
+Se estiman los costes de recursos humanos y equipamiento:
+\begin{itemize}
+    \item \textbf{Personal (Ingeniería de Software):} 350 horas de trabajo estimadas a una tarifa media de 30 €/h = 10.500 €.
+    \item \textbf{Equipamiento y Software:} Uso de herramientas y tecnologías de Software Libre / Código Abierto (Python, PostgreSQL, FastAPI, React, Nginx, Docker), con un coste de licencias de 0 €.
+    \item \textbf{Coste Total Estimado:} 10.500 €.
+\end{itemize}
+
+\section{Riesgos}
+Se identificaron y mitigaron los siguientes riesgos principales:
+\begin{itemize}
+    \item \textbf{R-01: Cambios en el formato de exportación o cortes de red.} Impacto: Alto. Mitigación: Parsers flexibles con manejo de excepciones, log de errores en \texttt{errores\_crawler.json} y cortocircuito con pausas de 5m y 15m.
+    \item \textbf{R-02: Sobrescritura accidental de datos válidos con valores vacíos.} Impacto: Alto. Mitigación: Implementación de la función estricta de validación \texttt{is\_valid\_value} en el crawler.
+    \item \textbf{R-03: Pérdida de datos al apagar contenedores Docker.} Impacto: Crítico. Mitigación: Mapeo de volúmenes nominados en PostgreSQL y montajes directos en el disco host (\texttt{../Crawler/Datos}).
+\end{itemize}
+
+\section{Gestión de la configuración}
+Control de versiones gestionado mediante Git en el repositorio del proyecto. Se aplicó una política de commits atómicos e independientes para cada tarea funcional del proyecto.
+
+\section{Aseguramiento de calidad}
+Se establecieron controles de calidad continuos: compilación del bundle React en Vite con 0 errores (211ms), validación estricta de schemas Pydantic en FastAPI, comprobaciones de salud de la base de datos (\texttt{pg\_isready}) y verificación de compilación del documento LaTeX en MiKTeX.

@@ -4,13 +4,13 @@
   "nivel_academico": "Título Extranjero",
   "universidad_codigo": "093",
   "universidad_nombre": "Centros extranjeros autorizados por la Comunidad de Andalucía",
-  "fecha_procesado": "2026-07-31T13:57:52.471172",
+  "fecha_procesado": "2026-08-03T11:59:41.861955",
   "boe_url": "http://www.juntadeandalucia.es/boja/1995/110/d32.pdf",
   "boe_fecha": null,
   "plan_estudios": {
     "resumen_creditos": {},
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [],
+    "total_elementos": 0,
     "texto_extraido_muestra": "\n"
   }
 }

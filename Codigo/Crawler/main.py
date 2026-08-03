@@ -36,6 +36,20 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
     except Exception:
         pass
 
+def trigger_api_etl_sync():
+    """Notifies Phase 2 (FastAPI REST API) to run ETL synchronization automatically."""
+    try:
+        import requests
+        api_sync_url = os.getenv("API_SYNC_URL", "http://api:8000/api/v1/etl/sync")
+        print(f"\n[Fase 1 -> Fase 2] Notificando a la API REST ({api_sync_url}) para sincronización en PostgreSQL...")
+        resp = requests.post(api_sync_url, timeout=10)
+        if resp.ok:
+            print(" -> Sincronización ETL iniciada en la Base de Datos PostgreSQL de la Fase 2.")
+        else:
+            print(f" -> Solicitud enviada. Código HTTP: {resp.status_code}")
+    except Exception as e:
+        print(f" -> Notificación previa no enviada (se sincronizará en el siguiente ciclo o manualmente): {e}")
+
 def run_crawler(limit_univ: int = None, limit_degrees: int = None):
     print("=" * 70)
     print("      INICIANDO CRAWLER RUCT - UNIVERSIDADES Y TITULACIONES DE ESPAÑA")
@@ -232,6 +246,9 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
     print(f" -> Errores (registrados en log): {metrics.errores_detectados}")
     print(f" -> Métricas guardadas en:        '{ESTADISTICAS_JSON}'")
     print("======================================================================")
+
+    # Automatic notification to Phase 2 API REST to trigger PostgreSQL ETL sync
+    trigger_api_etl_sync()
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Crawler para RUCT (Universidades y Titulaciones de España)")

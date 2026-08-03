@@ -1,11 +1,12 @@
 from typing import List
-from fastapi import APIRouter, Depends, Query
+from fastapi import APIRouter, Depends, Query, BackgroundTasks
 from sqlalchemy.orm import Session
 
 from database.connection import get_db
 from models.models import EstadisticaRendimiento, ErrorCrawler
 from schemas.schemas import EstadisticaRendimientoOut, ErrorCrawlerOut
 from metrics.container_metrics import collect_container_physical_stats
+from database.etl_loader import run_etl
 
 router = APIRouter(prefix="/api/v1", tags=["Métricas y Salud del Crawler"])
 
@@ -27,3 +28,8 @@ def get_errores(
 @router.get("/estadisticas/contenedores", summary="Obtener métricas físicas del consumo de recursos de los contenedores Docker")
 def get_estadisticas_contenedores():
     return collect_container_physical_stats()
+
+@router.post("/etl/sync", summary="Ejecutar la sincronización ETL de datos de la Fase 1 a PostgreSQL (Fase 2)")
+def sync_etl_data(background_tasks: BackgroundTasks):
+    background_tasks.add_task(run_etl)
+    return {"status": "ok", "mensaje": "Proceso de sincronización ETL iniciado en segundo plano."}

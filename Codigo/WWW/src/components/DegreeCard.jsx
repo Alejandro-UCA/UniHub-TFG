@@ -34,12 +34,12 @@ export default function DegreeCard({ degree, onSelectDegree }) {
       <div>
         {/* Header Badges */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.75rem', gap: '0.5rem' }}>
-          <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-light)', background: 'var(--bg-main)', padding: '0.2rem 0.6rem', borderRadius: '6px' }}>
-            RUCT {degree.codigo_estudio}
-          </span>
           <span className={`badge ${isMaster ? 'badge-master' : isDoctor ? 'badge-privada' : 'badge-grado'}`}>
             {isMaster ? 'Máster' : isDoctor ? 'Doctorado' : 'Grado'}
           </span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#10B981', fontWeight: 600, fontSize: '0.8rem' }}>
+            <CheckCircle2 size={14} /> Vigente en B.O.E.
+          </div>
         </div>
 
         {/* Degree Title */}
@@ -47,14 +47,14 @@ export default function DegreeCard({ degree, onSelectDegree }) {
           {degree.titulo}
         </h4>
 
-        {/* Academic Level & Status */}
-        <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '1rem', display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+        {/* Academic Level */}
+        <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '1rem' }}>
           {degree.nivel_academico && (
-            <div><strong style={{ color: 'var(--text-main)' }}>Plan:</strong> {degree.nivel_academico}</div>
+            <div><strong style={{ color: 'var(--text-main)' }}>Nivel:</strong> {degree.nivel_academico}</div>
           )}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#10B981', fontWeight: 600 }}>
-            <CheckCircle2 size={14} /> Vigente en B.O.E.
-          </div>
+          {degree.universidad_nombre && (
+            <div style={{ marginTop: '0.2rem', fontWeight: 600, color: 'var(--uca-cyan)' }}>{degree.universidad_nombre}</div>
+          )}
         </div>
       </div>
 

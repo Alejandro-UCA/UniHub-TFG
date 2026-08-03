@@ -1,8 +1,8 @@
 import React from 'react';
-import { MapPin, Globe, Mail, Phone, BookOpen, ExternalLink } from 'lucide-react';
+import { MapPin, Globe, Mail, BookOpen, ExternalLink } from 'lucide-react';
 import usageTracker from '../analytics/usageTracker';
 
-export default function UnivCard({ univ, onViewDegrees }) {
+export default function UnivCard({ univ, onViewDegrees, distanceKm }) {
   const isPrivada = (univ.tipo || '').toLowerCase().includes('privada');
 
   const handleClick = () => {
@@ -31,14 +31,16 @@ export default function UnivCard({ univ, onViewDegrees }) {
     }}
     >
       <div>
-        {/* Card Header: Code & Badges */}
+        {/* Card Header: Type Badge & Optional Distance */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.75rem', gap: '0.5rem' }}>
-          <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-light)', background: 'var(--bg-main)', padding: '0.2rem 0.6rem', borderRadius: '6px' }}>
-            CÓDIGO {univ.codigo}
-          </span>
           <span className={`badge ${isPrivada ? 'badge-privada' : 'badge-publica'}`}>
             {isPrivada ? 'Privada' : 'Pública'}
           </span>
+          {distanceKm !== undefined && (
+            <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--uca-sun)', background: 'rgba(243, 167, 18, 0.15)', padding: '0.2rem 0.6rem', borderRadius: '6px', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+              <MapPin size={14} /> {distanceKm} km
+            </span>
+          )}
         </div>
 
         {/* University Name */}

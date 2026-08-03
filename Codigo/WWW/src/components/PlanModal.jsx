@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { X, FileText, ExternalLink, BookOpen, Layers, Award, Calendar } from 'lucide-react';
+import { X, FileText, ExternalLink, Award, Layers } from 'lucide-react';
 import { apiService } from '../services/api';
 
 export default function PlanModal({ degree, onClose }) {
@@ -51,7 +51,7 @@ export default function PlanModal({ degree, onClose }) {
         }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem' }}>
-              <span className="badge badge-grado">CÓDIGO RUCT: {degree.codigo_estudio}</span>
+              <span className="badge badge-grado">Titulación Oficial</span>
               {boeFecha && <span className="badge" style={{ background: 'rgba(243, 167, 18, 0.2)', color: 'var(--uca-sun)' }}>BOE: {boeFecha}</span>}
             </div>
             <h2 style={{ fontSize: '1.35rem', fontWeight: 800, lineHeight: 1.3 }}>{degree.titulo}</h2>

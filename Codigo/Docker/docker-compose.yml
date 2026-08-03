@@ -13,12 +13,11 @@ networks:
 volumes:
   postgres_data:
     name: ruct_postgres_data
-  datos_volume:
-    name: ruct_datos_volume
 
 services:
   # ----------------------------------------------------------------------------
   # CONTENEDOR 1: Base de Datos PostgreSQL (Fase 2)
+  # Persistencia completa de datos relacionales en volumen 'postgres_data'
   # ----------------------------------------------------------------------------
   db:
     image: postgres:15-alpine
@@ -43,6 +42,7 @@ services:
 
   # ----------------------------------------------------------------------------
   # CONTENEDOR 2: Rastreador / Crawler RUCT (Fase 1)
+  # Persistencia directa en el sistema de archivos del host en Codigo/Crawler/Datos
   # ----------------------------------------------------------------------------
   crawler:
     build:
@@ -53,7 +53,7 @@ services:
     environment:
       - PYTHONUNBUFFERED=1
     volumes:
-      - datos_volume:/app/Datos
+      - ../Crawler/Datos:/app/Datos
     networks:
       - ruct_network
     profiles:
@@ -62,6 +62,7 @@ services:
 
   # ----------------------------------------------------------------------------
   # CONTENEDOR 3: API REST Python / FastAPI (Fase 2)
+  # Acceso directo a los archivos JSON persistentes en Codigo/Crawler/Datos
   # ----------------------------------------------------------------------------
   api:
     build:
@@ -76,7 +77,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-admin}
     volumes:
-      - datos_volume:/app/Datos:ro
+      - ../Crawler/Datos:/app/Datos
     ports:
       - "${API_PORT:-8000}:8000"
     networks:

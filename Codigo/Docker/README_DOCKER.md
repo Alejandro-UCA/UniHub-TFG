@@ -4,14 +4,14 @@ Este directorio (`d:\Proyecto\Codigo\Docker\`) contiene la configuración y los 
 
 ---
 
-## 🏛️ Arquitectura de los Contenedores
+## 🏛️ Arquitectura de Contenedores y Persistencia Permanente de Datos
 
-| Servicio | Nombre Contenedor | Imagen / Dockerfile | Puerto Host | Descripción |
+| Servicio | Nombre Contenedor | Imagen / Dockerfile | Puerto Host | Estrategia de Persistencia Permanente |
 | :--- | :--- | :--- | :--- | :--- |
-| **`db`** | `ruct_db` | `postgres:15-alpine` | `5432` | Base de datos PostgreSQL con DDL y usuario de solo lectura `ruct_api_user` inicializados automáticamente. |
-| **`api`** | `ruct_api` | `api/Dockerfile` | `8000` | API REST en Python / FastAPI con conexión a PostgreSQL y salud comprobada mediante *healthcheck*. |
-| **`www`** | `ruct_www` | `www/Dockerfile` | `80`, `5173` | Portal Web (SPA React) servido por Nginx de producción con proxy inverso hacia `http://api:8000/api/v1`. |
-| **`crawler`** | `ruct_crawler` | `crawler/Dockerfile` | - | Rastreador Python (Fase 1) en contenedor aislado con volumen de datos compartido. |
+| **`db`** | `ruct_db` | `postgres:15-alpine` | `5432` | **Volumen Nominado `postgres_data`**: Mantiene intactas las tablas y registros relacionales de PostgreSQL al reiniciar o apagar el contenedor. |
+| **`api`** | `ruct_api` | `api/Dockerfile` | `8000` | **Montaje Directo de Host `../Crawler/Datos`**: Acceso y lectura directa sobre los archivos `.json` persistentes en el disco del host. |
+| **`www`** | `ruct_www` | `www/Dockerfile` | `80`, `5173` | **Servidor Nginx**: Sirve los estáticos y redirige llamadas API vía proxy inverso. |
+| **`crawler`** | `ruct_crawler` | `crawler/Dockerfile` | - | **Montaje Directo de Host `../Crawler/Datos`**: Todos los archivos `.json` descargados, planes BOE, `checkpoint.json` y `estadisticas_rendimiento.json` se guardan en el disco físico local. |
 
 ---
 
@@ -26,20 +26,17 @@ docker compose up --build -d
 ```
 
 Este comando:
-1. Creará la red privada `ruct_network` y los volúmenes persistentes `ruct_postgres_data` y `ruct_datos_volume`.
+1. Creará la red privada `ruct_network` y asegurará el volumen de persistencia `postgres_data` y la carpeta de datos en el host `Codigo/Crawler/Datos`.
 2. Iniciará el contenedor de base de datos `ruct_db` e importará el esquema DDL `schema.sql`.
 3. Esperará a que la base de datos esté lista (*healthcheck*) para iniciar la API `ruct_api`.
 4. Compilará la aplicación React en Nginx e iniciará el portal web `ruct_www`.
 
 ---
 
-### 2. Verificar el Estado de los Contenedores
-
-```bash
-docker compose ps
-```
-
-Debe observar los contenedores `ruct_db`, `ruct_api` y `ruct_www` en estado `running` (healthy).
+### 2. Verificar la Persistencia de Datos
+Aunque cierre los contenedores con `docker compose down` o reinicie el sistema, **toda la información recopilada se conserva permanentemente**:
+- **Archivos JSON del Rastreador y BOE PDFs**: Permanecen almacenados físicamente en `d:\Proyecto\Codigo\Crawler\Datos\`.
+- **Base de Datos PostgreSQL**: Se conserva íntegra en el volumen de Docker `ruct_postgres_data`.
 
 ---
 
@@ -65,36 +62,15 @@ docker compose --profile crawler run --rm crawler python main.py
 
 ### 5. Acceso a los Servicios desde el Navegador
 
-- 🌐 **Portal Web (Fase 3 - UCA Style)**: [http://localhost](http://localhost) o [http://localhost:5173](http://localhost:5173)
+- 🌐 **Portal Web (Fase 3 - Estilo UCA)**: [http://localhost](http://localhost) o [http://localhost:5173](http://localhost:5173)
 - ⚡ **API REST Documentación Swagger UI (Fase 2)**: [http://localhost:8000/docs](http://localhost:8000/docs)
 - 📄 **API REST Documentación ReDoc**: [http://localhost:8000/redoc](http://localhost:8000/redoc)
 
 ---
 
-### 6. Revisar Registros / Logs en Tiempo Real
+### 6. Detener los Contenedores MANTENIENDO los Datos Intactos
 
-- Logs de todos los servicios:
-  ```bash
-  docker compose logs -f
-  ```
-- Logs de la API REST:
-  ```bash
-  docker compose logs -f api
-  ```
-- Logs del Servidor Web Nginx:
-  ```bash
-  docker compose logs -f www
-  ```
-
----
-
-### 7. Detener y Limpiar el Entorno Docker
-
-- **Detener servicios manteniendo los datos**:
+- **Detener servicios (los datos se conservan al 100%)**:
   ```bash
   docker compose down
-  ```
-- **Detener servicios y eliminar volúmenes (Reiniciar desde cero)**:
-  ```bash
-  docker compose down -v
   ```

@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { X, ShieldCheck, Lock, User, AlertCircle } from 'lucide-react';
+import { ShieldCheck, Lock, User, AlertCircle, GraduationCap } from 'lucide-react';
 
-export default function AdminLogin({ isOpen, onClose, onLoginSuccess }) {
+export default function AdminLogin({ onLoginSuccess }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-
-  if (!isOpen) return null;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,42 +13,38 @@ export default function AdminLogin({ isOpen, onClose, onLoginSuccess }) {
     // Single Admin User Authorization check
     if (username.trim() === 'admin' && (password === 'admin_pass_2026' || password === 'admin')) {
       onLoginSuccess();
-      onClose();
     } else {
       setError('Credenciales de administrador incorrectas. Acceso restringido únicamente al Administrador de la Web.');
     }
   };
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" style={{ maxWidth: '440px' }} onClick={(e) => e.stopPropagation()}>
+    <div style={{
+      minHeight: '80vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '2.5rem 1.5rem'
+    }}>
+      <div className="glass-panel" style={{ width: '100%', maxWidth: '440px', padding: '0', overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
         {/* Header */}
         <div style={{
           background: 'linear-gradient(135deg, var(--uca-navy) 0%, var(--uca-blue) 100%)',
           color: '#FFFFFF',
-          padding: '1.25rem 1.5rem',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          borderTopLeftRadius: 'var(--radius-lg)',
-          borderTopRightRadius: 'var(--radius-lg)'
+          padding: '2rem 1.75rem',
+          textAlign: 'center'
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-            <ShieldCheck size={22} color="var(--uca-sun)" />
-            <h3 style={{ fontSize: '1.15rem', fontWeight: 700 }}>Acceso de Administrador</h3>
+          <div style={{ display: 'inline-flex', padding: '0.75rem', background: 'rgba(255, 255, 255, 0.15)', borderRadius: '12px', color: 'var(--uca-sun)', marginBottom: '0.85rem' }}>
+            <ShieldCheck size={32} />
           </div>
-          <button 
-            onClick={onClose}
-            style={{ background: 'transparent', border: 'none', color: '#FFFFFF', cursor: 'pointer' }}
-          >
-            <X size={20} />
-          </button>
+          <h3 style={{ fontSize: '1.4rem', fontWeight: 800 }}>Acceso de Administrador</h3>
+          <p style={{ fontSize: '0.85rem', color: '#CBD5E1', marginTop: '0.35rem' }}>UniHub - Panel Interno de Rendimiento</p>
         </div>
 
         {/* Form Body */}
-        <form onSubmit={handleSubmit} style={{ padding: '1.75rem' }}>
-          <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: 1.5 }}>
-            El resto de personas navegando por el portal son <strong>usuarios no registrados</strong>. Inicia sesión para acceder al panel de control de estadísticas y rendimiento.
+        <form onSubmit={handleSubmit} style={{ padding: '2rem 1.75rem' }}>
+          <div style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: 1.5 }}>
+            El resto de usuarios que visitan la web son <strong>usuarios no registrados</strong>. Esta página requiere autenticación privilegiada.
           </div>
 
           {error && (
@@ -80,7 +74,7 @@ export default function AdminLogin({ isOpen, onClose, onLoginSuccess }) {
               <User size={18} color="var(--text-light)" style={{ position: 'absolute', left: '12px' }} />
               <input 
                 type="text"
-                placeholder="Ingresa 'admin'"
+                placeholder="Usuario ('admin')"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
@@ -125,24 +119,14 @@ export default function AdminLogin({ isOpen, onClose, onLoginSuccess }) {
             </div>
           </div>
 
-          {/* Buttons */}
-          <div style={{ display: 'flex', gap: '0.75rem' }}>
-            <button 
-              type="button" 
-              className="btn btn-outline" 
-              style={{ flex: 1 }}
-              onClick={onClose}
-            >
-              Cancelar
-            </button>
-            <button 
-              type="submit" 
-              className="btn btn-primary" 
-              style={{ flex: 1 }}
-            >
-              Iniciar Sesión
-            </button>
-          </div>
+          {/* Submit Button */}
+          <button 
+            type="submit" 
+            className="btn btn-primary" 
+            style={{ width: '100%', padding: '0.85rem', fontSize: '0.95rem', fontWeight: 700 }}
+          >
+            Iniciar Sesión como Administrador
+          </button>
         </form>
       </div>
     </div>

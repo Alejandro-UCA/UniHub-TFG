@@ -25,13 +25,17 @@ def run_etl():
     print("     INICIANDO PROCESO ETL: MIGRACIÓN DE JSON (FASE 1) A POSTGRESQL")
     print("======================================================================")
     
-    # Path to Phase 1 data directory
+    # Path to Phase 1 data directory (Check Docker path /app/Datos first, fallback to local path)
     base_api_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    crawler_datos_dir = os.path.join(os.path.dirname(base_api_dir), "Crawler", "Datos")
+    crawler_datos_dir = "/app/Datos"
+    if not os.path.exists(crawler_datos_dir):
+        crawler_datos_dir = os.path.join(os.path.dirname(base_api_dir), "Crawler", "Datos")
     
     if not os.path.exists(crawler_datos_dir):
         print(f"[ERROR] No se encontró el directorio de datos del crawler en '{crawler_datos_dir}'.")
         return
+
+    print(f"Directorio de datos localizado en: '{crawler_datos_dir}'")
 
     # Database engine and tables setup
     print("Conectando a la base de datos PostgreSQL...")
@@ -42,11 +46,14 @@ def run_etl():
         db = Session()
     except Exception as e:
         print(f"[ERROR] No se pudo conectar a PostgreSQL: {e}")
-        print("Asegúrate de que PostgreSQL está iniciado y las credenciales en config.py / .env son correctas.")
+        print("Asegúrate de que PostgreSQL está iniciado y las credenciales son correctas.")
         return
 
     # 1. Migrar Universidades
-    univ_json_path = os.path.join(crawler_datos_dir, "universidades.json")
+    univ_json_path = os.path.join(crawler_datos_dir, "universidades_list.json")
+    if not os.path.exists(univ_json_path):
+        univ_json_path = os.path.join(crawler_datos_dir, "universidades.json")
+
     if os.path.exists(univ_json_path):
         with open(univ_json_path, "r", encoding="utf-8") as f:
             univ_list = json.load(f)
@@ -97,7 +104,10 @@ def run_etl():
         print(f" -> {total_tits} titulaciones vigentes migradas con éxito.")
 
     # 3. Migrar Planes de Estudio y Elementos Curriculares
-    planes_dir = os.path.join(crawler_datos_dir, "planes_estudio")
+    planes_dir = os.path.join(crawler_datos_dir, "Planes")
+    if not os.path.exists(planes_dir):
+        planes_dir = os.path.join(crawler_datos_dir, "planes_estudio")
+
     if os.path.exists(planes_dir):
         plan_files = [f for f in os.listdir(planes_dir) if f.endswith(".json")]
         print(f"Migrando {len(plan_files)} planes de estudio en PDF...")

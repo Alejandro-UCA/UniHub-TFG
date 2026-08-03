@@ -106,7 +106,7 @@
     "universidad_nombre": "Centros extranjeros autorizados por la Comunidad Autónoma de Aragón",
     "universidad_tipo": "Pública",
     "comunidad_autonoma": "Comunidad Autónoma de Aragón",
-    "total_titulaciones_vigentes": 13,
+    "total_titulaciones_vigentes_renovadas": 12,
     "titulaciones_vigentes": [
       {
         "codigo_estudio": "8000084",
@@ -151,12 +151,6 @@
         "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
-        "codigo_estudio": "8000079",
-        "titulo": "Master of Business Administration - MBA",
-        "nivel_academico": "Título Extranjero",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "8000086",
         "titulo": "Master of Business Administration - MBA",
         "nivel_academico": "Título Extranjero",
@@ -193,7 +187,7 @@
     "universidad_nombre": "Centros extranjeros autorizados por la Comunidad Autónoma de Cantabria",
     "universidad_tipo": "Pública",
     "comunidad_autonoma": "Comunidad Autónoma de Cantabria",
-    "total_titulaciones_vigentes": 3,
+    "total_titulaciones_vigentes_renovadas": 3,
     "titulaciones_vigentes": [
       {
         "codigo_estudio": "8000054",
@@ -220,7 +214,7 @@
     "universidad_nombre": "Centros extranjeros autorizados por la Comunidad Autónoma de Cataluña",
     "universidad_tipo": "Pública",
     "comunidad_autonoma": "Comunidad Autónoma de Cataluña",
-    "total_titulaciones_vigentes": 8,
+    "total_titulaciones_vigentes_renovadas": 8,
     "titulaciones_vigentes": [
       {
         "codigo_estudio": "8000063",

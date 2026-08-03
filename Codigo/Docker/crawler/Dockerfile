@@ -1,7 +1,7 @@
 # ==============================================================================
 # Dockerfile: Rastreador / Crawler RUCT (Fase 1) con Cron (0 2 1 * *)
 # ==============================================================================
-FROM python:3.10-slim
+FROM python:3.12-slim
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1 \

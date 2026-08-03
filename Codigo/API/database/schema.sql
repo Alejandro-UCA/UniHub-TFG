@@ -6,12 +6,12 @@
 CREATE TABLE IF NOT EXISTS universidades (
     id SERIAL PRIMARY KEY,
     codigo VARCHAR(10) UNIQUE NOT NULL,
-    nombre VARCHAR(255) NOT NULL,
+    nombre VARCHAR(500) NOT NULL,
     tipo VARCHAR(50),
     comunidad_autonoma VARCHAR(100),
     municipio VARCHAR(100),
     provincia VARCHAR(100),
-    web VARCHAR(255),
+    web VARCHAR(500),
     email VARCHAR(255),
     telefono VARCHAR(50),
     creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -21,8 +21,8 @@ CREATE TABLE IF NOT EXISTS universidades (
 CREATE TABLE IF NOT EXISTS titulaciones (
     id SERIAL PRIMARY KEY,
     codigo_estudio VARCHAR(20) UNIQUE NOT NULL,
-    titulo VARCHAR(500) NOT NULL,
-    nivel_academico VARCHAR(150),
+    titulo TEXT NOT NULL,
+    nivel_academico VARCHAR(200),
     estado VARCHAR(100),
     universidad_codigo VARCHAR(10) REFERENCES universidades(codigo) ON DELETE CASCADE,
     creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -50,11 +50,11 @@ CREATE TABLE IF NOT EXISTS resumen_creditos (
 CREATE TABLE IF NOT EXISTS elementos_curriculares (
     id SERIAL PRIMARY KEY,
     plan_estudio_id INT REFERENCES planes_estudio(id) ON DELETE CASCADE,
-    modulo VARCHAR(300),
-    materia VARCHAR(300),
-    nombre_elemento VARCHAR(500) NOT NULL,
+    modulo VARCHAR(500),
+    materia VARCHAR(500),
+    nombre_elemento TEXT NOT NULL,
     creditos_ects VARCHAR(50),
-    caracter VARCHAR(50),
+    caracter VARCHAR(100),
     curso VARCHAR(50),
     cuatrimestre VARCHAR(50)
 );

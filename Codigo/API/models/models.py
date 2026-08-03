@@ -7,14 +7,14 @@ class Universidad(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     codigo = Column(String(10), unique=True, nullable=False, index=True)
-    nombre = Column(String(255), nullable=False)
-    tipo = Column(String(50))
-    comunidad_autonoma = Column(String(100))
-    municipio = Column(String(100))
-    provincia = Column(String(100))
-    web = Column(String(255))
-    email = Column(String(255))
-    telefono = Column(String(50))
+    nombre = Column(Text, nullable=False)
+    tipo = Column(String(100))
+    comunidad_autonoma = Column(String(200))
+    municipio = Column(String(200))
+    provincia = Column(String(200))
+    web = Column(Text)
+    email = Column(String(500))
+    telefono = Column(String(200))
     creado_en = Column(DateTime, default=func.now())
 
     titulaciones = relationship("Titulacion", back_populates="universidad", cascade="all, delete-orphan")
@@ -25,9 +25,9 @@ class Titulacion(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     codigo_estudio = Column(String(20), unique=True, nullable=False, index=True)
-    titulo = Column(String(500), nullable=False)
-    nivel_academico = Column(String(150), index=True)
-    estado = Column(String(100))
+    titulo = Column(Text, nullable=False)
+    nivel_academico = Column(Text, index=True)
+    estado = Column(String(200))
     universidad_codigo = Column(String(10), ForeignKey("universidades.codigo", ondelete="CASCADE"), nullable=False)
     creado_en = Column(DateTime, default=func.now())
 
@@ -55,8 +55,8 @@ class ResumenCreditos(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     plan_estudio_id = Column(Integer, ForeignKey("planes_estudio.id", ondelete="CASCADE"), nullable=False)
-    tipo_credito = Column(String(200), nullable=False)
-    cantidad_creditos = Column(String(50), nullable=False)
+    tipo_credito = Column(Text, nullable=False)
+    cantidad_creditos = Column(Text, nullable=False)
 
     plan_estudios = relationship("PlanEstudios", back_populates="resumen_creditos")
 
@@ -66,13 +66,13 @@ class ElementoCurricular(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     plan_estudio_id = Column(Integer, ForeignKey("planes_estudio.id", ondelete="CASCADE"), nullable=False, index=True)
-    modulo = Column(String(300))
-    materia = Column(String(300))
-    nombre_elemento = Column(String(500), nullable=False)
-    creditos_ects = Column(String(50))
-    caracter = Column(String(50), index=True)
-    curso = Column(String(50))
-    cuatrimestre = Column(String(50))
+    modulo = Column(Text)
+    materia = Column(Text)
+    nombre_elemento = Column(Text, nullable=False)
+    creditos_ects = Column(Text)
+    caracter = Column(Text, index=True)
+    curso = Column(Text)
+    cuatrimestre = Column(Text)
 
     plan_estudios = relationship("PlanEstudios", back_populates="elementos_curriculares")
 

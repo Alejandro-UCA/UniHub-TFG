@@ -1,11 +1,11 @@
 # ==============================================================================
-# Dockerfile: Portal Web Frontend (Fase 3) - Multietapa (Node + Nginx)
+# Dockerfile: Portal Web Frontend (Fase 3) - Multietapa (Node 20 + Nginx)
 # ==============================================================================
 
 # ------------------------------------------------------------------------------
 # ETAPA 1: Compilación de la aplicación React con Vite
 # ------------------------------------------------------------------------------
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS builder
 
 WORKDIR /app
 

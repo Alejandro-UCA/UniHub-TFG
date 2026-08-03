@@ -81,18 +81,21 @@ def parse_degrees_xls(filepath: str) -> list:
         nivel = row_dict.get("Nivel académico", row_dict.get("Nivel acadÃ©mico", ""))
         estado = row_dict.get("Estado", "")
         
-        # Meticulous filter for active statuses
-        estado_lower = estado.lower()
+        # Meticulous filter for active statuses (case-insensitive)
+        estado_lower = estado.lower().strip()
         
         blacklist = [
-            "extinguido", "no vigente", "en extinción", "extincion", "derogado", 
-            "cancelado", "baja", "eliminado", "sin docencia", "revocado", "suspendido"
+            "extinguido", "extinguida", "extinguidos", "extinguidas", "extinguid",
+            "no vigente", "en extinción", "extincion", "derogado", "derogada", 
+            "cancelado", "cancelada", "baja", "eliminado", "eliminada", 
+            "sin docencia", "revocado", "revocada", "suspendido", "suspendida"
         ]
         has_blacklist = any(term in estado_lower for term in blacklist)
         
         whitelist = [
-            "vigente", "autorizado", "publicado", "b.o.e", "boe", "renovado", 
-            "impartiéndose", "impartiendose", "acreditado", "inscrito", "alta"
+            "vigente", "autorizado", "autorizada", "publicado", "publicada", 
+            "b.o.e", "boe", "renovado", "renovada", "impartiéndose", "impartiendose", 
+            "acreditado", "acreditada", "inscrito", "inscrita", "alta"
         ]
         has_whitelist = any(term in estado_lower for term in whitelist)
         

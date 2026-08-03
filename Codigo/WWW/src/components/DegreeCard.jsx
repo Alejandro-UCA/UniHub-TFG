@@ -4,7 +4,9 @@ import usageTracker from '../analytics/usageTracker';
 
 export default function DegreeCard({ degree, onSelectDegree }) {
   const isMaster = (degree.nivel_academico || '').toLowerCase().includes('máster') || (degree.nivel_academico || '').toLowerCase().includes('master');
-  const isDoctor = (degree.nivel_academico || '').toLowerCase().includes('doctor');
+  const isDoctor = (degree.nivel_academico || '').toLowerCase().includes('doctor') || 
+                   (degree.nivel_academico || '').toLowerCase().includes('99/2011') ||
+                   (degree.titulo || '').toLowerCase().includes('doctor');
 
   const handleClick = () => {
     usageTracker.trackDegreeView(degree.codigo_estudio, degree.titulo);
@@ -34,7 +36,7 @@ export default function DegreeCard({ degree, onSelectDegree }) {
       <div>
         {/* Header Badges */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.75rem', gap: '0.5rem' }}>
-          <span className={`badge ${isMaster ? 'badge-master' : isDoctor ? 'badge-privada' : 'badge-grado'}`}>
+          <span className={`badge ${isMaster ? 'badge-master' : isDoctor ? 'badge-doctorado' : 'badge-grado'}`}>
             {isMaster ? 'Máster' : isDoctor ? 'Doctorado' : 'Grado'}
           </span>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#10B981', fontWeight: 600, fontSize: '0.8rem' }}>

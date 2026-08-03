@@ -99,44 +99,21 @@ body {
   box-shadow: var(--shadow-md);
 }
 
-/* UCA Gradient Backgrounds */
-.bg-uca-gradient {
-  background: linear-gradient(135deg, var(--uca-navy) 0%, var(--uca-blue) 60%, #005599 100%);
-  color: #FFFFFF;
-}
-
-.bg-uca-accent {
-  background: linear-gradient(135deg, var(--uca-cyan) 0%, var(--uca-azure) 100%);
-  color: #FFFFFF;
-}
-
-.bg-gold-gradient {
-  background: linear-gradient(135deg, var(--uca-gold) 0%, var(--uca-sun) 100%);
-  color: var(--uca-navy);
-}
-
-/* Typography Utilities */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  line-height: 1.25;
-  color: inherit;
-}
-
+/* Gradient Text Helper */
 .text-gradient {
-  background: linear-gradient(135deg, var(--uca-azure) 0%, var(--uca-gold) 100%);
+  background: linear-gradient(135deg, var(--uca-cyan) 0%, var(--uca-azure) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Buttons */
+/* Buttons System */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  font-family: var(--font-family);
-  font-size: 0.95rem;
+  padding: 0.65rem 1.25rem;
+  font-size: 0.92rem;
   font-weight: 600;
   border-radius: var(--radius-sm);
   border: none;
@@ -148,45 +125,45 @@ h1, h2, h3, h4, h5, h6 {
 .btn-primary {
   background: linear-gradient(135deg, var(--uca-blue) 0%, var(--uca-cyan) 100%);
   color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(0, 132, 200, 0.35);
+  box-shadow: 0 4px 12px rgba(0, 132, 200, 0.25);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 132, 200, 0.5);
-  background: linear-gradient(135deg, var(--uca-navy) 0%, var(--uca-azure) 100%);
+  box-shadow: 0 6px 18px rgba(0, 132, 200, 0.4);
 }
 
 .btn-gold {
   background: linear-gradient(135deg, var(--uca-gold) 0%, var(--uca-sun) 100%);
   color: var(--uca-navy);
-  box-shadow: 0 4px 14px rgba(243, 167, 18, 0.35);
+  box-shadow: 0 4px 12px rgba(243, 167, 18, 0.3);
 }
 
 .btn-gold:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(243, 167, 18, 0.5);
+  box-shadow: 0 6px 18px rgba(243, 167, 18, 0.45);
 }
 
 .btn-outline {
   background: transparent;
-  border: 1.5px solid var(--uca-cyan);
-  color: var(--uca-cyan);
+  color: var(--text-main);
+  border: 1px solid var(--border-uca);
 }
 
 .btn-outline:hover {
-  background: rgba(0, 132, 200, 0.1);
-  transform: translateY(-2px);
+  background: rgba(0, 132, 200, 0.08);
+  border-color: var(--uca-cyan);
+  color: var(--uca-cyan);
 }
 
-/* Badges */
+/* Badges System */
 .badge {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.25rem 0.75rem;
-  font-size: 0.8rem;
-  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 700;
   border-radius: 50px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -212,6 +189,11 @@ h1, h2, h3, h4, h5, h6 {
 .badge-master {
   background: rgba(139, 92, 246, 0.15);
   color: #8B5CF6;
+}
+
+.badge-doctorado {
+  background: rgba(236, 72, 153, 0.15);
+  color: #EC4899;
 }
 
 /* Modal Overlay */

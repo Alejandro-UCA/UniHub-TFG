@@ -13,7 +13,7 @@ import Footer from './components/Footer';
 
 import { apiService } from './services/api';
 import usageTracker from './analytics/usageTracker';
-import { Search, Filter, BookOpen, GraduationCap, MapPin } from 'lucide-react';
+import { Search, Filter } from 'lucide-react';
 
 const MOCK_UNIVERSITIES = [
   { codigo: "015", nombre: "Universidad Complutense de Madrid", tipo: "Pública", comunidad_autonoma: "Comunidad de Madrid", municipio: "Madrid", provincia: "Madrid", web: "www.ucm.es", email: "infocom@ucm.es" },
@@ -26,9 +26,9 @@ const MOCK_UNIVERSITIES = [
 
 const MOCK_DEGREES = [
   { codigo_estudio: "2500021", titulo: "Graduado o Graduada en Ingeniería Informática por la Universidad de Cádiz", nivel_academico: "Grado - RD 1393/2007 (1)", estado: "Publicado en B.O.E.", universidad_codigo: "023", universidad_nombre: "Universidad de Cádiz", boe_url: "http://www.boe.es" },
+  { codigo_estudio: "5601512", titulo: "Programa de Doctorado en Didáctica de las Ciencias Experimentales por la Universidad de Cádiz", nivel_academico: "Doctor - RD 99/2011 (0)", estado: "Publicado en B.O.E.", universidad_codigo: "023", universidad_nombre: "Universidad de Cádiz", boe_url: "http://www.boe.es" },
   { codigo_estudio: "2504059", titulo: "Graduado o Graduada en Administración y Dirección de Empresas por la CUNEF Universidad", nivel_academico: "Grado - RD 822/2021 (2)", estado: "Publicado en B.O.E.", universidad_codigo: "089", universidad_nombre: "CUNEF Universidad", boe_url: "http://www.boe.es/boe/dias/2025/01/16/pdfs/BOE-A-2025-708.pdf", boe_fecha: "2025-01-16" },
   { codigo_estudio: "2504639", titulo: "Graduado o Graduada en Ciencia de Datos / Bachelor in Data Science por la CUNEF Universidad", nivel_academico: "Grado - RD 822/2021 (2)", estado: "Publicado en B.O.E.", universidad_codigo: "089", universidad_nombre: "CUNEF Universidad", boe_url: "http://www.boe.es/boe/dias/2024/06/10/pdfs/BOE-A-2024-11800.pdf", boe_fecha: "2024-06-10" },
-  { codigo_estudio: "2504126", titulo: "Graduado o Graduada en Derecho por la CUNEF Universidad", nivel_academico: "Grado - RD 1393/2007 (1)", estado: "Publicado en B.O.E.", universidad_codigo: "089", universidad_nombre: "CUNEF Universidad" },
   { codigo_estudio: "4317230", titulo: "Máster Universitario en Ciencia de Datos e Inteligencia Artificial por la CUNEF Universidad", nivel_academico: "Máster - RD 822/2021 (3)", estado: "Publicado en B.O.E.", universidad_codigo: "089", universidad_nombre: "CUNEF Universidad" }
 ];
 
@@ -117,12 +117,13 @@ export default function App() {
     return (a.nombre || '').localeCompare(b.nombre || '');
   });
 
-  // Filtered & Sorted degrees (Public universities first)
+  // Filtered & Sorted degrees (including Doctorados)
   const filteredDegrees = degrees.filter(d => {
     const matchesQuery = !searchQuery || `${d.titulo} ${d.codigo_estudio}`.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesTipo = selectedTipo === 'todos' || (
-      selectedTipo === 'grado' ? (d.nivel_academico || '').toLowerCase().includes('grado') :
+      selectedTipo === 'grado' ? ((d.nivel_academico || '').toLowerCase().includes('grado') && !(d.nivel_academico || '').toLowerCase().includes('doctor')) :
       selectedTipo === 'master' ? ((d.nivel_academico || '').toLowerCase().includes('máster') || (d.nivel_academico || '').toLowerCase().includes('master')) :
+      selectedTipo === 'doctorado' ? ((d.nivel_academico || '').toLowerCase().includes('doctor') || (d.nivel_academico || '').toLowerCase().includes('99/2011') || (d.titulo || '').toLowerCase().includes('doctor')) :
       true
     );
     return matchesQuery && matchesTipo;
@@ -278,7 +279,7 @@ export default function App() {
                 Buscador de Titulaciones Oficiales Vigentes ({filteredDegrees.length})
               </h2>
               <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)' }}>
-                Selecciona cualquier titulación para abrir su plan de estudios extraído del BOE más reciente.
+                Filtra por Grado, Máster o Doctorado y selecciona cualquier titulación para abrir su plan de estudios desglosado.
               </p>
             </div>
 
@@ -288,7 +289,7 @@ export default function App() {
                 <Search size={18} color="var(--text-light)" style={{ position: 'absolute', left: '12px' }} />
                 <input 
                   type="text"
-                  placeholder="Buscar por grado o máster (ej. Ciencia de Datos, Derecho...)"
+                  placeholder="Buscar por grado, máster o doctorado (ej. Ciencia de Datos, Derecho, Didáctica...)"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   style={{
@@ -318,6 +319,7 @@ export default function App() {
                 <option value="todos">Todos los niveles</option>
                 <option value="grado">Grados</option>
                 <option value="master">Másteres</option>
+                <option value="doctorado">Doctorados</option>
               </select>
             </div>
 

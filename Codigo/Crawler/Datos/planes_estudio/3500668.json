@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "052",
   "universidad_nombre": "Universidad Antonio de Nebrija",
-  "fecha_procesado": "2026-07-31T14:41:05.799509",
+  "fecha_procesado": "2026-08-03T12:44:02.055964",
   "boe_url": "http://www.boe.es/boe/dias/2025/12/08/pdfs/BOE-A-2025-25036.pdf",
   "boe_fecha": "2025-12-10",
   "plan_estudios": {
@@ -16,57 +16,63 @@
       "Fundamentos de economía y empresa.": "4",
       "Fundamentos estadísticos para la analítica de datos.": "3"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Obligatorias.",
+        "nombre_elemento": "Asignaturas Obligatorias.",
         "creditos_ects": "42",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Optativas.",
+        "nombre_elemento": "Asignaturas Optativas.",
         "creditos_ects": "12",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
         "creditos_ects": "60",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Fundamentos de economía y empresa.",
+        "nombre_elemento": "Fundamentos de economía y empresa.",
         "creditos_ects": "4",
         "caracter": "Complemento de Formación.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Fundamentos estadísticos para la analítica de datos.",
+        "nombre_elemento": "Fundamentos estadísticos para la analítica de datos.",
         "creditos_ects": "3",
         "caracter": "Complemento de Formación.",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 6,
+    "total_elementos": 6,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n25036 Resolución de 20 de octubre de 2025, de la Universidad Antonio de Nebrija, \npor la que se publica el plan de estudios de Máster Universitario en Dirección \nEstratégica de Destinos Turísticos Inteligentes.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, y \nacordado el carácter oficial del título por Acuerdo del Consejo de Ministros de 7 de \noctubre de 2025 (publicado en el BOE de 13 de octubre de 2025, por Resolución de la \nSecretaría General de Universidades de 9 de octubre de 2025),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención \ndel título de Máster Universitario en Dirección Estratégica de Destinos Turísticos \nInteligentes, que queda estructurado según consta en el anexo de esta resolución.\nHoyo de Manzanares, 20 de octubre de 2025.–La Rectora, Monserrat Gomendio \nKindelan.\nANEXO\nUniversidad Antonio de Nebrija\nPLAN DE ESTUDIOS CONDUCENTE AL TÍTULO DE MÁSTER UNIVERSITARIO \nE"
   }
 }

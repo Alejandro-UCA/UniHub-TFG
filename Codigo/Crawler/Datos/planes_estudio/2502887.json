@@ -4,29 +4,536 @@
   "nivel_academico": "Grado - RD 1393/2007 (1)",
   "universidad_codigo": "074",
   "universidad_nombre": "Universidad a Distancia de Madrid",
-  "fecha_procesado": "2026-07-31T14:23:23.113177",
+  "fecha_procesado": "2026-08-03T12:27:03.568028",
   "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2025/10/14/BOCM-20251014-29.PDF",
   "boe_fecha": "2025-09-29",
   "plan_estudios": {
-    "resumen_creditos": {
-      "Máster Universitario en Negocios Digitales": "4318337",
-      "Grado en Diseño y Desarrollo de Videojuegos y Entornos Virtuales": "2504312",
-      "Máster Universitario en Análisis de Datos para la Epidemiología y Salud Pública": "4317728",
-      "Máster Universitario en Dirección de Negocios Internacionales": "4317249",
-      "Máster Universitario en Enfermería de Urgencias y Emergencias": "4318359",
-      "Máster Universitario en Medicina de Urgencias y Emergencias": "4318360",
-      "Grado en Bioinformática": "2504634",
-      "Grado en Arte Digital y Tecnologías Creativas": "2504664",
-      "Grado en Sociología": "2504666",
-      "Grado en Ciencias Políticas": "2504648",
-      "Máster Universitario en Educación Intercultural": "4318370",
-      "Máster Universitario en Investigación en Bioética": "4318362",
-      "Máster Universitario en Gobernanza Pública y Corporativa / Master in Public and Corporate Governance": "4318366",
-      "Máster Universitario en Asesoramiento Financiero y Bancario": "4317802",
-      "Máster Universitario en Energías Renovables": "4318470"
-    },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "resumen_creditos": {},
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Negocios Digitales",
+        "creditos_ects": "",
+        "caracter": "BOE 27.07.23",
+        "curso": "2023/2024",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Diseño y Desarrollo de Videojuegos y Entornos Virtuales",
+        "creditos_ects": "",
+        "caracter": "BOE 22.10.21",
+        "curso": "2024/2025",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Análisis de Datos para la Epidemiología y Salud Pública",
+        "creditos_ects": "",
+        "caracter": "BOE 22.10.21",
+        "curso": "2021/2022",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Dirección de Negocios Internacionales",
+        "creditos_ects": "",
+        "caracter": "BOE 22.01.21",
+        "curso": "2020/2021",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Enfermería de Urgencias y Emergencias",
+        "creditos_ects": "",
+        "caracter": "BOE 27.07.23",
+        "curso": "2023/2024",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Medicina de Urgencias y Emergencias",
+        "creditos_ects": "",
+        "caracter": "BOE 27.07.23",
+        "curso": "2023/2024",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Bioinformática",
+        "creditos_ects": "",
+        "caracter": "BOE 27.07.23",
+        "curso": "2023/2024",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Arte Digital y Tecnologías Creativas",
+        "creditos_ects": "",
+        "caracter": "BOE 27.07.23",
+        "curso": "2023/2024",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Sociología",
+        "creditos_ects": "",
+        "caracter": "BOE 6.01.24",
+        "curso": "2023/2024",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ciencias Políticas",
+        "creditos_ects": "",
+        "caracter": "BOE 27.07.23",
+        "curso": "2023/2024",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Educación Intercultural",
+        "creditos_ects": "",
+        "caracter": "BOE 27.07.23",
+        "curso": "2023/2024",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Investigación en Bioética",
+        "creditos_ects": "",
+        "caracter": "BOE 27.07.23",
+        "curso": "2023/2024",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Gobernanza Pública y Corporativa / Master in Public and Corporate Governance",
+        "creditos_ects": "",
+        "caracter": "BOE 27.07.23",
+        "curso": "2023/2024",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Asesoramiento Financiero y Bancario",
+        "creditos_ects": "",
+        "caracter": "BOE 22.10.21",
+        "curso": "2021/2022",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Energías Renovables",
+        "creditos_ects": "",
+        "caracter": "BOE 27.07.23",
+        "curso": "2023/2024",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Estudios Norteamericanos (título conjunto de la Universidad de Alcalá (coordinadora) y la Universidad Complutense de Madrid)",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Banca y Finanzas/ Finance & Banking",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Gestión Integral de Inmuebles y Servicios en el Patrimonio Arquitectónico",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Programa de Doctorado en Psicología Clínica y de la Salud",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Estudios Hispano-Alemanes (título conjunto con la Universidad",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Ingeniería Fotónica / Master in Photonics Engineering (título conjunto de la Universidad de Alcalá, la Universidad Carlos III de Madrid (coordinadora) y la Universidad Politécnica de Madrid)",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Comunicación Arquitectónica",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Métodos Formales en la Ingeniería Informática (título conjunto de la Universidad Complutense de Madrid (coordinadora); Universidad Politécnica de Madrid; y Universidad Autónoma de Madrid)",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Programa de Doctorado en Ciencias Sociales y Jurídicas",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Maestro en Educación Primaria",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Diseño de Productos y Servicios",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Turismo",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Relaciones Internacionales",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Artes Escénicas",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Turismo",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería Informática Biomédica",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Investigación Clínica Avanzada en Oncología",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Diseño de Productos Interactivos",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Marketing Digital, Comunicación y Redes Sociales",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Relaciones Internacionales y Comunicación",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Musicología",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ciencias de la Actividad Física y del Deporte",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Fisioterapia",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Investigación Musical",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Mediación Educativa y Problemas de Conducta en el Aula",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Actividad Física y Salud",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Periodismo",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Publicidad y Relaciones Públicas",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería de Tecnologías y Servicios de Telecomunicación",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Psicología",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ciencias del Trabajo, Relaciones Laborales y Recursos Humanos",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Gestión Sanitaria",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Tecnología Educativa",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Gestión de la Comunicación",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Administración y Dirección de Empresas",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Alta Dirección / Master in Senior Management",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Análisis de las Relaciones Económicas Internacionales",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Comunicación Corporativa y Responsabilidad Social Corporativa",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Dirección de la Cadena de Suministro",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Dirección en Marketing Internacional / Master in International Marketing Management",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Dirección de Recursos Humanos y Gestión del Talento/Master in Human Resources and Talent Development",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Dirección de Turismo Internacional y Ocio",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_elementos": 58,
     "texto_extraido_muestra": "MARTES 14 DE OCTUBRE DE 2025B.O.C.M. Núm. 245 Pág. 241\nBOCM-20251014-29\nBOLETÍN OFICIAL DE LA COMUNIDAD DE MADRIDBOCM\nI. COMUNIDAD DE MADRID\nC) Otras Disposiciones\nConsejería de Educación, Ciencia y Universidades\n29 ORDEN 4307/2025, de 29 de septiembre, del Consejero de Educación, Ciencia y\nUniversidades, por la que se autoriza la extinción de enseñanzas universitarias\noficiales de grado, máster y doctorado en las universidades y centros adscritos\nde la Comunidad de Madrid.\nEl artículo 27 del Real Decreto 822/2021, de 28 de septiembre, por el que se regula la\norganización de las enseñanzas universitarias y del procedimiento de aseguramiento de su\ncalidad, establece que verificado el plan de estudios por el Consejo de Universidades y des-\npués de emitirse la autorización de la Comunidad Autónoma, el Consejo de Ministros esta-\nblecerá por acuerdo, el carácter oficial de los títulos universitarios oficiales y será publica-\ndo en el “Boletín Oficial del Estado”, adquiriendo de este modo su"
   }
 }

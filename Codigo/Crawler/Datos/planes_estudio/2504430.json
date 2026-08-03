@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 1393/2007 (1)",
   "universidad_codigo": "052",
   "universidad_nombre": "Universidad Antonio de Nebrija",
-  "fecha_procesado": "2026-07-31T14:39:21.480102",
+  "fecha_procesado": "2026-08-03T12:42:33.681228",
   "boe_url": "http://www.boe.es/boe/dias/2023/04/03/pdfs/BOE-A-2023-8441.pdf",
   "boe_fecha": "2023-04-03",
   "plan_estudios": {
@@ -14,154 +14,164 @@
       "Asignaturas Optativas.": "30",
       "Prácticas Externas.": "24",
       "Trabajo Fin de Grado.": "12",
-      "Créditos totales.": "240",
-      "Desarrollo del espíritu participativo y solidario: Derechos Humanos.": "6",
-      "Tecno-ética.": "6",
-      "Mecánica y computación cuánticas.": "6",
-      "Robótica.": "6",
-      "Matemáticas para las finanzas.": "6",
-      "Biomatemática.": "6",
-      "Gestión de proyectos tecnológicos.": "6"
+      "Créditos totales.": "240"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas de Formación Básica.",
+        "nombre_elemento": "Asignaturas de Formación Básica.",
         "creditos_ects": "60",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Obligatorias.",
+        "nombre_elemento": "Asignaturas Obligatorias.",
         "creditos_ects": "114",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Optativas.",
+        "nombre_elemento": "Asignaturas Optativas.",
         "creditos_ects": "30",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
         "creditos_ects": "24",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
         "creditos_ects": "12",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
         "creditos_ects": "240",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Desarrollo del espíritu participativo y solidario: Derechos Humanos.",
+        "nombre_elemento": "Desarrollo del espíritu participativo y solidario: Derechos Humanos.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Desarrollo del espíritu participativo y solidario: Ética del Voluntariado.",
+        "nombre_elemento": "Desarrollo del espíritu participativo y solidario: Ética del Voluntariado.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Desarrollo del espíritu participativo y solidario: Clubes.",
+        "nombre_elemento": "Desarrollo del espíritu participativo y solidario: Clubes.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Desarrollo del espíritu participativo y solidario: Actividades Académicas Varias.",
+        "nombre_elemento": "Desarrollo del espíritu participativo y solidario: Actividades Académicas Varias.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Desarrollo del espíritu participativo y solidario: Representación de Alumnos.",
+        "nombre_elemento": "Desarrollo del espíritu participativo y solidario: Representación de Alumnos.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Tecno-ética.",
+        "nombre_elemento": "Tecno-ética.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Mecánica y computación cuánticas.",
+        "nombre_elemento": "Mecánica y computación cuánticas.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Robótica.",
+        "nombre_elemento": "Robótica.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Matemáticas para las finanzas.",
+        "nombre_elemento": "Matemáticas para las finanzas.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Biomatemática.",
+        "nombre_elemento": "Biomatemática.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Gestión de proyectos tecnológicos.",
+        "nombre_elemento": "Gestión de proyectos tecnológicos.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       }
     ],
-    "total_asignaturas": 17,
+    "total_elementos": 17,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n8441 Resolución de 8 de marzo de 2023, de la Universidad Antonio de Nebrija, por \nla que se publica el plan de estudios de Graduado o Graduada en \nMatemáticas Aplicadas.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, y \nacordado el carácter oficial del título por Acuerdo del Consejo de Ministros de 11 de julio \nde 2022 (publicado en el BOE de 20 de julio de 2022 por resolución de la Secretaría \nGeneral de Universidades, de 13 de julio de 2022), este Rectorado ha resuelto publicar \nel plan de estudios conducentes a la obtención del título de Graduado o Graduada en \nMatemáticas Aplicadas, que queda estructurado según consta en el anexo de esta \nresolución.\nHoyo de Manzanares, 8 de marzo de 2023.–El Rector, José Muñiz Fernández.\nANEXO\nUniversidad Antonio de Nebrija\nPlan de estudios conducente al título de Graduado o Graduada en Matemáticas \nAplicadas\nPlanificación de las enseñanzas\nDescripción general del plan de estud"
   }
 }

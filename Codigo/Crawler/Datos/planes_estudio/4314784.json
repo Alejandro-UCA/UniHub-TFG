@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "052",
   "universidad_nombre": "Universidad Antonio de Nebrija",
-  "fecha_procesado": "2026-07-31T14:43:15.350372",
+  "fecha_procesado": "2026-08-03T12:45:55.327579",
   "boe_url": "http://www.boe.es/boe/dias/2023/04/03/pdfs/BOE-A-2023-8452.pdf",
   "boe_fecha": "2023-04-03",
   "plan_estudios": {
@@ -13,87 +13,92 @@
       "Asignaturas Optativas.": "10",
       "Prácticas Externas.": "9",
       "Trabajo Fin de Máster.": "11",
-      "Créditos totales.": "60",
-      "Retos de la seguridad privada (1).": "5",
-      "Derecho internacional humanitario bélico (1).": "5",
-      "Escenarios internacionales para la seguridad (2).": "5",
-      "Escenarios internacionales para la defensa (2).": "5"
+      "Créditos totales.": "60"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Obligatorias.",
+        "nombre_elemento": "Asignaturas Obligatorias.",
         "creditos_ects": "30",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Optativas.",
+        "nombre_elemento": "Asignaturas Optativas.",
         "creditos_ects": "10",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
         "creditos_ects": "9",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
         "creditos_ects": "11",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
         "creditos_ects": "60",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Retos de la seguridad privada (1).",
+        "nombre_elemento": "Retos de la seguridad privada (1).",
         "creditos_ects": "5",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Derecho internacional humanitario bélico (1).",
+        "nombre_elemento": "Derecho internacional humanitario bélico (1).",
         "creditos_ects": "5",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Escenarios internacionales para la seguridad (2).",
+        "nombre_elemento": "Escenarios internacionales para la seguridad (2).",
         "creditos_ects": "5",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Escenarios internacionales para la defensa (2).",
+        "nombre_elemento": "Escenarios internacionales para la defensa (2).",
         "creditos_ects": "5",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       }
     ],
-    "total_asignaturas": 9,
+    "total_elementos": 9,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n8452 Resolución de 8 de marzo de 2023, de la Universidad Antonio de Nebrija, por \nla que se publica la modificación del plan de estudios de Máster Universitario \nen Seguridad y Defensa.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, y \nacordado el carácter oficial del título por Acuerdo del Consejo de Ministros de 26 de \nseptiembre de 2014 (publicado en el BOE de 18 de octubre de 2014 por Resolución de la \nSecretaría General de Universidades de 2 de octubre de 2014),\nEste Rectorado ha resuelto publicar la modificación del plan de estudios conducentes \na la obtención del título de Máster Universitario en Seguridad y Defensa, que queda \nestructurado según consta en el anexo de esta resolución.\nHoyo de Manzanares, 8 de marzo de 2023.–El Rector, José Muñiz Fernández.\nANEXO\nPlan de Estudios Conducente al título de Máster Universitario en Seguridad y \nDefensa\nPLANIFICACIÓN DE LAS ENSEÑANZAS\nDescripción general del plan de"
   }
 }

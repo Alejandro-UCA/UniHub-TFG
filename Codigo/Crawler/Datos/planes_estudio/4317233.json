@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "087",
   "universidad_nombre": "ESIC Universidad",
-  "fecha_procesado": "2026-07-31T14:10:51.812578",
+  "fecha_procesado": "2026-08-03T12:16:52.016981",
   "boe_url": "http://www.boe.es/boe/dias/2021/11/04/pdfs/BOE-A-2021-18030.pdf",
   "boe_fecha": "2021-11-04",
   "plan_estudios": {
@@ -13,591 +13,840 @@
       "Prácticas Externas.": "6",
       "Trabajo Fin de Máster.": "6",
       "Créditos totales.": "60",
-      "1": "Marketing Estratégico.",
-      "2": "Prácticas Externas.",
-      "Anual": "Prácticas en Empresa.",
       "Prácticas Externas": "6",
       "Trabajo Fin de Máster": "6"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
-        "materia": "",
-        "nombre_asignatura": "Comportamiento Organizativo.",
-        "creditos_ects": "3",
-        "caracter": "OB",
+        "modulo": "",
+        "materia": "Obligatorios.",
+        "nombre_elemento": "Obligatorios.",
+        "creditos_ects": "42",
+        "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
+        "materia": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Diseño Organizativo.",
+        "nombre_elemento": "Comportamiento Organizativo.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Diseño Organizativo.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Relaciones Socio Laborales.",
+        "nombre_elemento": "Relaciones Socio Laborales.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Práctica de Recursos Humanos.",
+        "nombre_elemento": "Práctica de Recursos Humanos.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Dirección de Recursos Humanos.",
+        "nombre_elemento": "Dirección de Recursos Humanos.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Responsabilidad de la Empresa y Ética Empresarial.",
+        "nombre_elemento": "Responsabilidad de la Empresa y Ética Empresarial.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Dirección Estratégica.",
+        "nombre_elemento": "Dirección Estratégica.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Empresa y Entorno.",
+        "nombre_elemento": "Empresa y Entorno.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Desarrollo de Habilidades.",
+        "nombre_elemento": "Desarrollo de Habilidades.",
         "creditos_ects": "9",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas en Empresa.",
+        "nombre_elemento": "Prácticas en Empresa.",
         "creditos_ects": "12",
         "caracter": "PE",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Seminarios y Conferencias.",
+        "nombre_elemento": "Seminarios y Conferencias.",
         "creditos_ects": "3",
         "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "modulo": "",
+        "materia": "Obligatorios.",
+        "nombre_elemento": "Obligatorios.",
+        "creditos_ects": "48",
+        "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "",
-        "nombre_asignatura": "Dirección de Comunicación.",
-        "creditos_ects": "3",
-        "caracter": "OB",
+        "modulo": "",
+        "materia": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "6",
+        "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "",
-        "nombre_asignatura": "Estrategias de Fijación de Precios.",
-        "creditos_ects": "3",
-        "caracter": "OB",
+        "modulo": "",
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "",
-        "nombre_asignatura": "Estrategias del Canal de Distribución.",
-        "creditos_ects": "3",
-        "caracter": "OB",
+        "modulo": "",
+        "materia": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
+        "creditos_ects": "60",
+        "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Dirección de Nuevos Productos y Servicios.",
+        "nombre_elemento": "Dirección de Comunicación.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Métodos Cuantitativos de Investigación de Mercados.",
+        "nombre_elemento": "Estrategias de Fijación de Precios.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Métodos Cualitativos de Investigación de Mercados.",
+        "nombre_elemento": "Estrategias del Canal de Distribución.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Plan de Marketing.",
+        "nombre_elemento": "Dirección de Nuevos Productos y Servicios.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Marketing Estratégico.",
+        "nombre_elemento": "Métodos Cuantitativos de Investigación de Mercados.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Metodología de Investigación Científica.",
+        "nombre_elemento": "Métodos Cualitativos de Investigación de Mercados.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Mercados Internacionales y Negociación Intercultural.",
+        "nombre_elemento": "Plan de Marketing.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Dirección Internacional de Marketing.",
+        "nombre_elemento": "Marketing Estratégico.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Estrategias de Marketing Digital.",
+        "nombre_elemento": "Metodología de Investigación Científica.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Habilidades de Dirección y Gestión de Personas en Marketing.",
+        "nombre_elemento": "Mercados Internacionales y Negociación Intercultural.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Dirección y Gestión de Proyectos.",
+        "nombre_elemento": "Dirección Internacional de Marketing.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Dirección y Organización de Ventas.",
+        "nombre_elemento": "Estrategias de Marketing Digital.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Comunicación Publicitaria, Estratégica y Persuasiva.",
+        "nombre_elemento": "Habilidades de Dirección y Gestión de Personas en Marketing.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Dirección y Gestión de Proyectos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Dirección y Organización de Ventas.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Comunicación Publicitaria, Estratégica y Persuasiva.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de Máster.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
         "creditos_ects": "6",
         "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "modulo": "",
+        "materia": "Obligatorios.",
+        "nombre_elemento": "Obligatorios.",
+        "creditos_ects": "42",
+        "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
+        "materia": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Comunicación Persuasiva.",
+        "nombre_elemento": "Comunicación Persuasiva.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Habilidades Directivas.",
+        "nombre_elemento": "Habilidades Directivas.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Dirección de Comunicación.",
+        "nombre_elemento": "Dirección de Comunicación.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Empresa y Comunicación.",
+        "nombre_elemento": "Empresa y Comunicación.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Metodología e Investigación en Ciencias de la Comunicación.",
+        "nombre_elemento": "Metodología e Investigación en Ciencias de la Comunicación.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Tecnologías para la Información, el Marketing y la Comunicación.",
+        "nombre_elemento": "Tecnologías para la Información, el Marketing y la Comunicación.",
         "creditos_ects": "9",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Comunicación Publicitaria.",
+        "nombre_elemento": "Comunicación Publicitaria.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Seminarios y Conferencias.",
+        "nombre_elemento": "Seminarios y Conferencias.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas en Empresa (Prácticum).",
+        "nombre_elemento": "Prácticas en Empresa (Prácticum).",
         "creditos_ects": "12",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
-        "materia": "",
-        "nombre_asignatura": "Comportamiento Organizativo.",
-        "creditos_ects": "3",
-        "caracter": "OB",
+        "modulo": "",
+        "materia": "Obligatorios.",
+        "nombre_elemento": "Obligatorios.",
+        "creditos_ects": "48",
+        "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "",
-        "nombre_asignatura": "Diseño Organizativo.",
-        "creditos_ects": "3",
-        "caracter": "OB",
+        "modulo": "",
+        "materia": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "6",
+        "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "",
-        "nombre_asignatura": "Relaciones Socio Laborales.",
-        "creditos_ects": "3",
-        "caracter": "OB",
+        "modulo": "",
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "",
-        "nombre_asignatura": "Práctica de Recursos Humanos.",
-        "creditos_ects": "3",
-        "caracter": "OB",
+        "modulo": "",
+        "materia": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
+        "creditos_ects": "60",
+        "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Dirección de Recursos Humanos.",
+        "nombre_elemento": "Comportamiento Organizativo.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Diseño Organizativo.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Relaciones Socio Laborales.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Práctica de Recursos Humanos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Dirección de Recursos Humanos.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Responsabilidad de la Empresa y Ética Empresarial.",
+        "nombre_elemento": "Responsabilidad de la Empresa y Ética Empresarial.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Dirección Estratégica.",
+        "nombre_elemento": "Dirección Estratégica.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Empresa y Entorno.",
+        "nombre_elemento": "Empresa y Entorno.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Desarrollo de Habilidades.",
+        "nombre_elemento": "Desarrollo de Habilidades.",
         "creditos_ects": "9",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Metodologías de Investigación y Análisis de Datos para los Recursos Humanos.",
+        "nombre_elemento": "Metodologías de Investigación y Análisis de Datos para los Recursos Humanos.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Finanzas.",
+        "nombre_elemento": "Finanzas.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Seminarios y Conferencias.",
+        "nombre_elemento": "Seminarios y Conferencias.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
         "creditos_ects": "6",
         "caracter": "TFM",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas en Empresa.",
+        "nombre_elemento": "Prácticas en Empresa.",
         "creditos_ects": "6",
         "caracter": "PE",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "Anual"
       },
       {
-        "materia": "",
-        "nombre_asignatura": "Dirección de Comunicación.",
-        "creditos_ects": "3",
-        "caracter": "OB",
+        "modulo": "",
+        "materia": "Obligatorios.",
+        "nombre_elemento": "Obligatorios.",
+        "creditos_ects": "48",
+        "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "",
-        "nombre_asignatura": "Estrategias de Fijación de Precios.",
-        "creditos_ects": "3",
-        "caracter": "OB",
+        "modulo": "",
+        "materia": "Prácticas Externas",
+        "nombre_elemento": "Prácticas Externas",
+        "creditos_ects": "6",
+        "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "",
-        "nombre_asignatura": "Estrategias del Canal de Distribución.",
-        "creditos_ects": "3",
-        "caracter": "OB",
+        "modulo": "",
+        "materia": "Trabajo Fin de Máster",
+        "nombre_elemento": "Trabajo Fin de Máster",
+        "creditos_ects": "6",
+        "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "",
-        "nombre_asignatura": "Dirección de Nuevos Productos y Servicios.",
-        "creditos_ects": "3",
-        "caracter": "OB",
+        "modulo": "",
+        "materia": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
+        "creditos_ects": "60",
+        "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Metodología de Investigación Científica.",
+        "nombre_elemento": "Dirección de Comunicación.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Inteligencia Competitiva y del Consumidor.",
+        "nombre_elemento": "Estrategias de Fijación de Precios.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Plan de Marketing.",
+        "nombre_elemento": "Estrategias del Canal de Distribución.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Marketing Estratégico.",
+        "nombre_elemento": "Dirección de Nuevos Productos y Servicios.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Mercados Internacionales y Negociación Intercultural.",
+        "nombre_elemento": "Metodología de Investigación Científica.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Dirección Internacional de Marketing.",
+        "nombre_elemento": "Inteligencia Competitiva y del Consumidor.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Estrategias de Marketing Digital.",
+        "nombre_elemento": "Plan de Marketing.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Habilidades de Dirección y Gestión de Personas en Marketing.",
+        "nombre_elemento": "Marketing Estratégico.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Dirección y Gestión de Proyectos.",
+        "nombre_elemento": "Mercados Internacionales y Negociación Intercultural.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Dirección y Organización de Ventas.",
+        "nombre_elemento": "Dirección Internacional de Marketing.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Comunicación Integrada de Marketing.",
+        "nombre_elemento": "Estrategias de Marketing Digital.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Modelos de Decisión y Métricas de Marketing.",
+        "nombre_elemento": "Habilidades de Dirección y Gestión de Personas en Marketing.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Dirección y Gestión de Proyectos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Dirección y Organización de Ventas.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Comunicación Integrada de Marketing.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Modelos de Decisión y Métricas de Marketing.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de Máster.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       }
     ],
-    "total_asignaturas": 72,
+    "total_elementos": 92,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n18030 Resolución de 15 de octubre de 2021, de ESIC Universidad, por la que se \npublican planes de estudios, modificaciones de planes de estudios y cambio \nde denominación de título de Máster.\nObtenida la verificación de los planes de estudios por el Consejo de Universidades, \nprevio informe positivo de la Fundación para el Conocimiento Madri+d, y acordado el \ncarácter oficial de los títulos por el Consejo de Ministros de 23 de febrero de 2021 \n(publicado en el «Boletín Oficial del Estado» de 4 de marzo de 2021 por Resolución de la \nSecretaría General de Universidades de 24 de febrero de 2021), este Rectorado ha \nresuelto publicar los planes de estudios conducentes a la obtención de los títulos \noficiales siguientes:\nMáster Universitario en Dirección de Personas y Desarrollo Organizativo.\nMáster Universitario en Gestión Comercial.\nMáster universitario en Dirección de Comunicación y Nuevas Tecnologías.\nLos Planes de estudio quedan estructurados segú"
   }
 }

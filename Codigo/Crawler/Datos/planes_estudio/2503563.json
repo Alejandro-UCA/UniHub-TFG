@@ -4,160 +4,178 @@
   "nivel_academico": "Grado - RD 1393/2007 (1)",
   "universidad_codigo": "052",
   "universidad_nombre": "Universidad Antonio de Nebrija",
-  "fecha_procesado": "2026-07-31T14:37:34.556496",
+  "fecha_procesado": "2026-08-03T12:40:53.292429",
   "boe_url": "http://www.boe.es/boe/dias/2018/07/11/pdfs/BOE-A-2018-9693.pdf",
   "boe_fecha": "2018-07-11",
   "plan_estudios": {
     "resumen_creditos": {
       "6": "Optativa."
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Sociología de la Actividad Física y del Deporte.",
+        "nombre_elemento": "Sociología de la Actividad Física y del Deporte.",
         "creditos_ects": "6",
         "caracter": "Básica.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Fisiología General.",
+        "nombre_elemento": "Fisiología General.",
         "creditos_ects": "6",
         "caracter": "Básica.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Motricidad Humana.",
+        "nombre_elemento": "Motricidad Humana.",
         "creditos_ects": "6",
         "caracter": "Obligatoria.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Fundamentos Básicos del Atletismo y su Enseñanza.",
+        "nombre_elemento": "Fundamentos Básicos del Atletismo y su Enseñanza.",
         "creditos_ects": "6",
         "caracter": "Obligatoria.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Fundamentos Básicos del Fútbol y su Enseñanza.",
+        "nombre_elemento": "Fundamentos Básicos del Fútbol y su Enseñanza.",
         "creditos_ects": "6",
         "caracter": "Obligatoria.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Psicología de la Actividad Física y del Deporte.",
+        "nombre_elemento": "Psicología de la Actividad Física y del Deporte.",
         "creditos_ects": "6",
         "caracter": "Básica.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Estadística aplicada a la Actividad Física y el Deporte.",
+        "nombre_elemento": "Estadística aplicada a la Actividad Física y el Deporte.",
         "creditos_ects": "6",
         "caracter": "Básica.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Fundamentos Básicos del Balonmano y su Enseñanza.",
+        "nombre_elemento": "Fundamentos Básicos del Balonmano y su Enseñanza.",
         "creditos_ects": "6",
         "caracter": "Básica.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Fundamentos de los Deportes de Raqueta y su Enseñanza.",
+        "nombre_elemento": "Fundamentos de los Deportes de Raqueta y su Enseñanza.",
         "creditos_ects": "6",
         "caracter": "Obligatoria.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Enseñanza de la Educación Física II.",
+        "nombre_elemento": "Enseñanza de la Educación Física II.",
         "creditos_ects": "6",
         "caracter": "Obligatoria.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Actividad Física y Deporte para personas con Discapacidad.",
+        "nombre_elemento": "Actividad Física y Deporte para personas con Discapacidad.",
         "creditos_ects": "6",
         "caracter": "Obligatoria.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Expresión Corporal y Danza.",
+        "nombre_elemento": "Expresión Corporal y Danza.",
         "creditos_ects": "6",
         "caracter": "Obligatoria.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Entrenamiento Deportivo II.",
+        "nombre_elemento": "Entrenamiento Deportivo II.",
         "creditos_ects": "6",
         "caracter": "Obligatoria.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas Externas en Empresa I.",
+        "nombre_elemento": "Prácticas Externas en Empresa I.",
         "creditos_ects": "6",
         "caracter": "Obligatoria.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Optativas.",
+        "nombre_elemento": "Asignaturas Optativas.",
         "creditos_ects": "6",
         "caracter": "Obligatoria.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas Externas en Empresa II.",
+        "nombre_elemento": "Prácticas Externas en Empresa II.",
         "creditos_ects": "6",
         "caracter": "Obligatoria.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
         "creditos_ects": "6",
         "caracter": "Obligatoria.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Optativas.",
+        "nombre_elemento": "Asignaturas Optativas.",
         "creditos_ects": "18",
         "caracter": "Obligatoria.",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 18,
+    "total_elementos": 18,
     "texto_extraido_muestra": "BOLETÍN OFICIAL DEL ESTADO\nNúm. 167 Miércoles 11 de julio de 2018 Sec. III.   Pág. 69292\nIII. OTRAS DISPOSICIONES\nUNIVERSIDADES\n9693 Resolución de 22 de junio de 2018, de la Universidad Antonio de Nebrija, por \nla que se publica el plan de estudios de Graduado en Ciencias de la Actividad \nFísica y del Deporte.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, y \nacordado el carácter oficial del título por Acuerdo del Consejo de Ministros de 19 de enero \nde 2018 (publicado en el BOE de 5 de febrero de 2018 por resolución de la Secretaría \nGeneral de Universidades de 24 de enero de 2018),\nEste Rectorado ha resuelto publicar el plan de estudios conducentes a la obtención del \ntítulo de Graduado o Graduada en Ciencias de la Actividad Física y del Deporte, que \nqueda estructurado según consta en el Anexo de esta Resolución.\nHoyo de Manzanares, 22 de junio de 2018.–El Rector, Juan Cayón Peña.\nANEXO\nUNIVERSIDAD ANTONIO DE NEBRIJA\nPlan de estudios conducente al tít"
   }
 }

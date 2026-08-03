@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "057",
   "universidad_nombre": "IE Universidad",
-  "fecha_procesado": "2026-07-31T14:13:41.123144",
+  "fecha_procesado": "2026-08-03T12:19:29.393174",
   "boe_url": "http://www.boe.es/boe/dias/2021/12/08/pdfs/BOE-A-2021-20311.pdf",
   "boe_fecha": "2021-12-08",
   "plan_estudios": {
@@ -19,8 +19,135 @@
       "Tecnología. 12 ECTS (OB).": "Nuevas Tecnologías.",
       "Proyecto Final. 6 ECTS.": "Trabajo fin de Máster."
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Materias obligatorias.",
+        "nombre_elemento": "Materias obligatorias.",
+        "creditos_ects": "45",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias optativas.",
+        "nombre_elemento": "Materias optativas.",
+        "creditos_ects": "9",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total créditos.",
+        "nombre_elemento": "Total créditos.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Economía. 12 ECTS (OB).",
+        "materia": "Teoría Económica.",
+        "nombre_elemento": "Teoría Económica.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Economía. 12 ECTS (OB).",
+        "materia": "Métodos Cuantitativos.",
+        "nombre_elemento": "Métodos Cuantitativos.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Ciencia Política. 18 ECTS (OB + OP).",
+        "materia": "Investigación de Políticas.",
+        "nombre_elemento": "Investigación de Políticas.",
+        "creditos_ects": "9",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Ciencia Política. 18 ECTS (OB + OP).",
+        "materia": "Análisis Sectorial.",
+        "nombre_elemento": "Análisis Sectorial.",
+        "creditos_ects": "9",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Gestión de Proyectos. 12 ECTS (OB).",
+        "materia": "Diseño de Proyectos.",
+        "nombre_elemento": "Diseño de Proyectos.",
+        "creditos_ects": "9",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Gestión de Proyectos. 12 ECTS (OB).",
+        "materia": "Evaluación de Impacto.",
+        "nombre_elemento": "Evaluación de Impacto.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tecnología. 12 ECTS (OB).",
+        "materia": "Nuevas Tecnologías.",
+        "nombre_elemento": "Nuevas Tecnologías.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tecnología. 12 ECTS (OB).",
+        "materia": "Tecnología Pública.",
+        "nombre_elemento": "Tecnología Pública.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyecto Final. 6 ECTS.",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Total créditos.",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_elementos": 14,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n20311 Resolución de 28 de octubre de 2021, de IE Universidad, por la que se \npublica el plan de estudios de Máster Universitario en Gestión de la \nAdministración Pública/Master in Public Administration.\nEn cumplimiento de lo dispuesto en el artículo 35.4 de la Ley Orgánica 6/2001, de 21 \nde diciembre, de universidades y en el artículo 27 del Real Decreto 822/2021, de 28 de \nseptiembre, por el que se establece la organización de las enseñanzas universitarias y \ndel procedimiento de aseguramiento de su calidad; una vez obtenida la verificación del \nplan de estudios por el Consejo de Universidades el 24 de mayo de 2021 previo informe \nfavorable de la Agencia para la Calidad del Sistema Universitario de Castilla y León y \nestablecido el carácter oficial del título por Acuerdo de Consejo de Ministros de 5 de \noctubre de 2021 por el que se establece el carácter oficial de determinados títulos de \nMáster y su inscripción en el Registro de Universidades, "
   }
 }

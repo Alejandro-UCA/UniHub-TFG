@@ -4,438 +4,524 @@
   "nivel_academico": "Grado - RD 822/2021 (2)",
   "universidad_codigo": "057",
   "universidad_nombre": "IE Universidad",
-  "fecha_procesado": "2026-07-31T14:11:38.560963",
+  "fecha_procesado": "2026-08-03T12:17:35.952507",
   "boe_url": "http://www.boe.es/boe/dias/2022/05/20/pdfs/BOE-A-2022-8320.pdf",
   "boe_fecha": "2022-05-20",
   "plan_estudios": {
     "resumen_creditos": {
       "Formación Básica.": "63",
       "Obligatorias.": "108",
-      "Optativas.": "Optativas / prácticas profesionales.",
+      "Optativas.": "57",
       "Trabajo fin de Grado.": "12",
-      "Total créditos.": "240",
-      "Fundamentos jurídicos.": "Teoría del Derecho.",
-      "Derecho Público I.": "Derecho Procesal.",
-      "Derecho Privado.": "Derecho Mercantil.",
-      "Materias propias.": "Empresa.",
-      "Habilidades profesionales.": "Habilidades profesionales.",
-      "Derecho Público II.": "Derecho financiero y tributario.",
-      "Módulo transversal.": "Reto IE.",
-      "Sistemas Jurídicos Supranacionales.": "Derecho de la Unión Europea.",
-      "Sistemas jurídicos supranacionales.": "Derecho internacional privado.",
-      "Trabajo Fin de Grado.": "Trabajo Fin de Grado."
+      "Total créditos.": "240"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
+        "materia": "Formación Básica.",
+        "nombre_elemento": "Formación Básica.",
+        "creditos_ects": "63",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "108",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativas.",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "57",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Grado.",
+        "nombre_elemento": "Trabajo fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total créditos.",
+        "nombre_elemento": "Total créditos.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
         "materia": "Historia del Derecho.",
-        "nombre_asignatura": "Historia del Derecho Europeo.",
+        "nombre_elemento": "Historia del Derecho Europeo.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Teoría del Derecho.",
-        "nombre_asignatura": "Filosofía del Derecho.",
+        "nombre_elemento": "Filosofía del Derecho.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Contabilidad y Finanzas.",
+        "nombre_elemento": "Contabilidad y Finanzas.",
         "creditos_ects": "3",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Emprendimiento.",
+        "nombre_elemento": "Emprendimiento.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Tecnología.",
+        "nombre_elemento": "Tecnología.",
         "creditos_ects": "3",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Historia.",
-        "nombre_asignatura": "Humanidades.",
+        "nombre_elemento": "Humanidades.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Economía.",
-        "nombre_asignatura": "Economía.",
+        "nombre_elemento": "Economía.",
         "creditos_ects": "3",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Derecho Constitucional.",
-        "nombre_asignatura": "Derecho Constitucional.",
+        "nombre_elemento": "Derecho Constitucional.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Derecho Internacional Público.",
-        "nombre_asignatura": "Derecho Internacional Público.",
+        "nombre_elemento": "Derecho Internacional Público.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Derecho Civil.",
-        "nombre_asignatura": "Introducción al Derecho Privado – Derecho Civil.",
+        "nombre_elemento": "Introducción al Derecho Privado – Derecho Civil.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Derecho Civil.",
-        "nombre_asignatura": "Derecho Civil (Obligaciones y Contratos).",
+        "nombre_elemento": "Derecho Civil (Obligaciones y Contratos).",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Derecho de la Unión Europea.",
-        "nombre_asignatura": "Derecho de la Unión Europea.",
+        "nombre_elemento": "Derecho de la Unión Europea.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Fundamentos jurídicos.",
         "materia": "Historia del Derecho.",
-        "nombre_asignatura": "Historia del Derecho Europeo.",
+        "nombre_elemento": "Historia del Derecho Europeo.",
         "creditos_ects": "6",
         "caracter": "B",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Derecho Público I.",
         "materia": "Derecho Constitucional.",
-        "nombre_asignatura": "Derecho Constitucional.",
+        "nombre_elemento": "Derecho Constitucional.",
         "creditos_ects": "6",
         "caracter": "B",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Derecho Privado.",
         "materia": "Derecho Civil.",
-        "nombre_asignatura": "Introducción al Derecho Privado – Derecho Civil.",
+        "nombre_elemento": "Introducción al Derecho Privado – Derecho Civil.",
         "creditos_ects": "6",
         "caracter": "B",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Materias propias.",
         "materia": "Empresa.",
-        "nombre_asignatura": "Contabilidad y Finanzas.",
+        "nombre_elemento": "Contabilidad y Finanzas.",
         "creditos_ects": "3",
         "caracter": "B",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Materias propias.",
         "materia": "Economía.",
-        "nombre_asignatura": "Economía.",
+        "nombre_elemento": "Economía.",
         "creditos_ects": "3",
         "caracter": "B",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Habilidades profesionales.",
         "materia": "Habilidades profesionales.",
-        "nombre_asignatura": "Habilidades I.",
+        "nombre_elemento": "Habilidades I.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Derecho Público II.",
         "materia": "Derecho Penal.",
-        "nombre_asignatura": "Derecho Penal I.",
+        "nombre_elemento": "Derecho Penal I.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Derecho Privado.",
         "materia": "Derecho Civil.",
-        "nombre_asignatura": "Derecho Civil (Obligaciones y Contratos).",
+        "nombre_elemento": "Derecho Civil (Obligaciones y Contratos).",
         "creditos_ects": "6",
         "caracter": "B",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Habilidades profesionales.",
         "materia": "Habilidades profesionales.",
-        "nombre_asignatura": "Habilidades II.",
+        "nombre_elemento": "Habilidades II.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Fundamentos jurídicos.",
         "materia": "Teoría del Derecho.",
-        "nombre_asignatura": "Filosofía del Derecho.",
+        "nombre_elemento": "Filosofía del Derecho.",
         "creditos_ects": "6",
         "caracter": "B",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Derecho Público I.",
         "materia": "Derecho Administrativo.",
-        "nombre_asignatura": "Derecho Administrativo.",
+        "nombre_elemento": "Derecho Administrativo.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Módulo transversal.",
         "materia": "Humanidades.",
-        "nombre_asignatura": "Humanidades.",
+        "nombre_elemento": "Humanidades.",
         "creditos_ects": "6",
         "caracter": "B",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Derecho Público II.",
         "materia": "Derecho Penal.",
-        "nombre_asignatura": "Derecho Penal II.",
+        "nombre_elemento": "Derecho Penal II.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Derecho Privado.",
         "materia": "Derecho Civil.",
-        "nombre_asignatura": "Derecho Civil. Derechos Reales.",
+        "nombre_elemento": "Derecho Civil. Derechos Reales.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Derecho Público I.",
         "materia": "Derecho Administrativo.",
-        "nombre_asignatura": "Derecho Administrativo Económico.",
+        "nombre_elemento": "Derecho Administrativo Económico.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Derecho Público I.",
         "materia": "Derecho Internacional Público.",
-        "nombre_asignatura": "Derecho Internacional Público.",
+        "nombre_elemento": "Derecho Internacional Público.",
         "creditos_ects": "6",
         "caracter": "B",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Habilidades profesionales.",
         "materia": "Habilidades profesionales.",
-        "nombre_asignatura": "Habilidades III.",
+        "nombre_elemento": "Habilidades III.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Módulo transversal.",
         "materia": "Tecnología.",
-        "nombre_asignatura": "Tecnología.",
+        "nombre_elemento": "Tecnología.",
         "creditos_ects": "3",
         "caracter": "B",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Derecho Público II.",
         "materia": "Derecho del Trabajo.",
-        "nombre_asignatura": "Derecho Laboral I.",
+        "nombre_elemento": "Derecho Laboral I.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Sistemas Jurídicos Supranacionales.",
         "materia": "Derecho de la Unión Europea.",
-        "nombre_asignatura": "Derecho de la Unión Europea.",
+        "nombre_elemento": "Derecho de la Unión Europea.",
         "creditos_ects": "6",
         "caracter": "B",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Sistemas Jurídicos Supranacionales.",
         "materia": "Derechos Humanos.",
-        "nombre_asignatura": "Derechos Humanos.",
+        "nombre_elemento": "Derechos Humanos.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Derecho Privado.",
         "materia": "Derecho Civil.",
-        "nombre_asignatura": "Responsabilidad Civil Extracontractual.",
+        "nombre_elemento": "Responsabilidad Civil Extracontractual.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Habilidades profesionales.",
         "materia": "Habilidades profesionales.",
-        "nombre_asignatura": "Habilidades IV.",
+        "nombre_elemento": "Habilidades IV.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Derecho Público I.",
         "materia": "Derecho Procesal.",
-        "nombre_asignatura": "Derecho Procesal I.",
+        "nombre_elemento": "Derecho Procesal I.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Módulo transversal.",
         "materia": "Empresa.",
-        "nombre_asignatura": "Emprendimiento.",
+        "nombre_elemento": "Emprendimiento.",
         "creditos_ects": "6",
         "caracter": "B",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Derecho Público II.",
         "materia": "Derecho Financiero y Tributario.",
-        "nombre_asignatura": "Derecho Financiero y Tributario I.",
+        "nombre_elemento": "Derecho Financiero y Tributario I.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Derecho Público II.",
         "materia": "Derecho del Trabajo.",
-        "nombre_asignatura": "Derecho Laboral II.",
+        "nombre_elemento": "Derecho Laboral II.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Derecho Privado.",
         "materia": "Derecho Mercantil.",
-        "nombre_asignatura": "Derecho Mercantil I.",
+        "nombre_elemento": "Derecho Mercantil I.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Derecho Público I.",
         "materia": "Derecho Procesal.",
-        "nombre_asignatura": "Derecho procesal II.",
+        "nombre_elemento": "Derecho procesal II.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Módulo transversal.",
         "materia": "Reto IE.",
-        "nombre_asignatura": "Reto IE.",
+        "nombre_elemento": "Reto IE.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Sistemas jurídicos supranacionales.",
         "materia": "Derecho internacional privado.",
-        "nombre_asignatura": "Derecho Internacional Privado.",
+        "nombre_elemento": "Derecho Internacional Privado.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Derecho Público II.",
         "materia": "Derecho financiero y tributario.",
-        "nombre_asignatura": "Derecho Financiero y Tributario II.",
+        "nombre_elemento": "Derecho Financiero y Tributario II.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Habilidades profesionales.",
         "materia": "Habilidades profesionales.",
-        "nombre_asignatura": "Habilidades V.",
+        "nombre_elemento": "Habilidades V.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativas.",
         "materia": "Asignaturas optativas.",
-        "nombre_asignatura": "Optativas.",
+        "nombre_elemento": "Optativas.",
         "creditos_ects": "9",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Derecho Privado.",
         "materia": "Derecho Mercantil.",
-        "nombre_asignatura": "Derecho Mercantil II.",
+        "nombre_elemento": "Derecho Mercantil II.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Derecho Privado.",
         "materia": "Derecho Civil.",
-        "nombre_asignatura": "Derecho Civil. Familiar y sucesiones.",
+        "nombre_elemento": "Derecho Civil. Familiar y sucesiones.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativas.",
         "materia": "Optativas / prácticas profesionales.",
-        "nombre_asignatura": "Optativas / prácticas profesionales.",
+        "nombre_elemento": "Optativas / prácticas profesionales.",
         "creditos_ects": "30",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativas.",
         "materia": "Optativas / prácticas profesionales.",
-        "nombre_asignatura": "Optativas / prácticas profesionales.",
+        "nombre_elemento": "Optativas / prácticas profesionales.",
         "creditos_ects": "18",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Trabajo Fin de Grado.",
         "materia": "Trabajo Fin de Grado.",
-        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
         "creditos_ects": "12",
         "caracter": "TFG",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 51,
+    "total_elementos": 56,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n8320 Resolución de 3 de mayo de 2022, de IE Universidad, por la que se publica la \nmodificación del plan de estudios de Graduado o Graduada en Derecho/\nBachelor of Laws.\nDe conformidad con lo dispuesto en el artículo 32 del Real Decreto 822/2021, de 28 \nde septiembre, por el que se establece la organización de las enseñanzas universitarias \ny del procedimiento de aseguramiento de su calidad, en el que se regula el \nprocedimiento para la modificación sustancial de los planes de estudios impartidos en \ncentros universitarios no acreditados institucionalmente, y una vez recibido informe \nfavorable de la Agencia para la Calidad del Sistema Universitario de Castilla y León a las \nmodificaciones presentadas al título oficial de Graduado/a en Derecho/Bachelor of Laws \npor la IE Universidad (2504110) establecido por Acuerdo del Consejo de Ministros de 12 \nde enero de 2021 por el que se establece el carácter oficial de determinados títulos de \nGrado y su i"
   }
 }

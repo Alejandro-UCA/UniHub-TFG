@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 1393/2007 (1)",
   "universidad_codigo": "057",
   "universidad_nombre": "IE Universidad",
-  "fecha_procesado": "2026-07-31T14:11:30.507812",
+  "fecha_procesado": "2026-08-03T12:17:29.933256",
   "boe_url": "http://www.boe.es/boe/dias/2009/08/22/pdfs/BOE-A-2009-13753.pdf",
   "boe_fecha": "2009-08-22",
   "plan_estudios": {
@@ -50,369 +50,414 @@
       "Gobernanza electrónica: democracia y tecnología.": "OB",
       "Análisis audiovisual: escritura-edición digital.": "OB"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Medios de comunicación de masas.",
+        "nombre_elemento": "Medios de comunicación de masas.",
         "creditos_ects": "",
         "caracter": "B",
         "curso": "1",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Historia contemporánea.",
+        "nombre_elemento": "Historia contemporánea.",
         "creditos_ects": "",
         "caracter": "B",
         "curso": "1",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Globalización.",
+        "nombre_elemento": "Globalización.",
         "creditos_ects": "",
         "caracter": "B",
         "curso": "1",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Relaciones Internacionales.",
+        "nombre_elemento": "Relaciones Internacionales.",
         "creditos_ects": "",
         "caracter": "B",
         "curso": "2",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Sociología del consumo.",
+        "nombre_elemento": "Sociología del consumo.",
         "creditos_ects": "",
         "caracter": "B",
         "curso": "2",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Economía y Empresa de comunicación.",
+        "nombre_elemento": "Economía y Empresa de comunicación.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "2",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Diplomacia pública y filantropía.",
+        "nombre_elemento": "Diplomacia pública y filantropía.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "4",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Libertad de expresión.",
+        "nombre_elemento": "Libertad de expresión.",
         "creditos_ects": "",
         "caracter": "B",
         "curso": "1",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Minorías.",
+        "nombre_elemento": "Minorías.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "1",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Derecho de la información: regulación mediática.",
+        "nombre_elemento": "Derecho de la información: regulación mediática.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "2",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Propiedad intelectual.",
+        "nombre_elemento": "Propiedad intelectual.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "3",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Cultura, Literatura, Arte e Imagen.",
+        "nombre_elemento": "Cultura, Literatura, Arte e Imagen.",
         "creditos_ects": "",
         "caracter": "B",
         "curso": "1",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Idioma extranjero.",
+        "nombre_elemento": "Idioma extranjero.",
         "creditos_ects": "",
         "caracter": "B",
         "curso": "1",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Alfabetización digital.",
+        "nombre_elemento": "Alfabetización digital.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "1",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Comunidades virtuales.",
+        "nombre_elemento": "Comunidades virtuales.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "3",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Gestión de contenidos digitales: diseño y producción.",
+        "nombre_elemento": "Gestión de contenidos digitales: diseño y producción.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "3",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Comunicación corporativa.",
+        "nombre_elemento": "Comunicación corporativa.",
         "creditos_ects": "",
         "caracter": "B",
         "curso": "2",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Opinión pública y comunicación política.",
+        "nombre_elemento": "Opinión pública y comunicación política.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "2",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Comunicación intercultural.",
+        "nombre_elemento": "Comunicación intercultural.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "3",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Reporterismo multimedia.",
+        "nombre_elemento": "Reporterismo multimedia.",
         "creditos_ects": "",
         "caracter": "B",
         "curso": "2",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Géneros periodísticos.",
+        "nombre_elemento": "Géneros periodísticos.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "2",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Análisis Audiovisual: Escritura-edición digital.",
+        "nombre_elemento": "Análisis Audiovisual: Escritura-edición digital.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "2",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Gobernanza electrónica: Democracia y Tecnología.",
+        "nombre_elemento": "Gobernanza electrónica: Democracia y Tecnología.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "3",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Comercio electrónico.",
+        "nombre_elemento": "Comercio electrónico.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "3",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Gestión de marca: Marketing y Relaciones Públicas.",
+        "nombre_elemento": "Gestión de marca: Marketing y Relaciones Públicas.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "3",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Planificación publicitaria.",
+        "nombre_elemento": "Planificación publicitaria.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "3",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Investigación de audiencias.",
+        "nombre_elemento": "Investigación de audiencias.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "3",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Protocolo.",
+        "nombre_elemento": "Protocolo.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "3",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Periodismo iberoamericano.",
+        "nombre_elemento": "Periodismo iberoamericano.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "3",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Periodismo angloamericano.",
+        "nombre_elemento": "Periodismo angloamericano.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "3",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Comunicación económico-financiera.",
+        "nombre_elemento": "Comunicación económico-financiera.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "4",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Comunicación internacional.",
+        "nombre_elemento": "Comunicación internacional.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "4",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Optativa 1.",
+        "nombre_elemento": "Optativa 1.",
         "creditos_ects": "",
         "caracter": "OPB",
         "curso": "4",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Optativa 2.",
+        "nombre_elemento": "Optativa 2.",
         "creditos_ects": "",
         "caracter": "OPB",
         "curso": "4",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Optativa 3.",
+        "nombre_elemento": "Optativa 3.",
         "creditos_ects": "",
         "caracter": "OPB",
         "curso": "4",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Optativa 4.",
+        "nombre_elemento": "Optativa 4.",
         "creditos_ects": "",
         "caracter": "OPB",
         "curso": "4",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Optativa 5.",
+        "nombre_elemento": "Optativa 5.",
         "creditos_ects": "",
         "caracter": "OPB",
         "curso": "4",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Economía y empresa de comunicación.",
+        "nombre_elemento": "Economía y empresa de comunicación.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Derecho de la información: regulación mediática.",
+        "nombre_elemento": "Derecho de la información: regulación mediática.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Comunicación corporativa.",
+        "nombre_elemento": "Comunicación corporativa.",
         "creditos_ects": "",
         "caracter": "B",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Opinión pública y comunicación política.",
+        "nombre_elemento": "Opinión pública y comunicación política.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Reporterismo multimedia.",
+        "nombre_elemento": "Reporterismo multimedia.",
         "creditos_ects": "",
         "caracter": "B",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Gobernanza electrónica: democracia y tecnología.",
+        "nombre_elemento": "Gobernanza electrónica: democracia y tecnología.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Géneros periodísticos.",
+        "nombre_elemento": "Géneros periodísticos.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Análisis audiovisual: escritura-edición digital.",
+        "nombre_elemento": "Análisis audiovisual: escritura-edición digital.",
         "creditos_ects": "",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 45,
+    "total_elementos": 45,
     "texto_extraido_muestra": "BOLETÍN OFICIAL DEL ESTADO\nNúm. 203 Sábado 22 de agosto de 2009 Sec. III.   Pág. 72173\nIII. OTRAS DISPOSICIONES\nUNIVERSIDADES\n13753 Resolución de 27 de julio de 2009, de la IE Universidad, por la que se publica \nel plan de estudios de Graduado en Comunicación.\nEn cumplimiento de lo dispuesto en el artículo 35.4 de la Ley Orgánica 6/2001, de 21 \nde diciembre, de Universidades; la disposición adicional sexta del Real Decreto 1393/2007, \nde 30 de octubre, por el que se establece la ordenación de las enseñanzas universitarias \noficiales, una vez obtenida la verificación del plan de estudios por el Consejo de \nUniversidades, previo informe positivo de la Agencia Nacional de la Calidad y Acreditación, \ny declarado el carácter oficial del título por Acuerdo del Consejo de Ministros de 29 de \nagosto de 2008 (publicado en el «Boletín Oficial del Estado» de 26 de septiembre de 2008 \npor Resolución del Secretario de Estado de Universidades de 24 de septiembre de 2008), \neste Rectorado ha resuelto"
   }
 }

@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 1393/2007 (1)",
   "universidad_codigo": "052",
   "universidad_nombre": "Universidad Antonio de Nebrija",
-  "fecha_procesado": "2026-07-31T14:38:10.773945",
+  "fecha_procesado": "2026-08-03T12:41:21.532396",
   "boe_url": "http://www.boe.es/boe/dias/2024/01/27/pdfs/BOE-A-2024-1565.pdf",
   "boe_fecha": "2024-01-27",
   "plan_estudios": {
@@ -14,347 +14,353 @@
       "Asignaturas optativas.": "24",
       "Prácticas externas.": "30",
       "Trabajo fin de grado.": "6",
-      "Créditos totales.": "240",
-      "Dificultades del aprendizaje y Trastornos del Neurodesarrollo.": "6",
-      "Psicogerontología.": "6",
-      "Políticas y gestión cultura.": "6",
-      "Modelos para la promoción de la salud y la prevención de la enfermedad.": "6",
-      "La cooperación internacional y el desarrollo.": "6",
-      "Atención a menores del sistema de protección.": "6",
-      "Mujeres, igualdad y transformaciones sociales.": "6",
-      "Motivación y emoción.": "6",
-      "La integración de Migrantes y Refugiados.": "6",
-      "Sociedad, familia y educación.": "6",
-      "Las necesidades educativas especiales.": "6",
-      "Neuropsicología.": "6",
-      "Educación de personas adultas y mayores.": "6",
-      "Diseño de programaciones culturales.": "6",
-      "Programas de animación sociocultural.": "6",
-      "Atención a personas en situación de dependencia.": "6",
-      "Educación para la salud.": "6",
-      "Sensibilización y Educación para el Desarrollo.": "6",
-      "Diseño y evaluación de proyectos internacionales.": "6",
-      "Intervención socioeducativa con menores en conflicto con la ley.": "6",
-      "Educación Social y atención a adicciones.": "6",
-      "Atención socioeducativa con mujeres víctimas de violencia de género.": "6",
-      "Intervención Socioeducativa desde la perspectiva de género.": "6",
-      "Principios metodológicos en educación infantil.": "6",
-      "Adquisición y desarrollo del lenguaje.": "6",
-      "Atención educativa para la atención a las discapacidades motóricas y sensoriales.": "6",
-      "Programas y servicios de atención a mayores.": "6",
-      "La gestión cultural y los medios de comunicación.": "6",
-      "Salud mental y educación social.": "6",
-      "Líneas de actuación y programas de cooperación para el desarrollo.": "6",
-      "Inserción sociolaboral en jóvenes.": "6",
-      "Inserción sociolaboral para mujeres en situación de riesgo de exclusión social.": "6"
+      "Créditos totales.": "240"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas de formación básica.",
+        "nombre_elemento": "Asignaturas de formación básica.",
         "creditos_ects": "60",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas obligatorias.",
+        "nombre_elemento": "Asignaturas obligatorias.",
         "creditos_ects": "120",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas optativas.",
+        "nombre_elemento": "Asignaturas optativas.",
         "creditos_ects": "24",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas externas.",
+        "nombre_elemento": "Prácticas externas.",
         "creditos_ects": "30",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo fin de grado.",
+        "nombre_elemento": "Trabajo fin de grado.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
         "creditos_ects": "240",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Dificultades del aprendizaje y Trastornos del Neurodesarrollo.",
+        "nombre_elemento": "Dificultades del aprendizaje y Trastornos del Neurodesarrollo.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Psicogerontología.",
+        "nombre_elemento": "Psicogerontología.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Políticas y gestión cultura.",
+        "nombre_elemento": "Políticas y gestión cultura.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Modelos para la promoción de la salud y la prevención de la enfermedad.",
+        "nombre_elemento": "Modelos para la promoción de la salud y la prevención de la enfermedad.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "La cooperación internacional y el desarrollo.",
+        "nombre_elemento": "La cooperación internacional y el desarrollo.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Atención a menores del sistema de protección.",
+        "nombre_elemento": "Atención a menores del sistema de protección.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Mujeres, igualdad y transformaciones sociales.",
+        "nombre_elemento": "Mujeres, igualdad y transformaciones sociales.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Motivación y emoción.",
+        "nombre_elemento": "Motivación y emoción.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "La integración de Migrantes y Refugiados.",
+        "nombre_elemento": "La integración de Migrantes y Refugiados.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Sociedad, familia y educación.",
+        "nombre_elemento": "Sociedad, familia y educación.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Las necesidades educativas especiales.",
+        "nombre_elemento": "Las necesidades educativas especiales.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Neuropsicología.",
+        "nombre_elemento": "Neuropsicología.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Educación de personas adultas y mayores.",
+        "nombre_elemento": "Educación de personas adultas y mayores.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Diseño de programaciones culturales.",
+        "nombre_elemento": "Diseño de programaciones culturales.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Programas de animación sociocultural.",
+        "nombre_elemento": "Programas de animación sociocultural.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Atención a personas en situación de dependencia.",
+        "nombre_elemento": "Atención a personas en situación de dependencia.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Educación para la salud.",
+        "nombre_elemento": "Educación para la salud.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Sensibilización y Educación para el Desarrollo.",
+        "nombre_elemento": "Sensibilización y Educación para el Desarrollo.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Diseño y evaluación de proyectos internacionales.",
+        "nombre_elemento": "Diseño y evaluación de proyectos internacionales.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Intervención socioeducativa con menores en conflicto con la ley.",
+        "nombre_elemento": "Intervención socioeducativa con menores en conflicto con la ley.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Educación Social y atención a adicciones.",
+        "nombre_elemento": "Educación Social y atención a adicciones.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Atención socioeducativa con mujeres víctimas de violencia de género.",
+        "nombre_elemento": "Atención socioeducativa con mujeres víctimas de violencia de género.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Intervención Socioeducativa desde la perspectiva de género.",
+        "nombre_elemento": "Intervención Socioeducativa desde la perspectiva de género.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Principios metodológicos en educación infantil.",
+        "nombre_elemento": "Principios metodológicos en educación infantil.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Adquisición y desarrollo del lenguaje.",
+        "nombre_elemento": "Adquisición y desarrollo del lenguaje.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Atención educativa para la atención a las discapacidades motóricas y sensoriales.",
+        "nombre_elemento": "Atención educativa para la atención a las discapacidades motóricas y sensoriales.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Programas y servicios de atención a mayores.",
+        "nombre_elemento": "Programas y servicios de atención a mayores.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "La gestión cultural y los medios de comunicación.",
+        "nombre_elemento": "La gestión cultural y los medios de comunicación.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Salud mental y educación social.",
+        "nombre_elemento": "Salud mental y educación social.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Líneas de actuación y programas de cooperación para el desarrollo.",
+        "nombre_elemento": "Líneas de actuación y programas de cooperación para el desarrollo.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Inserción sociolaboral en jóvenes.",
+        "nombre_elemento": "Inserción sociolaboral en jóvenes.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Inserción sociolaboral para mujeres en situación de riesgo de exclusión social.",
+        "nombre_elemento": "Inserción sociolaboral para mujeres en situación de riesgo de exclusión social.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       }
     ],
-    "total_asignaturas": 38,
+    "total_elementos": 38,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n1565 Resolución de 12 de enero de 2024, de la Universidad Antonio de Nebrija, \npor la que se publica el plan de estudios de Graduado o Graduada en \nEducación Social.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, y \nacordado el carácter oficial del título por Acuerdo del Consejo de Ministros de 27 de \ndiciembre de 2023 (publicado en el BOE de 6 de enero de 2024 por resolución de la \nSecretaría General de Universidades de 28 de diciembre de 2023),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención \ndel título de Graduado o Graduada en Educación Social, que queda estructurado según \nconsta en el Anexo de esta Resolución.\nHoyo de Manzanares, 12 de enero de 2024.–El Rector, José Muñiz Fernández.\nANEXO\nUniversidad: Antonio de Nebrija\nPlan de estudios conducente al título de Graduado o Graduada en Educación Social\nPlanificación de las enseñanzas–Graduado o Graduada en Educación Social\nTipo d"
   }
 }

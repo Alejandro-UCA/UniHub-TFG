@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "047",
   "universidad_nombre": "Universidad Alfonso X El Sabio",
-  "fecha_procesado": "2026-07-31T14:35:36.615424",
+  "fecha_procesado": "2026-08-03T12:38:52.014054",
   "boe_url": "http://www.boe.es/boe/dias/2025/01/01/pdfs/BOE-A-2025-53.pdf",
   "boe_fecha": "2025-01-01",
   "plan_estudios": {
@@ -12,20 +12,137 @@
       "Obligatorias.": "48",
       "Prácticas Académicas Externas.": "6",
       "Trabajo Fin de Máster.": "6",
-      "Total.": "60",
-      "La terapia manual y la evaluación del paciente para el diagnóstico funcional.": "Obligatorio.",
-      "Abordaje manual en el manejo del dolor.": "Obligatorio.",
-      "Terapia manual ortopédica en las afecciones musculoesqueléticas prevalentes.": "Obligatorio.",
-      "Terapia manual ortopédica en el paciente con afecciones prevalentes del sistema nervioso.": "Obligatorio.",
-      "Terapia manual en patologías genitourinarias.": "Obligatorio.",
-      "Terapia manual ortopédica en las afecciones prevalentes neonatales e infantiles.": "Obligatorio.",
-      "Terapia manual ortopédica en lesiones deportivas prevalentes.": "Obligatorio.",
-      "Metodología de la Investigación.": "Obligatorio.",
-      "Prácticas académicas externas.": "PE.",
-      "Trabajo de Fin de Máster (TFM).": "TFM."
+      "Total.": "60"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "48",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Académicas Externas.",
+        "nombre_elemento": "Prácticas Académicas Externas.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "La terapia manual y la evaluación del paciente para el diagnóstico funcional.",
+        "nombre_elemento": "La terapia manual y la evaluación del paciente para el diagnóstico funcional.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Abordaje manual en el manejo del dolor.",
+        "nombre_elemento": "Abordaje manual en el manejo del dolor.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Terapia manual ortopédica en las afecciones musculoesqueléticas prevalentes.",
+        "nombre_elemento": "Terapia manual ortopédica en las afecciones musculoesqueléticas prevalentes.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Terapia manual ortopédica en el paciente con afecciones prevalentes del sistema nervioso.",
+        "nombre_elemento": "Terapia manual ortopédica en el paciente con afecciones prevalentes del sistema nervioso.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Terapia manual en patologías genitourinarias.",
+        "nombre_elemento": "Terapia manual en patologías genitourinarias.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Terapia manual ortopédica en las afecciones prevalentes neonatales e infantiles.",
+        "nombre_elemento": "Terapia manual ortopédica en las afecciones prevalentes neonatales e infantiles.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Terapia manual ortopédica en lesiones deportivas prevalentes.",
+        "nombre_elemento": "Terapia manual ortopédica en lesiones deportivas prevalentes.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Metodología de la Investigación.",
+        "nombre_elemento": "Metodología de la Investigación.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas académicas externas.",
+        "nombre_elemento": "Prácticas académicas externas.",
+        "creditos_ects": "6",
+        "caracter": "PE.",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo de Fin de Máster (TFM).",
+        "nombre_elemento": "Trabajo de Fin de Máster (TFM).",
+        "creditos_ects": "6",
+        "caracter": "TFM.",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      }
+    ],
+    "total_elementos": 14,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n53 Resolución de 12 de diciembre de 2024, de la Universidad Alfonso X el \nSabio, por la que se publica el plan de estudios de Máster Universitario en \nTerapia Manual Ortopédica en Patologías Prevalentes.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme positivo de la Fundación para el Conocimiento MADRID más D, y acordado el \ncarácter oficial del título por Acuerdo de Consejo de Ministros de 28 de noviembre \nde 2024 (publicado en el BOE núm. 297, de 10 de diciembre de 2024, por Resolución de \nla Secretaría General de Universidades del 2 de diciembre de 2024),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención \ndel título de Máster Universitario en Terapia Manual Ortopédica en Patologías \nPrevalentes por la Universidad Alfonso X el Sabio.\nVillanueva de la Cañada, 12 de diciembre de 2024.–La Rectora, Ana Isabel \nFernández Martínez.\nPLAN DE ESTUDIOS DE MÁSTER UNIVERSITARIO E"
   }
 }

@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 1393/2007 (1)",
   "universidad_codigo": "052",
   "universidad_nombre": "Universidad Antonio de Nebrija",
-  "fecha_procesado": "2026-07-31T14:38:00.728552",
+  "fecha_procesado": "2026-08-03T12:41:11.447520",
   "boe_url": "http://www.boe.es/boe/dias/2020/07/10/pdfs/BOE-A-2020-7717.pdf",
   "boe_fecha": "2020-07-10",
   "plan_estudios": {
@@ -38,233 +38,261 @@
       "Posicionamiento en buscadores.": "6",
       "Diseño de interfaces.": "6"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas de Formación Básica.",
+        "nombre_elemento": "Asignaturas de Formación Básica.",
         "creditos_ects": "60",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Obligatorias.",
+        "nombre_elemento": "Asignaturas Obligatorias.",
         "creditos_ects": "84",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Optativas.",
+        "nombre_elemento": "Asignaturas Optativas.",
         "creditos_ects": "66",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
         "creditos_ects": "18",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
         "creditos_ects": "12",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
         "creditos_ects": "240",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Storyline y guion aplicado.",
+        "nombre_elemento": "Storyline y guion aplicado.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Contenidos aplicados en realidad virtual.",
+        "nombre_elemento": "Contenidos aplicados en realidad virtual.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Escenarios virtuales y robótica.",
+        "nombre_elemento": "Escenarios virtuales y robótica.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Articulación de personajes (Rigging).",
+        "nombre_elemento": "Articulación de personajes (Rigging).",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Edición digital.",
+        "nombre_elemento": "Edición digital.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Narración en videojuegos.",
+        "nombre_elemento": "Narración en videojuegos.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Arte y literatura para videojuegos.",
+        "nombre_elemento": "Arte y literatura para videojuegos.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Diseño editorial.",
+        "nombre_elemento": "Diseño editorial.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Identidad Corporativa e Imagen de Marca.",
+        "nombre_elemento": "Identidad Corporativa e Imagen de Marca.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Diseño de Portfolio.",
+        "nombre_elemento": "Diseño de Portfolio.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Diseño de videojuegos.",
+        "nombre_elemento": "Diseño de videojuegos.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Animación 2D y 3D.",
+        "nombre_elemento": "Animación 2D y 3D.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Realización audiovisual.",
+        "nombre_elemento": "Realización audiovisual.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Música y sonido en proyectos digitales.",
+        "nombre_elemento": "Música y sonido en proyectos digitales.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Postproducción.",
+        "nombre_elemento": "Postproducción.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Diseño de aplicaciones web y móviles.",
+        "nombre_elemento": "Diseño de aplicaciones web y móviles.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Taller de proyectos digitales.",
+        "nombre_elemento": "Taller de proyectos digitales.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Cinemática de videojuegos.",
+        "nombre_elemento": "Cinemática de videojuegos.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Dirección de Arte.",
+        "nombre_elemento": "Dirección de Arte.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Programación avanzada.",
+        "nombre_elemento": "Programación avanzada.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Posicionamiento en buscadores.",
+        "nombre_elemento": "Posicionamiento en buscadores.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Diseño de interfaces.",
+        "nombre_elemento": "Diseño de interfaces.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 28,
+    "total_elementos": 28,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n7717 Resolución de 22 de mayo de 2020, de la Universidad Antonio de Nebrija, por \nla que se publica la modificación del plan de estudios de Graduado en Diseño \nDigital y Multimedia.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, y \nacordado el carácter oficial del título por Acuerdo del Consejo de Ministros de 19 de \nenero de 2018 (publicado en el BOE de 5 de febrero de 2018 por resolución de la \nSecretaría General de Universidades de 24 de enero de 2018), este Rectorado ha \nresuelto publicar la modificación realizada sobre el plan de estudios conducente a la \nobtención del título de Graduado o Graduada en Diseño Digital y Multimedia, que queda \nestructurado según consta en el Anexo de esta Resolución.\nHoyo de Manzanares, 22 de mayo de 2020.–El Rector, Juan Cayón Peña.\nANEXO\nLas modificaciones realizadas en el plan de estudios en el Grado en Diseño Digital y \nMultimedia son las siguientes:\nLos requerimientos del pla"
   }
 }

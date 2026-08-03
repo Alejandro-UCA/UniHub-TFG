@@ -18,7 +18,7 @@ from config import (
     URL_ESTUDIOS_UNIV_TEMPLATE,
     URL_DETALLE_ESTUDIO_TEMPLATE
 )
-from downloader import RUCTDownloader
+from downloader import RUCTDownloader, SkipUniversityException
 from error_logger import ErrorLogger
 from checkpoint import CheckpointManager, atomic_json_dump
 from metrics import PerformanceTracker
@@ -52,7 +52,7 @@ def trigger_api_etl_sync():
 
 def run_crawler(limit_univ: int = None, limit_degrees: int = None):
     print("=" * 70)
-    print("      INICIANDO CRAWLER RUCT - UNIVERSIDADES Y TITULACIONES DE ESPAÑA")
+    print("      INICIANDO CRAWLER UNIHUB - UNIVERSIDADES Y TITULACIONES DE ESPAÑA")
     print("======================================================================")
     
     metrics = PerformanceTracker()
@@ -63,7 +63,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
     # -------------------------------------------------------------------------
     # PASO 1: Descargar listado oficial actualizado de universidades
     # -------------------------------------------------------------------------
-    print("\n[Paso 1] Obteniendo listado de universidades desde RUCT...")
+    print("\n[Paso 1] Obteniendo listado oficial de universidades...")
     universities = []
     try:
         temp_univ_xls = os.path.join(TEMP_PDF_DIR, "universidades_list.xls")
@@ -112,6 +112,9 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
         u_name = univ.get("nombre", "")
         print(f"\n({u_idx}/{total_univ}) Procesando Universidad [{u_code}]: {u_name}")
         
+        # Reset connection resilience circuit breaker for this university
+        downloader.reset_university_context(u_code)
+
         active_degrees = []
         try:
             degrees_url = URL_ESTUDIOS_UNIV_TEMPLATE.format(codigo=u_code)
@@ -136,6 +139,12 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                 
             print(f"     -> {len(active_degrees)} titulaciones VIGENTES/RENOVADAS identificadas.")
 
+        except SkipUniversityException as conn_exc:
+            err_msg = f"Problemas de conexion continuados en la universidad [{u_code}] {u_name}"
+            print(f"     -> [CORTOCIRCUITO] {err_msg}")
+            logger.log_error("paso_2_conexion_fallida", u_code, degrees_url, "Problemas de conexion continuados", str(conn_exc))
+            metrics.errores_detectados += 1
+            continue
         except Exception as e:
             err_msg = f"Error al obtener listado de titulaciones para la universidad {u_code}"
             print(f"     -> [ERROR NO BLOQUEANTE] {err_msg}: {e}")
@@ -147,7 +156,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
         if limit_degrees:
             degrees_to_process = degrees_to_process[:limit_degrees]
 
-        # Inspect each degree for latest BOE and update incrementally if new
+        # Inspect each degree for latest BOE and scan ALL PDF candidate links
         for d_idx, deg in enumerate(degrees_to_process, 1):
             metrics.titulaciones_inspeccionadas += 1
             d_code = deg.get("codigo_estudio", "")
@@ -160,19 +169,20 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
             try:
                 html_content = downloader.fetch_text(detail_url)
                 boe_info = parse_degree_detail_html(html_content)
+                candidates = boe_info.get("all_boe_candidates", [])
                 
                 latest_boe_url = boe_info.get("latest_boe_url")
                 latest_boe_fecha = boe_info.get("boe_date")
                 
-                # Check if degree is already up to date
+                # Fast path: Check if degree is already up to date with existing file
                 if os.path.exists(plan_file) and checkpoint.is_degree_up_to_date(d_code, latest_boe_url, latest_boe_fecha):
                     metrics.titulaciones_al_dia += 1
                     print(f"     -> Información al día (BOE {latest_boe_fecha or 'coincide'}). Sin cambios necesarios.")
                     continue
 
-                if not latest_boe_url:
-                    print(f"     -> [AVISO] No se encontró enlace a BOE en la página de detalle.")
-                    logger.log_error("paso_3_enlace_boe", d_code, detail_url, "Sin enlace a BOE en detalle HTML", "No PDF links in HTML")
+                if not candidates:
+                    print(f"     -> [AVISO] No se encontraron enlaces a BOE en la página de detalle.")
+                    logger.log_error("paso_3_enlace_boe", d_code, detail_url, "Sin enlaces a BOE en detalle HTML", "No PDF links in HTML")
                     metrics.errores_detectados += 1
                     degree_data = {
                         "codigo_estudio": d_code,
@@ -188,40 +198,81 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                     checkpoint.update_degree_record(d_code, None, None, datetime.now().isoformat())
                     continue
 
-                # Download new / updated BOE PDF
-                pdf_path = os.path.join(TEMP_PDF_DIR, f"{d_code}_latest.pdf")
-                print(f"     -> DESCARGANDO NUEVO/ACTUALIZADO BOE ({latest_boe_fecha or 'fecha desconocida'})...")
-                downloader.download_file(latest_boe_url, pdf_path)
-
-                # Measure PDF parsing duration
-                t_parse_start = time.perf_counter()
-                curriculum_data = parse_boe_pdf(pdf_path)
-                t_parse_elapsed = time.perf_counter() - t_parse_start
-                metrics.record_pdf_parse_time(t_parse_elapsed)
-                metrics.titulaciones_descargadas_actualizadas += 1
-
-                # Save / update degree JSON file atomically
-                degree_data = {
-                    "codigo_estudio": d_code,
-                    "titulo": d_title,
-                    "nivel_academico": deg.get("nivel_academico", ""),
-                    "universidad_codigo": u_code,
-                    "universidad_nombre": u_name,
-                    "fecha_procesado": datetime.now().isoformat(),
-                    "boe_url": latest_boe_url,
-                    "boe_fecha": latest_boe_fecha,
-                    "plan_estudios": curriculum_data
-                }
-                atomic_json_dump(degree_data, plan_file)
-                
-                # Update checkpoint
-                checkpoint.update_degree_record(d_code, latest_boe_url, latest_boe_fecha, datetime.now().isoformat())
-                
-                if os.path.exists(pdf_path):
-                    os.remove(pdf_path)
+                # Scan ALL PDF candidates on the page until we find one with valid curriculum
+                valid_curriculum_found = False
+                for cand_idx, cand in enumerate(candidates, 1):
+                    cand_url = cand["url"]
+                    cand_date = cand.get("boe_date")
                     
-                print(f"     -> Plan de estudios BOE actualizado ({curriculum_data.get('total_elementos', 0)} elementos extraídos).")
+                    pdf_path = os.path.join(TEMP_PDF_DIR, f"{d_code}_candidate_{cand_idx}.pdf")
+                    try:
+                        print(f"     -> Inspeccionando PDF #{cand_idx}/{len(candidates)} ({cand_date or 'fecha n/a'})...")
+                        downloader.download_file(cand_url, pdf_path)
 
+                        t_parse_start = time.perf_counter()
+                        curriculum_data = parse_boe_pdf(pdf_path)
+                        t_parse_elapsed = time.perf_counter() - t_parse_start
+
+                        total_elems = curriculum_data.get("total_elementos", 0)
+                        resumen_count = len(curriculum_data.get("resumen_creditos", {}))
+
+                        if total_elems > 0 or resumen_count > 0:
+                            print(f"     -> [ÉXITO] PDF #{cand_idx} contiene plan de estudios válido ({total_elems} asignaturas/elementos).")
+                            metrics.record_pdf_parse_time(t_parse_elapsed)
+                            metrics.titulaciones_descargadas_actualizadas += 1
+                            valid_curriculum_found = True
+
+                            degree_data = {
+                                "codigo_estudio": d_code,
+                                "titulo": d_title,
+                                "nivel_academico": deg.get("nivel_academico", ""),
+                                "universidad_codigo": u_code,
+                                "universidad_nombre": u_name,
+                                "fecha_procesado": datetime.now().isoformat(),
+                                "boe_url": cand_url,
+                                "boe_fecha": cand_date,
+                                "plan_estudios": curriculum_data
+                            }
+                            atomic_json_dump(degree_data, plan_file)
+                            checkpoint.update_degree_record(d_code, cand_url, cand_date, datetime.now().isoformat())
+
+                            if os.path.exists(pdf_path):
+                                os.remove(pdf_path)
+                            break
+                        else:
+                            print(f"     -> PDF #{cand_idx} no contiene estructura de asignaturas. Probando siguiente...")
+                            if os.path.exists(pdf_path):
+                                os.remove(pdf_path)
+
+                    except SkipUniversityException:
+                        raise
+                    except Exception as pdf_err:
+                        print(f"     -> Error al procesar PDF candidate #{cand_idx}: {pdf_err}")
+                        if os.path.exists(pdf_path):
+                            os.remove(pdf_path)
+
+                if not valid_curriculum_found:
+                    print(f"     -> [AVISO] Ningún PDF de la titulación [{d_code}] contenía asignaturas desglosadas. Guardando metadatos base.")
+                    degree_data = {
+                        "codigo_estudio": d_code,
+                        "titulo": d_title,
+                        "nivel_academico": deg.get("nivel_academico", ""),
+                        "universidad_codigo": u_code,
+                        "universidad_nombre": u_name,
+                        "fecha_procesado": datetime.now().isoformat(),
+                        "boe_url": latest_boe_url,
+                        "boe_fecha": latest_boe_fecha,
+                        "plan_estudios": None
+                    }
+                    atomic_json_dump(degree_data, plan_file)
+                    checkpoint.update_degree_record(d_code, latest_boe_url, latest_boe_fecha, datetime.now().isoformat())
+
+            except SkipUniversityException as conn_exc:
+                err_msg = f"Problemas de conexion continuados en la universidad [{u_code}] {u_name}"
+                print(f"     -> [CORTOCIRCUITO] {err_msg}")
+                logger.log_error("paso_3_conexion_fallida", u_code, detail_url, "Problemas de conexion continuados", str(conn_exc))
+                metrics.errores_detectados += 1
+                break # Skip rest of degrees for this university
             except Exception as e:
                 err_msg = f"Error al procesar la titulación [{d_code}]"
                 print(f"     -> [ERROR NO BLOQUEANTE] {err_msg}: {e}")
@@ -236,7 +287,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
     # Save final report
     metrics.save()
     print("\n" + "=" * 70)
-    print("      CRAWLER RUCT FINALIZADO CON ÉXITO Y DE FORMA RESILIENTE")
+    print("      CRAWLER UNIHUB FINALIZADO CON ÉXITO Y DE FORMA RESILIENTE")
     print("======================================================================")
     print(f" -> Universidades inspeccionadas: {metrics.universidades_inspeccionadas}")
     print(f" -> Titulaciones inspeccionadas:  {metrics.titulaciones_inspeccionadas}")
@@ -251,7 +302,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
     trigger_api_etl_sync()
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Crawler para RUCT (Universidades y Titulaciones de España)")
+    parser = argparse.ArgumentParser(description="Crawler para UniHub (Universidades y Titulaciones de España)")
     parser.add_argument("--limit-univ", type=int, default=None, help="Limitar número de universidades a procesar (para pruebas)")
     parser.add_argument("--limit-degrees", type=int, default=None, help="Limitar número de titulaciones por universidad (para pruebas)")
     args = parser.parse_args()

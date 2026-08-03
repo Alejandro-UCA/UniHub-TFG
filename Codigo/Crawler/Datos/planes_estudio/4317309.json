@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "057",
   "universidad_nombre": "IE Universidad",
-  "fecha_procesado": "2026-07-31T14:12:18.964803",
+  "fecha_procesado": "2026-08-03T12:18:16.131182",
   "boe_url": "http://www.boe.es/boe/dias/2021/03/11/pdfs/BOE-A-2021-3834.pdf",
   "boe_fecha": "2021-03-11",
   "plan_estudios": {
@@ -12,159 +12,218 @@
       "Materias obligatorias.": "36",
       "Materias optativas.": "18",
       "Trabajo fin de Máster.": "6",
-      "Total créditos.": "60",
-      "Gestión Empresarial Internacional. 24 ECTS.": "Contabilidad y Finanzas.",
-      "Visión Global del Entorno. 12 ECTS.": "Emprendimiento e Innovación.",
-      "Especialización 18 ECTS.": "Proyectos.",
-      "Proyecto Final 6 ECTS.": "Trabajo fin de Máster."
+      "Total créditos.": "60"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
+        "materia": "Materias obligatorias.",
+        "nombre_elemento": "Materias obligatorias.",
+        "creditos_ects": "36",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias optativas.",
+        "nombre_elemento": "Materias optativas.",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total créditos.",
+        "nombre_elemento": "Total créditos.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Gestión Empresarial Internacional. 24 ECTS.",
         "materia": "Contabilidad y Finanzas.",
-        "nombre_asignatura": "Contabilidad Financiera y de Gestión.",
+        "nombre_elemento": "Contabilidad Financiera y de Gestión.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Gestión Empresarial Internacional. 24 ECTS.",
         "materia": "Contabilidad y Finanzas.",
-        "nombre_asignatura": "Finanzas Corporativas.",
+        "nombre_elemento": "Finanzas Corporativas.",
         "creditos_ects": "3",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Gestión Empresarial Internacional. 24 ECTS.",
         "materia": "Dirección Estratégica y Operativa.",
-        "nombre_asignatura": "Dirección de Marketing.",
+        "nombre_elemento": "Dirección de Marketing.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Gestión Empresarial Internacional. 24 ECTS.",
         "materia": "Dirección Estratégica y Operativa.",
-        "nombre_asignatura": "Análisis de Datos para Toma de Decisiones.",
+        "nombre_elemento": "Análisis de Datos para Toma de Decisiones.",
         "creditos_ects": "3",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Gestión Empresarial Internacional. 24 ECTS.",
         "materia": "Dirección Estratégica y Operativa.",
-        "nombre_asignatura": "Dirección Estratégica.",
+        "nombre_elemento": "Dirección Estratégica.",
         "creditos_ects": "3",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Gestión Empresarial Internacional. 24 ECTS.",
         "materia": "Dirección Estratégica y Operativa.",
-        "nombre_asignatura": "Dirección de Operaciones.",
+        "nombre_elemento": "Dirección de Operaciones.",
         "creditos_ects": "3",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Gestión Empresarial Internacional. 24 ECTS.",
         "materia": "Liderazgo y Gestión de Personas.",
-        "nombre_asignatura": "Liderando Personas y Equipos.",
+        "nombre_elemento": "Liderando Personas y Equipos.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Gestión Empresarial Internacional. 24 ECTS.",
         "materia": "Liderazgo y Gestión de Personas.",
-        "nombre_asignatura": "Desarrollo Personal y Pensamiento Crítico.",
+        "nombre_elemento": "Desarrollo Personal y Pensamiento Crítico.",
         "creditos_ects": "3",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Visión Global del Entorno. 12 ECTS.",
         "materia": "Emprendimiento e Innovación.",
-        "nombre_asignatura": "Perspectiva Emprendedora.",
+        "nombre_elemento": "Perspectiva Emprendedora.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Visión Global del Entorno. 12 ECTS.",
         "materia": "Emprendimiento e Innovación.",
-        "nombre_asignatura": "Innovación y Tecnología.",
+        "nombre_elemento": "Innovación y Tecnología.",
         "creditos_ects": "3",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Visión Global del Entorno. 12 ECTS.",
         "materia": "Entorno y Economía.",
-        "nombre_asignatura": "Empresa, Gobierno y Sociedad.",
+        "nombre_elemento": "Empresa, Gobierno y Sociedad.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Visión Global del Entorno. 12 ECTS.",
         "materia": "Entorno y Economía.",
-        "nombre_asignatura": "Economía Empresarial.",
+        "nombre_elemento": "Economía Empresarial.",
         "creditos_ects": "3",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Especialización 18 ECTS.",
         "materia": "Proyectos.",
-        "nombre_asignatura": "Puesta en Marcha de un Negocio.",
+        "nombre_elemento": "Puesta en Marcha de un Negocio.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Especialización 18 ECTS.",
         "materia": "Proyectos.",
-        "nombre_asignatura": "Innovación Corporativa.",
+        "nombre_elemento": "Innovación Corporativa.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Especialización 18 ECTS.",
         "materia": "Proyectos.",
-        "nombre_asignatura": "Disrupción a través de la Tecnología.",
+        "nombre_elemento": "Disrupción a través de la Tecnología.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Especialización 18 ECTS.",
         "materia": "Proyectos.",
-        "nombre_asignatura": "Consultoría e Impacto Social.",
+        "nombre_elemento": "Consultoría e Impacto Social.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Especialización 18 ECTS.",
         "materia": "Proyectos.",
-        "nombre_asignatura": "Desarrollo Formativo en Entorno Laboral.",
+        "nombre_elemento": "Desarrollo Formativo en Entorno Laboral.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Especialización 18 ECTS.",
+        "materia": "Optativas.",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyecto Final 6 ECTS.",
         "materia": "Trabajo fin de Máster.",
-        "nombre_asignatura": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
         "creditos_ects": "6",
         "caracter": "TFM",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 18,
+    "total_elementos": 23,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n3834 Resolución de 8 de febrero de 2021, de IE Universidad, por la que se publica \nel plan de estudios de Máster Universitario en Administración Internacional de \nEmpresas/Master in International Business Administration (IMBA).\nEn cumplimiento de lo dispuesto en el artículo 35.4 de la Ley Orgánica 6/2001, de 21 \nde diciembre, de universidades y en el apartado 13 del Real Decreto 861/2010, de 2 de \njulio, que modifica el artículo 26 del Real Decreto 1393/2007, de 30 de octubre, por el \nque se establece la ordenación de las enseñanzas universitarias oficiales; una vez \nobtenida la verificación del plan de estudios por el Consejo de Universidades el 18 de \nmayo de 2020 previo informe positivo de la Agencia para la Calidad del Sistema \nUniversitario de Castilla y León y establecido el carácter oficial del título por Acuerdo de \nConsejo de Ministros de 12 de enero de 2021 por el que se establece el carácter oficial \nde determinados títulos de Grado y s"
   }
 }

@@ -4,29 +4,163 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "047",
   "universidad_nombre": "Universidad Alfonso X El Sabio",
-  "fecha_procesado": "2026-07-31T14:34:26.046293",
+  "fecha_procesado": "2026-08-03T12:37:47.564485",
   "boe_url": "http://www.boe.es/boe/dias/2024/01/26/pdfs/BOE-A-2024-1515.pdf",
   "boe_fecha": "2024-01-26",
   "plan_estudios": {
     "resumen_creditos": {
       "Obligatorias.": "66",
-      "Prácticas académicas externas.": "PAE",
+      "Prácticas académicas externas.": "9",
       "Trabajo Fin de Grado.": "15",
-      "Total.": "90",
-      "Ingeniería Eléctrica.": "OB",
-      "Ingeniería mecánica.": "OB",
-      "Ingeniería Química.": "OB",
-      "Ingeniería térmica y de fluidos.": "OB",
-      "Ingeniería electrónica y automática.": "OB",
-      "Tecnologías energéticas.": "OB",
-      "Organización y administración de empresas.": "OB",
-      "Gestión de proyectos y de la investigación.": "OB",
-      "Plantas e instalaciones industriales.": "OB",
-      "Transporte y seguridad industrial.": "OB",
-      "Trabajo de fin de Máster.": "TFM"
+      "Total.": "90"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "66",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas académicas externas.",
+        "nombre_elemento": "Prácticas académicas externas.",
+        "creditos_ects": "9",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "15",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "90",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería Eléctrica.",
+        "nombre_elemento": "Ingeniería Eléctrica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "I"
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería mecánica.",
+        "nombre_elemento": "Ingeniería mecánica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "II"
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería Química.",
+        "nombre_elemento": "Ingeniería Química.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "II"
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería térmica y de fluidos.",
+        "nombre_elemento": "Ingeniería térmica y de fluidos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "I"
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería electrónica y automática.",
+        "nombre_elemento": "Ingeniería electrónica y automática.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "II"
+      },
+      {
+        "modulo": "",
+        "materia": "Tecnologías energéticas.",
+        "nombre_elemento": "Tecnologías energéticas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "I"
+      },
+      {
+        "modulo": "",
+        "materia": "Organización y administración de empresas.",
+        "nombre_elemento": "Organización y administración de empresas.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "I y II"
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión de proyectos y de la investigación.",
+        "nombre_elemento": "Gestión de proyectos y de la investigación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "III"
+      },
+      {
+        "modulo": "",
+        "materia": "Plantas e instalaciones industriales.",
+        "nombre_elemento": "Plantas e instalaciones industriales.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "I y II"
+      },
+      {
+        "modulo": "",
+        "materia": "Transporte y seguridad industrial.",
+        "nombre_elemento": "Transporte y seguridad industrial.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "II"
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas académicas externas.",
+        "nombre_elemento": "Prácticas académicas externas.",
+        "creditos_ects": "9",
+        "caracter": "PAE",
+        "curso": "",
+        "cuatrimestre": "III"
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo de fin de Máster.",
+        "nombre_elemento": "Trabajo de fin de Máster.",
+        "creditos_ects": "15",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": "III"
+      }
+    ],
+    "total_elementos": 16,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n1515 Resolución de 10 de enero de 2024, de la Universidad Alfonso X el Sabio, por \nla que se publica la modificación del plan de estudios de Máster Universitario \nen Ingeniería Industrial.\nObtenida la verificación de la modificación del plan de estudios, previo informe \npositivo de la Fundación para el Conocimiento Madrid más D, de fecha 13 de diciembre \nde 2023, este Rectorado ha resuelto publicar la modificación del plan de estudios \nconducente a la obtención del título del Máster Universitario en Ingeniería Industrial por \nla Universidad Alfonso X el Sabio,\nVillanueva de la Cañada, 10 de enero de 2024.–La Rectora, Ana Isabel Fernández \nMartínez.\nDistribución del plan de estudios en créditos ECTS\nTipo de materia Créditos \nECTS\nObligatorias. 66\nPrácticas académicas externas. 9\nTrabajo Fin de Grado. 15\n Total. 90\nMateria/Asignatura Carácter ECTS Semestre\nIngeniería Eléctrica. OB 6 I\nIngeniería mecánica. OB 6 II\nIngeniería Química. OB 3 II\nIngenier"
   }
 }

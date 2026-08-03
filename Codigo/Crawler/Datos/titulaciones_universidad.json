@@ -886,7 +886,7 @@
     "universidad_nombre": "Centros extranjeros autorizados por la Comunidad Valenciana",
     "universidad_tipo": "Pública",
     "comunidad_autonoma": "Comunidad Valenciana",
-    "total_titulaciones_vigentes": 4,
+    "total_titulaciones_vigentes_renovadas": 4,
     "titulaciones_vigentes": [
       {
         "codigo_estudio": "8000104",
@@ -919,7 +919,7 @@
     "universidad_nombre": "CUNEF Universidad",
     "universidad_tipo": "Privada",
     "comunidad_autonoma": "Comunidad de Madrid",
-    "total_titulaciones_vigentes": 18,
+    "total_titulaciones_vigentes_renovadas": 18,
     "titulaciones_vigentes": [
       {
         "codigo_estudio": "2504059",
@@ -1036,7 +1036,7 @@
     "universidad_nombre": "ESIC Universidad",
     "universidad_tipo": "Privada",
     "comunidad_autonoma": "Comunidad de Madrid",
-    "total_titulaciones_vigentes": 18,
+    "total_titulaciones_vigentes_renovadas": 18,
     "titulaciones_vigentes": [
       {
         "codigo_estudio": "5601571",
@@ -1153,7 +1153,7 @@
     "universidad_nombre": "IE Universidad",
     "universidad_tipo": "Privada",
     "comunidad_autonoma": "Comunidad de Castilla y León",
-    "total_titulaciones_vigentes": 100,
+    "total_titulaciones_vigentes_renovadas": 91,
     "titulaciones_vigentes": [
       {
         "codigo_estudio": "1001000",
@@ -1288,12 +1288,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "2502661",
-        "titulo": "Graduado o Graduada en Derecho / Bachelor of Laws por la IE Universidad",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "2504110",
         "titulo": "Graduado o Graduada en Derecho / Bachelor of Laws por la IE Universidad",
         "nivel_academico": "Grado - RD 822/2021 (2)",
@@ -1414,12 +1408,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "4314003",
-        "titulo": "Máster Universitario en Administración Internacional de Empresas / Master in International Business Administration (IMBA) por la IE Universidad",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "4312525",
         "titulo": "Máster Universitario en Análisis del Cambio Medioambiental Global/Global Environmental Change Analysis",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -1434,12 +1422,6 @@
       {
         "codigo_estudio": "4315047",
         "titulo": "Máster Universitario en Analítica de Negocio y Manejo de Datos / Business Analytics and Big Data por la IE Universidad",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4315540",
-        "titulo": "Máster Universitario en Arquitectura / Master in Architecture por la IE Universidad",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
@@ -1492,12 +1474,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3001025",
-        "titulo": "Máster Universitario en Comunicación, Seguridad y Defensa",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4311785",
         "titulo": "Máster Universitario en Comunicación, Seguridad y Defensa",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -1514,12 +1490,6 @@
         "titulo": "Máster Universitario en Cumplimiento Normativo Corporativo Global / Master in Global Corporate Compliance por la IE Universidad",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001021",
-        "titulo": "Máster Universitario en Derecho de la Empresa",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4310123",
@@ -1582,12 +1552,6 @@
         "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
-        "codigo_estudio": "3002546",
-        "titulo": "Máster Universitario en Diseño del Espacio de Trabajo",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4310125",
         "titulo": "Máster Universitario en Diseño del Espacio de Trabajo por la IE Universidad",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -1642,12 +1606,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "4314128",
-        "titulo": "Máster Universitario en Gestión / Master in Management (MIM) por la IE Universidad",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "3500704",
         "titulo": "Máster Universitario en Gestión / Master in Management (MIM) por la IE Universidad",
         "nivel_academico": "Máster - RD 822/2021 (3)",
@@ -1670,12 +1628,6 @@
         "titulo": "Máster Universitario en Gestión de la Comunicación en Redes Sociales",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3002547",
-        "titulo": "Máster Universitario en Gestión de la Comunicación en Redes Sociales",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4310129",
@@ -1726,12 +1678,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "4315057",
-        "titulo": "Máster Universitario en Relaciones Internacionales / Master in International Relations por la IE Universidad",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "4318156",
         "titulo": "Máster Universitario en Relaciones Internacionales / Master in International Relations por la IE Universidad",
         "nivel_academico": "Máster - RD 822/2021 (3)",
@@ -1762,7 +1708,7 @@
     "universidad_nombre": "IE Universidad Madrid",
     "universidad_tipo": "Privada",
     "comunidad_autonoma": "Comunidad de Madrid",
-    "total_titulaciones_vigentes": 0,
+    "total_titulaciones_vigentes_renovadas": 0,
     "titulaciones_vigentes": []
   },
   "061": {
@@ -1770,7 +1716,7 @@
     "universidad_nombre": "Mondragón Unibertsitatea",
     "universidad_tipo": "Privada",
     "comunidad_autonoma": "Comunidad Autónoma del País Vasco",
-    "total_titulaciones_vigentes": 94,
+    "total_titulaciones_vigentes_renovadas": 90,
     "titulaciones_vigentes": [
       {
         "codigo_estudio": "4011000",
@@ -2115,12 +2061,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3000770",
-        "titulo": "Máster Universitario en Comportamiento Mecánico y Materiales",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4310187",
         "titulo": "Máster Universitario en Comportamiento Mecánico y Materiales",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -2167,18 +2107,6 @@
         "titulo": "Máster Universitario en Dirección Contable y Financiera por la Mondragón Unibertsitatea",
         "nivel_academico": "Máster - RD 822/2021 (3)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4311786",
-        "titulo": "Máster Universitario en Dirección de Empresas - MBA",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001448",
-        "titulo": "Máster Universitario en dirección de empresas - MBA",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4315711",
@@ -2325,12 +2253,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3000771",
-        "titulo": "Máster Universitario en Tecnologías de la Información y las Comunicaciones",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4310188",
         "titulo": "Máster Universitario en Tecnologías de la información y las Comunicaciones",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -2343,7 +2265,7 @@
     "universidad_nombre": "Otros Centros de Nivel Universitario",
     "universidad_tipo": "Privada",
     "comunidad_autonoma": "Comunidad de Madrid",
-    "total_titulaciones_vigentes": 124,
+    "total_titulaciones_vigentes_renovadas": 69,
     "titulaciones_vigentes": [
       {
         "codigo_estudio": "9000129",
@@ -2382,12 +2304,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "9000153",
-        "titulo": "Baccalaureatus in Liturgia",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "9000159",
         "titulo": "Baccalaureatus in Liturgia por el Instituto de Liturgia \"ad instar Facultatis\"",
         "nivel_academico": "Título Equivalente",
@@ -2412,56 +2328,8 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "9000021",
-        "titulo": "Baccalaureatus in Philosophia por la Facultad de Filosofía de Cataluña (Barcelona)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000022",
-        "titulo": "Baccalaureatus in Philosophia por la Facultad de Filosofía de la Universidad Eclesiástica San Dámaso (Madrid)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "9000135",
         "titulo": "Baccalaureatus in Sacra compositione",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000115",
-        "titulo": "Baccalaureatus in Scientiis Religiosis",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000026",
-        "titulo": "Baccalaureatus in Scientiis Religiosis por la Facultad de Teología de Cataluña (Barcelona)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000027",
-        "titulo": "Baccalaureatus in Scientiis Religiosis por la Facultad de Teología de Granada",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000030",
-        "titulo": "Baccalaureatus in Scientiis Religiosis por la Facultad de Teología de la Universidad Eclesiástica San Dámaso (Madrid)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000028",
-        "titulo": "Baccalaureatus in Scientiis Religiosis por la Facultad de Teología del Norte de España (sede de Burgos)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000029",
-        "titulo": "Baccalaureatus in Scientiis Religiosis por la Facultad de Teología del Norte de España (sede de Vitoria)",
         "nivel_academico": "Título Equivalente",
         "estado": "Publicado en B.O.E."
       },
@@ -2472,44 +2340,8 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "9000031",
-        "titulo": "Baccalaureatus in Scientiis Religiosis por la Facultad de Teología San Vicente Ferrer (Valencia)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "9000134",
         "titulo": "Baccalaureatus in Technica et Didactica Canti Liturgici",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000116",
-        "titulo": "Baccalaureatus in Theología",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000011",
-        "titulo": "Baccalaureatus in Theología por la Facultad de Teología de Cataluña (Barcelona)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000012",
-        "titulo": "Baccalaureatus in Theología por la Facultad de Teología de Granada",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000015",
-        "titulo": "Baccalaureatus in Theología por la Facultad de Teología de la Universidad Eclesiástica San Dámaso (Madrid)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000109",
-        "titulo": "Baccalaureatus in Theologia por la Facultad de Teología San Esteban de los PP. Dominicos de Salamanca",
         "nivel_academico": "Título Equivalente",
         "estado": "Publicado en B.O.E."
       },
@@ -2520,20 +2352,8 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "9000016",
-        "titulo": "Baccalaureatus in Theología por la Facultad de Teología San Vicente Ferrer (Valencia)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000013",
-        "titulo": "Baccalaureatus in Theología por la Facultad del Norte de España (sede de Burgos)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000014",
-        "titulo": "Baccalaureatus in Theología por la Facultad del Norte de España (sede de Vitoria)",
+        "codigo_estudio": "9000109",
+        "titulo": "Baccalaureatus in Theologia por la Facultad de Teología San Esteban de los PP. Dominicos de Salamanca",
         "nivel_academico": "Título Equivalente",
         "estado": "Publicado en B.O.E."
       },
@@ -2592,20 +2412,8 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "9000081",
-        "titulo": "Doctor in Iure Canonico por la Facultad de Derecho Canónico de la Universidad Eclesiástica San Dámaso (Madrid)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "9000118",
         "titulo": "Doctor in Litteratura Christiana et Classica",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000085",
-        "titulo": "Doctor in Litteratura Christiana et Classica por la Facultad de Literatura Cristiana y Clásica San Justino de la Universidad Eclesiástica San Dámaso (Madrid)",
         "nivel_academico": "Título Equivalente",
         "estado": "Publicado en B.O.E."
       },
@@ -2634,26 +2442,8 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "9000076",
-        "titulo": "Doctor in Philosophia por la Facultad de Filosofía de Cataluña (Barcelona)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000077",
-        "titulo": "Doctor in Philosophia por la Facultad de Filosofía de la Universidad Eclesiástica San Dámaso (Madrid)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "9000146",
         "titulo": "Doctor in Sacra compositione",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000099",
-        "titulo": "Doctor in Sacra Liturgia",
         "nivel_academico": "Título Equivalente",
         "estado": "Publicado en B.O.E."
       },
@@ -2688,56 +2478,8 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "9000120",
-        "titulo": "Doctor in Theologia",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000066",
-        "titulo": "Doctor in Theologia por la Facultad de Teología de Cataluña (Barcelona)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000067",
-        "titulo": "Doctor in Theologia por la Facultad de Teología de Granada",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000070",
-        "titulo": "Doctor in Theologia por la Facultad de Teología de la Universidad Eclesiástica San Dámaso (Madrid)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000068",
-        "titulo": "Doctor in Theologia por la Facultad de Teología del Norte de España (sede de Burgos)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000069",
-        "titulo": "Doctor in Theologia por la Facultad de Teología del Norte de España (sede de Vitoria)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000112",
-        "titulo": "Doctor in Theologia por la Facultad de Teología San Esteban de los PP. Dominicos de Salamanca",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "9000158",
         "titulo": "Doctor in Theologia por la Facultad de Teología San Isidoro de Sevilla",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000071",
-        "titulo": "Doctor in Theologia por la Facultad de Teología San Vicente Ferrer (Valencia)",
         "nivel_academico": "Título Equivalente",
         "estado": "Publicado en B.O.E."
       },
@@ -2748,32 +2490,8 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "9000007",
-        "titulo": "Grado en Teología por la Facultad Adventista de Teología",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000006",
-        "titulo": "Grado en Teología por la Facultad de Teología Asambleas de Dios",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "9000009",
         "titulo": "Grado en Teología por la Facultad de Teología SEUT",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000005",
-        "titulo": "Grado en Teología por la Facultad Internacional de Teología IBSTE",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000003",
-        "titulo": "Grado en Teología por la Facultad Protestante de Teología UEBE",
         "nivel_academico": "Título Equivalente",
         "estado": "Publicado en B.O.E."
       },
@@ -2832,20 +2550,8 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "9000051",
-        "titulo": "Licentiatus in Iure Canonico por la Facultad de Derecho Canónico de la Universidad Eclesiástica San Dámaso (Madrid)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "9000122",
         "titulo": "Licentiatus in Litteratura Christiana et Classica",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000055",
-        "titulo": "Licentiatus in Litteratura Christiana et Classica por la Facultad de Literatura Cristiana y Clásica San Justino de la Universidad Eclesiástica San Dámaso (Madrid)",
         "nivel_academico": "Título Equivalente",
         "estado": "Publicado en B.O.E."
       },
@@ -2874,26 +2580,8 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "9000046",
-        "titulo": "Licentiatus in Philosophia por la Facultad de Filosofía de Cataluña (Barcelona)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000047",
-        "titulo": "Licentiatus in Philosophia por la Facultad de Filosofía de la Universidad Eclesiástica San Dámaso (Madrid)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "9000140",
         "titulo": "Licentiatus in Sacra compositione",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000087",
-        "titulo": "Licentiatus in Sacra Liturgia",
         "nivel_academico": "Título Equivalente",
         "estado": "Publicado en B.O.E."
       },
@@ -2910,50 +2598,8 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "9000124",
-        "titulo": "Licentiatus in Scientiis Religiosis",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000056",
-        "titulo": "Licentiatus in Scientiis Religiosis por la Facultad de Teología de Cataluña (Barcelona)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000057",
-        "titulo": "Licentiatus in Scientiis Religiosis por la Facultad de Teología de Granada",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000060",
-        "titulo": "Licentiatus in Scientiis Religiosis por la Facultad de Teología de la Universidad Eclesiástica San Dámaso (Madrid)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000058",
-        "titulo": "Licentiatus in Scientiis Religiosis por la Facultad de Teología del Norte de España (sede de Burgos)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000059",
-        "titulo": "Licentiatus in Scientiis Religiosis por la Facultad de Teología del Norte de España (sede de Vitoria)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "9000157",
         "titulo": "Licentiatus in Scientiis Religiosis por la Facultad de Teología San Isidoro de Sevilla",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000061",
-        "titulo": "Licentiatus in Scientiis Religiosis por la Facultad de Teología San Vicente Ferrer (Valencia)",
         "nivel_academico": "Título Equivalente",
         "estado": "Publicado en B.O.E."
       },
@@ -2976,56 +2622,8 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "9000125",
-        "titulo": "Licentiatus in Theologia",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000036",
-        "titulo": "Licentiatus in Theologia por la Facultad de Teología de Cataluña (Barcelona)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000037",
-        "titulo": "Licentiatus in Theologia por la Facultad de Teología de Granada",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000040",
-        "titulo": "Licentiatus in Theologia por la Facultad de Teología de la Universidad Eclesiástica San Dámaso (Madrid)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000038",
-        "titulo": "Licentiatus in Theologia por la Facultad de Teología del Norte de España (sede de Burgos)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000039",
-        "titulo": "Licentiatus in Theologia por la Facultad de Teología del Norte de España (sede de Vitoria)",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000110",
-        "titulo": "Licentiatus in Theologia por la Facultad de Teología San Esteban de los PP. Dominicos de Salamanca",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "9000156",
         "titulo": "Licentiatus in Theologia por la Facultad de Teología San Isidoro de Sevilla",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000041",
-        "titulo": "Licentiatus in Theologia por la Facultad de Teología San Vicente Ferrer (Valencia)",
         "nivel_academico": "Título Equivalente",
         "estado": "Publicado en B.O.E."
       },
@@ -3038,12 +2636,6 @@
       {
         "codigo_estudio": "9000008",
         "titulo": "Máster en Teología por la Facultad Adventista de Teología",
-        "nivel_academico": "Título Equivalente",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "9000004",
-        "titulo": "Máster en Teología por la Facultad Protestante de Teología UEBE",
         "nivel_academico": "Título Equivalente",
         "estado": "Publicado en B.O.E."
       },
@@ -3096,7 +2688,7 @@
     "universidad_nombre": "Universidad a Distancia de Madrid",
     "universidad_tipo": "Privada",
     "comunidad_autonoma": "Comunidad de Madrid",
-    "total_titulaciones_vigentes": 110,
+    "total_titulaciones_vigentes_renovadas": 98,
     "titulaciones_vigentes": [
       {
         "codigo_estudio": "5600105",
@@ -3114,12 +2706,6 @@
         "codigo_estudio": "5601645",
         "titulo": "Programa de Doctorado en Salud Mental y Prevención del Suicidio en la Era Digital por la Universidad a Distancia de Madrid",
         "nivel_academico": "Doctor - RD 99/2011 (0)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "2500122",
-        "titulo": "Graduado o Graduada en Administración y Dirección de Empresas",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
       {
@@ -3147,31 +2733,13 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "2502119",
-        "titulo": "Graduado o Graduada en Criminología por la Universidad a Distancia de Madrid",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "2502888",
         "titulo": "Graduado o Graduada en Derecho por la Universidad a Distancia de Madrid",
         "nivel_academico": "Grado - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "2500013",
-        "titulo": "Graduado o Graduada en Derecho por la Universidad a Distancia de Madrid",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "2503999",
-        "titulo": "Graduado o Graduada en Economía por la Universidad a Distancia de Madrid",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "2502118",
         "titulo": "Graduado o Graduada en Economía por la Universidad a Distancia de Madrid",
         "nivel_academico": "Grado - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
@@ -3201,12 +2769,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "2500621",
-        "titulo": "Graduado o Graduada en Historia por la Universidad a Distancia de Madrid",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "2502618",
         "titulo": "Graduado o Graduada en Humanidades",
         "nivel_academico": "Grado - RD 1393/2007 (1)",
@@ -3221,12 +2783,6 @@
       {
         "codigo_estudio": "2503073",
         "titulo": "Graduado o Graduada en Ingeniería de Tecnologías y Servicios de Telecomunicación por la Universidad a Distancia de Madrid",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "2500622",
-        "titulo": "Graduado o Graduada en Ingeniería Informática por la Universidad a Distancia de Madrid",
         "nivel_academico": "Grado - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
@@ -3273,26 +2829,8 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "2500623",
-        "titulo": "Graduado o Graduada en Periodismo",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "2502887",
         "titulo": "Graduado o Graduada en Periodismo por la Universidad a Distancia de Madrid",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "2500012",
-        "titulo": "Graduado o Graduada en Psicología",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "2502761",
-        "titulo": "Graduado o Graduada en Psicología por la Universidad a Distancia de Madrid",
         "nivel_academico": "Grado - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
@@ -3365,12 +2903,6 @@
       {
         "codigo_estudio": "4312998",
         "titulo": "Máster Universitario en Asesoría Jurídico-Laboral por la Universidad a Distancia de Madrid",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4313078",
-        "titulo": "Máster Universitario en Auditoría de Cuentas por la Universidad a Distancia de Madrid",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
@@ -3472,12 +3004,6 @@
       },
       {
         "codigo_estudio": "4313716",
-        "titulo": "Máster Universitario en Dirección y Gestión de Recursos Humanos por la Universidad a Distancia de Madrid",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4312194",
         "titulo": "Máster Universitario en Dirección y Gestión de Recursos Humanos por la Universidad a Distancia de Madrid",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
@@ -3675,12 +3201,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "4311232",
-        "titulo": "Máster Universitario en Prevención de Riesgos Laborales por la Universidad a Distancia de Madrid",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "4314382",
         "titulo": "Máster Universitario en Prevención de Riesgos Laborales por la Universidad a Distancia de Madrid",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -3765,7 +3285,7 @@
     "universidad_nombre": "Universidad Alfonso X El Sabio",
     "universidad_tipo": "Privada",
     "comunidad_autonoma": "Comunidad de Madrid",
-    "total_titulaciones_vigentes": 203,
+    "total_titulaciones_vigentes_renovadas": 194,
     "titulaciones_vigentes": [
       {
         "codigo_estudio": "1001000",
@@ -4380,12 +3900,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "2501565",
-        "titulo": "Graduado o Graduada en Maestro en Educación Primaria por la Universidad Alfonso X El Sabio",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "2504735",
         "titulo": "Graduado o Graduada en Marketing/ Bachelor in Marketing por la Universidad Alfonso X El Sabio",
         "nivel_academico": "Grado - RD 822/2021 (2)",
@@ -4413,12 +3927,6 @@
         "codigo_estudio": "2503931",
         "titulo": "Graduado o Graduada en Nutrición Humana y Dietética por la Universidad Alfonso X El Sabio",
         "nivel_academico": "Grado - RD 822/2021 (2)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "2501562",
-        "titulo": "Graduado o Graduada en Nutrición Humana y Dietética por la Universidad Alfonso X El Sabio",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
       {
@@ -4620,12 +4128,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3002061",
-        "titulo": "Máster Universitario en Endodoncia",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4311957",
         "titulo": "Máster Universitario en Endodoncia por la Universidad Alfonso X El Sabio",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -4692,12 +4194,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3002060",
-        "titulo": "Máster Universitario en Implantología Oral y Prótesis Implantosoportada",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4311956",
         "titulo": "Máster Universitario en Implantología Oral y Prótesis Implantosoportada por la Universidad Alfonso X El Sabio",
         "nivel_academico": "Máster - RD 822/2021 (3)",
@@ -4716,12 +4212,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3002056",
-        "titulo": "Máster Universitario en Ingeniería Ambiental para Profesionales Relacionados con la Obra Civil y la Industria",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4310634",
         "titulo": "Máster Universitario en Ingeniería Ambiental para Profesionales Relacionados con la Obra Civil y la Industria por la Universidad Alfonso X El Sabio",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -4738,12 +4228,6 @@
         "titulo": "Máster Universitario en Ingeniería de Desarrollo para Dispositivos Móviles por la Universidad Alfonso X El Sabio",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3002058",
-        "titulo": "Máster Universitario en Ingeniería de Seguridad de la Información y las Comunicaciones",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4310017",
@@ -4878,12 +4362,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "4312456",
-        "titulo": "Máster Universitario en Prevención de Riesgos Laborales",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "4317226",
         "titulo": "Máster Universitario en Prevención de Riesgos Laborales por la Universidad Alfonso X El Sabio",
         "nivel_academico": "Máster - RD 822/2021 (3)",
@@ -4897,12 +4375,6 @@
       },
       {
         "codigo_estudio": "4316769",
-        "titulo": "Máster Universitario en Profesorado de Educación Secundaria Obligatoria y Bachillerato, Formación Profesional y Enseñanzas de Idiomas por la Universidad Alfonso X El Sabio",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4310481",
         "titulo": "Máster Universitario en Profesorado de Educación Secundaria Obligatoria y Bachillerato, Formación Profesional y Enseñanzas de Idiomas por la Universidad Alfonso X El Sabio",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
@@ -4930,12 +4402,6 @@
         "titulo": "Máster Universitario en Psicopedagogía por la Universidad Alfonso X El Sabio",
         "nivel_academico": "Máster - RD 822/2021 (3)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3002057",
-        "titulo": "Máster Universitario en Rehabilitación, Mantenimiento y Recuperación de Edificios",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4310633",
@@ -4992,7 +4458,7 @@
     "universidad_nombre": "Universidad Alfonso X el Sabio Mare Nostrum",
     "universidad_tipo": "Privada",
     "comunidad_autonoma": "Comunidad Autónoma de Andalucía",
-    "total_titulaciones_vigentes": 16,
+    "total_titulaciones_vigentes_renovadas": 16,
     "titulaciones_vigentes": [
       {
         "codigo_estudio": "1500560",
@@ -5097,7 +4563,7 @@
     "universidad_nombre": "Universidad Antonio de Nebrija",
     "universidad_tipo": "Privada",
     "comunidad_autonoma": "Comunidad de Madrid",
-    "total_titulaciones_vigentes": 207,
+    "total_titulaciones_vigentes_renovadas": 183,
     "titulaciones_vigentes": [
       {
         "codigo_estudio": "4011000",
@@ -5316,18 +4782,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "2500001",
-        "titulo": "Graduado o Graduada en Artes Escénicas por la Universidad Antonio de Nebrija",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "2500528",
-        "titulo": "Graduado o Graduada en Bellas Artes por la Universidad Antonio de Nebrija",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "1500602",
         "titulo": "Graduado o Graduada en Bellas Artes por la Universidad Antonio de Nebrija",
         "nivel_academico": "Grado - RD 822/2021 (2)",
@@ -5340,21 +4794,9 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "2500136",
-        "titulo": "Graduado o Graduada en Comunicación Audiovisual",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "1500580",
         "titulo": "Graduado o Graduada en Comunicación Audiovisual por la Universidad Antonio de Nebrija",
         "nivel_academico": "Grado - RD 822/2021 (2)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "2502961",
-        "titulo": "Graduado o Graduada en Comunicación Audiovisual por la Universidad Antonio de Nebrija",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
       {
@@ -5388,12 +4830,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "2501438",
-        "titulo": "Graduado o Graduada en Derecho por la Universidad Antonio de Nebrija",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "2502436",
         "titulo": "Graduado o Graduada en Diseño de Interiores por la Universidad Antonio de Nebrija",
         "nivel_academico": "Grado - RD 1393/2007 (1)",
@@ -5403,12 +4839,6 @@
         "codigo_estudio": "1500493",
         "titulo": "Graduado o Graduada en Diseño de Moda por la Universidad Antonio de Nebrija",
         "nivel_academico": "Grado - RD 822/2021 (2)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "2503610",
-        "titulo": "Graduado o Graduada en Diseño de Moda por la Universidad Antonio de Nebrija",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
       {
@@ -5472,12 +4902,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "2502439",
-        "titulo": "Graduado o Graduada en Fisioterapia por la Universidad Antonio de Nebrija",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "2502701",
         "titulo": "Graduado o Graduada en Fundamentos de la Arquitectura por la Universidad Antonio de Nebrija",
         "nivel_academico": "Grado - RD 1393/2007 (1)",
@@ -5522,12 +4946,6 @@
       {
         "codigo_estudio": "2501369",
         "titulo": "Graduado o Graduada en Ingeniería en Tecnologías Industriales por la Universidad Antonio de Nebrija",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "2500147",
-        "titulo": "Graduado o Graduada en Ingeniería Informática",
         "nivel_academico": "Grado - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
@@ -5622,21 +5040,9 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "2500018",
-        "titulo": "Graduado o Graduada en Periodismo",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "1500587",
         "titulo": "Graduado o Graduada en Periodismo por la Universidad Antonio de Nebrija",
         "nivel_academico": "Grado - RD 822/2021 (2)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "2502797",
-        "titulo": "Graduado o Graduada en Periodismo por la Universidad Antonio de Nebrija",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
       {
@@ -5652,12 +5058,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "2502790",
-        "titulo": "Graduado o Graduada en Publicidad y Relaciones Públicas por la Universidad Antonio de Nebrija",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "1500588",
         "titulo": "Graduado o Graduada en Publicidad y Relaciones Públicas por la Universidad Antonio de Nebrija",
         "nivel_academico": "Grado - RD 822/2021 (2)",
@@ -5667,12 +5067,6 @@
         "codigo_estudio": "1500440",
         "titulo": "Graduado o Graduada en Relaciones Internacionales por la Universidad Antonio de Nebrija",
         "nivel_academico": "Grado - RD 822/2021 (2)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "2501439",
-        "titulo": "Graduado o Graduada en Relaciones Internacionales por la Universidad Antonio de Nebrija",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
       {
@@ -5778,12 +5172,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "4316669",
-        "titulo": "Máster Universitario en Ciberdelincuencia por la Universidad Antonio de Nebrija",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "4317015",
         "titulo": "Máster Universitario en Cognición y Emoción en Contextos Educativos por la Universidad Antonio de Nebrija",
         "nivel_academico": "Máster - RD 822/2021 (3)",
@@ -5826,12 +5214,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3000466",
-        "titulo": "Máster Universitario en Creación y Dirección de Empresas",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4311104",
         "titulo": "Máster Universitario en Creación y Dirección de Empresas por la Universidad Antonio de Nebrija",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -5848,12 +5230,6 @@
         "titulo": "Máster Universitario en Derecho de los Negocios Internacionales / Master in International Business Law por la Universidad Antonio de Nebrija",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3000467",
-        "titulo": "Máster Universitario en Derecho Empresarial",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4311105",
@@ -5887,12 +5263,6 @@
       },
       {
         "codigo_estudio": "4316368",
-        "titulo": "Máster Universitario en Dirección de Empresas MBA por la Universidad Antonio de Nebrija",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4312944",
         "titulo": "Máster Universitario en Dirección de Empresas MBA por la Universidad Antonio de Nebrija",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
@@ -5946,19 +5316,7 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3002088",
-        "titulo": "Máster Universitario en Diseño Industrial",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4316287",
-        "titulo": "Máster Universitario en Diseño Industrial por la Universidad Antonio de Nebrija",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4311101",
         "titulo": "Máster Universitario en Diseño Industrial por la Universidad Antonio de Nebrija",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
@@ -5968,12 +5326,6 @@
         "titulo": "Máster Universitario en Empresas y Destinos Turísticos por la Universidad Antonio de Nebrija",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3000469",
-        "titulo": "Máster Universitario en Empresas y Mercados Turísticos",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4311931",
@@ -6072,12 +5424,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "4313982",
-        "titulo": "Máster Universitario en Ingeniería Industrial por la Universidad Antonio de Nebrija",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "4317034",
         "titulo": "Máster Universitario en Internacionalización de Empresas por la Universidad Antonio de Nebrija",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -6134,12 +5480,6 @@
       {
         "codigo_estudio": "3000477",
         "titulo": "Máster Universitario en MBA en Dirección Financiera",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "3000472",
-        "titulo": "Máster Universitario en Mercado del Arte y Gestión de Empresas Relacionadas",
         "nivel_academico": "Máster - RD 56/2005 (2)",
         "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
@@ -6222,12 +5562,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "4315409",
-        "titulo": "Máster Universitario en Prevención de Riesgos Laborales por la Universidad Antonio de Nebrija",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "4318530",
         "titulo": "Máster Universitario en Prevención de Riesgos Laborales por la Universidad Antonio de Nebrija",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -6258,12 +5592,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "4314792",
-        "titulo": "Máster Universitario en Psicología General Sanitaria por la Universidad Antonio de Nebrija",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "3500723",
         "titulo": "Máster Universitario en Psicología General Sanitaria por la Universidad Antonio de Nebrija",
         "nivel_academico": "Máster - RD 822/2021 (3)",
@@ -6280,12 +5608,6 @@
         "titulo": "Máster Universitario en Publicidad",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3000471",
-        "titulo": "Máster Universitario en Publicidad",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4310023",
@@ -6348,7 +5670,7 @@
     "universidad_nombre": "Universidad Autónoma de Barcelona",
     "universidad_tipo": "Pública",
     "comunidad_autonoma": "Comunidad Autónoma de Cataluña",
-    "total_titulaciones_vigentes": 804,
+    "total_titulaciones_vigentes_renovadas": 636,
     "titulaciones_vigentes": [
       {
         "codigo_estudio": "4011000",
@@ -7803,21 +7125,9 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "2500256",
-        "titulo": "Graduado o Graduada en Antropología Social y Cultural por la Universidad Autónoma de Barcelona",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "1500086",
         "titulo": "Graduado o Graduada en Antropología Social y Cultural por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Grado - RD 822/2021 (2)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "2500241",
-        "titulo": "Graduado o Graduada en Arqueología por la Universidad Autónoma de Barcelona",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
       {
@@ -7830,12 +7140,6 @@
         "codigo_estudio": "2501571",
         "titulo": "Graduado o Graduada en Artes y Diseño por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Grado - RD 822/2021 (2)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "2503795",
-        "titulo": "Graduado o Graduada en Bioinformática / Bachelor in Bioinformatics por la Universidad Autónoma de Barcelona; la Universidad de Barcelona; la Universidad Politécnica de Catalunya y la Universidad Pompeu Fabra",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
       {
@@ -7890,12 +7194,6 @@
         "codigo_estudio": "2504604",
         "titulo": "Graduado o Graduada en Ciencias Ambientales por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Grado - RD 822/2021 (2)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "2501915",
-        "titulo": "Graduado o Graduada en Ciencias Ambientales por la Universidad Autónoma de Barcelona",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
       {
@@ -8007,12 +7305,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "2501919",
-        "titulo": "Graduado o Graduada en Estadística Aplicada por la Universidad Autónoma de Barcelona y la Universidad de Vic-Universidad Central de Catalunya",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "2500243",
         "titulo": "Graduado o Graduada en Estudios Clásicos por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Grado - RD 1393/2007 (1)",
@@ -8032,12 +7324,6 @@
       },
       {
         "codigo_estudio": "2504388",
-        "titulo": "Graduado o Graduada en Estudios de Catalán y Español por la Universidad Autónoma de Barcelona",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "2501801",
         "titulo": "Graduado o Graduada en Estudios de Catalán y Español por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Grado - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
@@ -8079,19 +7365,7 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "2501902",
-        "titulo": "Graduado o Graduada en Estudios de Inglés y Catalán por la Universidad Autónoma de Barcelona",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "2504394",
-        "titulo": "Graduado o Graduada en Estudios de Inglés y de Clásicas por la Universidad Autónoma de Barcelona",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "2501907",
         "titulo": "Graduado o Graduada en Estudios de Inglés y de Clásicas por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Grado - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
@@ -8099,18 +7373,6 @@
       {
         "codigo_estudio": "2504386",
         "titulo": "Graduado o Graduada en Estudios de Inglés y Español por la Universidad Autónoma de Barcelona",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "2501910",
-        "titulo": "Graduado o Graduada en Estudios de Inglés y Español por la Universidad Autónoma de Barcelona",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "2501913",
-        "titulo": "Graduado o Graduada en Estudios de Inglés y Francés por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Grado - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
@@ -8123,12 +7385,6 @@
       {
         "codigo_estudio": "2502533",
         "titulo": "Graduado o Graduada en Estudios Franceses por la Universidad Autónoma de Barcelona y la Universidad de Barcelona",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "2500245",
-        "titulo": "Graduado o Graduada en Estudios Ingleses por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Grado - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
@@ -8166,12 +7422,6 @@
         "codigo_estudio": "2500246",
         "titulo": "Graduado o Graduada en Filosofía por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Grado - RD 822/2021 (2)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "2500097",
-        "titulo": "Graduado o Graduada en Física por la Universidad Autónoma de Barcelona",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
       {
@@ -8243,12 +7493,6 @@
       {
         "codigo_estudio": "2500501",
         "titulo": "Graduado o Graduada en Historia por la Universidad Autónoma de Barcelona",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "2500173",
-        "titulo": "Graduado o Graduada en Humanidades",
         "nivel_academico": "Grado - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
@@ -8349,12 +7593,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "2500248",
-        "titulo": "Graduado o Graduada en Lengua y Literatura Españolas por la Universidad Autónoma de Barcelona",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "2500893",
         "titulo": "Graduado o Graduada en Logopedia por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Grado - RD 822/2021 (2)",
@@ -8379,12 +7617,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "2500178",
-        "titulo": "Graduado o Graduada en Medicina por la Universidad Autónoma de Barcelona y la Universidad Pompeu Fabra",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "2500502",
         "titulo": "Graduado o Graduada en Microbiología por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Grado - RD 822/2021 (2)",
@@ -8398,12 +7630,6 @@
       },
       {
         "codigo_estudio": "2504602",
-        "titulo": "Graduado o Graduada en Nanociencia y Nanotecnología por la Universidad Autónoma de Barcelona",
-        "nivel_academico": "Grado - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "2501922",
         "titulo": "Graduado o Graduada en Nanociencia y Nanotecnología por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Grado - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
@@ -8505,18 +7731,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3000205",
-        "titulo": "Máster Universitario en Acuicultura",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4311538",
-        "titulo": "Máster Universitario en Acuicultura",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "4313343",
         "titulo": "Máster Universitario en Acuicultura por la Universidad Autónoma de Barcelona; la Universidad de Barcelona y la Universidad Politécnica de Catalunya",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -8527,12 +7741,6 @@
         "titulo": "Máster Universitario en Adquisición del Inglés y Comunicación Intercultural",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001784",
-        "titulo": "Máster Universitario en Adquisición del Inglés y Comunicación Intercultural",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "3500061",
@@ -8547,12 +7755,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3002971",
-        "titulo": "Máster Universitario en Análisis Económico / Economic Analysis",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4313805",
         "titulo": "Máster Universitario en Análisis Económico / Master in Economic Analysis por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Máster - RD 822/2021 (3)",
@@ -8561,12 +7763,6 @@
       {
         "codigo_estudio": "4312124",
         "titulo": "Máster Universitario en Análisis Económico Especializado por la Universidad Autónoma de Barcelona y la Universidad Pompeu Fabra",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4311326",
-        "titulo": "Máster Universitario en Análisis y Gestión del Patrimonio Artístico",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
@@ -8625,14 +7821,8 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3002928",
-        "titulo": "Máster Universitario en Arqueología Clásica",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4310837",
-        "titulo": "Máster Universitario en Arqueología Clásica",
+        "codigo_estudio": "4313999",
+        "titulo": "Máster Universitario en Arqueología Clásica por la Universidad Autónoma de Barcelona y la Universidad Rovira i Virgili",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
@@ -8641,24 +7831,6 @@
         "titulo": "Máster Universitario en Arqueología Clásica Aplicada. Investigación y Transferencia por la Universidad Autónoma de Barcelona y la Universidad Rovira i Virgili",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4313999",
-        "titulo": "Máster Universitario en Arqueología Clásica por la Universidad Autónoma de Barcelona y la Universidad Rovira i Virgili",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4311301",
-        "titulo": "Máster Universitario en Arqueología Prehistórica",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001780",
-        "titulo": "Máster Universitario en Arqueología Prehistórica",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4317545",
@@ -8673,33 +7845,9 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3001147",
-        "titulo": "Máster Universitario en Atención Integral al Enfermo Crítico y Emergencias",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "3001261",
-        "titulo": "Máster Universitario en Atención Integral al Enfermo Crítico y Emergencias",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4317517",
         "titulo": "Máster Universitario en Auditoría de Cuentas y Contabilidad por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Máster - RD 822/2021 (3)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3002918",
-        "titulo": "Máster Universitario en Biblioteca Escolar y Promoción de la Lectura",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4310907",
-        "titulo": "Máster Universitario en Biblioteca Escolar y Promoción de la Lectura",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
       {
@@ -8721,12 +7869,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3001244",
-        "titulo": "Máster Universitario en Biología Celular",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4316231",
         "titulo": "Máster Universitario en Biología, Genómica y Biotecnología Vegetales / Plant Biology, Genomics and Biotechnology por la Universidad Autónoma de Barcelona y la Universidad de Barcelona",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -8739,28 +7881,10 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3000198",
-        "titulo": "Máster Universitario en Biología Humana",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4311537",
         "titulo": "Máster Universitario en Biología Humana",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4310909",
-        "titulo": "Máster Universitario en Biología y Biotecnología Vegetal",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3002865",
-        "titulo": "Máster Universitario en Biología y Biotecnología Vegetal",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4313771",
@@ -8769,33 +7893,9 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3000240",
-        "titulo": "Máster Universitario en Bioquímica, Biología Molecular y Biomedicina",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4310910",
-        "titulo": "Máster Universitario en Bioquímica, Biología Molecular y Biomedicina",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "4313794",
         "titulo": "Máster Universitario en Bioquímica, Biología Molecular y Biomedicina por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Máster - RD 822/2021 (3)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3000241",
-        "titulo": "Máster Universitario en Biotecnología Avanzada",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4310911",
-        "titulo": "Máster Universitario en Biotecnología Avanzada",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
       {
@@ -8811,18 +7911,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3000210",
-        "titulo": "Máster Universitario en Ciencia Cognitiva y Lenguaje",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4311544",
-        "titulo": "Máster Universitario en Ciencia Cognitiva y Lenguaje",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "4314177",
         "titulo": "Máster Universitario en Ciencia Cognitiva y Lenguaje por la Universidad Autónoma de Barcelona; la Universidad de Barcelona; la Universidad de Girona; la Universidad Pompeu Fabra y la Universidad Rovira i Virgili",
         "nivel_academico": "Máster - RD 822/2021 (3)",
@@ -8831,12 +7919,6 @@
       {
         "codigo_estudio": "4317956",
         "titulo": "Máster Universitario en Ciencia de Datos Biomédicos / Master in Biomedical Data Science por la Universidad Autónoma de Barcelona; la Universidad de Barcelona; la Universidad de Girona; la Universidad de Lleida; la Universidad de Vic-Universidad Central de Catalunya; la Universidad Politécnica de Catalunya y la Universidad Rovira i Virgili",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4314870",
-        "titulo": "Máster Universitario en Ciencia de Datos por la Universidad Autónoma de Barcelona y la Universidad Pompeu Fabra",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
@@ -8851,12 +7933,6 @@
         "titulo": "Máster Universitario en Ciencia e Ingeniería Computacional",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001256",
-        "titulo": "Máster Universitario en Ciencia e Ingeniería Computacional",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4313335",
@@ -8883,28 +7959,10 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3001246",
-        "titulo": "Máster Universitario en Ciencia y Tecnología de Materiales",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4310913",
         "titulo": "Máster Universitario en Ciencia y Tecnología Químicas",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3000246",
-        "titulo": "Máster Universitario en Ciencia y Tecnología Químicas",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "3001781",
-        "titulo": "Máster Universitario en Ciencias de la Antigüedad y de la Edad Media",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4311304",
@@ -8923,12 +7981,6 @@
         "titulo": "Máster Universitario en Citogenética y Biología de la Reproducción por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Máster - RD 822/2021 (3)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001257",
-        "titulo": "Máster Universitario en Computación de Altas Prestaciones",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4311343",
@@ -8967,28 +8019,10 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "4312465",
-        "titulo": "Máster Universitario en Criminología y Ejecución Penal por la Universidad Autónoma de Barcelona; la Universidad Pompeu Fabra y la Universidad de Girona",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "4313241",
         "titulo": "Máster Universitario en Cronicidad y Dependencia por la Universidad Autónoma de Barcelona y la Universidad Pompeu Fabra",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4310914",
-        "titulo": "Máster Universitario en Derecho Empresarial",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001773",
-        "titulo": "Máster Universitario en Derecho Empresarial",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4313781",
@@ -9013,12 +8047,6 @@
         "titulo": "Máster Universitario en Derecho y Políticas de la Integración Europea: Derecho Constitucional Europeo y Constitucionalismo Multinivel / Droit et Politiques de l'Intégration Européenne: Droit Constitutionnel Européen et Multilevel Constitutionalism",
         "nivel_academico": "Máster - RD 56/2005 (2)",
         "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4312209",
-        "titulo": "Máster Universitario en Derechos Sociolaborales",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
       },
       {
         "codigo_estudio": "4313301",
@@ -9051,18 +8079,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3002972",
-        "titulo": "Máster Universitario en Dirección de Empresas Industriales",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "3001766",
-        "titulo": "Máster Universitario en Dirección y Gestión de Centros Educativos",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4311084",
         "titulo": "Máster Universitario en Dirección y Gestión de Centros Educativos",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -9093,18 +8109,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "4310917",
-        "titulo": "Máster Universitario en Ecología Terrestre y Gestión de la Biodiversidad",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3002866",
-        "titulo": "Máster Universitario en Ecología Terrestre y Gestión de la Biodiversidad",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4313774",
         "titulo": "Máster Universitario en Ecología Terrestre y Gestión de la Biodiversidad por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -9129,22 +8133,10 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3001768",
-        "titulo": "Máster Universitario en Educación Intercultural",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4315555",
         "titulo": "Máster Universitario en Egiptología por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3002931",
-        "titulo": "Máster Universitario en Elaboración de Diccionarios y Control de Calidad del Léxico Español",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4311241",
@@ -9155,12 +8147,6 @@
       {
         "codigo_estudio": "4317813",
         "titulo": "Máster Universitario en Electroquímica. Ciencia y Tecnología por la Universidad Autónoma de Barcelona; la Universidad Autónoma de Madrid; la Universidad de Alicante; la Universidad de Barcelona; la Universidad de Burgos; la Universidad de Córdoba; la Universidad de Murcia; la Universidad de Sevilla y la Universidad Politécnica de Cartagena",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4313387",
-        "titulo": "Máster Universitario en Electroquímica. Ciencia y Tecnología por la Universidad Autónoma de Barcelona; la Universidad Autónoma de Madrid; la Universidad de Alicante; la Universidad de Barcelona; la Universidad de Burgos; la Universidad de Córdoba; la Universidad de Murcia; la Universidad Politécnica de Cartagena y la Universitat de València (Estudi General)",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
@@ -9183,20 +8169,8 @@
         "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
-        "codigo_estudio": "3000245",
-        "titulo": "Máster Universitario en Estudios Ambientales",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4310918",
         "titulo": "Máster Universitario en Estudios Ambientales",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4313382",
-        "titulo": "Máster Universitario en Estudios Avanzados de Lengua y Literatura Catalanas por la Universidad Autónoma de Barcelona y la Universidad de Barcelona",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
@@ -9205,12 +8179,6 @@
         "titulo": "Máster Universitario en Estudios Avanzados de Lengua y Literatura Catalanas por la Universidad Autónoma de Barcelona y la Universidad de Barcelona",
         "nivel_academico": "Máster - RD 822/2021 (3)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3002933",
-        "titulo": "Máster Universitario en Estudios Avanzados y  Aplicados en Lengua y Literatura Catalanas",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4311333",
@@ -9231,20 +8199,8 @@
         "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
-        "codigo_estudio": "3001503",
-        "titulo": "Máster Universitario en Estudios de Mujeres, Género y Ciudadanía",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4313345",
         "titulo": "Máster Universitario en Estudios de Mujeres, Género y Ciudadanía por la Universidad Autónoma de Barcelona; la Universidad de Barcelona; la Universidad de Girona; la Universidad de Lleida; la Universidad de Vic-Universidad Central de Catalunya; la Universidad Politécnica de Catalunya; la Universidad Pompeu Fabra y la Universidad Rovira i Virgili",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4311536",
-        "titulo": "Máster Universitario en Estudios de Mujeres, Género y Ciudadanía por la Universidad Autónoma de Barcelona; la Universidad de Barcelona; la Universidad de Girona; la Universidad de Vic-Universidad Central de Catalunya; la Universidad Politécnica de Catalunya y la Universidad Rovira i Virgili",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
@@ -9273,12 +8229,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3001787",
-        "titulo": "Máster Universitario en Estudios Ingleses Avanzados: Literatura y Cultura",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4313784",
         "titulo": "Máster Universitario en Estudios Interdisciplinarios en Sostenibilidad Ambiental, Económica y Social / Master in Interdisciplinary Studies in Environmental, Economic and Social Sustainability por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Máster - RD 822/2021 (3)",
@@ -9291,50 +8241,14 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3002983",
-        "titulo": "Máster Universitario en Estudios Latinoamericanos",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "3001761",
         "titulo": "Máster Universitario en Estudios Medievales. Arte, Historia y Literatura",
         "nivel_academico": "Máster - RD 56/2005 (2)",
         "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
-        "codigo_estudio": "4311340",
-        "titulo": "Máster Universitario en Estudios Teatrales",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3002935",
-        "titulo": "Máster Universitario en Estudios Teatrales",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4318300",
         "titulo": "Máster Universitario en Estudios Teatrales por la Universidad Autónoma de Barcelona",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4313879",
-        "titulo": "Máster Universitario en Estudios Teatrales por la Universidad Autónoma de Barcelona y la Universidad Pompeu Fabra",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3000255",
-        "titulo": "Máster Universitario en Estudios Territoriales y de la Población",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4311308",
-        "titulo": "Máster Universitario en Estudios Territoriales y de la Población por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
@@ -9369,12 +8283,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "4310052",
-        "titulo": "Máster Universitario en Filosofía Analítica",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "4314179",
         "titulo": "Máster Universitario en Filosofía Analítica por la Universidad Autónoma de Barcelona; la Universidad de Barcelona; la Universidad de Girona y la Universidad Pompeu Fabra",
         "nivel_academico": "Máster - RD 822/2021 (3)",
@@ -9393,22 +8301,10 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3001778",
-        "titulo": "Máster Universitario en Filosofía Contemporánea: Tendencias y Debates",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "3500086",
         "titulo": "Máster Universitario en Filosofías del Cuidado por la Universidad Autónoma de Barcelona y la Universidad de Girona",
         "nivel_academico": "Máster - RD 822/2021 (3)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001247",
-        "titulo": "Máster Universitario en Física Avanzada y Profesional",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4310922",
@@ -9465,12 +8361,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3002976",
-        "titulo": "Máster Universitario en Formación de las Personas Adultas",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4313817",
         "titulo": "Máster Universitario en Formación de Personas Adultas por la Universidad Autónoma de Barcelona y la Universidad de Barcelona",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -9483,40 +8373,10 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "4314496",
-        "titulo": "Máster Universitario en Formación del Profesorado de Educación Secundaria Obligatoria y Bachillerato, Formación Profesional y Enseñanza de Idiomas por la Universidad Autónoma de Barcelona; la Universidad de Barcelona; la Universidad Politécnica de Catalunya; la Universidad Pompeu Fabra y la Universitat Oberta de Catalunya",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4317414",
-        "titulo": "Máster Universitario en Formación del Profesorado de Educación Secundaria Obligatoria y Bachillerato, Formación Profesional y Enseñanza de Idiomas por la Universidad Autónoma de Barcelona; la Universidad de Barcelona; la Universidad Politécnica de Catalunya y la Universitat Oberta de Catalunya",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3500318",
-        "titulo": "Máster Universitario en Formación del Profesorado de Educación Secundaria Obligatoria y Bachillerato, Formación Profesional y Enseñanza de Idiomas por la Universidad Autónoma de Barcelona; la Universidad de Barcelona y la Universidad Politécnica de Catalunya",
-        "nivel_academico": "Máster - RD 822/2021 (3)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "4310895",
         "titulo": "Máster Universitario en Fotónica",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001248",
-        "titulo": "Máster Universitario en Fotónica",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "3003012",
-        "titulo": "Máster Universitario en Fotónica",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4313974",
@@ -9537,12 +8397,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3000242",
-        "titulo": "Máster Universitario en Genética Avanzada",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4310924",
         "titulo": "Máster Universitario en Genética Avanzada",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -9561,12 +8415,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3001490",
-        "titulo": "Máster Universitario en Geología",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4311540",
         "titulo": "Máster Universitario en Geología",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -9575,18 +8423,6 @@
       {
         "codigo_estudio": "4313346",
         "titulo": "Máster Universitario en Geología y Geofísica de Reservorios por la Universidad Autónoma de Barcelona y la Universidad de Barcelona",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001258",
-        "titulo": "Máster Universitario en Gestión Aeronáutica",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4311310",
-        "titulo": "Máster Universitario en Gestión Aeronáutica",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
@@ -9615,18 +8451,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3002854",
-        "titulo": "Máster Universitario en Gestión de los Recursos Humanos en las Organizaciones",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4310925",
-        "titulo": "Máster Universitario en Gestión de los Recursos Humanos en las Organizaciones",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "4313788",
         "titulo": "Máster Universitario en Gestión de los Recursos Humanos en las Organizaciones por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Máster - RD 822/2021 (3)",
@@ -9635,24 +8459,6 @@
       {
         "codigo_estudio": "4310926",
         "titulo": "Máster Universitario en Gestión de Riesgos Tecnológicos y Laborales",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3002919",
-        "titulo": "Máster Universitario en Gestión de Riesgos Tecnológicos y Laborales",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "3001400",
-        "titulo": "Máster Universitario en Gestión de Suelos y Aguas",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4311388",
-        "titulo": "Máster Universitario en Gestión de Suelos y Aguas",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
@@ -9681,18 +8487,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "4311311",
-        "titulo": "Máster Universitario en Gestión Pública",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001764",
-        "titulo": "Máster Universitario en Gestión Pública",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4313500",
         "titulo": "Máster Universitario en Gestión Pública por la Universidad Autónoma de Barcelona; la Universidad de Barcelona y la Universidad Pompeu Fabra",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -9711,32 +8505,14 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3001782",
-        "titulo": "Máster Universitario en Historia Comparada, Siglos XVI-XX",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4310636",
         "titulo": "Máster Universitario en Historia Comparada, Siglos XVI-XX",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3000397",
-        "titulo": "Máster Universitario en Historia Contemporánea",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4318228",
         "titulo": "Máster Universitario en Historia Contemporánea por la Universidad Autónoma de Barcelona; la Universidad Autónoma de Madrid; la Universidad Complutense de Madrid; la Universidad de Cantabria; la Universidad de Granada; la Universidad de Santiago de Compostela; la Universidad de Zaragoza; la Universidad del País Vasco/Euskal Herriko Unibertsitatea y la Universitat de València (Estudi General)",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4311727",
-        "titulo": "Máster Universitario en Historia Contemporánea por la Universidad Autónoma de Barcelona; la Universidad Autónoma de Madrid; la Universidad Complutense de Madrid; la Universidad de Cantabria; la Universidad de Santiago de Compostela; la Universidad de Zaragoza; la Universidad del País Vasco/Euskal Herriko Unibertsitatea; la Universidad Internacional Menéndez Pelayo y la Universitat de València (Estudi General)",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
@@ -9747,38 +8523,8 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3002905",
-        "titulo": "Máster Universitario en Historia de la Ciencia: Ciencia, Historia y Sociedad",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4311336",
-        "titulo": "Máster Universitario en Historia de la Ciencia: Ciencia, Historia y Sociedad",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "4313223",
         "titulo": "Máster Universitario en Historia de la Ciencia: Ciencia, Historia y Sociedad por la Universidad Autónoma de Barcelona y la Universidad de Barcelona",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3002835",
-        "titulo": "Máster Universitario en Historia Económica",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4311551",
-        "titulo": "Máster Universitario en Historia Económica",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4314223",
-        "titulo": "Máster Universitario en Historia Económica por la Universidad Autónoma de Barcelona; la Universidad de Barcelona y la Universidad de Zaragoza",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
@@ -9795,22 +8541,10 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "4317127",
-        "titulo": "Máster Universitario en Humanidades y Patrimonio Digitales por la Universidad Autónoma de Barcelona y la Universidad Pompeu Fabra",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "4314102",
         "titulo": "Máster Universitario en Identidad Europea Medieval por la Universidad Autónoma de Barcelona; la Universidad de Girona; la Universidad de Lleida; la Universidad de Murcia y la Universidad Rovira i Virgili",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3000253",
-        "titulo": "Máster Universitario en Informática Avanzada",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4310940",
@@ -9855,18 +8589,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3000252",
-        "titulo": "Máster Universitario en Ingeniería Micro y Nanoelectrónica",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "3002910",
-        "titulo": "Máster Universitario en Ingeniería y Control de Procesos Medioambientales / Environmental Process Control Engineering",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4311344",
         "titulo": "Máster Universitario en Ingeniería y Control de Procesos Medioambientales / Environmental Process Control Engineering",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -9877,12 +8599,6 @@
         "titulo": "Máster Universitario en Iniciación a la Investigación en Salud Mental por la Universidad Autónoma de Barcelona; la Universidad Complutense de Madrid; la Universidad de Barcelona; la Universidad de Cádiz y la Universidad de Cantabria",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3000202",
-        "titulo": "Máster Universitario en Inmunología",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4311548",
@@ -9907,24 +8623,6 @@
         "titulo": "Máster Universitario en Innovación y Calidad Televisivas",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3002873",
-        "titulo": "Máster Universitario en Innovación y Calidad Televisivas",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4310927",
-        "titulo": "Máster Universitario en Integración Europea",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001776",
-        "titulo": "Máster Universitario en Integración Europea",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4313791",
@@ -9969,12 +8667,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3002855",
-        "titulo": "Máster Universitario en Intervención Psicosocial",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4313384",
         "titulo": "Máster Universitario en Investigación Aplicada en Economía y Empresa / Master in Applied Research in Economics and Business por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -10005,12 +8697,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "4314103",
-        "titulo": "Máster Universitario en Investigación e Innovación en Cuidados de Enfermería por la Universidad Autónoma de Barcelona; la Universidad Pompeu Fabra y la Universidad Ramón Llull",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "4315887",
         "titulo": "Máster Universitario en Investigación e Innovación en Cuidados de Enfermería por la Universidad Autónoma de Barcelona y la Universidad Pompeu Fabra",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -10035,22 +8721,10 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3002974",
-        "titulo": "Máster Universitario en Investigación en Asia Oriental Contemporánea",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4311348",
         "titulo": "Máster Universitario en Investigación en Ciencia Animal y de los Alimentos",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3002916",
-        "titulo": "Máster Universitario en Investigación en Ciencia Animal y de los Alimentos",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4310036",
@@ -10077,12 +8751,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3001770",
-        "titulo": "Máster Universitario en Investigación en Didáctica de la Lengua y de la Literatura",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4312327",
         "titulo": "Máster Universitario en Investigación en Didáctica de las Ciencias Sociales, la Geografía, la Historia y el Arte",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -10095,34 +8763,10 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3001771",
-        "titulo": "Máster Universitario en Investigación en Didáctica de las Matemáticas y de las Ciencias",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "3001255",
-        "titulo": "Máster Universitario en Investigación en Economía Aplicada",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4310929",
         "titulo": "Máster Universitario en Investigación en Economía Aplicada",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4311320",
-        "titulo": "Máster Universitario en Investigación en Educación",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001772",
-        "titulo": "Máster Universitario en Investigación en Educación",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4313815",
@@ -10143,12 +8787,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3001268",
-        "titulo": "Máster Universitario en Investigación en Psicología Clínica",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4311319",
         "titulo": "Máster Universitario en Investigación en Psicología Clínica",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -10167,18 +8805,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3001269",
-        "titulo": "Máster Universitario en Investigación en Psicología de la Salud",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "3001270",
-        "titulo": "Máster Universitario en Investigación en Psicología del Deporte y de la Actividad Física",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4311318",
         "titulo": "Máster Universitario en Investigación en Psicología del Deporte y de la Actividad Física",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -10191,28 +8817,10 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3001266",
-        "titulo": "Máster Universitario en Investigación en Psicología Social",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "3002973",
-        "titulo": "Máster Universitario en Investigación en Sociología Aplicada",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4310931",
         "titulo": "Máster Universitario en Investigación en Sociología Aplicada",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3002975",
-        "titulo": "Máster Universitario en Investigación en Veterinaria",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4311321",
@@ -10223,12 +8831,6 @@
       {
         "codigo_estudio": "3000266",
         "titulo": "Máster Universitario en Investigación en Veterinaria y Ciencias Alimentarias",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "3000254",
-        "titulo": "Máster Universitario en Investigación Etnográfica, Teoría Antropológica y Relaciones Interculturales",
         "nivel_academico": "Máster - RD 56/2005 (2)",
         "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
@@ -10245,18 +8847,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "4311375",
-        "titulo": "Máster Universitario en Juventud y Sociedad",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3002915",
-        "titulo": "Máster Universitario en Juventud y Sociedad",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4315178",
         "titulo": "Máster Universitario en Juventud y Sociedad por la Universidad Autónoma de Barcelona; la Universidad de Barcelona; la Universidad de Girona; la Universidad de Lleida; la Universidad Pompeu Fabra y la Universidad Rovira i Virgili",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -10269,12 +8859,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3001790",
-        "titulo": "Máster Universitario en Lengua Española y Literatura Hispánica",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4311323",
         "titulo": "Máster Universitario en Lengua Española y Literatura Hispánica",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -10283,18 +8867,6 @@
       {
         "codigo_estudio": "4310028",
         "titulo": "Máster Universitario en Lengua y Civilización del Antiguo Egipto por la Universidad Autónoma de Barcelona",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001789",
-        "titulo": "Máster Universitario en Literatura Comparada: Estudios Literarios y Culturales",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4311324",
-        "titulo": "Máster Universitario en Literatura Comparada: Estudios Literarios y Culturales por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
@@ -10321,12 +8893,6 @@
         "titulo": "Máster Universitario en Marketing por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Máster - RD 822/2021 (3)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3000248",
-        "titulo": "Máster Universitario en Matemática Avanzada",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4311351",
@@ -10365,34 +8931,10 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "4313874",
-        "titulo": "Máster Universitario en Mediterráneo Antiguo por la Universidad Autónoma de Barcelona y la Universitat Oberta de Catalunya",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001313",
-        "titulo": "Máster Universitario en Mejora Genética Animal y Biotecnología de la Reproducción",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4311610",
         "titulo": "Máster Universitario en Mejora Genética Animal y Biotecnología de la Reproducción por la Universidad Autónoma de Barcelona y la Universitat Politècnica de València",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4310933",
-        "titulo": "Máster Universitario en Microbiología Aplicada",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3000244",
-        "titulo": "Máster Universitario en Microbiología Aplicada",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4313775",
@@ -10425,22 +8967,10 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3001762",
-        "titulo": "Máster Universitario en Musicología y Educación Musical",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4314939",
         "titulo": "Máster Universitario en Nanociencia y Nanotecnología Avanzadas / Advanced Nanoscience and Nanotechnology por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001259",
-        "titulo": "Máster Universitario en Nanotecnología",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4311352",
@@ -10455,18 +8985,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "4310935",
-        "titulo": "Máster Universitario en Neurociencias",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3002877",
-        "titulo": "Máster Universitario en Neurociencias",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4313792",
         "titulo": "Máster Universitario en Neurociencias por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Máster - RD 822/2021 (3)",
@@ -10476,12 +8994,6 @@
         "codigo_estudio": "4317093",
         "titulo": "Máster Universitario en Neuroingeniería y Rehabilitación por la Universidad Autónoma de Barcelona y la Universidad Politécnica de Catalunya",
         "nivel_academico": "Máster - RD 822/2021 (3)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4312328",
-        "titulo": "Máster Universitario en Neurorrehabilitación por la Universidad Autónoma de Barcelona",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
       {
@@ -10509,28 +9021,10 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "4310936",
-        "titulo": "Máster Universitario en Paleontología",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001250",
-        "titulo": "Máster Universitario en Paleontología",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4314104",
         "titulo": "Máster Universitario en Paleontología por la Universidad Autónoma de Barcelona y la Universidad de Barcelona",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001272",
-        "titulo": "Máster Universitario en Participación y Políticas Locales",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4310937",
@@ -10551,12 +9045,6 @@
         "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
-        "codigo_estudio": "3001765",
-        "titulo": "Máster Universitario en Pensar y Gobernar las Sociedades Complejas",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4311327",
         "titulo": "Máster Universitario en Pensar y Gobernar las Sociedades Complejas",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -10573,12 +9061,6 @@
         "titulo": "Máster Universitario en Planificación Estratégica en Publicidad y Relaciones Públicas por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001769",
-        "titulo": "Máster Universitario en Planificación y Gestión de la Educación",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4310938",
@@ -10623,18 +9105,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3001775",
-        "titulo": "Máster Universitario en Prevención y Gestión de Riesgos en la Comunidad",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4311815",
-        "titulo": "Máster Universitario en Prevención y Gestión de Riesgos en la Comunidad",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "4314229",
         "titulo": "Máster Universitario en Prevención y Gestión de Riesgos en la Comunidad por la Universidad Autónoma de Barcelona y la Universidad Ramón Llull",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -10647,27 +9117,9 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3000231",
-        "titulo": "Máster Universitario en Psicología de la Educación - MIPE",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4311550",
-        "titulo": "Máster Universitario en Psicología de la Educación - MIPE",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "3500024",
         "titulo": "Máster Universitario en Psicología de la Educación - MIPE por la Universidad Autónoma de Barcelona; la Universidad de Barcelona; la Universidad de Girona; la Universidad de Vic-Universidad Central de Catalunya y la Universidad Ramón Llull",
         "nivel_academico": "Máster - RD 822/2021 (3)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4313352",
-        "titulo": "Máster Universitario en Psicología de la Educación - MIPE por la Universidad Autónoma de Barcelona; la Universidad Ramón Llull; la Universidad de Barcelona y la Universidad de Girona",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
       {
@@ -10713,12 +9165,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3001374",
-        "titulo": "Máster Universitario en Química Teórica y Computacional",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "3500115",
         "titulo": "Máster Universitario en Química y Bioquímica Sanitarias por la Universidad Autónoma de Barcelona; la Universidad de Barcelona; la Universidad de Girona; la Universidad Rovira i Virgili y la Universitat de València (Estudi General)",
         "nivel_academico": "Máster - RD 822/2021 (3)",
@@ -10729,12 +9175,6 @@
         "titulo": "Máster Universitario en Radiación de Sincrotrón y Aceleradores de Partículas",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001252",
-        "titulo": "Máster Universitario en Radiación de Sincrotrón y Aceleradores de Partículas",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4313351",
@@ -10751,18 +9191,6 @@
       {
         "codigo_estudio": "4312127",
         "titulo": "Máster Universitario en Relaciones Internacionales por la Universidad Autónoma de Barcelona; la Universidad Pompeu Fabra y la Universidad de Barcelona",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3002978",
-        "titulo": "Máster Universitario en Relaciones Internacionales, Seguridad y Desarrollo",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4311329",
-        "titulo": "Máster Universitario en Relaciones Internacionales, Seguridad y Desarrollo",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
@@ -10789,12 +9217,6 @@
         "titulo": "Máster Universitario en Retos de la Filosofía Contemporánea por la Universidad Autónoma de Barcelona y la Universidad de Girona",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001264",
-        "titulo": "Máster Universitario en Salud Internacional",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4310058",
@@ -10827,28 +9249,10 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3002923",
-        "titulo": "Máster Universitario en Sanidad y Producción Porcina",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4311670",
         "titulo": "Máster Universitario en Sanidad y Producción Porcina por la Universidad Autónoma de Barcelona; la Universidad Complutense de Madrid; la Universidad de Lleida y la Universidad de Zaragoza",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4311549",
-        "titulo": "Máster Universitario en Seguridad Alimentaria",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3002826",
-        "titulo": "Máster Universitario en Seguridad Alimentaria",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4314752",
@@ -10875,12 +9279,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3002911",
-        "titulo": "Máster Universitario en Tecnologías Multimedia",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4311331",
         "titulo": "Máster Universitario en Tecnologías Multimedia",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -10891,12 +9289,6 @@
         "titulo": "Máster Universitario en Teledetección y Sistemas de Información Geográfica por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Máster - RD 822/2021 (3)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001273",
-        "titulo": "Máster Universitario en Trabajo y Política Social",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4310921",
@@ -10911,26 +9303,8 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3000265",
-        "titulo": "Máster Universitario en Traducción, Interpretación y Estudios Interculturales",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4311332",
-        "titulo": "Máster Universitario en Traducción, Interpretación y Estudios Interculturales",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "4314918",
         "titulo": "Máster Universitario en Traducción, Interpretación y Estudios Interculturales por la Universidad Autónoma de Barcelona",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4316560",
-        "titulo": "Máster Universitario en Traducción y Estudios Interculturales por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
@@ -10953,24 +9327,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "4315497",
-        "titulo": "Máster Universitario en Trastornos de la Comunicación y del Lenguaje por la Universidad Autónoma de Barcelona y la Universidad Ramón Llull",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001791",
-        "titulo": "Máster Universitario en Tratamiento de la Información y Comunicación Multilingüe",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4311355",
-        "titulo": "Máster Universitario en Tratamiento de la Información y Comunicación Multilingüe",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "4313807",
         "titulo": "Máster Universitario en Tratamiento de la Información y Comunicación Multilingüe por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -10989,28 +9345,16 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "4310941",
-        "titulo": "Máster Universitario en Visión por Computador e Inteligencia Artificial",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001260",
-        "titulo": "Máster Universitario en Visión por Computador e Inteligencia Artificial",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4315915",
         "titulo": "Máster Universitario en Zoonosis y Una Sola Salud (One Health) por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3001033",
-        "titulo": "Máster Universitario Erasmus Mundus en  Estudios Ambientales / Erasmus Mundus in Environmental Studies",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+        "codigo_estudio": "4311350",
+        "titulo": "Máster Universitario Erasmus Mundus en Estudios Ambientales /  Erasmus Mundus in Environmental Studies por la Universidad Autónoma de Barcelona; Aalborg Universitet(Dinamarca); Technische Universität Hamburg-Harburg(Alemania) y Universidade de Aveiro(Portugal)",
+        "nivel_academico": "Máster - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
       },
       {
         "codigo_estudio": "4316055",
@@ -11027,18 +9371,6 @@
       {
         "codigo_estudio": "4317523",
         "titulo": "Máster Universitario Erasmus Mundus en Enfermedades Infecciosas y Una Sola Salud / Erasmus Mundus in Infectious Diseases and One Health por la Universidad Autónoma de Barcelona;  Medizinische Hochschule Hannover(Alemania) y Université de Tours(Francia)",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4316451",
-        "titulo": "Máster Universitario Erasmus Mundus en Enfermedades Infecciosas y Una Sola Salud / Erasmus Mundus in Infectious Diseases and One Health por la Universidad Autónoma de Barcelona; University of Edinburgh(Reino Unido) y Université François Rabelais (Tours)(Francia)",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4311350",
-        "titulo": "Máster Universitario Erasmus Mundus en Estudios Ambientales /  Erasmus Mundus in Environmental Studies por la Universidad Autónoma de Barcelona; Aalborg Universitet(Dinamarca); Technische Universität Hamburg-Harburg(Alemania) y Universidade de Aveiro(Portugal)",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
@@ -11109,18 +9441,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "4310934",
-        "titulo": "Máster Universitario Erasmus Mundus en Modelos y Métodos de Economía Cuantitativa / Erasmus Mundus in Models and Methods of Quantitative Economics por la Universidad Autónoma de Barcelona; Universitá Degli Studi \"Ca' Foscari\" di Venezia(Italia); Universität Bielefeld(Alemania) y Université de Paris I - Panthéon-Sorbonne(Francia)",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4314110",
-        "titulo": "Máster Universitario Erasmus Mundus en Modelos y Métodos de Economía Cuantitativa / Erasmus Mundus in Models and Methods of Quantitative Economics por la Universidad Autónoma de Barcelona; Universitá Degli Studi \"Ca' Foscari\" di Venezia(Italia); Universität Bielefeld(Alemania) y Université Paris I Panthéon-Sorbonne (Francia)",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "3001034",
         "titulo": "Máster Universitario Erasmus Mundus en Modelos y Métodos de Economía Cuantitativa / Models and Methods of Quantitative Economics",
         "nivel_academico": "Máster - RD 56/2005 (2)",
@@ -11135,12 +9455,6 @@
       {
         "codigo_estudio": "4317165",
         "titulo": "Máster Universitario Erasmus Mundus en Políticas Educativas para el Desarrollo Global / Erasmus Mundus in Education Policies for Global Development por la Universidad Autónoma de Barcelona; The University of Glasgow(Reino Unido); Universitat Bremen(Alemania) y University of Cyprus (Chipre)",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "4315498",
-        "titulo": "Máster Universitario Erasmus Mundus en Políticas Educativas para el Desarrollo Global / Erasmus Mundus in Education Policies for Global Development por la Universidad Autónoma de Barcelona; Universitetet i Oslo(Noruega) y Università tà Malta(Malta)",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },

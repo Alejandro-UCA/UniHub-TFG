@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 822/2021 (2)",
   "universidad_codigo": "052",
   "universidad_nombre": "Universidad Antonio de Nebrija",
-  "fecha_procesado": "2026-07-31T14:38:47.003195",
+  "fecha_procesado": "2026-08-03T12:42:01.122295",
   "boe_url": "http://www.boe.es/boe/dias/2025/12/05/pdfs/BOE-A-2025-24827.pdf",
   "boe_fecha": "2025-12-05",
   "plan_estudios": {
@@ -14,77 +14,83 @@
       "Asignaturas Optativas.": "6",
       "Prácticas Externas.": "6",
       "Trabajo Fin de Grado.": "12",
-      "Créditos totales.": "240",
-      "Desarrollo del espíritu participativo y solidario.": "6",
-      "Sostenibilidad.": "6"
+      "Créditos totales.": "240"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas de Formación Básica.",
+        "nombre_elemento": "Asignaturas de Formación Básica.",
         "creditos_ects": "60",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Obligatorias.",
+        "nombre_elemento": "Asignaturas Obligatorias.",
         "creditos_ects": "156",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Optativas.",
+        "nombre_elemento": "Asignaturas Optativas.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
         "creditos_ects": "12",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
         "creditos_ects": "240",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Desarrollo del espíritu participativo y solidario.",
+        "nombre_elemento": "Desarrollo del espíritu participativo y solidario.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Sostenibilidad.",
+        "nombre_elemento": "Sostenibilidad.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       }
     ],
-    "total_asignaturas": 8,
+    "total_elementos": 8,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n24827 Resolución de 20 de octubre de 2025, de la Universidad Antonio de Nebrija, \npor la que se publica el plan de estudios de Graduado o Graduada en \nIngeniería Civil.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, y \nacordado el carácter oficial del título por Acuerdo del Consejo de Ministros de 7 de \noctubre de 2025 (publicado en el BOE de 13 de octubre de 2025 por resolución de la \nSecretaría General de Universidades de 9 de octubre de 2025),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención \ndel título de Graduado o Graduada en Ingeniería Civil, que queda estructurado según \nconsta en el anexo de esta resolución.\nHoyo de Manzanares, 20 de octubre de 2025.–La Rectora, Monserrat Gomendio Kindelan.\nANEXO\nPlan de estudios conducente al título de Graduado o Graduada en Ingeniería Civil\nPlanificación de las enseñanzas\nDescripción general del plan de estudios-Graduado o Graduada en Inge"
   }
 }

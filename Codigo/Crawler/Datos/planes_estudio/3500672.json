@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "061",
   "universidad_nombre": "Mondragón Unibertsitatea",
-  "fecha_procesado": "2026-07-31T14:16:34.009587",
+  "fecha_procesado": "2026-08-03T12:22:21.176347",
   "boe_url": "http://www.boe.es/boe/dias/2026/06/22/pdfs/BOE-A-2026-13570.pdf",
   "boe_fecha": "2026-06-22",
   "plan_estudios": {
@@ -23,8 +23,126 @@
       "9. TRABAJO DE FIN DE MÁSTER.": "12",
       "TOTAL.": "60"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "48",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de máster.",
+        "nombre_elemento": "Trabajo fin de máster.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "1. SOCIOLINGÜÍSTICA Y COMUNIDAD LINGÜÍSTICA.",
+        "nombre_elemento": "1. SOCIOLINGÜÍSTICA Y COMUNIDAD LINGÜÍSTICA.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "2. HISTORIA Y ÁMBITO DE LA DINAMIZACIÓN DE LA CULTURA VASCA.",
+        "nombre_elemento": "2. HISTORIA Y ÁMBITO DE LA DINAMIZACIÓN DE LA CULTURA VASCA.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "3. ANÁLISIS DE LA SOCIEDAD CONTEMPORÁNEA.",
+        "nombre_elemento": "3. ANÁLISIS DE LA SOCIEDAD CONTEMPORÁNEA.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "4. OPORTUNIDADES Y RETOS DE LA DINAMIZACIÓN DE LA CULTURA VASCA.",
+        "nombre_elemento": "4. OPORTUNIDADES Y RETOS DE LA DINAMIZACIÓN DE LA CULTURA VASCA.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "5. CLAVES PEDAGÓGICAS Y CURRICULARES DE LA CULTURA VASCA.",
+        "nombre_elemento": "5. CLAVES PEDAGÓGICAS Y CURRICULARES DE LA CULTURA VASCA.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "6. RETOS Y ESTRATEGIAS DIDÁCTICAS PARA LA TRANSMISIÓN DE LA CULTURA VASCA.",
+        "nombre_elemento": "6. RETOS Y ESTRATEGIAS DIDÁCTICAS PARA LA TRANSMISIÓN DE LA CULTURA VASCA.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "7. ESTRUCTURAS, POLÍTICAS Y ESTRATEGIAS DE LA DINAMIZACIÓN DE LA CULTURA VASCA.",
+        "nombre_elemento": "7. ESTRUCTURAS, POLÍTICAS Y ESTRATEGIAS DE LA DINAMIZACIÓN DE LA CULTURA VASCA.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "8. DINAMIZACIÓN DE LAS INICIATIVAS CULTURALES LOCALES.",
+        "nombre_elemento": "8. DINAMIZACIÓN DE LAS INICIATIVAS CULTURALES LOCALES.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "9. TRABAJO DE FIN DE MÁSTER.",
+        "nombre_elemento": "9. TRABAJO DE FIN DE MÁSTER.",
+        "creditos_ects": "12",
+        "caracter": "TFM.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "TOTAL.",
+        "nombre_elemento": "TOTAL.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_elementos": 13,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n13570 Resolución de 8 de junio de 2026, de la Universidad Mondragon \nUnibertsitatea, por la que se publica el plan de estudios de Máster \nUniversitario en Dinamización de la Cultura Vasca.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme favorable de la Agencia de Calidad del Sistema Universitario Vasco, así como la \nautorización de la Comunidad Autónoma Vasca, y establecido el carácter oficial del título \npor Acuerdo de Consejo de Ministros de 7 de octubre de 2025 (publicado en el BOE \nde 13 de octubre de 2025),\nEste Rectorado, de conformidad con lo dispuesto en el artículo 35 de la Ley \nOrgánica 6/2001, de Universidades, en la redacción dada por la Ley Orgánica 4/2007, ha \nresuelto publicar el plan de estudios conducente a la obtención del título de Máster \nUniversitario en Dinamización de la Cultura Vasca.\nMondragón, 8 de junio de 2026.–El Rector, Vicente Atxa Uribe.\nANEXO\nPlan de estudios conducent"
   }
 }

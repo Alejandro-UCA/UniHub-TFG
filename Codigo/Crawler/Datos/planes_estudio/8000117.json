@@ -4,13 +4,140 @@
   "nivel_academico": "Título Extranjero",
   "universidad_codigo": "091",
   "universidad_nombre": "Centros extranjeros autorizados por la Comunidad de Madrid",
-  "fecha_procesado": "2026-07-31T14:08:31.659136",
+  "fecha_procesado": "2026-08-03T12:14:25.449160",
   "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2025/12/30/BOCM-20251230-19.PDF",
   "boe_fecha": "2025-12-30",
   "plan_estudios": {
     "resumen_creditos": {},
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Bachelor of Science In Business Analytics.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Bachelor of Science in Applied Mathematics and Artificial Intelligence.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Bachelor of Science in International Business.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Bachelor of Science in International Hospitality and Tourism Management.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Bachelor of Arts in International Relations and Diplomacy.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Bachelor of Science in Computer Science.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Bachelor of Science in International Marketing.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Master of Science in Sustainability Management.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Master of Science in Global Finance.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Master of Science in Data Science.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Master of Science in Digital Marketing and E -Commerce.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Master of Arts in International Relations and Diplomacy.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Master of Business Administration.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "MBA in International Business.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_elementos": 14,
     "texto_extraido_muestra": "MARTES 30 DE DICIEMBRE DE 2025Pág. 74 B.O.C.M. Núm. 310\nBOCM-20251230-19\nBOLETÍN OFICIAL DE LA COMUNIDAD DE MADRIDBOCM\nI. COMUNIDAD DE MADRID\nC) Otras Disposiciones\nConsejería de Educación, Ciencia y Universidades\n19 ORDEN 5876/2025, de 9 de diciembre, del Consejero de Educación, Ciencia y\nUniversidades, por la que se autoriza la ampliación y modificación de la oferta edu-\ncativa del centro extranjero autorizado para impartir enseñanzas universitarias de\nacuerdo con el sistema educativo de Estados Unidos de América, Schiller Interna-\ntional University, Sucursal en España, a partir del curso académico 2025-2026.\nEl Real Decreto 640/2021, de 27 de julio, de creación, reconocimiento y autorización\nde universidades y centros universitarios, y acreditación institucional de centros universi-\ntarios, dispone en su artículo 15 que la impartición de enseñanzas universitarias y de edu-\ncación superior (diplomas o certificados) de ámbito similar al universitario en nuestro país,\ndesarrollada por "
   }
 }

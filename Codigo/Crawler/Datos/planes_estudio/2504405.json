@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 822/2021 (2)",
   "universidad_codigo": "074",
   "universidad_nombre": "Universidad a Distancia de Madrid",
-  "fecha_procesado": "2026-07-31T14:22:46.851273",
+  "fecha_procesado": "2026-08-03T12:26:32.475838",
   "boe_url": "http://www.boe.es/boe/dias/2022/12/07/pdfs/BOE-A-2022-20708.pdf",
   "boe_fecha": "2022-12-07",
   "plan_estudios": {
@@ -16,28 +16,28 @@
       "Total.": "240",
       "Dirección y Gestión de Personas en las Organizaciones.": "Administración de Empresas.",
       "Creación y Gestión de Empresas. Emprendimiento Digital.": "Administración de Empresas.",
-      "Gestión Ágil de la Empresa. Lean Management y Lean Office.": "Obligatoria.",
-      "Gestión de la Innovación.": "Obligatoria.",
-      "Dirección Estratégica de la Empresa.": "Obligatoria.",
+      "Gestión Ágil de la Empresa. Lean Management y Lean Office.": "Administración de Empresas.",
+      "Gestión de la Innovación.": "Administración de Empresas.",
+      "Dirección Estratégica de la Empresa.": "Administración de Empresas.",
       "Análisis de Estados Financieros.": "Contabilidad y Fundamentos Financieros.",
-      "Derecho Mercantil.": "Obligatoria.",
-      "Derecho Tributario. Fiscalidad de las Personas Jurídicas.": "Obligatoria.",
+      "Derecho Mercantil.": "Derecho.",
+      "Derecho Tributario. Fiscalidad de las Personas Jurídicas.": "Derecho.",
       "Microeconomía.": "Economía.",
-      "Marketing y Globalización.": "Obligatoria.",
-      "Marketing Electrónico.": "Obligatoria.",
+      "Marketing y Globalización.": "Marketing y Ventas.",
+      "Marketing Electrónico.": "Marketing y Ventas.",
       "Redes Sociales y Community Management.": "Marketing y Ventas.",
-      "Toma de Decisiones Empresariales.": "Obligatoria.",
+      "Toma de Decisiones Empresariales.": "Métodos Cuantitativos.",
       "Estadística II.": "Métodos Cuantitativos.",
       "Habilidades Profesionales y Competencias Digitales.": "Multidisciplinar.",
-      "Diseño y Prototipado de Productos/Servicios Digitales.": "Obligatoria.",
+      "Diseño y Prototipado de Productos/Servicios Digitales.": "Sistemas de Información y Dirección de Operaciones.",
       "Sistemas Integrados de Gestión Empresarial.": "Sistemas de Información y Dirección de Operaciones.",
-      "Dirección de Operaciones y de Proyectos Ágiles.": "Obligatoria.",
+      "Dirección de Operaciones y de Proyectos Ágiles.": "Sistemas de Información y Dirección de Operaciones.",
       "Logística.": "Sistemas de Información y Dirección de Operaciones.",
       "Aplicaciones Web y Aplicaciones Móviles Empresariales.": "Tecnología.",
-      "Bases de Datos.": "Obligatoria.",
-      "Tecnologías Disruptivas.": "Obligatoria.",
+      "Bases de Datos.": "Tecnología.",
+      "Tecnologías Disruptivas.": "Tecnología.",
       "Inteligencia Artificial y Blockchain Aplicado a los Negocios.": "Tecnología.",
-      "Análisis, Visualización y Modelización de Datos.": "Obligatoria.",
+      "Análisis, Visualización y Modelización de Datos.": "Tecnología.",
       "Seguridad de la Información. Ciberprotección de Datos.": "Tecnología.",
       "Contratación Internacional.": "Optativas.",
       "Control de Gestión.": "Optativas.",
@@ -57,458 +57,758 @@
       "Responsabilidad Social Corporativa y Deontología Profesional.": "Optativas.",
       "Venta Directa y On-Line.": "Optativas.",
       "Normativa Contable Española.": "Optativas.",
-      "Prácticas Externas.": "Prácticas Externas (Optativas).",
-      "Introducción a la Organización de Empresas.": "Básica.",
-      "Fundamentos de Economía.": "Básica.",
-      "Matemáticas.": "Básica.",
-      "Hojas de Cálculo Avanzadas.": "Básica.",
-      "Tecnología y Gestión de la Información y del Conocimiento.": "Básica.",
-      "Optativa 1.": "Optativa.",
-      "Optativa 2.": "Optativa."
+      "Prácticas Externas.": "Prácticas Externas (Optativas)."
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Introducción a la Organización de Empresas.",
+        "nombre_elemento": "Introducción a la Organización de Empresas.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Economía.",
-        "nombre_asignatura": "Fundamentos de Economía.",
+        "nombre_elemento": "Fundamentos de Economía.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Matemáticas.",
-        "nombre_asignatura": "Matemáticas.",
+        "nombre_elemento": "Matemáticas.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Informática.",
-        "nombre_asignatura": "Hojas de Cálculo Avanzadas.",
+        "nombre_elemento": "Hojas de Cálculo Avanzadas.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Informática.",
-        "nombre_asignatura": "Tecnología y Gestión de la Información y del Conocimiento.",
+        "nombre_elemento": "Tecnología y Gestión de la Información y del Conocimiento.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Estadística.",
-        "nombre_asignatura": "Estadística I.",
+        "nombre_elemento": "Estadística I.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Fundamentos de Contabilidad.",
+        "nombre_elemento": "Fundamentos de Contabilidad.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Informática.",
-        "nombre_asignatura": "Fundamentos de Programación para los Negocios.",
+        "nombre_elemento": "Fundamentos de Programación para los Negocios.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Fundamentos Básicos de Derecho Digital.",
+        "nombre_elemento": "Fundamentos Básicos de Derecho Digital.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Operaciones Financieras.",
+        "nombre_elemento": "Operaciones Financieras.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Total créditos ECTS básicos.",
+        "nombre_elemento": "Total créditos ECTS básicos.",
         "creditos_ects": "60",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Administración de Empresas.",
         "materia": "",
-        "nombre_asignatura": "Dirección y Gestión de Personas en las Organizaciones.",
+        "nombre_elemento": "Dirección y Gestión de Personas en las Organizaciones.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Administración de Empresas.",
         "materia": "",
-        "nombre_asignatura": "Creación y Gestión de Empresas. Emprendimiento Digital.",
+        "nombre_elemento": "Creación y Gestión de Empresas. Emprendimiento Digital.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Administración de Empresas.",
         "materia": "",
-        "nombre_asignatura": "Gestión Ágil de la Empresa. Lean Management y Lean Office.",
+        "nombre_elemento": "Gestión Ágil de la Empresa. Lean Management y Lean Office.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Administración de Empresas.",
         "materia": "",
-        "nombre_asignatura": "Gestión de la Innovación.",
+        "nombre_elemento": "Gestión de la Innovación.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Administración de Empresas.",
         "materia": "",
-        "nombre_asignatura": "Dirección Estratégica de la Empresa.",
+        "nombre_elemento": "Dirección Estratégica de la Empresa.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Contabilidad y Fundamentos Financieros.",
         "materia": "",
-        "nombre_asignatura": "Análisis de Estados Financieros.",
+        "nombre_elemento": "Análisis de Estados Financieros.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Derecho.",
         "materia": "",
-        "nombre_asignatura": "Derecho Mercantil.",
+        "nombre_elemento": "Derecho Mercantil.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Derecho.",
         "materia": "",
-        "nombre_asignatura": "Derecho Tributario. Fiscalidad de las Personas Jurídicas.",
+        "nombre_elemento": "Derecho Tributario. Fiscalidad de las Personas Jurídicas.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Economía.",
         "materia": "",
-        "nombre_asignatura": "Microeconomía.",
+        "nombre_elemento": "Microeconomía.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Marketing y Ventas.",
         "materia": "",
-        "nombre_asignatura": "Marketing y Globalización.",
+        "nombre_elemento": "Marketing y Globalización.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Marketing y Ventas.",
         "materia": "",
-        "nombre_asignatura": "Marketing Electrónico.",
+        "nombre_elemento": "Marketing Electrónico.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Marketing y Ventas.",
         "materia": "",
-        "nombre_asignatura": "Redes Sociales y Community Management.",
+        "nombre_elemento": "Redes Sociales y Community Management.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Métodos Cuantitativos.",
         "materia": "",
-        "nombre_asignatura": "Toma de Decisiones Empresariales.",
+        "nombre_elemento": "Toma de Decisiones Empresariales.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Métodos Cuantitativos.",
         "materia": "",
-        "nombre_asignatura": "Estadística II.",
+        "nombre_elemento": "Estadística II.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Multidisciplinar.",
         "materia": "",
-        "nombre_asignatura": "Habilidades Profesionales y Competencias Digitales.",
+        "nombre_elemento": "Habilidades Profesionales y Competencias Digitales.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Sistemas de Información y Dirección de Operaciones.",
         "materia": "",
-        "nombre_asignatura": "Diseño y Prototipado de Productos/Servicios Digitales.",
+        "nombre_elemento": "Diseño y Prototipado de Productos/Servicios Digitales.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Sistemas de Información y Dirección de Operaciones.",
         "materia": "",
-        "nombre_asignatura": "Sistemas Integrados de Gestión Empresarial.",
+        "nombre_elemento": "Sistemas Integrados de Gestión Empresarial.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Sistemas de Información y Dirección de Operaciones.",
         "materia": "",
-        "nombre_asignatura": "Dirección de Operaciones y de Proyectos Ágiles.",
+        "nombre_elemento": "Dirección de Operaciones y de Proyectos Ágiles.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Sistemas de Información y Dirección de Operaciones.",
         "materia": "",
-        "nombre_asignatura": "Logística.",
+        "nombre_elemento": "Logística.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Tecnología.",
         "materia": "",
-        "nombre_asignatura": "Aplicaciones Web y Aplicaciones Móviles Empresariales.",
+        "nombre_elemento": "Aplicaciones Web y Aplicaciones Móviles Empresariales.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Tecnología.",
         "materia": "",
-        "nombre_asignatura": "Bases de Datos.",
+        "nombre_elemento": "Bases de Datos.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Tecnología.",
         "materia": "",
-        "nombre_asignatura": "Tecnologías Disruptivas.",
+        "nombre_elemento": "Tecnologías Disruptivas.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Tecnología.",
         "materia": "",
-        "nombre_asignatura": "Inteligencia Artificial y Blockchain Aplicado a los Negocios.",
+        "nombre_elemento": "Inteligencia Artificial y Blockchain Aplicado a los Negocios.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Tecnología.",
         "materia": "",
-        "nombre_asignatura": "Análisis, Visualización y Modelización de Datos.",
+        "nombre_elemento": "Análisis, Visualización y Modelización de Datos.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Tecnología.",
         "materia": "",
-        "nombre_asignatura": "Seguridad de la Información. Ciberprotección de Datos.",
+        "nombre_elemento": "Seguridad de la Información. Ciberprotección de Datos.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativas.",
         "materia": "",
-        "nombre_asignatura": "Contratación Internacional.",
+        "nombre_elemento": "Contratación Internacional.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativas.",
         "materia": "",
-        "nombre_asignatura": "Control de Gestión.",
+        "nombre_elemento": "Control de Gestión.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativas.",
         "materia": "",
-        "nombre_asignatura": "CRM y Marketing Relacional.",
+        "nombre_elemento": "CRM y Marketing Relacional.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativas.",
         "materia": "",
-        "nombre_asignatura": "Derecho de la Unión Europea.",
+        "nombre_elemento": "Derecho de la Unión Europea.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativas.",
         "materia": "",
-        "nombre_asignatura": "Derecho del Trabajo.",
+        "nombre_elemento": "Derecho del Trabajo.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativas.",
         "materia": "",
-        "nombre_asignatura": "Dirección Financiera.",
+        "nombre_elemento": "Dirección Financiera.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativas.",
         "materia": "",
-        "nombre_asignatura": "Fiscalidad de las Personas Físicas.",
+        "nombre_elemento": "Fiscalidad de las Personas Físicas.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativas.",
         "materia": "",
-        "nombre_asignatura": "Fundamentos de la Comunicación en el Entorno Digital.",
+        "nombre_elemento": "Fundamentos de la Comunicación en el Entorno Digital.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativas.",
         "materia": "",
-        "nombre_asignatura": "Fundamentos de Programación Imperativa y Orientada a Objetos.",
+        "nombre_elemento": "Fundamentos de Programación Imperativa y Orientada a Objetos.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativas.",
         "materia": "",
-        "nombre_asignatura": "Inglés.",
+        "nombre_elemento": "Inglés.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativas.",
         "materia": "",
-        "nombre_asignatura": "Macroeconomía.",
+        "nombre_elemento": "Macroeconomía.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativas.",
         "materia": "",
-        "nombre_asignatura": "Políticas de Igualdad e Integración.",
+        "nombre_elemento": "Políticas de Igualdad e Integración.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativas.",
         "materia": "",
-        "nombre_asignatura": "Programación Web.",
+        "nombre_elemento": "Programación Web.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativas.",
         "materia": "",
-        "nombre_asignatura": "Psicología del Consumidor.",
+        "nombre_elemento": "Psicología del Consumidor.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativas.",
         "materia": "",
-        "nombre_asignatura": "Redes de Computadores.",
+        "nombre_elemento": "Redes de Computadores.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativas.",
         "materia": "",
-        "nombre_asignatura": "Responsabilidad Social Corporativa y Deontología Profesional.",
+        "nombre_elemento": "Responsabilidad Social Corporativa y Deontología Profesional.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativas.",
         "materia": "",
-        "nombre_asignatura": "Venta Directa y On-Line.",
+        "nombre_elemento": "Venta Directa y On-Line.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativas.",
         "materia": "",
-        "nombre_asignatura": "Normativa Contable Española.",
+        "nombre_elemento": "Normativa Contable Española.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Prácticas Externas (Optativas).",
         "materia": "",
-        "nombre_asignatura": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
         "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Primer Curso. Segundo Semestre",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Estadística I.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Fundamentos de Contabilidad.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Fundamentos de Programación para los Negocios.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Fundamentos Básicos de Derecho Digital.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Operaciones Financieras.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Total Primer Curso. Segundo Semestre.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Segundo Curso. Segundo Semestre",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Habilidades Profesionales y Competencias Digitales.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Estadística II.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Sistemas Integrados de Gestión Empresarial.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Análisis de Estados Financieros.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Aplicaciones Web y Aplicaciones Móviles Empresariales.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Total Segundo Curso. Segundo Semestre.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Tercer Curso. Segundo Semestre",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Dirección y Gestión de Personas en las Organizaciones.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Creación y Gestión de Empresas. Emprendimiento Digital.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Microeconomía.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Logística.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Inteligencia Artificial y Blockchain Aplicado a los Negocios.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Total Tercer Curso. Segundo Semestre.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Cuarto Curso. Segundo Semestre",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Redes Sociales y Community Management.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Seguridad de la Información. Ciberprotección de Datos.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Optativa 3.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Optativa 4.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria - Trabajo Fin de Grado.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Total Cuarto Curso. Segundo Semestre.",
+        "creditos_ects": "30",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 55,
+    "total_elementos": 83,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n20708 Resolución de 7 de noviembre de 2022, de la Universidad a Distancia de \nMadrid, por la que se publica el plan de estudios de Graduado o Graduada en \nEmpresa y Tecnología.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme favorable de la Fundación Madri+d y declarado el carácter oficial del Título por \nAcuerdo del Consejo de Ministros de 11 de julio de 2022 (publicado en el BOE de 20 de \njulio de 2022, por Resolución de la Secretaría General de Universidades de 13 de julio \nde 2022),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención \ndel Título de Graduado o Graduada en Empresa y Tecnología.\nEl plan de estudios a que se refiere la presente Resolución quedará estructurado \nconforme figura en el Anexo de la misma.\nCollado Villalba, 7 de noviembre de 2022.–La Rectora, María Concepción Burgos \nGarcía.\nANEXO\nLa estructura general de las enseñanzas conducentes al Grado en "
   }
 }

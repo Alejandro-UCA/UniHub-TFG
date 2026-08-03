@@ -4,27 +4,145 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "047",
   "universidad_nombre": "Universidad Alfonso X El Sabio",
-  "fecha_procesado": "2026-07-31T14:34:38.046681",
+  "fecha_procesado": "2026-08-03T12:37:59.645203",
   "boe_url": "http://www.boe.es/boe/dias/2023/09/11/pdfs/BOE-A-2023-19268.pdf",
   "boe_fecha": "2023-09-11",
   "plan_estudios": {
     "resumen_creditos": {
       "Obligatorias.": "48",
       "Prácticas Académicas Externas.": "6",
-      "Trabajo Fin de Máster.": "Trabajo Fin de Máster.",
-      "Total.": "60",
-      "Logística y transporte en la Unión Europea.": "Obligatoria.",
-      "Logística y transporte internacional: import / export.": "Obligatoria.",
-      "Gestión de almacenes y control de inventario.": "Obligatoria.",
-      "Sistemas y aplicaciones de gestión en empresas logísticas.": "Obligatoria.",
-      "Economía y comercio en el transporte global de bienes y servicios.": "Obligatoria.",
-      "Gestión de operaciones e innovación.": "Obligatoria.",
-      "Metodologías ágiles y mejora continua aplicadas a Logística.": "Obligatoria.",
-      "Analítica de Datos como herramienta del sector logístico.": "Obligatoria.",
-      "Prácticas académicas externas.": "Prácticas Externas."
+      "Trabajo Fin de Máster.": "6",
+      "Total.": "60"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "48",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Académicas Externas.",
+        "nombre_elemento": "Prácticas Académicas Externas.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Logística y transporte en la Unión Europea.",
+        "nombre_elemento": "Logística y transporte en la Unión Europea.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "1. º"
+      },
+      {
+        "modulo": "",
+        "materia": "Logística y transporte internacional: import / export.",
+        "nombre_elemento": "Logística y transporte internacional: import / export.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "1. º"
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión de almacenes y control de inventario.",
+        "nombre_elemento": "Gestión de almacenes y control de inventario.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "1. º"
+      },
+      {
+        "modulo": "",
+        "materia": "Sistemas y aplicaciones de gestión en empresas logísticas.",
+        "nombre_elemento": "Sistemas y aplicaciones de gestión en empresas logísticas.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "1. º"
+      },
+      {
+        "modulo": "",
+        "materia": "Economía y comercio en el transporte global de bienes y servicios.",
+        "nombre_elemento": "Economía y comercio en el transporte global de bienes y servicios.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "1. º"
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión de operaciones e innovación.",
+        "nombre_elemento": "Gestión de operaciones e innovación.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "2. º"
+      },
+      {
+        "modulo": "",
+        "materia": "Metodologías ágiles y mejora continua aplicadas a Logística.",
+        "nombre_elemento": "Metodologías ágiles y mejora continua aplicadas a Logística.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "2. º"
+      },
+      {
+        "modulo": "",
+        "materia": "Analítica de Datos como herramienta del sector logístico.",
+        "nombre_elemento": "Analítica de Datos como herramienta del sector logístico.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "2. º"
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas académicas externas.",
+        "nombre_elemento": "Prácticas académicas externas.",
+        "creditos_ects": "6",
+        "caracter": "Prácticas Externas.",
+        "curso": "",
+        "cuatrimestre": "2. º"
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "Trabajo Fin de Máster.",
+        "curso": "",
+        "cuatrimestre": "2. º"
+      }
+    ],
+    "total_elementos": 14,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n19268 Resolución de 28 de agosto de 2023, de la Universidad Alfonso X el Sabio, \npor la que se publica el plan de estudios de Máster Universitario en Logística.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme positivo de la Fundación para el Conocimiento madri+d, y acordado el carácter \noficial del título por Acuerdo de Consejo de Ministros de 18 de julio de 2023 (publicado \nen el BOE núm. 178, de 27 de julio de 2023, por Resolución de la Secretaría General de \nUniversidades de 19 de julio de 2023), este Rectorado ha resuelto publicar el plan de \nestudios conducente a la obtención del título de Máster Universitario en Logística por la \nUniversidad Alfonso X el Sabio.\nVillanueva de la Cañada, 28 de agosto de 2023.–La Rectora, Ana Isabel Fernández \nMartínez.\nANEXO\nDistribución del plan de estudios en créditos ECTS\nTipo de materia Créditos \nECTS\nObligatorias. 48\nPrácticas Académicas Externas. 6\nTrabajo F"
   }
 }

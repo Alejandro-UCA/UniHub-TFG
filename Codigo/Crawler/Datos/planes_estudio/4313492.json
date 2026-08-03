@@ -4,760 +4,916 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "074",
   "universidad_nombre": "Universidad a Distancia de Madrid",
-  "fecha_procesado": "2026-07-31T14:25:40.801405",
+  "fecha_procesado": "2026-08-03T12:29:13.925799",
   "boe_url": "http://www.boe.es/boe/dias/2026/05/25/pdfs/BOE-A-2026-11309.pdf",
   "boe_fecha": "2026-05-25",
   "plan_estudios": {
     "resumen_creditos": {
-      "Aprendizaje y Desarrollo de la Personalidad.": "Formación Genérica.",
-      "Procesos y Contextos Educativos.": "Formación Genérica.",
-      "Sociedad, Familia y Educación.": "Formación Genérica.",
-      "Enseñanza y Aprendizaje de la Especialidad elegida (I).": "Formación Específica.",
-      "Enseñanza y Aprendizaje de la Especialidad elegida (II).": "Formación Específica.",
-      "Complementos para la Formación Disciplinar de la Especialidad elegida.": "Formación Específica.",
-      "Innovación Docente e Iniciación a la Investigación Educativa de la Especialidad elegida.": "Formación Específica.",
-      "Prácticum.": "Formación Práctica: Prácticum.",
-      "Trabajo Fin de Máster.": "Trabajo Fin de Máster.",
-      "Obligatorias.": "Básico.",
-      "Fundamentos Científicos y Profesionales de la Psicología General Sanitaria.": "Básico.",
-      "Entrenamiento en Habilidades Básicas del Psicólogo General Sanitario.": "Específico.",
-      "Evaluación y Diagnóstico en Psicología Clínica y de la Salud I: Infancia y Adolescencia.": "Específico.",
-      "Evaluación y Diagnóstico en Psicología Clínica y de la Salud II: Adultos y Vejez.": "Específico.",
-      "Avances en Técnicas de Intervención Psicológica.": "Específico.",
-      "Intervención y Tratamientos en Psicología Clínica y de la Salud I: Infancia y Adolescencia.": "Específico.",
-      "Intervención y Tratamientos en Psicología Clínica y de la Salud II: Adultos y Vejez.": "Específico.",
-      "Neuropsicología (1).": "Materias Optativas.",
-      "Psicofarmacología Clínica (1).": "Materias Optativas.",
-      "Programas Preventivos y Promoción de la Salud (1).": "Materias Optativas.",
-      "Factores Asociados al Trauma Psicológico (1).": "Materias Optativas.",
-      "Familia, Pareja y Sexualidad (1).": "Materias Optativas.",
-      "Prácticas Académicas Externas I.": "Prácticas Externas.",
-      "Prácticas Académicas Externas II.": "Prácticas Externas.",
-      "Práctica Procesal Civil.": "Litigación.",
-      "Práctica Procesal Penal.": "Litigación.",
-      "Práctica Contencioso-Administrativa y Derechos Fundamentales.": "Litigación.",
-      "Práctica Procesal Laboral.": "Litigación.",
-      "Práctica Procesal Mercantil y Comunitaria.": "Litigación.",
-      "Deontología y Normativa Profesional.": "Ejercicio Profesional de la Abogacía y de la Procura.",
-      "Habilidades Profesionales y Gestión de Despacho.": "Ejercicio Profesional de la Abogacía y de la Procura.",
-      "Conciliación, Mediación y Arbitraje.": "Ejercicio Profesional de la Abogacía y de la Procura.",
-      "Prácticas Externas.": "Prácticas Externas."
+      "Obligatorias.": "Básico."
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
-        "materia": "",
-        "nombre_asignatura": "Enseñanza y Aprendizaje de la Especialidad de Lengua Castellana y Literatura I.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Enseñanza y Aprendizaje de la Especialidad de Lengua Castellana y Literatura II.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Complementos para la Formación Disciplinar en la Especialidad de Lengua Castellana y Literatura.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Innovación Docente e Iniciación a la Investigación Educativa en la Especialidad de Lengua Castellana y Literatura.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Enseñanza y Aprendizaje de la Especialidad de Matemáticas I.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Enseñanza y Aprendizaje de la Especialidad de Matemáticas II.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Complementos para la Formación Disciplinar en la Especialidad de Matemáticas.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Innovación Docente e Iniciación a la Investigación Educativa en la Especialidad de Matemáticas.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Enseñanza y Aprendizaje de la Especialidad de Geografía e Historia I.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Enseñanza y Aprendizaje de la Especialidad de Geografía e Historia II.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Complementos para la Formación Disciplinar en la Especialidad de Geografía e Historia.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Innovación Docente e Iniciación a la Investigación Educativa en la Especialidad de Geografía e Historia.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Enseñanza y Aprendizaje de la Especialidad de Lengua Extranjera (Inglés) I.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Enseñanza y Aprendizaje de la Especialidad de Lengua Extranjera (Inglés) II.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Complementos para la Formación Disciplinar en la Especialidad de Lengua Extranjera (Inglés).",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Innovación Docente e Iniciación a la Investigación Educativa en la Especialidad de Lengua Extranjera (Inglés).",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Enseñanza y Aprendizaje de la Especialidad de Educación Física I.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Enseñanza y Aprendizaje de la Especialidad de Educación Física II.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Complementos para la Formación Disciplinar en la Especialidad de Educación Física.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Innovación Docente e Iniciación a la Investigación Educativa en la Especialidad de Educación Física.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Enseñanza y Aprendizaje de la Especialidad de Biología y Geología I",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Enseñanza y Aprendizaje de la Especialidad de Biología y Geología II",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Complementos para la Formación Disciplinar en la Especialidad de Biología y Geología",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Innovación Docente e Iniciación a la Investigación Educativa en la Especialidad de Biología y Geología",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Enseñanza y Aprendizaje de la Especialidad de Formación y Orientación Laboral (FOL) I",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Enseñanza y Aprendizaje de la Especialidad de Formación y Orientación Laboral (FOL) II",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Complementos para la Formación Disciplinar en la Especialidad de Formación y Orientación Laboral (FOL)",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Innovación Docente e Iniciación a la Investigación Educativa en la Especialidad de Formación y Orientación Laboral (FOL)",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Enseñanza y Aprendizaje de la Especialidad de Tecnología e Informática I.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Enseñanza y Aprendizaje de la Especialidad de Tecnología e Informática II.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Complementos para la Formación Disciplinar en la Especialidad de Tecnología e Informática.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Innovación Docente e Iniciación a la Investigación Educativa en la Especialidad de Tecnología e Informática.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Enseñanza y Aprendizaje de la Especialidad de Economía y Administración de Empresas I",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Enseñanza y Aprendizaje de la Especialidad de Economía y Administración de Empresas II",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Complementos para la Formación Disciplinar en la Especialidad de Economía y Administración de Empresas",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Innovación Docente e Iniciación a la Investigación Educativa en la Especialidad de Economía y Administración de Empresas",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Formación Genérica.",
-        "nombre_asignatura": "Aprendizaje y Desarrollo de la Personalidad.",
-        "creditos_ects": "6",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Formación Genérica.",
-        "nombre_asignatura": "Procesos y Contextos Educativos.",
-        "creditos_ects": "6",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Formación Genérica.",
-        "nombre_asignatura": "Sociedad, Familia y Educación.",
-        "creditos_ects": "6",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Formación Específica.",
-        "nombre_asignatura": "Enseñanza y Aprendizaje de la Especialidad elegida (I).",
-        "creditos_ects": "6",
-        "caracter": "Optativa (Obligatoria dentro de la especialidad elegida).",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Formación Específica.",
-        "nombre_asignatura": "Enseñanza y Aprendizaje de la Especialidad elegida (II).",
-        "creditos_ects": "6",
-        "caracter": "Optativa (Obligatoria dentro de la especialidad elegida).",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Formación Específica.",
-        "nombre_asignatura": "Complementos para la Formación Disciplinar de la Especialidad elegida.",
-        "creditos_ects": "6",
-        "caracter": "Optativa (Obligatoria dentro de la especialidad elegida).",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Formación Específica.",
-        "nombre_asignatura": "Innovación Docente e Iniciación a la Investigación Educativa de la Especialidad elegida.",
-        "creditos_ects": "6",
-        "caracter": "Optativa (Obligatoria dentro de la especialidad elegida).",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Formación Práctica: Prácticum.",
-        "nombre_asignatura": "Prácticum.",
-        "creditos_ects": "9",
-        "caracter": "Prácticas Externas.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Formación Práctica: Trabajo Fin de Máster.",
-        "nombre_asignatura": "Trabajo Fin de Máster.",
-        "creditos_ects": "9",
-        "caracter": "Trabajo Fin de Máster.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Formación Práctica: Trabajo Fin de Máster.",
-        "nombre_asignatura": "Total.",
-        "creditos_ects": "60",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Fundamentos Científicos y Profesionales de la Psicología General Sanitaria.",
-        "creditos_ects": "6",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Entrenamiento en Habilidades Básicas del Psicólogo General Sanitario.",
-        "creditos_ects": "6",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Evaluación y Diagnóstico en Psicología Clínica y de la Salud I: Infancia y Adolescencia.",
-        "creditos_ects": "6",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Evaluación y Diagnóstico en Psicología Clínica y de la Salud II: Adultos y Vejez.",
-        "creditos_ects": "6",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Avances en Técnicas de Intervención Psicológica.",
-        "creditos_ects": "6",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Intervención y Tratamientos en Psicología Clínica y de la Salud I: Infancia y Adolescencia.",
-        "creditos_ects": "6",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Intervención y Tratamientos en Psicología Clínica y de la Salud II: Adultos y Vejez.",
-        "creditos_ects": "6",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Neuropsicología (1).",
-        "creditos_ects": "6",
-        "caracter": "Optativa.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Psicofarmacología Clínica (1).",
-        "creditos_ects": "6",
-        "caracter": "Optativa.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Programas Preventivos y Promoción de la Salud (1).",
-        "creditos_ects": "6",
-        "caracter": "Optativa.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Factores Asociados al Trauma Psicológico (1).",
-        "creditos_ects": "6",
-        "caracter": "Optativa.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Familia, Pareja y Sexualidad (1).",
-        "creditos_ects": "6",
-        "caracter": "Optativa.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Prácticas Académicas Externas I.",
-        "creditos_ects": "12",
-        "caracter": "Prácticas Externas.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Prácticas Académicas Externas II.",
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
         "creditos_ects": "18",
-        "caracter": "Prácticas Externas.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Trabajo Fin de Máster.",
-        "creditos_ects": "12",
-        "caracter": "Trabajo Fin de Máster.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "",
-        "nombre_asignatura": "Total.",
-        "creditos_ects": "90",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "Litigación.",
-        "nombre_asignatura": "Práctica Procesal Civil.",
-        "creditos_ects": "9",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Litigación.",
-        "nombre_asignatura": "Práctica Procesal Penal.",
-        "creditos_ects": "9",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Litigación.",
-        "nombre_asignatura": "Práctica Contencioso-Administrativa y Derechos Fundamentales.",
-        "creditos_ects": "6",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Litigación.",
-        "nombre_asignatura": "Práctica Procesal Laboral.",
-        "creditos_ects": "6",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Litigación.",
-        "nombre_asignatura": "Total.",
-        "creditos_ects": "30",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Litigación.",
-        "nombre_asignatura": "Práctica Procesal Mercantil y Comunitaria.",
-        "creditos_ects": "6",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Ejercicio Profesional de la Abogacía y de la Procura.",
-        "nombre_asignatura": "Deontología y Normativa Profesional.",
-        "creditos_ects": "6",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Ejercicio Profesional de la Abogacía y de la Procura.",
-        "nombre_asignatura": "Habilidades Profesionales y Gestión de Despacho.",
-        "creditos_ects": "6",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Ejercicio Profesional de la Abogacía y de la Procura.",
-        "nombre_asignatura": "Conciliación, Mediación y Arbitraje.",
-        "creditos_ects": "6",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Trabajo Fin de Máster.",
-        "nombre_asignatura": "Trabajo Fin de Máster.",
-        "creditos_ects": "6",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Trabajo Fin de Máster.",
-        "nombre_asignatura": "Total.",
-        "creditos_ects": "30",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Prácticas Externas.",
-        "nombre_asignatura": "Prácticas Externas.",
-        "creditos_ects": "30",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Prácticas Externas.",
-        "nombre_asignatura": "Total.",
-        "creditos_ects": "30",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Litigación.",
-        "nombre_asignatura": "Práctica Procesal Civil.",
-        "creditos_ects": "9",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Litigación.",
-        "nombre_asignatura": "Práctica Procesal Penal.",
-        "creditos_ects": "9",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Litigación.",
-        "nombre_asignatura": "Práctica Contencioso-Administrativa y Derechos Fundamentales.",
-        "creditos_ects": "6",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Litigación.",
-        "nombre_asignatura": "Total.",
+        "modulo": "",
+        "materia": "Optativas (obligatorias dentro de la especialidad).",
+        "nombre_elemento": "Optativas (obligatorias dentro de la especialidad).",
         "creditos_ects": "24",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "Litigación.",
-        "nombre_asignatura": "Práctica Procesal Laboral.",
-        "creditos_ects": "6",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Litigación.",
-        "nombre_asignatura": "Práctica Procesal Mercantil y Comunitaria.",
-        "creditos_ects": "6",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Ejercicio Profesional de la Abogacía y de la Procura.",
-        "nombre_asignatura": "Deontología y Normativa Profesional.",
-        "creditos_ects": "6",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Ejercicio Profesional de la Abogacía y de la Procura.",
-        "nombre_asignatura": "Total.",
-        "creditos_ects": "18",
+        "modulo": "",
+        "materia": "Formación Práctica: Prácticum.",
+        "nombre_elemento": "Formación Práctica: Prácticum.",
+        "creditos_ects": "9",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "Ejercicio Profesional de la Abogacía y de la Procura.",
-        "nombre_asignatura": "Habilidades Profesionales y Gestión de Despacho.",
-        "creditos_ects": "6",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Ejercicio Profesional de la Abogacía y de la Procura.",
-        "nombre_asignatura": "Conciliación, Mediación y Arbitraje.",
-        "creditos_ects": "6",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Trabajo Fin de Máster.",
-        "nombre_asignatura": "Trabajo Fin de Máster.",
-        "creditos_ects": "6",
-        "caracter": "Obligatoria.",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Trabajo Fin de Máster.",
-        "nombre_asignatura": "Total.",
-        "creditos_ects": "18",
+        "modulo": "",
+        "materia": "Formación Práctica: Trabajo Fin de Máster.",
+        "nombre_elemento": "Formación Práctica: Trabajo Fin de Máster.",
+        "creditos_ects": "9",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Enseñanza y Aprendizaje de la Especialidad de Lengua Castellana y Literatura I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Enseñanza y Aprendizaje de la Especialidad de Lengua Castellana y Literatura II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Complementos para la Formación Disciplinar en la Especialidad de Lengua Castellana y Literatura.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Innovación Docente e Iniciación a la Investigación Educativa en la Especialidad de Lengua Castellana y Literatura.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Enseñanza y Aprendizaje de la Especialidad de Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Enseñanza y Aprendizaje de la Especialidad de Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Complementos para la Formación Disciplinar en la Especialidad de Matemáticas.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Innovación Docente e Iniciación a la Investigación Educativa en la Especialidad de Matemáticas.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Enseñanza y Aprendizaje de la Especialidad de Geografía e Historia I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Enseñanza y Aprendizaje de la Especialidad de Geografía e Historia II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Complementos para la Formación Disciplinar en la Especialidad de Geografía e Historia.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Innovación Docente e Iniciación a la Investigación Educativa en la Especialidad de Geografía e Historia.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Enseñanza y Aprendizaje de la Especialidad de Lengua Extranjera (Inglés) I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Enseñanza y Aprendizaje de la Especialidad de Lengua Extranjera (Inglés) II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Complementos para la Formación Disciplinar en la Especialidad de Lengua Extranjera (Inglés).",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Innovación Docente e Iniciación a la Investigación Educativa en la Especialidad de Lengua Extranjera (Inglés).",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Enseñanza y Aprendizaje de la Especialidad de Educación Física I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Enseñanza y Aprendizaje de la Especialidad de Educación Física II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Complementos para la Formación Disciplinar en la Especialidad de Educación Física.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Innovación Docente e Iniciación a la Investigación Educativa en la Especialidad de Educación Física.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Enseñanza y Aprendizaje de la Especialidad de Biología y Geología I",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Enseñanza y Aprendizaje de la Especialidad de Biología y Geología II",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Complementos para la Formación Disciplinar en la Especialidad de Biología y Geología",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Innovación Docente e Iniciación a la Investigación Educativa en la Especialidad de Biología y Geología",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Enseñanza y Aprendizaje de la Especialidad de Formación y Orientación Laboral (FOL) I",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Enseñanza y Aprendizaje de la Especialidad de Formación y Orientación Laboral (FOL) II",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Complementos para la Formación Disciplinar en la Especialidad de Formación y Orientación Laboral (FOL)",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Innovación Docente e Iniciación a la Investigación Educativa en la Especialidad de Formación y Orientación Laboral (FOL)",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Enseñanza y Aprendizaje de la Especialidad de Tecnología e Informática I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Enseñanza y Aprendizaje de la Especialidad de Tecnología e Informática II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Complementos para la Formación Disciplinar en la Especialidad de Tecnología e Informática.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Innovación Docente e Iniciación a la Investigación Educativa en la Especialidad de Tecnología e Informática.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Enseñanza y Aprendizaje de la Especialidad de Economía y Administración de Empresas I",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Enseñanza y Aprendizaje de la Especialidad de Economía y Administración de Empresas II",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Complementos para la Formación Disciplinar en la Especialidad de Economía y Administración de Empresas",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Innovación Docente e Iniciación a la Investigación Educativa en la Especialidad de Economía y Administración de Empresas",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Genérica.",
+        "materia": "",
+        "nombre_elemento": "Aprendizaje y Desarrollo de la Personalidad.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Genérica.",
+        "materia": "",
+        "nombre_elemento": "Procesos y Contextos Educativos.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Genérica.",
+        "materia": "",
+        "nombre_elemento": "Sociedad, Familia y Educación.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Específica.",
+        "materia": "",
+        "nombre_elemento": "Enseñanza y Aprendizaje de la Especialidad elegida (I).",
+        "creditos_ects": "6",
+        "caracter": "Optativa (Obligatoria dentro de la especialidad elegida).",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Específica.",
+        "materia": "",
+        "nombre_elemento": "Enseñanza y Aprendizaje de la Especialidad elegida (II).",
+        "creditos_ects": "6",
+        "caracter": "Optativa (Obligatoria dentro de la especialidad elegida).",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Específica.",
+        "materia": "",
+        "nombre_elemento": "Complementos para la Formación Disciplinar de la Especialidad elegida.",
+        "creditos_ects": "6",
+        "caracter": "Optativa (Obligatoria dentro de la especialidad elegida).",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Específica.",
+        "materia": "",
+        "nombre_elemento": "Innovación Docente e Iniciación a la Investigación Educativa de la Especialidad elegida.",
+        "creditos_ects": "6",
+        "caracter": "Optativa (Obligatoria dentro de la especialidad elegida).",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Práctica: Prácticum.",
+        "materia": "",
+        "nombre_elemento": "Prácticum.",
+        "creditos_ects": "9",
+        "caracter": "Prácticas Externas.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Práctica: Trabajo Fin de Máster.",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "9",
+        "caracter": "Trabajo Fin de Máster.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Práctica: Trabajo Fin de Máster.",
+        "materia": "",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Básico.",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Específico.",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "36",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Específico.",
+        "materia": "Optativas.",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Específico.",
         "materia": "Prácticas Externas.",
-        "nombre_asignatura": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Específico.",
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Específico.",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "90",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Básico.",
+        "materia": "",
+        "nombre_elemento": "Fundamentos Científicos y Profesionales de la Psicología General Sanitaria.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "Semestre 1."
+      },
+      {
+        "modulo": "Específico.",
+        "materia": "",
+        "nombre_elemento": "Entrenamiento en Habilidades Básicas del Psicólogo General Sanitario.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "Semestre 1."
+      },
+      {
+        "modulo": "Específico.",
+        "materia": "",
+        "nombre_elemento": "Evaluación y Diagnóstico en Psicología Clínica y de la Salud I: Infancia y Adolescencia.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "Semestre 1."
+      },
+      {
+        "modulo": "Específico.",
+        "materia": "",
+        "nombre_elemento": "Evaluación y Diagnóstico en Psicología Clínica y de la Salud II: Adultos y Vejez.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "Semestre 1."
+      },
+      {
+        "modulo": "Específico.",
+        "materia": "",
+        "nombre_elemento": "Avances en Técnicas de Intervención Psicológica.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "Semestre 2."
+      },
+      {
+        "modulo": "Específico.",
+        "materia": "",
+        "nombre_elemento": "Intervención y Tratamientos en Psicología Clínica y de la Salud I: Infancia y Adolescencia.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "Semestre 2."
+      },
+      {
+        "modulo": "Específico.",
+        "materia": "",
+        "nombre_elemento": "Intervención y Tratamientos en Psicología Clínica y de la Salud II: Adultos y Vejez.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "Semestre 2."
+      },
+      {
+        "modulo": "Materias Optativas.",
+        "materia": "",
+        "nombre_elemento": "Neuropsicología (1).",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": "Semestre 3."
+      },
+      {
+        "modulo": "Materias Optativas.",
+        "materia": "",
+        "nombre_elemento": "Psicofarmacología Clínica (1).",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": "Semestre 3."
+      },
+      {
+        "modulo": "Materias Optativas.",
+        "materia": "",
+        "nombre_elemento": "Programas Preventivos y Promoción de la Salud (1).",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": "Semestre 3."
+      },
+      {
+        "modulo": "Materias Optativas.",
+        "materia": "",
+        "nombre_elemento": "Factores Asociados al Trauma Psicológico (1).",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": "Semestre 3."
+      },
+      {
+        "modulo": "Materias Optativas.",
+        "materia": "",
+        "nombre_elemento": "Familia, Pareja y Sexualidad (1).",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": "Semestre 3."
+      },
+      {
+        "modulo": "Prácticas Externas.",
+        "materia": "",
+        "nombre_elemento": "Prácticas Académicas Externas I.",
+        "creditos_ects": "12",
+        "caracter": "Prácticas Externas.",
+        "curso": "",
+        "cuatrimestre": "Semestre 3."
+      },
+      {
+        "modulo": "Prácticas Externas.",
+        "materia": "",
+        "nombre_elemento": "Prácticas Académicas Externas II.",
+        "creditos_ects": "18",
+        "caracter": "Prácticas Externas.",
+        "curso": "",
+        "cuatrimestre": "Semestre 4."
+      },
+      {
+        "modulo": "Trabajo Fin de Máster.",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "12",
+        "caracter": "Trabajo Fin de Máster.",
+        "curso": "",
+        "cuatrimestre": "Semestre 4."
+      },
+      {
+        "modulo": "Trabajo Fin de Máster.",
+        "materia": "",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "90",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Litigación.",
+        "materia": "",
+        "nombre_elemento": "Práctica Procesal Civil.",
+        "creditos_ects": "9",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Litigación.",
+        "materia": "",
+        "nombre_elemento": "Práctica Procesal Penal.",
+        "creditos_ects": "9",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Litigación.",
+        "materia": "",
+        "nombre_elemento": "Práctica Contencioso-Administrativa y Derechos Fundamentales.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Litigación.",
+        "materia": "",
+        "nombre_elemento": "Práctica Procesal Laboral.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Litigación.",
+        "materia": "",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Litigación.",
+        "materia": "",
+        "nombre_elemento": "Práctica Procesal Mercantil y Comunitaria.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Ejercicio Profesional de la Abogacía y de la Procura.",
+        "materia": "",
+        "nombre_elemento": "Deontología y Normativa Profesional.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Ejercicio Profesional de la Abogacía y de la Procura.",
+        "materia": "",
+        "nombre_elemento": "Habilidades Profesionales y Gestión de Despacho.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Ejercicio Profesional de la Abogacía y de la Procura.",
+        "materia": "",
+        "nombre_elemento": "Conciliación, Mediación y Arbitraje.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Trabajo Fin de Máster.",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Trabajo Fin de Máster.",
+        "materia": "",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Prácticas Externas.",
+        "materia": "",
+        "nombre_elemento": "Prácticas Externas.",
         "creditos_ects": "30",
         "caracter": "Obligatoria.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "Prácticas Externas.",
-        "nombre_asignatura": "Total.",
+        "modulo": "Prácticas Externas.",
+        "materia": "",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Litigación.",
+        "materia": "",
+        "nombre_elemento": "Práctica Procesal Civil.",
+        "creditos_ects": "9",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Litigación.",
+        "materia": "",
+        "nombre_elemento": "Práctica Procesal Penal.",
+        "creditos_ects": "9",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Litigación.",
+        "materia": "",
+        "nombre_elemento": "Práctica Contencioso-Administrativa y Derechos Fundamentales.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Litigación.",
+        "materia": "",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "24",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Litigación.",
+        "materia": "",
+        "nombre_elemento": "Práctica Procesal Laboral.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Litigación.",
+        "materia": "",
+        "nombre_elemento": "Práctica Procesal Mercantil y Comunitaria.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Ejercicio Profesional de la Abogacía y de la Procura.",
+        "materia": "",
+        "nombre_elemento": "Deontología y Normativa Profesional.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Ejercicio Profesional de la Abogacía y de la Procura.",
+        "materia": "",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Ejercicio Profesional de la Abogacía y de la Procura.",
+        "materia": "",
+        "nombre_elemento": "Habilidades Profesionales y Gestión de Despacho.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Ejercicio Profesional de la Abogacía y de la Procura.",
+        "materia": "",
+        "nombre_elemento": "Conciliación, Mediación y Arbitraje.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Trabajo Fin de Máster.",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Trabajo Fin de Máster.",
+        "materia": "",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Prácticas Externas.",
+        "materia": "",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "30",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Prácticas Externas.",
+        "materia": "",
+        "nombre_elemento": "Total.",
         "creditos_ects": "30",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 89,
+    "total_elementos": 100,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n11309 Resolución de 21 de abril de 2026, de la Universidad a Distancia de Madrid, \npor la que se publican modificaciones de planes de estudio de Máster \nUniversitario.\nDe conformidad con lo establecido en el artículo 32 del Real Decreto 822/2021, de 28 \nde septiembre, por el que se establece el procedimiento para la modificación de planes \nde estudio verificados, y previo informe favorable de la Fundación para el Conocimiento \nmadri+d,\nEste Rectorado ha resuelto publicar la modificación de los siguientes planes de \nestudio:\n– 4313070 Máster Universitario en Formación del Profesorado de Educación \nSecundaria Obligatoria, Bachillerato, Formación Profesional y Enseñanza de Idiomas por \nla Universidad a Distancia de Madrid, publicado por Resolución de 21 de mayo de 2013 \n(BOE de 13 de junio de 2013), que cambia su denominación y que quedará estructurado \nsegún consta en el anexo I de esta resolución.\n– 4314968 Máster Universitario en Psicología Genera"
   }
 }

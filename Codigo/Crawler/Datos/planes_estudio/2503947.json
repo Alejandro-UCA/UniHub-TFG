@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 822/2021 (2)",
   "universidad_codigo": "061",
   "universidad_nombre": "Mondragón Unibertsitatea",
-  "fecha_procesado": "2026-07-31T14:14:53.800665",
+  "fecha_procesado": "2026-08-03T12:20:41.824353",
   "boe_url": "http://www.boe.es/boe/dias/2022/01/28/pdfs/BOE-A-2022-1403.pdf",
   "boe_fecha": "2022-01-28",
   "plan_estudios": {
@@ -59,433 +59,486 @@
       "Tendencias en la gestión de datos.": "OP",
       "Modelos de negocio en el ámbito de los datos.": "OP"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Fundamentos Matemáticos y Estadísticos II.",
+        "nombre_elemento": "Fundamentos Matemáticos y Estadísticos II.",
         "creditos_ects": "12",
         "caracter": "",
         "curso": "2.º",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Economía, Empresa y Negocio I.",
+        "nombre_elemento": "Economía, Empresa y Negocio I.",
         "creditos_ects": "16",
         "caracter": "",
         "curso": "1.º",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Economía, Empresa y Negocio II.",
+        "nombre_elemento": "Economía, Empresa y Negocio II.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "2.º",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Herramientas para la Gestión I.",
+        "nombre_elemento": "Herramientas para la Gestión I.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "2.º",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Cliente Digital I.",
+        "nombre_elemento": "Cliente Digital I.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "2.º",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Fundamentos Matemáticos y Estadísticos I.",
+        "nombre_elemento": "Fundamentos Matemáticos y Estadísticos I.",
         "creditos_ects": "12",
         "caracter": "",
         "curso": "1.º",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Programación y Bases de Datos I.",
+        "nombre_elemento": "Programación y Bases de Datos I.",
         "creditos_ects": "9",
         "caracter": "",
         "curso": "1.º",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Fundamentos matemáticos y Estadísticos I.",
+        "nombre_elemento": "Fundamentos matemáticos y Estadísticos I.",
         "creditos_ects": "12",
         "caracter": "FB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Programación y BBDD I.",
+        "nombre_elemento": "Programación y BBDD I.",
         "creditos_ects": "9",
         "caracter": "FB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Data Science I.",
+        "nombre_elemento": "Data Science I.",
         "creditos_ects": "9",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Data Mining I.",
+        "nombre_elemento": "Data Mining I.",
         "creditos_ects": "5",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Visualización de datos I.",
+        "nombre_elemento": "Visualización de datos I.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Economía, empresa y Negocio I.",
+        "nombre_elemento": "Economía, empresa y Negocio I.",
         "creditos_ects": "16",
         "caracter": "FB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Habilidades personales I.",
+        "nombre_elemento": "Habilidades personales I.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Casos prácticos I.",
+        "nombre_elemento": "Casos prácticos I.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Fundamentos matemáticos y Estadísticos II.",
+        "nombre_elemento": "Fundamentos matemáticos y Estadísticos II.",
         "creditos_ects": "12",
         "caracter": "FB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Programación y BBDD II.",
+        "nombre_elemento": "Programación y BBDD II.",
         "creditos_ects": "4",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Big Data y Ecosistema Digital I.",
+        "nombre_elemento": "Big Data y Ecosistema Digital I.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Data Science II.",
+        "nombre_elemento": "Data Science II.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Data Mining II.",
+        "nombre_elemento": "Data Mining II.",
         "creditos_ects": "5",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Visualización de datos II.",
+        "nombre_elemento": "Visualización de datos II.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Economía, empresa y Negocio II.",
+        "nombre_elemento": "Economía, empresa y Negocio II.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Herramientas para la gestión I.",
+        "nombre_elemento": "Herramientas para la gestión I.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Cliente Digital I.",
+        "nombre_elemento": "Cliente Digital I.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Habilidades personales II.",
+        "nombre_elemento": "Habilidades personales II.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Casos prácticos II.",
+        "nombre_elemento": "Casos prácticos II.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Big Data y Ecosistema Digital II.",
+        "nombre_elemento": "Big Data y Ecosistema Digital II.",
         "creditos_ects": "8",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Data Science III.",
+        "nombre_elemento": "Data Science III.",
         "creditos_ects": "8",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Data Mining III.",
+        "nombre_elemento": "Data Mining III.",
         "creditos_ects": "9",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Visualización de datos III.",
+        "nombre_elemento": "Visualización de datos III.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Economía, empresa y Negocio III.",
+        "nombre_elemento": "Economía, empresa y Negocio III.",
         "creditos_ects": "4",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Herramientas para la gestión II.",
+        "nombre_elemento": "Herramientas para la gestión II.",
         "creditos_ects": "4",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Cliente Digital II.",
+        "nombre_elemento": "Cliente Digital II.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Habilidades personales III.",
+        "nombre_elemento": "Habilidades personales III.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Casos prácticos III.",
+        "nombre_elemento": "Casos prácticos III.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Optativas.",
+        "nombre_elemento": "Optativas.",
         "creditos_ects": "12",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Programación y BBDD III.",
+        "nombre_elemento": "Programación y BBDD III.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Big Data y Ecosistema Digital III.",
+        "nombre_elemento": "Big Data y Ecosistema Digital III.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Data Mining IV.",
+        "nombre_elemento": "Data Mining IV.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Visualización de datos IV.",
+        "nombre_elemento": "Visualización de datos IV.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Habilidades personales IV.",
+        "nombre_elemento": "Habilidades personales IV.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Experiencia práctica.",
+        "nombre_elemento": "Experiencia práctica.",
         "creditos_ects": "30",
         "caracter": "PR",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
         "creditos_ects": "9",
         "caracter": "TFG",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Optativas.",
+        "nombre_elemento": "Optativas.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Los datos en el sector financiero I.",
+        "nombre_elemento": "Los datos en el sector financiero I.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Los datos en el sector financiero II.",
+        "nombre_elemento": "Los datos en el sector financiero II.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Industria digital I.",
+        "nombre_elemento": "Industria digital I.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Industria digital II.",
+        "nombre_elemento": "Industria digital II.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Los datos en el sector de la salud I.",
+        "nombre_elemento": "Los datos en el sector de la salud I.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Los datos en el sector de la salud II.",
+        "nombre_elemento": "Los datos en el sector de la salud II.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Gestión de las personas.",
+        "nombre_elemento": "Gestión de las personas.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Tendencias en la gestión de datos.",
+        "nombre_elemento": "Tendencias en la gestión de datos.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Modelos de negocio en el ámbito de los datos.",
+        "nombre_elemento": "Modelos de negocio en el ámbito de los datos.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 53,
+    "total_elementos": 53,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n1403 Resolución de 12 de enero de 2022, de la Universidad Mondragón \nUnibertsitatea, por la que se publica la modificación del plan de estudios de \nGraduado o Graduada en Business Data Analytics.\nDe conformidad con lo que dispone el artículo 28 del Real Decreto 1393/2007, de 29 \nde octubre, modificado por el Real Decreto 861/2010, de 2 de julio, por el que se \nestablece el procedimiento para la modificación de planes de estudio ya verificados, y \ntras haber obtenido el informe Favorable de la Agencia Nacional de Evaluación de la \nCalidad y Acreditación, este Rectorado ha resuelto publicar la modificación del plan de \nestudios del Grado en Business Data Analytics por Mondragon Unibertsitatea, publicado \npor Resolución de 18 de octubre de 2019 (BOE de 28 de octubre de 2019) y que \nquedará estructurado según consta en el anexo de esta resolución.\nMondragón, 12 de enero de 2022.–El Rector, Vicente Atxa Uribe.\nANEXO\nGraduado/a en Analítica de Datos Apl"
   }
 }

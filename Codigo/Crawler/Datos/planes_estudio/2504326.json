@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 822/2021 (2)",
   "universidad_codigo": "074",
   "universidad_nombre": "Universidad a Distancia de Madrid",
-  "fecha_procesado": "2026-07-31T14:22:34.833837",
+  "fecha_procesado": "2026-08-03T12:26:26.490268",
   "boe_url": "http://www.boe.es/boe/dias/2021/12/04/pdfs/BOE-A-2021-20106.pdf",
   "boe_fecha": "2021-12-04",
   "plan_estudios": {
@@ -14,27 +14,27 @@
       "Optativas.": "48",
       "Trabajo Fin de Grado.": "6",
       "Total.": "240",
-      "Teorías Criminológicas.": "Obligatoria.",
-      "Tipologías Criminológicas.": "Obligatoria.",
+      "Teorías Criminológicas.": "Ciencias Criminológicas.",
+      "Tipologías Criminológicas.": "Ciencias Criminológicas.",
       "Victimología.": "Ciencias Criminológicas.",
       "Criminología Económica.": "Ciencias Criminológicas.",
       "Cibercriminología.": "Ciencias Criminológicas.",
       "Delincuencia Juvenil.": "Ciencias Criminológicas.",
-      "Prevención y Tratamiento de la Delincuencia.": "Obligatoria.",
+      "Prevención y Tratamiento de la Delincuencia.": "Ciencias Criminológicas.",
       "Políticas de Seguridad.": "Ciencias Criminológicas.",
       "Política Criminal.": "Ciencias Criminológicas.",
-      "Psicología I (Motivación y Emoción).": "Obligatoria.",
+      "Psicología I (Motivación y Emoción).": "Ciencias Sociales y de la Conducta.",
       "Psicología II (Personalidad e Individualidad).": "Ciencias Sociales y de la Conducta.",
       "Psicología Criminal.": "Ciencias Sociales y de la Conducta.",
-      "Psicopatología Legal y Forense.": "Obligatoria.",
+      "Psicopatología Legal y Forense.": "Ciencias Sociales y de la Conducta.",
       "Introducción a la Ciencia Política.": "Ciencias Sociales y de la Conducta.",
       "Derecho Penal. Delitos I.": "Ciencias Jurídicas.",
-      "Derecho Penal. Delitos II.": "Obligatoria.",
+      "Derecho Penal. Delitos II.": "Ciencias Jurídicas.",
       "Derecho Procesal Penal.": "Ciencias Jurídicas.",
       "Derecho Penitenciario.": "Ciencias Jurídicas.",
-      "Introducción a la Medicina Legal y Forense.": "Obligatoria.",
-      "Criminalística.": "Obligatoria.",
-      "Metodología de Investigación en Criminología.": "Obligatoria.",
+      "Introducción a la Medicina Legal y Forense.": "Ciencias Forenses.",
+      "Criminalística.": "Ciencias Forenses.",
+      "Metodología de Investigación en Criminología.": "Metodología.",
       "Criminología Empresarial.": "Criminología Empresarial y de la Seguridad.",
       "Delitos Societarios y Responsabilidad de los Administradores.": "Criminología Empresarial y de la Seguridad.",
       "Delitos Laborales y contra la Seguridad en el Trabajo.": "Criminología Empresarial y de la Seguridad.",
@@ -60,494 +60,794 @@
       "Psicología del Desarrollo.": "Formación Multidisciplinar.",
       "Lenguaje y Delincuencia.": "Formación Multidisciplinar.",
       "Prácticum I.": "Prácticas Externas.",
-      "Prácticum II.": "Prácticas Externas.",
-      "Tecnología y Gestión de la Información y del Conocimiento.": "Básica.",
-      "Introducción a la Criminología.": "Básica.",
-      "Sociología General.": "Básica.",
-      "Introducción al Derecho.": "Básica.",
-      "Psicología Social.": "Básica.",
-      "Derecho Penal, Norma Penal, Penas y Responsabilidad Penal.": "Básica.",
-      "Introducción a la Estadística.": "Básica.",
-      "Optativa 1.": "Optativa.",
-      "Optativa 2.": "Optativa.",
-      "Optativa 3.": "Optativa.",
-      "Optativa 4.": "Optativa."
+      "Prácticum II.": "Prácticas Externas."
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "Informática.",
-        "nombre_asignatura": "Tecnología y Gestión de la Información y del Conocimiento.",
+        "nombre_elemento": "Tecnología y Gestión de la Información y del Conocimiento.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Antropología.",
-        "nombre_asignatura": "Introducción a la Criminología.",
+        "nombre_elemento": "Introducción a la Criminología.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Sociología.",
-        "nombre_asignatura": "Sociología General.",
+        "nombre_elemento": "Sociología General.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Introducción al Derecho.",
+        "nombre_elemento": "Introducción al Derecho.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Constitución y Ordenamiento Jurídico.",
+        "nombre_elemento": "Constitución y Ordenamiento Jurídico.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Fundamentos de Derecho Administrativo.",
+        "nombre_elemento": "Fundamentos de Derecho Administrativo.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Antropología.",
-        "nombre_asignatura": "Antropología Social y Cultural.",
+        "nombre_elemento": "Antropología Social y Cultural.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Psicología.",
-        "nombre_asignatura": "Psicología Social.",
+        "nombre_elemento": "Psicología Social.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Derecho Penal, Norma Penal, Penas y Responsabilidad Penal.",
+        "nombre_elemento": "Derecho Penal, Norma Penal, Penas y Responsabilidad Penal.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Estadística.",
-        "nombre_asignatura": "Introducción a la Estadística.",
+        "nombre_elemento": "Introducción a la Estadística.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Estadística.",
-        "nombre_asignatura": "Total créditos ECTS básicos:",
+        "nombre_elemento": "Total créditos ECTS básicos:",
         "creditos_ects": "60",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Ciencias Criminológicas.",
         "materia": "",
-        "nombre_asignatura": "Teorías Criminológicas.",
+        "nombre_elemento": "Teorías Criminológicas.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Ciencias Criminológicas.",
         "materia": "",
-        "nombre_asignatura": "Tipologías Criminológicas.",
+        "nombre_elemento": "Tipologías Criminológicas.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Ciencias Criminológicas.",
         "materia": "",
-        "nombre_asignatura": "Victimología.",
+        "nombre_elemento": "Victimología.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Ciencias Criminológicas.",
         "materia": "",
-        "nombre_asignatura": "Criminología Económica.",
+        "nombre_elemento": "Criminología Económica.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Ciencias Criminológicas.",
         "materia": "",
-        "nombre_asignatura": "Cibercriminología.",
+        "nombre_elemento": "Cibercriminología.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Ciencias Criminológicas.",
         "materia": "",
-        "nombre_asignatura": "Delincuencia Juvenil.",
+        "nombre_elemento": "Delincuencia Juvenil.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Ciencias Criminológicas.",
         "materia": "",
-        "nombre_asignatura": "Prevención y Tratamiento de la Delincuencia.",
+        "nombre_elemento": "Prevención y Tratamiento de la Delincuencia.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Ciencias Criminológicas.",
         "materia": "",
-        "nombre_asignatura": "Políticas de Seguridad.",
+        "nombre_elemento": "Políticas de Seguridad.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Ciencias Criminológicas.",
         "materia": "",
-        "nombre_asignatura": "Política Criminal.",
+        "nombre_elemento": "Política Criminal.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Ciencias Sociales y de la Conducta.",
         "materia": "",
-        "nombre_asignatura": "Psicología I (Motivación y Emoción).",
+        "nombre_elemento": "Psicología I (Motivación y Emoción).",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Ciencias Sociales y de la Conducta.",
         "materia": "",
-        "nombre_asignatura": "Psicología II (Personalidad e Individualidad).",
+        "nombre_elemento": "Psicología II (Personalidad e Individualidad).",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Ciencias Sociales y de la Conducta.",
         "materia": "",
-        "nombre_asignatura": "Psicología Criminal.",
+        "nombre_elemento": "Psicología Criminal.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Ciencias Sociales y de la Conducta.",
         "materia": "",
-        "nombre_asignatura": "Psicopatología Legal y Forense.",
+        "nombre_elemento": "Psicopatología Legal y Forense.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Ciencias Sociales y de la Conducta.",
         "materia": "",
-        "nombre_asignatura": "Introducción a la Ciencia Política.",
+        "nombre_elemento": "Introducción a la Ciencia Política.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Ciencias Jurídicas.",
         "materia": "",
-        "nombre_asignatura": "Derecho Penal. Delitos I.",
+        "nombre_elemento": "Derecho Penal. Delitos I.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Ciencias Jurídicas.",
         "materia": "",
-        "nombre_asignatura": "Derecho Penal. Delitos II.",
+        "nombre_elemento": "Derecho Penal. Delitos II.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Ciencias Jurídicas.",
         "materia": "",
-        "nombre_asignatura": "Derecho Procesal Penal.",
+        "nombre_elemento": "Derecho Procesal Penal.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Ciencias Jurídicas.",
         "materia": "",
-        "nombre_asignatura": "Derecho Penitenciario.",
+        "nombre_elemento": "Derecho Penitenciario.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Ciencias Forenses.",
         "materia": "",
-        "nombre_asignatura": "Introducción a la Medicina Legal y Forense.",
+        "nombre_elemento": "Introducción a la Medicina Legal y Forense.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Ciencias Forenses.",
         "materia": "",
-        "nombre_asignatura": "Criminalística.",
+        "nombre_elemento": "Criminalística.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Metodología.",
         "materia": "",
-        "nombre_asignatura": "Metodología de Investigación en Criminología.",
+        "nombre_elemento": "Metodología de Investigación en Criminología.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Metodología.",
         "materia": "",
-        "nombre_asignatura": "Total créditos ECTS obligatorios:",
+        "nombre_elemento": "Total créditos ECTS obligatorios:",
         "creditos_ects": "126",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Criminología Empresarial y de la Seguridad.",
         "materia": "",
-        "nombre_asignatura": "Criminología Empresarial.",
+        "nombre_elemento": "Criminología Empresarial.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Criminología Empresarial y de la Seguridad.",
         "materia": "",
-        "nombre_asignatura": "Delitos Societarios y Responsabilidad de los Administradores.",
+        "nombre_elemento": "Delitos Societarios y Responsabilidad de los Administradores.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Criminología Empresarial y de la Seguridad.",
         "materia": "",
-        "nombre_asignatura": "Delitos Laborales y contra la Seguridad en el Trabajo.",
+        "nombre_elemento": "Delitos Laborales y contra la Seguridad en el Trabajo.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Criminología Empresarial y de la Seguridad.",
         "materia": "",
-        "nombre_asignatura": "Prevención del Delito en la Empresa (Compliance) y Deontología.",
+        "nombre_elemento": "Prevención del Delito en la Empresa (Compliance) y Deontología.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Criminología Empresarial y de la Seguridad.",
         "materia": "",
-        "nombre_asignatura": "Métodos y Técnicas de Seguridad.",
+        "nombre_elemento": "Métodos y Técnicas de Seguridad.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Criminología Empresarial y de la Seguridad.",
         "materia": "",
-        "nombre_asignatura": "Dirección, Análisis y Planificación de la Seguridad.",
+        "nombre_elemento": "Dirección, Análisis y Planificación de la Seguridad.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Criminología Empresarial y de la Seguridad.",
         "materia": "",
-        "nombre_asignatura": "Seguridad Laboral y Planes de Autoprotección.",
+        "nombre_elemento": "Seguridad Laboral y Planes de Autoprotección.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Criminología Empresarial y de la Seguridad.",
         "materia": "",
-        "nombre_asignatura": "Normativa de Seguridad Privada y Protección de Datos.",
+        "nombre_elemento": "Normativa de Seguridad Privada y Protección de Datos.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Criminología Empresarial y de la Seguridad.",
         "materia": "",
-        "nombre_asignatura": "Ciberinteligencia.",
+        "nombre_elemento": "Ciberinteligencia.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Criminología Empresarial y de la Seguridad.",
         "materia": "",
-        "nombre_asignatura": "Mediación y Resolución de Conflictos.",
+        "nombre_elemento": "Mediación y Resolución de Conflictos.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativo Multidisciplinar.",
         "materia": "",
-        "nombre_asignatura": "Criminología Global.",
+        "nombre_elemento": "Criminología Global.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativo Multidisciplinar.",
         "materia": "",
-        "nombre_asignatura": "Sociedad Digital: Marco Legal y Delincuencia.",
+        "nombre_elemento": "Sociedad Digital: Marco Legal y Delincuencia.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativo Multidisciplinar.",
         "materia": "",
-        "nombre_asignatura": "Ciberseguridad.",
+        "nombre_elemento": "Ciberseguridad.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativo Multidisciplinar.",
         "materia": "",
-        "nombre_asignatura": "Inglés Criminológico.",
+        "nombre_elemento": "Inglés Criminológico.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Formación Multidisciplinar.",
         "materia": "",
-        "nombre_asignatura": "Análisis de Datos Criminológicos.",
+        "nombre_elemento": "Análisis de Datos Criminológicos.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Formación Multidisciplinar.",
         "materia": "",
-        "nombre_asignatura": "Toxicología Aplicada.",
+        "nombre_elemento": "Toxicología Aplicada.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Formación Multidisciplinar.",
         "materia": "",
-        "nombre_asignatura": "Ética y Deontología Profesionales.",
+        "nombre_elemento": "Ética y Deontología Profesionales.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Formación Multidisciplinar.",
         "materia": "",
-        "nombre_asignatura": "Sistema de Tutela Judicial Efectiva.",
+        "nombre_elemento": "Sistema de Tutela Judicial Efectiva.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Formación Multidisciplinar.",
         "materia": "",
-        "nombre_asignatura": "Delitos contra la Seguridad Vial.",
+        "nombre_elemento": "Delitos contra la Seguridad Vial.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Formación Multidisciplinar.",
         "materia": "",
-        "nombre_asignatura": "Delitos Urbanísticos y contra el Medio Ambiente.",
+        "nombre_elemento": "Delitos Urbanísticos y contra el Medio Ambiente.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Formación Multidisciplinar.",
         "materia": "",
-        "nombre_asignatura": "Criminalidad y Violencia de Género.",
+        "nombre_elemento": "Criminalidad y Violencia de Género.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Formación Multidisciplinar.",
         "materia": "",
-        "nombre_asignatura": "Comunicación y Persuasión (Psicología de la Comunicación).",
+        "nombre_elemento": "Comunicación y Persuasión (Psicología de la Comunicación).",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Formación Multidisciplinar.",
         "materia": "",
-        "nombre_asignatura": "Psicología del Desarrollo.",
+        "nombre_elemento": "Psicología del Desarrollo.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Formación Multidisciplinar.",
         "materia": "",
-        "nombre_asignatura": "Lenguaje y Delincuencia.",
+        "nombre_elemento": "Lenguaje y Delincuencia.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Prácticas Externas.",
         "materia": "",
-        "nombre_asignatura": "Prácticum I.",
+        "nombre_elemento": "Prácticum I.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Prácticas Externas.",
         "materia": "",
-        "nombre_asignatura": "Prácticum II.",
+        "nombre_elemento": "Prácticum II.",
         "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Primer Curso. Segundo Semestre",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Constitución y Ordenamiento Jurídico.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Fundamentos de Derecho Administrativo.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Introducción a la Ciencia Política.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Delincuencia Juvenil.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Antropología Social y Cultural.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Total Primer Curso. Segundo Semestre.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Segundo Curso. Segundo Semestre.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Victimología.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Psicología II (Personalidad e Individualidad).",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Psicología Criminal.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Derecho Procesal Penal.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Derecho Penal. Delitos I.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Total Segundo Curso. Primer Semestre.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Tercer Curso. Segundo Semestre",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Política Criminal.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Políticas de Seguridad.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Derecho Penitenciario.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Criminología Económica.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Cibercriminología.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Total Tercer Curso. Primer Semestre.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Cuarto Curso. Segundo Semestre",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Optativa 5.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Optativa 6.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Optativa 7.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Optativa 8.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria - Trabajo Fin de Grado.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Total Cuarto Curso. Segundo Semestre.",
+        "creditos_ects": "30",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 59,
+    "total_elementos": 87,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n20106 Resolución de 16 de noviembre de 2021, de la Universidad a Distancia de \nMadrid, por la que se publica el plan de estudios de Graduado o Graduada en \nCriminología.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme favorable de la Fundación Madri+d y declarado el carácter oficial del Título por \nAcuerdo del Consejo de Ministros de 5 de octubre de 2021 (publicado en el BOE de 22 \nde octubre de 2021, por Resolución de la Secretaría General de Universidades de 6 de \noctubre de 2021), este Rectorado ha resuelto publicar el plan de estudios conducente a \nla obtención del Título de Graduado o Graduada en Criminología.\nEl plan de estudios a que se refiere la presente Resolución quedará estructurado \nconforme figura en el Anexo de la misma.\nLa implantación del presente plan de estudios implica la extinción del Título de \nGraduado o Graduada en Criminología por la Universidad a Distancia de Madrid (Código \n"
   }
 }

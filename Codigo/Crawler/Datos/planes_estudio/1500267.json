@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 822/2021 (2)",
   "universidad_codigo": "052",
   "universidad_nombre": "Universidad Antonio de Nebrija",
-  "fecha_procesado": "2026-07-31T14:39:15.597794",
+  "fecha_procesado": "2026-08-03T12:42:27.820581",
   "boe_url": "http://www.boe.es/boe/dias/2024/10/18/pdfs/BOE-A-2024-21405.pdf",
   "boe_fecha": "2024-10-18",
   "plan_estudios": {
@@ -14,347 +14,353 @@
       "Asignaturas optativas.": "60",
       "Prácticas externas.": "18",
       "Trabajo Fin de Grado.": "6",
-      "Créditos totales.": "240",
-      "Estrategia de medios (M2).": "6",
-      "Industria y empresa de moda (M1).": "6",
-      "Marketing de influencia.": "6",
-      "Neuromarketing y marketing experiencial (M2).": "6",
-      "Marketing y comunicación de moda (M1).": "6",
-      "Marketing relacional y CRM.": "6",
-      "Creación de contenidos: redes sociales e influencia.": "6",
-      "Experiencia de marca y creación de eventos.": "6",
-      "Comunicación política.": "6",
-      "Estrategia de ventas (M2).": "6",
-      "Arte Transmedia.": "6",
-      "Escenografía e iluminación.": "6",
-      "Identidad corporativa e imagen de marca.": "6",
-      "Fotografía de moda (M1).": "6",
-      "Comunicación deportiva.": "6",
-      "Datos y analítica: Business intelligence.": "6",
-      "Marketing social y RSC.": "6",
-      "Medios, arte y cultura.": "6",
-      "Narrativas sonoras y podcast.": "6",
-      "Producción de formatos publicitarios.": "6",
-      "Marketing y modelos de emprendimiento (M2).": "6",
-      "Tendencias escénicas y del espectáculo.": "6",
-      "Videoarte.": "6",
-      "Diseño de portfolio.": "6",
-      "Marketing deportivo.": "6",
-      "Marketing farmacéutico y healthcare.": "6",
-      "Diseño web y aplicaciones móviles (M2).": "6",
-      "Eventos deportivos.": "6",
-      "Eventos de moda y lujo (M1).": "6",
-      "Escenografía y dirección de arte.": "6",
-      "Retail de marcas de moda y lujo (M1).": "6",
-      "Innovación en diseño de productos y servicios.": "6"
+      "Créditos totales.": "240"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas de formación básica.",
+        "nombre_elemento": "Asignaturas de formación básica.",
         "creditos_ects": "60",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas obligatorias.",
+        "nombre_elemento": "Asignaturas obligatorias.",
         "creditos_ects": "96",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas optativas.",
+        "nombre_elemento": "Asignaturas optativas.",
         "creditos_ects": "60",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas externas.",
+        "nombre_elemento": "Prácticas externas.",
         "creditos_ects": "18",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
         "creditos_ects": "240",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Estrategia de medios (M2).",
+        "nombre_elemento": "Estrategia de medios (M2).",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Industria y empresa de moda (M1).",
+        "nombre_elemento": "Industria y empresa de moda (M1).",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Marketing de influencia.",
+        "nombre_elemento": "Marketing de influencia.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Neuromarketing y marketing experiencial (M2).",
+        "nombre_elemento": "Neuromarketing y marketing experiencial (M2).",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Marketing y comunicación de moda (M1).",
+        "nombre_elemento": "Marketing y comunicación de moda (M1).",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Marketing relacional y CRM.",
+        "nombre_elemento": "Marketing relacional y CRM.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Creación de contenidos: redes sociales e influencia.",
+        "nombre_elemento": "Creación de contenidos: redes sociales e influencia.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Experiencia de marca y creación de eventos.",
+        "nombre_elemento": "Experiencia de marca y creación de eventos.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Comunicación política.",
+        "nombre_elemento": "Comunicación política.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Estrategia de ventas (M2).",
+        "nombre_elemento": "Estrategia de ventas (M2).",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Arte Transmedia.",
+        "nombre_elemento": "Arte Transmedia.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Escenografía e iluminación.",
+        "nombre_elemento": "Escenografía e iluminación.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Identidad corporativa e imagen de marca.",
+        "nombre_elemento": "Identidad corporativa e imagen de marca.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Fotografía de moda (M1).",
+        "nombre_elemento": "Fotografía de moda (M1).",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Comunicación deportiva.",
+        "nombre_elemento": "Comunicación deportiva.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Datos y analítica: Business intelligence.",
+        "nombre_elemento": "Datos y analítica: Business intelligence.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Marketing social y RSC.",
+        "nombre_elemento": "Marketing social y RSC.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Medios, arte y cultura.",
+        "nombre_elemento": "Medios, arte y cultura.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Narrativas sonoras y podcast.",
+        "nombre_elemento": "Narrativas sonoras y podcast.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Producción de formatos publicitarios.",
+        "nombre_elemento": "Producción de formatos publicitarios.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Marketing y modelos de emprendimiento (M2).",
+        "nombre_elemento": "Marketing y modelos de emprendimiento (M2).",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Tendencias escénicas y del espectáculo.",
+        "nombre_elemento": "Tendencias escénicas y del espectáculo.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Videoarte.",
+        "nombre_elemento": "Videoarte.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Diseño de portfolio.",
+        "nombre_elemento": "Diseño de portfolio.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Marketing deportivo.",
+        "nombre_elemento": "Marketing deportivo.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Marketing farmacéutico y healthcare.",
+        "nombre_elemento": "Marketing farmacéutico y healthcare.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Diseño web y aplicaciones móviles (M2).",
+        "nombre_elemento": "Diseño web y aplicaciones móviles (M2).",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Eventos deportivos.",
+        "nombre_elemento": "Eventos deportivos.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Eventos de moda y lujo (M1).",
+        "nombre_elemento": "Eventos de moda y lujo (M1).",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Escenografía y dirección de arte.",
+        "nombre_elemento": "Escenografía y dirección de arte.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Retail de marcas de moda y lujo (M1).",
+        "nombre_elemento": "Retail de marcas de moda y lujo (M1).",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Innovación en diseño de productos y servicios.",
+        "nombre_elemento": "Innovación en diseño de productos y servicios.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       }
     ],
-    "total_asignaturas": 38,
+    "total_elementos": 38,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n21405 Resolución de 2 de octubre de 2024, de la Universidad Antonio de Nebrija, \npor la que se publica el plan de estudios de Graduado o Graduada en \nMarketing.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, y \nacordado el carácter oficial del título por acuerdo del Consejo de Ministros, de 17 \nde septiembre de 2024 (publicado en el BOE de 27 de septiembre de 2024, por \nResolución de la Secretaría General de Universidades, de 20 de septiembre de 2024),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención \ndel título de Graduado o Graduada en Marketing, que queda estructurado según consta \nen el anexo de esta resolución.\nHoyo de Manzanares, 2 de octubre de 2024.–El Rector, José Muñiz Fernández.\nANEXO\nUNIVERSIDAD ANTONIO DE NEBRIJA\nPLAN DE ESTUDIOS CONDUCENTE AL TÍTULO DE GRADUADO O GRADUADA EN \nMARKETING\nPlanificación de las enseñanzas-Descripción general del plan de estudios Graduado o \n"
   }
 }

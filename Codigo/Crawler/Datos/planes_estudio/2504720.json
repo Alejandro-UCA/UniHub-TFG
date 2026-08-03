@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 822/2021 (2)",
   "universidad_codigo": "057",
   "universidad_nombre": "IE Universidad",
-  "fecha_procesado": "2026-07-31T14:11:22.500682",
+  "fecha_procesado": "2026-08-03T12:17:21.888474",
   "boe_url": "http://www.boe.es/boe/dias/2024/02/26/pdfs/BOE-A-2024-3729.pdf",
   "boe_fecha": "2024-02-26",
   "plan_estudios": {
@@ -13,413 +13,506 @@
       "Obligatorias (OB).": "132",
       "Optativas (OP).": "36",
       "Trabajo de Fin de Grado (TFG).": "12",
-      "Créditos totales.": "240",
-      "Periodo 1.": "Bases de Datos, Modelización y Big Data.",
-      "Periodo 2.": "Optativa 4."
+      "Créditos totales.": "240"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
+        "materia": "Formación básica (B).",
+        "nombre_elemento": "Formación básica (B).",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Obligatorias (OB).",
+        "nombre_elemento": "Obligatorias (OB).",
+        "creditos_ects": "132",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativas (OP).",
+        "nombre_elemento": "Optativas (OP).",
+        "creditos_ects": "36",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo de Fin de Grado (TFG).",
+        "nombre_elemento": "Trabajo de Fin de Grado (TFG).",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
         "materia": "Medio Natural.",
-        "nombre_asignatura": "Biodiversidad Zoológica.",
+        "nombre_elemento": "Biodiversidad Zoológica.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "2",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Medio Natural.",
-        "nombre_asignatura": "Biodiversidad Botánica.",
+        "nombre_elemento": "Biodiversidad Botánica.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "2",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Medio Natural.",
-        "nombre_asignatura": "Fundamentos de Ecología.",
+        "nombre_elemento": "Fundamentos de Ecología.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "1",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Medioambiente para la Sostenibilidad.",
-        "nombre_asignatura": "Ecología Aplicada: Complejidad, Dinámica y Estabilidad de los Ecosistemas.",
+        "nombre_elemento": "Ecología Aplicada: Complejidad, Dinámica y Estabilidad de los Ecosistemas.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "2",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Tecnología Ambiental.",
-        "nombre_asignatura": "Técnicas Instrumentales de Medición Ambiental.",
+        "nombre_elemento": "Técnicas Instrumentales de Medición Ambiental.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "1",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Matemáticas.",
-        "nombre_asignatura": "Matemáticas.",
+        "nombre_elemento": "Matemáticas.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "1",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Química.",
-        "nombre_asignatura": "Química.",
+        "nombre_elemento": "Química.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "1",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Física.",
-        "nombre_asignatura": "Física.",
+        "nombre_elemento": "Física.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "1",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Biología.",
-        "nombre_asignatura": "Biología.",
+        "nombre_elemento": "Biología.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "1",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Geología.",
-        "nombre_asignatura": "Geología.",
+        "nombre_elemento": "Geología.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "1",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "B",
-        "nombre_asignatura": "Matemáticas.",
+        "nombre_elemento": "Matemáticas.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": "Periodo 1."
       },
       {
+        "modulo": "",
         "materia": "B",
-        "nombre_asignatura": "Química.",
+        "nombre_elemento": "Química.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "B",
-        "nombre_asignatura": "Biología.",
+        "nombre_elemento": "Biología.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "OB",
-        "nombre_asignatura": "Métodos de investigación, escritura científica y comunicación.",
+        "nombre_elemento": "Métodos de investigación, escritura científica y comunicación.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "OB",
-        "nombre_asignatura": "Población, Territorio y Medio Ambiente.",
+        "nombre_elemento": "Población, Territorio y Medio Ambiente.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "B",
-        "nombre_asignatura": "Geología.",
+        "nombre_elemento": "Geología.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": "Periodo 2."
       },
       {
+        "modulo": "",
         "materia": "B",
-        "nombre_asignatura": "Física.",
+        "nombre_elemento": "Física.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "B",
-        "nombre_asignatura": "Técnicas Instrumentales de Medición Ambiental.",
+        "nombre_elemento": "Técnicas Instrumentales de Medición Ambiental.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "OB",
-        "nombre_asignatura": "Humanidades.",
+        "nombre_elemento": "Humanidades.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "B",
-        "nombre_asignatura": "Fundamentos de Ecología.",
+        "nombre_elemento": "Fundamentos de Ecología.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "OB",
-        "nombre_asignatura": "Bioestadística.",
+        "nombre_elemento": "Bioestadística.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": "Periodo 1."
       },
       {
+        "modulo": "",
         "materia": "B",
-        "nombre_asignatura": "Biodiversidad Zoológica.",
+        "nombre_elemento": "Biodiversidad Zoológica.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "B",
-        "nombre_asignatura": "Biodiversidad Botánica.",
+        "nombre_elemento": "Biodiversidad Botánica.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "OB",
-        "nombre_asignatura": "Análisis Espacial para Ciencias Ambientales.",
+        "nombre_elemento": "Análisis Espacial para Ciencias Ambientales.",
         "creditos_ects": "3",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "OB",
-        "nombre_asignatura": "Tecnología.",
+        "nombre_elemento": "Tecnología.",
         "creditos_ects": "3",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "OB",
-        "nombre_asignatura": "Evaluación y Medición de Impacto Ambiental.",
+        "nombre_elemento": "Evaluación y Medición de Impacto Ambiental.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "OB",
-        "nombre_asignatura": "Microbiología Ambiental.",
+        "nombre_elemento": "Microbiología Ambiental.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": "Periodo 2."
       },
       {
+        "modulo": "",
         "materia": "B",
-        "nombre_asignatura": "Ecología Aplicada: Complejidad, Dinámica y Estabilidad de los Ecosistemas.",
+        "nombre_elemento": "Ecología Aplicada: Complejidad, Dinámica y Estabilidad de los Ecosistemas.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "OB",
-        "nombre_asignatura": "Bases de Ingeniería Ambiental.",
+        "nombre_elemento": "Bases de Ingeniería Ambiental.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "OB",
-        "nombre_asignatura": "Emprendimiento.",
+        "nombre_elemento": "Emprendimiento.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "OB",
-        "nombre_asignatura": "Edafología: Degradación y Conservación de Suelos.",
+        "nombre_elemento": "Edafología: Degradación y Conservación de Suelos.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "OB",
-        "nombre_asignatura": "Agua: Hidrología e Hidrogeología.",
+        "nombre_elemento": "Agua: Hidrología e Hidrogeología.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": "Periodo 1."
       },
       {
+        "modulo": "",
         "materia": "OB",
-        "nombre_asignatura": "Gestión y Conservación de Flora, Fauna y Espacios Protegidos.",
+        "nombre_elemento": "Gestión y Conservación de Flora, Fauna y Espacios Protegidos.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "OB",
-        "nombre_asignatura": "Economía y Medioambiente.",
+        "nombre_elemento": "Economía y Medioambiente.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "OB",
-        "nombre_asignatura": "Derecho Ambiental.",
+        "nombre_elemento": "Derecho Ambiental.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "OB",
-        "nombre_asignatura": "Reto IE.",
+        "nombre_elemento": "Reto IE.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "OB",
-        "nombre_asignatura": "Cambio Climático: Meteorología y Climatología.",
+        "nombre_elemento": "Cambio Climático: Meteorología y Climatología.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": "Periodo 2."
       },
       {
+        "modulo": "",
         "materia": "OB",
-        "nombre_asignatura": "Elaboración y Gestión de Proyectos.",
+        "nombre_elemento": "Elaboración y Gestión de Proyectos.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "OB",
-        "nombre_asignatura": "Comportamiento Humano y Medioambiente.",
+        "nombre_elemento": "Comportamiento Humano y Medioambiente.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "OB",
-        "nombre_asignatura": "Biotecnología Ambiental.",
+        "nombre_elemento": "Biotecnología Ambiental.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "OB",
-        "nombre_asignatura": "Toxicología Ambiental.",
+        "nombre_elemento": "Toxicología Ambiental.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "OB",
-        "nombre_asignatura": "Bases de Datos, Modelización y Big Data.",
+        "nombre_elemento": "Bases de Datos, Modelización y Big Data.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": "Periodo 1."
       },
       {
+        "modulo": "",
         "materia": "OB",
-        "nombre_asignatura": "Análisis y Evaluación de Contaminación Ambiental.",
+        "nombre_elemento": "Análisis y Evaluación de Contaminación Ambiental.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "OP",
-        "nombre_asignatura": "Optativa 1.",
+        "nombre_elemento": "Optativa 1.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "OP",
-        "nombre_asignatura": "Optativa 2.",
+        "nombre_elemento": "Optativa 2.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "OP",
-        "nombre_asignatura": "Optativa 3.",
+        "nombre_elemento": "Optativa 3.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "OP",
-        "nombre_asignatura": "Optativa 4.",
+        "nombre_elemento": "Optativa 4.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": "Periodo 2."
       },
       {
+        "modulo": "",
         "materia": "OP",
-        "nombre_asignatura": "Optativa 5.",
+        "nombre_elemento": "Optativa 5.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "OP",
-        "nombre_asignatura": "Optativa 6.",
+        "nombre_elemento": "Optativa 6.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "TFG",
-        "nombre_asignatura": "Trabajo de Fin de Grado.",
+        "nombre_elemento": "Trabajo de Fin de Grado.",
         "creditos_ects": "12",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 50,
+    "total_elementos": 55,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n3729 Resolución de 14 de febrero de 2024, de IE Universidad, por la que se \npublica el plan de estudios de Graduado o Graduada en Ciencias \nAmbientales para la Sostenibilidad/Bachelor in Environmental Sciences for \nSustainability.\nEste Rectorado ha resuelto ordenar la publicación en el «Boletín Oficial del Estado» y \nen el «Boletín Oficial de Castilla y León», del plan de estudios conducente a la obtención \ndel título oficial de Graduado o Graduada en Ciencias Ambientales para la \nSostenibilidad/Bachelor in Environmental Sciences for Sustainability (2504720). Esta \ndecisión se toma en cumplimiento de lo dispuesto en el artículo 8.3 de Ley \nOrgánica 2/2023, de 22 de marzo, del Sistema Universitario y en el artículo 27 del Real \nDecreto 822/2021, de 28 de septiembre, por el que se establece la organización de las \nenseñanzas universitarias y del procedimiento de aseguramiento de su calidad.\nEl título obtuvo la verificación del plan de estudios por e"
   }
 }

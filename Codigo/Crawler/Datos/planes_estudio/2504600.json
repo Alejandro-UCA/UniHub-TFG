@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 1393/2007 (1)",
   "universidad_codigo": "047",
   "universidad_nombre": "Universidad Alfonso X El Sabio",
-  "fecha_procesado": "2026-07-31T14:31:01.202407",
+  "fecha_procesado": "2026-08-03T12:34:44.900241",
   "boe_url": "http://www.boe.es/boe/dias/2023/09/11/pdfs/BOE-A-2023-19260.pdf",
   "boe_fecha": "2023-09-11",
   "plan_estudios": {
@@ -13,47 +13,399 @@
       "Obligatorias.": "40",
       "Optativas.": "48",
       "Prácticas Externas.": "44",
-      "Trabajo Fin de Grado.": "TFG.",
-      "Total.": "240",
-      "Psicología del Desarrollo Infantil.": "Básica.",
-      "La Escuela Infantil: teoría, corrientes internacionales y políticas educativas sostenibles.": "Básica.",
-      "Sociedad, familia y valores cívicos para la convivencia.": "Básica.",
-      "Didáctica en Educación Infantil: desarrollo integral y armónico de los niños.": "Básica.",
-      "Innovación educativa para la búsqueda de respuestas y la resolución de problemas en el aula.": "Básica.",
-      "Psicología de la Educación y del Aprendizaje.": "Básica.",
-      "Organización del aula y diseño de materiales docentes.": "Básica.",
-      "Gestión de Centros: los centros educativos como espacios de encuentro, colaboración e intercambio.": "Básica.",
-      "Orientación escolar, acompañamiento y diálogo para la resolución de conflictos.": "Básica.",
-      "Observación, evaluación y análisis en el aula de Educación Infantil para la mejora continua.": "Básica.",
-      "Inglés para maestros.": "Obligatoria.",
-      "Dificultades del aprendizaje en Educación Infantil.": "Básica.",
-      "Nuevas tendencias educativas: el juego y los proyectos como medios para el aprendizaje.": "Básica.",
-      "Habilidades docentes y de comunicación para la Educación Infantil.": "Básica.",
-      "Tecnología y medios de comunicación en el aula infantil.": "Básica.",
-      "Salud, emoción y bienestar psicológico en Educación Infantil.": "Básica.",
-      "Educación para la Sociedad Global y Sostenible.": "Básica.",
-      "Escuela inclusiva: intervención educativa con alumnos con necesidades especiales.": "Básica.",
-      "Prácticas en la Escuela Infantil I.": "PE.",
-      "Pensamiento lógico-matemático.": "Obligatoria.",
-      "Adquisición y desarrollo del lenguaje.": "Obligatoria.",
-      "Educación Plástica y Musical.": "Obligatoria.",
-      "Asignatura de Mención I.": "Optativa.",
-      "Asignatura de Mención II.": "Optativa.",
-      "Asignatura de Mención III.": "Optativa.",
-      "Didáctica de la Lengua y la Literatura para la Educación Infantil.": "Obligatoria.",
-      "Asignatura de Mención IV.": "Optativa.",
-      "Prácticas en la Escuela Infantil II.": "PE.",
-      "Didáctica de las Ciencias para la Educación Infantil: aprendizaje y servicio en el medio natural, social y cultural.": "Obligatoria.",
-      "Didáctica de las Matemáticas para la Educación Infantil.": "Obligatoria.",
-      "Asignatura de Mención V.": "Optativa.",
-      "Asignatura de Mención VI.": "Optativa.",
-      "Asignatura de Mención VII.": "Optativa.",
-      "Expresión corporal, psicomotricidad y artes escénicas para la Educación Infantil.": "Obligatoria.",
-      "Asignatura de Mención VIII.": "Optativa.",
-      "Prácticas en la Escuela Infantil III.": "PE."
+      "Trabajo Fin de Grado.": "6",
+      "Total.": "240"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Formación Básica.",
+        "nombre_elemento": "Formación Básica.",
+        "creditos_ects": "102",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "40",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativas.",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "48",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "44",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Psicología del Desarrollo Infantil.",
+        "nombre_elemento": "Psicología del Desarrollo Infantil.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "La Escuela Infantil: teoría, corrientes internacionales y políticas educativas sostenibles.",
+        "nombre_elemento": "La Escuela Infantil: teoría, corrientes internacionales y políticas educativas sostenibles.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Sociedad, familia y valores cívicos para la convivencia.",
+        "nombre_elemento": "Sociedad, familia y valores cívicos para la convivencia.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Didáctica en Educación Infantil: desarrollo integral y armónico de los niños.",
+        "nombre_elemento": "Didáctica en Educación Infantil: desarrollo integral y armónico de los niños.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Innovación educativa para la búsqueda de respuestas y la resolución de problemas en el aula.",
+        "nombre_elemento": "Innovación educativa para la búsqueda de respuestas y la resolución de problemas en el aula.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Psicología de la Educación y del Aprendizaje.",
+        "nombre_elemento": "Psicología de la Educación y del Aprendizaje.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Organización del aula y diseño de materiales docentes.",
+        "nombre_elemento": "Organización del aula y diseño de materiales docentes.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión de Centros: los centros educativos como espacios de encuentro, colaboración e intercambio.",
+        "nombre_elemento": "Gestión de Centros: los centros educativos como espacios de encuentro, colaboración e intercambio.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Orientación escolar, acompañamiento y diálogo para la resolución de conflictos.",
+        "nombre_elemento": "Orientación escolar, acompañamiento y diálogo para la resolución de conflictos.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Observación, evaluación y análisis en el aula de Educación Infantil para la mejora continua.",
+        "nombre_elemento": "Observación, evaluación y análisis en el aula de Educación Infantil para la mejora continua.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Inglés para maestros.",
+        "nombre_elemento": "Inglés para maestros.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Dificultades del aprendizaje en Educación Infantil.",
+        "nombre_elemento": "Dificultades del aprendizaje en Educación Infantil.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Nuevas tendencias educativas: el juego y los proyectos como medios para el aprendizaje.",
+        "nombre_elemento": "Nuevas tendencias educativas: el juego y los proyectos como medios para el aprendizaje.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Habilidades docentes y de comunicación para la Educación Infantil.",
+        "nombre_elemento": "Habilidades docentes y de comunicación para la Educación Infantil.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tecnología y medios de comunicación en el aula infantil.",
+        "nombre_elemento": "Tecnología y medios de comunicación en el aula infantil.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Salud, emoción y bienestar psicológico en Educación Infantil.",
+        "nombre_elemento": "Salud, emoción y bienestar psicológico en Educación Infantil.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Educación para la Sociedad Global y Sostenible.",
+        "nombre_elemento": "Educación para la Sociedad Global y Sostenible.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Escuela inclusiva: intervención educativa con alumnos con necesidades especiales.",
+        "nombre_elemento": "Escuela inclusiva: intervención educativa con alumnos con necesidades especiales.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas en la Escuela Infantil I.",
+        "nombre_elemento": "Prácticas en la Escuela Infantil I.",
+        "creditos_ects": "12",
+        "caracter": "PE.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Pensamiento lógico-matemático.",
+        "nombre_elemento": "Pensamiento lógico-matemático.",
+        "creditos_ects": "4",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Adquisición y desarrollo del lenguaje.",
+        "nombre_elemento": "Adquisición y desarrollo del lenguaje.",
+        "creditos_ects": "4",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Educación Plástica y Musical.",
+        "nombre_elemento": "Educación Plástica y Musical.",
+        "creditos_ects": "4",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura de Mención I.",
+        "nombre_elemento": "Asignatura de Mención I.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura de Mención II.",
+        "nombre_elemento": "Asignatura de Mención II.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura de Mención III.",
+        "nombre_elemento": "Asignatura de Mención III.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Didáctica de la Lengua y la Literatura para la Educación Infantil.",
+        "nombre_elemento": "Didáctica de la Lengua y la Literatura para la Educación Infantil.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura de Mención IV.",
+        "nombre_elemento": "Asignatura de Mención IV.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas en la Escuela Infantil II.",
+        "nombre_elemento": "Prácticas en la Escuela Infantil II.",
+        "creditos_ects": "18",
+        "caracter": "PE.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Didáctica de las Ciencias para la Educación Infantil: aprendizaje y servicio en el medio natural, social y cultural.",
+        "nombre_elemento": "Didáctica de las Ciencias para la Educación Infantil: aprendizaje y servicio en el medio natural, social y cultural.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Didáctica de las Matemáticas para la Educación Infantil.",
+        "nombre_elemento": "Didáctica de las Matemáticas para la Educación Infantil.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura de Mención V.",
+        "nombre_elemento": "Asignatura de Mención V.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura de Mención VI.",
+        "nombre_elemento": "Asignatura de Mención VI.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura de Mención VII.",
+        "nombre_elemento": "Asignatura de Mención VII.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Expresión corporal, psicomotricidad y artes escénicas para la Educación Infantil.",
+        "nombre_elemento": "Expresión corporal, psicomotricidad y artes escénicas para la Educación Infantil.",
+        "creditos_ects": "4",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura de Mención VIII.",
+        "nombre_elemento": "Asignatura de Mención VIII.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas en la Escuela Infantil III.",
+        "nombre_elemento": "Prácticas en la Escuela Infantil III.",
+        "creditos_ects": "14",
+        "caracter": "PE.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "TFG.",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_elementos": 43,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n19260 Resolución de 28 de agosto de 2023, de la Universidad Alfonso X el Sabio, \npor la que se publica el plan de estudios de Graduado o Graduada en \nEducación Infantil.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme positivo de la Fundación para el Conocimiento madri+d, y acordado el carácter \noficial del título por Acuerdo de Consejo de Ministros de 18 de julio de 2023 (publicado \nen el BOE núm. 178, de 27 de julio de 2023, por Resolución de la Secretaría General de \nUniversidades de 19 de julio de 2023),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención \ndel título de Graduado o Graduada en Educación Infantil por la Universidad Alfonso X el \nSabio.\nVillanueva de la Cañada, 28 de agosto de 2023.–La Rectora, Ana Isabel Fernández \nMartínez.\nANEXO\nDistribución del plan de estudios en créditos ECTS\nTipo de materia Créditos \nECTS\nFormación Básica. 102\nObligatorias.  40\nOp"
   }
 }

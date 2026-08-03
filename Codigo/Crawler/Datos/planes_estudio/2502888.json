@@ -4,13 +4,653 @@
   "nivel_academico": "Grado - RD 1393/2007 (1)",
   "universidad_codigo": "074",
   "universidad_nombre": "Universidad a Distancia de Madrid",
-  "fecha_procesado": "2026-07-31T14:22:39.025117",
+  "fecha_procesado": "2026-08-03T12:26:28.429077",
   "boe_url": "http://www.boe.es/boe/dias/2015/05/06/pdfs/BOE-A-2015-5062.pdf",
   "boe_fecha": "2015-05-06",
   "plan_estudios": {
     "resumen_creditos": {},
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Informática.",
+        "nombre_elemento": "Informática.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho.",
+        "nombre_elemento": "Derecho.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho.",
+        "nombre_elemento": "Derecho.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho.",
+        "nombre_elemento": "Derecho.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho.",
+        "nombre_elemento": "Derecho.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Economía.",
+        "nombre_elemento": "Economía.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho.",
+        "nombre_elemento": "Derecho.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho.",
+        "nombre_elemento": "Derecho.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho.",
+        "nombre_elemento": "Derecho.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho.",
+        "nombre_elemento": "Derecho.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho Civil.",
+        "materia": "",
+        "nombre_elemento": "Derecho Civil.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Ciencias Jurídicas Básicas.",
+        "materia": "",
+        "nombre_elemento": "Ciencias Jurídicas Básicas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho Administrativo.",
+        "materia": "",
+        "nombre_elemento": "Derecho Administrativo.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho Internacional y Comunitario.",
+        "materia": "",
+        "nombre_elemento": "Derecho Internacional y Comunitario.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho Mercantil.",
+        "materia": "",
+        "nombre_elemento": "Derecho Mercantil.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho Civil.",
+        "materia": "",
+        "nombre_elemento": "Derecho Civil.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho Administrativo.",
+        "materia": "",
+        "nombre_elemento": "Derecho Administrativo.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho Penal.",
+        "materia": "",
+        "nombre_elemento": "Derecho Penal.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho Internacional y Comunitario.",
+        "materia": "",
+        "nombre_elemento": "Derecho Internacional y Comunitario.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho Civil.",
+        "materia": "",
+        "nombre_elemento": "Derecho Civil.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho Mercantil.",
+        "materia": "",
+        "nombre_elemento": "Derecho Mercantil.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho Penal.",
+        "materia": "",
+        "nombre_elemento": "Derecho Penal.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho Financiero y Tributario.",
+        "materia": "",
+        "nombre_elemento": "Derecho Financiero y Tributario.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho Civil.",
+        "materia": "",
+        "nombre_elemento": "Derecho Civil.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho Administrativo.",
+        "materia": "",
+        "nombre_elemento": "Derecho Administrativo.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho Procesal.",
+        "materia": "",
+        "nombre_elemento": "Derecho Procesal.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho Social.",
+        "materia": "",
+        "nombre_elemento": "Derecho Social.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho Civil.",
+        "materia": "",
+        "nombre_elemento": "Derecho Civil.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho Mercantil.",
+        "materia": "",
+        "nombre_elemento": "Derecho Mercantil.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho Procesal.",
+        "materia": "",
+        "nombre_elemento": "Derecho Procesal.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho Financiero y Tributario.",
+        "materia": "",
+        "nombre_elemento": "Derecho Financiero y Tributario.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho Social.",
+        "materia": "",
+        "nombre_elemento": "Derecho Social.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho Internacional y Comunitario.",
+        "materia": "",
+        "nombre_elemento": "Derecho Internacional y Comunitario.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Prácticum.",
+        "materia": "",
+        "nombre_elemento": "Prácticum.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Multidisciplinar.",
+        "materia": "",
+        "nombre_elemento": "Formación Multidisciplinar.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Multidisciplinar.",
+        "materia": "",
+        "nombre_elemento": "Formación Multidisciplinar.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Multidisciplinar.",
+        "materia": "",
+        "nombre_elemento": "Formación Multidisciplinar.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Multidisciplinar.",
+        "materia": "",
+        "nombre_elemento": "Formación Multidisciplinar.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Multidisciplinar.",
+        "materia": "",
+        "nombre_elemento": "Formación Multidisciplinar.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Multidisciplinar.",
+        "materia": "",
+        "nombre_elemento": "Formación Multidisciplinar.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Multidisciplinar.",
+        "materia": "",
+        "nombre_elemento": "Formación Multidisciplinar.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Multidisciplinar.",
+        "materia": "",
+        "nombre_elemento": "Formación Multidisciplinar.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Multidisciplinar.",
+        "materia": "",
+        "nombre_elemento": "Formación Multidisciplinar.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Multidisciplinar.",
+        "materia": "",
+        "nombre_elemento": "Formación Multidisciplinar.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Multidisciplinar.",
+        "materia": "",
+        "nombre_elemento": "Formación Multidisciplinar.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Multidisciplinar.",
+        "materia": "",
+        "nombre_elemento": "Formación Multidisciplinar.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Multidisciplinar.",
+        "materia": "",
+        "nombre_elemento": "Formación Multidisciplinar.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Multidisciplinar.",
+        "materia": "",
+        "nombre_elemento": "Formación Multidisciplinar.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Multidisciplinar.",
+        "materia": "",
+        "nombre_elemento": "Formación Multidisciplinar.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Multidisciplinar.",
+        "materia": "",
+        "nombre_elemento": "Formación Multidisciplinar.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Multidisciplinar.",
+        "materia": "",
+        "nombre_elemento": "Formación Multidisciplinar.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Multidisciplinar.",
+        "materia": "",
+        "nombre_elemento": "Formación Multidisciplinar.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Multidisciplinar.",
+        "materia": "",
+        "nombre_elemento": "Formación Multidisciplinar.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Multidisciplinar.",
+        "materia": "",
+        "nombre_elemento": "Formación Multidisciplinar.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Multidisciplinar.",
+        "materia": "",
+        "nombre_elemento": "Formación Multidisciplinar.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación Multidisciplinar.",
+        "materia": "",
+        "nombre_elemento": "Formación Multidisciplinar.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Prácticas Externas.",
+        "materia": "",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho de la Empresa.",
+        "materia": "",
+        "nombre_elemento": "Derecho de la Empresa.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho de la Empresa.",
+        "materia": "",
+        "nombre_elemento": "Derecho de la Empresa.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho de la Empresa.",
+        "materia": "",
+        "nombre_elemento": "Derecho de la Empresa.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho de la Empresa.",
+        "materia": "",
+        "nombre_elemento": "Derecho de la Empresa.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho de la Empresa.",
+        "materia": "",
+        "nombre_elemento": "Derecho de la Empresa.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho de la Empresa.",
+        "materia": "",
+        "nombre_elemento": "Derecho de la Empresa.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho de la Empresa.",
+        "materia": "",
+        "nombre_elemento": "Derecho de la Empresa.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho de la Empresa.",
+        "materia": "",
+        "nombre_elemento": "Derecho de la Empresa.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho de la Empresa.",
+        "materia": "",
+        "nombre_elemento": "Derecho de la Empresa.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho de la Empresa.",
+        "materia": "",
+        "nombre_elemento": "Derecho de la Empresa.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho de la Empresa.",
+        "materia": "",
+        "nombre_elemento": "Derecho de la Empresa.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho de la Empresa.",
+        "materia": "",
+        "nombre_elemento": "Derecho de la Empresa.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho de la Empresa.",
+        "materia": "",
+        "nombre_elemento": "Derecho de la Empresa.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho de la Empresa.",
+        "materia": "",
+        "nombre_elemento": "Derecho de la Empresa.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_elementos": 71,
     "texto_extraido_muestra": "BOLETÍN OFICIAL DEL ESTADO\nNúm. 108 Miércoles 6 de mayo de 2015 Sec. III.   Pág. 40206\nIII. OTRAS DISPOSICIONES\nUNIVERSIDADES\n5062 Resolución de 20 de abril de 2015, de la Universidad a Distancia de Madrid, \npor la que se publica el plan de estudios de Graduado en Derecho.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme favorable de la Agencia Nacional de Evaluación de la Calidad y Acreditación y \ndeclarado el carácter oficial del Título por Acuerdo del Consejo de Ministros de 26 de \nseptiembre de 2014 (publicado en el BOE de 18 de octubre de 2014, por Resolución de la \nSecretaría General de Universidades, de 2 de octubre de 2014), este Rectorado ha \nresuelto publicar el plan de estudios conducente a la obtención del Título de Graduado o \nGraduada en Derecho.\nEl plan de estudios a que se refiere la presente Resolución quedará estructurado \nconforme figura en el Anexo de la misma.\nCollado Villalba, 20 de abril de 2015.–El Rector, José André"
   }
 }

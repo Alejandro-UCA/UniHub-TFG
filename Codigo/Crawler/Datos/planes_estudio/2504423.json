@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 1393/2007 (1)",
   "universidad_codigo": "052",
   "universidad_nombre": "Universidad Antonio de Nebrija",
-  "fecha_procesado": "2026-07-31T14:39:09.160207",
+  "fecha_procesado": "2026-08-03T12:42:21.294645",
   "boe_url": "http://www.boe.es/boe/dias/2023/04/03/pdfs/BOE-A-2023-8440.pdf",
   "boe_fecha": "2023-04-03",
   "plan_estudios": {
@@ -14,311 +14,317 @@
       "Asignaturas Optativas.": "48",
       "Prácticas Externas.": "6",
       "Trabajo Fin de Grado.": "6",
-      "Créditos totales.": "240",
-      "Lingüística de corpus.": "6",
-      "Introducción a la computación para la lingüística aplicada.": "6",
-      "Edición y publicaciones digitales.": "6",
-      "Tecnologías del lenguaje.": "6",
-      "Humanidades digitales.": "6",
-      "Adquisición de lenguas y enfoques metodológicos para la enseñanza.": "6",
-      "Didáctica de lenguas extranjeras.": "6",
-      "Recursos digitales para la enseñanza de lenguas extranjeras.": "6",
-      "Narrativa española contemporánea.": "6",
-      "Narrativa hispanoamericana contemporánea.": "6",
-      "Poesía española contemporánea.": "6",
-      "Poesía hispanoamericana contemporánea.": "6",
-      "Principios de traducción e interpretación.": "6",
-      "Tecnologías de la traducción 1.": "6",
-      "Portafolio del traductor 1.": "6",
-      "Traducción audiovisual.": "6",
-      "Tecnologías de la traducción 2.": "6",
-      "Mediación intercultural.": "6",
-      "Subtitulación.": "6",
-      "Portafolio del traductor 2.": "6",
-      "Teoría de las RRII: paradigmas y metodología.": "6",
-      "Mundo contemporáneo.": "6",
-      "Tendencias de la economía global.": "6",
-      "Escenarios internacionales y globalización.": "6",
-      "Teoría de la comunicación.": "6",
-      "Organizaciones internacionales.": "6",
-      "Organización económica internacional.": "6",
-      "Régimen internacional de Derechos Humanos.": "6"
+      "Créditos totales.": "240"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas de Formación Básica.",
+        "nombre_elemento": "Asignaturas de Formación Básica.",
         "creditos_ects": "60",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Obligatorias.",
+        "nombre_elemento": "Asignaturas Obligatorias.",
         "creditos_ects": "120",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Optativas.",
+        "nombre_elemento": "Asignaturas Optativas.",
         "creditos_ects": "48",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
         "creditos_ects": "240",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Lingüística de corpus.",
+        "nombre_elemento": "Lingüística de corpus.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Introducción a la computación para la lingüística aplicada.",
+        "nombre_elemento": "Introducción a la computación para la lingüística aplicada.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Edición y publicaciones digitales.",
+        "nombre_elemento": "Edición y publicaciones digitales.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Tecnologías del lenguaje.",
+        "nombre_elemento": "Tecnologías del lenguaje.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Humanidades digitales.",
+        "nombre_elemento": "Humanidades digitales.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Adquisición de lenguas y enfoques metodológicos para la enseñanza.",
+        "nombre_elemento": "Adquisición de lenguas y enfoques metodológicos para la enseñanza.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Didáctica de lenguas extranjeras.",
+        "nombre_elemento": "Didáctica de lenguas extranjeras.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Recursos digitales para la enseñanza de lenguas extranjeras.",
+        "nombre_elemento": "Recursos digitales para la enseñanza de lenguas extranjeras.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Narrativa española contemporánea.",
+        "nombre_elemento": "Narrativa española contemporánea.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Narrativa hispanoamericana contemporánea.",
+        "nombre_elemento": "Narrativa hispanoamericana contemporánea.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Poesía española contemporánea.",
+        "nombre_elemento": "Poesía española contemporánea.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Poesía hispanoamericana contemporánea.",
+        "nombre_elemento": "Poesía hispanoamericana contemporánea.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Principios de traducción e interpretación.",
+        "nombre_elemento": "Principios de traducción e interpretación.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Tecnologías de la traducción 1.",
+        "nombre_elemento": "Tecnologías de la traducción 1.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Portafolio del traductor 1.",
+        "nombre_elemento": "Portafolio del traductor 1.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Traducción audiovisual.",
+        "nombre_elemento": "Traducción audiovisual.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Tecnologías de la traducción 2.",
+        "nombre_elemento": "Tecnologías de la traducción 2.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Mediación intercultural.",
+        "nombre_elemento": "Mediación intercultural.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Subtitulación.",
+        "nombre_elemento": "Subtitulación.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Portafolio del traductor 2.",
+        "nombre_elemento": "Portafolio del traductor 2.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Teoría de las RRII: paradigmas y metodología.",
+        "nombre_elemento": "Teoría de las RRII: paradigmas y metodología.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Mundo contemporáneo.",
+        "nombre_elemento": "Mundo contemporáneo.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Tendencias de la economía global.",
+        "nombre_elemento": "Tendencias de la economía global.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Escenarios internacionales y globalización.",
+        "nombre_elemento": "Escenarios internacionales y globalización.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Teoría de la comunicación.",
+        "nombre_elemento": "Teoría de la comunicación.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Organizaciones internacionales.",
+        "nombre_elemento": "Organizaciones internacionales.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Organización económica internacional.",
+        "nombre_elemento": "Organización económica internacional.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Régimen internacional de Derechos Humanos.",
+        "nombre_elemento": "Régimen internacional de Derechos Humanos.",
         "creditos_ects": "6",
         "caracter": "Optativa",
         "curso": "3 - 4",
-        "cuatrimestre": ""
+        "cuatrimestre": "6 – 7 - 8"
       }
     ],
-    "total_asignaturas": 34,
+    "total_elementos": 34,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n8440 Resolución de 8 de marzo de 2023, de la Universidad Antonio de Nebrija, por \nla que se publica el plan de estudios de Graduado o Graduada en Lenguas \nModernas Aplicadas/Bachelor in Applied Modern Languages.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, y \nacordado el carácter oficial del título por Acuerdo del Consejo de Ministros de 11 de julio \nde 2022 (publicado en el BOE de 20 de julio de 2022 por Resolución de la Secretaría \nGeneral de Universidades de 13 de julio de 2022),\nEste Rectorado ha resuelto publicar el plan de estudios conducentes a la obtención \ndel título de Graduado o Graduada en Lenguas Modernas Aplicadas/Bachelor in Applied \nModern Languages, que queda estructurado según consta en el anexo de esta \nresolución.\nHoyo de Manzanares, 8 de marzo de 2023.–El Rector, José Muñiz Fernández.\nANEXO\nUniversidad Antonio de Nebrija\nPLAN DE ESTUDIOS CONDUCENTE AL TÍTULO DE GRADUADO O GRADUADA EN \nLENGUAS "
   }
 }

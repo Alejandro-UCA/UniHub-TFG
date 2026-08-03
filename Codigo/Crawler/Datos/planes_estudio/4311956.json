@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "047",
   "universidad_nombre": "Universidad Alfonso X El Sabio",
-  "fecha_procesado": "2026-07-31T14:34:05.805758",
+  "fecha_procesado": "2026-08-03T12:37:31.421904",
   "boe_url": "http://www.boe.es/boe/dias/2025/09/22/pdfs/BOE-A-2025-18740.pdf",
   "boe_fecha": "2025-09-22",
   "plan_estudios": {
@@ -12,22 +12,164 @@
       "Obligatorias.": "78",
       "Prácticas académicas externas.": "30",
       "Trabajo Fin de Grado.": "12",
-      "Total.": "120",
-      "1. Bases médicas, quirúrgicas y periodontales aplicadas en Implantología Oral.": "6",
-      "2. Revisión de la Literatura avanzada y metodología de la investigación.": "6",
-      "3. Talleres preclínicos y presentación de casos clínicos.": "3",
-      "4. Cirugía Bucal, Patología Médica y articular y Periodoncia Clínica I.": "15",
-      "5. Recepción Clínica: Flujo digital.": "12",
-      "6. Implantoprótesis.": "12",
-      "7. Nuevas tecnologías I: bases teóricas y clínicas.": "6",
-      "8. Nuevas tecnologías II: diseño y aplicación clínica.": "6",
-      "9. Implantología Oral, Flujo digital.": "6",
-      "10. Presentación de Casos Clínicos.": "6",
-      "11. Clínica Integrada–Prácticas Académicas Externas.": "30",
-      "12. Trabajo Fin de Máster.": "12"
+      "Total.": "120"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "78",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas académicas externas.",
+        "nombre_elemento": "Prácticas académicas externas.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "120",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "1. Bases médicas, quirúrgicas y periodontales aplicadas en Implantología Oral.",
+        "materia": "",
+        "nombre_elemento": "1. Bases médicas, quirúrgicas y periodontales aplicadas en Implantología Oral.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "2. Revisión de la Literatura avanzada y metodología de la investigación.",
+        "materia": "",
+        "nombre_elemento": "2. Revisión de la Literatura avanzada y metodología de la investigación.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "3. Talleres preclínicos y presentación de casos clínicos.",
+        "materia": "",
+        "nombre_elemento": "3. Talleres preclínicos y presentación de casos clínicos.",
+        "creditos_ects": "3",
+        "caracter": "Obligatorio.",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "4. Cirugía Bucal, Patología Médica y articular y Periodoncia Clínica I.",
+        "materia": "",
+        "nombre_elemento": "4. Cirugía Bucal, Patología Médica y articular y Periodoncia Clínica I.",
+        "creditos_ects": "15",
+        "caracter": "Obligatoria.",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "5. Recepción Clínica: Flujo digital.",
+        "materia": "",
+        "nombre_elemento": "5. Recepción Clínica: Flujo digital.",
+        "creditos_ects": "12",
+        "caracter": "Obligatoria.",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "6. Implantoprótesis.",
+        "materia": "",
+        "nombre_elemento": "6. Implantoprótesis.",
+        "creditos_ects": "12",
+        "caracter": "Obligatorio.",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "7. Nuevas tecnologías I: bases teóricas y clínicas.",
+        "materia": "",
+        "nombre_elemento": "7. Nuevas tecnologías I: bases teóricas y clínicas.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "8. Nuevas tecnologías II: diseño y aplicación clínica.",
+        "materia": "",
+        "nombre_elemento": "8. Nuevas tecnologías II: diseño y aplicación clínica.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "9. Implantología Oral, Flujo digital.",
+        "materia": "",
+        "nombre_elemento": "9. Implantología Oral, Flujo digital.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "10. Presentación de Casos Clínicos.",
+        "materia": "",
+        "nombre_elemento": "10. Presentación de Casos Clínicos.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "11. Clínica Integrada–Prácticas Académicas Externas.",
+        "materia": "",
+        "nombre_elemento": "11. Clínica Integrada–Prácticas Académicas Externas.",
+        "creditos_ects": "30",
+        "caracter": "PAE.",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "12. Trabajo Fin de Máster.",
+        "materia": "",
+        "nombre_elemento": "12. Trabajo Fin de Máster.",
+        "creditos_ects": "12",
+        "caracter": "TFM.",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Total.",
+        "materia": "",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "120",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_elementos": 17,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n18740 Resolución de 25 de agosto de 2025, de la Universidad Alfonso X el Sabio, \npor la que se publica la modificación del plan de estudios de Máster \nUniversitario en Implantología Oral y Prótesis Implantosoportada.\nObtenida la verificación de la modificación del plan de estudios, previo informe \npositivo de la Fundación para el Conocimiento madri+d, de fecha 8 de julio de 2025,\nEste Rectorado ha resuelto publicar la modificación del plan de estudios del título de \nMáster Universitario en Implantología Oral y Prótesis Implantosoportada por la \nUniversidad Alfonso X el Sabio.\nVillanueva de la Cañada, 25 de agosto de 2025.–El Rector, Juan Romo Urroz.\nPLAN DE ESTUDIOS DEL TÍTULO DE MÁSTER UNIVERSITARIO EN \nIMPLANTOLOGÍA ORAL Y PRÓTESIS IMPLANTOSOPORTADA\nDistribución del plan de estudios en créditos ECTS\nTipo de materia Créditos ECTS\nObligatorias. 78\nPrácticas académicas externas. 30\nTrabajo Fin de Grado. 12\n Total. 120\nMódulo/materia ECTS Carácter A"
   }
 }

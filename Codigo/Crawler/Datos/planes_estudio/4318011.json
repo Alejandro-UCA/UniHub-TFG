@@ -4,26 +4,145 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "047",
   "universidad_nombre": "Universidad Alfonso X El Sabio",
-  "fecha_procesado": "2026-07-31T14:34:07.793916",
+  "fecha_procesado": "2026-08-03T12:37:33.345884",
   "boe_url": "http://www.boe.es/boe/dias/2022/08/08/pdfs/BOE-A-2022-13392.pdf",
   "boe_fecha": "2022-08-08",
   "plan_estudios": {
     "resumen_creditos": {
       "Obligatorias.": "48",
-      "Prácticas Externas.": "Prácticas Externas.",
-      "Trabajo Fin de Máster.": "Trabajo Fin de Máster.",
-      "Total.": "60",
-      "La Industria Conectada 4.0.": "Obligatoria.",
-      "Sensores y Robots.": "Obligatoria.",
-      "Fabricación Aditiva. Realidad Virtual.": "Obligatoria.",
-      "Comunicaciones en el ámbito industrial.": "Obligatoria.",
-      "Sistemas de Información Industriales, Big Data, Ciberseguridad.": "Obligatoria.",
-      "Gestión de Proyectos de Innovación y Transformación Digital.": "Obligatoria.",
-      "Integración de Sistemas y Aplicación de las Tecnologías Habilitadoras Industria 4.0 a casos reales.": "Obligatoria.",
-      "Gestión de Operaciones y Simuladores.": "Obligatoria."
+      "Prácticas Externas.": "6",
+      "Trabajo Fin de Máster.": "6",
+      "Total.": "60"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "48",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "La Industria Conectada 4.0.",
+        "nombre_elemento": "La Industria Conectada 4.0.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Sensores y Robots.",
+        "nombre_elemento": "Sensores y Robots.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Fabricación Aditiva. Realidad Virtual.",
+        "nombre_elemento": "Fabricación Aditiva. Realidad Virtual.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Comunicaciones en el ámbito industrial.",
+        "nombre_elemento": "Comunicaciones en el ámbito industrial.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Sistemas de Información Industriales, Big Data, Ciberseguridad.",
+        "nombre_elemento": "Sistemas de Información Industriales, Big Data, Ciberseguridad.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión de Proyectos de Innovación y Transformación Digital.",
+        "nombre_elemento": "Gestión de Proyectos de Innovación y Transformación Digital.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Integración de Sistemas y Aplicación de las Tecnologías Habilitadoras Industria 4.0 a casos reales.",
+        "nombre_elemento": "Integración de Sistemas y Aplicación de las Tecnologías Habilitadoras Industria 4.0 a casos reales.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión de Operaciones y Simuladores.",
+        "nombre_elemento": "Gestión de Operaciones y Simuladores.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "6",
+        "caracter": "Prácticas Externas.",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "Trabajo Fin de Máster.",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      }
+    ],
+    "total_elementos": 14,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n13392 Resolución de 20 de julio de 2022, de la Universidad Alfonso X el Sabio, por \nla que se publica el plan de estudios del Máster Universitario en Industria 4.0.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme positivo de la Fundación para el Conocimiento Madrid más D, y acordado el \ncarácter oficial del título por Acuerdo de Consejo de Ministros de 11 de julio de 2022 \n(publicado en el BOE núm. 173, de 20 de julio de 2022, por Resolución de la Secretaría \nGeneral de Universidades de 13 de julio de 2022) este Rectorado ha resuelto publicar el \nplan de estudios conducente a la obtención del título de Máster Universitario en \nIndustria 4.0.\nVillanueva de la Cañada, 20 de julio de 2022.–La Rectora, Ana Isabel Fernández \nMartínez.\nPLAN DE ESTUDIOS MÁSTER UNIVERSITARIO EN INDUSTRIA 4.0\nDistribución del plan de estudios en créditos ECTS:\nTipo de materia Créditos ECTS\nObligatorias. 48\nPrácticas Externas. "
   }
 }

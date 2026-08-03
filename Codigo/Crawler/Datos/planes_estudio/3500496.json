@@ -4,27 +4,154 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "047",
   "universidad_nombre": "Universidad Alfonso X El Sabio",
-  "fecha_procesado": "2026-07-31T14:35:10.375549",
+  "fecha_procesado": "2026-08-03T12:38:29.586494",
   "boe_url": "http://www.boe.es/boe/dias/2025/11/18/pdfs/BOE-A-2025-23361.pdf",
   "boe_fecha": "2025-11-18",
   "plan_estudios": {
     "resumen_creditos": {
       "Obligatorias.": "48",
-      "Prácticas Académicas Externas.": "PAE",
+      "Prácticas Académicas Externas.": "6",
       "Trabajo Fin de Máster.": "6",
-      "Total.": "60",
-      "Educación, sociedad y ODS: hacia un nuevo contrato social en educación.": "OB",
-      "De la convivencia al bienestar en Educación: nuevos enfoques.": "OB",
-      "Equidad y compensación de las desigualdades en Educación.": "OB",
-      "Los conflictos en los centros educativos: análisis y comprensión.": "OB",
-      "Prevención de conflictos en Educación.": "OB",
-      "Estrategias innovadoras para la resolución de conflictos.": "OB",
-      "Estrategias de mediación ante conflictos educativos.": "OB",
-      "Nuevas dimensiones del conflicto en entornos educativos: ciberbullying, bullying social y bullying sexual.": "OB",
-      "Trabajo Fin de Máster (TFM).": "TFM"
+      "Total.": "60"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "48",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Académicas Externas.",
+        "nombre_elemento": "Prácticas Académicas Externas.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Educación, sociedad y ODS: hacia un nuevo contrato social en educación.",
+        "materia": "",
+        "nombre_elemento": "Educación, sociedad y ODS: hacia un nuevo contrato social en educación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "De la convivencia al bienestar en Educación: nuevos enfoques.",
+        "materia": "",
+        "nombre_elemento": "De la convivencia al bienestar en Educación: nuevos enfoques.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "Equidad y compensación de las desigualdades en Educación.",
+        "materia": "",
+        "nombre_elemento": "Equidad y compensación de las desigualdades en Educación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "Los conflictos en los centros educativos: análisis y comprensión.",
+        "materia": "",
+        "nombre_elemento": "Los conflictos en los centros educativos: análisis y comprensión.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "Prevención de conflictos en Educación.",
+        "materia": "",
+        "nombre_elemento": "Prevención de conflictos en Educación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "Estrategias innovadoras para la resolución de conflictos.",
+        "materia": "",
+        "nombre_elemento": "Estrategias innovadoras para la resolución de conflictos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "Estrategias de mediación ante conflictos educativos.",
+        "materia": "",
+        "nombre_elemento": "Estrategias de mediación ante conflictos educativos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "Nuevas dimensiones del conflicto en entornos educativos: ciberbullying, bullying social y bullying sexual.",
+        "materia": "",
+        "nombre_elemento": "Nuevas dimensiones del conflicto en entornos educativos: ciberbullying, bullying social y bullying sexual.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "Prácticas Académicas Externas.",
+        "materia": "",
+        "nombre_elemento": "Prácticas Académicas Externas.",
+        "creditos_ects": "6",
+        "caracter": "PAE",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "Trabajo Fin de Máster (TFM).",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de Máster (TFM).",
+        "creditos_ects": "6",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "Total.",
+        "materia": "",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_elementos": 15,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n23361 Resolución de 14 de octubre de 2025, de la Universidad Alfonso X el Sabio, \npor la que se publica el plan de estudios de Máster Universitario en \nPrevención y Mediación de Conflictos en Entornos Educativos.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme positivo de la Fundación para el Conocimiento madri+d, y acordado el carácter \noficial del título por Acuerdo de Consejo de Ministros de 7 de octubre de 2025 (publicado \nen el BOE núm. 246, de 13 de octubre de 2025, por Resolución de la Secretaría General \nde Universidades de 9 de octubre de 2025),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención \ndel título de Máster Universitario en Prevención y Mediación de Conflictos en Entornos \nEducativos por la Universidad Alfonso X el Sabio.\nVillanueva de la Cañada, 14 de octubre de 2025.–El Rector, Juan Romo Urroz.\nPLAN DE ESTUDIOS DE MÁSTER UNIVERSITARIO EN PREVENCIÓN Y"
   }
 }

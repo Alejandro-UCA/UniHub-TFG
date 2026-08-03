@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 1393/2007 (1)",
   "universidad_codigo": "047",
   "universidad_nombre": "Universidad Alfonso X El Sabio",
-  "fecha_procesado": "2026-07-31T14:30:38.538161",
+  "fecha_procesado": "2026-08-03T12:34:22.208014",
   "boe_url": "http://www.boe.es/boe/dias/2021/04/07/pdfs/BOE-A-2021-5472.pdf",
   "boe_fecha": "2021-04-07",
   "plan_estudios": {
@@ -14,50 +14,425 @@
       "Optativas.": "12",
       "Prácticas Externas.": "12",
       "Trabajo Fin de Grado.": "6",
-      "Total.": "240",
-      "Bioquímica estructural.": "Básica.",
-      "Introduction to Cellular Biology.": "Básica.",
-      "Biofísica.": "Básica.",
-      "Matemáticas aplicadas.": "Básica.",
-      "Química General.": "Básica.",
-      "Técnicas instrumentales I.": "Obligatoria.",
-      "Immunology.": "Obligatoria.",
-      "Genética.": "Básica.",
-      "Bioestadística.": "Básica.",
-      "Química orgánica.": "Básica.",
-      "Biología molecular y técnicas moleculares.": "Obligatoria.",
-      "Técnicas instrumentales II.": "Obligatoria.",
-      "Biología del desarrollo y de los tejidos.": "Obligatoria.",
-      "Cellular Biology.": "Básica.",
-      "Bioquímica metabólica.": "Básica.",
-      "Microbiología y Virología.": "Obligatoria.",
-      "Cell cultures.": "Obligatoria.",
-      "Bioseguridad.": "Obligatoria.",
-      "Immunotecnología.": "Obligatoria.",
-      "Ingeniería genética.": "Obligatoria.",
-      "Protein engineering.": "Obligatoria.",
-      "Fisiología y fisiopatología humana.": "Obligatoria.",
-      "Termodinámica y cinética química.": "Obligatoria.",
-      "Bioinformática y simulación de bioprocesos.": "Obligatoria.",
-      "Fisiología vegetal.": "Obligatoria.",
-      "Análisis de Big Data y Biología de Sistemas.": "Optativa.",
-      "Biomateriales.": "Optativa.",
-      "Introducción a la Metodología de la Investigación.": "Optativa.",
-      "Nutrigénomica y Nutrigenética.": "Optativa.",
-      "Control de calidad.": "Optativa.",
-      "Avances en biotecnología y nuevas aplicaciones biotecnológicas.": "Optativa.",
-      "Biotecnología de la reproducción.": "Optativa.",
-      "Radiobiología.": "Optativa.",
-      "Biotecnología vegetal.": "Obligatoria.",
-      "Biotecnología y experimentación animal.": "Obligatoria.",
-      "Omic Sciences.": "Obligatoria.",
-      "Biorreactores.": "Obligatoria.",
-      "Biotecnología Ambiental.": "Obligatoria.",
-      "Aspectos legales, éticos y sociales de la biotecnología.": "Obligatoria.",
-      "Biotechnology applied to human and animal health.": "Obligatoria."
+      "Total.": "240"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Formación básica.",
+        "nombre_elemento": "Formación básica.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "150",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativas.",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Bioquímica estructural.",
+        "nombre_elemento": "1.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Introduction to Cellular Biology.",
+        "nombre_elemento": "1.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biofísica.",
+        "nombre_elemento": "1.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Matemáticas aplicadas.",
+        "nombre_elemento": "1.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Química General.",
+        "nombre_elemento": "1.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas instrumentales I.",
+        "nombre_elemento": "2.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Immunology.",
+        "nombre_elemento": "2.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Genética.",
+        "nombre_elemento": "2.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Bioestadística.",
+        "nombre_elemento": "2.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Química orgánica.",
+        "nombre_elemento": "2.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biología molecular y técnicas moleculares.",
+        "nombre_elemento": "3.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas instrumentales II.",
+        "nombre_elemento": "3.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biología del desarrollo y de los tejidos.",
+        "nombre_elemento": "3.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Cellular Biology.",
+        "nombre_elemento": "3.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Bioquímica metabólica.",
+        "nombre_elemento": "3.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Microbiología y Virología.",
+        "nombre_elemento": "4.º Semestre.",
+        "creditos_ects": "9",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Cell cultures.",
+        "nombre_elemento": "4.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Bioseguridad.",
+        "nombre_elemento": "4.º Semestre.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Immunotecnología.",
+        "nombre_elemento": "4.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería genética.",
+        "nombre_elemento": "4.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Protein engineering.",
+        "nombre_elemento": "5.º Semestre.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fisiología y fisiopatología humana.",
+        "nombre_elemento": "5.º Semestre.",
+        "creditos_ects": "9",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Termodinámica y cinética química.",
+        "nombre_elemento": "5.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Bioinformática y simulación de bioprocesos.",
+        "nombre_elemento": "5.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fisiología vegetal.",
+        "nombre_elemento": "5.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Análisis de Big Data y Biología de Sistemas.",
+        "nombre_elemento": "6.º Semestre.",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales.",
+        "nombre_elemento": "6.º Semestre.",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Introducción a la Metodología de la Investigación.",
+        "nombre_elemento": "6.º Semestre.",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Nutrigénomica y Nutrigenética.",
+        "nombre_elemento": "6.º Semestre.",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Control de calidad.",
+        "nombre_elemento": "6.º Semestre.",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Avances en biotecnología y nuevas aplicaciones biotecnológicas.",
+        "nombre_elemento": "6.º Semestre.",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biotecnología de la reproducción.",
+        "nombre_elemento": "6.º Semestre.",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Radiobiología.",
+        "nombre_elemento": "6.º Semestre.",
+        "creditos_ects": "3",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biotecnología vegetal.",
+        "nombre_elemento": "6.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biotecnología y experimentación animal.",
+        "nombre_elemento": "6.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Omic Sciences.",
+        "nombre_elemento": "6.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biorreactores.",
+        "nombre_elemento": "6.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biotecnología Ambiental.",
+        "nombre_elemento": "7.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Aspectos legales, éticos y sociales de la biotecnología.",
+        "nombre_elemento": "7.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biotechnology applied to human and animal health.",
+        "nombre_elemento": "7.º Semestre.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_elementos": 46,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n5472 Resolución de 12 de marzo de 2021, de la Universidad Alfonso X el Sabio, \npor la que se publica el plan de estudios de Graduado o Graduada en \nBiotecnología.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme positivo de la Fundación para el Conocimiento madri+d, y acordado el carácter \noficial del título por Acuerdo de Consejo de Ministros de 12 de enero de 2021 (publicado \nen el BOE de 22 de enero de 2021, por Resolución de la Secretaría General de \nUniversidades de 14 de enero de 2021), este Rectorado ha resuelto publicar el plan de \nestudios conducente a la obtención del título de Graduado o Graduada en Biotecnología.\nVillanueva de la Cañada, 12 de marzo de 2021.–La Rectora, Ana Isabel Fernández \nMartínez.\nDistribución del plan de estudios en créditos ECTS\nTipo de materia Créditos ECTS\nFormación básica.  60\nObligatorias. 150\nOptativas.  12\nPrácticas Externas.  12\nTrabajo Fin de Grado.  6\n  Total"
   }
 }

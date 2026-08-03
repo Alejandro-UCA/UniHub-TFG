@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "052",
   "universidad_nombre": "Universidad Antonio de Nebrija",
-  "fecha_procesado": "2026-07-31T14:42:01.812095",
+  "fecha_procesado": "2026-08-03T12:44:50.009718",
   "boe_url": "http://www.boe.es/boe/dias/2020/07/09/pdfs/BOE-A-2020-7583.pdf",
   "boe_fecha": "2020-07-09",
   "plan_estudios": {
@@ -12,79 +12,83 @@
       "Asignaturas Obligatorias.": "36",
       "Asignaturas Optativas.": "12",
       "Trabajo Fin de Máster.": "12",
-      "Créditos totales.": "60",
-      "Análisis y gestión de riesgos de proyectos internacionales (1).": "3",
-      "Prácticas profesionales (1).": "3",
-      "Métodos matemáticos para la empresa y economía (2).": "3",
-      "Metodología de la investigación (2).": "3"
+      "Créditos totales.": "60"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Obligatorias.",
+        "nombre_elemento": "Asignaturas Obligatorias.",
         "creditos_ects": "36",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Optativas.",
+        "nombre_elemento": "Asignaturas Optativas.",
         "creditos_ects": "12",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
         "creditos_ects": "12",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
         "creditos_ects": "60",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Análisis y gestión de riesgos de proyectos internacionales (1).",
+        "nombre_elemento": "Análisis y gestión de riesgos de proyectos internacionales (1).",
         "creditos_ects": "3",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas profesionales (1).",
+        "nombre_elemento": "Prácticas profesionales (1).",
         "creditos_ects": "3",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Métodos matemáticos para la empresa y economía (2).",
+        "nombre_elemento": "Métodos matemáticos para la empresa y economía (2).",
         "creditos_ects": "3",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Metodología de la investigación (2).",
+        "nombre_elemento": "Metodología de la investigación (2).",
         "creditos_ects": "3",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       }
     ],
-    "total_asignaturas": 8,
+    "total_elementos": 8,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n7583 Resolución de 22 de mayo de 2020, de la Universidad Antonio de Nebrija, por \nla que se publica el plan de estudios de Máster en Internacionalización de \nEmpresas.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, y \nacordado el carácter oficial del título por Acuerdo del Consejo de Ministros de 29 de \nnoviembre de 2019 (publicado en el BOE de 17 de diciembre por Resolución de la \nSecretaría General de Universidades de 3 de diciembre de 2019),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención \ndel título de Máster Universitario en Internacionalización de Empresas, que queda \nestructurado según consta en el Anexo de esta Resolución.\nHoyo de Manzanares, 22 de mayo de 2020.–El Rector, Juan Cayón Peña.\nANEXO\nUNIVERSIDAD: ANTONIO DE NEBRIJA\nPlan de estudios conducente al título de Máster Universitario en \nInternacionalización de Empresas\nPlanificación de las enseñanzas\nDescripción general"
   }
 }

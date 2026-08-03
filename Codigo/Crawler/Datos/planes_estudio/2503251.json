@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 1393/2007 (1)",
   "universidad_codigo": "057",
   "universidad_nombre": "IE Universidad",
-  "fecha_procesado": "2026-07-31T14:11:46.581368",
+  "fecha_procesado": "2026-08-03T12:17:43.991216",
   "boe_url": "http://www.boe.es/boe/dias/2021/12/08/pdfs/BOE-A-2021-20313.pdf",
   "boe_fecha": "2021-12-08",
   "plan_estudios": {
@@ -12,554 +12,650 @@
       "Formación Básica.": "66",
       "Obligatorias.": "228",
       "Trabajo fin de Grado.": "6",
-      "Total créditos.": "300",
-      "Propedéutico.": "Física.",
-      "Proyectual.": "Proyectos.",
-      "Módulo propio.": "Reto IE.",
-      "Técnico.": "Construcción.",
-      "Técnico": "Instalaciones",
-      "Proyectual": "Historia, Teoría y Crítica",
-      "Trabajo Fin de Grado.": "Trabajo Fin de Grado."
+      "Total créditos.": "300"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
-        "materia": "Expresión Gráfica.",
-        "nombre_asignatura": "Proyectos 1: Idea y Forma.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Expresión Gráfica.",
-        "nombre_asignatura": "Proyectos 2: Forma y Material.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Expresión Gráfica.",
-        "nombre_asignatura": "Geometría Arquitectónica 1.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Expresión Gráfica.",
-        "nombre_asignatura": "Geometría Arquitectónica 2.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Expresión Gráfica.",
-        "nombre_asignatura": "Comunicación Gráfica 1.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Expresión Gráfica.",
-        "nombre_asignatura": "Comunicación Gráfica 2.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Expresión Gráfica.",
-        "nombre_asignatura": "Principios Urbanos y del Territorio.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Informática.",
-        "nombre_asignatura": "Herramientas y Operaciones Digitales.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Matemáticas.",
-        "nombre_asignatura": "Matemáticas Aplicadas en Arquitectura 1.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Matemáticas.",
-        "nombre_asignatura": "Matemáticas Aplicadas en Arquitectura 2.",
-        "creditos_ects": "3",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Física.",
-        "nombre_asignatura": "Física Aplicada en Arquitectura 1.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Física.",
-        "nombre_asignatura": "Física Aplicada en Arquitectura 2.",
-        "creditos_ects": "3",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Física.",
-        "nombre_asignatura": "Total créditos ECTS.",
+        "modulo": "",
+        "materia": "Formación Básica.",
+        "nombre_elemento": "Formación Básica.",
         "creditos_ects": "66",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "Expresión Gráfica.",
-        "nombre_asignatura": "Proyectos 1: Idea y Forma.",
-        "creditos_ects": "6",
-        "caracter": "MB",
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "228",
+        "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "Expresión Gráfica.",
-        "nombre_asignatura": "Comunicación Gráfica 1.",
-        "creditos_ects": "6",
-        "caracter": "MB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Informática.",
-        "nombre_asignatura": "Herramientas y Operaciones Digitales.",
-        "creditos_ects": "6*",
-        "caracter": "MB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Matemáticas.",
-        "nombre_asignatura": "Matemáticas Aplicadas en Arquitectura 1.",
-        "creditos_ects": "6",
-        "caracter": "MB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Historia, Teoría y Crítica.",
-        "nombre_asignatura": "Historias y Contextos de Arquitectura.",
-        "creditos_ects": "3",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Experimentación y Representación.",
-        "nombre_asignatura": "Taller de Experimentación 1.",
-        "creditos_ects": "3",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Expresión Gráfica.",
-        "nombre_asignatura": "Proyectos 2: Forma y Material.",
-        "creditos_ects": "6",
-        "caracter": "MB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Expresión Gráfica.",
-        "nombre_asignatura": "Comunicación Gráfica 2.",
-        "creditos_ects": "6",
-        "caracter": "MB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Expresión Gráfica.",
-        "nombre_asignatura": "Geometría Arquitectónica 1.",
-        "creditos_ects": "6",
-        "caracter": "MB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Informática.",
-        "nombre_asignatura": "Herramientas y Operaciones Digitales.",
-        "creditos_ects": "6*",
-        "caracter": "MB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Física.",
-        "nombre_asignatura": "Física Aplicada en Arquitectura 1.",
-        "creditos_ects": "6",
-        "caracter": "MB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Humanidades.",
-        "nombre_asignatura": "Humanidades.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Matemáticas.",
-        "nombre_asignatura": "Matemáticas Aplicadas en. Arquitectura 2.",
-        "creditos_ects": "3",
-        "caracter": "MB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Expresión Gráfica.",
-        "nombre_asignatura": "Geometría Arquitectónica 2.",
-        "creditos_ects": "6",
-        "caracter": "MB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Construcción.",
-        "nombre_asignatura": "Técnicas y Aplicaciones de la Construcción 1.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Proyectos.",
-        "nombre_asignatura": "Proyectos 3: Experiencia.",
-        "creditos_ects": "9",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Experimentación y Representación.",
-        "nombre_asignatura": "Taller de Experimentación 2.",
-        "creditos_ects": "3",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Instalaciones.",
-        "nombre_asignatura": "Instalaciones y Estrategias Medioambientales 1.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Estructuras.",
-        "nombre_asignatura": "Tipologías y Cálculo de Estructuras 1.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Proyectos.",
-        "nombre_asignatura": "Proyectos 4: Programa.",
-        "creditos_ects": "9",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Diseño y Emprendedurismo.",
-        "nombre_asignatura": "Taller de Diseño y Emprendimiento 1.",
-        "creditos_ects": "3",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Física.",
-        "nombre_asignatura": "Física Aplicada en Arquitectura 2.",
-        "creditos_ects": "3",
-        "caracter": "MB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Expresión Gráfica.",
-        "nombre_asignatura": "Principios Urbanos y del Territorio.",
-        "creditos_ects": "6",
-        "caracter": "MB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Construcción",
-        "nombre_asignatura": "Técnicas y Aplicaciones de la Construcción 2",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Estructuras",
-        "nombre_asignatura": "Tipologías y Cálculo de Estructuras 2",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Proyectos",
-        "nombre_asignatura": "Proyectos 5: Técnicas",
-        "creditos_ects": "9",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Historia, Teoría y Crítica",
-        "nombre_asignatura": "Historia, Teoría y Crítica 1",
-        "creditos_ects": "3",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Experimentación y Representación",
-        "nombre_asignatura": "Taller de Experimentación 3",
-        "creditos_ects": "3",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Instalaciones",
-        "nombre_asignatura": "Instalaciones y Estrategias Medioambientales 2",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Construcción",
-        "nombre_asignatura": "Técnicas y Aplicaciones de la Construcción 3",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Urbanismo",
-        "nombre_asignatura": "Estrategias Urbanas 1",
+        "modulo": "",
+        "materia": "Trabajo fin de Grado.",
+        "nombre_elemento": "Trabajo fin de Grado.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "Historia, Teoría y Crítica",
-        "nombre_asignatura": "Historia, Teoría y Crítica 2",
+        "modulo": "",
+        "materia": "Total créditos.",
+        "nombre_elemento": "Total créditos.",
+        "creditos_ects": "300",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Expresión Gráfica.",
+        "nombre_elemento": "Proyectos 1: Idea y Forma.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Expresión Gráfica.",
+        "nombre_elemento": "Proyectos 2: Forma y Material.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Expresión Gráfica.",
+        "nombre_elemento": "Geometría Arquitectónica 1.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Expresión Gráfica.",
+        "nombre_elemento": "Geometría Arquitectónica 2.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Expresión Gráfica.",
+        "nombre_elemento": "Comunicación Gráfica 1.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Expresión Gráfica.",
+        "nombre_elemento": "Comunicación Gráfica 2.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Expresión Gráfica.",
+        "nombre_elemento": "Principios Urbanos y del Territorio.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Informática.",
+        "nombre_elemento": "Herramientas y Operaciones Digitales.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Matemáticas.",
+        "nombre_elemento": "Matemáticas Aplicadas en Arquitectura 1.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Matemáticas.",
+        "nombre_elemento": "Matemáticas Aplicadas en Arquitectura 2.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Física.",
+        "nombre_elemento": "Física Aplicada en Arquitectura 1.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Física.",
+        "nombre_elemento": "Física Aplicada en Arquitectura 2.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Física.",
+        "nombre_elemento": "Total créditos ECTS.",
+        "creditos_ects": "66",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Propedéutico.",
+        "materia": "Expresión Gráfica.",
+        "nombre_elemento": "Proyectos 1: Idea y Forma.",
+        "creditos_ects": "6",
+        "caracter": "MB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Propedéutico.",
+        "materia": "Expresión Gráfica.",
+        "nombre_elemento": "Comunicación Gráfica 1.",
+        "creditos_ects": "6",
+        "caracter": "MB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Propedéutico.",
+        "materia": "Informática.",
+        "nombre_elemento": "Herramientas y Operaciones Digitales.",
+        "creditos_ects": "6*",
+        "caracter": "MB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Propedéutico.",
+        "materia": "Matemáticas.",
+        "nombre_elemento": "Matemáticas Aplicadas en Arquitectura 1.",
+        "creditos_ects": "6",
+        "caracter": "MB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectual.",
+        "materia": "Historia, Teoría y Crítica.",
+        "nombre_elemento": "Historias y Contextos de Arquitectura.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "Proyectos",
-        "nombre_asignatura": "Proyectos 6: Lo Existente",
-        "creditos_ects": "9",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Diseño y Emprendedurismo",
-        "nombre_asignatura": "Taller de Diseño y Emprendimiento 2",
+        "modulo": "Proyectual.",
+        "materia": "Experimentación y Representación.",
+        "nombre_elemento": "Taller de Experimentación 1.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "Reto IE.",
-        "nombre_asignatura": "Reto IE.",
+        "modulo": "Propedéutico.",
+        "materia": "Expresión Gráfica.",
+        "nombre_elemento": "Proyectos 2: Forma y Material.",
+        "creditos_ects": "6",
+        "caracter": "MB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Propedéutico.",
+        "materia": "Expresión Gráfica.",
+        "nombre_elemento": "Comunicación Gráfica 2.",
+        "creditos_ects": "6",
+        "caracter": "MB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Propedéutico.",
+        "materia": "Expresión Gráfica.",
+        "nombre_elemento": "Geometría Arquitectónica 1.",
+        "creditos_ects": "6",
+        "caracter": "MB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Propedéutico.",
+        "materia": "Informática.",
+        "nombre_elemento": "Herramientas y Operaciones Digitales.",
+        "creditos_ects": "6*",
+        "caracter": "MB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Propedéutico.",
+        "materia": "Física.",
+        "nombre_elemento": "Física Aplicada en Arquitectura 1.",
+        "creditos_ects": "6",
+        "caracter": "MB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo propio.",
+        "materia": "Humanidades.",
+        "nombre_elemento": "Humanidades.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Propedéutico.",
+        "materia": "Matemáticas.",
+        "nombre_elemento": "Matemáticas Aplicadas en. Arquitectura 2.",
+        "creditos_ects": "3",
+        "caracter": "MB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Propedéutico.",
+        "materia": "Expresión Gráfica.",
+        "nombre_elemento": "Geometría Arquitectónica 2.",
+        "creditos_ects": "6",
+        "caracter": "MB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Técnico.",
         "materia": "Construcción.",
-        "nombre_asignatura": "Técnicas y Aplicaciones de la Construcción 4.",
+        "nombre_elemento": "Técnicas y Aplicaciones de la Construcción 1.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "Deontología.",
-        "nombre_asignatura": "Deontología Profesional.",
-        "creditos_ects": "3",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
+        "modulo": "Proyectual.",
         "materia": "Proyectos.",
-        "nombre_asignatura": "Proyectos 7: Agregación.",
+        "nombre_elemento": "Proyectos 3: Experiencia.",
         "creditos_ects": "9",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "Historia, Teoría y Crítica.",
-        "nombre_asignatura": "Historia, Teoría y Crítica 3.",
-        "creditos_ects": "3",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Urbanismo.",
-        "nombre_asignatura": "Gestión Urbana.",
-        "creditos_ects": "3",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Proyectos.",
-        "nombre_asignatura": "Proyectos 8: Territorio.",
-        "creditos_ects": "9",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Estructuras.",
-        "nombre_asignatura": "Estructuras y Cimentaciones.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
+        "modulo": "Proyectual.",
         "materia": "Experimentación y Representación.",
-        "nombre_asignatura": "Gráfica Avanzada.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Historia, Teoría y Crítica.",
-        "nombre_asignatura": "Historia, Teoría y Crítica 4.",
+        "nombre_elemento": "Taller de Experimentación 2.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "Urbanismo.",
-        "nombre_asignatura": "Estrategias Urbanas 2.",
-        "creditos_ects": "3",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Diseño y Emprendedurismo.",
-        "nombre_asignatura": "Taller de Diseño y Emprendimiento 3.",
-        "creditos_ects": "3",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Proyectos.",
-        "nombre_asignatura": "Taller Profesional: Paisaje y Ambiente.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Historia, Teoría y Crítica.",
-        "nombre_asignatura": "Taller Profesional: Métodos de Investigación aplicados a la Arquitectura.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Experimentación y Representación.",
-        "nombre_asignatura": "Taller Profesional: Estudios Digitales.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Proyectos.",
-        "nombre_asignatura": "Taller Profesional: Diseño.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
+        "modulo": "Técnico.",
         "materia": "Instalaciones.",
-        "nombre_asignatura": "Instalaciones Urbanas.",
+        "nombre_elemento": "Instalaciones y Estrategias Medioambientales 1.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Técnico.",
+        "materia": "Estructuras.",
+        "nombre_elemento": "Tipologías y Cálculo de Estructuras 1.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectual.",
+        "materia": "Proyectos.",
+        "nombre_elemento": "Proyectos 4: Programa.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectual.",
+        "materia": "Diseño y Emprendedurismo.",
+        "nombre_elemento": "Taller de Diseño y Emprendimiento 1.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Propedéutico.",
+        "materia": "Física.",
+        "nombre_elemento": "Física Aplicada en Arquitectura 2.",
+        "creditos_ects": "3",
+        "caracter": "MB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Propedéutico.",
+        "materia": "Expresión Gráfica.",
+        "nombre_elemento": "Principios Urbanos y del Territorio.",
+        "creditos_ects": "6",
+        "caracter": "MB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Técnico",
+        "materia": "Construcción",
+        "nombre_elemento": "Técnicas y Aplicaciones de la Construcción 2",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Técnico",
+        "materia": "Estructuras",
+        "nombre_elemento": "Tipologías y Cálculo de Estructuras 2",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectual",
+        "materia": "Proyectos",
+        "nombre_elemento": "Proyectos 5: Técnicas",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectual",
+        "materia": "Historia, Teoría y Crítica",
+        "nombre_elemento": "Historia, Teoría y Crítica 1",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectual",
+        "materia": "Experimentación y Representación",
+        "nombre_elemento": "Taller de Experimentación 3",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Técnico",
+        "materia": "Instalaciones",
+        "nombre_elemento": "Instalaciones y Estrategias Medioambientales 2",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Técnico",
+        "materia": "Construcción",
+        "nombre_elemento": "Técnicas y Aplicaciones de la Construcción 3",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Técnico",
+        "materia": "Urbanismo",
+        "nombre_elemento": "Estrategias Urbanas 1",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectual",
+        "materia": "Historia, Teoría y Crítica",
+        "nombre_elemento": "Historia, Teoría y Crítica 2",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectual",
+        "materia": "Proyectos",
+        "nombre_elemento": "Proyectos 6: Lo Existente",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectual",
+        "materia": "Diseño y Emprendedurismo",
+        "nombre_elemento": "Taller de Diseño y Emprendimiento 2",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo propio.",
+        "materia": "Reto IE.",
+        "nombre_elemento": "Reto IE.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Técnico.",
+        "materia": "Construcción.",
+        "nombre_elemento": "Técnicas y Aplicaciones de la Construcción 4.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Técnico.",
+        "materia": "Deontología.",
+        "nombre_elemento": "Deontología Profesional.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectual.",
+        "materia": "Proyectos.",
+        "nombre_elemento": "Proyectos 7: Agregación.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectual.",
+        "materia": "Historia, Teoría y Crítica.",
+        "nombre_elemento": "Historia, Teoría y Crítica 3.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectual.",
+        "materia": "Urbanismo.",
+        "nombre_elemento": "Gestión Urbana.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectual.",
+        "materia": "Proyectos.",
+        "nombre_elemento": "Proyectos 8: Territorio.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Técnico.",
+        "materia": "Estructuras.",
+        "nombre_elemento": "Estructuras y Cimentaciones.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectual.",
+        "materia": "Experimentación y Representación.",
+        "nombre_elemento": "Gráfica Avanzada.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectual.",
+        "materia": "Historia, Teoría y Crítica.",
+        "nombre_elemento": "Historia, Teoría y Crítica 4.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectual.",
+        "materia": "Urbanismo.",
+        "nombre_elemento": "Estrategias Urbanas 2.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectual.",
+        "materia": "Diseño y Emprendedurismo.",
+        "nombre_elemento": "Taller de Diseño y Emprendimiento 3.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectual.",
+        "materia": "Proyectos.",
+        "nombre_elemento": "Taller Profesional: Paisaje y Ambiente.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectual.",
+        "materia": "Historia, Teoría y Crítica.",
+        "nombre_elemento": "Taller Profesional: Métodos de Investigación aplicados a la Arquitectura.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectual.",
+        "materia": "Experimentación y Representación.",
+        "nombre_elemento": "Taller Profesional: Estudios Digitales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectual.",
+        "materia": "Proyectos.",
+        "nombre_elemento": "Taller Profesional: Diseño.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Técnico.",
+        "materia": "Instalaciones.",
+        "nombre_elemento": "Instalaciones Urbanas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Trabajo Fin de Grado.",
         "materia": "Trabajo Fin de Grado.",
-        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
         "creditos_ects": "6",
         "caracter": "TFG",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Proyectual.",
         "materia": "Proyectos.",
-        "nombre_asignatura": "Proyectos 9: Síntesis.",
+        "nombre_elemento": "Proyectos 9: Síntesis.",
         "creditos_ects": "15",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Técnico.",
         "materia": "Construcción.",
-        "nombre_asignatura": "Estudios Técnicos Avanzados.",
+        "nombre_elemento": "Estudios Técnicos Avanzados.",
         "creditos_ects": "9",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 67,
+    "total_elementos": 71,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n20313 Resolución de 2 de noviembre de 2021, de IE Universidad, por la que se \npublica la modificación del plan de estudios de Graduado o Graduada en \nEstudios de Arquitectura/Bachelor in Architectural Studies.\nDe conformidad con lo dispuesto en el artículo 32 del Real Decreto 822/2021, de 28 \nde septiembre, por el que se establece la organización de las enseñanzas universitarias \ny del procedimiento de aseguramiento de su calidad, en el que se regula el \nprocedimiento para la modificación sustancial de los planes de estudios impartidos en \ncentros universitarios no acreditados institucionalmente, y una vez recibido informe \nfavorable de la Agencia para la Calidad del Sistema Universitario de Castilla y León a las \nmodificaciones presentadas al título oficial de Grado en Estudios de Arquitectura/\nBachelor in Architectural Studies por la IE Universidad (2503251) establecido por \nAcuerdo del Consejo de Ministros de 7 de octubre de 2016 por el que se "
   }
 }

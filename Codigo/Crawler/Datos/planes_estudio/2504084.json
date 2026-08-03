@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 1393/2007 (1)",
   "universidad_codigo": "047",
   "universidad_nombre": "Universidad Alfonso X El Sabio",
-  "fecha_procesado": "2026-07-31T14:30:36.537845",
+  "fecha_procesado": "2026-08-03T12:34:20.195274",
   "boe_url": "http://www.boe.es/boe/dias/2022/06/13/pdfs/BOE-A-2022-9757.pdf",
   "boe_fecha": "2022-06-13",
   "plan_estudios": {
@@ -14,14 +14,425 @@
       "Optativas.": "12",
       "Prácticas Externas.": "12",
       "Trabajo Fin de Máster.": "6",
-      "Total.": "240",
-      "1": "Anual",
-      "2": "Anual",
-      "3": "1",
-      "4": "1"
+      "Total.": "240"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Formación Básica.",
+        "nombre_elemento": "Formación Básica.",
+        "creditos_ects": "62",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "148",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativas.",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Anatomía humana.",
+        "nombre_elemento": "Anatomía humana.",
+        "creditos_ects": "8",
+        "caracter": "Básico",
+        "curso": "1",
+        "cuatrimestre": "Anual"
+      },
+      {
+        "modulo": "",
+        "materia": "Biology.",
+        "nombre_elemento": "Biology.",
+        "creditos_ects": "10",
+        "caracter": "Básico.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Bioquímica: Estructura y función molecular.",
+        "nombre_elemento": "Bioquímica: Estructura y función molecular.",
+        "creditos_ects": "6",
+        "caracter": "Básico.",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "modulo": "",
+        "materia": "Immunology.",
+        "nombre_elemento": "Immunology.",
+        "creditos_ects": "6",
+        "caracter": "Básico.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biofísica.",
+        "nombre_elemento": "Biofísica.",
+        "creditos_ects": "3",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Historia y ética de la biomedicina.",
+        "nombre_elemento": "Historia y ética de la biomedicina.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Bioquímica metabólica.",
+        "nombre_elemento": "Bioquímica metabólica.",
+        "creditos_ects": "6",
+        "caracter": "Básico.",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "modulo": "",
+        "materia": "Genética y biología del desarrollo.",
+        "nombre_elemento": "Genética y biología del desarrollo.",
+        "creditos_ects": "9",
+        "caracter": "Básico.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos de microbiología.",
+        "nombre_elemento": "Fundamentos de microbiología.",
+        "creditos_ects": "6",
+        "caracter": "Básico.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fisiología humana.",
+        "nombre_elemento": "Fisiología humana.",
+        "creditos_ects": "11",
+        "caracter": "Básico.",
+        "curso": "2",
+        "cuatrimestre": "Anual"
+      },
+      {
+        "modulo": "",
+        "materia": "Histología general.",
+        "nombre_elemento": "Histología general.",
+        "creditos_ects": "3",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "modulo": "",
+        "materia": "Bioquímica clínica y biomedicina.",
+        "nombre_elemento": "Bioquímica clínica y biomedicina.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Methods and technics in biomedicine I.",
+        "nombre_elemento": "Methods and technics in biomedicine I.",
+        "creditos_ects": "4",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Microbiología médica.",
+        "nombre_elemento": "Microbiología médica.",
+        "creditos_ects": "6",
+        "caracter": "Básico.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Bioestadística.",
+        "nombre_elemento": "Bioestadística.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Histología especial.",
+        "nombre_elemento": "Histología especial.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "modulo": "",
+        "materia": "Genética médica.",
+        "nombre_elemento": "Genética médica.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Neurobiología.",
+        "nombre_elemento": "Neurobiología.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Immunopathology.",
+        "nombre_elemento": "Immunopathology.",
+        "creditos_ects": "6",
+        "caracter": "Básico.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fisiopatología I.",
+        "nombre_elemento": "Fisiopatología I.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "3",
+        "cuatrimestre": "1"
+      },
+      {
+        "modulo": "",
+        "materia": "Anatomía patológica general.",
+        "nombre_elemento": "Anatomía patológica general.",
+        "creditos_ects": "3",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Farmacología general.",
+        "nombre_elemento": "Farmacología general.",
+        "creditos_ects": "4",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Bases moleculares de la patología I.",
+        "nombre_elemento": "Bases moleculares de la patología I.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Matemáticas aplicadas.",
+        "nombre_elemento": "Matemáticas aplicadas.",
+        "creditos_ects": "5",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Methods and technics in biomedicine II.",
+        "nombre_elemento": "Methods and technics in biomedicine II.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fisiopatología II.",
+        "nombre_elemento": "Fisiopatología II.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "modulo": "",
+        "materia": "Anatomía patológica especial.",
+        "nombre_elemento": "Anatomía patológica especial.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Farmacología médica.",
+        "nombre_elemento": "Farmacología médica.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Bases moleculares de la patología II.",
+        "nombre_elemento": "Bases moleculares de la patología II.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Genomics and proteomics.",
+        "nombre_elemento": "Genomics and proteomics.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Bioinformática.",
+        "nombre_elemento": "Bioinformática.",
+        "creditos_ects": "4",
+        "caracter": "Obligatorio.",
+        "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "modulo": "",
+        "materia": "Diagnóstico biológico.",
+        "nombre_elemento": "Diagnóstico biológico.",
+        "creditos_ects": "4",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Epidemiología y medicina preventiva.",
+        "nombre_elemento": "Epidemiología y medicina preventiva.",
+        "creditos_ects": "4",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia de datos.",
+        "nombre_elemento": "Ciencia de datos.",
+        "creditos_ects": "4",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Advances in cancer and aging diseases diagnosis and treatment.",
+        "nombre_elemento": "Advances in cancer and aging diseases diagnosis and treatment.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Avances en diagnóstico y tratamiento de enfermedades del sistema nervioso.",
+        "nombre_elemento": "Avances en diagnóstico y tratamiento de enfermedades del sistema nervioso.",
+        "creditos_ects": "4",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Avances en diagnóstico y tratamiento de enfermedades del sistema cardiovascular.",
+        "nombre_elemento": "Avances en diagnóstico y tratamiento de enfermedades del sistema cardiovascular.",
+        "creditos_ects": "4",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticum.",
+        "nombre_elemento": "Prácticum.",
+        "creditos_ects": "12",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "modulo": "",
+        "materia": "Optativas.",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "12",
+        "caracter": "Optativas.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "TFG.",
+        "nombre_elemento": "TFG.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_elementos": 46,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n9757 Resolución de 27 de mayo de 2022, de la Universidad Alfonso X el Sabio, por \nla que se publica la modificación del plan de estudios de Graduado o \nGraduada en Biomedicina.\nObtenida la verificación de la modificación del plan de estudios, previo informe \npositivo de la Fundación para el Conocimiento Madrid más D,\nEste Rectorado ha resuelto publicar la modificación del plan de estudios conducente \na la obtención del título de Graduado o Graduada en Biomedicina por la Universidad \nAlfonso X El Sabio.\nVillanueva de la Cañada, 27 de mayo de 2022.–La Rectora, Ana Isabel Fernández \nMartínez.\nDistribución del plan de estudios en créditos ECTS\nTipo de materia Créditos ECTS\nFormación Básica. 62\nObligatorias. 148\nOptativas. 12\nPrácticas Externas. 12\nTrabajo Fin de Máster. 6\n  Total. 240\nPlan de estudios Grado en Biomedicina\nCurso Semestre Materia/asignatura ECTS Carácter \n1\nAnual \nAnatomía humana. 8 Básico\nBiology. 10 Básico.\n1 \nBioquímica: Estructura y"
   }
 }

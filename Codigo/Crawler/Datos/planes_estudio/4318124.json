@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "057",
   "universidad_nombre": "IE Universidad",
-  "fecha_procesado": "2026-07-31T14:13:19.429967",
+  "fecha_procesado": "2026-08-03T12:19:10.355831",
   "boe_url": "http://www.boe.es/boe/dias/2023/01/17/pdfs/BOE-A-2023-1175.pdf",
   "boe_fecha": "2023-01-17",
   "plan_estudios": {
@@ -14,137 +14,198 @@
       "Trabajo fin de Máster.": "6",
       "Total créditos.": "60"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
+        "materia": "Materias obligatorias.",
+        "nombre_elemento": "Materias obligatorias.",
+        "creditos_ects": "45",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias optativas.",
+        "nombre_elemento": "Materias optativas.",
+        "creditos_ects": "9",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total créditos.",
+        "nombre_elemento": "Total créditos.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Teoría Económica. 11 ECTS (OB).",
         "materia": "",
-        "nombre_asignatura": "Macroeconomía.",
+        "nombre_elemento": "Macroeconomía.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Teoría Económica. 11 ECTS (OB).",
         "materia": "",
-        "nombre_asignatura": "Microeconomía.",
+        "nombre_elemento": "Microeconomía.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Teoría Económica. 11 ECTS (OB).",
         "materia": "",
-        "nombre_asignatura": "Economía Internacional.",
+        "nombre_elemento": "Economía Internacional.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Economía Aplicada. 16 ECTS (OB).",
         "materia": "",
-        "nombre_asignatura": "Economía Pública.",
+        "nombre_elemento": "Economía Pública.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Economía Aplicada. 16 ECTS (OB).",
         "materia": "",
-        "nombre_asignatura": "Economía Industrial y Teoría de Juegos.",
+        "nombre_elemento": "Economía Industrial y Teoría de Juegos.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Economía Aplicada. 16 ECTS (OB).",
         "materia": "",
-        "nombre_asignatura": "Economía Financiera.",
+        "nombre_elemento": "Economía Financiera.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Economía Aplicada. 16 ECTS (OB).",
         "materia": "",
-        "nombre_asignatura": "Mercados Financieros e Instituciones.",
+        "nombre_elemento": "Mercados Financieros e Instituciones.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Economía Aplicada. 16 ECTS (OB).",
         "materia": "",
-        "nombre_asignatura": "Economía Laboral.",
+        "nombre_elemento": "Economía Laboral.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Metodología Cuantitativa. 12 ECTS (OB).",
         "materia": "",
-        "nombre_asignatura": "Estadística y Econometría.",
+        "nombre_elemento": "Estadística y Econometría.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Metodología Cuantitativa. 12 ECTS (OB).",
         "materia": "",
-        "nombre_asignatura": "Macroeconometría.",
+        "nombre_elemento": "Macroeconometría.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Metodología Cuantitativa. 12 ECTS (OB).",
         "materia": "",
-        "nombre_asignatura": "Microeconometría.",
+        "nombre_elemento": "Microeconometría.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Metodología Cuantitativa. 12 ECTS (OB).",
         "materia": "",
-        "nombre_asignatura": "Programación para economistas.",
+        "nombre_elemento": "Programación para economistas.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Gestión Económica. 6 ECTS (OB).",
         "materia": "",
-        "nombre_asignatura": "Liderazgo y gestión estratégica de organizaciones.",
+        "nombre_elemento": "Liderazgo y gestión estratégica de organizaciones.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": "3"
       },
       {
+        "modulo": "Gestión Económica. 6 ECTS (OB).",
         "materia": "",
-        "nombre_asignatura": "Análisis y desarrollo de proyectos.",
+        "nombre_elemento": "Análisis y desarrollo de proyectos.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": "3"
       },
       {
+        "modulo": "Formación Profesional. 9 ECTS (OP).",
         "materia": "",
-        "nombre_asignatura": "Optativas.",
+        "nombre_elemento": "Optativas.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": "9"
       },
       {
+        "modulo": "Proyecto final. 6 ECTS (TFM).",
         "materia": "",
-        "nombre_asignatura": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": "6"
+      },
+      {
+        "modulo": "Total ECTS (60).",
+        "materia": "",
+        "nombre_elemento": "Total ECTS (60).",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": "21"
       }
     ],
-    "total_asignaturas": 16,
+    "total_elementos": 21,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n1175 Resolución de 10 de noviembre de 2022, de IE Universidad, por la que se \npublica el plan de estudios de Máster Universitario en Economía \nAplicada/Master in Applied Economics.\nEste Rectorado ha resuelto ordenar la publicación, en el «Boletín Oficial del Estado» \ny en el «Boletín Oficial de Castilla y León», del plan de estudios conducente a la \nobtención del título oficial de Máster Universitario en Economía Aplicada/Master in \nApplied Economics por la IE Universidad (4318124) . Esta decisión se toma en \ncumplimiento de lo dispuesto en el artículo 35.4 de la Ley Orgánica 6/2001, de 21 de \ndiciembre, de Universidades y en el artículo 27 del Real Decreto 822/2021, de 28 de \nseptiembre, por el que se establece la organización de las enseñanzas universitarias y \ndel procedimiento de aseguramiento de su calidad.\nEl título obtuvo la verificación del plan de estudios por el Consejo de Universidades \nel 3 de junio de 2022 tras el previo informe favor"
   }
 }

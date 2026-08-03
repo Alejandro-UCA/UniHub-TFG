@@ -4,42 +4,291 @@
   "nivel_academico": "Grado - RD 822/2021 (2)",
   "universidad_codigo": "047",
   "universidad_nombre": "Universidad Alfonso X El Sabio",
-  "fecha_procesado": "2026-07-31T14:31:21.001856",
+  "fecha_procesado": "2026-08-03T12:34:54.844859",
   "boe_url": "http://www.boe.es/boe/dias/2024/06/22/pdfs/BOE-A-2024-12703.pdf",
   "boe_fecha": "2024-06-22",
   "plan_estudios": {
     "resumen_creditos": {
       "Básicas.": "72",
       "Obligatorias.": "114",
-      "Optativas.": "Optativas.",
+      "Optativas.": "6",
       "Prácticas académicas externas.": "40",
-      "Trabajo fin de grado.": "TFG.",
-      "Total.": "240",
-      "Estructura y función del cuerpo humano.": "Básica.",
-      "Aparato locomotor.": "Básica.",
-      "Biofísica Aplicada.": "Básica.",
-      "Psicología.": "Básica.",
-      "Comunicación profesional y Documentación.": "Básica.",
-      "Estadística.": "Básica.",
-      "Fisioterapia General.": "Obligatoria.",
-      "Fisioterapia especial 1.": "Obligatoria.",
-      "Afecciones medico quirúrgicas 1.": "Obligatoria.",
-      "Introducción a la Investigación y análisis crítico.": "Básica.",
-      "Biomecánica.": "Básica.",
-      "Fisioterapia integrada I.": "Obligatoria.",
-      "Informática.": "Básica.",
-      "Idioma Moderno I.": "Básica.",
-      "Estancias Clínicas I.": "PAE.",
-      "Fisioterapia Especial 2.": "Obligatoria.",
-      "Afecciones médico quirúrgicas 2.": "Obligatoria.",
-      "Fisioterapia en Especialidades clínicas I.": "Obligatoria.",
-      "Legislación, Salud Pública y Administración sanitaria.": "Obligatoria.",
-      "Fisioterapia Integrada II.": "Obligatoria.",
-      "Estancias Clínicas II.": "PAE.",
-      "Fisioterapia en Especialidades clínicas II.": "Obligatoria."
+      "Trabajo fin de grado.": "8",
+      "Total.": "240"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Básicas.",
+        "nombre_elemento": "Básicas.",
+        "creditos_ects": "72",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "114",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativas.",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas académicas externas.",
+        "nombre_elemento": "Prácticas académicas externas.",
+        "creditos_ects": "40",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de grado.",
+        "nombre_elemento": "Trabajo fin de grado.",
+        "creditos_ects": "8",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Estructura y función del cuerpo humano.",
+        "nombre_elemento": "Estructura y función del cuerpo humano.",
+        "creditos_ects": "12",
+        "caracter": "Básica.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Aparato locomotor.",
+        "nombre_elemento": "Aparato locomotor.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biofísica Aplicada.",
+        "nombre_elemento": "Biofísica Aplicada.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Psicología.",
+        "nombre_elemento": "Psicología.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Comunicación profesional y Documentación.",
+        "nombre_elemento": "Comunicación profesional y Documentación.",
+        "creditos_ects": "9",
+        "caracter": "Básica.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Estadística.",
+        "nombre_elemento": "Estadística.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fisioterapia General.",
+        "nombre_elemento": "Fisioterapia General.",
+        "creditos_ects": "15",
+        "caracter": "Obligatoria.",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fisioterapia especial 1.",
+        "nombre_elemento": "Fisioterapia especial 1.",
+        "creditos_ects": "18",
+        "caracter": "Obligatoria.",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Afecciones medico quirúrgicas 1.",
+        "nombre_elemento": "Afecciones medico quirúrgicas 1.",
+        "creditos_ects": "9",
+        "caracter": "Obligatoria.",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Introducción a la Investigación y análisis crítico.",
+        "nombre_elemento": "Introducción a la Investigación y análisis crítico.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomecánica.",
+        "nombre_elemento": "Biomecánica.",
+        "creditos_ects": "9",
+        "caracter": "Básica.",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fisioterapia integrada I.",
+        "nombre_elemento": "Fisioterapia integrada I.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Informática.",
+        "nombre_elemento": "Informática.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Idioma Moderno I.",
+        "nombre_elemento": "Idioma Moderno I.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Estancias Clínicas I.",
+        "nombre_elemento": "Estancias Clínicas I.",
+        "creditos_ects": "8",
+        "caracter": "PAE.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fisioterapia Especial 2.",
+        "nombre_elemento": "Fisioterapia Especial 2.",
+        "creditos_ects": "20",
+        "caracter": "Obligatoria.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Afecciones médico quirúrgicas 2.",
+        "nombre_elemento": "Afecciones médico quirúrgicas 2.",
+        "creditos_ects": "9",
+        "caracter": "Obligatoria.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fisioterapia en Especialidades clínicas I.",
+        "nombre_elemento": "Fisioterapia en Especialidades clínicas I.",
+        "creditos_ects": "8",
+        "caracter": "Obligatoria.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Legislación, Salud Pública y Administración sanitaria.",
+        "nombre_elemento": "Legislación, Salud Pública y Administración sanitaria.",
+        "creditos_ects": "9",
+        "caracter": "Obligatoria.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fisioterapia Integrada II.",
+        "nombre_elemento": "Fisioterapia Integrada II.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Estancias Clínicas II.",
+        "nombre_elemento": "Estancias Clínicas II.",
+        "creditos_ects": "32",
+        "caracter": "PAE.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fisioterapia en Especialidades clínicas II.",
+        "nombre_elemento": "Fisioterapia en Especialidades clínicas II.",
+        "creditos_ects": "14",
+        "caracter": "Obligatoria.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de grado.",
+        "nombre_elemento": "Trabajo fin de grado.",
+        "creditos_ects": "8",
+        "caracter": "TFG.",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativas.",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "6",
+        "caracter": "Optativas.",
+        "curso": "4",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_elementos": 30,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n12703 Resolución de 10 de junio de 2024, de la Universidad Alfonso X el Sabio, por \nla que se publica la modificación del plan de estudios de Graduado o \nGraduada en Fisioterapia.\nObtenida la verificación de la modificación del plan de estudios, previo informe \npositivo de la Fundación para el Conocimiento Madrid más D, de fecha 13 de mayo \nde 2024,\nEste Rectorado ha resuelto publicar la modificación del plan de estudios del Título \nUniversitario Graduado o Graduada en Fisioterapia por la Universidad Alfonso X \nel Sabio.\nVillanueva de la Cañada, 10 de junio de 2024.–La Rectora, Ana Isabel Fernández \nMartínez.\nDISTRIBUCIÓN DEL PLAN DE ESTUDIOS EN CRÉDITOS ECTS\nTipo de materia Créditos ECTS\nBásicas. 72\nObligatorias. 114\nOptativas. 6\nPrácticas académicas externas. 40\nTrabajo fin de grado. 8\n Total. 240\nMateria Asignatura Carácter ECTS Temporalidad/año\nEstructura y función del cuerpo humano. Básica. 12 1\nAparato locomotor. Básica. 6 1\nBiofísica Aplica"
   }
 }

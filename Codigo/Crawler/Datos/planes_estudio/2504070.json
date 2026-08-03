@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 822/2021 (2)",
   "universidad_codigo": "087",
   "universidad_nombre": "ESIC Universidad",
-  "fecha_procesado": "2026-07-31T14:10:03.536826",
+  "fecha_procesado": "2026-08-03T12:15:57.712479",
   "boe_url": "http://www.boe.es/boe/dias/2021/11/04/pdfs/BOE-A-2021-18029.pdf",
   "boe_fecha": "2021-11-04",
   "plan_estudios": {
@@ -15,3668 +15,4485 @@
       "Prácticas externas.": "24",
       "Trabajo fin de Grado.": "6",
       "Créditos totales.": "240",
-      "1.º": "2",
-      "2.º": "2",
-      "3.º": "2",
-      "4.º": "Anual",
       "Trabajo Fin de Grado.": "6",
-      "1": "2",
-      "4": "1",
-      "2": "2",
-      "3": "2",
       "Prácticas Externas": "24"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
-        "materia": "Historia.",
-        "nombre_asignatura": "Historia Económica.",
-        "creditos_ects": "6",
-        "caracter": "FB",
-        "curso": "1.º",
+        "modulo": "",
+        "materia": "Formación básica.",
+        "nombre_elemento": "Formación básica.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
+        "materia": "Obligatorios.",
+        "nombre_elemento": "Obligatorios.",
+        "creditos_ects": "132",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativos.",
+        "nombre_elemento": "Optativos.",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas externas.",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "24",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Grado.",
+        "nombre_elemento": "Trabajo fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Historia.",
+        "nombre_elemento": "Historia Económica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": "1"
+      },
+      {
+        "modulo": "",
         "materia": "Matemáticas.",
-        "nombre_asignatura": "Matemáticas Empresariales.",
+        "nombre_elemento": "Matemáticas Empresariales.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Introducción a la Empresa I.",
+        "nombre_elemento": "Introducción a la Empresa I.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Deontología Profesional, Ppios. Jurídicos Básicos e Igualdad.",
+        "nombre_elemento": "Deontología Profesional, Ppios. Jurídicos Básicos e Igualdad.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Historia.",
-        "nombre_asignatura": "Historia de las Instituciones Españolas.",
+        "nombre_elemento": "Historia de las Instituciones Españolas.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economía.",
-        "nombre_asignatura": "Introducción a la Economía.",
+        "nombre_elemento": "Introducción a la Economía.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Matemáticas.",
-        "nombre_asignatura": "Matemáticas Financieras.",
+        "nombre_elemento": "Matemáticas Financieras.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Introducción a la Empresa II.",
+        "nombre_elemento": "Introducción a la Empresa II.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Derecho Mercantil.",
+        "nombre_elemento": "Derecho Mercantil.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Informática.",
-        "nombre_asignatura": "Informática Aplicada a la Empresa.",
+        "nombre_elemento": "Informática Aplicada a la Empresa.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Contabilidad.",
-        "nombre_asignatura": "Contabilidad Financiera I.",
+        "nombre_elemento": "Contabilidad Financiera I.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Comunicación.",
-        "nombre_asignatura": "Introducción al Marketing y la Comunicación en la Empresa.",
+        "nombre_elemento": "Introducción al Marketing y la Comunicación en la Empresa.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economía.",
-        "nombre_asignatura": "Microeconomía.",
+        "nombre_elemento": "Microeconomía.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Estadística.",
-        "nombre_asignatura": "Estadística Empresarial I.",
+        "nombre_elemento": "Estadística Empresarial I.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Sociología.",
-        "nombre_asignatura": "Sociología de la Empresa.",
+        "nombre_elemento": "Sociología de la Empresa.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Contabilidad.",
-        "nombre_asignatura": "Contabilidad Financiera II.",
+        "nombre_elemento": "Contabilidad Financiera II.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Idioma.",
-        "nombre_asignatura": "Idioma Moderno.",
+        "nombre_elemento": "Idioma Moderno.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "Anual"
       },
       {
+        "modulo": "",
         "materia": "Economía.",
-        "nombre_asignatura": "Macroeconomía.",
+        "nombre_elemento": "Macroeconomía.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Estadística.",
-        "nombre_asignatura": "Estadística Empresarial II.",
+        "nombre_elemento": "Estadística Empresarial II.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Dirección de Marketing.",
+        "nombre_elemento": "Dirección de Marketing.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Dirección de Producción.",
+        "nombre_elemento": "Dirección de Producción.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Contabilidad.",
-        "nombre_asignatura": "Contabilidad Analítica.",
+        "nombre_elemento": "Contabilidad Analítica.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economía.",
-        "nombre_asignatura": "Régimen Fiscal de la Empresa.",
+        "nombre_elemento": "Régimen Fiscal de la Empresa.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Dirección Estratégica y Política de Empresa I.",
+        "nombre_elemento": "Dirección Estratégica y Política de Empresa I.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Dirección Comercial.",
+        "nombre_elemento": "Dirección Comercial.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Finanzas.",
-        "nombre_asignatura": "Dirección Financiera I.",
+        "nombre_elemento": "Dirección Financiera I.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Estadística.",
-        "nombre_asignatura": "Métodos de Decisión Empresarial.",
+        "nombre_elemento": "Métodos de Decisión Empresarial.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Sistemas Informativos de Gesti9ón.",
+        "nombre_elemento": "Sistemas Informativos de Gesti9ón.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Dirección Estratégica y Política de Empresa II.",
+        "nombre_elemento": "Dirección Estratégica y Política de Empresa II.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Recursos Humanos.",
+        "nombre_elemento": "Recursos Humanos.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Contabilidad.",
-        "nombre_asignatura": "Análisis de Balances.",
+        "nombre_elemento": "Análisis de Balances.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Finanzas.",
-        "nombre_asignatura": "Dirección Financiera II.",
+        "nombre_elemento": "Dirección Financiera II.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Economía.",
-        "nombre_asignatura": "El Entorno Económico Nacional e Internacional de la Empresa.",
+        "nombre_elemento": "El Entorno Económico Nacional e Internacional de la Empresa.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Derecho del Trabajo.",
+        "nombre_elemento": "Derecho del Trabajo.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Optativa 1.",
+        "nombre_elemento": "Optativa 1.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Optativa 2.",
+        "nombre_elemento": "Optativa 2.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Optativa 3.",
+        "nombre_elemento": "Optativa 3.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Optativa 4.",
+        "nombre_elemento": "Optativa 4.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Reconocimiento Académico de Créditos.",
-        "nombre_asignatura": "Reconocimiento Académico de Créditos.",
+        "nombre_elemento": "Reconocimiento Académico de Créditos.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Prácticas Externas.",
-        "nombre_asignatura": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
         "creditos_ects": "24",
         "caracter": "OB",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "Anual"
       },
       {
+        "modulo": "",
         "materia": "Trabajo Fin de Grado.",
-        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "Anual"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Dirección de Operaciones en Empresas de Servicios.",
+        "nombre_elemento": "Dirección de Operaciones en Empresas de Servicios.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Juego de Empresas.",
+        "nombre_elemento": "Juego de Empresas.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Iniciativas Empresariales.",
+        "nombre_elemento": "Iniciativas Empresariales.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Comportamiento y diseño organizativo.",
+        "nombre_elemento": "Comportamiento y diseño organizativo.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Derecho Administrativo de los sectores regulados.",
+        "nombre_elemento": "Derecho Administrativo de los sectores regulados.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Contabilidad.",
-        "nombre_asignatura": "Contabilidad de Sociedades.",
+        "nombre_elemento": "Contabilidad de Sociedades.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Marketing Global e Internacional.",
+        "nombre_elemento": "Marketing Global e Internacional.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economía.",
-        "nombre_asignatura": "Econometría.",
+        "nombre_elemento": "Econometría.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economía.",
-        "nombre_asignatura": "Análisis Económico Internacional.",
+        "nombre_elemento": "Análisis Económico Internacional.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economía.",
-        "nombre_asignatura": "Sistema Financiero Español.",
+        "nombre_elemento": "Sistema Financiero Español.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Marketing sectorial.",
+        "nombre_elemento": "Marketing sectorial.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Finanzas.",
-        "nombre_asignatura": "Valoración y adquisición de empresas.",
+        "nombre_elemento": "Valoración y adquisición de empresas.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "History.",
-        "nombre_asignatura": "Economic History.",
+        "nombre_elemento": "Economic History.",
         "creditos_ects": "6",
         "caracter": "BE",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Mathematics.",
-        "nombre_asignatura": "Corporate Mathematics.",
+        "nombre_elemento": "Corporate Mathematics.",
         "creditos_ects": "6",
         "caracter": "COM",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Corporation.",
-        "nombre_asignatura": "Introduction to Corporations I.",
+        "nombre_elemento": "Introduction to Corporations I.",
         "creditos_ects": "6",
         "caracter": "BE",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Law.",
-        "nombre_asignatura": "Professional Ethics, Basic Principals of Law and Equiality.",
+        "nombre_elemento": "Professional Ethics, Basic Principals of Law and Equiality.",
         "creditos_ects": "6",
         "caracter": "BE",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "History.",
-        "nombre_asignatura": "History of Spanish Institutions.",
+        "nombre_elemento": "History of Spanish Institutions.",
         "creditos_ects": "6",
         "caracter": "BE",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economy.",
-        "nombre_asignatura": "Introduction of Economics.",
+        "nombre_elemento": "Introduction of Economics.",
         "creditos_ects": "6",
         "caracter": "BE",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Mathematics.",
-        "nombre_asignatura": "Financial Mathematics.",
+        "nombre_elemento": "Financial Mathematics.",
         "creditos_ects": "6",
         "caracter": "COM",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Corporation.",
-        "nombre_asignatura": "Introduction to Corporations II.",
+        "nombre_elemento": "Introduction to Corporations II.",
         "creditos_ects": "6",
         "caracter": "COM",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Law.",
-        "nombre_asignatura": "Mercantile Law.",
+        "nombre_elemento": "Mercantile Law.",
         "creditos_ects": "6",
         "caracter": "BE",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Computer Science.",
-        "nombre_asignatura": "Computer Science Applied to Corporations.",
+        "nombre_elemento": "Computer Science Applied to Corporations.",
         "creditos_ects": "6",
         "caracter": "BE",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Accounting.",
-        "nombre_asignatura": "Financial Accounting I.",
+        "nombre_elemento": "Financial Accounting I.",
         "creditos_ects": "6",
         "caracter": "COM",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Communication.",
-        "nombre_asignatura": "Introduction to Marketing and Communications in the Firm.",
+        "nombre_elemento": "Introduction to Marketing and Communications in the Firm.",
         "creditos_ects": "6",
         "caracter": "BE",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economy.",
-        "nombre_asignatura": "Microeconomics.",
+        "nombre_elemento": "Microeconomics.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Statistics.",
-        "nombre_asignatura": "Corporate Statistics I.",
+        "nombre_elemento": "Corporate Statistics I.",
         "creditos_ects": "6",
         "caracter": "COM",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Sociology.",
-        "nombre_asignatura": "Corporate Sociology.",
+        "nombre_elemento": "Corporate Sociology.",
         "creditos_ects": "6",
         "caracter": "BE",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Accounting.",
-        "nombre_asignatura": "Financial Accounting II.",
+        "nombre_elemento": "Financial Accounting II.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Language.",
-        "nombre_asignatura": "Modern Language.",
+        "nombre_elemento": "Modern Language.",
         "creditos_ects": "6",
         "caracter": "BE",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "Anual"
       },
       {
+        "modulo": "",
         "materia": "Economy.",
-        "nombre_asignatura": "Macroeconomics.",
+        "nombre_elemento": "Macroeconomics.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Statistics.",
-        "nombre_asignatura": "Corporate Statistics II.",
+        "nombre_elemento": "Corporate Statistics II.",
         "creditos_ects": "6",
         "caracter": "COM",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Marketing Management.",
+        "nombre_elemento": "Marketing Management.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Corporation.",
-        "nombre_asignatura": "Production Management.",
+        "nombre_elemento": "Production Management.",
         "creditos_ects": "6",
         "caracter": "COM",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Accounting.",
-        "nombre_asignatura": "Analytical Accounting.",
+        "nombre_elemento": "Analytical Accounting.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economy.",
-        "nombre_asignatura": "Corporate Taxation.",
+        "nombre_elemento": "Corporate Taxation.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Corporation.",
-        "nombre_asignatura": "Strategic Management and Corporate Politics I.",
+        "nombre_elemento": "Strategic Management and Corporate Politics I.",
         "creditos_ects": "6",
         "caracter": "COM",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Commercial Management.",
+        "nombre_elemento": "Commercial Management.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Finances.",
-        "nombre_asignatura": "Financial Management I.",
+        "nombre_elemento": "Financial Management I.",
         "creditos_ects": "6",
         "caracter": "COM",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Statistics.",
-        "nombre_asignatura": "Corporate Decision Methods.",
+        "nombre_elemento": "Corporate Decision Methods.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Corporation.",
-        "nombre_asignatura": "Management Information Systems.",
+        "nombre_elemento": "Management Information Systems.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Corporation.",
-        "nombre_asignatura": "Strategic Management And Corporate Politics II.",
+        "nombre_elemento": "Strategic Management And Corporate Politics II.",
         "creditos_ects": "6",
         "caracter": "COM",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Corporation.",
-        "nombre_asignatura": "Human Resources.",
+        "nombre_elemento": "Human Resources.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Accounting.",
-        "nombre_asignatura": "Balance Analysis.",
+        "nombre_elemento": "Balance Analysis.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Finances.",
-        "nombre_asignatura": "Financial Management II.",
+        "nombre_elemento": "Financial Management II.",
         "creditos_ects": "6",
         "caracter": "COM",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Economy.",
-        "nombre_asignatura": "National and International Economic Environment of the Firm.",
+        "nombre_elemento": "National and International Economic Environment of the Firm.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Law.",
-        "nombre_asignatura": "Labour Law.",
+        "nombre_elemento": "Labour Law.",
         "creditos_ects": "6",
         "caracter": "COM",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Law.",
-        "nombre_asignatura": "Elective 1.",
+        "nombre_elemento": "Elective 1.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Law.",
-        "nombre_asignatura": "Elective 2.",
+        "nombre_elemento": "Elective 2.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Law.",
-        "nombre_asignatura": "Elective 3.",
+        "nombre_elemento": "Elective 3.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Law.",
-        "nombre_asignatura": "Elective 4.",
+        "nombre_elemento": "Elective 4.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Academic Recognition of Credits.",
-        "nombre_asignatura": "Academic Recognition of Credits.",
+        "nombre_elemento": "Academic Recognition of Credits.",
         "creditos_ects": "6",
         "caracter": "COM",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Internship Placement.",
-        "nombre_asignatura": "Internship Placement.",
+        "nombre_elemento": "Internship Placement.",
         "creditos_ects": "24",
         "caracter": "COM",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "Anual"
       },
       {
+        "modulo": "",
         "materia": "End of Degree Project.",
-        "nombre_asignatura": "End of Degree Project.",
+        "nombre_elemento": "End of Degree Project.",
         "creditos_ects": "6",
         "caracter": "COM",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "Anual"
       },
       {
+        "modulo": "",
         "materia": "Corporation.",
-        "nombre_asignatura": "Operations Management in Service Corporations.",
+        "nombre_elemento": "Operations Management in Service Corporations.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Corporation.",
-        "nombre_asignatura": "Business Simulator.",
+        "nombre_elemento": "Business Simulator.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Corporation.",
-        "nombre_asignatura": "Entrepreneurship.",
+        "nombre_elemento": "Entrepreneurship.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Corporation.",
-        "nombre_asignatura": "Organizational Behaviour and Desing.",
+        "nombre_elemento": "Organizational Behaviour and Desing.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Law.",
-        "nombre_asignatura": "Administrative Law in Regulated Sectors.",
+        "nombre_elemento": "Administrative Law in Regulated Sectors.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Accounting.",
-        "nombre_asignatura": "Corporate Accounting.",
+        "nombre_elemento": "Corporate Accounting.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Global and International Marketing.",
+        "nombre_elemento": "Global and International Marketing.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economy.",
-        "nombre_asignatura": "Econometrics.",
+        "nombre_elemento": "Econometrics.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economy.",
-        "nombre_asignatura": "International Economic Analysis.",
+        "nombre_elemento": "International Economic Analysis.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economy.",
-        "nombre_asignatura": "Financial System in Spain.",
+        "nombre_elemento": "Financial System in Spain.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Sectorial Marketing.",
+        "nombre_elemento": "Sectorial Marketing.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Finances.",
-        "nombre_asignatura": "Corporate Assessment and Acquisition.",
+        "nombre_elemento": "Corporate Assessment and Acquisition.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "4.º",
+        "cuatrimestre": "1"
+      },
+      {
+        "modulo": "",
+        "materia": "Formación básica.",
+        "nombre_elemento": "Formación básica.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
+        "materia": "Obligatorios.",
+        "nombre_elemento": "Obligatorios.",
+        "creditos_ects": "132",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativos.",
+        "nombre_elemento": "Optativos.",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas externas.",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "24",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Grado.",
+        "nombre_elemento": "Trabajo fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
         "materia": "Economía Digital.",
-        "nombre_asignatura": "El Ecosistema Digital.",
+        "nombre_elemento": "El Ecosistema Digital.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Historia.",
-        "nombre_asignatura": "Historia de la Empresa y la Economía Digital.",
+        "nombre_elemento": "Historia de la Empresa y la Economía Digital.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Informática.",
-        "nombre_asignatura": "Informática Aplicada a La Empresa.",
+        "nombre_elemento": "Informática Aplicada a La Empresa.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Introducción a la Empresa.",
+        "nombre_elemento": "Introducción a la Empresa.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economía.",
-        "nombre_asignatura": "Microeconomía.",
+        "nombre_elemento": "Microeconomía.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Deontología Profesional y Principios Jurídicos Básicos.",
+        "nombre_elemento": "Deontología Profesional y Principios Jurídicos Básicos.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Comunicación.",
-        "nombre_asignatura": "Introducción a la Comunicación y el Marketing.",
+        "nombre_elemento": "Introducción a la Comunicación y el Marketing.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Sociología.",
-        "nombre_asignatura": "La Sociedad Digital.",
+        "nombre_elemento": "La Sociedad Digital.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Métodos Cuantitativos.",
-        "nombre_asignatura": "Matemáticas Empresariales.",
+        "nombre_elemento": "Matemáticas Empresariales.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Análisis Económico y Financiero.",
-        "nombre_asignatura": "Sistemas de Información Contable.",
+        "nombre_elemento": "Sistemas de Información Contable.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Análisis Económico y Financiero.",
-        "nombre_asignatura": "Contabilidad Analítica.",
+        "nombre_elemento": "Contabilidad Analítica.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Derecho Mercantil.",
+        "nombre_elemento": "Derecho Mercantil.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Métodos Cuantitativos.",
-        "nombre_asignatura": "Estadística Empresarial.",
+        "nombre_elemento": "Estadística Empresarial.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Dirección de Marketing.",
-        "nombre_asignatura": "Estrategias de Marketing Digital.",
+        "nombre_elemento": "Estrategias de Marketing Digital.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Organización de Empresas.",
+        "nombre_elemento": "Organización de Empresas.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Idioma Moderno.",
-        "nombre_asignatura": "Idioma Moderno.",
+        "nombre_elemento": "Idioma Moderno.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "Anual"
       },
       {
+        "modulo": "",
         "materia": "Análisis Económico y Financiero.",
-        "nombre_asignatura": "Análisis Económico Financiero.",
+        "nombre_elemento": "Análisis Económico Financiero.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Economía.",
-        "nombre_asignatura": "Macroeconomía.",
+        "nombre_elemento": "Macroeconomía.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Dirección de Operaciones.",
+        "nombre_elemento": "Dirección de Operaciones.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Ética.",
-        "nombre_asignatura": "Ética Empresarial.",
+        "nombre_elemento": "Ética Empresarial.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Economía Digital.",
-        "nombre_asignatura": "Investigación de Mercados Digitales.",
+        "nombre_elemento": "Investigación de Mercados Digitales.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Economía Digital.",
-        "nombre_asignatura": "Tecnología Operativa de la Economía Dig*ital.",
+        "nombre_elemento": "Tecnología Operativa de la Economía Dig*ital.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Dirección de Marketing.",
-        "nombre_asignatura": "Dirección Comercial en Entornos Digitales / Sales Management in a Digital Environment.",
+        "nombre_elemento": "Dirección Comercial en Entornos Digitales / Sales Management in a Digital Environment.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economía Digital.",
-        "nombre_asignatura": "E-Commerce.",
+        "nombre_elemento": "E-Commerce.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economía Digital.",
-        "nombre_asignatura": "Gestión del Cliente Digital / Digital Client Management.",
+        "nombre_elemento": "Gestión del Cliente Digital / Digital Client Management.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economía Digital.",
-        "nombre_asignatura": "Gestión de Proyectos Digitales / Digital Project Management.",
+        "nombre_elemento": "Gestión de Proyectos Digitales / Digital Project Management.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Management Information Systems.",
+        "nombre_elemento": "Management Information Systems.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economía Digital.",
-        "nombre_asignatura": "Usabilidad y Arquitectura de la Información / Information Architecture and Usability.",
+        "nombre_elemento": "Usabilidad y Arquitectura de la Información / Information Architecture and Usability.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Human Resources Management.",
+        "nombre_elemento": "Human Resources Management.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Economía Digital.",
-        "nombre_asignatura": "Gestión de la Tecnología y Gobierno de las TIC / ICT Governance and Technology Management.",
+        "nombre_elemento": "Gestión de la Tecnología y Gobierno de las TIC / ICT Governance and Technology Management.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Análisis Económico y Financiero.",
-        "nombre_asignatura": "Gestión Financiera / Financial Management.",
+        "nombre_elemento": "Gestión Financiera / Financial Management.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Economía Digital.",
-        "nombre_asignatura": "Modelos de Negocio en la Economía Digital / Business Models in a Digital Economy.",
+        "nombre_elemento": "Modelos de Negocio en la Economía Digital / Business Models in a Digital Economy.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Dirección de Marketing.",
-        "nombre_asignatura": "Plan de Marketing Integrado / Integrated Marketing Plan.",
+        "nombre_elemento": "Plan de Marketing Integrado / Integrated Marketing Plan.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Economía Digital.",
-        "nombre_asignatura": "Creación de Empresas en Entornos Digitales / Company Creation in a Digital Environment.",
+        "nombre_elemento": "Creación de Empresas en Entornos Digitales / Company Creation in a Digital Environment.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Strategic Management.",
+        "nombre_elemento": "Strategic Management.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Optativa 1.",
+        "nombre_elemento": "Optativa 1.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Optativa 2.",
+        "nombre_elemento": "Optativa 2.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Optativa 3.",
+        "nombre_elemento": "Optativa 3.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Optativa 4.",
+        "nombre_elemento": "Optativa 4.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Reconocimiento Académico de Créditos.",
-        "nombre_asignatura": "Reconocimiento Académico de Créditos / Academic Recognition of Credits.",
+        "nombre_elemento": "Reconocimiento Académico de Créditos / Academic Recognition of Credits.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Prácticas Externas.",
-        "nombre_asignatura": "Prácticas Externas / External Practices.",
+        "nombre_elemento": "Prácticas Externas / External Practices.",
         "creditos_ects": "24",
         "caracter": "OB",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "Anual"
       },
       {
+        "modulo": "",
         "materia": "Trabajo Fin de Grado.",
-        "nombre_asignatura": "Trabajo Fin de Grado / End Of Degree Project.",
+        "nombre_elemento": "Trabajo Fin de Grado / End Of Degree Project.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "Anual"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Digital Corporate Social Responsability.",
+        "nombre_elemento": "Digital Corporate Social Responsability.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economía Digital.",
-        "nombre_asignatura": "Creatividad Digital / Digital Creativity.",
+        "nombre_elemento": "Creatividad Digital / Digital Creativity.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Dirección de Marketing.",
-        "nombre_asignatura": "Métricas y Analíticas en Marketing Digital / Digital Marketing Metrics & Analytics.",
+        "nombre_elemento": "Métricas y Analíticas en Marketing Digital / Digital Marketing Metrics & Analytics.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economía Digital.",
-        "nombre_asignatura": "Soluciones de Financiación para Emprendedores Digitales / Financing for Digital Entrepreneurs.",
+        "nombre_elemento": "Soluciones de Financiación para Emprendedores Digitales / Financing for Digital Entrepreneurs.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Digital Business and Internationalization.",
+        "nombre_elemento": "Digital Business and Internationalization.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Digital B2B Strategies.",
+        "nombre_elemento": "Digital B2B Strategies.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economía Digital.",
-        "nombre_asignatura": "Cuestiones Jurídicas en Entornos Digitales / Digital Legislation and Regulations.",
+        "nombre_elemento": "Cuestiones Jurídicas en Entornos Digitales / Digital Legislation and Regulations.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economía Digital.",
-        "nombre_asignatura": "Producción Digital Avanzada / Advanced Digital Production.",
+        "nombre_elemento": "Producción Digital Avanzada / Advanced Digital Production.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economía Digital.",
-        "nombre_asignatura": "Diseño Avanzado de Interfaces de Usuario / User Interface: Advanced Design.",
+        "nombre_elemento": "Diseño Avanzado de Interfaces de Usuario / User Interface: Advanced Design.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economía Digital.",
-        "nombre_asignatura": "Tendencias en Negocios Digitales / Digital Business Trends.",
+        "nombre_elemento": "Tendencias en Negocios Digitales / Digital Business Trends.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Dirección de Marketing.",
-        "nombre_asignatura": "Gestión y Dirección de Centros de Atención al Cliente / Customer Services Management.",
+        "nombre_elemento": "Gestión y Dirección de Centros de Atención al Cliente / Customer Services Management.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Dirección de Marketing.",
-        "nombre_asignatura": "Gestión de Experiencia de Cliente en Entornos Digitales / Digital Customer Experience Management.",
+        "nombre_elemento": "Gestión de Experiencia de Cliente en Entornos Digitales / Digital Customer Experience Management.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
+        "cuatrimestre": "1"
+      },
+      {
+        "modulo": "",
+        "materia": "Formación básica.",
+        "nombre_elemento": "Formación básica.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
+        "materia": "Obligatorios.",
+        "nombre_elemento": "Obligatorios.",
+        "creditos_ects": "150",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativos.",
+        "nombre_elemento": "Optativos.",
+        "creditos_ects": "24",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Fundamentos del Marketing.",
+        "nombre_elemento": "Fundamentos del Marketing.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Fundamentos de Economía de la Empresa.",
+        "nombre_elemento": "Fundamentos de Economía de la Empresa.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Derecho del Trabajo.",
+        "nombre_elemento": "Derecho del Trabajo.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Derecho Mercantil.",
+        "nombre_elemento": "Derecho Mercantil.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Inglés aplicado a la Comunicación Empresarial / English Business Communication.",
-        "nombre_asignatura": "Inglés para los Negocios / Business English.",
+        "nombre_elemento": "Inglés para los Negocios / Business English.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economía.",
-        "nombre_asignatura": "Principios de Economía.",
+        "nombre_elemento": "Principios de Economía.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Administración y Organización de Empresas.",
+        "nombre_elemento": "Administración y Organización de Empresas.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Contabilidad.",
-        "nombre_asignatura": "Contabilidad Financiera.",
+        "nombre_elemento": "Contabilidad Financiera.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Bases Actuales del Sistema Tributario.",
+        "nombre_elemento": "Bases Actuales del Sistema Tributario.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Estadística.",
-        "nombre_asignatura": "Análisis de Datos.",
+        "nombre_elemento": "Análisis de Datos.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Entorno Socioeconómico/ Socioeconomic Enviroment.",
-        "nombre_asignatura": "Entorno Económico Internacional/ Internaciontal Economic Enviroment.",
+        "nombre_elemento": "Entorno Económico Internacional/ Internaciontal Economic Enviroment.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Gestión Financiera Empresarial / Business Financial Management.",
-        "nombre_asignatura": "Contabilidad Internacional.",
+        "nombre_elemento": "Contabilidad Internacional.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Derecho Internacional.",
-        "nombre_asignatura": "Derecho Internacional.",
+        "nombre_elemento": "Derecho Internacional.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Informática.",
-        "nombre_asignatura": "Informática Aplicada a la Gestión de Empresas.",
+        "nombre_elemento": "Informática Aplicada a la Gestión de Empresas.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Idiomas / Languages.",
-        "nombre_asignatura": "Idioma Moderno I.",
+        "nombre_elemento": "Idioma Moderno I.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Gestión Financiera Empresarial / Business Financial Management.",
-        "nombre_asignatura": "Matemáticas de las Operaciones Financieras.",
+        "nombre_elemento": "Matemáticas de las Operaciones Financieras.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Creación e Internacionalización de Empresas / Setting up Companies and Internationalisation.",
-        "nombre_asignatura": "Operaciones Internacionales / International Operations.",
+        "nombre_elemento": "Operaciones Internacionales / International Operations.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Creación e Internacionalización de Empresas / Setting up Companies and Internationalisation.",
-        "nombre_asignatura": "Áreas y Mercados Internacionales / International Areas and Markets.",
+        "nombre_elemento": "Áreas y Mercados Internacionales / International Areas and Markets.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Idiomas / Languages.",
-        "nombre_asignatura": "Idioma moderno II.",
+        "nombre_elemento": "Idioma moderno II.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Herramientas Cuantitativas para la Gestión Internacional.",
-        "nombre_asignatura": "Investigación de Mercados Internacionales.",
+        "nombre_elemento": "Investigación de Mercados Internacionales.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Entorno Socioeconómico/ Socioeconomic Enviroment.",
-        "nombre_asignatura": "Macroeconomía Internacional.",
+        "nombre_elemento": "Macroeconomía Internacional.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Gestión Financiera Empresarial / Business Financial Management.",
-        "nombre_asignatura": "Financiación Internacional.",
+        "nombre_elemento": "Financiación Internacional.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Dirección Estratégica Internacional de Empresa / International Strategic Management of Companies.",
-        "nombre_asignatura": "Cross Cultural Management.",
+        "nombre_elemento": "Cross Cultural Management.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Dirección Estratégica Internacional de Empresa / International Strategic Management of Companies.",
-        "nombre_asignatura": "Estrategias de Acceso a Mercados Internacionales / Strategies to Access International Markets.",
+        "nombre_elemento": "Estrategias de Acceso a Mercados Internacionales / Strategies to Access International Markets.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Herramientas de Marketing / Marketing Tools.",
-        "nombre_asignatura": "Política Internacional de Producto y Precios / International Product and Pricing Policy.",
+        "nombre_elemento": "Política Internacional de Producto y Precios / International Product and Pricing Policy.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Entorno Socioeconómico/ Socioeconomic Enviroment.",
-        "nombre_asignatura": "Política Internacional en el Mundo de los Negocios / Internatinal Politics in the Business World.",
+        "nombre_elemento": "Política Internacional en el Mundo de los Negocios / Internatinal Politics in the Business World.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Gestión Financiera Empresarial / Business Financial Management.",
-        "nombre_asignatura": "Instrumentos y Operaciones en Mercados Financieros / Tools and Operations on the World Financial Markets.",
+        "nombre_elemento": "Instrumentos y Operaciones en Mercados Financieros / Tools and Operations on the World Financial Markets.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Estrategias Internacionales de Comunicación / International Communication Strategies.",
-        "nombre_asignatura": "Estrategias Internacionales de Comunicación / International Communication Strategies.",
+        "nombre_elemento": "Estrategias Internacionales de Comunicación / International Communication Strategies.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Herramientas de Marketing / Marketing Tools.",
-        "nombre_asignatura": "Transporte, Logística y Distribución Internacional.",
+        "nombre_elemento": "Transporte, Logística y Distribución Internacional.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Herramientas de Marketing / Marketing Tools.",
-        "nombre_asignatura": "Dirección Internacional de Marketing / International Marketing Management.",
+        "nombre_elemento": "Dirección Internacional de Marketing / International Marketing Management.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Creación e Internacionalización de Empresas / Setting up Companies and Internationalisation.",
-        "nombre_asignatura": "Mercados Emergentes / Developing Markets.",
+        "nombre_elemento": "Mercados Emergentes / Developing Markets.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Creación e Internacionalización de Empresas / Setting up Companies and Internationalisation.",
-        "nombre_asignatura": "Global Entrepreneurship e Internacionalización de la Empresa / Global Entrepreneurship and Company Internationalisation.",
+        "nombre_elemento": "Global Entrepreneurship e Internacionalización de la Empresa / Global Entrepreneurship and Company Internationalisation.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Dirección Estratégica Internacional de Empresa / International Strategic Management of Companies.",
-        "nombre_asignatura": "Estrategia y Dirección Estratégica / Strategy and Strategic Management.",
+        "nombre_elemento": "Estrategia y Dirección Estratégica / Strategy and Strategic Management.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Estrategias de Marketing / Marketing Strategies.",
-        "nombre_asignatura": "E-Commerce.",
+        "nombre_elemento": "E-Commerce.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Estrategias de Marketing / Marketing Strategies.",
-        "nombre_asignatura": "Plan de Marketing Internacional / International Marketing Plan.",
+        "nombre_elemento": "Plan de Marketing Internacional / International Marketing Plan.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Estrategias de Marketing / Marketing Strategies.",
-        "nombre_asignatura": "Optativa 1 / Elective 1.",
+        "nombre_elemento": "Optativa 1 / Elective 1.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Estrategias de Marketing / Marketing Strategies.",
-        "nombre_asignatura": "Optativa 2 / Elective 2.",
+        "nombre_elemento": "Optativa 2 / Elective 2.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Estrategias de Marketing / Marketing Strategies.",
-        "nombre_asignatura": "Optativa 3 / Elective 3.",
+        "nombre_elemento": "Optativa 3 / Elective 3.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Estrategias de Marketing / Marketing Strategies.",
-        "nombre_asignatura": "Optativa 4 / Elective 4.",
+        "nombre_elemento": "Optativa 4 / Elective 4.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Trabajo Fin de Grado / End of Degree.",
-        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
         "creditos_ects": "6",
         "caracter": "TFG",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Optatividad del centro.",
-        "nombre_asignatura": "Ética Empresarial / Business Ethics.",
+        "nombre_elemento": "Ética Empresarial / Business Ethics.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Optatividad del centro.",
-        "nombre_asignatura": "Modelos De Decisión / Decision-Making Models.",
+        "nombre_elemento": "Modelos De Decisión / Decision-Making Models.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Optatividad del centro.",
-        "nombre_asignatura": "Gestión De Proyectos Internacionales / International Project Management.",
+        "nombre_elemento": "Gestión De Proyectos Internacionales / International Project Management.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Optatividad del centro.",
-        "nombre_asignatura": "Gestión Internacional de los Recursos Humanos / Human Resources International Management.",
+        "nombre_elemento": "Gestión Internacional de los Recursos Humanos / Human Resources International Management.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Optatividad del centro.",
-        "nombre_asignatura": "Historia de la Internacionalización Empresarial / International Corporate History.",
+        "nombre_elemento": "Historia de la Internacionalización Empresarial / International Corporate History.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Optatividad del centro.",
-        "nombre_asignatura": "La Unión Europea / European Union.",
+        "nombre_elemento": "La Unión Europea / European Union.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Optatividad del centro.",
-        "nombre_asignatura": "Relaciones Internacionales y Diplomacia / Diplomacy And International Relationships.",
+        "nombre_elemento": "Relaciones Internacionales y Diplomacia / Diplomacy And International Relationships.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Optatividad del centro.",
-        "nombre_asignatura": "Gestión Internacional de Compras / International Purchasing Management.",
+        "nombre_elemento": "Gestión Internacional de Compras / International Purchasing Management.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Optatividad del centro.",
-        "nombre_asignatura": "Prácticas Externas / Internship Placement.",
+        "nombre_elemento": "Prácticas Externas / Internship Placement.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4.º",
+        "cuatrimestre": "2"
+      },
+      {
+        "modulo": "",
+        "materia": "Formación básica.",
+        "nombre_elemento": "Formación básica.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
+        "materia": "Obligatorios.",
+        "nombre_elemento": "Obligatorios.",
+        "creditos_ects": "132",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativos.",
+        "nombre_elemento": "Optativos.",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas externas.",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "24",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Grado.",
+        "nombre_elemento": "Trabajo fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
         "materia": "Comunicación.",
-        "nombre_asignatura": "Marketing y Técnicas de Comunicación Interpersonal.",
+        "nombre_elemento": "Marketing y Técnicas de Comunicación Interpersonal.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Introducción a la Empresa.",
+        "nombre_elemento": "Introducción a la Empresa.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Estadística y Matemáticas.",
-        "nombre_asignatura": "Matemáticas aplicadas al Marketing.",
+        "nombre_elemento": "Matemáticas aplicadas al Marketing.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Historia.",
-        "nombre_asignatura": "Historia Económica y del Marketing.",
+        "nombre_elemento": "Historia Económica y del Marketing.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Sociología.",
-        "nombre_asignatura": "Sociología de la Empresa.",
+        "nombre_elemento": "Sociología de la Empresa.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Derecho Civil.",
+        "nombre_elemento": "Derecho Civil.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Estadística y Matemáticas.",
-        "nombre_asignatura": "Estadística Aplicada al Marketing.",
+        "nombre_elemento": "Estadística Aplicada al Marketing.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Humanidades.",
-        "nombre_asignatura": "Historia de la Cultura Comercial y Sociedad.",
+        "nombre_elemento": "Historia de la Cultura Comercial y Sociedad.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Informática.",
-        "nombre_asignatura": "Informática Aplicada al Marketing.",
+        "nombre_elemento": "Informática Aplicada al Marketing.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Introducción al Marketing.",
+        "nombre_elemento": "Introducción al Marketing.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Análisis Económico-Financiero.",
-        "nombre_asignatura": "Análisis Económico-Financiero en Marketing I.",
+        "nombre_elemento": "Análisis Económico-Financiero en Marketing I.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Derecho Mercantil: Regulación Jurídica del Mercado.",
+        "nombre_elemento": "Derecho Mercantil: Regulación Jurídica del Mercado.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economía.",
-        "nombre_asignatura": "Economía I: Microeconomía.",
+        "nombre_elemento": "Economía I: Microeconomía.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Organización.",
-        "nombre_asignatura": "Dirección Estratégica.",
+        "nombre_elemento": "Dirección Estratégica.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Psicología.",
-        "nombre_asignatura": "Psicología Aplicada al Marketing.",
+        "nombre_elemento": "Psicología Aplicada al Marketing.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Idioma.",
-        "nombre_asignatura": "Idioma Moderno.",
+        "nombre_elemento": "Idioma Moderno.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Análisis Económico-Financiero.",
-        "nombre_asignatura": "Análisis Económico-Financiero en Marketing II.",
+        "nombre_elemento": "Análisis Económico-Financiero en Marketing II.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Derecho del Trabajo y de la Seguridad Social.",
+        "nombre_elemento": "Derecho del Trabajo y de la Seguridad Social.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Economía.",
-        "nombre_asignatura": "Economía II: Macroeconomía.",
+        "nombre_elemento": "Economía II: Macroeconomía.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Estadística y Matemáticas.",
-        "nombre_asignatura": "Métodos de Decisión Aplicados al Marketing.",
+        "nombre_elemento": "Métodos de Decisión Aplicados al Marketing.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Marketing Estratégico.",
+        "nombre_elemento": "Marketing Estratégico.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Deontología.",
-        "nombre_asignatura": "Responsabilidad y Marketing Social Corporativo.",
+        "nombre_elemento": "Responsabilidad y Marketing Social Corporativo.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Política de Comunicación y Publicidad Digital.",
+        "nombre_elemento": "Política de Comunicación y Publicidad Digital.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Política de Producto.",
+        "nombre_elemento": "Política de Producto.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Investigación de Mercados I.",
+        "nombre_elemento": "Investigación de Mercados I.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Dirección de Ventas.",
+        "nombre_elemento": "Dirección de Ventas.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Comportamiento del Consumidor.",
+        "nombre_elemento": "Comportamiento del Consumidor.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Marketing Industrial y de Servicios.",
+        "nombre_elemento": "Marketing Industrial y de Servicios.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Política de Distribución y Comercio Electrónico.",
+        "nombre_elemento": "Política de Distribución y Comercio Electrónico.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Política de Precios y Costes.",
+        "nombre_elemento": "Política de Precios y Costes.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Investigación de Mercados II.",
+        "nombre_elemento": "Investigación de Mercados II.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Técnicas de Negociación Comercial.",
+        "nombre_elemento": "Técnicas de Negociación Comercial.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Marketing Relacional, Directo e Interactivo.",
+        "nombre_elemento": "Marketing Relacional, Directo e Interactivo.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Marketing, Sistemas de Información aplicados y Automatización basada en datos.",
+        "nombre_elemento": "Marketing, Sistemas de Información aplicados y Automatización basada en datos.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Plan de Marketing.",
+        "nombre_elemento": "Plan de Marketing.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Optativa 1.",
+        "nombre_elemento": "Optativa 1.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Optativa 2.",
+        "nombre_elemento": "Optativa 2.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Optativa 3.",
+        "nombre_elemento": "Optativa 3.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Optativa 4.",
+        "nombre_elemento": "Optativa 4.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Reconocimiento Académico de Créditos.",
-        "nombre_asignatura": "Reconocimiento Académico de Créditos.",
+        "nombre_elemento": "Reconocimiento Académico de Créditos.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Prácticas Externas.",
-        "nombre_asignatura": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
         "creditos_ects": "24",
         "caracter": "OB",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "Anual"
       },
       {
+        "modulo": "",
         "materia": "Trabajo Fin de Grado.",
-        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "Anual"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Marketing Global e Internacional y Comercio Exterior.",
+        "nombre_elemento": "Marketing Global e Internacional y Comercio Exterior.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Dirección de Recursos Humanos.",
+        "nombre_elemento": "Dirección de Recursos Humanos.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Marketing y Dirección de Comunicación.",
+        "nombre_elemento": "Marketing y Dirección de Comunicación.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Organización.",
-        "nombre_asignatura": "Análisis y Previsión de Ventas.",
+        "nombre_elemento": "Análisis y Previsión de Ventas.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1.º"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Dirección de Producción.",
+        "nombre_elemento": "Dirección de Producción.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Marketing Interno.",
+        "nombre_elemento": "Marketing Interno.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Marketing y Dirección de Comunicación.",
+        "nombre_elemento": "Marketing y Dirección de Comunicación.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Marketing Político.",
+        "nombre_elemento": "Marketing Político.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Marketing Sectorial.",
+        "nombre_elemento": "Marketing Sectorial.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Estrategias de Marketing Digital.",
+        "nombre_elemento": "Estrategias de Marketing Digital.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Analíticas y Métricas de Marketing Digital.",
+        "nombre_elemento": "Analíticas y Métricas de Marketing Digital.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Nuevas Tendencias en Marketing y Ventas.",
+        "nombre_elemento": "Nuevas Tendencias en Marketing y Ventas.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Comunicación.",
-        "nombre_asignatura": "Marketing and Interpersonal Communication Techniques.",
+        "nombre_elemento": "Marketing and Interpersonal Communication Techniques.",
         "creditos_ects": "6",
         "caracter": "BE",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Business.",
-        "nombre_asignatura": "Introduction to Corporations.",
+        "nombre_elemento": "Introduction to Corporations.",
         "creditos_ects": "6",
         "caracter": "BE",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Statistics and Mathematics.",
-        "nombre_asignatura": "Mathematics applied to Marketing.",
+        "nombre_elemento": "Mathematics applied to Marketing.",
         "creditos_ects": "6",
         "caracter": "COM",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "History.",
-        "nombre_asignatura": "Economic and Marketing History.",
+        "nombre_elemento": "Economic and Marketing History.",
         "creditos_ects": "6",
         "caracter": "BE",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Sociology.",
-        "nombre_asignatura": "Corporate Sociology.",
+        "nombre_elemento": "Corporate Sociology.",
         "creditos_ects": "6",
         "caracter": "BE",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Law.",
-        "nombre_asignatura": "Civil Law.",
+        "nombre_elemento": "Civil Law.",
         "creditos_ects": "6",
         "caracter": "BE",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Statistics and Mathematics.",
-        "nombre_asignatura": "Applied Statistics to Marketing.",
+        "nombre_elemento": "Applied Statistics to Marketing.",
         "creditos_ects": "6",
         "caracter": "COM",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Humanities.",
-        "nombre_asignatura": "History of the Commercial Culture and Society.",
+        "nombre_elemento": "History of the Commercial Culture and Society.",
         "creditos_ects": "6",
         "caracter": "BE",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Computing.",
-        "nombre_asignatura": "Computer Science Applied to Marketing.",
+        "nombre_elemento": "Computer Science Applied to Marketing.",
         "creditos_ects": "6",
         "caracter": "BE",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Introduction of Marketing.",
+        "nombre_elemento": "Introduction of Marketing.",
         "creditos_ects": "6",
         "caracter": "COM",
         "curso": "1.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Economic Environment Analysis.",
-        "nombre_asignatura": "Economic-Financial Analysis in Marketing I.",
+        "nombre_elemento": "Economic-Financial Analysis in Marketing I.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Law.",
-        "nombre_asignatura": "Mercantile Law: Legal Regulation of the Market.",
+        "nombre_elemento": "Mercantile Law: Legal Regulation of the Market.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economy.",
-        "nombre_asignatura": "Economics I. Microeconomics.",
+        "nombre_elemento": "Economics I. Microeconomics.",
         "creditos_ects": "6",
         "caracter": "BE",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Organization.",
-        "nombre_asignatura": "Strategic Management.",
+        "nombre_elemento": "Strategic Management.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Psychology.",
-        "nombre_asignatura": "Psychology Applied to Marketing.",
+        "nombre_elemento": "Psychology Applied to Marketing.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Language.",
-        "nombre_asignatura": "Modern Language.",
+        "nombre_elemento": "Modern Language.",
         "creditos_ects": "6",
         "caracter": "BE",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Economic Environment Analysis.",
-        "nombre_asignatura": "Economic-Financial Analysis in Marketing II.",
+        "nombre_elemento": "Economic-Financial Analysis in Marketing II.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Law.",
-        "nombre_asignatura": "Labour and Social Security Law.",
+        "nombre_elemento": "Labour and Social Security Law.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Economy.",
-        "nombre_asignatura": "Economics II: Macroeconomics.",
+        "nombre_elemento": "Economics II: Macroeconomics.",
         "creditos_ects": "6",
         "caracter": "COM",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Statistics and Mathematics.",
-        "nombre_asignatura": "Decission Making Methods Applied to Marketing.",
+        "nombre_elemento": "Decission Making Methods Applied to Marketing.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Strategic Marketing.",
+        "nombre_elemento": "Strategic Marketing.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Deontology.",
-        "nombre_asignatura": "Responsability and Corporate Social Marketing.",
+        "nombre_elemento": "Responsability and Corporate Social Marketing.",
         "creditos_ects": "6",
         "caracter": "BE",
         "curso": "2.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Communication Policy and Digital Advertising.",
+        "nombre_elemento": "Communication Policy and Digital Advertising.",
         "creditos_ects": "6",
         "caracter": "COM",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Product Policy.",
+        "nombre_elemento": "Product Policy.",
         "creditos_ects": "6",
         "caracter": "COM",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Market Research I.",
+        "nombre_elemento": "Market Research I.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Sales Management.",
+        "nombre_elemento": "Sales Management.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Consumer Behaviour.",
+        "nombre_elemento": "Consumer Behaviour.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Industrial and Services Marketing.",
+        "nombre_elemento": "Industrial and Services Marketing.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Distribution Policy and eCommerce.",
+        "nombre_elemento": "Distribution Policy and eCommerce.",
         "creditos_ects": "6",
         "caracter": "COM",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Price ando Cost Policy.",
+        "nombre_elemento": "Price ando Cost Policy.",
         "creditos_ects": "6",
         "caracter": "COM",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Market Research II.",
+        "nombre_elemento": "Market Research II.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Commercial Negotiation Techniques.",
+        "nombre_elemento": "Commercial Negotiation Techniques.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Relational, Direct and Interactive Marketing.",
+        "nombre_elemento": "Relational, Direct and Interactive Marketing.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Applied Information Systems and Data Driven Marketing.",
+        "nombre_elemento": "Applied Information Systems and Data Driven Marketing.",
         "creditos_ects": "4,5",
         "caracter": "COM",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Marketing Plan.",
+        "nombre_elemento": "Marketing Plan.",
         "creditos_ects": "6",
         "caracter": "COM",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Elective 1.",
+        "nombre_elemento": "Elective 1.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Elective 2.",
+        "nombre_elemento": "Elective 2.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Elective 3.",
+        "nombre_elemento": "Elective 3.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Elective 4.",
+        "nombre_elemento": "Elective 4.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Academic Recognition of Credits.",
-        "nombre_asignatura": "Academic Recognition of Credits.",
+        "nombre_elemento": "Academic Recognition of Credits.",
         "creditos_ects": "6",
         "caracter": "COM",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "External Practices.",
-        "nombre_asignatura": "External Practices.",
+        "nombre_elemento": "External Practices.",
         "creditos_ects": "24",
         "caracter": "COM",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "Anual"
       },
       {
+        "modulo": "",
         "materia": "End of Degree Project.",
-        "nombre_asignatura": "End of Degree Project.",
+        "nombre_elemento": "End of Degree Project.",
         "creditos_ects": "6",
         "caracter": "COM",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "Anual"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Global Marketing and International Trade.",
+        "nombre_elemento": "Global Marketing and International Trade.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Business.",
-        "nombre_asignatura": "Human Resources Management.",
+        "nombre_elemento": "Human Resources Management.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Marketing and Communication Management.",
+        "nombre_elemento": "Marketing and Communication Management.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economy.",
-        "nombre_asignatura": "Sales Analysis and Forecast.",
+        "nombre_elemento": "Sales Analysis and Forecast.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Business.",
-        "nombre_asignatura": "Production Management.",
+        "nombre_elemento": "Production Management.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Internal Marketing.",
+        "nombre_elemento": "Internal Marketing.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Marketing and Communication Management.",
+        "nombre_elemento": "Marketing and Communication Management.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Political Marketing.",
+        "nombre_elemento": "Political Marketing.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Industry-Specific Marketing.",
+        "nombre_elemento": "Industry-Specific Marketing.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Digital Marketing Strategies.",
+        "nombre_elemento": "Digital Marketing Strategies.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "Analytics And Metrics Of Digital Marketing.",
+        "nombre_elemento": "Analytics And Metrics Of Digital Marketing.",
         "creditos_ects": "4,5",
         "caracter": "EL",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Marketing.",
-        "nombre_asignatura": "New Trends in Marketing and Sales.",
+        "nombre_elemento": "New Trends in Marketing and Sales.",
         "creditos_ects": "4,5",
         "caracter": "EL",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "modulo": "",
+        "materia": "Formación básica.",
+        "nombre_elemento": "Formación básica.",
+        "creditos_ects": "60",
+        "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
+        "materia": "Obligatorios.",
+        "nombre_elemento": "Obligatorios.",
+        "creditos_ects": "132",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativos.",
+        "nombre_elemento": "Optativos.",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas externas.",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "24",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Grado.",
+        "nombre_elemento": "Trabajo fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
         "materia": "Economía.",
-        "nombre_asignatura": "Principios de Economía.",
+        "nombre_elemento": "Principios de Economía.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Publicidad.",
-        "nombre_asignatura": "Marketing.",
+        "nombre_elemento": "Marketing.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Comunicación.",
-        "nombre_asignatura": "Teorías de la Comunicación.",
+        "nombre_elemento": "Teorías de la Comunicación.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Historia.",
-        "nombre_asignatura": "Historia del Mundo Actual.",
+        "nombre_elemento": "Historia del Mundo Actual.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Humanidades.",
-        "nombre_asignatura": "Lenguaje en la Publicidad y la Empresa.",
+        "nombre_elemento": "Lenguaje en la Publicidad y la Empresa.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Publicidad.",
-        "nombre_asignatura": "Fundamentos de la Publicidad.",
+        "nombre_elemento": "Fundamentos de la Publicidad.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Relaciones Públicas.",
-        "nombre_asignatura": "Fundamentos de las Relaciones Públicas.",
+        "nombre_elemento": "Fundamentos de las Relaciones Públicas.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Comunicación.",
-        "nombre_asignatura": "Teoría de la Información.",
+        "nombre_elemento": "Teoría de la Información.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Sociología.",
-        "nombre_asignatura": "Estructura Social Contemporánea.",
+        "nombre_elemento": "Estructura Social Contemporánea.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Informática.",
-        "nombre_asignatura": "Nuevas Tecnologías y Sociedad de la Información.",
+        "nombre_elemento": "Nuevas Tecnologías y Sociedad de la Información.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Organización y Administración de Empresas.",
+        "nombre_elemento": "Organización y Administración de Empresas.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Publicidad.",
-        "nombre_asignatura": "Planificación Estratégica Publicitaria.",
+        "nombre_elemento": "Planificación Estratégica Publicitaria.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Ciencias Sociales.",
-        "nombre_asignatura": "Sociología del Consumo.",
+        "nombre_elemento": "Sociología del Consumo.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Recursos Profesionales.",
-        "nombre_asignatura": "Documentación Informativa.",
+        "nombre_elemento": "Documentación Informativa.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Principios Jurídicos Básicos: Deontología Profesional e Igualdad.",
-        "nombre_asignatura": "Ppios. Jurídicos Básicos: Deontología Profesional e Igualdad.",
+        "nombre_elemento": "Ppios. Jurídicos Básicos: Deontología Profesional e Igualdad.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Derecho de la Comunicación.",
+        "nombre_elemento": "Derecho de la Comunicación.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Relaciones Públicas.",
-        "nombre_asignatura": "Dirección de Comunicación.",
+        "nombre_elemento": "Dirección de Comunicación.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Publicidad.",
-        "nombre_asignatura": "Estrategias Creativas en Publicidad.",
+        "nombre_elemento": "Estrategias Creativas en Publicidad.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Recursos Profesionales.",
-        "nombre_asignatura": "Lenguaje y Tecnologías Audiovisuales.",
+        "nombre_elemento": "Lenguaje y Tecnologías Audiovisuales.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Idioma.",
-        "nombre_asignatura": "Idioma Moderno.",
+        "nombre_elemento": "Idioma Moderno.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "Anual"
       },
       {
+        "modulo": "",
         "materia": "Publicidad.",
-        "nombre_asignatura": "Creatividad en la Elaboración del Mensaje Publicitario.",
+        "nombre_elemento": "Creatividad en la Elaboración del Mensaje Publicitario.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Relaciones Públicas.",
-        "nombre_asignatura": "Planificación Estratégica de las Relaciones Públicas.",
+        "nombre_elemento": "Planificación Estratégica de las Relaciones Públicas.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Relaciones Públicas.",
-        "nombre_asignatura": "Técnicas y Recursos de Relaciones Públicas.",
+        "nombre_elemento": "Técnicas y Recursos de Relaciones Públicas.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Recursos Profesionales.",
-        "nombre_asignatura": "Diseño Gráfico y Dirección de Arte.",
+        "nombre_elemento": "Diseño Gráfico y Dirección de Arte.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Comunicación.",
-        "nombre_asignatura": "Estructura del Sistema de Medios.",
+        "nombre_elemento": "Estructura del Sistema de Medios.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Relaciones Públicas.",
-        "nombre_asignatura": "Procesos Periodísticos y Relaciones con los Medios.",
+        "nombre_elemento": "Procesos Periodísticos y Relaciones con los Medios.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Relaciones Públicas.",
-        "nombre_asignatura": "Gestión de la Comunicación.",
+        "nombre_elemento": "Gestión de la Comunicación.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Publicidad.",
-        "nombre_asignatura": "Empresa Publicitaria y Gestión de Cuentas.",
+        "nombre_elemento": "Empresa Publicitaria y Gestión de Cuentas.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Publicidad.",
-        "nombre_asignatura": "Investigación de Audiencias y Planificación de Medios.",
+        "nombre_elemento": "Investigación de Audiencias y Planificación de Medios.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Recursos Profesionales.",
-        "nombre_asignatura": "Comunicación Multimedia.",
+        "nombre_elemento": "Comunicación Multimedia.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Comunicación.",
-        "nombre_asignatura": "Métodos de Investigación en Comunicación.",
+        "nombre_elemento": "Métodos de Investigación en Comunicación.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Comunicación.",
-        "nombre_asignatura": "Optativa 1.",
+        "nombre_elemento": "Optativa 1.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Comunicación.",
-        "nombre_asignatura": "Optativa 2.",
+        "nombre_elemento": "Optativa 2.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Comunicación.",
-        "nombre_asignatura": "Optativa 3.",
+        "nombre_elemento": "Optativa 3.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Reconocimiento Académico de Créditos.",
-        "nombre_asignatura": "Reconocimiento Académico de Créditos.",
+        "nombre_elemento": "Reconocimiento Académico de Créditos.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Prácticas Externas.",
-        "nombre_asignatura": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
         "creditos_ects": "24",
         "caracter": "OB",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "Anual"
       },
       {
+        "modulo": "",
         "materia": "Trabajo Fin de Grado.",
-        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "Anual"
       },
       {
+        "modulo": "",
         "materia": "Publicidad.",
-        "nombre_asignatura": "Publicidad Interactiva.",
+        "nombre_elemento": "Publicidad Interactiva.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Relaciones Públicas.",
-        "nombre_asignatura": "Estadística Aplicada a la Comunicación.",
+        "nombre_elemento": "Estadística Aplicada a la Comunicación.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Psicología.",
-        "nombre_asignatura": "Psicología de la Comunicación.",
+        "nombre_elemento": "Psicología de la Comunicación.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Publicidad.",
-        "nombre_asignatura": "Publicidad y Cultura de Masas.",
+        "nombre_elemento": "Publicidad y Cultura de Masas.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Publicidad.",
-        "nombre_asignatura": "Redacción Publicitaria.",
+        "nombre_elemento": "Redacción Publicitaria.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Relaciones Públicas.",
-        "nombre_asignatura": "Cultura e Imagen de la Empresa.",
+        "nombre_elemento": "Cultura e Imagen de la Empresa.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Relaciones Públicas.",
-        "nombre_asignatura": "Relaciones Públicas Especializadas.",
+        "nombre_elemento": "Relaciones Públicas Especializadas.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Comunicación.",
-        "nombre_asignatura": "Arte y Cultura Contemporánea.",
+        "nombre_elemento": "Arte y Cultura Contemporánea.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Comunicación.",
-        "nombre_asignatura": "Opinión Pública.",
+        "nombre_elemento": "Opinión Pública.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "modulo": "",
+        "materia": "Formación básica.",
+        "nombre_elemento": "Formación básica.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
+        "materia": "Obligatorios.",
+        "nombre_elemento": "Obligatorios.",
+        "creditos_ects": "132",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativos.",
+        "nombre_elemento": "Optativos.",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas externas.",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "24",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Grado.",
+        "nombre_elemento": "Trabajo fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
         "materia": "Economía.",
-        "nombre_asignatura": "Principios de Economía.",
+        "nombre_elemento": "Principios de Economía.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Publicidad.",
-        "nombre_asignatura": "Marketing.",
+        "nombre_elemento": "Marketing.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Comunicación.",
-        "nombre_asignatura": "Teorías de la Comunicación.",
+        "nombre_elemento": "Teorías de la Comunicación.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Historia.",
-        "nombre_asignatura": "Historia del Mundo Actual y Cultura Contemporánea.",
+        "nombre_elemento": "Historia del Mundo Actual y Cultura Contemporánea.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Publicidad.",
-        "nombre_asignatura": "Fundamentos de la Publicidad.",
+        "nombre_elemento": "Fundamentos de la Publicidad.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Humanidades.",
-        "nombre_asignatura": "Lenguaje en la Publicidad y la Empresa.",
+        "nombre_elemento": "Lenguaje en la Publicidad y la Empresa.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Relaciones Públicas.",
-        "nombre_asignatura": "Fundamentos de las Relaciones Públicas.",
+        "nombre_elemento": "Fundamentos de las Relaciones Públicas.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Comunicación.",
-        "nombre_asignatura": "Teoría de la Información.",
+        "nombre_elemento": "Teoría de la Información.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Sociología*.",
-        "nombre_asignatura": "Estructura Social Contemporánea.",
+        "nombre_elemento": "Estructura Social Contemporánea.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Informática.",
-        "nombre_asignatura": "Nuevas Tecnologías y Sociedad de la Información.",
+        "nombre_elemento": "Nuevas Tecnologías y Sociedad de la Información.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Organización y Administración de Empresas.",
+        "nombre_elemento": "Organización y Administración de Empresas.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Publicidad.",
-        "nombre_asignatura": "Planificación Estratégica Publicitaria.",
+        "nombre_elemento": "Planificación Estratégica Publicitaria.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Ciencias Sociales.",
-        "nombre_asignatura": "Sociología del Consumo.",
+        "nombre_elemento": "Sociología del Consumo.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Recursos Profesionales.",
-        "nombre_asignatura": "Documentación Informativa.",
+        "nombre_elemento": "Documentación Informativa.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Derecho de la Comunicación.",
+        "nombre_elemento": "Derecho de la Comunicación.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Principios Jurídicos Básicos: Deontología Profesional e Igualdad.",
-        "nombre_asignatura": "Principios Jurídicos Básicos: Deontología Profesional e Igualdad.",
+        "nombre_elemento": "Principios Jurídicos Básicos: Deontología Profesional e Igualdad.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Relaciones Públicas.",
-        "nombre_asignatura": "Dirección de Comunicación.",
+        "nombre_elemento": "Dirección de Comunicación.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Publicidad.",
-        "nombre_asignatura": "Estrategias Creativas en Publicidad.",
+        "nombre_elemento": "Estrategias Creativas en Publicidad.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Recursos Profesionales.",
-        "nombre_asignatura": "Lenguaje y Tecnologías Audiovisuales.",
+        "nombre_elemento": "Lenguaje y Tecnologías Audiovisuales.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Idioma.",
-        "nombre_asignatura": "Idioma Moderno.",
+        "nombre_elemento": "Idioma Moderno.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "Anual"
       },
       {
+        "modulo": "",
         "materia": "Publicidad.",
-        "nombre_asignatura": "Creatividad en la Elaboración del Mensaje Publicitario.",
+        "nombre_elemento": "Creatividad en la Elaboración del Mensaje Publicitario.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Relaciones Públicas.",
-        "nombre_asignatura": "Planificación Estratégica de las Relaciones Públicas.",
+        "nombre_elemento": "Planificación Estratégica de las Relaciones Públicas.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Relaciones Públicas.",
-        "nombre_asignatura": "Técnicas y Recursos de Relaciones Públicas.",
+        "nombre_elemento": "Técnicas y Recursos de Relaciones Públicas.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Recursos Profesionales.",
-        "nombre_asignatura": "Diseño Gráfico y Dirección de Arte.",
+        "nombre_elemento": "Diseño Gráfico y Dirección de Arte.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Comunicación.",
-        "nombre_asignatura": "Estructura del Sistema de Medios Publicitarios.",
+        "nombre_elemento": "Estructura del Sistema de Medios Publicitarios.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Relaciones Públicas.",
-        "nombre_asignatura": "Procesos Periodísticos y Relaciones con los Medios.",
+        "nombre_elemento": "Procesos Periodísticos y Relaciones con los Medios.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Relaciones Públicas.",
-        "nombre_asignatura": "Gestión de la Comunicación.",
+        "nombre_elemento": "Gestión de la Comunicación.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Publicidad.",
-        "nombre_asignatura": "Empresa Publicitaria y Gestión de Cuentas.",
+        "nombre_elemento": "Empresa Publicitaria y Gestión de Cuentas.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Publicidad.",
-        "nombre_asignatura": "Planificación de Medios y Audiencias.",
+        "nombre_elemento": "Planificación de Medios y Audiencias.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Recursos Profesionales.",
-        "nombre_asignatura": "Comunicación Digital Multimedia.",
+        "nombre_elemento": "Comunicación Digital Multimedia.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Comunicación.",
-        "nombre_asignatura": "Métodos de Investigación en Comunicación.",
+        "nombre_elemento": "Métodos de Investigación en Comunicación.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Comunicación.",
-        "nombre_asignatura": "Optativa 1.",
+        "nombre_elemento": "Optativa 1.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Comunicación.",
-        "nombre_asignatura": "Optativa 2.",
+        "nombre_elemento": "Optativa 2.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Comunicación.",
-        "nombre_asignatura": "Optativa 3.",
+        "nombre_elemento": "Optativa 3.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Reconocimiento Académico de Créditos.",
-        "nombre_asignatura": "Reconocimiento Académico de Créditos.",
+        "nombre_elemento": "Reconocimiento Académico de Créditos.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Prácticas Externas.",
-        "nombre_asignatura": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
         "creditos_ects": "24",
         "caracter": "OB",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "Anual"
       },
       {
+        "modulo": "",
         "materia": "Trabajo Fin de Grado.",
-        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "Anual"
       },
       {
+        "modulo": "",
         "materia": "Publicidad.",
-        "nombre_asignatura": "Publicidad Interactiva y Digital.",
+        "nombre_elemento": "Publicidad Interactiva y Digital.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Relaciones Públicas.",
-        "nombre_asignatura": "Estadística Aplicada a la Comunicación.",
+        "nombre_elemento": "Estadística Aplicada a la Comunicación.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Psicología.",
-        "nombre_asignatura": "Psicología de la Comunicación.",
+        "nombre_elemento": "Psicología de la Comunicación.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Publicidad.",
-        "nombre_asignatura": "Publicidad y Cultura de Masas.",
+        "nombre_elemento": "Publicidad y Cultura de Masas.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Publicidad.",
-        "nombre_asignatura": "Redacción Publicitaria.",
+        "nombre_elemento": "Redacción Publicitaria.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Relaciones Públicas.",
-        "nombre_asignatura": "Cultura e Imagen de la Empresa.",
+        "nombre_elemento": "Cultura e Imagen de la Empresa.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Relaciones Públicas.",
-        "nombre_asignatura": "Relaciones Públicas Especializadas.",
+        "nombre_elemento": "Relaciones Públicas Especializadas.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Comunicación.",
-        "nombre_asignatura": "Arte y Cultura Contemporánea.",
+        "nombre_elemento": "Arte y Cultura Contemporánea.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Comunicación.",
-        "nombre_asignatura": "Opinión Pública.",
+        "nombre_elemento": "Opinión Pública.",
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "4",
+        "cuatrimestre": "1"
+      },
+      {
+        "modulo": "",
+        "materia": "Formación básica.",
+        "nombre_elemento": "Formación básica.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
+        "materia": "Obligatorios.",
+        "nombre_elemento": "Obligatorios.",
+        "creditos_ects": "136,5",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativos.",
+        "nombre_elemento": "Optativos.",
+        "creditos_ects": "13,5",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Externas",
+        "nombre_elemento": "Prácticas Externas",
+        "creditos_ects": "24",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Fundamentals of Marketing.",
+        "nombre_elemento": "Fundamentals of Marketing.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Fundamentals of Business Economics.",
+        "nombre_elemento": "Fundamentals of Business Economics.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Labour Law.",
+        "nombre_elemento": "Labour Law.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Business Law.",
+        "nombre_elemento": "Business Law.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Inglés aplicado a la Comunicación Empresarial / English Business Communication.",
-        "nombre_asignatura": "Business English.",
+        "nombre_elemento": "Business English.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Economía.",
-        "nombre_asignatura": "Principles of Economics.",
+        "nombre_elemento": "Principles of Economics.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Business Administration and Organisation.",
+        "nombre_elemento": "Business Administration and Organisation.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Contabilidad.",
-        "nombre_asignatura": "Financial Accounting.",
+        "nombre_elemento": "Financial Accounting.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Current Tax Bases of the Tax System.",
+        "nombre_elemento": "Current Tax Bases of the Tax System.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Estadística.",
-        "nombre_asignatura": "Data Analysis.",
+        "nombre_elemento": "Data Analysis.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Entorno Socioeconómico/ Socioeconomic Enviroment.",
-        "nombre_asignatura": "International Economic Environment.",
+        "nombre_elemento": "International Economic Environment.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Gestión Financiera Empresarial / Business Financial Management.",
-        "nombre_asignatura": "International Accounting.",
+        "nombre_elemento": "International Accounting.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Derecho Internacional.",
-        "nombre_asignatura": "International Law.",
+        "nombre_elemento": "International Law.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Informática.",
-        "nombre_asignatura": "Applied Computing for Business Management.",
+        "nombre_elemento": "Applied Computing for Business Management.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Idiomas / Languages.",
-        "nombre_asignatura": "Mondern language I.",
+        "nombre_elemento": "Mondern language I.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Gestión Financiera Empresarial / Business Financial Management.",
-        "nombre_asignatura": "Mathematics of Financial Operations.",
+        "nombre_elemento": "Mathematics of Financial Operations.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Creación e Internacionalización de Empresas / Setting up Companies and Internationalisation.",
-        "nombre_asignatura": "International Operations & Global Entrepeneurship.",
+        "nombre_elemento": "International Operations & Global Entrepeneurship.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Creación e Internacionalización de Empresas / Setting up Companies and Internationalisation.",
-        "nombre_asignatura": "International Areas and Markets.",
+        "nombre_elemento": "International Areas and Markets.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Idiomas / Languages.",
-        "nombre_asignatura": "Modern Language II.",
+        "nombre_elemento": "Modern Language II.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Herramientas Cuantitativas para la Gestión Internacional.",
-        "nombre_asignatura": "International Market Research.",
+        "nombre_elemento": "International Market Research.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "2",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Entorno Socioeconómico/ Socioeconomic Enviroment.",
-        "nombre_asignatura": "International Macroeconomics.",
+        "nombre_elemento": "International Macroeconomics.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Gestión Financiera Empresarial / Business Financial Management.",
-        "nombre_asignatura": "International Financing.",
+        "nombre_elemento": "International Financing.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Dirección Estratégica Internacional de Empresa / International Strategic Management of Companies.",
-        "nombre_asignatura": "Cross Cultural Management.",
+        "nombre_elemento": "Cross Cultural Management.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Dirección Estratégica Internacional de Empresa / International Strategic Management of Companies.",
-        "nombre_asignatura": "Strategies to Access International Markets.",
+        "nombre_elemento": "Strategies to Access International Markets.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Herramientas de Marketing / Marketing Tools.",
-        "nombre_asignatura": "International Product and Pricing Policy.",
+        "nombre_elemento": "International Product and Pricing Policy.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Entorno Socioeconómico/ Socioeconomic Enviroment.",
-        "nombre_asignatura": "International Politics in the Business World.",
+        "nombre_elemento": "International Politics in the Business World.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Gestión Financiera Empresarial / Business Financial Management.",
-        "nombre_asignatura": "Tools and Operations on the World Financial Markets.",
+        "nombre_elemento": "Tools and Operations on the World Financial Markets.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Estrategias Internacionales de Comunicación / International Communication Strategies.",
-        "nombre_asignatura": "International Communication Strategies.",
+        "nombre_elemento": "International Communication Strategies.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Herramientas de Marketing / Marketing Tools.",
-        "nombre_asignatura": "Transport, Logistics, and International Distribution.",
+        "nombre_elemento": "Transport, Logistics, and International Distribution.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Herramientas de Marketing / Marketing Tools.",
-        "nombre_asignatura": "International Marketing Management.",
+        "nombre_elemento": "International Marketing Management.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "3",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Creación e Internacionalización de Empresas / Setting up Companies and Internationalisation.",
-        "nombre_asignatura": "Developing Markets.",
+        "nombre_elemento": "Developing Markets.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Dirección Estratégica Internacional de Empresa / International Strategic Management of Companies.",
-        "nombre_asignatura": "Strategy and Strategic Management.",
+        "nombre_elemento": "Strategy and Strategic Management.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Estrategias de Marketing / Marketing Strategies.",
-        "nombre_asignatura": "E-Commerce.",
+        "nombre_elemento": "E-Commerce.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Estrategias de Marketing / Marketing Strategies.",
-        "nombre_asignatura": "Elective 1.",
+        "nombre_elemento": "Elective 1.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Elective 2.",
+        "nombre_elemento": "Elective 2.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Elective 3.",
+        "nombre_elemento": "Elective 3.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Prácticas Externas / Internship Placement.",
-        "nombre_asignatura": "Internship Placement.",
+        "nombre_elemento": "Internship Placement.",
         "creditos_ects": "24",
         "caracter": "PE",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "Anual"
       },
       {
+        "modulo": "",
         "materia": "Trabajo Fin de Grado / End of Degree Project.",
-        "nombre_asignatura": "End of Degree Project.",
+        "nombre_elemento": "End of Degree Project.",
         "creditos_ects": "6",
         "caracter": "TFG",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "Anual"
       },
       {
+        "modulo": "",
         "materia": "Optatividad del centro.",
-        "nombre_asignatura": "Ética Empresarial / Business Ethics.",
+        "nombre_elemento": "Ética Empresarial / Business Ethics.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Optatividad del centro.",
-        "nombre_asignatura": "Modelos De Decisión / Decision-Making Models.",
+        "nombre_elemento": "Modelos De Decisión / Decision-Making Models.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Optatividad del centro.",
-        "nombre_asignatura": "Gestión De Proyectos Internacionales / International Project Management.",
+        "nombre_elemento": "Gestión De Proyectos Internacionales / International Project Management.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Optatividad del centro.",
-        "nombre_asignatura": "Gestión Internacional de los Recursos Humanos / Human Resources International Management.",
+        "nombre_elemento": "Gestión Internacional de los Recursos Humanos / Human Resources International Management.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Optatividad del centro.",
-        "nombre_asignatura": "Historia de la Internacionalización Empresarial / International Corporate History.",
+        "nombre_elemento": "Historia de la Internacionalización Empresarial / International Corporate History.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Optatividad del centro.",
-        "nombre_asignatura": "La Unión Europea / European Union.",
+        "nombre_elemento": "La Unión Europea / European Union.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Optatividad del centro.",
-        "nombre_asignatura": "Relaciones Internacionales y Diplomacia / International Relations, Diplomacy and Corporate Diplomacy.",
+        "nombre_elemento": "Relaciones Internacionales y Diplomacia / International Relations, Diplomacy and Corporate Diplomacy.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Optatividad del centro.",
-        "nombre_asignatura": "Gestión Internacional de Compras / International Purchasing Management.",
+        "nombre_elemento": "Gestión Internacional de Compras / International Purchasing Management.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "Optatividad del centro.",
-        "nombre_asignatura": "Gestión de Proyectos ante Instituciones Multilaterales / Multilateral Institutions Project.",
+        "nombre_elemento": "Gestión de Proyectos ante Instituciones Multilaterales / Multilateral Institutions Project.",
         "creditos_ects": "4,5",
         "caracter": "OP",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       }
     ],
-    "total_asignaturas": 456,
+    "total_elementos": 497,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n18029 Resolución de 15 de octubre de 2021, de ESIC Universidad, por la que se \npublican planes de estudios y modificaciones de planes de estudios de \nGraduado o Graduada.\nObtenida la verificación de los planes de estudios por el Consejo de Universidades, \nprevio informe positivo de la Fundación para el Conocimiento Madri+d, y acordado el \ncarácter oficial de los títulos por el Consejo de Ministros de 23 de febrero de 2021 \n(publicado en el «Boletín Oficial del Estado» de 4 de marzo de 2021 por Resolución de la \nSecretaría General de Universidades de 24 de febrero de 2021),\nEste Rectorado ha resuelto publicar los planes de estudios conducentes a la \nobtención de los títulos oficiales siguientes:\nGraduado o Graduada en Administración y Dirección de Empresas.\nGraduado o Graduada en Dirección y Gestión de Empresas en el Ámbito Digital.\nGraduado o Graduada en Negocios Internacionales/International Business.\nGraduado o Graduada en Marketing.\nGraduado o "
   }
 }

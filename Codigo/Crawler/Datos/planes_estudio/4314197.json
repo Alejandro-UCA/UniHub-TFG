@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "057",
   "universidad_nombre": "IE Universidad",
-  "fecha_procesado": "2026-07-31T14:13:13.038888",
+  "fecha_procesado": "2026-08-03T12:19:03.979597",
   "boe_url": "http://www.boe.es/boe/dias/2014/09/23/pdfs/BOE-A-2014-9664.pdf",
   "boe_fecha": "2014-09-23",
   "plan_estudios": {
@@ -134,8 +134,1341 @@
       "Diseño web, marketing y optimización.": "OB",
       "Publicidad online y medición de audiencias.": "OB"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Deontología profesional.",
+        "nombre_elemento": "Deontología profesional.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Marco Jurídico Colegial y Organizativo del Abogado.",
+        "nombre_elemento": "Marco Jurídico Colegial y Organizativo del Abogado.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Práctica Social (Laboral, Seguridad Social).",
+        "nombre_elemento": "Práctica Social (Laboral, Seguridad Social).",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Práctica Civil y Societaria.",
+        "nombre_elemento": "Práctica Civil y Societaria.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho de Extranjería.",
+        "nombre_elemento": "Derecho de Extranjería.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Litigación.",
+        "nombre_elemento": "Litigación.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Sistemas alternativos a la solución de conflictos.",
+        "nombre_elemento": "Sistemas alternativos a la solución de conflictos.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Procedimientos Internacionales.",
+        "nombre_elemento": "Procedimientos Internacionales.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión Económica.",
+        "nombre_elemento": "Gestión Económica.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión Empresarial.",
+        "nombre_elemento": "Gestión Empresarial.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Nuevas Tecnologías aplicadas al Ejercicio Profesional.",
+        "nombre_elemento": "Nuevas Tecnologías aplicadas al Ejercicio Profesional.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Seminario de Preparación de la Prueba de Acceso.",
+        "nombre_elemento": "Seminario de Preparación de la Prueba de Acceso.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "",
+        "caracter": "TFM.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "",
+        "caracter": "PE.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho de la empresa.",
+        "nombre_elemento": "Derecho de la empresa.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Práctica fiscal directa.",
+        "nombre_elemento": "Práctica fiscal directa.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Impuestos indirectos.",
+        "nombre_elemento": "Impuestos indirectos.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Procedimientos tributarios.",
+        "nombre_elemento": "Procedimientos tributarios.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fiscalidad internacional.",
+        "nombre_elemento": "Fiscalidad internacional.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión financiera y contable.",
+        "nombre_elemento": "Gestión financiera y contable.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión empresarial.",
+        "nombre_elemento": "Gestión empresarial.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fiscalidad directa avanzada.",
+        "nombre_elemento": "Fiscalidad directa avanzada.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Interdisciplinar.",
+        "nombre_elemento": "Interdisciplinar.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fiscalidad financiera.",
+        "nombre_elemento": "Fiscalidad financiera.",
+        "creditos_ects": "",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión patrimonial.",
+        "nombre_elemento": "Gestión patrimonial.",
+        "creditos_ects": "",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas.",
+        "nombre_elemento": "Prácticas.",
+        "creditos_ects": "",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Práctica Civil.",
+        "nombre_elemento": "Práctica Civil.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Práctica Mercantil.",
+        "nombre_elemento": "Práctica Mercantil.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Práctica Social.",
+        "nombre_elemento": "Práctica Social.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Práctica Fiscal.",
+        "nombre_elemento": "Práctica Fiscal.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Práctica Contencioso Administrativa.",
+        "nombre_elemento": "Práctica Contencioso Administrativa.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Práctica Procesal.",
+        "nombre_elemento": "Práctica Procesal.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Aspectos Internacionales del Derecho.",
+        "nombre_elemento": "Aspectos Internacionales del Derecho.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Interdisciplinar.",
+        "nombre_elemento": "Interdisciplinar.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Economía.",
+        "nombre_elemento": "Economía.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión Empresarial.",
+        "nombre_elemento": "Gestión Empresarial.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Consolidación mercantil.",
+        "nombre_elemento": "Consolidación mercantil.",
+        "creditos_ects": "",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Sectores Especializados.",
+        "nombre_elemento": "Sectores Especializados.",
+        "creditos_ects": "",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Sistemas Occidentales.",
+        "nombre_elemento": "Sistemas Occidentales.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Sistemas Orientales.",
+        "nombre_elemento": "Sistemas Orientales.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho Internacional Público.",
+        "nombre_elemento": "Derecho Internacional Público.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho Internacional Privado.",
+        "nombre_elemento": "Derecho Internacional Privado.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho de la Unión Europea.",
+        "nombre_elemento": "Derecho de la Unión Europea.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho Societario.",
+        "nombre_elemento": "Derecho Societario.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho Mercantil.",
+        "nombre_elemento": "Derecho Mercantil.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho Procesal.",
+        "nombre_elemento": "Derecho Procesal.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho Fiscal.",
+        "nombre_elemento": "Derecho Fiscal.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Entorno Internacional.",
+        "nombre_elemento": "Entorno Internacional.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Habilidades Profesionales.",
+        "nombre_elemento": "Habilidades Profesionales.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencias Empresariales.",
+        "nombre_elemento": "Ciencias Empresariales.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Comportamiento Organizacional.",
+        "nombre_elemento": "Comportamiento Organizacional.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Interdisciplinar Avanzado.",
+        "nombre_elemento": "Interdisciplinar Avanzado.",
+        "creditos_ects": "",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Mercados Internacionales.",
+        "nombre_elemento": "Mercados Internacionales.",
+        "creditos_ects": "",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Herramientas cuantitativas.",
+        "nombre_elemento": "Herramientas cuantitativas.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Dinámicas organizativas.",
+        "nombre_elemento": "Dinámicas organizativas.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Innovación y tecnología.",
+        "nombre_elemento": "Innovación y tecnología.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Dinámicas competitivas.",
+        "nombre_elemento": "Dinámicas competitivas.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Mercado y valor.",
+        "nombre_elemento": "Mercado y valor.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Nuevos negocios y emprendedurismo.",
+        "nombre_elemento": "Nuevos negocios y emprendedurismo.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Integración, Aplicación e Implementación: hacia la empresa.",
+        "nombre_elemento": "Integración, Aplicación e Implementación: hacia la empresa.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Integración, Aplicación e Implementación: hacia el mercado.",
+        "nombre_elemento": "Integración, Aplicación e Implementación: hacia el mercado.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Integración, Aplicación e Implementación: en la industria.",
+        "nombre_elemento": "Integración, Aplicación e Implementación: en la industria.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Habilidades de gestión.",
+        "nombre_elemento": "Habilidades de gestión.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Desarrollo personal y profesional.",
+        "nombre_elemento": "Desarrollo personal y profesional.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Visión directiva.",
+        "nombre_elemento": "Visión directiva.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Desarrollo estratégico.",
+        "nombre_elemento": "Desarrollo estratégico.",
+        "creditos_ects": "",
+        "caracter": "OP.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Desarrollo empresarial.",
+        "nombre_elemento": "Desarrollo empresarial.",
+        "creditos_ects": "",
+        "caracter": "OP.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Desarrollo sectorial.",
+        "nombre_elemento": "Desarrollo sectorial.",
+        "creditos_ects": "",
+        "caracter": "OP.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "",
+        "caracter": "TFM.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Herramientas cuantitativas.",
+        "nombre_elemento": "Herramientas cuantitativas.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Dinámicas organizativas.",
+        "nombre_elemento": "Dinámicas organizativas.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Innovación y tecnología.",
+        "nombre_elemento": "Innovación y tecnología.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Dinámicas competitivas.",
+        "nombre_elemento": "Dinámicas competitivas.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Mercado y valor.",
+        "nombre_elemento": "Mercado y valor.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Nuevos negocios y emprendedurismo.",
+        "nombre_elemento": "Nuevos negocios y emprendedurismo.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Habilidades de gestión.",
+        "nombre_elemento": "Habilidades de gestión.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión empresarial.",
+        "nombre_elemento": "Gestión empresarial.",
+        "creditos_ects": "",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Área empresarial.",
+        "nombre_elemento": "Área empresarial.",
+        "creditos_ects": "",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Actividad empresarial.",
+        "nombre_elemento": "Actividad empresarial.",
+        "creditos_ects": "",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Herramientas Cuantitativas.",
+        "nombre_elemento": "Herramientas Cuantitativas.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Herramientas Cualitativas.",
+        "nombre_elemento": "Herramientas Cualitativas.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Herramientas Transversales.",
+        "nombre_elemento": "Herramientas Transversales.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Aplicación en la empresa.",
+        "nombre_elemento": "Aplicación en la empresa.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Aplicación en el mercado.",
+        "nombre_elemento": "Aplicación en el mercado.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Nuevos negocios y emprendedurismo.",
+        "nombre_elemento": "Nuevos negocios y emprendedurismo.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Habilidades de gestión.",
+        "nombre_elemento": "Habilidades de gestión.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Desarrollo personal y profesional.",
+        "nombre_elemento": "Desarrollo personal y profesional.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Itinerario General.",
+        "nombre_elemento": "Itinerario General.",
+        "creditos_ects": "",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Itinerario Funcional.",
+        "nombre_elemento": "Itinerario Funcional.",
+        "creditos_ects": "",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Itinerario Sectorial.",
+        "nombre_elemento": "Itinerario Sectorial.",
+        "creditos_ects": "",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Arquitectura y emprendedurismo.",
+        "nombre_elemento": "Arquitectura y emprendedurismo.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Comunicación y estrategia de las empresas de arquitectura.",
+        "nombre_elemento": "Comunicación y estrategia de las empresas de arquitectura.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Finanzas aplicadas al entorno profesional.",
+        "nombre_elemento": "Finanzas aplicadas al entorno profesional.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Marketing aplicado al entorno profesional.",
+        "nombre_elemento": "Marketing aplicado al entorno profesional.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Presentación y comunicación.",
+        "nombre_elemento": "Presentación y comunicación.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Negociación y liderazgo.",
+        "nombre_elemento": "Negociación y liderazgo.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Diseño y estrategia.",
+        "nombre_elemento": "Diseño y estrategia.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Diseño y costes.",
+        "nombre_elemento": "Diseño y costes.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Diseño y marketing.",
+        "nombre_elemento": "Diseño y marketing.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Diseño y tecnología.",
+        "nombre_elemento": "Diseño y tecnología.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Integración tecnológica aplicada al entorno profesional.",
+        "nombre_elemento": "Integración tecnológica aplicada al entorno profesional.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión aplicada al entorno profesional.",
+        "nombre_elemento": "Gestión aplicada al entorno profesional.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos de Marketing.",
+        "nombre_elemento": "Fundamentos de Marketing.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos de Empresa.",
+        "nombre_elemento": "Fundamentos de Empresa.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos de Psicología y Comportamiento.",
+        "nombre_elemento": "Fundamentos de Psicología y Comportamiento.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Aplicaciones de comportamiento del consumidor.",
+        "nombre_elemento": "Aplicaciones de comportamiento del consumidor.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Métodos cuantitativos.",
+        "nombre_elemento": "Métodos cuantitativos.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Métodos cualitativos.",
+        "nombre_elemento": "Métodos cualitativos.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Habilidades interpersonales.",
+        "nombre_elemento": "Habilidades interpersonales.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Habilidades de empresa.",
+        "nombre_elemento": "Habilidades de empresa.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Proyectos Aplicados.",
+        "nombre_elemento": "Proyectos Aplicados.",
+        "creditos_ects": "",
+        "caracter": "OB.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "",
+        "caracter": "TFM.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Cultura visual global e historia.",
+        "nombre_elemento": "Cultura visual global e historia.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Narrativas visuales.",
+        "nombre_elemento": "Narrativas visuales.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Representación y ética.",
+        "nombre_elemento": "Representación y ética.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo creativo en las industrias culturales.",
+        "nombre_elemento": "Trabajo creativo en las industrias culturales.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Herramientas de comunicación visual.",
+        "nombre_elemento": "Herramientas de comunicación visual.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Comunicación visual para instituciones públicas, sociales y culturales.",
+        "nombre_elemento": "Comunicación visual para instituciones públicas, sociales y culturales.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Publicidad comercial.",
+        "nombre_elemento": "Publicidad comercial.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Branding e identidad corporativa.",
+        "nombre_elemento": "Branding e identidad corporativa.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Diseño e infografía centrados en el usuario.",
+        "nombre_elemento": "Diseño e infografía centrados en el usuario.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Creación y gestión de eventos.",
+        "nombre_elemento": "Creación y gestión de eventos.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Emprendedurismo.",
+        "nombre_elemento": "Emprendedurismo.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Business Design.",
+        "nombre_elemento": "Business Design.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Herramientas y estrategias de marketing interactivo.",
+        "nombre_elemento": "Herramientas y estrategias de marketing interactivo.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión de proyectos multimedia.",
+        "nombre_elemento": "Gestión de proyectos multimedia.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Planeación y evaluación estratégica de la comunicación.",
+        "nombre_elemento": "Planeación y evaluación estratégica de la comunicación.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "El futuro del periodismo en un mundo globalizado.",
+        "nombre_elemento": "El futuro del periodismo en un mundo globalizado.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Inmersión tecnológica.",
+        "nombre_elemento": "Inmersión tecnológica.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión de la información: documentación, gabinetes y relaciones públicas.",
+        "nombre_elemento": "Gestión de la información: documentación, gabinetes y relaciones públicas.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Redacción, reporterismo e investigación.",
+        "nombre_elemento": "Redacción, reporterismo e investigación.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Géneros periodísticos y narrativas multimedia.",
+        "nombre_elemento": "Géneros periodísticos y narrativas multimedia.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Producción audiovisual y multimedia.",
+        "nombre_elemento": "Producción audiovisual y multimedia.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Modelos de negocio de los nuevos medios y aspectos legales.",
+        "nombre_elemento": "Modelos de negocio de los nuevos medios y aspectos legales.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Emprendedurismo y gestión de negocios.",
+        "nombre_elemento": "Emprendedurismo y gestión de negocios.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Community management y gestión de la reputación.",
+        "nombre_elemento": "Community management y gestión de la reputación.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Periodismo de datos y visualización.",
+        "nombre_elemento": "Periodismo de datos y visualización.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Diseño web, marketing y optimización.",
+        "nombre_elemento": "Diseño web, marketing y optimización.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Publicidad online y medición de audiencias.",
+        "nombre_elemento": "Publicidad online y medición de audiencias.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_elementos": 148,
     "texto_extraido_muestra": "BOLETÍN OFICIAL DEL ESTADO\nNúm. 231 Martes 23 de septiembre de 2014 Sec. III.   Pág. 74466\nIII. OTRAS DISPOSICIONES\nUNIVERSIDADES\n9664 Resolución de 28 de julio de 2014, de la IE Universidad, por la que se publican \nplanes de estudios de Máster.\nEn cumplimiento de lo dispuesto en el artículo 35.4 de la Ley Orgánica 6/2001, de 21 \nde diciembre, de universidades y en el artículo 13 del Real Decreto 861/2010, de 2 \nde julio, que modifica el artículo 26 del Real Decreto 1393/2007, de 30 de octubre, por el \nque se establece la ordenación de las enseñanzas universitarias oficiales; una vez \nobtenida la verificación de los planes de estudios por el Consejo de Universidades el 23 \nde julio de 2013 y el 25 de septiembre de 2013, previos informes positivos de la Agencia \npara la Calidad del Sistema Universitario de Castilla y León, y establecido el carácter \noficial del título por Acuerdo de Consejo de Ministros de 21 de febrero de 2014, por el que \nse establece el carácter oficial de determinad"
   }
 }

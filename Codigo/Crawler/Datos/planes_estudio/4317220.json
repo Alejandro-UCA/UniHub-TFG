@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "089",
   "universidad_nombre": "CUNEF Universidad",
-  "fecha_procesado": "2026-07-31T14:09:24.113220",
+  "fecha_procesado": "2026-08-03T12:15:12.014819",
   "boe_url": "http://www.boe.es/boe/dias/2023/10/06/pdfs/BOE-A-2023-20754.pdf",
   "boe_fecha": "2023-10-06",
   "plan_estudios": {
@@ -12,15 +12,164 @@
       "Obligatorias (OB).": "54",
       "Prácticas Académicas Externas (PE).": "30",
       "Trabajo de Fin de Máster (TFM).": "6",
-      "Créditos totales.": "90",
-      "Régimen jurídico y profesional del abogado.": "El ejercicio de la abogacía y la procura: funciones, competencias, deberes y gestión del despacho.",
-      "Práctica jurídica en Derecho Público: asesoría y litigación.": "Asesoría de Derecho Administrativo y proceso contencioso administrativo.",
-      "Práctica jurídica en Derecho Privado: asesoría y litigación.": "Sociedades, empresas y otras formas de asociación empresarial.",
-      "Prácticas externas tuteladas.": "Visitas institucionales.",
-      "Trabajo de Fin de Máster.": "Trabajo de Fin de Máster."
+      "Créditos totales.": "90"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Obligatorias (OB).",
+        "nombre_elemento": "Obligatorias (OB).",
+        "creditos_ects": "54",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Académicas Externas (PE).",
+        "nombre_elemento": "Prácticas Académicas Externas (PE).",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo de Fin de Máster (TFM).",
+        "nombre_elemento": "Trabajo de Fin de Máster (TFM).",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
+        "creditos_ects": "90",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Régimen jurídico y profesional del abogado.",
+        "materia": "El ejercicio de la abogacía y la procura: funciones, competencias, deberes y gestión del despacho.",
+        "nombre_elemento": "El ejercicio de la abogacía y la procura: funciones, competencias, deberes y gestión del despacho.",
+        "creditos_ects": "10",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "modulo": "Práctica jurídica en Derecho Público: asesoría y litigación.",
+        "materia": "Asesoría de Derecho Administrativo y proceso contencioso administrativo.",
+        "nombre_elemento": "Asesoría de Derecho Administrativo y proceso contencioso administrativo.",
+        "creditos_ects": "5,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "modulo": "Práctica jurídica en Derecho Público: asesoría y litigación.",
+        "materia": "Asesoría penal y proceso penal.",
+        "nombre_elemento": "Asesoría penal y proceso penal.",
+        "creditos_ects": "7",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "modulo": "Práctica jurídica en Derecho Público: asesoría y litigación.",
+        "materia": "Aplicación práctica de los derechos fundamentales y procedimientos para su defensa.",
+        "nombre_elemento": "Aplicación práctica de los derechos fundamentales y procedimientos para su defensa.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1"
+      },
+      {
+        "modulo": "Práctica jurídica en Derecho Privado: asesoría y litigación.",
+        "materia": "Sociedades, empresas y otras formas de asociación empresarial.",
+        "nombre_elemento": "Sociedades, empresas y otras formas de asociación empresarial.",
+        "creditos_ects": "5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "modulo": "Práctica jurídica en Derecho Privado: asesoría y litigación.",
+        "materia": "Fiscalidad de actos, negocios y contratos.",
+        "nombre_elemento": "Fiscalidad de actos, negocios y contratos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "modulo": "Práctica jurídica en Derecho Privado: asesoría y litigación.",
+        "materia": "Derecho patrimonial.",
+        "nombre_elemento": "Derecho patrimonial.",
+        "creditos_ects": "6,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "modulo": "Práctica jurídica en Derecho Privado: asesoría y litigación.",
+        "materia": "Asesoría jurídica internacional.",
+        "nombre_elemento": "Asesoría jurídica internacional.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "modulo": "Práctica jurídica en Derecho Privado: asesoría y litigación.",
+        "materia": "Práctica procesal civil y mercantil.",
+        "nombre_elemento": "Práctica procesal civil y mercantil.",
+        "creditos_ects": "5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "modulo": "Práctica jurídica en Derecho Privado: asesoría y litigación.",
+        "materia": "Asesoría laboral y de seguridad social.",
+        "nombre_elemento": "Asesoría laboral y de seguridad social.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2"
+      },
+      {
+        "modulo": "Prácticas externas tuteladas.",
+        "materia": "Visitas institucionales.",
+        "nombre_elemento": "Visitas institucionales.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": "1 y 2"
+      },
+      {
+        "modulo": "Prácticas externas tuteladas.",
+        "materia": "Prácticas externas tuteladas.",
+        "nombre_elemento": "Prácticas externas tuteladas.",
+        "creditos_ects": "24",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": "3"
+      },
+      {
+        "modulo": "Trabajo de Fin de Máster.",
+        "materia": "Trabajo de Fin de Máster.",
+        "nombre_elemento": "Trabajo de Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": "3"
+      }
+    ],
+    "total_elementos": 17,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n20754 Resolución de 21 de septiembre de 2023, de CUNEF Universidad, por la que \nse publica la modificación del plan de estudios de Máster Universitario en \nAcceso al Ejercicio de la Abogacía y la Procura.\nObtenida la verificación del plan de estudios de Máster Universitario en Acceso al \nEjercicio de la Abogacía y la Procura, por el Consejo de Universidades, previo informe \nfavorable de la Agencia Evaluadora Fundación para el Conocimiento Madri+d, autorizada \nsu implantación por la Comunidad de Madrid y establecido el carácter oficial por Acuerdo \nde Consejo de Ministros de 6 de julio de 2021 (publicado en el «Boletín Oficial del \nEstado» de 27 de julio de 2021),\nHabiendo sido modificado el mencionado plan de estudios, con informe favorable de \nla Fundación para el Conocimiento Madri+d, de fecha 27 de junio de 2023,\nEste Rectorado, de conformidad con lo dispuesto en el artículo 27 del Real \nDecreto 822/2021, de 28 de septiembre, por el que se esta"
   }
 }

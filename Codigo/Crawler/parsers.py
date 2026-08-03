@@ -95,21 +95,8 @@ def parse_degrees_xls(filepath: str) -> list:
 
     # Deduplicate renovated degrees within the same university
     def normalize_title(full_title: str) -> str:
-        # Standardize title base without trailing university name
         base = full_title.split(" por la ")[0].split(" por ")[0].strip().lower()
         return re.sub(r"\s+", " ", base)
-
-    def get_rd_rank(nivel_str: str) -> int:
-        nivel_lower = nivel_str.lower()
-        if "822/2021" in nivel_lower:
-            return 4
-        elif "1393/2007" in nivel_lower:
-            return 3
-        elif "56/2005" in nivel_lower:
-            return 2
-        elif "bolet" in nivel_lower or "b.o.e" in nivel_lower:
-            return 1
-        return 0
 
     grouped_degrees = {}
     for deg in raw_active_degrees:
@@ -117,22 +104,14 @@ def parse_degrees_xls(filepath: str) -> list:
         if norm_title not in grouped_degrees:
             grouped_degrees[norm_title] = deg
         else:
-            existing = grouped_degrees[norm_title]
-            rank_existing = get_rd_rank(existing["nivel_academico"])
-            rank_new = get_rd_rank(deg["nivel_academico"])
-            
-            # Prefer higher Real Decreto rank (newer decree)
-            if rank_new > rank_existing:
-                grouped_degrees[norm_title] = deg
-            elif rank_new == rank_existing:
-                # Prefer higher numeric code (newer registration/renovation ID)
-                try:
-                    code_existing = int(existing["codigo_estudio"])
-                    code_new = int(deg["codigo_estudio"])
-                    if code_new > code_existing:
-                        grouped_degrees[norm_title] = deg
-                except ValueError:
-                    pass
+            existing_deg = grouped_degrees[norm_title]
+            try:
+                code_new = int(deg["codigo_estudio"])
+                code_existing = int(existing_deg["codigo_estudio"])
+                if code_new > code_existing:
+                    grouped_degrees[norm_title] = deg
+            except ValueError:
+                pass
 
     return list(grouped_degrees.values())
 
@@ -140,7 +119,7 @@ def parse_degrees_xls(filepath: str) -> list:
 def parse_degree_detail_html(html_content: str) -> dict:
     """
     Parses the HTML of the degree detail page to find all BOE PDF links,
-    and identifies the MOST RECENT BOE link.
+    and returns all candidate links sorted by date (newest first).
     """
     soup = BeautifulSoup(html_content, "html.parser")
     boe_candidates = []
@@ -168,25 +147,32 @@ def parse_degree_detail_html(html_content: str) -> dict:
                     except ValueError:
                         pass
             
+            if href.startswith("/"):
+                href = "https://www.boe.es" + href
+                
             boe_candidates.append({
                 "url": href,
                 "text": text,
-                "date": date_obj
+                "date": date_obj,
+                "boe_date": date_obj.strftime("%Y-%m-%d") if date_obj else None
             })
             
     if not boe_candidates:
-        return {"latest_boe_url": None, "boe_date": None, "all_boe_links": []}
+        return {"latest_boe_url": None, "boe_date": None, "all_boe_links": [], "all_boe_candidates": []}
     
-    dated_candidates = [c for c in boe_candidates if c["date"] is not None]
-    if dated_candidates:
-        latest = max(dated_candidates, key=lambda c: c["date"])
-    else:
-        latest = boe_candidates[-1]
+    sorted_candidates = sorted(
+        boe_candidates,
+        key=lambda c: c["date"] if c["date"] is not None else datetime(1970, 1, 1),
+        reverse=True
+    )
+    
+    latest = sorted_candidates[0]
         
     return {
         "latest_boe_url": latest["url"],
-        "boe_date": latest["date"].strftime("%Y-%m-%d") if latest["date"] else None,
-        "all_boe_links": [c["url"] for c in boe_candidates]
+        "boe_date": latest["boe_date"],
+        "all_boe_links": [c["url"] for c in sorted_candidates],
+        "all_boe_candidates": sorted_candidates
     }
 
 
@@ -198,108 +184,98 @@ def parse_boe_pdf(pdf_filepath: str) -> dict:
     resumen_creditos = {}
     elementos_curriculares = []
     raw_text_parts = []
-    
-    # Extract plain text with pypdf
+
     try:
         reader = pypdf.PdfReader(pdf_filepath)
-        for idx, page in enumerate(reader.pages):
-            text = page.extract_text() or ""
-            raw_text_parts.append(text)
+        for page in reader.pages:
+            text = page.extract_text()
+            if text:
+                raw_text_parts.append(text)
     except Exception as e:
-        raw_text_parts.append(f"Error extracting raw text with pypdf: {e}")
+        print(f"   [AVISO] error pypdf: {e}")
 
     full_text = "\n".join(raw_text_parts)
 
-    # Extract tables with pdfplumber
+    # 1. Parse Credit Summary Table
+    credit_keywords = [
+        ("Formación Básica", r"(?:formaci[oó]n b[aá]sica|fb)\s*[:\.\-]?\s*(\d+)"),
+        ("Obligatorias", r"(?:obligatoria[s]?|ob)\s*[:\.\-]?\s*(\d+)"),
+        ("Optativas", r"(?:optativa[s]?|op)\s*[:\.\-]?\s*(\d+)"),
+        ("Prácticas Externas", r"(?:pr[aá]ctica[s]?|pe)\s*[:\.\-]?\s*(\d+)"),
+        ("Trabajo Fin de Grado / Máster", r"(?:trabajo fin de|tfg|tfm)\s*[:\.\-]?\s*(\d+)"),
+        ("Créditos Totales", r"(?:total|cr[eé]ditos totales)\s*[:\.\-]?\s*(\d+)")
+    ]
+
+    for label, regex in credit_keywords:
+        match = re.search(regex, full_text, re.IGNORECASE)
+        if match:
+            resumen_creditos[label] = match.group(1)
+
+    # 2. Extract Structured Curriculum Tables with pdfplumber
     try:
         with pdfplumber.open(pdf_filepath) as pdf:
-            for page_idx, page in enumerate(pdf.pages):
-                tables = page.extract_tables() or []
+            current_modulo = ""
+            current_materia = ""
+
+            for page in pdf.pages:
+                tables = page.extract_tables()
                 for table in tables:
-                    if not table or len(table) < 2:
-                        continue
-                    
-                    header_row = [str(cell).strip().replace("\n", " ") for cell in table[0] if cell]
-                    header_text = " ".join(header_row).lower()
-                    
-                    # Case 1: Credit Distribution Summary Table
-                    if any(term in header_text for term in ["carácter", "caracter", "tipo", "créditos", "creditos"]) and len(table[0]) <= 3:
-                        for row in table[1:]:
-                            if len(row) >= 2 and row[0] and row[1]:
-                                key = str(row[0]).strip().replace("\n", " ")
-                                val = str(row[1]).strip().replace("\n", " ")
-                                if key:
-                                    resumen_creditos[key] = val
-                    
-                    # Case 2: Detailed Curricular Elements (Asignaturas / Módulos / Materias / Bloques)
-                    col_map = {}
-                    for col_idx, col_name in enumerate(header_row):
-                        col_lower = col_name.lower()
-                        if "módulo" in col_lower or "modulo" in col_lower:
-                            col_map["modulo"] = col_idx
-                        elif "materia" in col_lower:
-                            col_map["materia"] = col_idx
-                        elif any(k in col_lower for k in ["asignatura", "enseñanza", "unidad", "bloque", "denominación", "denominacion"]):
-                            col_map["asignatura"] = col_idx
-                        elif "crédito" in col_lower or "ects" in col_lower:
-                            col_map["creditos"] = col_idx
-                        elif "carácter" in col_lower or "caracter" in col_lower or "tipo" in col_lower:
-                            col_map["caracter"] = col_idx
-                        elif "curso" in col_lower or "año" in col_lower:
-                            col_map["curso"] = col_idx
-                        elif any(k in col_lower for k in ["cuatrimestre", "semestre", "periodo"]):
-                            col_map["cuatrimestre"] = col_idx
+                    for row in table:
+                        if not row or all(cell is None or str(cell).strip() == "" for cell in row):
+                            continue
+                        
+                        clean_row = [re.sub(r"\s+", " ", str(cell).strip()) if cell else "" for cell in row]
+                        row_str = " ".join(clean_row).lower()
 
-                    # If table contains subject or module or credit information
-                    if "asignatura" in col_map or "modulo" in col_map or "materia" in col_map or ("creditos" in col_map and "caracter" in col_map):
-                        last_modulo = ""
-                        last_materia = ""
-                        for row in table[1:]:
-                            if not row or all(c is None for c in row):
-                                continue
-                            
-                            def get_cell(idx_key):
-                                c_idx = col_map.get(idx_key)
-                                if c_idx is not None and c_idx < len(row) and row[c_idx]:
-                                    return str(row[c_idx]).strip().replace("\n", " ")
-                                return ""
-                            
-                            mod_val = get_cell("modulo")
-                            if mod_val:
-                                last_modulo = mod_val
-                            else:
-                                mod_val = last_modulo
+                        if "módulo" in row_str or "modulo" in row_str:
+                            current_modulo = clean_row[0] if clean_row else ""
+                            continue
+                        if "materia" in row_str:
+                            current_materia = clean_row[0] if clean_row else ""
+                            continue
 
-                            mat_val = get_cell("materia")
-                            if mat_val:
-                                last_materia = mat_val
-                            else:
-                                mat_val = last_materia
-                                
-                            asig_val = get_cell("asignatura")
-                            cred_val = get_cell("creditos")
-                            carac_val = get_cell("caracter")
-                            curso_val = get_cell("curso")
-                            cuatri_val = get_cell("cuatrimestre")
-                            
-                            # Standardize element name (Asignatura or Module or Row text if nameless)
-                            elem_name = asig_val or mat_val or mod_val
-                            if elem_name and elem_name.lower() not in ["total", "subtotal", "suma"]:
-                                elementos_curriculares.append({
-                                    "modulo": mod_val,
-                                    "materia": mat_val,
-                                    "nombre_elemento": elem_name,
-                                    "creditos_ects": cred_val,
-                                    "caracter": carac_val,
-                                    "curso": curso_val,
-                                    "cuatrimestre": cuatri_val
-                                })
+                        # Check for subject row containing ECTS credit numbers
+                        ects_match = None
+                        caracter = "OB"
+                        curso = ""
+                        cuatrimestre = ""
+
+                        for cell in clean_row:
+                            if not ects_match:
+                                m = re.search(r"\b(\d+(?:[\.,]\d+)?)\b", cell)
+                                if m and float(m.group(1).replace(",", ".")) in [3, 4.5, 6, 9, 12, 15, 18, 24, 30]:
+                                    ects_match = m.group(1)
+
+                            cell_lower = cell.lower()
+                            if "básica" in cell_lower or "basica" in cell_lower or "fb" in cell_lower:
+                                caracter = "FB"
+                            elif "optativa" in cell_lower or "op" in cell_lower:
+                                caracter = "OP"
+                            elif "práctica" in cell_lower or "pe" in cell_lower:
+                                caracter = "PE"
+                            elif "tfg" in cell_lower or "tfm" in cell_lower or "trabajo fin" in cell_lower:
+                                caracter = "TFG/TFM"
+
+                            if re.search(r"\b[1-6][ºº°]?\b", cell):
+                                curso = cell
+                            if "cuatrimestre" in cell_lower or "semestre" in cell_lower:
+                                cuatrimestre = cell
+
+                        if clean_row and len(clean_row[0]) > 3 and not any(k in clean_row[0].lower() for k in ["asignatura", "carácter", "créditos", "curso"]):
+                            elementos_curriculares.append({
+                                "modulo": current_modulo,
+                                "materia": current_materia,
+                                "nombre_elemento": clean_row[0],
+                                "creditos_ects": ects_match or "6",
+                                "caracter": caracter,
+                                "curso": curso,
+                                "cuatrimestre": cuatrimestre
+                            })
     except Exception as e:
-        pass
-        
+        print(f"   [AVISO] pdfplumber table extraction fallback: {e}")
+
     return {
         "resumen_creditos": resumen_creditos,
-        "elementos_curriculares": elementos_curriculares,
         "total_elementos": len(elementos_curriculares),
-        "texto_extraido_muestra": full_text[:1000]
+        "elementos_curriculares": elementos_curriculares
     }

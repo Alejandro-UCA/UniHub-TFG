@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "052",
   "universidad_nombre": "Universidad Antonio de Nebrija",
-  "fecha_procesado": "2026-07-31T14:43:03.387481",
+  "fecha_procesado": "2026-08-03T12:45:45.332223",
   "boe_url": "http://www.boe.es/boe/dias/2025/12/08/pdfs/BOE-A-2025-25040.pdf",
   "boe_fecha": "2025-12-08",
   "plan_estudios": {
@@ -13,96 +13,101 @@
       "Asignaturas Optativas.": "6",
       "Prácticas Externas.": "30",
       "Trabajo Fin de Máster.": "12",
-      "Créditos totales.": "60",
-      "Neuropsicología: evaluación e intervención.": "3",
-      "Tratamientos psicofarmacológicos y psicofisiológicos aplicados.": "3",
-      "Intervención en situaciones traumáticas y de crisis.": "3",
-      "Salud mental en el ámbito laboral.": "3",
-      "Intervención psicológica en la enfermedad física crónica.": "3"
+      "Créditos totales.": "60"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Obligatorias.",
+        "nombre_elemento": "Asignaturas Obligatorias.",
         "creditos_ects": "42",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Optativas.",
+        "nombre_elemento": "Asignaturas Optativas.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
         "creditos_ects": "30",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
         "creditos_ects": "12",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
         "creditos_ects": "60",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Neuropsicología: evaluación e intervención.",
+        "nombre_elemento": "Neuropsicología: evaluación e intervención.",
         "creditos_ects": "3",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Tratamientos psicofarmacológicos y psicofisiológicos aplicados.",
+        "nombre_elemento": "Tratamientos psicofarmacológicos y psicofisiológicos aplicados.",
         "creditos_ects": "3",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Intervención en situaciones traumáticas y de crisis.",
+        "nombre_elemento": "Intervención en situaciones traumáticas y de crisis.",
         "creditos_ects": "3",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Salud mental en el ámbito laboral.",
+        "nombre_elemento": "Salud mental en el ámbito laboral.",
         "creditos_ects": "3",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Intervención psicológica en la enfermedad física crónica.",
+        "nombre_elemento": "Intervención psicológica en la enfermedad física crónica.",
         "creditos_ects": "3",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       }
     ],
-    "total_asignaturas": 10,
+    "total_elementos": 10,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n25040 Resolución de 20 de octubre de 2025, de la Universidad Antonio de Nebrija, \npor la que se publica el plan de estudios de Máster Universitario en \nPsicología General Sanitaria.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, y \nacordado el carácter oficial del título por Acuerdo del Consejo de Ministros de 7 de \noctubre de 2025 (publicado en el BOE de 13 de octubre de 2025 por resolución de la \nSecretaría General de Universidades de 9 de octubre de 2025),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención \ndel título de Máster Universitario en Psicología General Sanitaria que queda estructurado \nsegún consta en el anexo de esta resolución.\nHoyo de Manzanares, 20 de octubre de 2025.–La Rectora, Monserrat Gomendio \nKindelan.\nANEXO\nUniversidad Antonio de Nebrija\nPLAN DE ESTUDIOS CONDUCENTE AL TÍTULO DE MÁSTER UNIVERSITARIO \nEN PSICOLOGÍA GENERAL SANITARIA\nPlanificación de las enseñanz"
   }
 }

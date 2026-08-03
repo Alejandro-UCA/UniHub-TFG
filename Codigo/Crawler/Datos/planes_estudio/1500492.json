@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 822/2021 (2)",
   "universidad_codigo": "057",
   "universidad_nombre": "IE Universidad",
-  "fecha_procesado": "2026-07-31T14:11:24.464591",
+  "fecha_procesado": "2026-08-03T12:17:23.857939",
   "boe_url": "http://www.boe.es/boe/dias/2025/12/29/pdfs/BOE-A-2025-27001.pdf",
   "boe_fecha": "2025-12-29",
   "plan_estudios": {
@@ -13,103 +13,155 @@
       "Materias obligatorias (OB).": "117",
       "Materias optativas (OP).": "48",
       "Trabajo de fin de grado (TFG).": "15",
-      "Créditos totales.": "240",
-      "1.º período (27 ECTS).": "Fundamentos de la Filosofía Política.",
-      "2.º período (33 ECTS).": "Fundamentos del Análisis Comparativo.",
-      "1.º período (30 ECTS).": "Riesgo Político y Previsión Estratégica.",
-      "2.º período (30 ECTS).": "Ciberseguridad y Ciber-higiene."
+      "Créditos totales.": "240"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
+        "materia": "Formación básica (B).",
+        "nombre_elemento": "Formación básica (B).",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias obligatorias (OB).",
+        "nombre_elemento": "Materias obligatorias (OB).",
+        "creditos_ects": "117",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias optativas (OP).",
+        "nombre_elemento": "Materias optativas (OP).",
+        "creditos_ects": "48",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo de fin de grado (TFG).",
+        "nombre_elemento": "Trabajo de fin de grado (TFG).",
+        "creditos_ects": "15",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Introducción a las Ciencias Políticas.",
+        "nombre_elemento": "Introducción a las Ciencias Políticas.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Fundamentos del Análisis Comparativo.",
+        "nombre_elemento": "Fundamentos del Análisis Comparativo.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Cultura e Identidad Políticas.",
+        "nombre_elemento": "Cultura e Identidad Políticas.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Opinión Pública y Campañas Electorales.",
+        "nombre_elemento": "Opinión Pública y Campañas Electorales.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Regímenes e Instituciones: Democracia, Autocracia y Estructuras Políticas.",
+        "nombre_elemento": "Regímenes e Instituciones: Democracia, Autocracia y Estructuras Políticas.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Introducción a los Asuntos Internacionales.",
+        "nombre_elemento": "Introducción a los Asuntos Internacionales.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Administración Pública y Servicio Público.",
+        "nombre_elemento": "Administración Pública y Servicio Público.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Microeconomía.",
+        "nombre_elemento": "Microeconomía.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Macroeconomía.",
+        "nombre_elemento": "Macroeconomía.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Fundamentos de la Filosofía Política.",
+        "nombre_elemento": "Fundamentos de la Filosofía Política.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
         "creditos_ects": "60",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 11,
+    "total_elementos": 16,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n27001 Resolución de 17 de diciembre de 2025, de IE Universidad, por la que se \npublica el plan de estudios de Graduado o Graduada en Ciencias Políticas/\nBachelor in Political Science.\nEste Rectorado ha resuelto ordenar la publicación en el «Boletín Oficial del Estado» y \nen el «Boletín Oficial de Castilla y León», del plan de estudios conducente a la obtención \ndel título oficial de Graduado o Graduada en Ciencias Políticas/Bachelor in Political \nScience por la IE Universidad (1500492). Esta decisión se toma en cumplimiento de lo \ndispuesto en el artículo 8.3 de Ley Orgánica 2/2023, de 22 de marzo, del Sistema \nUniversitario y en el artículo 27.4 del Real Decreto 822/2021, de 28 de septiembre, por el \nque se establece la organización de las enseñanzas universitarias y del procedimiento \nde aseguramiento de su calidad.\nEl título obtuvo la verificación del plan de estudios por el Consejo de Universidades \nel 18 de julio de 2025 tras el informe favor"
   }
 }

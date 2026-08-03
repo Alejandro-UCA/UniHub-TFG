@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 822/2021 (2)",
   "universidad_codigo": "047",
   "universidad_nombre": "Universidad Alfonso X El Sabio",
-  "fecha_procesado": "2026-07-31T14:32:27.458684",
+  "fecha_procesado": "2026-08-03T12:35:59.456881",
   "boe_url": "http://www.boe.es/boe/dias/2019/12/04/pdfs/BOE-A-2019-17527.pdf",
   "boe_fecha": "2019-12-04",
   "plan_estudios": {
@@ -12,51 +12,427 @@
       "Formación básica.": "60",
       "Obligatorias.": "132",
       "Optativas.": "18",
-      "Prácticas Externas.": "PE",
+      "Prácticas Externas.": "24",
       "Trabajo Fin de Grado.": "6",
-      "Total.": "240",
-      "Biología.": "BA",
-      "Bioquímica.": "BA",
-      "Estructura y Función del Cuerpo Humano.": "BA",
-      "Fisiología.": "BA",
-      "Bioestadística.": "BA",
-      "Antropología y Psicología de la Alimentación.": "BA",
-      "Química.": "BA",
-      "Idioma Moderno.": "BA",
-      "Comunicación.": "BA",
-      "Informática.": "BA",
-      "Bromatología.": "OB",
-      "Tecnología de los alimentos.": "OB",
-      "Tecnología culinaria.": "OB",
-      "Toxicología.": "OB",
-      "Microbiología y Parasitología.": "OB",
-      "Higiene y Seguridad Alimentaria.": "OB",
-      "Control de Calidad.": "OB",
-      "Economía y Gestión Alimentarias.": "OB",
-      "Salud Pública.": "OB",
-      "Nutrición Comunitaria.": "OB",
-      "Alimentación y cultura.": "OB",
-      "Legislación y deontología alimentaria.": "OB",
-      "Educación Nutricional.": "OB",
-      "Nutrición.": "OB",
-      "Dietética.": "OB",
-      "Dietoterapia.": "OB",
-      "Fisiopatología.": "OB",
-      "Farmacología Aplicada.": "OB",
-      "Nutrición Clínica.": "OB",
-      "Nutrición y Deporte.": "OB",
-      "Endocrinología aplicada.": "OB",
-      "Nutrigenómica.": "OP",
-      "Técnicas de Investigación y Desarrollo Nutricional.": "OP",
-      "Alimentos Funcionales.": "OP",
-      "Idioma Moderno II.": "OP",
-      "Fitoterapia.": "OP",
-      "Prácticas en Empresa I.": "OP",
-      "Prácticas en Empresa II.": "OP",
-      "Trabajo de fin de grado.": "TFG"
+      "Total.": "240"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Formación básica.",
+        "nombre_elemento": "Formación básica.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "132",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativas.",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "24",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biología.",
+        "nombre_elemento": "Biología.",
+        "creditos_ects": "6",
+        "caracter": "BA",
+        "curso": "",
+        "cuatrimestre": "I"
+      },
+      {
+        "modulo": "",
+        "materia": "Bioquímica.",
+        "nombre_elemento": "Bioquímica.",
+        "creditos_ects": "6",
+        "caracter": "BA",
+        "curso": "",
+        "cuatrimestre": "II"
+      },
+      {
+        "modulo": "",
+        "materia": "Estructura y Función del Cuerpo Humano.",
+        "nombre_elemento": "Estructura y Función del Cuerpo Humano.",
+        "creditos_ects": "6",
+        "caracter": "BA",
+        "curso": "",
+        "cuatrimestre": "I"
+      },
+      {
+        "modulo": "",
+        "materia": "Fisiología.",
+        "nombre_elemento": "Fisiología.",
+        "creditos_ects": "6",
+        "caracter": "BA",
+        "curso": "",
+        "cuatrimestre": "II"
+      },
+      {
+        "modulo": "",
+        "materia": "Bioestadística.",
+        "nombre_elemento": "Bioestadística.",
+        "creditos_ects": "6",
+        "caracter": "BA",
+        "curso": "",
+        "cuatrimestre": "I"
+      },
+      {
+        "modulo": "",
+        "materia": "Antropología y Psicología de la Alimentación.",
+        "nombre_elemento": "Antropología y Psicología de la Alimentación.",
+        "creditos_ects": "6",
+        "caracter": "BA",
+        "curso": "",
+        "cuatrimestre": "II"
+      },
+      {
+        "modulo": "",
+        "materia": "Química.",
+        "nombre_elemento": "Química.",
+        "creditos_ects": "6",
+        "caracter": "BA",
+        "curso": "",
+        "cuatrimestre": "I"
+      },
+      {
+        "modulo": "",
+        "materia": "Idioma Moderno.",
+        "nombre_elemento": "Idioma Moderno.",
+        "creditos_ects": "6",
+        "caracter": "BA",
+        "curso": "",
+        "cuatrimestre": "I"
+      },
+      {
+        "modulo": "",
+        "materia": "Comunicación.",
+        "nombre_elemento": "Comunicación.",
+        "creditos_ects": "6",
+        "caracter": "BA",
+        "curso": "",
+        "cuatrimestre": "II"
+      },
+      {
+        "modulo": "",
+        "materia": "Informática.",
+        "nombre_elemento": "Informática.",
+        "creditos_ects": "6",
+        "caracter": "BA",
+        "curso": "",
+        "cuatrimestre": "II"
+      },
+      {
+        "modulo": "",
+        "materia": "Bromatología.",
+        "nombre_elemento": "Bromatología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "III"
+      },
+      {
+        "modulo": "",
+        "materia": "Tecnología de los alimentos.",
+        "nombre_elemento": "Tecnología de los alimentos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "IV"
+      },
+      {
+        "modulo": "",
+        "materia": "Tecnología culinaria.",
+        "nombre_elemento": "Tecnología culinaria.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "V"
+      },
+      {
+        "modulo": "",
+        "materia": "Toxicología.",
+        "nombre_elemento": "Toxicología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "IV"
+      },
+      {
+        "modulo": "",
+        "materia": "Microbiología y Parasitología.",
+        "nombre_elemento": "Microbiología y Parasitología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "III"
+      },
+      {
+        "modulo": "",
+        "materia": "Higiene y Seguridad Alimentaria.",
+        "nombre_elemento": "Higiene y Seguridad Alimentaria.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "V"
+      },
+      {
+        "modulo": "",
+        "materia": "Control de Calidad.",
+        "nombre_elemento": "Control de Calidad.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "VII"
+      },
+      {
+        "modulo": "",
+        "materia": "Economía y Gestión Alimentarias.",
+        "nombre_elemento": "Economía y Gestión Alimentarias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "VII"
+      },
+      {
+        "modulo": "",
+        "materia": "Salud Pública.",
+        "nombre_elemento": "Salud Pública.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "V"
+      },
+      {
+        "modulo": "",
+        "materia": "Nutrición Comunitaria.",
+        "nombre_elemento": "Nutrición Comunitaria.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "V"
+      },
+      {
+        "modulo": "",
+        "materia": "Alimentación y cultura.",
+        "nombre_elemento": "Alimentación y cultura.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "VII"
+      },
+      {
+        "modulo": "",
+        "materia": "Legislación y deontología alimentaria.",
+        "nombre_elemento": "Legislación y deontología alimentaria.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "VI"
+      },
+      {
+        "modulo": "",
+        "materia": "Educación Nutricional.",
+        "nombre_elemento": "Educación Nutricional.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "VII"
+      },
+      {
+        "modulo": "",
+        "materia": "Nutrición.",
+        "nombre_elemento": "Nutrición.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "III y IV"
+      },
+      {
+        "modulo": "",
+        "materia": "Dietética.",
+        "nombre_elemento": "Dietética.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "IV"
+      },
+      {
+        "modulo": "",
+        "materia": "Dietoterapia.",
+        "nombre_elemento": "Dietoterapia.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "V"
+      },
+      {
+        "modulo": "",
+        "materia": "Fisiopatología.",
+        "nombre_elemento": "Fisiopatología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "IV"
+      },
+      {
+        "modulo": "",
+        "materia": "Farmacología Aplicada.",
+        "nombre_elemento": "Farmacología Aplicada.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "III"
+      },
+      {
+        "modulo": "",
+        "materia": "Nutrición Clínica.",
+        "nombre_elemento": "Nutrición Clínica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "VI"
+      },
+      {
+        "modulo": "",
+        "materia": "Nutrición y Deporte.",
+        "nombre_elemento": "Nutrición y Deporte.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "VI"
+      },
+      {
+        "modulo": "",
+        "materia": "Endocrinología aplicada.",
+        "nombre_elemento": "Endocrinología aplicada.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "III"
+      },
+      {
+        "modulo": "",
+        "materia": "Nutrigenómica.",
+        "nombre_elemento": "Nutrigenómica.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "VI o VII"
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas de Investigación y Desarrollo Nutricional.",
+        "nombre_elemento": "Técnicas de Investigación y Desarrollo Nutricional.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "VI o VII"
+      },
+      {
+        "modulo": "",
+        "materia": "Alimentos Funcionales.",
+        "nombre_elemento": "Alimentos Funcionales.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "VI o VII"
+      },
+      {
+        "modulo": "",
+        "materia": "Idioma Moderno II.",
+        "nombre_elemento": "Idioma Moderno II.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "VI o VII"
+      },
+      {
+        "modulo": "",
+        "materia": "Fitoterapia.",
+        "nombre_elemento": "Fitoterapia.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "VI o VII"
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas en Empresa I.",
+        "nombre_elemento": "Prácticas en Empresa I.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "VI o VII"
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas en Empresa II.",
+        "nombre_elemento": "Prácticas en Empresa II.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": "VI o VII"
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "24",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": "VIII"
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo de fin de grado.",
+        "nombre_elemento": "Trabajo de fin de grado.",
+        "creditos_ects": "6",
+        "caracter": "TFG",
+        "curso": "",
+        "cuatrimestre": "VIII"
+      }
+    ],
+    "total_elementos": 46,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n17527 Resolución de 20 de noviembre de 2019, de la Universidad Alfonso X el \nSabio, por la que se publica el plan de estudios de Graduado en Nutrición \nHumana y Dietética.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme positivo de la Fundación para el Conocimiento madri+d, y acordado el carácter \noficial del título por Acuerdo de Consejo de Ministros de 18 de octubre de 2019 \n(publicado en el BOE de 6 de noviembre, por Resolución de la Secretaría General de \nUniversidades de 28 de octubre de 2019),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención \ndel título de Grado en Nutrición Humana y Dietética.\nVillanueva de la Cañada, 20 de noviembre de 2019.–El Rector, José Domínguez de \nPosada Rodríguez.\nDistribución del plan de estudios en créditos ECTS:\nTipo de materia Créditos\nECTS\nFormación básica. 60\nObligatorias. 132\nOptativas. 18\nPrácticas Externas. 24\nTrabajo Fin de Gr"
   }
 }

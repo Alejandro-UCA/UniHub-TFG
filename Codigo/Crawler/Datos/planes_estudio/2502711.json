@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 1393/2007 (1)",
   "universidad_codigo": "074",
   "universidad_nombre": "Universidad a Distancia de Madrid",
-  "fecha_procesado": "2026-07-31T14:23:05.944252",
+  "fecha_procesado": "2026-08-03T12:26:47.916310",
   "boe_url": "http://www.boe.es/boe/dias/2015/05/06/pdfs/BOE-A-2015-5064.pdf",
   "boe_fecha": "2015-05-06",
   "plan_estudios": {
@@ -18,409 +18,549 @@
       "Contenidos Generales de la Ingeniería.": "12",
       "Proyecto Fin de Carrera.": "12"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
+        "materia": "Informática.",
+        "nombre_elemento": "Informática.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Matemáticas.",
+        "nombre_elemento": "Matemáticas.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Matemáticas.",
+        "nombre_elemento": "Matemáticas.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Informática.",
+        "nombre_elemento": "Informática.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Física.",
+        "nombre_elemento": "Física.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Matemáticas.",
+        "nombre_elemento": "Matemáticas.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Idioma Moderno.",
+        "nombre_elemento": "Idioma Moderno.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Estadística.",
+        "nombre_elemento": "Estadística.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho.",
+        "nombre_elemento": "Derecho.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Empresa.",
+        "nombre_elemento": "Empresa.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Álgebra.",
+        "nombre_elemento": "Álgebra.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Análisis Matemático.",
+        "nombre_elemento": "Análisis Matemático.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Electromagnetismo, Semiconductores y Ondas.",
+        "nombre_elemento": "Electromagnetismo, Semiconductores y Ondas.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Matemática Discreta.",
+        "nombre_elemento": "Matemática Discreta.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Estadística y Probabilidad.",
+        "nombre_elemento": "Estadística y Probabilidad.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Lógica.",
+        "nombre_elemento": "Lógica.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Fundamentos de la Programación.",
+        "nombre_elemento": "Fundamentos de la Programación.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Estructuras de Datos.",
+        "nombre_elemento": "Estructuras de Datos.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Metodología de la Programación.",
+        "nombre_elemento": "Metodología de la Programación.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Paradigmas de la Programación.",
+        "nombre_elemento": "Paradigmas de la Programación.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Análisis y Diseño de Algoritmos.",
+        "nombre_elemento": "Análisis y Diseño de Algoritmos.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Tecnología y Estructura de Computadores.",
+        "nombre_elemento": "Tecnología y Estructura de Computadores.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Arquitectura de Computadores y Sistemas.",
+        "nombre_elemento": "Arquitectura de Computadores y Sistemas.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Derecho Informático y Deontología Profesional.",
+        "nombre_elemento": "Derecho Informático y Deontología Profesional.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Organización de Empresas.",
+        "nombre_elemento": "Organización de Empresas.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Inglés.",
+        "nombre_elemento": "Inglés.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Tecnologías de la Información y la Comunicación.",
+        "nombre_elemento": "Tecnologías de la Información y la Comunicación.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Inteligencia Artificial.",
+        "nombre_elemento": "Inteligencia Artificial.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Ingeniería del Conocimiento.",
+        "nombre_elemento": "Ingeniería del Conocimiento.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Ingeniería de Sistemas y de la Información.",
+        "nombre_elemento": "Ingeniería de Sistemas y de la Información.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Bases de Datos.",
+        "nombre_elemento": "Bases de Datos.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Interacción Persona-Computador.",
+        "nombre_elemento": "Interacción Persona-Computador.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Ingeniería del Software I.",
+        "nombre_elemento": "Ingeniería del Software I.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Redes de Computadores.",
+        "nombre_elemento": "Redes de Computadores.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Sistemas Operativos.",
+        "nombre_elemento": "Sistemas Operativos.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Sistemas Distribuidos.",
+        "nombre_elemento": "Sistemas Distribuidos.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Seguridad en Redes y Criptografía.",
+        "nombre_elemento": "Seguridad en Redes y Criptografía.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Autómatas y Procesadores del Lenguajes.",
+        "nombre_elemento": "Autómatas y Procesadores del Lenguajes.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Programación Avanzada.",
+        "nombre_elemento": "Programación Avanzada.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Ingeniería del Software II.",
+        "nombre_elemento": "Ingeniería del Software II.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Ingeniería del Software III.",
+        "nombre_elemento": "Ingeniería del Software III.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Patrones de Diseño y Frameworks.",
+        "nombre_elemento": "Patrones de Diseño y Frameworks.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Programación Web.",
+        "nombre_elemento": "Programación Web.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Gestión de Proyectos.",
+        "nombre_elemento": "Gestión de Proyectos.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Programación en Entornos Empresariales.",
+        "nombre_elemento": "Programación en Entornos Empresariales.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Ingeniería de Requisitos.",
+        "nombre_elemento": "Ingeniería de Requisitos.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Minería de Datos.",
+        "nombre_elemento": "Minería de Datos.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Sistemas de Apoyo a la Decisión.",
+        "nombre_elemento": "Sistemas de Apoyo a la Decisión.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Business Intelligence.",
+        "nombre_elemento": "Business Intelligence.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Aplicaciones Empresariales.",
+        "nombre_elemento": "Aplicaciones Empresariales.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Modelos y Tecnologías de los Sistemas de Información.",
+        "nombre_elemento": "Modelos y Tecnologías de los Sistemas de Información.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Bases de Datos II.",
+        "nombre_elemento": "Bases de Datos II.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Investigación Operativa.",
+        "nombre_elemento": "Investigación Operativa.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Planificación Estratégica de las TIC.",
+        "nombre_elemento": "Planificación Estratégica de las TIC.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Principios de la Economía de la Empresa.",
+        "nombre_elemento": "Principios de la Economía de la Empresa.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Habilidades Directivas.",
+        "nombre_elemento": "Habilidades Directivas.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Auditoría de Sistemas Informáticos.",
+        "nombre_elemento": "Auditoría de Sistemas Informáticos.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Responsabilidad Social Corporativa.",
+        "nombre_elemento": "Responsabilidad Social Corporativa.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo de Fin de Grado.",
+        "nombre_elemento": "Trabajo de Fin de Grado.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 50,
+    "total_elementos": 60,
     "texto_extraido_muestra": "BOLETÍN OFICIAL DEL ESTADO\nNúm. 108 Miércoles 6 de mayo de 2015 Sec. III.   Pág. 40219\nIII. OTRAS DISPOSICIONES\nUNIVERSIDADES\n5064 Resolución de 20 de abril de 2015, de la Universidad a Distancia de Madrid, \npor la que se publica el plan de estudios de Graduado en Ingeniería \nInformática.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme favorable de la Agencia Nacional de Evaluación de la Calidad y Acreditación y \ndeclarado el carácter oficial del Título por Acuerdo del Consejo de Ministros de 8 de marzo \nde 2013 (publicado en el «BOE» de 24 de abril de 2013, por Resolución de la Secretaría \nGeneral de Universidades, de 2 de abril de 2013),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención del \nTítulo de Graduado o Graduada en Ingeniería Informática.\nEl plan de estudios a que se refiere la presente Resolución quedará estructurado \nconforme figura en el Anexo de la misma.\nCollado Villalba, 20 de abril de 2015."
   }
 }

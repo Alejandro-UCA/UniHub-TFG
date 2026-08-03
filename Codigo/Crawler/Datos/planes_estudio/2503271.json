@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 1393/2007 (1)",
   "universidad_codigo": "057",
   "universidad_nombre": "IE Universidad",
-  "fecha_procesado": "2026-07-31T14:11:52.355798",
+  "fecha_procesado": "2026-08-03T12:17:49.749767",
   "boe_url": "http://www.boe.es/boe/dias/2018/03/27/pdfs/BOE-A-2018-4311.pdf",
   "boe_fecha": "2018-03-27",
   "plan_estudios": {
@@ -32,89 +32,387 @@
       "Itinerarios (Materias Optativas).": "OP",
       "Trabajo fin de Grado.": "TFG"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Organización y estructura de la empresa.",
+        "nombre_elemento": "Organización y estructura de la empresa.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Fundamentos de Dirección Comercial y Marketing.",
+        "nombre_elemento": "Fundamentos de Dirección Comercial y Marketing.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Fundamentos de Dirección Financiera.",
+        "nombre_elemento": "Fundamentos de Dirección Financiera.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Contabilidad Financiera.",
+        "nombre_elemento": "Contabilidad Financiera.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Economía.",
-        "nombre_asignatura": "Introducción a la Economía.",
+        "nombre_elemento": "Introducción a la Economía.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Economía.",
-        "nombre_asignatura": "Microeconomía y análisis de operaciones.",
+        "nombre_elemento": "Microeconomía y análisis de operaciones.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Estadística.",
-        "nombre_asignatura": "Estadística, probabilidad y matemática discreta.",
+        "nombre_elemento": "Estadística, probabilidad y matemática discreta.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Informática.",
-        "nombre_asignatura": "Fundamentos de Sistemas de Información I.",
+        "nombre_elemento": "Fundamentos de Sistemas de Información I.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Informática.",
-        "nombre_asignatura": "Fundamentos de Sistemas de Información II.",
+        "nombre_elemento": "Fundamentos de Sistemas de Información II.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Informática.",
-        "nombre_asignatura": "Fundamentos de programación para aplicaciones de negocio.",
+        "nombre_elemento": "Fundamentos de programación para aplicaciones de negocio.",
         "creditos_ects": "",
         "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Empresa.",
+        "nombre_elemento": "Empresa.",
+        "creditos_ects": "",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Informática.",
+        "nombre_elemento": "Informática.",
+        "creditos_ects": "",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Economía.",
+        "nombre_elemento": "Economía.",
+        "creditos_ects": "",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Estadística.",
+        "nombre_elemento": "Estadística.",
+        "creditos_ects": "",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Habilidades.",
+        "nombre_elemento": "Habilidades.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión Organizacional.",
+        "nombre_elemento": "Gestión Organizacional.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Empresa.",
+        "nombre_elemento": "Empresa.",
+        "creditos_ects": "",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Informática.",
+        "nombre_elemento": "Informática.",
+        "creditos_ects": "",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Sistemas empresariales.",
+        "nombre_elemento": "Sistemas empresariales.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión de proyectos.",
+        "nombre_elemento": "Gestión de proyectos.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Estrategia de Sistemas de Información.",
+        "nombre_elemento": "Estrategia de Sistemas de Información.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión de datos y de la información en la empresa.",
+        "nombre_elemento": "Gestión de datos y de la información en la empresa.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Sistemas empresariales.",
+        "nombre_elemento": "Sistemas empresariales.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Análisis y Diseño de Sistemas.",
+        "nombre_elemento": "Análisis y Diseño de Sistemas.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Comunicación y Organizaciones.",
+        "nombre_elemento": "Comunicación y Organizaciones.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Humanidades y Retos Globales.",
+        "nombre_elemento": "Humanidades y Retos Globales.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Habilidades.",
+        "nombre_elemento": "Habilidades.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión de datos y de la información en la empresa.",
+        "nombre_elemento": "Gestión de datos y de la información en la empresa.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión de proyectos.",
+        "nombre_elemento": "Gestión de proyectos.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "La Empresa Digital.",
+        "nombre_elemento": "La Empresa Digital.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Infraestructura tecnológica empresarial.",
+        "nombre_elemento": "Infraestructura tecnológica empresarial.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Análisis y diseño de sistemas.",
+        "nombre_elemento": "Análisis y diseño de sistemas.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Implementación de Sistemas.",
+        "nombre_elemento": "Implementación de Sistemas.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Seguridad y Riesgos de la información.",
+        "nombre_elemento": "Seguridad y Riesgos de la información.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Deontología.",
+        "nombre_elemento": "Deontología.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Innovación y tecnología.",
+        "nombre_elemento": "Innovación y tecnología.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Comunicación y Organizaciones.",
+        "nombre_elemento": "Comunicación y Organizaciones.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Itinerarios (Materias Optativas).",
+        "nombre_elemento": "Itinerarios (Materias Optativas).",
+        "creditos_ects": "",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Humanidades y Retos Globales.",
+        "nombre_elemento": "Humanidades y Retos Globales.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Innovación y tecnología.",
+        "nombre_elemento": "Innovación y tecnología.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Comunicación y Organizaciones.",
+        "nombre_elemento": "Comunicación y Organizaciones.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Grado.",
+        "nombre_elemento": "Trabajo fin de Grado.",
+        "creditos_ects": "",
+        "caracter": "TFG",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 10,
+    "total_elementos": 42,
     "texto_extraido_muestra": "BOLETÍN OFICIAL DEL ESTADO\nNúm. 75 Martes 27 de marzo de 2018 Sec. III.   Pág. 33704\nIII. OTRAS DISPOSICIONES\nUNIVERSIDADES\n4311 Resolución de 5 de marzo de 2018, de IE Universidad, por la que se publica el \nplan de estudios de Graduado en Gestión de Sistemas de Información/\nBachelor in Management Information Systems.\nEn cumplimiento de lo dispuesto en el artículo 35.4 de la Ley Orgánica 6/2001, de 21 \nde diciembre, de universidades y en el apartado 13 del Real Decreto 861/2010, de 2 de \njulio, que modifica el artículo 26 del Real Decreto 1393/2007, de 30 de octubre, por el que \nse establece la ordenación de las enseñanzas universitarias oficiales; una vez obtenida la \nverificación de los planes de estudios por el Consejo de Universidades el 4 de marzo de \n2016 previo informe positivo de la Agencia para la Calidad del Sistema Universitario de \nCastilla y León y establecido el carácter oficial del título por Acuerdo de Consejo de \nMinistros de 7 de octubre de 2016 por el que se establec"
   }
 }

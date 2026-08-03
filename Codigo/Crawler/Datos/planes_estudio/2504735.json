@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 822/2021 (2)",
   "universidad_codigo": "047",
   "universidad_nombre": "Universidad Alfonso X El Sabio",
-  "fecha_procesado": "2026-07-31T14:32:19.499390",
+  "fecha_procesado": "2026-08-03T12:35:51.482537",
   "boe_url": "http://www.boe.es/boe/dias/2023/09/11/pdfs/BOE-A-2023-19262.pdf",
   "boe_fecha": "2023-09-11",
   "plan_estudios": {
@@ -13,47 +13,408 @@
       "Obligatorias.": "138",
       "Optativas.": "24",
       "Prácticas Externas.": "12",
-      "Trabajo Fin de Grado.": "Trabajo Fin de Grado.",
-      "Total.": "240",
-      "Comunicación Oral y Escrita.": "Básica.",
-      "Organización y Administración de Empresas.": "Básica.",
-      "Historia del Marketing y la Sociedad.": "Básica.",
-      "Ecosistema y Transformación Digital.": "Básica.",
-      "Introducción al Marketing.": "Básica.",
-      "Informática aplicada.": "Básica.",
-      "Creatividad y pensamiento disruptivo en el marketing.": "Básica.",
-      "Fundamentos de la inteligencia de negocio.": "Básica.",
-      "Macroeconomía.": "Obligatoria.",
-      "Matemáticas empresariales.": "Obligatoria.",
-      "Microeconomía.": "Obligatoria.",
-      "Derecho de la Empresa.": "Obligatoria.",
-      "Operaciones de Inversión y Financiación.": "Obligatoria.",
-      "Análisis y visualización de datos.": "Obligatoria.",
-      "Marketing estratégico.": "Obligatoria.",
-      "Inglés para los negocios.": "Básica.",
-      "Habilidades Directivas.": "Básica.",
-      "Estadística empresarial.": "Obligatoria.",
-      "Plan de Marketing.": "Obligatoria.",
-      "Comportamiento del Consumidor.": "Obligatoria.",
-      "Métodos de Investigación de Mercados.": "Obligatoria.",
-      "Políticas de Producto y Precio.": "Obligatoria.",
-      "Distribución y Logística.": "Obligatoria.",
-      "Retail Marketing.": "Obligatoria.",
-      "Comercio electrónico.": "Obligatoria.",
-      "Marketing Internacional.": "Obligatoria.",
-      "Comunicación Integral de Marketing.": "Obligatoria.",
-      "Dirección de ventas y negociación.": "Obligatoria.",
-      "Marketing aplicado a los dispositivos móviles.": "Obligatoria.",
-      "Materia Optativa.": "Optativa.",
-      "Simulador empresarial de Marketing.": "Obligatoria.",
-      "CRM y servicio al cliente.": "Obligatoria.",
-      "Medición y Analítica Web.": "Obligatoria.",
-      "Gestión de Comunidades Virtuales y Redes Sociales.": "Obligatoria.",
-      "Materias Optativas.": "Optativa.",
-      "Prácticas Académicas Externas 1.": "Prácticas Externas."
+      "Trabajo Fin de Grado.": "6",
+      "Total.": "240"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Formación Básica.",
+        "nombre_elemento": "Formación Básica.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "138",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativas.",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "24",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Comunicación Oral y Escrita.",
+        "nombre_elemento": "Comunicación Oral y Escrita.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Organización y Administración de Empresas.",
+        "nombre_elemento": "Organización y Administración de Empresas.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Historia del Marketing y la Sociedad.",
+        "nombre_elemento": "Historia del Marketing y la Sociedad.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ecosistema y Transformación Digital.",
+        "nombre_elemento": "Ecosistema y Transformación Digital.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Introducción al Marketing.",
+        "nombre_elemento": "Introducción al Marketing.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Informática aplicada.",
+        "nombre_elemento": "Informática aplicada.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Creatividad y pensamiento disruptivo en el marketing.",
+        "nombre_elemento": "Creatividad y pensamiento disruptivo en el marketing.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos de la inteligencia de negocio.",
+        "nombre_elemento": "Fundamentos de la inteligencia de negocio.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Macroeconomía.",
+        "nombre_elemento": "Macroeconomía.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Matemáticas empresariales.",
+        "nombre_elemento": "Matemáticas empresariales.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Microeconomía.",
+        "nombre_elemento": "Microeconomía.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho de la Empresa.",
+        "nombre_elemento": "Derecho de la Empresa.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Operaciones de Inversión y Financiación.",
+        "nombre_elemento": "Operaciones de Inversión y Financiación.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Análisis y visualización de datos.",
+        "nombre_elemento": "Análisis y visualización de datos.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Marketing estratégico.",
+        "nombre_elemento": "Marketing estratégico.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Inglés para los negocios.",
+        "nombre_elemento": "Inglés para los negocios.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Habilidades Directivas.",
+        "nombre_elemento": "Habilidades Directivas.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Estadística empresarial.",
+        "nombre_elemento": "Estadística empresarial.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Plan de Marketing.",
+        "nombre_elemento": "Plan de Marketing.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Comportamiento del Consumidor.",
+        "nombre_elemento": "Comportamiento del Consumidor.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Métodos de Investigación de Mercados.",
+        "nombre_elemento": "Métodos de Investigación de Mercados.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Políticas de Producto y Precio.",
+        "nombre_elemento": "Políticas de Producto y Precio.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Distribución y Logística.",
+        "nombre_elemento": "Distribución y Logística.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Retail Marketing.",
+        "nombre_elemento": "Retail Marketing.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Comercio electrónico.",
+        "nombre_elemento": "Comercio electrónico.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Marketing Internacional.",
+        "nombre_elemento": "Marketing Internacional.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Comunicación Integral de Marketing.",
+        "nombre_elemento": "Comunicación Integral de Marketing.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Dirección de ventas y negociación.",
+        "nombre_elemento": "Dirección de ventas y negociación.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Marketing aplicado a los dispositivos móviles.",
+        "nombre_elemento": "Marketing aplicado a los dispositivos móviles.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia Optativa.",
+        "nombre_elemento": "Materia Optativa.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Simulador empresarial de Marketing.",
+        "nombre_elemento": "Simulador empresarial de Marketing.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "CRM y servicio al cliente.",
+        "nombre_elemento": "CRM y servicio al cliente.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Medición y Analítica Web.",
+        "nombre_elemento": "Medición y Analítica Web.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión de Comunidades Virtuales y Redes Sociales.",
+        "nombre_elemento": "Gestión de Comunidades Virtuales y Redes Sociales.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias Optativas.",
+        "nombre_elemento": "Materias Optativas.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias Optativas.",
+        "nombre_elemento": "Materias Optativas.",
+        "creditos_ects": "12",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Académicas Externas 1.",
+        "nombre_elemento": "Prácticas Académicas Externas 1.",
+        "creditos_ects": "12",
+        "caracter": "Prácticas Externas.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "Trabajo Fin de Grado.",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_elementos": 44,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n19262 Resolución de 28 de agosto de 2023, de la Universidad Alfonso X el Sabio, \npor la que se publica el plan de estudios de Graduado o Graduada en \nMarketing.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme positivo de la Fundación para el Conocimiento madri+d, y acordado el carácter \noficial del título por Acuerdo de Consejo de Ministros de 18 de julio de 2023 (publicado \nen el BOE núm. 178, de 27 de julio de 2023, por Resolución de la Secretaría General de \nUniversidades de 19 de julio de 2023),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención \ndel título de Graduado o Graduada en Marketing por la Universidad Alfonso X el Sabio.\nVillanueva de la Cañada, 28 de agosto de 2023.–La Rectora, Ana Isabel Fernández \nMartínez.\nANEXO\nDistribución del plan de estudios en créditos ECTS\nTipo de materia Créditos \nECTS\nFormación Básica.  60\nObligatorias. 138\nOptativas.  24\nPrácti"
   }
 }

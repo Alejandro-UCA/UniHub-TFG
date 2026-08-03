@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "057",
   "universidad_nombre": "IE Universidad",
-  "fecha_procesado": "2026-07-31T14:13:28.529952",
+  "fecha_procesado": "2026-08-03T12:19:18.774025",
   "boe_url": "http://www.boe.es/boe/dias/2018/03/27/pdfs/BOE-A-2018-4314.pdf",
   "boe_fecha": "2018-03-27",
   "plan_estudios": {
@@ -70,8 +70,594 @@
       "Métodos para el diseño e implementación de soluciones.": "OB",
       "Soluciones digitales: Experiencia de usuario y diseño interactivo.": "OB"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "El nuevo Manager de RRHH: objetivos principales para ser un aliado comercial estratégico.",
+        "nombre_elemento": "El nuevo Manager de RRHH: objetivos principales para ser un aliado comercial estratégico.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Los RRHH como factor de cambio y de ejecución de transformaciones.",
+        "nombre_elemento": "Los RRHH como factor de cambio y de ejecución de transformaciones.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Comprender y gestionar el comportamiento para aumentar el rendimiento.",
+        "nombre_elemento": "Comprender y gestionar el comportamiento para aumentar el rendimiento.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Comprender la cultura y la gestión de los equipos en el nuevo entorno laboral.",
+        "nombre_elemento": "Comprender la cultura y la gestión de los equipos en el nuevo entorno laboral.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "La gestión del talento para garantizar el éxito empresarial.",
+        "nombre_elemento": "La gestión del talento para garantizar el éxito empresarial.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Desarrollo personal y formación.",
+        "nombre_elemento": "Desarrollo personal y formación.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Aplicaciones y herramientas del nuevo modo de hacer RRHH.",
+        "nombre_elemento": "Aplicaciones y herramientas del nuevo modo de hacer RRHH.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Casos prácticos.",
+        "nombre_elemento": "Casos prácticos.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos de la economía internacional y los impuestos.",
+        "nombre_elemento": "Fundamentos de la economía internacional y los impuestos.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fuentes normativas y referencias fundamentales.",
+        "nombre_elemento": "Fuentes normativas y referencias fundamentales.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Principios económicos y gestión estratégica.",
+        "nombre_elemento": "Principios económicos y gestión estratégica.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Contabilidad y gestión financiera.",
+        "nombre_elemento": "Contabilidad y gestión financiera.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Planificación fiscal de empresas multinacionales.",
+        "nombre_elemento": "Planificación fiscal de empresas multinacionales.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Planificación fiscal de expatriados y familias transnacionales.",
+        "nombre_elemento": "Planificación fiscal de expatriados y familias transnacionales.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tributación indirecta internacional.",
+        "nombre_elemento": "Tributación indirecta internacional.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Conceptos generales y medidas comunes antielusión.",
+        "nombre_elemento": "Conceptos generales y medidas comunes antielusión.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tratamiento de las medidas BEPS de la OCDE.",
+        "nombre_elemento": "Tratamiento de las medidas BEPS de la OCDE.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asesoría internacional tributaria y valoración de riesgos.",
+        "nombre_elemento": "Asesoría internacional tributaria y valoración de riesgos.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativas/Prácticas.",
+        "nombre_elemento": "Optativas/Prácticas.",
+        "creditos_ects": "",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Sistemas jurídicos de referencia.",
+        "nombre_elemento": "Sistemas jurídicos de referencia.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Requisitos de Compliance en Derecho Comparado.",
+        "nombre_elemento": "Requisitos de Compliance en Derecho Comparado.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ética en los negocios.",
+        "nombre_elemento": "Ética en los negocios.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Análisis y gestión de riesgos y auditoría.",
+        "nombre_elemento": "Análisis y gestión de riesgos y auditoría.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Medidas de control y comunicación.",
+        "nombre_elemento": "Medidas de control y comunicación.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Función de Compliance e investigaciones.",
+        "nombre_elemento": "Función de Compliance e investigaciones.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Blanqueo de capitales y sobornos.",
+        "nombre_elemento": "Blanqueo de capitales y sobornos.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Comercio internacional y protección de datos.",
+        "nombre_elemento": "Comercio internacional y protección de datos.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos de empresa.",
+        "nombre_elemento": "Fundamentos de empresa.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión financiera y contable.",
+        "nombre_elemento": "Gestión financiera y contable.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Habilidades interpersonales.",
+        "nombre_elemento": "Habilidades interpersonales.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Electivos.",
+        "nombre_elemento": "Electivos.",
+        "creditos_ects": "",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Mercado de capitales.",
+        "nombre_elemento": "Mercado de capitales.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Economía y Finanzas.",
+        "nombre_elemento": "Economía y Finanzas.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión estratégica de empresas inmobiliarias.",
+        "nombre_elemento": "Gestión estratégica de empresas inmobiliarias.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión global de activos inmobiliarios.",
+        "nombre_elemento": "Gestión global de activos inmobiliarios.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión de proyectos y gestión de construcción.",
+        "nombre_elemento": "Gestión de proyectos y gestión de construcción.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Valoración de inmuebles y negocios (método RICS).",
+        "nombre_elemento": "Valoración de inmuebles y negocios (método RICS).",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Contexto ciudad, sostenibilidad global y entorno digital.",
+        "nombre_elemento": "Contexto ciudad, sostenibilidad global y entorno digital.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Desarrollo urbano y regeneración de los territorios.",
+        "nombre_elemento": "Desarrollo urbano y regeneración de los territorios.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Marco arquitectónico.",
+        "nombre_elemento": "Marco arquitectónico.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Políticas y marcos legales internacionales.",
+        "nombre_elemento": "Políticas y marcos legales internacionales.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Normativa y legislación urbanística y de la construcción.",
+        "nombre_elemento": "Normativa y legislación urbanística y de la construcción.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gobierno de la ciberseguridad.",
+        "nombre_elemento": "Gobierno de la ciberseguridad.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión de la ciberseguridad.",
+        "nombre_elemento": "Gestión de la ciberseguridad.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Auditoría de seguridad y resiliencia.",
+        "nombre_elemento": "Auditoría de seguridad y resiliencia.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Infraestructura de tecnologías de la información y comunicaciones.",
+        "nombre_elemento": "Infraestructura de tecnologías de la información y comunicaciones.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Operación de la Seguridad.",
+        "nombre_elemento": "Operación de la Seguridad.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Piratería informática e informática forense.",
+        "nombre_elemento": "Piratería informática e informática forense.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Análisis comportamental.",
+        "nombre_elemento": "Análisis comportamental.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión del cambio.",
+        "nombre_elemento": "Gestión del cambio.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Regulación y Cibercrimen.",
+        "nombre_elemento": "Regulación y Cibercrimen.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Proyectos Aplicados.",
+        "nombre_elemento": "Proyectos Aplicados.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos y contextos de la experiencia de consumidor e innovación.",
+        "nombre_elemento": "Fundamentos y contextos de la experiencia de consumidor e innovación.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Análisis del consumidor.",
+        "nombre_elemento": "Análisis del consumidor.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Métodos de investigación del consumidor.",
+        "nombre_elemento": "Métodos de investigación del consumidor.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Cultura empresarial y experiencia de consumidor e innovación.",
+        "nombre_elemento": "Cultura empresarial y experiencia de consumidor e innovación.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Funciones empresariales y experiencia de consumidor.",
+        "nombre_elemento": "Funciones empresariales y experiencia de consumidor.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Métodos para el diseño e implementación de soluciones.",
+        "nombre_elemento": "Métodos para el diseño e implementación de soluciones.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Soluciones digitales: Experiencia de usuario y diseño interactivo.",
+        "nombre_elemento": "Soluciones digitales: Experiencia de usuario y diseño interactivo.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_elementos": 65,
     "texto_extraido_muestra": "BOLETÍN OFICIAL DEL ESTADO\nNúm. 75 Martes 27 de marzo de 2018 Sec. III.   Pág. 33714\nIII. OTRAS DISPOSICIONES\nUNIVERSIDADES\n4314 Resolución de 5 de marzo de 2018, de IE Universidad, por la que se publican \nplanes de estudios de Máster.\nEn cumplimiento de lo dispuesto en el artículo 35.4 de la Ley Orgánica 6/2001, de 21 \nde diciembre, de universidades y en el apartado 13 del Real Decreto 861/2010, de 2 de \njulio, que modifica el artículo 26 del Real Decreto 1393/2007, de 30 de octubre, por el que \nse establece la ordenación de las enseñanzas universitarias oficiales; una vez obtenida la \nverificación de los planes de estudios por el Consejo de Universidades el 31 de julio de \n2017 previos informes positivos de la Agencia para la Calidad del Sistema Universitario de \nCastilla y León y establecido el carácter oficial del título por Acuerdo de Consejo de \nMinistros de 19 de enero de 2018 por el que se establece el carácter oficial de determinados \ntítulos de Máster y su inscripción en el R"
   }
 }

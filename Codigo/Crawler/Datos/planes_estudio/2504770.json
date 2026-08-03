@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 822/2021 (2)",
   "universidad_codigo": "052",
   "universidad_nombre": "Universidad Antonio de Nebrija",
-  "fecha_procesado": "2026-07-31T14:37:48.725289",
+  "fecha_procesado": "2026-08-03T12:41:03.452662",
   "boe_url": "http://www.boe.es/boe/dias/2024/01/27/pdfs/BOE-A-2024-1563.pdf",
   "boe_fecha": "2024-01-27",
   "plan_estudios": {
@@ -14,272 +14,281 @@
       "Asignaturas Optativas": "48",
       "Prácticas Externas": "6",
       "Trabajo Fin de Grado": "6",
-      "Créditos totales": "240",
-      "Informática forense.": "6",
-      "Vulnerabilidades y exposiciones.": "6",
-      "Hacking ético.": "6",
-      "Análisis de malware y ciberataques.": "6",
-      "Auditoría y monitorización de la seguridad.": "6",
-      "Derecho y seguridad informática: prueba electrónica y evidencia digital.": "6",
-      "Evaluación y diagnóstico psicológico.": "6",
-      "Psicopatología.": "6",
-      "Intervención y tratamientos psicológicos.": "6",
-      "Peritaje psicológico: ámbito penal, civil y otras áreas.": "6",
-      "Evaluación y diagnóstico psicológico II.": "6",
-      "Bases biológicas de la conducta.": "6",
-      "Fundamentos de derecho administrativo.": "6",
-      "Derecho natural y derechos humanos.": "6",
-      "Personalidad y diferencias individuales.": "6",
-      "Psicología de grupos.": "6",
-      "Neuropsicología.": "6",
-      "Lenguas modernas.": "6",
-      "Violencia de género y doméstica.": "6",
-      "Antropología.": "6",
-      "RRHH y prevención de riesgos laborales.": "6"
+      "Créditos totales": "240"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas de Formación Básica",
+        "nombre_elemento": "Asignaturas de Formación Básica",
         "creditos_ects": "60",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Obligatorias",
+        "nombre_elemento": "Asignaturas Obligatorias",
         "creditos_ects": "120",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Optativas",
+        "nombre_elemento": "Asignaturas Optativas",
         "creditos_ects": "48",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas Externas",
+        "nombre_elemento": "Prácticas Externas",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo Fin de Grado",
+        "nombre_elemento": "Trabajo Fin de Grado",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Créditos totales",
+        "nombre_elemento": "Créditos totales",
         "creditos_ects": "240",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "* Itinerario en Informática Forense",
+        "nombre_elemento": "* Itinerario en Informática Forense",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Informática forense.",
+        "nombre_elemento": "Informática forense.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "5.º"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Vulnerabilidades y exposiciones.",
+        "nombre_elemento": "Vulnerabilidades y exposiciones.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "5.º"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Hacking ético.",
+        "nombre_elemento": "Hacking ético.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "6.º"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Análisis de malware y ciberataques.",
+        "nombre_elemento": "Análisis de malware y ciberataques.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "7.º"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Auditoría y monitorización de la seguridad.",
+        "nombre_elemento": "Auditoría y monitorización de la seguridad.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "7.º"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Derecho y seguridad informática: prueba electrónica y evidencia digital.",
+        "nombre_elemento": "Derecho y seguridad informática: prueba electrónica y evidencia digital.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "8.º"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "* Itinerario en Psicología Forense",
+        "nombre_elemento": "* Itinerario en Psicología Forense",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Evaluación y diagnóstico psicológico.",
+        "nombre_elemento": "Evaluación y diagnóstico psicológico.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "5.º"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Psicopatología.",
+        "nombre_elemento": "Psicopatología.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "5.º"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Intervención y tratamientos psicológicos.",
+        "nombre_elemento": "Intervención y tratamientos psicológicos.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "3.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "6.º"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Peritaje psicológico: ámbito penal, civil y otras áreas.",
+        "nombre_elemento": "Peritaje psicológico: ámbito penal, civil y otras áreas.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "7.º"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Evaluación y diagnóstico psicológico II.",
+        "nombre_elemento": "Evaluación y diagnóstico psicológico II.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "7.º"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Bases biológicas de la conducta.",
+        "nombre_elemento": "Bases biológicas de la conducta.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "8.º"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "** Optativas Genéricas",
+        "nombre_elemento": "** Optativas Genéricas",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Fundamentos de derecho administrativo.",
+        "nombre_elemento": "Fundamentos de derecho administrativo.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "7.º"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Derecho natural y derechos humanos.",
+        "nombre_elemento": "Derecho natural y derechos humanos.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "7.º"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Personalidad y diferencias individuales.",
+        "nombre_elemento": "Personalidad y diferencias individuales.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "8.º"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Psicología de grupos.",
+        "nombre_elemento": "Psicología de grupos.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "7.º"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Neuropsicología.",
+        "nombre_elemento": "Neuropsicología.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "7.º"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Lenguas modernas.",
+        "nombre_elemento": "Lenguas modernas.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "7.º"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Violencia de género y doméstica.",
+        "nombre_elemento": "Violencia de género y doméstica.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "8.º"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Antropología.",
+        "nombre_elemento": "Antropología.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "8.º"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "RRHH y prevención de riesgos laborales.",
+        "nombre_elemento": "RRHH y prevención de riesgos laborales.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4.º",
-        "cuatrimestre": ""
+        "cuatrimestre": "8.º"
       }
     ],
-    "total_asignaturas": 30,
+    "total_elementos": 30,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n1563 Resolución de 12 de enero de 2024, de la Universidad Antonio de Nebrija, \npor la que se publica el plan de estudios de Graduado o Graduada en \nCriminología y Ciencias Forenses.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, y \nacordado el carácter oficial del título por Acuerdo del Consejo de Ministros de 27 de \ndiciembre de 2023 (publicado en el BOE de 6 de enero de 2024 por resolución de la \nSecretaría General de Universidades de 28 de diciembre de 2023),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención \ndel título de Graduado o Graduada en Criminología y Ciencias Forenses, que queda \nestructurado según consta en el Anexo de esta Resolución.\nHoyo de Manzanares, 12 de enero de 2024.–El Rector, José Muñiz Fernández.\nANEXO\nUniversidad Antonio de Nebrija\nPlan de Estudios conducente al Título de Grado en Criminología y Ciencias Forenses\nPlanificación de las Enseñanzas- Graduado o G"
   }
 }

@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "052",
   "universidad_nombre": "Universidad Antonio de Nebrija",
-  "fecha_procesado": "2026-07-31T14:41:35.821587",
+  "fecha_procesado": "2026-08-03T12:44:26.039937",
   "boe_url": "http://www.boe.es/boe/dias/2023/12/01/pdfs/BOE-A-2023-24621.pdf",
   "boe_fecha": "2023-12-01",
   "plan_estudios": {
@@ -12,131 +12,137 @@
       "Asignaturas Obligatorias.": "30",
       "Asignaturas Optativas.": "18",
       "Trabajo Fin de Máster.": "12",
-      "Créditos totales.": "60",
-      "Contextos de enseñanza-aprendizaje de ELE I.": "4",
-      "Contextos de enseñanza-aprendizaje de ELE II.": "4",
-      "Pronunciación, entonación y ortografía en ELE.": "4",
-      "Prácticas docentes.": "6",
-      "Metodología de investigación en lingüística aplicada.": "4",
-      "Análisis y transferencia de resultados en lingüística aplicada I: estudios cualitativos.": "4",
-      "Análisis y transferencia de resultados en lingüística aplicada II: estudios cuantitativos.": "4",
-      "Prácticas investigadoras.": "6"
+      "Créditos totales.": "60"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Obligatorias.",
+        "nombre_elemento": "Asignaturas Obligatorias.",
         "creditos_ects": "30",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Optativas.",
+        "nombre_elemento": "Asignaturas Optativas.",
         "creditos_ects": "18",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
         "creditos_ects": "12",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
         "creditos_ects": "60",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Itinerario profesionalizante",
+        "nombre_elemento": "Itinerario profesionalizante",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Contextos de enseñanza-aprendizaje de ELE I.",
+        "nombre_elemento": "Contextos de enseñanza-aprendizaje de ELE I.",
         "creditos_ects": "4",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Contextos de enseñanza-aprendizaje de ELE II.",
+        "nombre_elemento": "Contextos de enseñanza-aprendizaje de ELE II.",
         "creditos_ects": "4",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Pronunciación, entonación y ortografía en ELE.",
+        "nombre_elemento": "Pronunciación, entonación y ortografía en ELE.",
         "creditos_ects": "4",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas docentes.",
+        "nombre_elemento": "Prácticas docentes.",
         "creditos_ects": "6",
         "caracter": "Optativa (obligatoria para el itinerario profesional).",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Itinerario investigador",
+        "nombre_elemento": "Itinerario investigador",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Metodología de investigación en lingüística aplicada.",
+        "nombre_elemento": "Metodología de investigación en lingüística aplicada.",
         "creditos_ects": "4",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Análisis y transferencia de resultados en lingüística aplicada I: estudios cualitativos.",
+        "nombre_elemento": "Análisis y transferencia de resultados en lingüística aplicada I: estudios cualitativos.",
         "creditos_ects": "4",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Análisis y transferencia de resultados en lingüística aplicada II: estudios cuantitativos.",
+        "nombre_elemento": "Análisis y transferencia de resultados en lingüística aplicada II: estudios cuantitativos.",
         "creditos_ects": "4",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas investigadoras.",
+        "nombre_elemento": "Prácticas investigadoras.",
         "creditos_ects": "6",
         "caracter": "Optativa (obligatoria para el itinerario investigador).",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       }
     ],
-    "total_asignaturas": 14,
+    "total_elementos": 14,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n24621 Resolución de 17 de noviembre de 2023, de la Universidad Antonio de \nNebrija, por la que se publica el plan de estudios de Máster Universitario en \nEspañol como Lengua Extranjera: Didáctica e Investigación.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, y \nacordado el carácter oficial del título por Acuerdo del Consejo de Ministros de 18 de julio \nde 2023 (publicado en el BOE de 27 de julio de 2023 por resolución de la Secretaría \nGeneral de Universidades de 19 de julio de 2023),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención \ndel título de Máster Universitario en Español como Lengua Extranjera: Didáctica e \nInvestigación, que queda estructurado según consta en el anexo de esta resolución.\nHoyo de Manzanares, 17 de noviembre de 2023.–El Rector, José Muñiz Fernández.\nANEXO\nPlan de estudios conducente al título de Máster Universitario en Español como \nLengua Extranjera: Didácti"
   }
 }

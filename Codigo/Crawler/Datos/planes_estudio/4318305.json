@@ -4,28 +4,144 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "047",
   "universidad_nombre": "Universidad Alfonso X El Sabio",
-  "fecha_procesado": "2026-07-31T14:35:00.066977",
+  "fecha_procesado": "2026-08-03T12:38:21.601637",
   "boe_url": "http://www.boe.es/boe/dias/2023/09/11/pdfs/BOE-A-2023-19271.pdf",
   "boe_fecha": "2023-09-11",
   "plan_estudios": {
     "resumen_creditos": {
       "Obligatorias.": "54",
       "Trabajo Fin de Máster.": "6",
-      "Total.": "60",
-      "Fundamentos básicos de la tecnología digital en Odontología y su aplicación a la clínica dental.": "Obligatoria.",
-      "Prácticas Preclínicas I.": "Obligatoria.",
-      "Odontología Restauradora Digital, Prótesis y Oclusión.": "Obligatoria.",
-      "Cirugía Digital e Implantología Digital.": "Obligatoria.",
-      "Clínica I.": "Obligatoria.",
-      "Periodoncia e implantoprótesis digital.": "Obligatoria.",
-      "Prácticas Preclínicas II.": "Obligatoria.",
-      "Ortodoncia Digital.": "Obligatoria.",
-      "Clínica II.": "Obligatoria.",
-      "Iniciación a la investigación.": "Obligatoria.",
-      "Trabajo Fin de Máster (TFM).": "Trabajo Fin de Máster."
+      "Total.": "60"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "54",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos básicos de la tecnología digital en Odontología y su aplicación a la clínica dental.",
+        "nombre_elemento": "Fundamentos básicos de la tecnología digital en Odontología y su aplicación a la clínica dental.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Preclínicas I.",
+        "nombre_elemento": "Prácticas Preclínicas I.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Odontología Restauradora Digital, Prótesis y Oclusión.",
+        "nombre_elemento": "Odontología Restauradora Digital, Prótesis y Oclusión.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Cirugía Digital e Implantología Digital.",
+        "nombre_elemento": "Cirugía Digital e Implantología Digital.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Clínica I.",
+        "nombre_elemento": "Clínica I.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Periodoncia e implantoprótesis digital.",
+        "nombre_elemento": "Periodoncia e implantoprótesis digital.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Preclínicas II.",
+        "nombre_elemento": "Prácticas Preclínicas II.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Ortodoncia Digital.",
+        "nombre_elemento": "Ortodoncia Digital.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Clínica II.",
+        "nombre_elemento": "Clínica II.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Iniciación a la investigación.",
+        "nombre_elemento": "Iniciación a la investigación.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Máster (TFM).",
+        "nombre_elemento": "Trabajo Fin de Máster (TFM).",
+        "creditos_ects": "6",
+        "caracter": "Trabajo Fin de Máster.",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      }
+    ],
+    "total_elementos": 14,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n19271 Resolución de 28 de agosto de 2023, de la Universidad Alfonso X el Sabio, \npor la que se publica el plan de estudios de Máster Universitario en \nOdontología Digital.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme positivo de la Fundación para el Conocimiento madri+d, y acordado el carácter \noficial del título por Acuerdo de Consejo de Ministros de 18 de julio de 2023 (publicado \nen el BOE núm. 178, de 27 de julio de 2023, por Resolución de la Secretaría General de \nUniversidades de 19 de julio de 2023),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención \ndel título de Máster Universitario en Odontología Digital por la Universidad Alfonso X el \nSabio.\nVillanueva de la Cañada, 28 de agosto de 2023.–La Rectora, Ana Isabel Fernández \nMartínez.\nANEXO\nDistribución del plan de estudios en créditos ECTS\nTipo de materia Créditos ECTS\nObligatorias. 54\nTrabajo Fin de Máster."
   }
 }

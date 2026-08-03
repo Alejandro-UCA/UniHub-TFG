@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "052",
   "universidad_nombre": "Universidad Antonio de Nebrija",
-  "fecha_procesado": "2026-07-31T14:42:51.333085",
+  "fecha_procesado": "2026-08-03T12:45:35.314860",
   "boe_url": "http://www.boe.es/boe/dias/2024/01/30/pdfs/BOE-A-2024-1768.pdf",
   "boe_fecha": "2024-01-30",
   "plan_estudios": {
@@ -12,52 +12,56 @@
       "Asignaturas obligatorias.": "47",
       "Prácticas externas.": "7",
       "Trabajo fin de máster.": "6",
-      "Créditos totales.": "60",
-      "Complemento Formativo PRL.": "1"
+      "Créditos totales.": "60"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas obligatorias.",
+        "nombre_elemento": "Asignaturas obligatorias.",
         "creditos_ects": "47",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas externas.",
+        "nombre_elemento": "Prácticas externas.",
         "creditos_ects": "7",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo fin de máster.",
+        "nombre_elemento": "Trabajo fin de máster.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
         "creditos_ects": "60",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Complemento Formativo PRL.",
+        "nombre_elemento": "Complemento Formativo PRL.",
         "creditos_ects": "1",
         "caracter": "Complemento formativo.",
         "curso": "",
-        "cuatrimestre": ""
+        "cuatrimestre": "6"
       }
     ],
-    "total_asignaturas": 5,
+    "total_elementos": 5,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n1768 Resolución de 12 de enero de 2024, de la Universidad Antonio de Nebrija, \npor la que se publica el plan de estudios de Máster Universitario en \nPrevención de Riesgos Laborales.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, y \nacordado el carácter oficial del título por Acuerdo del Consejo de Ministros de 27 de \ndiciembre de 2023 (publicado en el BOE de 6 de enero de 2024 por Resolución de la \nSecretaría General de Universidades de 28 de diciembre de 2023), este Rectorado ha \nresuelto publicar el plan de estudios conducente a la obtención del título de Máster \nUniversitario en Prevención de Riesgos Laborales, que queda estructurado según consta \nen el anexo de esta resolución.\nHoyo de Manzanares, 12 de enero de 2024.–El Rector, José Muñiz Fernández.\nANEXO\nUniversidad Antonio de Nebrija. Plan de estudios conducente al título de Máster \nUniversitario en Prevención de Riesgos Laborales\nPlanificación de las enseñan"
   }
 }

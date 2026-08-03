@@ -4,15 +4,527 @@
   "nivel_academico": "Grado - RD 1393/2007 (1)",
   "universidad_codigo": "074",
   "universidad_nombre": "Universidad a Distancia de Madrid",
-  "fecha_procesado": "2026-07-31T14:22:48.918547",
+  "fecha_procesado": "2026-08-03T12:26:34.370344",
   "boe_url": "http://www.boe.es/boe/dias/2013/06/13/pdfs/BOE-A-2013-6394.pdf",
   "boe_fecha": "2013-06-13",
   "plan_estudios": {
-    "resumen_creditos": {
-      "Obligatoria.": "6"
-    },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "resumen_creditos": {},
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Derecho.",
+        "nombre_elemento": "Derecho.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Geografía.",
+        "nombre_elemento": "Geografía.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Informática.",
+        "nombre_elemento": "Informática.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Idioma Moderno.",
+        "nombre_elemento": "Idioma Moderno.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Empresa.",
+        "nombre_elemento": "Empresa.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Arte.",
+        "nombre_elemento": "Arte.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Economía.",
+        "nombre_elemento": "Economía.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Economía.",
+        "nombre_elemento": "Economía.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Informática.",
+        "nombre_elemento": "Informática.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Empresa.",
+        "nombre_elemento": "Empresa.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho.",
+        "nombre_elemento": "Derecho.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Geografía.",
+        "nombre_elemento": "Geografía.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Geografía.",
+        "nombre_elemento": "Geografía.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Empresa.",
+        "nombre_elemento": "Empresa.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Empresa.",
+        "nombre_elemento": "Empresa.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Arte.",
+        "nombre_elemento": "Arte.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Empresa.",
+        "nombre_elemento": "Empresa.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Geografía.",
+        "nombre_elemento": "Geografía.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Geografía.",
+        "nombre_elemento": "Geografía.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Geografía.",
+        "nombre_elemento": "Geografía.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Empresa.",
+        "nombre_elemento": "Empresa.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Geografía.",
+        "nombre_elemento": "Geografía.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Empresa.",
+        "nombre_elemento": "Empresa.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Idioma Moderno.",
+        "nombre_elemento": "Idioma Moderno.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Idioma Moderno.",
+        "nombre_elemento": "Idioma Moderno.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Psicología.",
+        "nombre_elemento": "Psicología.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Empresa.",
+        "nombre_elemento": "Empresa.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Economía.",
+        "nombre_elemento": "Economía.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Economía.",
+        "nombre_elemento": "Economía.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho.",
+        "nombre_elemento": "Derecho.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho.",
+        "nombre_elemento": "Derecho.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Idiomas.",
+        "materia": "",
+        "nombre_elemento": "Idiomas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Organización de empresas.",
+        "materia": "",
+        "nombre_elemento": "Organización de empresas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Turismo.",
+        "materia": "",
+        "nombre_elemento": "Turismo.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Turismo.",
+        "materia": "",
+        "nombre_elemento": "Turismo.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Turismo.",
+        "materia": "",
+        "nombre_elemento": "Turismo.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Jurídico.",
+        "materia": "",
+        "nombre_elemento": "Jurídico.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Organización de Empresas.",
+        "materia": "",
+        "nombre_elemento": "Organización de Empresas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Turismo.",
+        "materia": "",
+        "nombre_elemento": "Turismo.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Turismo.",
+        "materia": "",
+        "nombre_elemento": "Turismo.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Contabilidad y métodos cuantitativos.",
+        "materia": "",
+        "nombre_elemento": "Contabilidad y métodos cuantitativos.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Idiomas.",
+        "materia": "",
+        "nombre_elemento": "Idiomas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Organización de empresas.",
+        "materia": "",
+        "nombre_elemento": "Organización de empresas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Turismo.",
+        "materia": "",
+        "nombre_elemento": "Turismo.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Turismo.",
+        "materia": "",
+        "nombre_elemento": "Turismo.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Informática.",
+        "materia": "",
+        "nombre_elemento": "Informática.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Turismo.",
+        "materia": "",
+        "nombre_elemento": "Turismo.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Turismo.",
+        "materia": "",
+        "nombre_elemento": "Turismo.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Turismo.",
+        "materia": "",
+        "nombre_elemento": "Turismo.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Jurídico.",
+        "materia": "",
+        "nombre_elemento": "Jurídico.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Turismo.",
+        "materia": "",
+        "nombre_elemento": "Turismo.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Turismo.",
+        "materia": "",
+        "nombre_elemento": "Turismo.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Turismo.",
+        "materia": "",
+        "nombre_elemento": "Turismo.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Prácticum.",
+        "materia": "",
+        "nombre_elemento": "Prácticum.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Derecho del Trabajo.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Itinerarios e Información Turística.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Total tercer curso, segundo semestre . . . . . .",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_elementos": 57,
     "texto_extraido_muestra": "BOLETÍN OFICIAL DEL ESTADO\nNúm. 141 Jueves 13 de junio de 2013 Sec. III.   Pág. 44902\nIII. OTRAS DISPOSICIONES\nUNIVERSIDADES\n6394 Resolución de 21 de mayo de 2013, de la Universidad a Distancia de Madrid, \npor la que se publica el plan de estudios de Graduado en Empresas y \nActividades Turísticas.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme favorable de la Agencia Nacional de Evaluación de la Calidad y Acreditación, y \ndeclarado el carácter oficial del Título por Acuerdo del Consejo de Ministros de 23 de \nnoviembre de 2012 (publicado en el «BOE» de 8 de febrero de 2013, por Resolución de la \nSecretaría General de Universidades, de 17 de enero de 2013),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención del \nTítulo de Graduado o Graduada en Empresas y Actividades Turísticas.\nEl plan de estudios a que se refiere la presente Resolución quedará estructurado \nconforme figura en el Anexo de la misma.\nCollado Vi"
   }
 }

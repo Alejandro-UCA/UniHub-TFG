@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 1393/2007 (1)",
   "universidad_codigo": "057",
   "universidad_nombre": "IE Universidad",
-  "fecha_procesado": "2026-07-31T14:11:28.485126",
+  "fecha_procesado": "2026-08-03T12:17:27.906145",
   "boe_url": "http://www.boe.es/boe/dias/2022/05/20/pdfs/BOE-A-2022-8318.pdf",
   "boe_fecha": "2022-05-20",
   "plan_estudios": {
@@ -13,410 +13,497 @@
       "Obligatorias.": "138",
       "Optativas.": "30",
       "Trabajo fin de Grado.": "12",
-      "Total créditos.": "240",
-      "Formación básica.": "Matemáticas.",
-      "Informática.": "estructura y análisis de datos.",
-      "Materias propias.": "Humanidades.",
-      "Módulo IE.": "Humanidades y reto IE.",
-      "Inteligencia artificial.": "Robótica.",
-      "Desarrollo profesional.": "Optativas.",
-      "Trabajo Fin de Grado.": "Trabajo Fin de Grado."
+      "Total créditos.": "240"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
-        "materia": "Física.",
-        "nombre_asignatura": "Física para las Ciencias de la Computación.",
-        "creditos_ects": "6",
+        "modulo": "",
+        "materia": "Formación Básica.",
+        "nombre_elemento": "Formación Básica.",
+        "creditos_ects": "60",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "Empresa.",
-        "nombre_asignatura": "Historia de las ideas y la innovación.",
-        "creditos_ects": "6",
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "138",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "Empresa.",
-        "nombre_asignatura": "Introducción a la Gestión empresarial.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Informática.",
-        "nombre_asignatura": "Principios de Programación.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Informática.",
-        "nombre_asignatura": "Programación I.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Informática.",
-        "nombre_asignatura": "Computación en la nube.",
-        "creditos_ects": "3",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Informática.",
-        "nombre_asignatura": "Tecnología.",
-        "creditos_ects": "3",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Matemáticas.",
-        "nombre_asignatura": "Fundamentos de Probabilidad y Estadística.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Matemáticas.",
-        "nombre_asignatura": "Matemática discreta.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Matemáticas.",
-        "nombre_asignatura": "Cálculo para Informática.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Matemáticas.",
-        "nombre_asignatura": "Matrices y transformaciones lineales.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Empresa.",
-        "nombre_asignatura": "Introducción a la Gestión empresarial.",
-        "creditos_ects": "6",
-        "caracter": "B",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Empresa.",
-        "nombre_asignatura": "Historia de las ideas y la innovación.",
-        "creditos_ects": "6",
-        "caracter": "B",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Matemáticas.",
-        "nombre_asignatura": "Fundamentos de Probabilidad y Estadística.",
-        "creditos_ects": "6",
-        "caracter": "B",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Matemáticas.",
-        "nombre_asignatura": "Matemática discreta.",
-        "creditos_ects": "6",
-        "caracter": "B",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Simulación y probabilidad aplicada.",
-        "nombre_asignatura": "Métodos de observación, experimentación y encuestación.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Informática.",
-        "nombre_asignatura": "Principios de programación.",
-        "creditos_ects": "6",
-        "caracter": "B",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Física.",
-        "nombre_asignatura": "Física para las Ciencias de la Computación.",
-        "creditos_ects": "6",
-        "caracter": "B",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Estructura y análisis de datos.",
-        "nombre_asignatura": "Fundamentos de Analítica de Datos.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Simulación y probabilidad aplicada.",
-        "nombre_asignatura": "Simulación y modelos para entender el cabio.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Humanidades.",
-        "nombre_asignatura": "Humanidades.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Matemáticas.",
-        "nombre_asignatura": "Cálculo para Informática.",
-        "creditos_ects": "6",
-        "caracter": "B",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Informática.",
-        "nombre_asignatura": "Programación I.",
-        "creditos_ects": "6",
-        "caracter": "B",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Informática.",
-        "nombre_asignatura": "Computación en la nube.",
-        "creditos_ects": "3",
-        "caracter": "B",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Tecnología.",
-        "nombre_asignatura": "Tecnología.",
-        "creditos_ects": "3",
-        "caracter": "B",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Estructura y Análisis de Datos.",
-        "nombre_asignatura": "Algoritmos y estructuras de datos.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Diseño y Arquitectura de sistemas y Bases de Datos.",
-        "nombre_asignatura": "Arquitectura de computadores, tecnologías de red y sistemas operativos.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Matemáticas.",
-        "nombre_asignatura": "Matrices y transformaciones lineales.",
-        "creditos_ects": "6",
-        "caracter": "B",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Diseño y Arquitectura de sistemas y Bases de Datos.",
-        "nombre_asignatura": "Diseño y utilización de bases de datos.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Simulación y probabilidad aplicada.",
-        "nombre_asignatura": "Probabilidad aplicada a la computación.",
-        "creditos_ects": "3",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Aprendizaje estadístico y sistemas inteligentes.",
-        "nombre_asignatura": "Fundamentos de machine learning.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Diseño de sistemas expertos.",
-        "nombre_asignatura": "Psicología aplicada al diseño de inteligencia artificial.",
-        "creditos_ects": "3",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Emprendimiento.",
-        "nombre_asignatura": "Emprendimiento.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Análisis y desarrollo de software.",
-        "nombre_asignatura": "Programación II.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Análisis y desarrollo de software.",
-        "nombre_asignatura": "Desarrollo de software y devops.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Diseño y arquitectura de sistemas y bases de datos.",
-        "nombre_asignatura": "Computación de alto rendimiento.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Diseño de sistemas expertos.",
-        "nombre_asignatura": "Representación, razonamiento y resolución de problemas.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Humanidades y reto IE.",
-        "nombre_asignatura": "Reto IE.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Procesamiento del lenguaje natural y sistemas de visión.",
-        "nombre_asignatura": "Procesamiento del lenguaje natural y análisis semántico.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Procesamiento del lenguaje natural y sistemas de visión.",
-        "nombre_asignatura": "Visión artificial.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Aprendizaje estadístico y sistemas inteligentes.",
-        "nombre_asignatura": "Máquinas de recomendación.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Aprendizaje estadístico y sistemas inteligentes.",
-        "nombre_asignatura": "Aprendizaje estadístico y modelos de predicción.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Diseño de sistemas expertos.",
-        "nombre_asignatura": "Aprendizaje por refuerzo (Reinforcement Learning).",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
+        "modulo": "",
         "materia": "Optativas.",
-        "nombre_asignatura": "Optativas.",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Grado.",
+        "nombre_elemento": "Trabajo fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total créditos.",
+        "nombre_elemento": "Total créditos.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Física.",
+        "nombre_elemento": "Física para las Ciencias de la Computación.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Empresa.",
+        "nombre_elemento": "Historia de las ideas y la innovación.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Empresa.",
+        "nombre_elemento": "Introducción a la Gestión empresarial.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Informática.",
+        "nombre_elemento": "Principios de Programación.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Informática.",
+        "nombre_elemento": "Programación I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Informática.",
+        "nombre_elemento": "Computación en la nube.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Informática.",
+        "nombre_elemento": "Tecnología.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Matemáticas.",
+        "nombre_elemento": "Fundamentos de Probabilidad y Estadística.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Matemáticas.",
+        "nombre_elemento": "Matemática discreta.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Matemáticas.",
+        "nombre_elemento": "Cálculo para Informática.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Matemáticas.",
+        "nombre_elemento": "Matrices y transformaciones lineales.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación básica.",
+        "materia": "Empresa.",
+        "nombre_elemento": "Introducción a la Gestión empresarial.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación básica.",
+        "materia": "Empresa.",
+        "nombre_elemento": "Historia de las ideas y la innovación.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación básica.",
+        "materia": "Matemáticas.",
+        "nombre_elemento": "Fundamentos de Probabilidad y Estadística.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación básica.",
+        "materia": "Matemáticas.",
+        "nombre_elemento": "Matemática discreta.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Informática.",
+        "materia": "Simulación y probabilidad aplicada.",
+        "nombre_elemento": "Métodos de observación, experimentación y encuestación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación básica.",
+        "materia": "Informática.",
+        "nombre_elemento": "Principios de programación.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación básica.",
+        "materia": "Física.",
+        "nombre_elemento": "Física para las Ciencias de la Computación.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Informática.",
+        "materia": "Estructura y análisis de datos.",
+        "nombre_elemento": "Fundamentos de Analítica de Datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Informática.",
+        "materia": "Simulación y probabilidad aplicada.",
+        "nombre_elemento": "Simulación y modelos para entender el cabio.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Materias propias.",
+        "materia": "Humanidades.",
+        "nombre_elemento": "Humanidades.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación básica.",
+        "materia": "Matemáticas.",
+        "nombre_elemento": "Cálculo para Informática.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación básica.",
+        "materia": "Informática.",
+        "nombre_elemento": "Programación I.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación básica.",
+        "materia": "Informática.",
+        "nombre_elemento": "Computación en la nube.",
+        "creditos_ects": "3",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo IE.",
+        "materia": "Tecnología.",
+        "nombre_elemento": "Tecnología.",
+        "creditos_ects": "3",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Informática.",
+        "materia": "Estructura y Análisis de Datos.",
+        "nombre_elemento": "Algoritmos y estructuras de datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Informática.",
+        "materia": "Diseño y Arquitectura de sistemas y Bases de Datos.",
+        "nombre_elemento": "Arquitectura de computadores, tecnologías de red y sistemas operativos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Formación básica.",
+        "materia": "Matemáticas.",
+        "nombre_elemento": "Matrices y transformaciones lineales.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Informática.",
+        "materia": "Diseño y Arquitectura de sistemas y Bases de Datos.",
+        "nombre_elemento": "Diseño y utilización de bases de datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Informática.",
+        "materia": "Simulación y probabilidad aplicada.",
+        "nombre_elemento": "Probabilidad aplicada a la computación.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Inteligencia artificial.",
+        "materia": "Aprendizaje estadístico y sistemas inteligentes.",
+        "nombre_elemento": "Fundamentos de machine learning.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Inteligencia artificial.",
+        "materia": "Diseño de sistemas expertos.",
+        "nombre_elemento": "Psicología aplicada al diseño de inteligencia artificial.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo IE.",
+        "materia": "Emprendimiento.",
+        "nombre_elemento": "Emprendimiento.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Informática.",
+        "materia": "Análisis y desarrollo de software.",
+        "nombre_elemento": "Programación II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Informática.",
+        "materia": "Análisis y desarrollo de software.",
+        "nombre_elemento": "Desarrollo de software y devops.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Informática.",
+        "materia": "Diseño y arquitectura de sistemas y bases de datos.",
+        "nombre_elemento": "Computación de alto rendimiento.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Inteligencia artificial.",
+        "materia": "Diseño de sistemas expertos.",
+        "nombre_elemento": "Representación, razonamiento y resolución de problemas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo IE.",
+        "materia": "Humanidades y reto IE.",
+        "nombre_elemento": "Reto IE.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Inteligencia artificial.",
+        "materia": "Procesamiento del lenguaje natural y sistemas de visión.",
+        "nombre_elemento": "Procesamiento del lenguaje natural y análisis semántico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Inteligencia artificial.",
+        "materia": "Procesamiento del lenguaje natural y sistemas de visión.",
+        "nombre_elemento": "Visión artificial.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Inteligencia artificial.",
+        "materia": "Aprendizaje estadístico y sistemas inteligentes.",
+        "nombre_elemento": "Máquinas de recomendación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Inteligencia artificial.",
+        "materia": "Aprendizaje estadístico y sistemas inteligentes.",
+        "nombre_elemento": "Aprendizaje estadístico y modelos de predicción.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Inteligencia artificial.",
+        "materia": "Diseño de sistemas expertos.",
+        "nombre_elemento": "Aprendizaje por refuerzo (Reinforcement Learning).",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Desarrollo profesional.",
+        "materia": "Optativas.",
+        "nombre_elemento": "Optativas.",
         "creditos_ects": "30",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Inteligencia artificial.",
         "materia": "Robótica.",
-        "nombre_asignatura": "Robótica y sistemas autónomos.",
+        "nombre_elemento": "Robótica y sistemas autónomos.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Informática.",
         "materia": "estructura y análisis de datos.",
-        "nombre_asignatura": "Estructuras de datos distribuidas y aplicaciones.",
+        "nombre_elemento": "Estructuras de datos distribuidas y aplicaciones.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Informática.",
         "materia": "Habilidades y capacitación profesional.",
-        "nombre_asignatura": "Ética, regulación y legislación.",
+        "nombre_elemento": "Ética, regulación y legislación.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Informática.",
         "materia": "Análisis y desarrollo de software.",
-        "nombre_asignatura": "Experiencia de usuario (UX/UI) e interacción humano- computadora.",
+        "nombre_elemento": "Experiencia de usuario (UX/UI) e interacción humano- computadora.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Trabajo Fin de Grado.",
         "materia": "Trabajo Fin de Grado.",
-        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
         "creditos_ects": "12",
         "caracter": "TFG",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 49,
+    "total_elementos": 54,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n8318 Resolución de 3 de mayo de 2022, de IE Universidad, por la que se publica la \nmodificación del plan de estudios de Graduado o Graduada en Computación \ne Inteligencia Artificial/Bachelor in Computer Science and Artificial \nIntelligence.\nDe conformidad con lo dispuesto en el artículo 32 del Real Decreto 822/2021, de 28 \nde septiembre, por el que se establece la organización de las enseñanzas universitarias \ny del procedimiento de aseguramiento de su calidad, en el que se regula el \nprocedimiento para la modificación sustancial de los planes de estudios impartidos en \ncentros universitarios no acreditados institucionalmente, y una vez recibido informe \nfavorable de la Agencia para la Calidad del Sistema Universitario de Castilla y León a las \nmodificaciones presentadas al título oficial de Graduado o Graduada en Computación e \nInteligencia Artificial/Bachelor in Computer Science and Artificial Intelligence por la IE \nUniversidad (2503928), estab"
   }
 }

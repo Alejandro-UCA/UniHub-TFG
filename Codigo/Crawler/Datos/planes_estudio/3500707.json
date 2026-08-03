@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "057",
   "universidad_nombre": "IE Universidad",
-  "fecha_procesado": "2026-07-31T14:13:00.772975",
+  "fecha_procesado": "2026-08-03T12:18:51.899886",
   "boe_url": "http://www.boe.es/boe/dias/2026/01/01/pdfs/BOE-A-2026-72.pdf",
   "boe_fecha": "2026-01-01",
   "plan_estudios": {
@@ -13,14 +13,6 @@
       "MATERIAS OPTATIVAS (OP).": "30",
       "TRABAJO DE FIN DE MÁSTER (TFM).": "6",
       "CRÉDITOS TOTALES.": "60",
-      "Derecho Internacional (15 ECTS).": "Contratos Internacionales.",
-      "Desarrollo Profesional (9 ECTS).": "Contabilidad Financiera para Abogados.",
-      "Especialidad: Derecho Internacional de los Negocios (15 ECTS).": "Derecho Corporativo Comparado.",
-      "Especialidad: Resolución Internacional de Conflictos (15 ECTS).": "Arbitraje Comercial Internacional 1.",
-      "Especialidad: Derecho Digital y Propiedad Intelectual (15 ECTS).": "Derecho Internacional de la Propiedad Intelectual.",
-      "Especialidad: Fiscalidad Internacional (15 ECTS).": "Fiscalidad de Rentas Internacionales.",
-      "Optativas (15 ECTS).": "Optativas.",
-      "Trabajo de Fin de Máster (6 ECTS).": "Trabajo de Fin de Máster.",
       "Contratos Internacionales.": "OB",
       "Derecho de la Unión Europea.": "OB",
       "Resolución Internacional de Conflictos.": "OB",
@@ -51,513 +43,612 @@
       "Optativas.": "OP",
       "Trabajo de Fin de Máster.": "TFM"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
+        "materia": "MATERIAS OBLIGATORIAS (OB).",
+        "nombre_elemento": "MATERIAS OBLIGATORIAS (OB).",
+        "creditos_ects": "24",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "MATERIAS OPTATIVAS (OP).",
+        "nombre_elemento": "MATERIAS OPTATIVAS (OP).",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "TRABAJO DE FIN DE MÁSTER (TFM).",
+        "nombre_elemento": "TRABAJO DE FIN DE MÁSTER (TFM).",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "CRÉDITOS TOTALES.",
+        "nombre_elemento": "CRÉDITOS TOTALES.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
         "materia": "Derecho Internacional (15 ECTS).",
-        "nombre_asignatura": "Contratos Internacionales.",
+        "nombre_elemento": "Contratos Internacionales.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Derecho Internacional (15 ECTS).",
-        "nombre_asignatura": "Derecho de la Unión Europea.",
+        "nombre_elemento": "Derecho de la Unión Europea.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Derecho Internacional (15 ECTS).",
-        "nombre_asignatura": "Resolución Internacional de Conflictos.",
+        "nombre_elemento": "Resolución Internacional de Conflictos.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Derecho Internacional (15 ECTS).",
-        "nombre_asignatura": "Fiscalidad Internacional.",
+        "nombre_elemento": "Fiscalidad Internacional.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Derecho Internacional (15 ECTS).",
-        "nombre_asignatura": "Internet, Datos y el Derecho.",
+        "nombre_elemento": "Internet, Datos y el Derecho.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Desarrollo Profesional (9 ECTS).",
-        "nombre_asignatura": "Contabilidad Financiera para Abogados.",
+        "nombre_elemento": "Contabilidad Financiera para Abogados.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Desarrollo Profesional (9 ECTS).",
-        "nombre_asignatura": "Negociación.",
+        "nombre_elemento": "Negociación.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Desarrollo Profesional (9 ECTS).",
-        "nombre_asignatura": "Habilidades Jurídicas.",
+        "nombre_elemento": "Habilidades Jurídicas.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Especialidad: Derecho Internacional de los Negocios (15 ECTS).",
-        "nombre_asignatura": "Derecho Corporativo Comparado.",
+        "nombre_elemento": "Derecho Corporativo Comparado.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Especialidad: Derecho Internacional de los Negocios (15 ECTS).",
-        "nombre_asignatura": "Derecho de Mercado de Capitales.",
+        "nombre_elemento": "Derecho de Mercado de Capitales.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Especialidad: Derecho Internacional de los Negocios (15 ECTS).",
-        "nombre_asignatura": "Gobierno Corporativo.",
+        "nombre_elemento": "Gobierno Corporativo.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Especialidad: Derecho Internacional de los Negocios (15 ECTS).",
-        "nombre_asignatura": "Transacciones Transfronterizas.",
+        "nombre_elemento": "Transacciones Transfronterizas.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Especialidad: Derecho Internacional de los Negocios (15 ECTS).",
-        "nombre_asignatura": "Contabilidad y Fiscalidad de Transacciones Transfronterizas.",
+        "nombre_elemento": "Contabilidad y Fiscalidad de Transacciones Transfronterizas.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Especialidad: Resolución Internacional de Conflictos (15 ECTS).",
-        "nombre_asignatura": "Arbitraje Comercial Internacional 1.",
+        "nombre_elemento": "Arbitraje Comercial Internacional 1.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Especialidad: Resolución Internacional de Conflictos (15 ECTS).",
-        "nombre_asignatura": "Arbitraje Comercial Internacional 2.",
+        "nombre_elemento": "Arbitraje Comercial Internacional 2.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Especialidad: Resolución Internacional de Conflictos (15 ECTS).",
-        "nombre_asignatura": "Mediación Corporativa y Resolución Alternativa de Conflictos.",
+        "nombre_elemento": "Mediación Corporativa y Resolución Alternativa de Conflictos.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Especialidad: Resolución Internacional de Conflictos (15 ECTS).",
-        "nombre_asignatura": "Derecho Internacional de Inversiones y Arbitraje.",
+        "nombre_elemento": "Derecho Internacional de Inversiones y Arbitraje.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Especialidad: Resolución Internacional de Conflictos (15 ECTS).",
-        "nombre_asignatura": "Litigios Internacionales.",
+        "nombre_elemento": "Litigios Internacionales.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Especialidad: Derecho Digital y Propiedad Intelectual (15 ECTS).",
-        "nombre_asignatura": "Derecho Internacional de la Propiedad Intelectual.",
+        "nombre_elemento": "Derecho Internacional de la Propiedad Intelectual.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Especialidad: Derecho Digital y Propiedad Intelectual (15 ECTS).",
-        "nombre_asignatura": "Protección de Datos.",
+        "nombre_elemento": "Protección de Datos.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Especialidad: Derecho Digital y Propiedad Intelectual (15 ECTS).",
-        "nombre_asignatura": "Derechos de Autor.",
+        "nombre_elemento": "Derechos de Autor.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Especialidad: Derecho Digital y Propiedad Intelectual (15 ECTS).",
-        "nombre_asignatura": "Derecho de Marcas.",
+        "nombre_elemento": "Derecho de Marcas.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Especialidad: Derecho Digital y Propiedad Intelectual (15 ECTS).",
-        "nombre_asignatura": "Ciberseguridad.",
+        "nombre_elemento": "Ciberseguridad.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Especialidad: Fiscalidad Internacional (15 ECTS).",
-        "nombre_asignatura": "Fiscalidad de Rentas Internacionales.",
+        "nombre_elemento": "Fiscalidad de Rentas Internacionales.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Especialidad: Fiscalidad Internacional (15 ECTS).",
-        "nombre_asignatura": "Precios de Transferencia.",
+        "nombre_elemento": "Precios de Transferencia.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Especialidad: Fiscalidad Internacional (15 ECTS).",
-        "nombre_asignatura": "Impuesto al Valor Agregado (IVA) y Otros Tributos Indirectos Internacionales.",
+        "nombre_elemento": "Impuesto al Valor Agregado (IVA) y Otros Tributos Indirectos Internacionales.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Especialidad: Fiscalidad Internacional (15 ECTS).",
-        "nombre_asignatura": "Aspectos Fiscales de la Gestión Patrimonial.",
+        "nombre_elemento": "Aspectos Fiscales de la Gestión Patrimonial.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Especialidad: Fiscalidad Internacional (15 ECTS).",
-        "nombre_asignatura": "Contabilidad y Fiscalidad de Transacciones Transfronterizas.",
+        "nombre_elemento": "Contabilidad y Fiscalidad de Transacciones Transfronterizas.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Optativas (15 ECTS).",
-        "nombre_asignatura": "Optativas.",
+        "nombre_elemento": "Optativas.",
         "creditos_ects": "15",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Trabajo de Fin de Máster (6 ECTS).",
-        "nombre_asignatura": "Trabajo de Fin de Máster.",
+        "nombre_elemento": "Trabajo de Fin de Máster.",
         "creditos_ects": "6",
         "caracter": "TFM",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Contratos Internacionales.",
+        "nombre_elemento": "Contratos Internacionales.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Derecho de la Unión Europea.",
+        "nombre_elemento": "Derecho de la Unión Europea.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Resolución Internacional de Conflictos.",
+        "nombre_elemento": "Resolución Internacional de Conflictos.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Fiscalidad Internacional.",
+        "nombre_elemento": "Fiscalidad Internacional.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Internet, Datos y el Derecho.",
+        "nombre_elemento": "Internet, Datos y el Derecho.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Contabilidad Financiera para Abogados.",
+        "nombre_elemento": "Contabilidad Financiera para Abogados.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Derecho Corporativo Comparado.",
+        "nombre_elemento": "Derecho Corporativo Comparado.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Arbitraje Comercial Internacional 1.",
+        "nombre_elemento": "Arbitraje Comercial Internacional 1.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Derecho Internacional de la Propiedad Intelectual.",
+        "nombre_elemento": "Derecho Internacional de la Propiedad Intelectual.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Fiscalidad de Rentas Internacionales.",
+        "nombre_elemento": "Fiscalidad de Rentas Internacionales.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Total ECTS.",
+        "nombre_elemento": "Total ECTS.",
         "creditos_ects": "21",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Negociación.",
+        "nombre_elemento": "Negociación.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Habilidades Jurídicas.",
+        "nombre_elemento": "Habilidades Jurídicas.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Derecho de Mercado de Capitales.",
+        "nombre_elemento": "Derecho de Mercado de Capitales.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Gobierno Corporativo.",
+        "nombre_elemento": "Gobierno Corporativo.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Transacciones Transfronterizas.",
+        "nombre_elemento": "Transacciones Transfronterizas.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Contabilidad y Fiscalidad de Transacciones Transfronterizas.",
+        "nombre_elemento": "Contabilidad y Fiscalidad de Transacciones Transfronterizas.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Arbitraje Comercial Internacional 2.",
+        "nombre_elemento": "Arbitraje Comercial Internacional 2.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Mediación Corporativa y Resolución Alternativa de Conflictos.",
+        "nombre_elemento": "Mediación Corporativa y Resolución Alternativa de Conflictos.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Derecho Internacional de Inversiones y Arbitraje.",
+        "nombre_elemento": "Derecho Internacional de Inversiones y Arbitraje.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Litigios Internacionales.",
+        "nombre_elemento": "Litigios Internacionales.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Protección de Datos.",
+        "nombre_elemento": "Protección de Datos.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Derechos de Autor.",
+        "nombre_elemento": "Derechos de Autor.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Derecho de Marcas.",
+        "nombre_elemento": "Derecho de Marcas.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Ciberseguridad.",
+        "nombre_elemento": "Ciberseguridad.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Precios de Transferencia.",
+        "nombre_elemento": "Precios de Transferencia.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Impuesto al Valor Agregado (IVA) y Otros Tributos Indirectos Internacionales.",
+        "nombre_elemento": "Impuesto al Valor Agregado (IVA) y Otros Tributos Indirectos Internacionales.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Aspectos Fiscales de la Gestión Patrimonial.",
+        "nombre_elemento": "Aspectos Fiscales de la Gestión Patrimonial.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Contabilidad y Fiscalidad de Transacciones Transfronterizas.",
+        "nombre_elemento": "Contabilidad y Fiscalidad de Transacciones Transfronterizas.",
         "creditos_ects": "3",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Total ECTS.",
+        "nombre_elemento": "Total ECTS.",
         "creditos_ects": "18",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Optativas.",
+        "nombre_elemento": "Optativas.",
         "creditos_ects": "15",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo de Fin de Máster.",
+        "nombre_elemento": "Trabajo de Fin de Máster.",
         "creditos_ects": "6",
         "caracter": "TFM",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Total ECTS.",
+        "nombre_elemento": "Total ECTS.",
         "creditos_ects": "21",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 63,
+    "total_elementos": 67,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n72 Resolución de 17 de diciembre de 2025, de IE Universidad, por la que se \npublica el plan de estudios de Máster Universitario en Derecho \nInternacional/Master in Laws (LLM).\nEste Rectorado ha resuelto ordenar la publicación en el «Boletín Oficial del Estado» y \nen el «Boletín Oficial de Castilla y León», del plan de estudios conducente a la obtención \ndel título oficial de Máster Universitario en Derecho Internacional/Master in Laws (LLM) \npor la IE Universidad (3500707). Esta decisión se toma en cumplimiento de lo dispuesto \nen el artículo 8.3 de Ley Orgánica 2/2023, de 22 de marzo, del Sistema Universitario y en \nel artículo 27.4 del Real Decreto 822/2021, de 28 de septiembre, por el que se establece \nla organización de las enseñanzas universitarias y del procedimiento de aseguramiento \nde su calidad.\nEl título obtuvo la verificación del plan de estudios por el Consejo de Universidades \nel 21 de enero de 2025 tras el informe favorable de la Ag"
   }
 }

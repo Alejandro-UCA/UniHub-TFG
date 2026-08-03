@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "057",
   "universidad_nombre": "IE Universidad",
-  "fecha_procesado": "2026-07-31T14:12:37.762278",
+  "fecha_procesado": "2026-08-03T12:18:30.946702",
   "boe_url": "http://www.boe.es/boe/dias/2020/03/03/pdfs/BOE-A-2020-3060.pdf",
   "boe_fecha": "2020-03-03",
   "plan_estudios": {
@@ -12,16 +12,191 @@
       "Obligatorias.": "48",
       "Optativas.": "6",
       "Trabajo fin de Máster.": "6",
-      "Total créditos.": "60",
-      "INTERNACIONAL. 15 ECTS.": "Sistemas Occidentales.",
-      "CORPORATIVO. 17 ECTS.": "Derecho Societario.",
-      "EJERCICIO PROFESIONAL. 4 ECTS.": "Entorno Internacional.",
-      "ENTORNO EMPRESARIAL. 12 ECTS.": "Ciencias Empresariales.",
-      "DESARROLLO PROFESIONAL. 6 ECTS.": "Interdisciplinar Avanzado.",
-      "PROYECTO FINAL. 6 ECTS.": "Trabajo Fin de Máster."
+      "Total créditos.": "60"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "48",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativas.",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total créditos.",
+        "nombre_elemento": "Total créditos.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "INTERNACIONAL. 15 ECTS.",
+        "materia": "Sistemas Occidentales.",
+        "nombre_elemento": "Sistemas Occidentales.",
+        "creditos_ects": "2",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "INTERNACIONAL. 15 ECTS.",
+        "materia": "Derecho Internacional Público.",
+        "nombre_elemento": "Derecho Internacional Público.",
+        "creditos_ects": "2",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "INTERNACIONAL. 15 ECTS.",
+        "materia": "Derecho Internacional Privado.",
+        "nombre_elemento": "Derecho Internacional Privado.",
+        "creditos_ects": "4",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "INTERNACIONAL. 15 ECTS.",
+        "materia": "Derecho de la Unión Europea.",
+        "nombre_elemento": "Derecho de la Unión Europea.",
+        "creditos_ects": "4",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "CORPORATIVO. 17 ECTS.",
+        "materia": "Derecho Societario.",
+        "nombre_elemento": "Derecho Societario.",
+        "creditos_ects": "8",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "CORPORATIVO. 17 ECTS.",
+        "materia": "Derecho Mercantil.",
+        "nombre_elemento": "Derecho Mercantil.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "CORPORATIVO. 17 ECTS.",
+        "materia": "Derecho Procesal.",
+        "nombre_elemento": "Derecho Procesal.",
+        "creditos_ects": "3",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "CORPORATIVO. 17 ECTS.",
+        "materia": "Derecho Fiscal.",
+        "nombre_elemento": "Derecho Fiscal.",
+        "creditos_ects": "3",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "EJERCICIO PROFESIONAL. 4 ECTS.",
+        "materia": "Entorno Internacional.",
+        "nombre_elemento": "Entorno Internacional.",
+        "creditos_ects": "2",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "EJERCICIO PROFESIONAL. 4 ECTS.",
+        "materia": "Habilidades Profesionales.",
+        "nombre_elemento": "Habilidades Profesionales.",
+        "creditos_ects": "2",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "ENTORNO EMPRESARIAL. 12 ECTS.",
+        "materia": "Ciencias Empresariales.",
+        "nombre_elemento": "Ciencias Empresariales.",
+        "creditos_ects": "8",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "ENTORNO EMPRESARIAL. 12 ECTS.",
+        "materia": "Comportamiento Organizacional.",
+        "nombre_elemento": "Comportamiento Organizacional.",
+        "creditos_ects": "4",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "DESARROLLO PROFESIONAL. 6 ECTS.",
+        "materia": "Interdisciplinar Avanzado.",
+        "nombre_elemento": "Interdisciplinar Avanzado.",
+        "creditos_ects": "6",
+        "caracter": "Optativo.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "DESARROLLO PROFESIONAL. 6 ECTS.",
+        "materia": "Mercados Internacionales.",
+        "nombre_elemento": "Mercados Internacionales.",
+        "creditos_ects": "",
+        "caracter": "Optativo.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "PROYECTO FINAL. 6 ECTS.",
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFM.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Total créditos.",
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_elementos": 20,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n3060 Resolución de 6 de febrero de 2020, de IE Universidad, por la que se publica \nla modificación del plan de estudios de Máster en Asesoría Jurídica \nInternacional/International LLM.\nDe conformidad con lo dispuesto en los artículos 26 y 28 del Real \nDecreto 1393/2007, de 29 de octubre, modificado por el Real Decreto 861/2010, de 2 de \njulio, por el que se establece el procedimiento para la modificación de planes de estudios \nya verificados y una vez recibido informe favorable de la Agencia para la Calidad del \nSistema Universitario de Castilla y León a las modificaciones presentadas al título oficial \nde Máster Universitario en Asesoría Jurídica Internacional/International LLM por la IE \nUniversidad (4314083) establecido por Acuerdo del Consejo de Ministros de 21 de \nfebrero de 2014 y publicado mediante Resolución de 28 de febrero de 2014 de la \nSecretaría General de Universidades en el «Boletín Oficial del Estado», de fecha 11 de \nmarzo de 2014"
   }
 }

@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 822/2021 (2)",
   "universidad_codigo": "061",
   "universidad_nombre": "Mondragón Unibertsitatea",
-  "fecha_procesado": "2026-07-31T14:15:03.846734",
+  "fecha_procesado": "2026-08-03T12:20:51.846942",
   "boe_url": "http://www.boe.es/boe/dias/2026/06/22/pdfs/BOE-A-2026-13572.pdf",
   "boe_fecha": "2026-06-22",
   "plan_estudios": {
@@ -14,51 +14,506 @@
       "Optativas.": "26",
       "Prácticas Externas.": "12",
       "Trabajo fin de Grado.": "18",
-      "Total.": "240",
-      "Introducción a la Psicología.": "6",
-      "Nuevos Retos, Nuevas Habilidades para el siglo XXI.": "6",
-      "Identidades, Cultura y Migraciones.": "10",
-      "Pensamiento Filosófico y Científico en la Sociedad Digital y Global.": "10",
-      "Humanidades Digitales I.": "8",
-      "Diseño para Futuros Sostenibles.": "10",
-      "Repensar el Territorio.": "10",
-      "Economía Global y Distribución de la Riqueza.": "8",
-      "Democracia, Gobernanza y Sistemas Institucionales Locales.": "8",
-      "Cultura Organizacional para Sociedades en Cambio.": "8",
-      "Educación para la Sostenibilidad.": "6",
-      "Responsabilidad Social de Empresas y Organizaciones.": "6",
-      "Humanidades Digitales II.": "8",
-      "Retos Futuros: Digitalización y Desafíos Globales.": "6",
-      "Urban Planning.": "6",
-      "Liderazgo y Comunicación.": "6",
-      "La Vida, Lugar de Aprendizaje-Life Place Learning.": "6",
-      "Intervención Comunitaria.": "6",
-      "International Law and Global Institutions.": "6",
-      "Liderazgo Compartido y Retos Globales.": "6",
-      "Digital Rights and Digital Citizenship.": "6",
-      "Impacto Social.": "8",
-      "Social Data and Visualization.": "8",
-      "Prospective Analysis and Futuroscoping.": "8",
-      "Fundamentos de Trabajos de Investigación.": "8",
-      "Trabajo Fin de Grado.": "18",
-      "Producción y Consumo Responsables.": "6",
-      "Creación De Organizaciones y Entidades.": "4",
-      "Liderazgo Compartido y Transformación Social.": "6",
-      "Derechos Humanos y Conflictos Globales.": "6",
-      "Retos Globales: Alianzas para Lograr los Objetivos.": "6",
-      "Iot (Internet de las Cosas).": "6",
-      "Tecnologías de la Lengua y Ontologías.": "6",
-      "Liderazgo y Transformación Digital.": "6",
-      "Modelización de Datos y Objetos Digitales.": "6",
-      "Diversity and Inequality.": "6",
-      "Public Diplomacy.": "6",
-      "Género e Interseccionalidad.": "4",
-      "Gestión de Proyectos.": "4",
-      "Tecnologías Disruptivas.": "4",
-      "Transmisión de la Cultura Vasca.": "4"
+      "Total.": "240"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Formación Básica.",
+        "nombre_elemento": "Formación Básica.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "124",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativas.",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "26",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Grado.",
+        "nombre_elemento": "Trabajo fin de Grado.",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencias sociales, trabajo social, relaciones laborales y recursos humanos, sociología, ciencia política y relaciones internacionales.",
+        "nombre_elemento": "Ciencias sociales, trabajo social, relaciones laborales y recursos humanos, sociología, ciencia política y relaciones internacionales.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencias sociales, trabajo social, relaciones laborales y recursos humanos, sociología, ciencia política y relaciones internacionales.",
+        "nombre_elemento": "Ciencias sociales, trabajo social, relaciones laborales y recursos humanos, sociología, ciencia política y relaciones internacionales.",
+        "creditos_ects": "10",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Historia, arqueología, geografía, filosofía y humanidades. Formación Básica.",
+        "nombre_elemento": "Historia, arqueología, geografía, filosofía y humanidades. Formación Básica.",
+        "creditos_ects": "10",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencias sociales, trabajo social, relaciones laborales y recursos humanos, sociología, ciencia política y relaciones internacionales.",
+        "nombre_elemento": "Ciencias sociales, trabajo social, relaciones laborales y recursos humanos, sociología, ciencia política y relaciones internacionales.",
+        "creditos_ects": "10",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencias sociales, trabajo social, relaciones laborales y recursos humanos, sociología, ciencia política y relaciones internacionales.",
+        "nombre_elemento": "Ciencias sociales, trabajo social, relaciones laborales y recursos humanos, sociología, ciencia política y relaciones internacionales.",
+        "creditos_ects": "8",
+        "caracter": "",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencias sociales, trabajo social, relaciones laborales y recursos humanos, sociología, ciencia política y relaciones internacionales.",
+        "nombre_elemento": "Ciencias sociales, trabajo social, relaciones laborales y recursos humanos, sociología, ciencia política y relaciones internacionales.",
+        "creditos_ects": "8",
+        "caracter": "",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencias sociales, trabajo social, relaciones laborales y recursos humanos, sociología, ciencia política y relaciones internacionales.",
+        "nombre_elemento": "Ciencias sociales, trabajo social, relaciones laborales y recursos humanos, sociología, ciencia política y relaciones internacionales.",
+        "creditos_ects": "8",
+        "caracter": "",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Introducción a la Psicología.",
+        "nombre_elemento": "Introducción a la Psicología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Nuevos Retos, Nuevas Habilidades para el siglo XXI.",
+        "nombre_elemento": "Nuevos Retos, Nuevas Habilidades para el siglo XXI.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Identidades, Cultura y Migraciones.",
+        "nombre_elemento": "Identidades, Cultura y Migraciones.",
+        "creditos_ects": "10",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Pensamiento Filosófico y Científico en la Sociedad Digital y Global.",
+        "nombre_elemento": "Pensamiento Filosófico y Científico en la Sociedad Digital y Global.",
+        "creditos_ects": "10",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Humanidades Digitales I.",
+        "nombre_elemento": "Humanidades Digitales I.",
+        "creditos_ects": "8",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Diseño para Futuros Sostenibles.",
+        "nombre_elemento": "Diseño para Futuros Sostenibles.",
+        "creditos_ects": "10",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Repensar el Territorio.",
+        "nombre_elemento": "Repensar el Territorio.",
+        "creditos_ects": "10",
+        "caracter": "OB.",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Economía Global y Distribución de la Riqueza.",
+        "nombre_elemento": "Economía Global y Distribución de la Riqueza.",
+        "creditos_ects": "8",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Democracia, Gobernanza y Sistemas Institucionales Locales.",
+        "nombre_elemento": "Democracia, Gobernanza y Sistemas Institucionales Locales.",
+        "creditos_ects": "8",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Cultura Organizacional para Sociedades en Cambio.",
+        "nombre_elemento": "Cultura Organizacional para Sociedades en Cambio.",
+        "creditos_ects": "8",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Educación para la Sostenibilidad.",
+        "nombre_elemento": "Educación para la Sostenibilidad.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Responsabilidad Social de Empresas y Organizaciones.",
+        "nombre_elemento": "Responsabilidad Social de Empresas y Organizaciones.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Humanidades Digitales II.",
+        "nombre_elemento": "Humanidades Digitales II.",
+        "creditos_ects": "8",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Retos Futuros: Digitalización y Desafíos Globales.",
+        "nombre_elemento": "Retos Futuros: Digitalización y Desafíos Globales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Urban Planning.",
+        "nombre_elemento": "Urban Planning.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Liderazgo y Comunicación.",
+        "nombre_elemento": "Liderazgo y Comunicación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "La Vida, Lugar de Aprendizaje-Life Place Learning.",
+        "nombre_elemento": "La Vida, Lugar de Aprendizaje-Life Place Learning.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Intervención Comunitaria.",
+        "nombre_elemento": "Intervención Comunitaria.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "12",
+        "caracter": "PE",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "International Law and Global Institutions.",
+        "nombre_elemento": "International Law and Global Institutions.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Liderazgo Compartido y Retos Globales.",
+        "nombre_elemento": "Liderazgo Compartido y Retos Globales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Digital Rights and Digital Citizenship.",
+        "nombre_elemento": "Digital Rights and Digital Citizenship.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Impacto Social.",
+        "nombre_elemento": "Impacto Social.",
+        "creditos_ects": "8",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Social Data and Visualization.",
+        "nombre_elemento": "Social Data and Visualization.",
+        "creditos_ects": "8",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prospective Analysis and Futuroscoping.",
+        "nombre_elemento": "Prospective Analysis and Futuroscoping.",
+        "creditos_ects": "8",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos de Trabajos de Investigación.",
+        "nombre_elemento": "Fundamentos de Trabajos de Investigación.",
+        "creditos_ects": "8",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "18",
+        "caracter": "OB",
+        "curso": "4.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Producción y Consumo Responsables.",
+        "nombre_elemento": "Producción y Consumo Responsables.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "Indiferente",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Creación De Organizaciones y Entidades.",
+        "nombre_elemento": "Creación De Organizaciones y Entidades.",
+        "creditos_ects": "4",
+        "caracter": "OP",
+        "curso": "Indiferente",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Liderazgo Compartido y Transformación Social.",
+        "nombre_elemento": "Liderazgo Compartido y Transformación Social.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "Indiferente",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derechos Humanos y Conflictos Globales.",
+        "nombre_elemento": "Derechos Humanos y Conflictos Globales.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "Indiferente",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Retos Globales: Alianzas para Lograr los Objetivos.",
+        "nombre_elemento": "Retos Globales: Alianzas para Lograr los Objetivos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "Indiferente",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Iot (Internet de las Cosas).",
+        "nombre_elemento": "Iot (Internet de las Cosas).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "Indiferente",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tecnologías de la Lengua y Ontologías.",
+        "nombre_elemento": "Tecnologías de la Lengua y Ontologías.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "Indiferente",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Liderazgo y Transformación Digital.",
+        "nombre_elemento": "Liderazgo y Transformación Digital.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "Indiferente",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Modelización de Datos y Objetos Digitales.",
+        "nombre_elemento": "Modelización de Datos y Objetos Digitales.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "Indiferente",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Diversity and Inequality.",
+        "nombre_elemento": "Diversity and Inequality.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "Indiferente",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Public Diplomacy.",
+        "nombre_elemento": "Public Diplomacy.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "Indiferente",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Género e Interseccionalidad.",
+        "nombre_elemento": "Género e Interseccionalidad.",
+        "creditos_ects": "4",
+        "caracter": "OP.",
+        "curso": "Indiferente",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión de Proyectos.",
+        "nombre_elemento": "Gestión de Proyectos.",
+        "creditos_ects": "4",
+        "caracter": "OP",
+        "curso": "Indiferente",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tecnologías Disruptivas.",
+        "nombre_elemento": "Tecnologías Disruptivas.",
+        "creditos_ects": "4",
+        "caracter": "OP",
+        "curso": "Indiferente",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Transmisión de la Cultura Vasca.",
+        "nombre_elemento": "Transmisión de la Cultura Vasca.",
+        "creditos_ects": "4",
+        "caracter": "OP",
+        "curso": "Indiferente",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_elementos": 55,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n13572 Resolución de 8 de junio de 2026, de la Universidad Mondragon \nUnibertsitatea, por la que se publica la modificación del plan de estudios de \nGraduado o Graduada en Humanidades Digitales Globales.\nDe conformidad con lo que dispone el artículo 28 del Real Decreto 1393/2007, de 29 \nde octubre, modificado por el Real Decreto 861/2010, de 2 de julio, por el que se \nestablece el procedimiento para la modificación de planes de estudio ya verificados, y \ntras haber obtenido el informe Favorable de la Agencia Nacional de Evaluación de la \nCalidad y Acreditación,\nEste Rectorado ha resuelto publicar la modificación del plan de estudios del Grado \nen Humanidades Digitales Globales por Mondragon Unibertsitatea, publicado por \nResolución de 4 de febrero de 2022 (BOE de 22 de junio de 2022) y que quedará \nestructurado según consta en el anexo de esta resolución.\nMondragón, 8 de junio de 2026.–El Rector, Vicente Atxa Uribe.\nANEXO\nGraduado/a en Humanidades "
   }
 }

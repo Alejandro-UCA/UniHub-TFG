@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "047",
   "universidad_nombre": "Universidad Alfonso X El Sabio",
-  "fecha_procesado": "2026-07-31T14:34:15.823731",
+  "fecha_procesado": "2026-08-03T12:37:39.359911",
   "boe_url": "http://www.boe.es/boe/dias/2024/04/08/pdfs/BOE-A-2024-6949.pdf",
   "boe_fecha": "2024-04-08",
   "plan_estudios": {
@@ -12,23 +12,164 @@
       "Obligatorias.": "66",
       "Prácticas Académicas Externas.": "9",
       "Trabajo Fin de Grado.": "15",
-      "Total.": "90",
-      "Modelización.": "OB",
-      "Métodos Numéricos Avanzados.": "OB",
-      "Mecánica de los Medios Continuos.": "OB",
-      "Cimentaciones, obras de contención y túneles.": "OB",
-      "Diseño, explotación y mantenimiento de obras hidráulicas.": "OB",
-      "Cálculo avanzado de estructuras.": "OB",
-      "Residuos, depuración y tratamiento de aguas.": "OB",
-      "Diseño y explotación de obras marítimas.": "OB",
-      "Planificación y gestión del transporte y las infraestructuras.": "OB",
-      "Ordenación territorial y planeamiento urbano.": "OB",
-      "Planificación, gestión y explotación de infraestructuras.": "OB",
-      "Prácticas académicas externas.": "PAE",
-      "Trabajo Fin de Máster.": "TFM"
+      "Total.": "90"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "66",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Académicas Externas.",
+        "nombre_elemento": "Prácticas Académicas Externas.",
+        "creditos_ects": "9",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "15",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "90",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Modelización.",
+        "nombre_elemento": "Modelización.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Métodos Numéricos Avanzados.",
+        "nombre_elemento": "Métodos Numéricos Avanzados.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Mecánica de los Medios Continuos.",
+        "nombre_elemento": "Mecánica de los Medios Continuos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Cimentaciones, obras de contención y túneles.",
+        "nombre_elemento": "Cimentaciones, obras de contención y túneles.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Diseño, explotación y mantenimiento de obras hidráulicas.",
+        "nombre_elemento": "Diseño, explotación y mantenimiento de obras hidráulicas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Cálculo avanzado de estructuras.",
+        "nombre_elemento": "Cálculo avanzado de estructuras.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Residuos, depuración y tratamiento de aguas.",
+        "nombre_elemento": "Residuos, depuración y tratamiento de aguas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Diseño y explotación de obras marítimas.",
+        "nombre_elemento": "Diseño y explotación de obras marítimas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Planificación y gestión del transporte y las infraestructuras.",
+        "nombre_elemento": "Planificación y gestión del transporte y las infraestructuras.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Ordenación territorial y planeamiento urbano.",
+        "nombre_elemento": "Ordenación territorial y planeamiento urbano.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Planificación, gestión y explotación de infraestructuras.",
+        "nombre_elemento": "Planificación, gestión y explotación de infraestructuras.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "3.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas académicas externas.",
+        "nombre_elemento": "Prácticas académicas externas.",
+        "creditos_ects": "9",
+        "caracter": "PAE",
+        "curso": "",
+        "cuatrimestre": "3.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "15",
+        "caracter": "TFM",
+        "curso": "",
+        "cuatrimestre": "3.º"
+      }
+    ],
+    "total_elementos": 17,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n6949 Resolución de 14 de marzo de 2024, de la Universidad Alfonso X el Sabio, \npor la que se publica la modificación del plan de estudios de Máster \nUniversitario en Ingeniería de Caminos, Canales y Puertos.\nObtenida la verificación de la modificación del plan de estudios, previo informe \npositivo de la Fundación para el Conocimiento Madri+d, de fecha 14 de marzo de 2024, \neste Rectorado ha resuelto publicar la modificación del plan de estudios conducente a la \nobtención del título del Máster Universitario en Ingeniería de Caminos, Canales y Puertos \npor la Universidad Alfonso X el Sabio.\nVillanueva de la Cañada, 14 de marzo de 2024.–La Rectora, Ana Isabel Fernández \nMartínez.\nDistribución del plan de estudios en créditos ECTS\nTipo de materia Créditos ECTS\nObligatorias. 66\nPrácticas Académicas Externas. 9\nTrabajo Fin de Grado. 15\n Total. 90\nMateria/Asignatura Carácter ECTS Semestre\nModelización. OB 6 1.º\nMétodos Numéricos Avanzados. OB 6 1.º\nMecán"
   }
 }

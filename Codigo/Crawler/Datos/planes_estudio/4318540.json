@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "052",
   "universidad_nombre": "Universidad Antonio de Nebrija",
-  "fecha_procesado": "2026-07-31T14:40:03.402185",
+  "fecha_procesado": "2026-08-03T12:43:07.580845",
   "boe_url": "http://www.boe.es/boe/dias/2024/01/29/pdfs/BOE-A-2024-1687.pdf",
   "boe_fecha": "2024-01-29",
   "plan_estudios": {
@@ -14,41 +14,45 @@
       "Trabajo Fin de Máster.": "6",
       "Créditos totales.": "60"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas obligatorias.",
+        "nombre_elemento": "Asignaturas obligatorias.",
         "creditos_ects": "48",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas externas.",
+        "nombre_elemento": "Prácticas externas.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
         "creditos_ects": "60",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 4,
+    "total_elementos": 4,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n1687 Resolución de 12 de enero de 2024, de la Universidad Antonio de Nebrija, \npor la que se publica el plan de estudios de Máster Universitario en Análisis \nde Negocios.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, y \nacordado el carácter oficial del título por Acuerdo del Consejo de Ministros de 27 de \ndiciembre de 2023 (publicado en el BOE de 6 de enero de 2024 por resolución de la \nSecretaría General de Universidades de 28 de diciembre 2023),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención \ndel título de Máster Universitario en Análisis de Negocios, que queda estructurado según \nconsta en el anexo de esta resolución.\nHoyo de Manzanares, 12 de enero de 2024.–El Rector, José Muñiz Fernández.\nANEXO\nUniversidad Antonio de Nebrija\nPLAN DE ESTUDIOS CONDUCENTE AL TÍTULO DE MÁSTER \nUNIVERSITARIO EN ANÁLISIS DE NEGOCIOS\nPlanificación de las enseñanzas\nDescripción general del plan de es"
   }
 }

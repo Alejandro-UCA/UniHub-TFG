@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "047",
   "universidad_nombre": "Universidad Alfonso X El Sabio",
-  "fecha_procesado": "2026-07-31T14:35:28.504879",
+  "fecha_procesado": "2026-08-03T12:38:43.801759",
   "boe_url": "http://www.boe.es/boe/dias/2025/11/17/pdfs/BOE-A-2025-23274.pdf",
   "boe_fecha": "2025-11-17",
   "plan_estudios": {
@@ -12,20 +12,146 @@
       "Obligatorias.": "48",
       "Prácticas Académicas Externas.": "6",
       "Trabajo Fin de Máster.": "6",
-      "Total.": "60",
-      "Metodología del entrenamiento y mejora rendimiento deportivo.": "Obligatorio.",
-      "Fisiología del deporte y su aplicación al entrenamiento y la readaptación funcional.": "Obligatorio.",
-      "Disminución del riesgo lesional y readaptación funcional y deportiva.": "Obligatorio.",
-      "Programación del entrenamiento para la optimización del rendimiento deportivo (i).": "Obligatorio.",
-      "Análisis de datos y tecnología prevención de lesiones y al rendimiento deportivo.": "Obligatorio.",
-      "Programación del entrenamiento para la optimización del rendimiento deportivo (ii).": "Obligatorio.",
-      "Dirección de programas de ejercicio físico y salud.": "Obligatorio.",
-      "Ciencias de apoyo en el rendimiento y prevención de lesiones.": "Obligatorio.",
-      "Prácticas académicas externas.": "PAE.",
-      "Trabajo fin de máster.": "TFM."
+      "Total.": "60"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "48",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Académicas Externas.",
+        "nombre_elemento": "Prácticas Académicas Externas.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Metodología del entrenamiento y mejora rendimiento deportivo.",
+        "materia": "",
+        "nombre_elemento": "Metodología del entrenamiento y mejora rendimiento deportivo.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Fisiología del deporte y su aplicación al entrenamiento y la readaptación funcional.",
+        "materia": "",
+        "nombre_elemento": "Fisiología del deporte y su aplicación al entrenamiento y la readaptación funcional.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Disminución del riesgo lesional y readaptación funcional y deportiva.",
+        "materia": "",
+        "nombre_elemento": "Disminución del riesgo lesional y readaptación funcional y deportiva.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Programación del entrenamiento para la optimización del rendimiento deportivo (i).",
+        "materia": "",
+        "nombre_elemento": "Programación del entrenamiento para la optimización del rendimiento deportivo (i).",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Análisis de datos y tecnología prevención de lesiones y al rendimiento deportivo.",
+        "materia": "",
+        "nombre_elemento": "Análisis de datos y tecnología prevención de lesiones y al rendimiento deportivo.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Programación del entrenamiento para la optimización del rendimiento deportivo (ii).",
+        "materia": "",
+        "nombre_elemento": "Programación del entrenamiento para la optimización del rendimiento deportivo (ii).",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Dirección de programas de ejercicio físico y salud.",
+        "materia": "",
+        "nombre_elemento": "Dirección de programas de ejercicio físico y salud.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Ciencias de apoyo en el rendimiento y prevención de lesiones.",
+        "materia": "",
+        "nombre_elemento": "Ciencias de apoyo en el rendimiento y prevención de lesiones.",
+        "creditos_ects": "6",
+        "caracter": "Obligatorio.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Prácticas académicas externas.",
+        "materia": "",
+        "nombre_elemento": "Prácticas académicas externas.",
+        "creditos_ects": "6",
+        "caracter": "PAE.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Trabajo fin de máster.",
+        "materia": "",
+        "nombre_elemento": "Trabajo fin de máster.",
+        "creditos_ects": "6",
+        "caracter": "TFM.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Total.",
+        "materia": "",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_elementos": 15,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n23274 Resolución de 14 de octubre de 2025, de la Universidad Alfonso X el Sabio, \npor la que se publica el plan de estudios de Máster Universitario en \nRendimiento Deportivo y Prevención de Lesiones.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme positivo de la Fundación para el Conocimiento madri+d, y acordado el carácter \noficial del título por Acuerdo de Consejo de Ministros, de 7 de octubre de 2025 (publicado \nen el BOE núm. 246, de 13 de octubre de 2025, por Resolución de la Secretaría General \nde Universidades, de 9 de octubre de 2025),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención \ndel título de Máster Universitario en Rendimiento Deportivo y Prevención de Lesiones por \nla Universidad Alfonso X el Sabio.\nVillanueva de la Cañada, 14 de octubre de 2025.–El Rector, Juan Romo Urroz.\nDistribución del plan de estudios en créditos ECTS\nTipo de materia Créditos ECTS"
   }
 }

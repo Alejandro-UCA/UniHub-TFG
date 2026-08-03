@@ -4,142 +4,167 @@
   "nivel_academico": "Grado - RD 1393/2007 (1)",
   "universidad_codigo": "052",
   "universidad_nombre": "Universidad Antonio de Nebrija",
-  "fecha_procesado": "2026-07-31T14:39:02.972720",
+  "fecha_procesado": "2026-08-03T12:42:15.081467",
   "boe_url": "http://www.boe.es/boe/dias/2011/03/21/pdfs/BOE-A-2011-5180.pdf",
   "boe_fecha": "2011-03-21",
   "plan_estudios": {
     "resumen_creditos": {},
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "Matemáticas.",
-        "nombre_asignatura": "Matemáticas I. Matemáticas II. Cálculo I. Cálculo II.",
+        "nombre_elemento": "Matemáticas I. Matemáticas II. Cálculo I. Cálculo II.",
         "creditos_ects": "6 6 6 6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Física.",
-        "nombre_asignatura": "Física I.",
+        "nombre_elemento": "Física I.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Física.",
-        "nombre_asignatura": "Física II.",
+        "nombre_elemento": "Física II.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Informática.",
-        "nombre_asignatura": "Fundamentos de Informática.",
+        "nombre_elemento": "Fundamentos de Informática.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Química.",
-        "nombre_asignatura": "Química.",
+        "nombre_elemento": "Química.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Expresión Gráfica.",
-        "nombre_asignatura": "Expresión Gráfica I.",
+        "nombre_elemento": "Expresión Gráfica I.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Expresión Gráfica.",
-        "nombre_asignatura": "Expresión Gráfica II.",
+        "nombre_elemento": "Expresión Gráfica II.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Empresa y su Entorno.",
+        "nombre_elemento": "Empresa y su Entorno.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Estadística.",
-        "nombre_asignatura": "Estadística.",
+        "nombre_elemento": "Estadística.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
+        "materia": "Estadística.",
+        "nombre_elemento": "Estadística.",
+        "creditos_ects": "72",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Matemáticas I. Matemáticas II. Cálculo I. Cálculo II. Estadística. Física I. Física II. Fundamentos de Informática. Química. Expresión Gráfica I. Expresión Gráfica II. La Empresa y su Entorno.",
+        "nombre_elemento": "Matemáticas I. Matemáticas II. Cálculo I. Cálculo II. Estadística. Física I. Física II. Fundamentos de Informática. Química. Expresión Gráfica I. Expresión Gráfica II. La Empresa y su Entorno.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Termodinámica. Mecánica de Fluidos. Fundamentos de Ciencia de Materiales. Circuitos. Máquinas Eléctricas. Electrónica. Teoría de Máquinas. Resistencia de Materiales. Procesos Industriales I. Medio Ambiente y Sostenibilidad. Dirección y Organización de Empresas. Proyectos. Automatismos y Métodos de Control.",
+        "nombre_elemento": "Termodinámica. Mecánica de Fluidos. Fundamentos de Ciencia de Materiales. Circuitos. Máquinas Eléctricas. Electrónica. Teoría de Máquinas. Resistencia de Materiales. Procesos Industriales I. Medio Ambiente y Sostenibilidad. Dirección y Organización de Empresas. Proyectos. Automatismos y Métodos de Control.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Diseño Asistido por Ordenador I. Diseño Asistido por Ordenador II. Cálculo, Diseño y Ensayo de Máquinas. Ingeniería Térmica. Ingeniería Asistida por Ordenador. Cálculo de Estrucuturas. Sistemas y Máquinas Fluidomecánicas. Ingeniería de Materiales. Procesos Industriales II.",
+        "nombre_elemento": "Diseño Asistido por Ordenador I. Diseño Asistido por Ordenador II. Cálculo, Diseño y Ensayo de Máquinas. Ingeniería Térmica. Ingeniería Asistida por Ordenador. Cálculo de Estrucuturas. Sistemas y Máquinas Fluidomecánicas. Ingeniería de Materiales. Procesos Industriales II.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Inteligencia Emocional y Comunicación. Trabajo en Equipo y Gestión de Proyectos.",
+        "nombre_elemento": "Inteligencia Emocional y Comunicación. Trabajo en Equipo y Gestión de Proyectos.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Desarrollo del Espíritu Participativo y Solidario.",
+        "nombre_elemento": "Desarrollo del Espíritu Participativo y Solidario.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Evaluación de Desarrollo de Capacidades en la Empresa.",
+        "nombre_elemento": "Evaluación de Desarrollo de Capacidades en la Empresa.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Proyecto Fin de Grado.",
+        "nombre_elemento": "Proyecto Fin de Grado.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 16,
+    "total_elementos": 17,
     "texto_extraido_muestra": "BOLETÍN OFICIAL DEL ESTADO\nNúm. 68 Lunes 21 de marzo de 2011 Sec. III.   Pág. 30235\nIII. OTRAS DISPOSICIONES\nUNIVERSIDADES\n5180 Resolución de 9 de marzo de 2011, de la Universidad Antonio de Nebrija, por \nla que se publica el plan de estudios de Graduado en Ingeniería Mecánica.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme positivo de la Agencia Nacional de Evaluación de la Calidad y Acreditación, y \nacordado el carácter oficial del título por Acuerdo del Consejo de Ministros de 1 de octubre \nde 2010 (publicado en el BOE de 11 de noviembre de 2010, por Resolución de la Secretaría \nGeneral de Universidades de 18 de octubre de 2010), este Rectorado ha resuelto publicar \nel plan de estudios conducente a la obtención del título de Graduado o Graduada en \nIngeniería Mecánica, que quedará estructurado según consta en el Anexo de esta \nResolución.\nHoyo de Manzanares, 9 de marzo de 2011.–La Rectora, M.ª Pilar Vélez Melón.\nANEXO\nUniversidad: Anto"
   }
 }

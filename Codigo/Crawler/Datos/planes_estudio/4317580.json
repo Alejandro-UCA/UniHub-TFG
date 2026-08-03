@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "052",
   "universidad_nombre": "Universidad Antonio de Nebrija",
-  "fecha_procesado": "2026-07-31T14:40:51.596907",
+  "fecha_procesado": "2026-08-03T12:43:49.813297",
   "boe_url": "http://www.boe.es/boe/dias/2023/04/03/pdfs/BOE-A-2023-8447.pdf",
   "boe_fecha": "2023-04-03",
   "plan_estudios": {
@@ -14,41 +14,45 @@
       "Trabajo Fin de Máster.": "12",
       "Créditos totales.": "60"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Obligatorias.",
+        "nombre_elemento": "Asignaturas Obligatorias.",
         "creditos_ects": "42",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas externas.",
+        "nombre_elemento": "Prácticas externas.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
         "creditos_ects": "12",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
         "creditos_ects": "60",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 4,
+    "total_elementos": 4,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n8447 Resolución de 8 de marzo de 2023, de la Universidad Antonio de Nebrija, por \nla que se publica el plan de estudios de Máster Universitario en Desarrollo del \nLenguaje y Dificultades de la Comunicación.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, y \nacordado el carácter oficial del título por Acuerdo del Consejo de Ministros de 5 de \noctubre de 2021 (publicado en el BOE de 22 de octubre de 2021 por resolución de la \nSecretaría General de Universidades de 6 de octubre de 2021), este Rectorado ha \nresuelto publicar el plan de estudios conducente a la obtención del título de Máster \nUniversitario en Desarrollo del Lenguaje y Dificultades de la Comunicación, que queda \nestructurado según consta en el anexo de esta resolución.\nHoyo de Manzanares, 8 de marzo de 2023.–El Rector, José Muñiz Fernández.\nANEXO\nUniversidad Antonio de Nebrija\nPlan de Estudios conducente al título de Máster Universitario en Desarrollo del "
   }
 }

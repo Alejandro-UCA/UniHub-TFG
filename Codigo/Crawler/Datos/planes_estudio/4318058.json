@@ -4,28 +4,163 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "047",
   "universidad_nombre": "Universidad Alfonso X El Sabio",
-  "fecha_procesado": "2026-07-31T14:35:38.642543",
+  "fecha_procesado": "2026-08-03T12:38:54.033436",
   "boe_url": "http://www.boe.es/boe/dias/2023/04/11/pdfs/BOE-A-2023-9041.pdf",
   "boe_fecha": "2023-04-11",
   "plan_estudios": {
     "resumen_creditos": {
       "Obligatorias.": "48",
-      "Prácticas Externas.": "Prácticas Externas.",
-      "Trabajo Fin de Máster.": "Trabajo Fin de Máster.",
-      "Total.": "60",
-      "Evaluación de los Trastornos de la Conducta Alimentaria.": "Obligatoria.",
-      "Prevención de los Trastornos de la Conducta Alimentaria.": "Obligatoria.",
-      "Imagen Corporal, Autoconcepto y Actividad Física en los Trastornos de la Conducta Alimentaria.": "Obligatoria.",
-      "Obesidad.": "Obligatoria.",
-      "Psicopatologías Asociadas al Abordaje de los Trastornos de la Conducta Alimentaria.": "Obligatoria.",
-      "Abordaje Multidisciplinar de los Trastornos de la Conducta Alimentaria.": "Obligatoria.",
-      "Factores Psicosociales, Familiares y Culturales en los Trastornos de la Conducta Alimentaria.": "Obligatoria.",
-      "Conceptualización de los Trastornos de la Conducta Alimentaria.": "Obligatoria.",
-      "Entrenamiento de Habilidades Prácticas desde el Abordaje Multidisciplinar.": "Obligatoria.",
-      "Intervención en los Trastornos de la Conducta Alimentaria.": "Obligatoria."
+      "Prácticas Externas.": "6",
+      "Trabajo Fin de Máster.": "6",
+      "Total.": "60"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "48",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Evaluación de los Trastornos de la Conducta Alimentaria.",
+        "nombre_elemento": "Evaluación de los Trastornos de la Conducta Alimentaria.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prevención de los Trastornos de la Conducta Alimentaria.",
+        "nombre_elemento": "Prevención de los Trastornos de la Conducta Alimentaria.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Imagen Corporal, Autoconcepto y Actividad Física en los Trastornos de la Conducta Alimentaria.",
+        "nombre_elemento": "Imagen Corporal, Autoconcepto y Actividad Física en los Trastornos de la Conducta Alimentaria.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Obesidad.",
+        "nombre_elemento": "Obesidad.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Psicopatologías Asociadas al Abordaje de los Trastornos de la Conducta Alimentaria.",
+        "nombre_elemento": "Psicopatologías Asociadas al Abordaje de los Trastornos de la Conducta Alimentaria.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Abordaje Multidisciplinar de los Trastornos de la Conducta Alimentaria.",
+        "nombre_elemento": "Abordaje Multidisciplinar de los Trastornos de la Conducta Alimentaria.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Factores Psicosociales, Familiares y Culturales en los Trastornos de la Conducta Alimentaria.",
+        "nombre_elemento": "Factores Psicosociales, Familiares y Culturales en los Trastornos de la Conducta Alimentaria.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Conceptualización de los Trastornos de la Conducta Alimentaria.",
+        "nombre_elemento": "Conceptualización de los Trastornos de la Conducta Alimentaria.",
+        "creditos_ects": "3",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Entrenamiento de Habilidades Prácticas desde el Abordaje Multidisciplinar.",
+        "nombre_elemento": "Entrenamiento de Habilidades Prácticas desde el Abordaje Multidisciplinar.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Intervención en los Trastornos de la Conducta Alimentaria.",
+        "nombre_elemento": "Intervención en los Trastornos de la Conducta Alimentaria.",
+        "creditos_ects": "9",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "6",
+        "caracter": "Prácticas Externas.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "Trabajo Fin de Máster.",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_elementos": 16,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n9041 Resolución de 22 de marzo de 2023, de la Universidad Alfonso X el Sabio, \npor la que se publica el plan de estudios de Máster Universitario en \nTrastornos del Comportamiento Alimentario.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme positivo de la Fundación para el Conocimiento Madri+d, y acordado el carácter \noficial del título por Acuerdo de Consejo de Ministros de 18 de octubre de 2022 \n(publicado en el BOE de 28 de octubre de 2022, por Resolución de la Secretaría General \nde Universidades de 21 de octubre de 2022),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención \ndel título de Máster Universitario en Trastornos del Comportamiento Alimentario por la \nUniversidad Alfonso X el Sabio.\nVillanueva de la Cañada, 22 de marzo de 2023.–La Rectora, Ana Isabel Fernández \nMartínez.\nDISTRIBUCIÓN DEL PLAN DE ESTUDIOS EN CRÉDITOS ECTS\nTipo de materia Créditos \nECTS\nObligat"
   }
 }

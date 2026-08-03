@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 822/2021 (2)",
   "universidad_codigo": "047",
   "universidad_nombre": "Universidad Alfonso X El Sabio",
-  "fecha_procesado": "2026-07-31T14:31:19.698455",
+  "fecha_procesado": "2026-08-03T12:34:52.901300",
   "boe_url": "http://www.boe.es/boe/dias/2022/08/08/pdfs/BOE-A-2022-13388.pdf",
   "boe_fecha": "2022-08-08",
   "plan_estudios": {
@@ -13,49 +13,417 @@
       "Obligatorias.": "150",
       "Optativas.": "12",
       "Prácticas Externas.": "6",
-      "Trabajo Fin de Grado.": "Trabajo Fin de Grado.",
-      "Total.": "240",
-      "Informática/Fundamentos de informática.": "Básica.",
-      "Informática/Introducción a la estadística y ciencia de datos.": "Básica.",
-      "Matemáticas/Análisis I.": "Básica.",
-      "Matemáticas/Álgebra I.": "Básica.",
-      "Física/Fundamentos de Física I.": "Básica.",
-      "Química/Fundamentos de química.": "Básica.",
-      "Matemáticas/Análisis II.": "Básica.",
-      "Matemáticas/Álgebra II.": "Básica.",
-      "Física/Fundamentos de Física II.": "Básica.",
-      "Física/Técnicas experimentales básicas.": "Básica.",
-      "Ecuaciones diferenciales.": "Obligatoria.",
-      "Termodinámica.": "Obligatoria.",
-      "Electromagnetismo I.": "Obligatoria.",
-      "Mecánica/Mecánica y ondas I.": "Obligatoria.",
-      "Inglés científico.": "Obligatoria.",
-      "Matemática discreta.": "Obligatoria.",
-      "Variable compleja y análisis de Fourier.": "Obligatoria.",
-      "Electromagnetismo II.": "Obligatoria.",
-      "Mecánica/Mecánica y ondas II.": "Obligatoria.",
-      "Experimentación en Física/Laboratorio experimental I.": "Obligatoria.",
-      "Física cuántica I.": "Obligatoria.",
-      "Electrónica.": "Obligatoria.",
-      "Óptica.": "Obligatoria.",
-      "Experimentación en Física/Laboratorio experimental II.": "Obligatoria.",
-      "Estructura de datos y algoritmos.": "Obligatoria.",
-      "Ecuaciones en derivadas parciales.": "Obligatoria.",
-      "Gestión de datos.": "Obligatoria.",
-      "Física del estado sólido.": "Obligatoria.",
-      "Física estadística.": "Obligatoria.",
-      "Métodos numéricos.": "Obligatoria.",
-      "Aprendizaje automático.": "Obligatoria.",
-      "Estructura de la materia.": "Obligatoria.",
-      "Física cuántica II.": "Obligatoria.",
-      "Experimentación en Física/Laboratorio experimental III.": "Obligatoria.",
-      "Optativa 1.": "Optativa.",
-      "Optativa 2.": "Optativa.",
-      "Introducción a la computación e información cuántica.": "Obligatoria.",
-      "Prácticas externas.": "Prácticas Externas."
+      "Trabajo Fin de Grado.": "12",
+      "Total.": "240"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Formación Básica.",
+        "nombre_elemento": "Formación Básica.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "150",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativas.",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Informática/Fundamentos de informática.",
+        "nombre_elemento": "Informática/Fundamentos de informática.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Informática/Introducción a la estadística y ciencia de datos.",
+        "nombre_elemento": "Informática/Introducción a la estadística y ciencia de datos.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Matemáticas/Análisis I.",
+        "nombre_elemento": "Matemáticas/Análisis I.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Matemáticas/Álgebra I.",
+        "nombre_elemento": "Matemáticas/Álgebra I.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Física/Fundamentos de Física I.",
+        "nombre_elemento": "Física/Fundamentos de Física I.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": "1.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Química/Fundamentos de química.",
+        "nombre_elemento": "Química/Fundamentos de química.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Matemáticas/Análisis II.",
+        "nombre_elemento": "Matemáticas/Análisis II.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Matemáticas/Álgebra II.",
+        "nombre_elemento": "Matemáticas/Álgebra II.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Física/Fundamentos de Física II.",
+        "nombre_elemento": "Física/Fundamentos de Física II.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Física/Técnicas experimentales básicas.",
+        "nombre_elemento": "Física/Técnicas experimentales básicas.",
+        "creditos_ects": "6",
+        "caracter": "Básica.",
+        "curso": "",
+        "cuatrimestre": "2.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Ecuaciones diferenciales.",
+        "nombre_elemento": "Ecuaciones diferenciales.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "3.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Termodinámica.",
+        "nombre_elemento": "Termodinámica.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "3.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Electromagnetismo I.",
+        "nombre_elemento": "Electromagnetismo I.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "3.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Mecánica/Mecánica y ondas I.",
+        "nombre_elemento": "Mecánica/Mecánica y ondas I.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "3.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Inglés científico.",
+        "nombre_elemento": "Inglés científico.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "3.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Matemática discreta.",
+        "nombre_elemento": "Matemática discreta.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "4.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Variable compleja y análisis de Fourier.",
+        "nombre_elemento": "Variable compleja y análisis de Fourier.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "4.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Electromagnetismo II.",
+        "nombre_elemento": "Electromagnetismo II.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "4.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Mecánica/Mecánica y ondas II.",
+        "nombre_elemento": "Mecánica/Mecánica y ondas II.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "4.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Experimentación en Física/Laboratorio experimental I.",
+        "nombre_elemento": "Experimentación en Física/Laboratorio experimental I.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "4.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Física cuántica I.",
+        "nombre_elemento": "Física cuántica I.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "5.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Electrónica.",
+        "nombre_elemento": "Electrónica.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "5.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Óptica.",
+        "nombre_elemento": "Óptica.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "5.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Experimentación en Física/Laboratorio experimental II.",
+        "nombre_elemento": "Experimentación en Física/Laboratorio experimental II.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "5.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Estructura de datos y algoritmos.",
+        "nombre_elemento": "Estructura de datos y algoritmos.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "5.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Ecuaciones en derivadas parciales.",
+        "nombre_elemento": "Ecuaciones en derivadas parciales.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "6.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión de datos.",
+        "nombre_elemento": "Gestión de datos.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "6.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Física del estado sólido.",
+        "nombre_elemento": "Física del estado sólido.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "6.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Física estadística.",
+        "nombre_elemento": "Física estadística.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "6.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Métodos numéricos.",
+        "nombre_elemento": "Métodos numéricos.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "6.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Aprendizaje automático.",
+        "nombre_elemento": "Aprendizaje automático.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "7.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Estructura de la materia.",
+        "nombre_elemento": "Estructura de la materia.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "7.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Física cuántica II.",
+        "nombre_elemento": "Física cuántica II.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "7.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Experimentación en Física/Laboratorio experimental III.",
+        "nombre_elemento": "Experimentación en Física/Laboratorio experimental III.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "7.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Optativa 1.",
+        "nombre_elemento": "Optativa 1.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": "8.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Optativa 2.",
+        "nombre_elemento": "Optativa 2.",
+        "creditos_ects": "6",
+        "caracter": "Optativa.",
+        "curso": "",
+        "cuatrimestre": "8.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Introducción a la computación e información cuántica.",
+        "nombre_elemento": "Introducción a la computación e información cuántica.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": "8.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas externas.",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "6",
+        "caracter": "Prácticas Externas.",
+        "curso": "",
+        "cuatrimestre": "8.º"
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "Trabajo Fin de Grado.",
+        "curso": "",
+        "cuatrimestre": "7.º y 8.º"
+      }
+    ],
+    "total_elementos": 45,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n13388 Resolución de 20 de julio de 2022, de la Universidad Alfonso X el Sabio, por \nla que se publica el plan de estudios de Graduado o Graduada en Física.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme positivo de la Fundación para el Conocimiento MADRID más D, y acordado el \ncarácter oficial del título por Acuerdo de Consejo de Ministros de 11 de julio de 2022 \n(publicado en el BOE número 173, de 20 de julio de 2022, por Resolución de la \nSecretaría General de Universidades de 13 de julio de 2022),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención \ndel título de, este Rectorado ha resuelto publicar el plan de estudios conducente a la \nobtención del título de Graduado o Graduada en Física por la Universidad Alfonso X El \nSabio.\nVillanueva de la Cañada, 20 de julio de 2022.–La Rectora, Ana Isabel Fernández \nMartínez.\nPLAN DE ESTUDIOS DEL GRADO EN FÍSICA\nDistribución de"
   }
 }

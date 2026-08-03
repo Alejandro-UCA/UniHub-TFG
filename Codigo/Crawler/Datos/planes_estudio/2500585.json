@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 822/2021 (2)",
   "universidad_codigo": "061",
   "universidad_nombre": "Mondragón Unibertsitatea",
-  "fecha_procesado": "2026-07-31T14:14:55.718335",
+  "fecha_procesado": "2026-08-03T12:20:43.734431",
   "boe_url": "http://www.boe.es/boe/dias/2026/06/22/pdfs/BOE-A-2026-13571.pdf",
   "boe_fecha": "2026-06-22",
   "plan_estudios": {
@@ -14,37 +14,353 @@
       "Optativas.": "48",
       "Prácticas Externas.": "18",
       "Proyecto fin de Grado.": "18",
-      "Total.": "240",
-      "Teoría y tratamiento digital de la imagen.": "12",
-      "Comunicación multimedia participativa.": "12",
-      "Lengua, comunicación oral y creación radiofónica.": "12",
-      "Lenguaje y tecnología audiovisual.": "12",
-      "Historia y teoría de la comunicación audiovisual.": "12",
-      "Derecho y deontología de la comunicación.": "6",
-      "Tendencias de la comunicación audiovisual.": "9",
-      "Realización audiovisual.": "9",
-      "Cultura visual y digital.": "12",
-      "Comunicación para la transformación social.": "12",
-      "Contenidos audiovisuales de entretenimiento.": "12",
-      "Desarrollo profesional en empresas (Practicum I).": "9",
-      "Desarrollo profesional en empresas (Practicum II).": "9",
-      "Escritura creativa.": "6",
-      "Fundamentos y representación del mundo contemporáneo.": "6",
-      "Promoción y difusión audiovisual.": "6",
-      "Audiencias y análisis de datos.": "3",
-      "Creación de ficción y documental contemporáneo.": "12",
-      "Creatividad audiovisual interactiva.": "12",
-      "Estrategia y gestión de la comunicación digital.": "12",
-      "Marketing digital y realización publicitaria.": "9",
-      "Desarrollo profesional y creación de empresas de comunicación.": "6",
-      "Escritura, métodos y técnicas de investigación en comunicación.": "6",
-      "Tendencias y retos del futuro.": "6",
-      "Creación de nuevos formatos y contenidos.": "18",
-      "Organización y producción de eventos culturales.": "18",
-      "Trabajo Fin de Grado (TFG).": "18"
+      "Total.": "240"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Formación Básica.",
+        "nombre_elemento": "Formación Básica.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "96",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativas.",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "48",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Proyecto fin de Grado.",
+        "nombre_elemento": "Proyecto fin de Grado.",
+        "creditos_ects": "18",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Periodismo, comunicación, publicidad y relaciones públicas.",
+        "nombre_elemento": "Periodismo, comunicación, publicidad y relaciones públicas.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Periodismo, comunicación, publicidad y relaciones públicas.",
+        "nombre_elemento": "Periodismo, comunicación, publicidad y relaciones públicas.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Periodismo, comunicación, publicidad y relaciones públicas.",
+        "nombre_elemento": "Periodismo, comunicación, publicidad y relaciones públicas.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Periodismo, comunicación, publicidad y relaciones públicas.",
+        "nombre_elemento": "Periodismo, comunicación, publicidad y relaciones públicas.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Periodismo, comunicación, publicidad y relaciones públicas.",
+        "nombre_elemento": "Periodismo, comunicación, publicidad y relaciones públicas.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Teoría y tratamiento digital de la imagen.",
+        "nombre_elemento": "Teoría y tratamiento digital de la imagen.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Comunicación multimedia participativa.",
+        "nombre_elemento": "Comunicación multimedia participativa.",
+        "creditos_ects": "12",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Lengua, comunicación oral y creación radiofónica.",
+        "nombre_elemento": "Lengua, comunicación oral y creación radiofónica.",
+        "creditos_ects": "12",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Lenguaje y tecnología audiovisual.",
+        "nombre_elemento": "Lenguaje y tecnología audiovisual.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Historia y teoría de la comunicación audiovisual.",
+        "nombre_elemento": "Historia y teoría de la comunicación audiovisual.",
+        "creditos_ects": "12",
+        "caracter": "FB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho y deontología de la comunicación.",
+        "nombre_elemento": "Derecho y deontología de la comunicación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tendencias de la comunicación audiovisual.",
+        "nombre_elemento": "Tendencias de la comunicación audiovisual.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Realización audiovisual.",
+        "nombre_elemento": "Realización audiovisual.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Cultura visual y digital.",
+        "nombre_elemento": "Cultura visual y digital.",
+        "creditos_ects": "12",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Comunicación para la transformación social.",
+        "nombre_elemento": "Comunicación para la transformación social.",
+        "creditos_ects": "12",
+        "caracter": "FB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Contenidos audiovisuales de entretenimiento.",
+        "nombre_elemento": "Contenidos audiovisuales de entretenimiento.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Desarrollo profesional en empresas (Practicum I).",
+        "nombre_elemento": "Desarrollo profesional en empresas (Practicum I).",
+        "creditos_ects": "9",
+        "caracter": "PE",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Desarrollo profesional en empresas (Practicum II).",
+        "nombre_elemento": "Desarrollo profesional en empresas (Practicum II).",
+        "creditos_ects": "9",
+        "caracter": "PE",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Escritura creativa.",
+        "nombre_elemento": "Escritura creativa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos y representación del mundo contemporáneo.",
+        "nombre_elemento": "Fundamentos y representación del mundo contemporáneo.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Promoción y difusión audiovisual.",
+        "nombre_elemento": "Promoción y difusión audiovisual.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Audiencias y análisis de datos.",
+        "nombre_elemento": "Audiencias y análisis de datos.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Creación de ficción y documental contemporáneo.",
+        "nombre_elemento": "Creación de ficción y documental contemporáneo.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Creatividad audiovisual interactiva.",
+        "nombre_elemento": "Creatividad audiovisual interactiva.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Estrategia y gestión de la comunicación digital.",
+        "nombre_elemento": "Estrategia y gestión de la comunicación digital.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Marketing digital y realización publicitaria.",
+        "nombre_elemento": "Marketing digital y realización publicitaria.",
+        "creditos_ects": "9",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Desarrollo profesional y creación de empresas de comunicación.",
+        "nombre_elemento": "Desarrollo profesional y creación de empresas de comunicación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Escritura, métodos y técnicas de investigación en comunicación.",
+        "nombre_elemento": "Escritura, métodos y técnicas de investigación en comunicación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tendencias y retos del futuro.",
+        "nombre_elemento": "Tendencias y retos del futuro.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Creación de nuevos formatos y contenidos.",
+        "nombre_elemento": "Creación de nuevos formatos y contenidos.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Organización y producción de eventos culturales.",
+        "nombre_elemento": "Organización y producción de eventos culturales.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Grado (TFG).",
+        "nombre_elemento": "Trabajo Fin de Grado (TFG).",
+        "creditos_ects": "18",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_elementos": 38,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n13571 Resolución de 8 de junio de 2026, de la Universidad Mondragon \nUnibertsitatea, por la que se publica la modificación del plan de estudios de \nGraduado o Graduada en Comunicación Audiovisual.\nDe conformidad con lo que dispone el artículo 28 del Real Decreto 1393/2007, de 29 \nde octubre, modificado por el Real Decreto 861/2010, de 2 de julio, por el que se \nestablece el procedimiento para la modificación de planes de estudio ya verificados, y \ntras haber obtenido el informe Favorable de la Agencia Nacional de Evaluación de la \nCalidad y Acreditación,\nEste Rectorado ha resuelto publicar la modificación del plan de estudios del Grado \nen Comunicación Audiovisual por Mondragon Unibertsitatea, publicado por Resolución \nde 4 de febrero de 2022 (BOE de 22 de junio de 2022) y que quedará estructurado \nsegún consta en el anexo de esta resolución.\nMondragón, 8 de junio de 2026.–El Rector, Vicente Atxa Uribe.\nANEXO\nGraduado/a en Comunicación Audiovisual"
   }
 }

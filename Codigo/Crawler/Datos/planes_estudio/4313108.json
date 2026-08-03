@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "074",
   "universidad_nombre": "Universidad a Distancia de Madrid",
-  "fecha_procesado": "2026-07-31T14:24:05.601332",
+  "fecha_procesado": "2026-08-03T12:27:40.474574",
   "boe_url": "http://www.boe.es/boe/dias/2012/03/28/pdfs/BOE-A-2012-4307.pdf",
   "boe_fecha": "2012-03-28",
   "plan_estudios": {
@@ -13,41 +13,585 @@
       "PRÁCTICAS EXTERNAS": "6",
       "TOTAL": "60"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
-        "materia": "Marketing",
-        "nombre_asignatura": "Prácticas Externas",
+        "modulo": "Informática Aplicada",
+        "materia": "",
+        "nombre_elemento": "Informática Aplicada",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "Máster",
-        "nombre_asignatura": "TOTAL",
+        "modulo": "al Marketing y la",
+        "materia": "",
+        "nombre_elemento": "al Marketing y la",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "TOTAL",
-        "nombre_asignatura": "TOTAL HORAS ESTUDIO",
+        "modulo": "Dirección Comercial",
+        "materia": "",
+        "nombre_elemento": "Dirección Comercial",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "TOTAL",
-        "nombre_asignatura": "ESTIMACIÓN HORAS ESTUDIO DIARIAS",
+        "modulo": "Gestión",
+        "materia": "",
+        "nombre_elemento": "Gestión",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Presupuestaria y",
+        "materia": "",
+        "nombre_elemento": "Presupuestaria y",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Análisis Financiero",
+        "materia": "",
+        "nombre_elemento": "Análisis Financiero",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Concepto de",
+        "materia": "",
+        "nombre_elemento": "Concepto de",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Marketing y su",
+        "materia": "",
+        "nombre_elemento": "Marketing y su",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Aplicación en las",
+        "materia": "",
+        "nombre_elemento": "Aplicación en las",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Organizaciones",
+        "materia": "",
+        "nombre_elemento": "Organizaciones",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Investigación de",
+        "materia": "",
+        "nombre_elemento": "Investigación de",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Mercados, Gestión",
+        "materia": "",
+        "nombre_elemento": "Mercados, Gestión",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "de la Información y",
+        "materia": "",
+        "nombre_elemento": "de la Información y",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Toma de Decisiones",
+        "materia": "",
+        "nombre_elemento": "Toma de Decisiones",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "en Marketing",
+        "materia": "",
+        "nombre_elemento": "en Marketing",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proceso de",
+        "materia": "",
+        "nombre_elemento": "Proceso de",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Planificación",
+        "materia": "",
+        "nombre_elemento": "Planificación",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Comercial y",
+        "materia": "",
+        "nombre_elemento": "Comercial y",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Marketing en las",
+        "materia": "",
+        "nombre_elemento": "Marketing en las",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Organizaciones",
+        "materia": "",
+        "nombre_elemento": "Organizaciones",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Las Estrategias de",
+        "materia": "",
+        "nombre_elemento": "Las Estrategias de",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Marketing y",
+        "materia": "",
+        "nombre_elemento": "Marketing y",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Operativas de",
+        "materia": "",
+        "nombre_elemento": "Operativas de",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Productos y Precios",
+        "materia": "",
+        "nombre_elemento": "Productos y Precios",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Las Estrategias de",
+        "materia": "",
+        "nombre_elemento": "Las Estrategias de",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Marketing y",
+        "materia": "",
+        "nombre_elemento": "Marketing y",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Operativas de",
+        "materia": "",
+        "nombre_elemento": "Operativas de",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Distribución,",
+        "materia": "",
+        "nombre_elemento": "Distribución,",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Comercialización y",
+        "materia": "",
+        "nombre_elemento": "Comercialización y",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Ventas",
+        "materia": "",
+        "nombre_elemento": "Ventas",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "La Comunicación",
+        "materia": "",
+        "nombre_elemento": "La Comunicación",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Marketing e",
+        "materia": "",
+        "nombre_elemento": "Marketing e",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Impulsión Comercial",
+        "materia": "",
+        "nombre_elemento": "Impulsión Comercial",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "en las",
+        "materia": "",
+        "nombre_elemento": "en las",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Organizaciones",
+        "materia": "",
+        "nombre_elemento": "Organizaciones",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "El CRM y Estrategias",
+        "materia": "",
+        "nombre_elemento": "El CRM y Estrategias",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Comerciales y de",
+        "materia": "",
+        "nombre_elemento": "Comerciales y de",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Marketing Centradas",
+        "materia": "",
+        "nombre_elemento": "Marketing Centradas",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "en el Cliente",
+        "materia": "",
+        "nombre_elemento": "en el Cliente",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Gestión de Clientes y",
+        "materia": "",
+        "nombre_elemento": "Gestión de Clientes y",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Cuentas Clave y",
+        "materia": "",
+        "nombre_elemento": "Cuentas Clave y",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Nuevos Modelos de",
+        "materia": "",
+        "nombre_elemento": "Nuevos Modelos de",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Organización",
+        "materia": "",
+        "nombre_elemento": "Organización",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Comercial",
+        "materia": "",
+        "nombre_elemento": "Comercial",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Las Aplicaciones del",
+        "materia": "",
+        "nombre_elemento": "Las Aplicaciones del",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Marketing y Sectores",
+        "materia": "",
+        "nombre_elemento": "Marketing y Sectores",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "de Actividad",
+        "materia": "",
+        "nombre_elemento": "de Actividad",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Marketing y",
+        "materia": "",
+        "nombre_elemento": "Marketing y",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Comercialización en",
+        "materia": "",
+        "nombre_elemento": "Comercialización en",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Entornos Digitales",
+        "materia": "",
+        "nombre_elemento": "Entornos Digitales",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Habilidades y",
+        "materia": "",
+        "nombre_elemento": "Habilidades y",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Competencias",
+        "materia": "",
+        "nombre_elemento": "Competencias",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Directivas para",
+        "materia": "",
+        "nombre_elemento": "Directivas para",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Profesionales del",
+        "materia": "",
+        "nombre_elemento": "Profesionales del",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Marketing",
+        "materia": "",
+        "nombre_elemento": "Marketing",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Marketing",
+        "materia": "",
+        "nombre_elemento": "Prácticas Externas",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Prácticas Externas",
+        "materia": "",
+        "nombre_elemento": "Prácticas Externas",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Prácticas Externas",
+        "materia": "",
+        "nombre_elemento": "Prácticas Externas",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Prácticas Externas",
+        "materia": "",
+        "nombre_elemento": "Prácticas Externas",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Trabajo Fin de",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Máster",
+        "materia": "",
+        "nombre_elemento": "Máster",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Máster",
+        "materia": "",
+        "nombre_elemento": "Máster",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "TOTAL",
+        "materia": "",
+        "nombre_elemento": "TOTAL HORAS ESTUDIO",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "TOTAL",
+        "materia": "",
+        "nombre_elemento": "ESTIMACIÓN HORAS ESTUDIO DIARIAS",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 4,
+    "total_elementos": 64,
     "texto_extraido_muestra": "BOLETÍN OFICIAL DEL ESTADO\nNúm. 75 Miércoles 28 de marzo de 2012 Sec. III.   Pág. 26258\nIII. OTRAS DISPOSICIONES\nUNIVERSIDADES\n4307 Resolución de 9 de enero de 2012, de la Universidad a Distancia de Madrid, \npor la que se publica el plan de estudios de Máster en Dirección Comercial y \nMarketing.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme favorable de la Agencia Nacional de Evaluación de la Calidad y Acreditación y \ndeclarado el carácter oficial del Título por Acuerdo del Consejo de Ministros de 16 de \ndiciembre de 2011 (publicado en el «BOE» de 7 de enero de 2012, por Resolución de la \nSecretaría de Estado de Universidades, de 21 de diciembre de 2011) este Rectorado ha \nresuelto publicar el plan de estudios conducente a la obtención del Título de Máster \nUniversitario en Dirección Comercial y Marketing.\nEl plan de estudios a que se refiere la presente Resolución quedará estructurado \nconforme figura en el anexo de la misma.\nCollado Vi"
   }
 }

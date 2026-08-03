@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 1393/2007 (1)",
   "universidad_codigo": "057",
   "universidad_nombre": "IE Universidad",
-  "fecha_procesado": "2026-07-31T14:11:17.356806",
+  "fecha_procesado": "2026-08-03T12:17:16.868523",
   "boe_url": "http://www.boe.es/boe/dias/2009/08/22/pdfs/BOE-A-2009-13752.pdf",
   "boe_fecha": "2009-08-22",
   "plan_estudios": {
@@ -30,89 +30,252 @@
       "Obligatoria.": "6",
       "Optativa.": "6"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "Matemáticas.",
-        "nombre_asignatura": "Matemáticas I: Fundamentos Matemáticos en Arquitectura I.",
+        "nombre_elemento": "Matemáticas I: Fundamentos Matemáticos en Arquitectura I.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Matemáticas.",
-        "nombre_asignatura": "Matemáticas II: Fundamentos Matemáticos en Arquitectura II.",
+        "nombre_elemento": "Matemáticas II: Fundamentos Matemáticos en Arquitectura II.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Informática.",
-        "nombre_asignatura": "Informática: Imagen digital y espacio virtual.",
+        "nombre_elemento": "Informática: Imagen digital y espacio virtual.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Física.",
-        "nombre_asignatura": "Física: Fundamentos Físicos en Arquitectura.",
+        "nombre_elemento": "Física: Fundamentos Físicos en Arquitectura.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Expresión Gráfica.",
-        "nombre_asignatura": "Geometría I: Geometría Arquitectónica I.",
+        "nombre_elemento": "Geometría I: Geometría Arquitectónica I.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Expresión Gráfica.",
-        "nombre_asignatura": "Geometría II: Geometría Arquitectónica II.",
+        "nombre_elemento": "Geometría II: Geometría Arquitectónica II.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Expresión Gráfica.",
-        "nombre_asignatura": "Análisis de Formas I: Idea y Forma I.",
+        "nombre_elemento": "Análisis de Formas I: Idea y Forma I.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Expresión Gráfica.",
-        "nombre_asignatura": "Análisis de Formas II: Idea y Forma II.",
+        "nombre_elemento": "Análisis de Formas II: Idea y Forma II.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Expresión Gráfica.",
-        "nombre_asignatura": "Expresión I: Expresión Arquitectónica.",
+        "nombre_elemento": "Expresión I: Expresión Arquitectónica.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Expresión Gráfica.",
-        "nombre_asignatura": "Expresión II: Expresión IE.",
+        "nombre_elemento": "Expresión II: Expresión IE.",
         "creditos_ects": "",
         "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Matemáticas.",
+        "nombre_elemento": "Matemáticas.",
+        "creditos_ects": "12",
+        "caracter": "MB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Física.",
+        "nombre_elemento": "Física.",
+        "creditos_ects": "6",
+        "caracter": "MB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Informática.",
+        "nombre_elemento": "Informática.",
+        "creditos_ects": "6",
+        "caracter": "MB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Expresión Gráfica.",
+        "nombre_elemento": "Expresión Gráfica.",
+        "creditos_ects": "36",
+        "caracter": "MB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Construcción.",
+        "nombre_elemento": "Construcción.",
+        "creditos_ects": "30",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Estructuras.",
+        "nombre_elemento": "Estructuras.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Instalaciones.",
+        "nombre_elemento": "Instalaciones.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ética y Deontología.",
+        "nombre_elemento": "Ética y Deontología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Organizaciones Profesionales.",
+        "nombre_elemento": "Organizaciones Profesionales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Técnicas.",
+        "nombre_elemento": "Prácticas Técnicas.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Proyectos.",
+        "nombre_elemento": "Proyectos.",
+        "creditos_ects": "60",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Urbanismo.",
+        "nombre_elemento": "Urbanismo.",
+        "creditos_ects": "18",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Cultura y Teoría en Arquitectura.",
+        "nombre_elemento": "Cultura y Teoría en Arquitectura.",
+        "creditos_ects": "24",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Humanidades.",
+        "nombre_elemento": "Humanidades.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Proyecto Fin de Grado.",
+        "nombre_elemento": "Proyecto Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Integración.",
+        "nombre_elemento": "Integración.",
+        "creditos_ects": "18",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Itinerarios: Patrimonio, sostenibilidad, Empresa y Prácticas.",
+        "nombre_elemento": "Itinerarios: Patrimonio, sostenibilidad, Empresa y Prácticas.",
+        "creditos_ects": "30",
+        "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 10,
+    "total_elementos": 27,
     "texto_extraido_muestra": "BOLETÍN OFICIAL DEL ESTADO\nNúm. 203 Sábado 22 de agosto de 2009 Sec. III.   Pág. 72168\nIII. OTRAS DISPOSICIONES\nUNIVERSIDADES\n13752 Resolución de 27 de julio de 2009, de la IE Universidad, por la que se publica \nel plan de estudios de Graduado en Arquitectura.\nEn cumplimiento de lo dispuesto en el artículo 35.4 de la Ley Orgánica 6/2001, de 21 \nde diciembre, de Universidades, la disposición adicional sexta del Real Decreto 1393/2007, \nde 30 de octubre, por el que se establece la ordenación de las enseñanzas universitarias \noficiales, una vez obtenida la verificación del plan de estudios por el Consejo de \nUniversidades, previo informe positivo de la Agencia Nacional de la Calidad y Acreditación, \ny declarado el carácter oficial del título por Acuerdo del Consejo de Ministros, de 29 de \nagosto de 2008 (publicado en el «Boletín Oficial del Estado» de 26 de septiembre de 2008, \npor Resolución del Secretario de Estado de Universidades de 24 de septiembre de 2008), \neste Rectorado ha resuel"
   }
 }

@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "089",
   "universidad_nombre": "CUNEF Universidad",
-  "fecha_procesado": "2026-07-31T14:09:35.366937",
+  "fecha_procesado": "2026-08-03T12:15:24.039990",
   "boe_url": "http://www.boe.es/boe/dias/2026/02/19/pdfs/BOE-A-2026-3904.pdf",
   "boe_fecha": "2026-02-19",
   "plan_estudios": {
@@ -13,169 +13,227 @@
       "Optativas (OP).": "10",
       "Prácticas Académicas Externas (PE).": "12",
       "Trabajo de Fin de Máster (TFM).": "6",
-      "Créditos totales.": "60",
-      "International business and global management. Negocios internacionales y dirección global.": "International economics.",
-      "International Finance. Finanzas internacionales.": "Global capital markets.",
-      "International marketing & operations. Marketing internacional.": "Global marketing.",
-      "Management skills. Competencias directivas.": "Global management skills.",
-      "Academic Internships. Prácticas Académicas Externas.": "Academic Internships.",
-      "Final Master's Degree Project. Trabajo de Fin de Máster.": "Research and Final Project."
+      "Créditos totales.": "60"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
+        "materia": "Obligatorias (OB).",
+        "nombre_elemento": "Obligatorias (OB).",
+        "creditos_ects": "32",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativas (OP).",
+        "nombre_elemento": "Optativas (OP).",
+        "creditos_ects": "10",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Académicas Externas (PE).",
+        "nombre_elemento": "Prácticas Académicas Externas (PE).",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo de Fin de Máster (TFM).",
+        "nombre_elemento": "Trabajo de Fin de Máster (TFM).",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
         "materia": "International business and global management. Negocios internacionales y dirección global.",
-        "nombre_asignatura": "International economics.",
+        "nombre_elemento": "International economics.",
         "creditos_ects": "4",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "International business and global management. Negocios internacionales y dirección global.",
-        "nombre_asignatura": "International management and strategy.",
+        "nombre_elemento": "International management and strategy.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "International business and global management. Negocios internacionales y dirección global.",
-        "nombre_asignatura": "Data analysis and business statistics.",
+        "nombre_elemento": "Data analysis and business statistics.",
         "creditos_ects": "4",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "International business and global management. Negocios internacionales y dirección global.",
-        "nombre_asignatura": "Global human resource management.",
+        "nombre_elemento": "Global human resource management.",
         "creditos_ects": "4",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "International business and global management. Negocios internacionales y dirección global.",
-        "nombre_asignatura": "International taxation.",
+        "nombre_elemento": "International taxation.",
         "creditos_ects": "4",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "International business and global management. Negocios internacionales y dirección global.",
-        "nombre_asignatura": "Doing business in international markets.",
+        "nombre_elemento": "Doing business in international markets.",
         "creditos_ects": "4",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "International Finance. Finanzas internacionales.",
-        "nombre_asignatura": "Global capital markets.",
+        "nombre_elemento": "Global capital markets.",
         "creditos_ects": "2",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "International Finance. Finanzas internacionales.",
-        "nombre_asignatura": "International financial management.",
+        "nombre_elemento": "International financial management.",
         "creditos_ects": "2",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "International Finance. Finanzas internacionales.",
-        "nombre_asignatura": "Corporate valuation.",
+        "nombre_elemento": "Corporate valuation.",
         "creditos_ects": "2",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "International Finance. Finanzas internacionales.",
-        "nombre_asignatura": "Quantitative financial analysis.",
+        "nombre_elemento": "Quantitative financial analysis.",
         "creditos_ects": "2",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "International Finance. Finanzas internacionales.",
-        "nombre_asignatura": "International accounting and IFRS.",
+        "nombre_elemento": "International accounting and IFRS.",
         "creditos_ects": "2",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "International marketing & operations. Marketing internacional.",
-        "nombre_asignatura": "Global marketing.",
+        "nombre_elemento": "Global marketing.",
         "creditos_ects": "2",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "International marketing & operations. Marketing internacional.",
-        "nombre_asignatura": "Global supply chain and operations.",
+        "nombre_elemento": "Global supply chain and operations.",
         "creditos_ects": "2",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "International marketing & operations. Marketing internacional.",
-        "nombre_asignatura": "Big data analysis.",
+        "nombre_elemento": "Big data analysis.",
         "creditos_ects": "2",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "International marketing & operations. Marketing internacional.",
-        "nombre_asignatura": "Digital marketing.",
+        "nombre_elemento": "Digital marketing.",
         "creditos_ects": "2",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "International marketing & operations. Marketing internacional.",
-        "nombre_asignatura": "Trade finance and emerging markets finance.",
+        "nombre_elemento": "Trade finance and emerging markets finance.",
         "creditos_ects": "2",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Management skills. Competencias directivas.",
-        "nombre_asignatura": "Global management skills.",
+        "nombre_elemento": "Global management skills.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": "1 y 2"
       },
       {
+        "modulo": "",
         "materia": "Academic Internships. Prácticas Académicas Externas.",
-        "nombre_asignatura": "Academic Internships.",
+        "nombre_elemento": "Academic Internships.",
         "creditos_ects": "12",
         "caracter": "PE",
         "curso": "",
         "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "Final Master's Degree Project. Trabajo de Fin de Máster.",
-        "nombre_asignatura": "Research and Final Project.",
+        "nombre_elemento": "Research and Final Project.",
         "creditos_ects": "6",
         "caracter": "TFM",
         "curso": "",
         "cuatrimestre": "2"
       }
     ],
-    "total_asignaturas": 19,
+    "total_elementos": 24,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n3904 Resolución de 4 de febrero de 2026, de CUNEF Universidad, por la que se \npublica la modificación del plan de estudios de Máster Universitario en \nNegocios Internacionales y Dirección Global/Master in International Business \nand Global Management.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme favorable de la Agencia Evaluadora Fundación para el Conocimiento Madri+d, \nautorizada su implantación por la Comunidad de Madrid y establecido el carácter oficial \ndel título por Acuerdo de Consejo de Ministros de 6 de julio de 2021 (publicado, por \nResolución de 14 de julio de 2021, de la Secretaría General de Universidades, en el \n«Boletín Oficial del Estado» de 27 de julio de 2021), y habiendo sido modificado el \nmencionado plan de estudios, con informe favorable de la Fundación para el \nConocimiento Madri+d, de fecha 16 de junio de 2025,\nEste Rectorado, de conformidad con lo dispuesto en el artículo 27"
   }
 }

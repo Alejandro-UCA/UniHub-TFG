@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "052",
   "universidad_nombre": "Universidad Antonio de Nebrija",
-  "fecha_procesado": "2026-07-31T14:42:09.915970",
+  "fecha_procesado": "2026-08-03T12:44:58.142784",
   "boe_url": "http://www.boe.es/boe/dias/2025/12/08/pdfs/BOE-A-2025-25038.pdf",
   "boe_fecha": "2025-12-08",
   "plan_estudios": {
@@ -14,212 +14,219 @@
       "Prácticas externas.": "6",
       "Trabajo Fin de Máster.": "6",
       "Créditos totales.": "60",
-      "Planificación retributiva estratégica (1) – optativa 1.": "3",
-      "Bienestar financiero de los empleados (1) – optativa 2.": "3",
-      "Diseño crítico de retribución variable (1) – optativa 3.": "3",
-      "Compensación y beneficios: Fiscalidad (1) – optativa 4.": "3",
-      "Escuela de habilidades y competencias directivas (2) – optativa 1.": "3",
-      "Liderazgo con metodologías avanzadas: Agile, Lean… (2) – optativa 2.": "3",
-      "Transformación digital del liderazgo efectivo (2) – optativa 3.": "3",
-      "Herramientas innovadoras de gestión de equipos (2) – optativa 4.": "3",
-      "Aspectos visibles y no visibles de la diversidad e inclusión (3) – optativa 1.": "3",
-      "Plan integral de diversidad e inclusión (3) – optativa 2.": "3",
-      "Aspectos visibles y no visibles de la salud laboral y bienestar corporativo (3) – optativa 3.": "3",
-      "Plan integral de salud laboral y bienestar corporativo (3) – optativa 4.": "3",
-      "Estadística aplicada a la gestión de personas (4) – optativa 1.": "3",
-      "Data governance (4) – optativa 2.": "3",
-      "Storytelling a través de los datos (4) – optativa 3.": "3",
-      "Ética y normativa aplicada a people analytics (4) – optativa 4.": "3",
       "Fundamentos de organización y administración de empresas.": "3",
       "Fundamentos de relaciones laborales y derecho del trabajo.": "3"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas obligatorias.",
+        "nombre_elemento": "Asignaturas obligatorias.",
         "creditos_ects": "36",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas optativas.",
+        "nombre_elemento": "Asignaturas optativas.",
         "creditos_ects": "12",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas externas.",
+        "nombre_elemento": "Prácticas externas.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
         "creditos_ects": "60",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Planificación retributiva estratégica (1) – optativa 1.",
+        "nombre_elemento": "Planificación retributiva estratégica (1) – optativa 1.",
         "creditos_ects": "3",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Bienestar financiero de los empleados (1) – optativa 2.",
+        "nombre_elemento": "Bienestar financiero de los empleados (1) – optativa 2.",
         "creditos_ects": "3",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Diseño crítico de retribución variable (1) – optativa 3.",
+        "nombre_elemento": "Diseño crítico de retribución variable (1) – optativa 3.",
         "creditos_ects": "3",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Compensación y beneficios: Fiscalidad (1) – optativa 4.",
+        "nombre_elemento": "Compensación y beneficios: Fiscalidad (1) – optativa 4.",
         "creditos_ects": "3",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Escuela de habilidades y competencias directivas (2) – optativa 1.",
+        "nombre_elemento": "Escuela de habilidades y competencias directivas (2) – optativa 1.",
         "creditos_ects": "3",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Liderazgo con metodologías avanzadas: Agile, Lean… (2) – optativa 2.",
+        "nombre_elemento": "Liderazgo con metodologías avanzadas: Agile, Lean… (2) – optativa 2.",
         "creditos_ects": "3",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Transformación digital del liderazgo efectivo (2) – optativa 3.",
+        "nombre_elemento": "Transformación digital del liderazgo efectivo (2) – optativa 3.",
         "creditos_ects": "3",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Herramientas innovadoras de gestión de equipos (2) – optativa 4.",
+        "nombre_elemento": "Herramientas innovadoras de gestión de equipos (2) – optativa 4.",
         "creditos_ects": "3",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Aspectos visibles y no visibles de la diversidad e inclusión (3) – optativa 1.",
+        "nombre_elemento": "Aspectos visibles y no visibles de la diversidad e inclusión (3) – optativa 1.",
         "creditos_ects": "3",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Plan integral de diversidad e inclusión (3) – optativa 2.",
+        "nombre_elemento": "Plan integral de diversidad e inclusión (3) – optativa 2.",
         "creditos_ects": "3",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Aspectos visibles y no visibles de la salud laboral y bienestar corporativo (3) – optativa 3.",
+        "nombre_elemento": "Aspectos visibles y no visibles de la salud laboral y bienestar corporativo (3) – optativa 3.",
         "creditos_ects": "3",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Plan integral de salud laboral y bienestar corporativo (3) – optativa 4.",
+        "nombre_elemento": "Plan integral de salud laboral y bienestar corporativo (3) – optativa 4.",
         "creditos_ects": "3",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Estadística aplicada a la gestión de personas (4) – optativa 1.",
+        "nombre_elemento": "Estadística aplicada a la gestión de personas (4) – optativa 1.",
         "creditos_ects": "3",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Data governance (4) – optativa 2.",
+        "nombre_elemento": "Data governance (4) – optativa 2.",
         "creditos_ects": "3",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Storytelling a través de los datos (4) – optativa 3.",
+        "nombre_elemento": "Storytelling a través de los datos (4) – optativa 3.",
         "creditos_ects": "3",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Ética y normativa aplicada a people analytics (4) – optativa 4.",
+        "nombre_elemento": "Ética y normativa aplicada a people analytics (4) – optativa 4.",
         "creditos_ects": "3",
         "caracter": "Optativa.",
         "curso": "1",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Fundamentos de organización y administración de empresas.",
+        "nombre_elemento": "Fundamentos de organización y administración de empresas.",
         "creditos_ects": "3",
         "caracter": "Complementos formativos.",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Fundamentos de relaciones laborales y derecho del trabajo.",
+        "nombre_elemento": "Fundamentos de relaciones laborales y derecho del trabajo.",
         "creditos_ects": "3",
         "caracter": "Complementos formativos.",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 23,
+    "total_elementos": 23,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n25038 Resolución de 20 de octubre de 2025, de la Universidad Antonio de Nebrija, \npor la que se publica el plan de estudios de Máster Universitario en Liderazgo \ny Dirección Estratégica de Personas.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, y \nacordado el carácter oficial del título por Acuerdo del Consejo de Ministros de 7 de \noctubre de 2025 (publicado en el BOE de 13 de octubre de 2025, por Resolución de la \nSecretaría General de Universidades de 9 de octubre de 2025),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención \ndel título de Máster Universitario en Liderazgo y Dirección Estratégica de Personas, que \nqueda estructurado según consta en el anexo de esta resolución.\nHoyo de Manzanares, 20 de octubre de 2025.–La Rectora, Monserrat Gomendio \nKindelan.\nANEXO\nUniversidad Antonio de Nebrija\nPLAN DE ESTUDIOS CONDUCENTE AL TÍTULO DE MÁSTER UNIVERSITARIO \nEN LIDERAZGO Y DIRECCIÓN "
   }
 }

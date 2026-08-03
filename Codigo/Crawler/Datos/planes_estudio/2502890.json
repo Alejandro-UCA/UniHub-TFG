@@ -4,13 +4,581 @@
   "nivel_academico": "Grado - RD 1393/2007 (1)",
   "universidad_codigo": "074",
   "universidad_nombre": "Universidad a Distancia de Madrid",
-  "fecha_procesado": "2026-07-31T14:22:53.630578",
+  "fecha_procesado": "2026-08-03T12:26:40.377756",
   "boe_url": "http://www.boe.es/boe/dias/2014/03/19/pdfs/BOE-A-2014-2944.pdf",
   "boe_fecha": "2014-03-19",
   "plan_estudios": {
     "resumen_creditos": {},
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Historia.",
+        "nombre_elemento": "Historia.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Geografía.",
+        "nombre_elemento": "Geografía.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Historia.",
+        "nombre_elemento": "Historia.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Informática.",
+        "nombre_elemento": "Informática.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Arte.",
+        "nombre_elemento": "Arte.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Antropología.",
+        "nombre_elemento": "Antropología.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Historia.",
+        "nombre_elemento": "Historia.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Historia.",
+        "nombre_elemento": "Historia.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Historia.",
+        "nombre_elemento": "Historia.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Historia.",
+        "nombre_elemento": "Historia.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Prehistoria.",
+        "materia": "",
+        "nombre_elemento": "Prehistoria.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Prehistoria.",
+        "materia": "",
+        "nombre_elemento": "Prehistoria.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Historia Antigua.",
+        "materia": "",
+        "nombre_elemento": "Historia Antigua.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Historia Medieval.",
+        "materia": "",
+        "nombre_elemento": "Historia Medieval.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Ciencias y Técnicas Historiográficas.",
+        "materia": "",
+        "nombre_elemento": "Ciencias y Técnicas Historiográficas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Historia Antigua.",
+        "materia": "",
+        "nombre_elemento": "Historia Antigua.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Historia Antigua.",
+        "materia": "",
+        "nombre_elemento": "Historia Antigua.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Historia del Pensamiento.",
+        "materia": "",
+        "nombre_elemento": "Historia del Pensamiento.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Historia Medieval.",
+        "materia": "",
+        "nombre_elemento": "Historia Medieval.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Historia del Arte.",
+        "materia": "",
+        "nombre_elemento": "Historia del Arte.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Historia Medieval.",
+        "materia": "",
+        "nombre_elemento": "Historia Medieval.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Historia Moderna.",
+        "materia": "",
+        "nombre_elemento": "Historia Moderna.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Historia Moderna.",
+        "materia": "",
+        "nombre_elemento": "Historia Moderna.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Historia del Pensamiento.",
+        "materia": "",
+        "nombre_elemento": "Historia del Pensamiento.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Historia Contemporánea.",
+        "materia": "",
+        "nombre_elemento": "Historia Contemporánea.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Arqueología.",
+        "materia": "",
+        "nombre_elemento": "Arqueología.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Ciencias y Técnicas Historiográficas.",
+        "materia": "",
+        "nombre_elemento": "Ciencias y Técnicas Historiográficas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Historia Moderna.",
+        "materia": "",
+        "nombre_elemento": "Historia Moderna.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Historia Contemporánea.",
+        "materia": "",
+        "nombre_elemento": "Historia Contemporánea.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Historia del Pensamiento.",
+        "materia": "",
+        "nombre_elemento": "Historia del Pensamiento.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Historia del Arte.",
+        "materia": "",
+        "nombre_elemento": "Historia del Arte.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Historia Moderna.",
+        "materia": "",
+        "nombre_elemento": "Historia Moderna.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Historia Contemporánea.",
+        "materia": "",
+        "nombre_elemento": "Historia Contemporánea.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Ciencias y Técnicas Historiográficas.",
+        "materia": "",
+        "nombre_elemento": "Ciencias y Técnicas Historiográficas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_elementos": 63,
     "texto_extraido_muestra": "BOLETÍN OFICIAL DEL ESTADO\nNúm. 67 Miércoles 19 de marzo de 2014 Sec. III.   Pág. 23808\nIII. OTRAS DISPOSICIONES\nUNIVERSIDADES\n2944 Resolución de 4 de marzo de 2014, de la Universidad a Distancia de Madrid, \npor la que se publica el plan de estudios de Graduado en Historia.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme favorable de la Agencia Nacional de Evaluación de la Calidad y Acreditación y \ndeclarado el carácter oficial del Título por Acuerdo del Consejo de Ministros de 17 de \nenero de 2014 (publicado en el «BOE» de 7 de febrero, por Resolución de la Secretaría \nGeneral de Universidades, de 23 de enero de 2014),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención del \nTítulo de Graduado o Graduada en Historia.\nEl plan de estudios a que se refiere la presente Resolución quedará estructurado \nconforme figura en el anexo de la misma.\nCollado Villalba, 4 de marzo de 2014.–El Rector, José Andrés Sánchez Ped"
   }
 }

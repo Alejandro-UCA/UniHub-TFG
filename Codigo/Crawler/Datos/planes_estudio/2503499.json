@@ -4,397 +4,479 @@
   "nivel_academico": "Grado - RD 822/2021 (2)",
   "universidad_codigo": "057",
   "universidad_nombre": "IE Universidad",
-  "fecha_procesado": "2026-07-31T14:11:40.505104",
+  "fecha_procesado": "2026-08-03T12:17:37.914740",
   "boe_url": "http://www.boe.es/boe/dias/2022/05/20/pdfs/BOE-A-2022-8321.pdf",
   "boe_fecha": "2022-05-20",
   "plan_estudios": {
     "resumen_creditos": {
       "Formación Básica.": "60",
       "Obligatorias.": "135",
-      "Optativas.": "Optativas.",
+      "Optativas.": "30",
       "Trabajo fin de Grado.": "15",
-      "Total créditos.": "240",
-      "Proyectos.": "Proyectos.",
-      "Cultura del Diseño.": "Narrativa del Diseño.",
-      "Técnicas.": "Tecnología para diseñadores.",
-      "Módulo transversal.": "Reto IE.",
-      "Aportaciones de las Ciencias Sociales al Diseño.": "Psicología y diseño centrado en el usuario.",
-      "Aportaciones de las ciencias sociales al Diseño.": "Sostenibilidad.",
-      "Aportaciones de las ciencias sociales al diseño.": "Técnicas de investigación.",
-      "Módulo IE.": "Gestión aplicada diseño.",
-      "Trabajo Fin de Grado.": "Trabajo Fin de Grado."
+      "Total créditos.": "240"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
-        "materia": "Expresión artística.",
-        "nombre_asignatura": "Introducción a Proyectos I: Aprender haciendo.",
-        "creditos_ects": "6",
+        "modulo": "",
+        "materia": "Formación Básica.",
+        "nombre_elemento": "Formación Básica.",
+        "creditos_ects": "60",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "Expresión artística.",
-        "nombre_asignatura": "Introducción a Proyectos II: Proyectos colaborativos.",
-        "creditos_ects": "6",
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "135",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "materia": "Expresión artística.",
-        "nombre_asignatura": "Proyectos I.",
-        "creditos_ects": "9",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Expresión artística.",
-        "nombre_asignatura": "Proyectos II.",
-        "creditos_ects": "9",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Antropología.",
-        "nombre_asignatura": "Psicología y diseño centrado en el usuario.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Historia.",
-        "nombre_asignatura": "Historia del Diseño I.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Historia.",
-        "nombre_asignatura": "Historia del Diseño II.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Expresión gráfica.",
-        "nombre_asignatura": "Habilidades del Diseño.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Expresión gráfica.",
-        "nombre_asignatura": "Visualización y técnicas de representación.",
-        "creditos_ects": "6",
-        "caracter": "",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Fundamentos de Proyectos.",
-        "nombre_asignatura": "Introducción a Proyectos I: Aprender haciendo.",
-        "creditos_ects": "6",
-        "caracter": "B",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Historia del Diseño.",
-        "nombre_asignatura": "Historia del Diseño I.",
-        "creditos_ects": "6",
-        "caracter": "B",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Habilidades del Diseño.",
-        "nombre_asignatura": "Habilidades del Diseño.",
-        "creditos_ects": "6",
-        "caracter": "B",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Habilidades profesionales y de comunicación.",
-        "nombre_asignatura": "Habilidades de escritura.",
-        "creditos_ects": "3",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Habilidades profesionales y de comunicación.",
-        "nombre_asignatura": "Habilidades de presentación.",
-        "creditos_ects": "3",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Psicología y diseño centrado en el usuario.",
-        "nombre_asignatura": "Psicología y diseño centrado en el usuario/psychology and User Centred Design.",
-        "creditos_ects": "6",
-        "caracter": "B",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Fundamentos de Proyectos.",
-        "nombre_asignatura": "Introducción a proyectos II: Proyectos colaborativos.",
-        "creditos_ects": "6",
-        "caracter": "B",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Historia del Diseño.",
-        "nombre_asignatura": "Historia del Diseño II.",
-        "creditos_ects": "6",
-        "caracter": "B",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Herramientas de visualización.",
-        "nombre_asignatura": "Visualización y técnicas de representación.",
-        "creditos_ects": "6",
-        "caracter": "B",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Gestión empresarial.",
-        "nombre_asignatura": "Gestión empresarial.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Humanidades.",
-        "nombre_asignatura": "Humanidades/Humanities.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Proyectos.",
-        "nombre_asignatura": "Proyectos I/Design studio I.",
-        "creditos_ects": "9",
-        "caracter": "B",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Teoría y crítica.",
-        "nombre_asignatura": "Metodologías del Diseño/Design methodology.",
-        "creditos_ects": "3",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Materiales y usos.",
-        "nombre_asignatura": "Herramientas digitales e interactivas/ Interactive and digital tools.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Sostenibilidad.",
-        "nombre_asignatura": "Sostenibilidad/Sustainability.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Técnicas de investigación.",
-        "nombre_asignatura": "Técnicas de investigación/Research techniques.",
-        "creditos_ects": "3",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Tecnología.",
-        "nombre_asignatura": "Tecnología/Technology.",
-        "creditos_ects": "3",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Proyectos.",
-        "nombre_asignatura": "Proyectos II/Design Studio II.",
-        "creditos_ects": "9",
-        "caracter": "B",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Teoría y crítica.",
-        "nombre_asignatura": "Diseño y crítica/Design and criticism.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Materiales y usos.",
-        "nombre_asignatura": "Materiales y usos I/Materials and applications I.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Técnicas de investigación.",
-        "nombre_asignatura": "Etnografía/Etnography.",
-        "creditos_ects": "3",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Emprendimiento.",
-        "nombre_asignatura": "Emprendimiento/Entrepreneurship.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Proyectos.",
-        "nombre_asignatura": "Proyectos III/Design Studio III.",
-        "creditos_ects": "9",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Teoría y crítica.",
-        "nombre_asignatura": "Procesos y Teoría del Diseño/Process and design theory.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Materiales y usos.",
-        "nombre_asignatura": "Materiales y usos II/Materials and applications II.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Técnicas de investigación.",
-        "nombre_asignatura": "Análisis Sociológico/Quantitative Methods.",
-        "creditos_ects": "3",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "materia": "Reto IE.",
-        "nombre_asignatura": "Reto IE/IE challenge.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
+        "modulo": "",
         "materia": "Optativas.",
-        "nombre_asignatura": "Optativas.",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Grado.",
+        "nombre_elemento": "Trabajo fin de Grado.",
+        "creditos_ects": "15",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total créditos.",
+        "nombre_elemento": "Total créditos.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Expresión artística.",
+        "nombre_elemento": "Introducción a Proyectos I: Aprender haciendo.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Expresión artística.",
+        "nombre_elemento": "Introducción a Proyectos II: Proyectos colaborativos.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Expresión artística.",
+        "nombre_elemento": "Proyectos I.",
+        "creditos_ects": "9",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Expresión artística.",
+        "nombre_elemento": "Proyectos II.",
+        "creditos_ects": "9",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Antropología.",
+        "nombre_elemento": "Psicología y diseño centrado en el usuario.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Historia.",
+        "nombre_elemento": "Historia del Diseño I.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Historia.",
+        "nombre_elemento": "Historia del Diseño II.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Expresión gráfica.",
+        "nombre_elemento": "Habilidades del Diseño.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Expresión gráfica.",
+        "nombre_elemento": "Visualización y técnicas de representación.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectos.",
+        "materia": "Fundamentos de Proyectos.",
+        "nombre_elemento": "Introducción a Proyectos I: Aprender haciendo.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Cultura del Diseño.",
+        "materia": "Historia del Diseño.",
+        "nombre_elemento": "Historia del Diseño I.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Técnicas.",
+        "materia": "Habilidades del Diseño.",
+        "nombre_elemento": "Habilidades del Diseño.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo transversal.",
+        "materia": "Habilidades profesionales y de comunicación.",
+        "nombre_elemento": "Habilidades de escritura.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo transversal.",
+        "materia": "Habilidades profesionales y de comunicación.",
+        "nombre_elemento": "Habilidades de presentación.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Aportaciones de las Ciencias Sociales al Diseño.",
+        "materia": "Psicología y diseño centrado en el usuario.",
+        "nombre_elemento": "Psicología y diseño centrado en el usuario/psychology and User Centred Design.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectos.",
+        "materia": "Fundamentos de Proyectos.",
+        "nombre_elemento": "Introducción a proyectos II: Proyectos colaborativos.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Cultura del Diseño.",
+        "materia": "Historia del Diseño.",
+        "nombre_elemento": "Historia del Diseño II.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Técnicas.",
+        "materia": "Herramientas de visualización.",
+        "nombre_elemento": "Visualización y técnicas de representación.",
+        "creditos_ects": "6",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo transversal.",
+        "materia": "Gestión empresarial.",
+        "nombre_elemento": "Gestión empresarial.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo transversal.",
+        "materia": "Humanidades.",
+        "nombre_elemento": "Humanidades/Humanities.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectos.",
+        "materia": "Proyectos.",
+        "nombre_elemento": "Proyectos I/Design studio I.",
+        "creditos_ects": "9",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Cultura del Diseño.",
+        "materia": "Teoría y crítica.",
+        "nombre_elemento": "Metodologías del Diseño/Design methodology.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Técnicas.",
+        "materia": "Materiales y usos.",
+        "nombre_elemento": "Herramientas digitales e interactivas/ Interactive and digital tools.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Aportaciones de las ciencias sociales al Diseño.",
+        "materia": "Sostenibilidad.",
+        "nombre_elemento": "Sostenibilidad/Sustainability.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Aportaciones de las ciencias sociales al Diseño.",
+        "materia": "Técnicas de investigación.",
+        "nombre_elemento": "Técnicas de investigación/Research techniques.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo transversal.",
+        "materia": "Tecnología.",
+        "nombre_elemento": "Tecnología/Technology.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectos.",
+        "materia": "Proyectos.",
+        "nombre_elemento": "Proyectos II/Design Studio II.",
+        "creditos_ects": "9",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Cultura del Diseño.",
+        "materia": "Teoría y crítica.",
+        "nombre_elemento": "Diseño y crítica/Design and criticism.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Técnicas.",
+        "materia": "Materiales y usos.",
+        "nombre_elemento": "Materiales y usos I/Materials and applications I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo transversal.",
+        "materia": "Técnicas de investigación.",
+        "nombre_elemento": "Etnografía/Etnography.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo transversal.",
+        "materia": "Emprendimiento.",
+        "nombre_elemento": "Emprendimiento/Entrepreneurship.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Proyectos.",
+        "materia": "Proyectos.",
+        "nombre_elemento": "Proyectos III/Design Studio III.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Cultura del Diseño.",
+        "materia": "Teoría y crítica.",
+        "nombre_elemento": "Procesos y Teoría del Diseño/Process and design theory.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Técnicas.",
+        "materia": "Materiales y usos.",
+        "nombre_elemento": "Materiales y usos II/Materials and applications II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Aportaciones de las ciencias sociales al diseño.",
+        "materia": "Técnicas de investigación.",
+        "nombre_elemento": "Análisis Sociológico/Quantitative Methods.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo transversal.",
+        "materia": "Reto IE.",
+        "nombre_elemento": "Reto IE/IE challenge.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "Optativas.",
+        "nombre_elemento": "Optativas.",
         "creditos_ects": "30",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Proyectos.",
         "materia": "Proyectos.",
-        "nombre_asignatura": "Proyectos IV/Design Studio IV.",
+        "nombre_elemento": "Proyectos IV/Design Studio IV.",
         "creditos_ects": "9",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Cultura del Diseño.",
         "materia": "Teoría y crítica.",
-        "nombre_asignatura": "Tendencias del diseño contemporáneo/ Contemporary design trends.",
+        "nombre_elemento": "Tendencias del diseño contemporáneo/ Contemporary design trends.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Cultura del Diseño.",
         "materia": "Narrativa del diseño.",
-        "nombre_asignatura": "Tipografía, maquetación y presentación/ Typography, layout and presentation.",
+        "nombre_elemento": "Tipografía, maquetación y presentación/ Typography, layout and presentation.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Módulo IE.",
         "materia": "Gestión aplicada diseño.",
-        "nombre_asignatura": "Gestión del Diseño/Design Management I.",
+        "nombre_elemento": "Gestión del Diseño/Design Management I.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Técnicas.",
         "materia": "Tecnología para diseñadores.",
-        "nombre_asignatura": "Programación para diseñadores/ Programming for designers.",
+        "nombre_elemento": "Programación para diseñadores/ Programming for designers.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Trabajo Fin de Grado.",
         "materia": "Trabajo Fin de Grado.",
-        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
         "creditos_ects": "15",
         "caracter": "TFG",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Cultura del Diseño.",
         "materia": "Narrativa del Diseño.",
-        "nombre_asignatura": "Diseño de narrativas/Design narratives.",
+        "nombre_elemento": "Diseño de narrativas/Design narratives.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Cultura del Diseño.",
         "materia": "Narrativa del Diseño.",
-        "nombre_asignatura": "Portfolio Design.",
+        "nombre_elemento": "Portfolio Design.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Técnicas.",
         "materia": "Tecnología para diseñadores.",
-        "nombre_asignatura": "Tecnologías de fabricación/fabrication technologies.",
+        "nombre_elemento": "Tecnologías de fabricación/fabrication technologies.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 46,
+    "total_elementos": 51,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n8321 Resolución de 3 de mayo de 2022, de IE Universidad, por la que se publica la \nmodificación del plan de estudios de Graduado o Graduada en Diseño/\nBachelor in Design.\nDe conformidad con lo dispuesto en el artículo 32 del Real Decreto 822/2021, de 28 \nde septiembre, por el que se establece la organización de las enseñanzas universitarias \ny del procedimiento de aseguramiento de su calidad, en el que se regula el \nprocedimiento para la modificación sustancial de los planes de estudios impartidos en \ncentros universitarios no acreditados institucionalmente, y una vez recibido informe \nfavorable de la Agencia para la Calidad del Sistema Universitario de Castilla y León a las \nmodificaciones presentadas al título oficial de Graduado/a en Diseño/Bachelor in Design \npor la IE Universidad (2503499) establecido por Acuerdo del Consejo de Ministros de 20 \nde abril de 2018 por el que se establece el carácter oficial de determinados títulos de \nGrado y su"
   }
 }

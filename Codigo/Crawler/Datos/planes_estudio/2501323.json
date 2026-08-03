@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 822/2021 (2)",
   "universidad_codigo": "047",
   "universidad_nombre": "Universidad Alfonso X El Sabio",
-  "fecha_procesado": "2026-07-31T14:32:32.069738",
+  "fecha_procesado": "2026-08-03T12:36:01.579458",
   "boe_url": "http://www.boe.es/boe/dias/2025/07/31/pdfs/BOE-A-2025-15938.pdf",
   "boe_fecha": "2025-07-31",
   "plan_estudios": {
@@ -13,370 +13,452 @@
       "Obligatorias.": "192",
       "Optativas.": "24",
       "Trabajo Fin de Grado.": "6",
-      "Total.": "300",
-      "Ciencias Biomédicas Básicas relevantes en Odontología/Basic Biomedical Sciences Relevant to Dentistry.": "Anatomía Humana/Human Anatomy.",
-      "Introducción a la Odontología/ Introduction to Dentistry.": "Psicología/Psychology.",
-      "Patología y Terapéutica Médico- Quirúrgica General/General Medical-Surgical Pathology and Therapeutics.": "Patología y Terapéutica Médico- Quirúrgica General/General Medical and Surgical Pathology and Therapeutics.",
-      "Patología y Terapéutica Odontológica/Dental Pathology and Therapeutics.": "Patología y Terapéutica Médico Quirúrgica Bucal/Medical and Surgical Oral Pathology and Therapeutics.",
-      "Prácticas Tuteladas y Trabajo Fin de Grado/Supervised Clinical Practice and Final Degree Project.": "Prácticas Tuteladas/Tutored Internships.",
-      "Materias Instrumentales/ Instrumental Subjects.": "Materias Instrumentales/ Instrumental Subjects.",
-      "Optativas/Optatives.": "Optativas/Optatives."
+      "Total.": "300"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
+        "materia": "Formación Básica.",
+        "nombre_elemento": "Formación Básica.",
+        "creditos_ects": "78",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "192",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativas.",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "24",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "300",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Ciencias Biomédicas Básicas relevantes en Odontología/Basic Biomedical Sciences Relevant to Dentistry.",
         "materia": "Anatomía Humana/Human Anatomy.",
-        "nombre_asignatura": "Anatomía Humana I/Human Anatomy I.",
+        "nombre_elemento": "Anatomía Humana I/Human Anatomy I.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Ciencias Biomédicas Básicas relevantes en Odontología/Basic Biomedical Sciences Relevant to Dentistry.",
         "materia": "Anatomía Humana/Human Anatomy.",
-        "nombre_asignatura": "Anatomía Humana II/Human Anatomy II.",
+        "nombre_elemento": "Anatomía Humana II/Human Anatomy II.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Ciencias Biomédicas Básicas relevantes en Odontología/Basic Biomedical Sciences Relevant to Dentistry.",
         "materia": "Fisiología/Physiology.",
-        "nombre_asignatura": "Fisiología/Physiology.",
+        "nombre_elemento": "Fisiología/Physiology.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Ciencias Biomédicas Básicas relevantes en Odontología/Basic Biomedical Sciences Relevant to Dentistry.",
         "materia": "Biología/Biology.",
-        "nombre_asignatura": "Biología/Biology.",
+        "nombre_elemento": "Biología/Biology.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Ciencias Biomédicas Básicas relevantes en Odontología/Basic Biomedical Sciences Relevant to Dentistry.",
         "materia": "Bioquímica/Biochemistry.",
-        "nombre_asignatura": "Bioquímica/Biochemestry.",
+        "nombre_elemento": "Bioquímica/Biochemestry.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Ciencias Biomédicas Básicas relevantes en Odontología/Basic Biomedical Sciences Relevant to Dentistry.",
         "materia": "Microbiología e Inmunología/ Microbiology and Immunology.",
-        "nombre_asignatura": "Microbiología e Inmunología General y Bucal/General and Oral Microbiology and Immunology.",
+        "nombre_elemento": "Microbiología e Inmunología General y Bucal/General and Oral Microbiology and Immunology.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Introducción a la Odontología/ Introduction to Dentistry.",
         "materia": "Psicología/Psychology.",
-        "nombre_asignatura": "Psicología/Psychology.",
+        "nombre_elemento": "Psicología/Psychology.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Introducción a la Odontología/ Introduction to Dentistry.",
         "materia": "Materiales Odontológicos, Equipamiento, Instrumentación y Ergonomía/Dental Materials, Equipment, Instrumentation and Ergonomics.",
-        "nombre_asignatura": "Materiales Odontológicos/ Dentistry Materials.",
+        "nombre_elemento": "Materiales Odontológicos/ Dentistry Materials.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Introducción a la Odontología/ Introduction to Dentistry.",
         "materia": "Materiales Odontológicos, Equipamiento, Instrumentación y Ergonomía/Dental Materials, Equipment, Instrumentation and Ergonomics.",
-        "nombre_asignatura": "Equipamiento, Instrumentación y Ergonomía/b Equipment, Instrumentation and Ergonomics.",
+        "nombre_elemento": "Equipamiento, Instrumentación y Ergonomía/b Equipment, Instrumentation and Ergonomics.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Introducción a la Odontología/ Introduction to Dentistry.",
         "materia": "Estadística/Statistics.",
-        "nombre_asignatura": "Estadística/Statistics.",
+        "nombre_elemento": "Estadística/Statistics.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Introducción a la Odontología/ Introduction to Dentistry.",
         "materia": "Odontología Preventiva y Comunitaria. Salud Pública/ Preventive and Community Dentistry. Public Health.",
-        "nombre_asignatura": "Odontología Preventiva Comunitaria/Community Preventive Dentistry.",
+        "nombre_elemento": "Odontología Preventiva Comunitaria/Community Preventive Dentistry.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Introducción a la Odontología/ Introduction to Dentistry.",
         "materia": "Odontología Preventiva y Comunitaria. Salud Pública/ Preventive and Community Dentistry. Public Health.",
-        "nombre_asignatura": "Salud Pública/Public Health.",
+        "nombre_elemento": "Salud Pública/Public Health.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Introducción a la Odontología/ Introduction to Dentistry.",
         "materia": "Introducción a la Odontología/ Introduction to Dentistry.",
-        "nombre_asignatura": "Introducción a la Odontología y al Laboratorio/Introduction to Dentistry and the Laboratory.",
+        "nombre_elemento": "Introducción a la Odontología y al Laboratorio/Introduction to Dentistry and the Laboratory.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Introducción a la Odontología/ Introduction to Dentistry.",
         "materia": "Introducción a la Odontología/ Introduction to Dentistry.",
-        "nombre_asignatura": "Historia de la Odontología/ History of Dentistry.",
+        "nombre_elemento": "Historia de la Odontología/ History of Dentistry.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Introducción a la Odontología/ Introduction to Dentistry.",
         "materia": "Introducción a la Odontología/ Introduction to Dentistry.",
-        "nombre_asignatura": "Diagnóstico por Imagen. Radioprotección/Imaging Diagnosis. Radioprotection.",
+        "nombre_elemento": "Diagnóstico por Imagen. Radioprotección/Imaging Diagnosis. Radioprotection.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Introducción a la Odontología/ Introduction to Dentistry.",
         "materia": "Bioética y Legislación/Bioethics and Legislation.",
-        "nombre_asignatura": "Bioética y Deontología/Bioethics and Deontology.",
+        "nombre_elemento": "Bioética y Deontología/Bioethics and Deontology.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Introducción a la Odontología/ Introduction to Dentistry.",
         "materia": "Bioética y Legislación/Bioethics and Legislation.",
-        "nombre_asignatura": "Profesión y Legislación/ Profession and Legislation.",
+        "nombre_elemento": "Profesión y Legislación/ Profession and Legislation.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Patología y Terapéutica Médico- Quirúrgica General/General Medical-Surgical Pathology and Therapeutics.",
         "materia": "Patología y Terapéutica Médico- Quirúrgica General/General Medical and Surgical Pathology and Therapeutics.",
-        "nombre_asignatura": "Patología y Terapéutica Médica Aplicada/Pathology and Applied Medical Therapy.",
+        "nombre_elemento": "Patología y Terapéutica Médica Aplicada/Pathology and Applied Medical Therapy.",
         "creditos_ects": "9",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Patología y Terapéutica Médico- Quirúrgica General/General Medical-Surgical Pathology and Therapeutics.",
         "materia": "Patología y Terapéutica Médico- Quirúrgica General/General Medical and Surgical Pathology and Therapeutics.",
-        "nombre_asignatura": "Patología y Terapéutica Quirúrgica Aplicada/Pathology and Applied Surgical Therapy.",
+        "nombre_elemento": "Patología y Terapéutica Quirúrgica Aplicada/Pathology and Applied Surgical Therapy.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Patología y Terapéutica Médico- Quirúrgica General/General Medical-Surgical Pathology and Therapeutics.",
         "materia": "Patología y Terapéutica Médico- Quirúrgica General/General Medical and Surgical Pathology and Therapeutics.",
-        "nombre_asignatura": "Anatomía Patológica/ Pathological Anatomy.",
+        "nombre_elemento": "Anatomía Patológica/ Pathological Anatomy.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Patología y Terapéutica Médico- Quirúrgica General/General Medical-Surgical Pathology and Therapeutics.",
         "materia": "Farmacología/Pharmacology.",
-        "nombre_asignatura": "Farmacología Aplicada/Applied Pharmacology.",
+        "nombre_elemento": "Farmacología Aplicada/Applied Pharmacology.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Patología y Terapéutica Médico- Quirúrgica General/General Medical-Surgical Pathology and Therapeutics.",
         "materia": "Farmacología/Pharmacology.",
-        "nombre_asignatura": "Anestesiología y Reanimación/ Anaesthesiology and Reanimation.",
+        "nombre_elemento": "Anestesiología y Reanimación/ Anaesthesiology and Reanimation.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Patología y Terapéutica Odontológica/Dental Pathology and Therapeutics.",
         "materia": "Patología y Terapéutica Médico Quirúrgica Bucal/Medical and Surgical Oral Pathology and Therapeutics.",
-        "nombre_asignatura": "Patología y Terapéutica Quirúrgica Bucal/Oral Pathology and Surgical Therapy.",
+        "nombre_elemento": "Patología y Terapéutica Quirúrgica Bucal/Oral Pathology and Surgical Therapy.",
         "creditos_ects": "9",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Patología y Terapéutica Odontológica/Dental Pathology and Therapeutics.",
         "materia": "Patología y Terapéutica Médico Quirúrgica Bucal/Medical and Surgical Oral Pathology and Therapeutics.",
-        "nombre_asignatura": "Patología y Terapéutica Médica Bucal/Oral Pathology and Medical Therapy.",
+        "nombre_elemento": "Patología y Terapéutica Médica Bucal/Oral Pathology and Medical Therapy.",
         "creditos_ects": "9",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Patología y Terapéutica Odontológica/Dental Pathology and Therapeutics.",
         "materia": "Patología y Terapéutica Médico Quirúrgica Bucal/Medical and Surgical Oral Pathology and Therapeutics.",
-        "nombre_asignatura": "Técnicas Quirúrgicas Avanzadas/Advanced Surgical Techniques.",
+        "nombre_elemento": "Técnicas Quirúrgicas Avanzadas/Advanced Surgical Techniques.",
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Patología y Terapéutica Odontológica/Dental Pathology and Therapeutics.",
         "materia": "Patología y Terapéutica Dental/ Dental Pathology and Therapeutics.",
-        "nombre_asignatura": "Patología y Terapéutica Dental I/Pathology and Dental Therapy I.",
+        "nombre_elemento": "Patología y Terapéutica Dental I/Pathology and Dental Therapy I.",
         "creditos_ects": "9",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Patología y Terapéutica Odontológica/Dental Pathology and Therapeutics.",
         "materia": "Patología y Terapéutica Dental/ Dental Pathology and Therapeutics.",
-        "nombre_asignatura": "Patología y Terapéutica Dental II/Dental Pathology and Therapeutics II.",
+        "nombre_elemento": "Patología y Terapéutica Dental II/Dental Pathology and Therapeutics II.",
         "creditos_ects": "9",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Patología y Terapéutica Odontológica/Dental Pathology and Therapeutics.",
         "materia": "Prótesis Odontológica y Oclusión/Dental Prostheses and Occlusion.",
-        "nombre_asignatura": "Prótesis Odontológica y Oclusión I/Dental Prostheses and Occlusion I.",
+        "nombre_elemento": "Prótesis Odontológica y Oclusión I/Dental Prostheses and Occlusion I.",
         "creditos_ects": "9",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Patología y Terapéutica Odontológica/Dental Pathology and Therapeutics.",
         "materia": "Prótesis Odontológica y Oclusión/Dental Prostheses and Occlusion.",
-        "nombre_asignatura": "Prótesis Odontológica y Oclusión II/Dental Prostheses and Occlusion II.",
+        "nombre_elemento": "Prótesis Odontológica y Oclusión II/Dental Prostheses and Occlusion II.",
         "creditos_ects": "9",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Patología y Terapéutica Odontológica/Dental Pathology and Therapeutics.",
         "materia": "Periodoncia/Periodontics.",
-        "nombre_asignatura": "Periodoncia/Periodontics.",
+        "nombre_elemento": "Periodoncia/Periodontics.",
         "creditos_ects": "9",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Patología y Terapéutica Odontológica/Dental Pathology and Therapeutics.",
         "materia": "Ortodoncia/Orthodontia.",
-        "nombre_asignatura": "Ortodoncia I/Orthodontics I.",
+        "nombre_elemento": "Ortodoncia I/Orthodontics I.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Patología y Terapéutica Odontológica/Dental Pathology and Therapeutics.",
         "materia": "Ortodoncia/Orthodontia.",
-        "nombre_asignatura": "Ortodoncia II/Orthodontics II.",
+        "nombre_elemento": "Ortodoncia II/Orthodontics II.",
         "creditos_ects": "4,5",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Patología y Terapéutica Odontológica/Dental Pathology and Therapeutics.",
         "materia": "Sesiones Clínicas. Diagnóstico y Plan de Tratamiento/Clinical Sessions. Diagnosis and Treatment Plan.",
-        "nombre_asignatura": "Diagnóstico y Plan de Tratamiento/Diagnosis and Treatment Plan.",
+        "nombre_elemento": "Diagnóstico y Plan de Tratamiento/Diagnosis and Treatment Plan.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Patología y Terapéutica Odontológica/Dental Pathology and Therapeutics.",
         "materia": "Sesiones Clínicas. Diagnóstico y Plan de Tratamiento/Clinical Sessions. Diagnosis and Treatment Plan.",
-        "nombre_asignatura": "Sesiones Clínicas/Clinical Sessions.",
+        "nombre_elemento": "Sesiones Clínicas/Clinical Sessions.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Patología y Terapéutica Odontológica/Dental Pathology and Therapeutics.",
         "materia": "Odontopediatría/Paediatric Dentistry.",
-        "nombre_asignatura": "Odontopediatría/Paediatric Dentistry.",
+        "nombre_elemento": "Odontopediatría/Paediatric Dentistry.",
         "creditos_ects": "9",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Patología y Terapéutica Odontológica/Dental Pathology and Therapeutics.",
         "materia": "Iniciación a la Clínica Odontológica/Introduction to Clinical Dentistry.",
-        "nombre_asignatura": "Iniciación a la Clínica Odontológica/Introduction to Clinical Dentistry.",
+        "nombre_elemento": "Iniciación a la Clínica Odontológica/Introduction to Clinical Dentistry.",
         "creditos_ects": "9",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Patología y Terapéutica Odontológica/Dental Pathology and Therapeutics.",
         "materia": "Clínica Odontológica General/ General Dental Clinic.",
-        "nombre_asignatura": "Clínica Odontológica General/ General Dental Clinic.",
+        "nombre_elemento": "Clínica Odontológica General/ General Dental Clinic.",
         "creditos_ects": "18",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Prácticas Tuteladas y Trabajo Fin de Grado/Supervised Clinical Practice and Final Degree Project.",
         "materia": "Prácticas Tuteladas/Tutored Internships.",
-        "nombre_asignatura": "Clínica Odontológica Integrada/ Integrated Dental Clinic.",
+        "nombre_elemento": "Clínica Odontológica Integrada/ Integrated Dental Clinic.",
         "creditos_ects": "24",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Prácticas Tuteladas y Trabajo Fin de Grado/Supervised Clinical Practice and Final Degree Project.",
         "materia": "Trabajo Fin de Grado/Final Year Project.",
-        "nombre_asignatura": "Trabajo Fin de Grado/Final Year Project.",
+        "nombre_elemento": "Trabajo Fin de Grado/Final Year Project.",
         "creditos_ects": "6",
         "caracter": "TFM",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Materias Instrumentales/ Instrumental Subjects.",
         "materia": "Materias Instrumentales/ Instrumental Subjects.",
-        "nombre_asignatura": "Idioma Moderno/Modern Language.",
+        "nombre_elemento": "Idioma Moderno/Modern Language.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Materias Instrumentales/ Instrumental Subjects.",
         "materia": "Materias Instrumentales/ Instrumental Subjects.",
-        "nombre_asignatura": "Informática/Computing.",
+        "nombre_elemento": "Informática/Computing.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Materias Instrumentales/ Instrumental Subjects.",
         "materia": "Materias Instrumentales/ Instrumental Subjects.",
-        "nombre_asignatura": "Comunicación/Communications.",
+        "nombre_elemento": "Comunicación/Communications.",
         "creditos_ects": "6",
         "caracter": "FB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Materias Instrumentales/ Instrumental Subjects.",
         "materia": "Materias Instrumentales/ Instrumental Subjects.",
-        "nombre_asignatura": "Metodología de la Investigación/ Research Methodology.",
+        "nombre_elemento": "Metodología de la Investigación/ Research Methodology.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "Optativas/Optatives.",
         "materia": "Optativas/Optatives.",
-        "nombre_asignatura": "Materias Optativas.",
+        "nombre_elemento": "Materias Optativas.",
         "creditos_ects": "24",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 44,
+    "total_elementos": 49,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n15938 Resolución de 17 de julio de 2025, de la Universidad Alfonso X el Sabio, por \nla que se publica el cambio de denominación del título de Graduado o \nGraduada en Odontología por el de Graduado o Graduada en Odontología/\nBachelor in Dentistry y el plan de estudios actualizado.\nObtenida la verificación de la modificación del plan de estudios, previo informe \npositivo de la Fundación para el Conocimiento Madri+d, de fecha 27 de junio de 2025,\nEste Rectorado ha resuelto publicar la modificación del plan de estudios y la \nmodificación de la denominación del título de Graduado o Graduada en Odontología/\nBachelor in Dentistry por la Universidad Alfonso X el Sabio.\nVillanueva de la Cañada, 17 de julio de 2025.–El Rector, Juan Romo Urroz.\nDistribución del plan de estudios en créditos ECTS\nTipo de materia Créditos ECTS\nFormación Básica. 78\nObligatorias. 192\nOptativas. 24\nTrabajo Fin de Grado. 6\n Total. 300\nPlan de estudios\nMódulo/module Materia/subject "
   }
 }

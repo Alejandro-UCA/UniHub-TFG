@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "057",
   "universidad_nombre": "IE Universidad",
-  "fecha_procesado": "2026-07-31T14:13:39.133820",
+  "fecha_procesado": "2026-08-03T12:19:27.393862",
   "boe_url": "http://www.boe.es/boe/dias/2021/12/08/pdfs/BOE-A-2021-20310.pdf",
   "boe_fecha": "2021-12-08",
   "plan_estudios": {
@@ -14,8 +14,189 @@
       "Trabajo fin de Máster.": "6",
       "Total créditos.": "60"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Materias obligatorias.",
+        "nombre_elemento": "Materias obligatorias.",
+        "creditos_ects": "42",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias optativas.",
+        "nombre_elemento": "Materias optativas.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total créditos.",
+        "nombre_elemento": "Total créditos.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho de la Sostenibilidad.",
+        "materia": "Derecho Internacional del Desarrollo Sostenible.",
+        "nombre_elemento": "Derecho Internacional del Desarrollo Sostenible.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Derecho de la Sostenibilidad.",
+        "materia": "Derecho Internacional Económico y Sostenibilidad.",
+        "nombre_elemento": "Derecho Internacional Económico y Sostenibilidad.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Gobierno Corporativo e Igualdad.",
+        "materia": "Cumplimiento Normativo, Ética de los Negocios y Gobierno Corporativo para la Sostenibilidad.",
+        "nombre_elemento": "Cumplimiento Normativo, Ética de los Negocios y Gobierno Corporativo para la Sostenibilidad.",
+        "creditos_ects": "4",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Gobierno Corporativo e Igualdad.",
+        "materia": "Igualdad en los Negocios.",
+        "nombre_elemento": "Igualdad en los Negocios.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tendencias globales en sostenibilidad.",
+        "materia": "Economía del desarrollo sostenible.",
+        "nombre_elemento": "Economía del desarrollo sostenible.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tendencias globales en sostenibilidad.",
+        "materia": "Contexto global de la sostenibilidad e impacto.",
+        "nombre_elemento": "Contexto global de la sostenibilidad e impacto.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tendencias globales en sostenibilidad.",
+        "materia": "Tecnologías con impacto.",
+        "nombre_elemento": "Tecnologías con impacto.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tendencias globales en sostenibilidad.",
+        "materia": "Liderazgo estratégico y gestión de grupos de interés.",
+        "nombre_elemento": "Liderazgo estratégico y gestión de grupos de interés.",
+        "creditos_ects": "4",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Gestión Empresarial Sostenible.",
+        "materia": "Introducción a la contabilidad financiera de impacto.",
+        "nombre_elemento": "Introducción a la contabilidad financiera de impacto.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Gestión Empresarial Sostenible.",
+        "materia": "Gestión de datos y medición de impacto.",
+        "nombre_elemento": "Gestión de datos y medición de impacto.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Gestión Empresarial Sostenible.",
+        "materia": "Economía Circular.",
+        "nombre_elemento": "Economía Circular.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Gestión Empresarial Sostenible.",
+        "materia": "Finanzas Sostenibles.",
+        "nombre_elemento": "Finanzas Sostenibles.",
+        "creditos_ects": "4",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Gestión Empresarial Sostenible.",
+        "materia": "Planificación estratégica sostenible.",
+        "nombre_elemento": "Planificación estratégica sostenible.",
+        "creditos_ects": "3",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Optativas.",
+        "materia": "Optativas.",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Trabajo Fin de Master.",
+        "materia": "TFM.",
+        "nombre_elemento": "TFM.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Total ECTS.",
+        "materia": "TFM.",
+        "nombre_elemento": "TFM.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_elementos": 20,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n20310 Resolución de 28 de octubre de 2021, de IE Universidad, por la que se \npublica el plan de estudios de Máster Universitario en Gestión de Empresas \npara la Sostenibilidad/Master in Business Management for Sustainability.\nEn cumplimiento de lo dispuesto en el artículo 35.4 de la Ley Orgánica 6/2001, de 21 \nde diciembre, de universidades y en el artículo 27 del Real Decreto 822/2021, de 28 de \nseptiembre, por el que se establece la organización de las enseñanzas universitarias y \ndel procedimiento de aseguramiento de su calidad; una vez obtenida la verificación del \nplan de estudios por el Consejo de Universidades el 24 de mayo de 2021 previo informe \nfavorable de la Agencia para la Calidad del Sistema Universitario de Castilla y León y \nestablecido el carácter oficial del título por Acuerdo de Consejo de Ministros de 5 de \noctubre de 2021 por el que se establece el carácter oficial de determinados títulos de \nMáster y su inscripción en el Regi"
   }
 }

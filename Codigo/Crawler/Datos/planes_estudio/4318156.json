@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "057",
   "universidad_nombre": "IE Universidad",
-  "fecha_procesado": "2026-07-31T14:14:05.495806",
+  "fecha_procesado": "2026-08-03T12:19:50.586672",
   "boe_url": "http://www.boe.es/boe/dias/2023/01/17/pdfs/BOE-A-2023-1176.pdf",
   "boe_fecha": "2023-01-17",
   "plan_estudios": {
@@ -14,8 +14,144 @@
       "Trabajo fin de Máster.": "6",
       "Total créditos.": "60"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Materias obligatorias.",
+        "nombre_elemento": "Materias obligatorias.",
+        "creditos_ects": "33",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias optativas.",
+        "nombre_elemento": "Materias optativas.",
+        "creditos_ects": "21",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total créditos.",
+        "nombre_elemento": "Total créditos.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Metodología y Habilidades. 12 ECTS (OB).",
+        "materia": "Métodos Cuantitativos.",
+        "nombre_elemento": "Métodos Cuantitativos.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Metodología y Habilidades. 12 ECTS (OB).",
+        "materia": "Habilidades Organizativas.",
+        "nombre_elemento": "Habilidades Organizativas.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Estudios Avanzados en Relaciones Internacionales. 27 ECTS. (21 OB + 6 OP).",
+        "materia": "Geopolítica.",
+        "nombre_elemento": "Geopolítica.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Estudios Avanzados en Relaciones Internacionales. 27 ECTS. (21 OB + 6 OP).",
+        "materia": "Economía Internacional.",
+        "nombre_elemento": "Economía Internacional.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Estudios Avanzados en Relaciones Internacionales. 27 ECTS. (21 OB + 6 OP).",
+        "materia": "Cambio Global.",
+        "nombre_elemento": "Cambio Global.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Estudios Avanzados en Relaciones Internacionales. 27 ECTS. (21 OB + 6 OP).",
+        "materia": "Estudios Regionales (OP) *",
+        "nombre_elemento": "Estudios Regionales (OP) *",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Especialidades** 15 ECTS (OP).",
+        "materia": "Especialidad (OP): Geopolítica y Diplomacia.",
+        "nombre_elemento": "Especialidad (OP): Geopolítica y Diplomacia.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Especialidades** 15 ECTS (OP).",
+        "materia": "Especialidad (OP): Economía y Negocios Internacionales.",
+        "nombre_elemento": "Especialidad (OP): Economía y Negocios Internacionales.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Especialidades** 15 ECTS (OP).",
+        "materia": "Especialidad (OP): Cooperación y Gobernanza Global.",
+        "nombre_elemento": "Especialidad (OP): Cooperación y Gobernanza Global.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Trabajo fin de Máster *** 6 ECTS (TFM).",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Total créditos.",
+        "materia": "Trabajo fin de Máster.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_elementos": 15,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n1176 Resolución de 10 de noviembre de 2022, de IE Universidad, por la que se \npublica el plan de estudios de Máster Universitario en Relaciones \nInternacionales/Master in International Relations.\nEste Rectorado ha resuelto ordenar la publicación, en el «Boletín Oficial del Estado» \ny en el «Boletín Oficial de Castilla y León», del plan de estudios conducente a la \nobtención del título oficial de Máster Universitario en Relaciones Internacionales/Máster \nin International Relations por la IE Universidad (4318156). Esta decisión se toma en \ncumplimiento de lo dispuesto en el artículo 35.4 de la Ley Orgánica 6/2001, de 21 \nde diciembre, de Universidades y en el artículo 27 del Real Decreto 822/2021, de 28 \nde septiembre, por el que se establece la organización de las enseñanzas universitarias \ny del procedimiento de aseguramiento de su calidad.\nEl título obtuvo la verificación del plan de estudios por el Consejo de Universidades \nel 3 de junio de 2022"
   }
 }

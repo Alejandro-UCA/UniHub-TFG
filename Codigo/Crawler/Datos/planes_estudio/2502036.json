@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 1393/2007 (1)",
   "universidad_codigo": "052",
   "universidad_nombre": "Universidad Antonio de Nebrija",
-  "fecha_procesado": "2026-07-31T14:38:49.087470",
+  "fecha_procesado": "2026-08-03T12:42:03.206225",
   "boe_url": "http://www.boe.es/boe/dias/2020/07/10/pdfs/BOE-A-2020-7718.pdf",
   "boe_fecha": "2020-07-10",
   "plan_estudios": {
@@ -14,95 +14,101 @@
       "Asignaturas Optativas.": "12",
       "Prácticas externas.": "12",
       "Trabajo Fin de Grado.": "12",
-      "Créditos totales.": "240",
-      "IA0P37": "Instrumentación y electrónica del automóvil.",
-      "IA0P38": "Vehículo Híbrido y Autónomo.",
-      "IA0P42": "Calidad y Gestión de Proyectos de Automoción.",
-      "IA0P43": "Smart Cities."
+      "Créditos totales.": "240"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas de Formación Básica.",
+        "nombre_elemento": "Asignaturas de Formación Básica.",
         "creditos_ects": "66",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Obligatorias.",
+        "nombre_elemento": "Asignaturas Obligatorias.",
         "creditos_ects": "138",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Optativas.",
+        "nombre_elemento": "Asignaturas Optativas.",
         "creditos_ects": "12",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas externas.",
+        "nombre_elemento": "Prácticas externas.",
         "creditos_ects": "12",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
         "creditos_ects": "12",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
         "creditos_ects": "240",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Instrumentación y electrónica del automóvil.",
+        "nombre_elemento": "Instrumentación y electrónica del automóvil.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Vehículo Híbrido y Autónomo.",
+        "nombre_elemento": "Vehículo Híbrido y Autónomo.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "1"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Calidad y Gestión de Proyectos de Automoción.",
+        "nombre_elemento": "Calidad y Gestión de Proyectos de Automoción.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Smart Cities.",
+        "nombre_elemento": "Smart Cities.",
         "creditos_ects": "6",
         "caracter": "Optativa.",
         "curso": "4",
-        "cuatrimestre": ""
+        "cuatrimestre": "2"
       }
     ],
-    "total_asignaturas": 10,
+    "total_elementos": 10,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n7718 Resolución de 22 de mayo de 2020, de la Universidad Antonio de Nebrija, por \nla que se publica la modificación del plan de estudios de Graduado en \nIngeniería del Automóvil.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, y \nacordado el carácter oficial del título por Acuerdo del Consejo de Ministros de 1 de \noctubre de 2010 (publicado en el BOE de 11 de noviembre de 2010 por resolución de la \nSecretaría General de Universidades de 18 de octubre de 2010), este Rectorado ha \nresuelto publicar la modificación realizada sobre el plan de estudios conducente a la \nobtención del título de Graduado o Graduada en Ingeniería del Automóvil, que queda \nestructurado según consta en el Anexo de esta Resolución.\nHoyo de Manzanares, 22 de mayo de 2020.–El Rector, Juan Cayón Peña.\nANEXO\nLas modificaciones realizadas en el plan de estudios en el Grado en Ingeniería del \nAutomóvil son las siguientes:\nLos requerimientos del plan d"
   }
 }

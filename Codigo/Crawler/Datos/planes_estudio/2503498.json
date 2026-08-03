@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 1393/2007 (1)",
   "universidad_codigo": "057",
   "universidad_nombre": "IE Universidad",
-  "fecha_procesado": "2026-07-31T14:12:04.037574",
+  "fecha_procesado": "2026-08-03T12:18:01.475570",
   "boe_url": "http://www.boe.es/boe/dias/2018/03/27/pdfs/BOE-A-2018-4313.pdf",
   "boe_fecha": "2018-03-27",
   "plan_estudios": {
@@ -18,25 +18,99 @@
       "Metodologías creativas. . . . . . . . . . . . . . . . . . . . . . . Metodologías analíticas....................... Estrategias y gestión de publicidad y marketing.... Estrategias y gestión de comunicación........... Desarrollo y producción de contenidos creativos para marcas y entretenimiento.................... Desarrollo de medios digitales. ................ Lenguaje y narrativas para la creación de contenido. Deontología profesional.......................": "OB OB OB OB OB OB OB OB",
       "Optativo.................................... Desarrollo y producción de contenidos creativos para marcas y entretenimiento..................... Comunicación para empresas y organizaciones..... Humanidades y retos globales. ................. Trabajo final de grado. ........................": "OP OB OB OB TFG"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "Derecho. Ciencia Política. Economía.",
-        "nombre_asignatura": "Historia del Derecho. ............. Derecho Constitucional............ Teoría del Derecho. .............. Derecho Civil.................... Introducción a la Ciencia Política. ... Historia política y económica moderna. Historia política y económica contemporánea. ............... Filosofía política y teoría política..... Introducción a la Economía......... Microeconomía. ................. Macroeconomía..................",
+        "nombre_elemento": "Historia del Derecho. ............. Derecho Constitucional............ Teoría del Derecho. .............. Derecho Civil.................... Introducción a la Ciencia Política. ... Historia política y económica moderna. Historia política y económica contemporánea. ............... Filosofía política y teoría política..... Introducción a la Economía......... Microeconomía. ................. Macroeconomía..................",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
+        "materia": "Bases del Derecho. .............. Ciencias Políticas. ............... Bases del análisis económico....... Metodologías de análisis........... Gestión empresarial. ............. Habilidades. .................... Tecnología......................",
+        "nombre_elemento": "Bases del Derecho. .............. Ciencias Políticas. ............... Bases del análisis económico....... Metodologías de análisis........... Gestión empresarial. ............. Habilidades. .................... Tecnología......................",
+        "creditos_ects": "",
+        "caracter": "B B B/OB OB OB OB OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho Público y Derecho Privado. . . Bases del Derecho. ............... Ciencias Políticas. ................ Metodologías de análisis............ Bases del análisis económico........ Diseño de políticas económicas. ..... Habilidades. ..................... Humanidades y retos globales. ......",
+        "nombre_elemento": "Derecho Público y Derecho Privado. . . Bases del Derecho. ............... Ciencias Políticas. ................ Metodologías de análisis............ Bases del análisis económico........ Diseño de políticas económicas. ..... Habilidades. ..................... Humanidades y retos globales. ......",
+        "creditos_ects": "",
+        "caracter": "B B B OB B/OB OB OB OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho Público y Derecho Privado. . . . Econometría. ..................... Diseño de políticas económicas. ...... Metodología de análisis.............. Metodología para la toma de decisión... Ciencias Políticas. ................. Ciencias de la conducta. ............ Deontología.......................",
+        "nombre_elemento": "Derecho Público y Derecho Privado. . . . Econometría. ..................... Diseño de políticas económicas. ...... Metodología de análisis.............. Metodología para la toma de decisión... Ciencias Políticas. ................. Ciencias de la conducta. ............ Deontología.......................",
+        "creditos_ects": "",
+        "caracter": "OB OB OB OB OB OB OB OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativas........................ Humanidades y retos globales. ...... Trabajo fin de Grado. ..............",
+        "nombre_elemento": "Optativas........................ Humanidades y retos globales. ...... Trabajo fin de Grado. ..............",
+        "creditos_ects": "",
+        "caracter": "OP OB TFG",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
         "materia": "Comunicación",
-        "nombre_asignatura": "Fundamentos de la comunicación ........... Cultura visual y medios digitales ............ Globalización y comunicación intercultural..... Escribir para los medios................... Asuntos públicos y estrategias de no-mercado . Opinión Pública, persuasión y compromiso.... Comunicación y derecho .................. Industrias de los medios y del entretenimiento . Cultura del consumidor.................... Comunicación corporativa ................. Narrativa audiovisual .....................",
+        "nombre_elemento": "Fundamentos de la comunicación ........... Cultura visual y medios digitales ............ Globalización y comunicación intercultural..... Escribir para los medios................... Asuntos públicos y estrategias de no-mercado . Opinión Pública, persuasión y compromiso.... Comunicación y derecho .................. Industrias de los medios y del entretenimiento . Cultura del consumidor.................... Comunicación corporativa ................. Narrativa audiovisual .....................",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Teorías y textos fundacionales de la comunicación. ... Contextos culturales, sociales, económicos, políticos y legales de la comunicación. .................... Creación de contenido audiovisual. . . . . . . . . . . . . . . . . Habilidades para la comunicación estratégica. ....... Estrategias y gestión de comunicación.............. Tecnología.................................... Habilidades. .................................. Gestión empresarial. ...........................",
+        "nombre_elemento": "Teorías y textos fundacionales de la comunicación. ... Contextos culturales, sociales, económicos, políticos y legales de la comunicación. .................... Creación de contenido audiovisual. . . . . . . . . . . . . . . . . Habilidades para la comunicación estratégica. ....... Estrategias y gestión de comunicación.............. Tecnología.................................... Habilidades. .................................. Gestión empresarial. ...........................",
+        "creditos_ects": "",
+        "caracter": "B B OB B B OB OB OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "El ámbito empresarial de la comunicación y los medios. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Comunicación para empresas y organizaciones.... Estrategias y gestión de publicidad y marketing.... Estrategias y gestión de marca................. Habilidades para la comunicación estratégica. .... Lenguaje y narrativas para la creación de contenido. Desarrollo de medios digitales. ................ Habilidades. ............................... Humanidades y retos globales. ................ Contextos culturales, sociales, económicos, políticos y legales de la comunicación.................",
+        "nombre_elemento": "El ámbito empresarial de la comunicación y los medios. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Comunicación para empresas y organizaciones.... Estrategias y gestión de publicidad y marketing.... Estrategias y gestión de marca................. Habilidades para la comunicación estratégica. .... Lenguaje y narrativas para la creación de contenido. Desarrollo de medios digitales. ................ Habilidades. ............................... Humanidades y retos globales. ................ Contextos culturales, sociales, económicos, políticos y legales de la comunicación.................",
+        "creditos_ects": "",
+        "caracter": "B B OB OB OB B OB OB OB B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Metodologías creativas. . . . . . . . . . . . . . . . . . . . . . . Metodologías analíticas....................... Estrategias y gestión de publicidad y marketing.... Estrategias y gestión de comunicación........... Desarrollo y producción de contenidos creativos para marcas y entretenimiento.................... Desarrollo de medios digitales. ................ Lenguaje y narrativas para la creación de contenido. Deontología profesional.......................",
+        "nombre_elemento": "Metodologías creativas. . . . . . . . . . . . . . . . . . . . . . . Metodologías analíticas....................... Estrategias y gestión de publicidad y marketing.... Estrategias y gestión de comunicación........... Desarrollo y producción de contenidos creativos para marcas y entretenimiento.................... Desarrollo de medios digitales. ................ Lenguaje y narrativas para la creación de contenido. Deontología profesional.......................",
+        "creditos_ects": "",
+        "caracter": "OB OB OB OB OB OB OB OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativo.................................... Desarrollo y producción de contenidos creativos para marcas y entretenimiento..................... Comunicación para empresas y organizaciones..... Humanidades y retos globales. ................. Trabajo final de grado. ........................",
+        "nombre_elemento": "Optativo.................................... Desarrollo y producción de contenidos creativos para marcas y entretenimiento..................... Comunicación para empresas y organizaciones..... Humanidades y retos globales. ................. Trabajo final de grado. ........................",
+        "creditos_ects": "",
+        "caracter": "OP OB OB OB TFG",
+        "curso": "",
+        "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 2,
+    "total_elementos": 10,
     "texto_extraido_muestra": "BOLETÍN OFICIAL DEL ESTADO\nNúm. 75 Martes 27 de marzo de 2018 Sec. III.   Pág. 33709\nIII. OTRAS DISPOSICIONES\nUNIVERSIDADES\n4313 Resolución de 5 de marzo de 2018, de IE Universidad, por la que se publican \nplanes de estudios de Graduado.\nEn cumplimiento de lo dispuesto en el artículo 35.4 de la Ley Orgánica 6/2001, de 21 \nde diciembre, de universidades y en el apartado 13 del Real Decreto 861/2010, de 2 de \njulio, que modifica el artículo 26 del Real Decreto 1393/2007, de 30 de octubre, por el que \nse establece la ordenación de las enseñanzas universitarias oficiales; una vez obtenida la \nverificación de los planes de estudios por el Consejo de Universidades el 31 de julio de \n2017 previos informes positivos de la Agencia para la Calidad del Sistema Universitario de \nCastilla y León y establecido el carácter oficial del título por Acuerdo de Consejo de \nMinistros de 19 de enero de 2018 por el que se establece el carácter oficial de determinados \ntítulos de Máster y su inscripción en el"
   }
 }

@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 1393/2007 (1)",
   "universidad_codigo": "052",
   "universidad_nombre": "Universidad Antonio de Nebrija",
-  "fecha_procesado": "2026-07-31T14:38:59.008140",
+  "fecha_procesado": "2026-08-03T12:42:11.090337",
   "boe_url": "http://www.boe.es/boe/dias/2020/07/10/pdfs/BOE-A-2020-7719.pdf",
   "boe_fecha": "2020-07-10",
   "plan_estudios": {
@@ -16,57 +16,63 @@
       "Trabajo Fin de Grado.": "12",
       "Créditos totales.": "240"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas de Formación Básica.",
+        "nombre_elemento": "Asignaturas de Formación Básica.",
         "creditos_ects": "60",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Obligatorias.",
+        "nombre_elemento": "Asignaturas Obligatorias.",
         "creditos_ects": "114",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Asignaturas Optativas.",
+        "nombre_elemento": "Asignaturas Optativas.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Prácticas Externas.",
+        "nombre_elemento": "Prácticas Externas.",
         "creditos_ects": "48",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Trabajo Fin de Grado.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
         "creditos_ects": "12",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
         "creditos_ects": "240",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 6,
+    "total_elementos": 6,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n7719 Resolución de 22 de mayo de 2020, de la Universidad Antonio de Nebrija, por \nla que se publica la modificación del plan de estudios de Graduado en \nIngeniería Informática.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, y \nacordado el carácter oficial del título por Acuerdo del Consejo de Ministros de 19 de \nenero de 2018 (publicado en el BOE de 5 de febrero de 2018 por resolución de la \nSecretaría General de Universidades de 24 de enero de 2018), este Rectorado ha \nresuelto publicar la modificación realizada sobre el plan de estudios conducente a la \nobtención del título de Graduado o Graduada en Ingeniería Informática, que queda \nestructurado según consta en el Anexo de esta Resolución.\nHoyo de Manzanares, 22 de mayo de 2020.–El Rector, Juan Cayón Peña.\nANEXO\nLas modificaciones realizadas en el plan de estudios en el Grado en Ingeniería \nInformática son las siguientes:\nLos requerimientos del plan de estudios n"
   }
 }

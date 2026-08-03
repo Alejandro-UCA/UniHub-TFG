@@ -4,27 +4,154 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "047",
   "universidad_nombre": "Universidad Alfonso X El Sabio",
-  "fecha_procesado": "2026-07-31T14:34:30.040711",
+  "fecha_procesado": "2026-08-03T12:37:51.575632",
   "boe_url": "http://www.boe.es/boe/dias/2025/11/18/pdfs/BOE-A-2025-23358.pdf",
   "boe_fecha": "2025-11-18",
   "plan_estudios": {
     "resumen_creditos": {
       "Obligatorias.": "48",
       "Prácticas Académicas Externas.": "6",
-      "Trabajo Fin de Máster.": "TFM.",
-      "Total.": "60",
-      "Innovación educativa: Teorías, Paradigmas y aplicaciones recientes.": "Obligatoria.",
-      "Gestión de la innovación en el ámbito educativo.": "Obligatoria.",
-      "Estrategias educativas innovadoras para la atención de las diferencias individuales del alumnado.": "Obligatoria.",
-      "Metodologías innovadoras de enseñanza y aprendizaje en el aula.": "Obligatoria.",
-      "Innovación como motor de cambio del docente.": "Obligatoria.",
-      "Inteligencia Artificial y nuevas tecnologías para la educación.": "Obligatoria.",
-      "Diseño y evaluación de Proyectos de innovación y mejora educativa en el centro.": "Obligatoria.",
-      "Liderazgo docente y técnicas de comunicación asertiva.": "Obligatoria.",
-      "Practicas académicas externas.": "PAE."
+      "Trabajo Fin de Máster.": "6",
+      "Total.": "60"
     },
-    "asignaturas": [],
-    "total_asignaturas": 0,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Obligatorias.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "48",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Prácticas Académicas Externas.",
+        "nombre_elemento": "Prácticas Académicas Externas.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo Fin de Máster.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Innovación educativa: Teorías, Paradigmas y aplicaciones recientes.",
+        "materia": "",
+        "nombre_elemento": "Innovación educativa: Teorías, Paradigmas y aplicaciones recientes.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Gestión de la innovación en el ámbito educativo.",
+        "materia": "",
+        "nombre_elemento": "Gestión de la innovación en el ámbito educativo.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Estrategias educativas innovadoras para la atención de las diferencias individuales del alumnado.",
+        "materia": "",
+        "nombre_elemento": "Estrategias educativas innovadoras para la atención de las diferencias individuales del alumnado.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Metodologías innovadoras de enseñanza y aprendizaje en el aula.",
+        "materia": "",
+        "nombre_elemento": "Metodologías innovadoras de enseñanza y aprendizaje en el aula.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Innovación como motor de cambio del docente.",
+        "materia": "",
+        "nombre_elemento": "Innovación como motor de cambio del docente.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Inteligencia Artificial y nuevas tecnologías para la educación.",
+        "materia": "",
+        "nombre_elemento": "Inteligencia Artificial y nuevas tecnologías para la educación.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Diseño y evaluación de Proyectos de innovación y mejora educativa en el centro.",
+        "materia": "",
+        "nombre_elemento": "Diseño y evaluación de Proyectos de innovación y mejora educativa en el centro.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Liderazgo docente y técnicas de comunicación asertiva.",
+        "materia": "",
+        "nombre_elemento": "Liderazgo docente y técnicas de comunicación asertiva.",
+        "creditos_ects": "6",
+        "caracter": "Obligatoria.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Practicas académicas externas.",
+        "materia": "",
+        "nombre_elemento": "Practicas académicas externas.",
+        "creditos_ects": "6",
+        "caracter": "PAE.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Trabajo Fin de Máster.",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFM.",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Total.",
+        "materia": "",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ],
+    "total_elementos": 15,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n23358 Resolución de 14 de octubre de 2025, de la Universidad Alfonso X el Sabio, \npor la que se publica el plan de estudios de Máster Universitario en \nInnovación Educativa.\nObtenida la verificación del plan de estudios por el Consejo de Universidades, previo \ninforme positivo de la Fundación para el Conocimiento madri+d, y acordado el carácter \noficial del título por Acuerdo de Consejo de Ministros de 7 de octubre de 2025 (publicado \nen el BOE núm. 246 de 13 de octubre de 2025, por Resolución de la Secretaría General \nde Universidades de 9 de octubre de 2025),\nEste Rectorado ha resuelto publicar el plan de estudios conducente a la obtención \ndel título de Máster Universitario en Innovación Educativa por la Universidad Alfonso X el \nSabio.\nVillanueva de la Cañada, 14 de octubre de 2025.–El Rector, Juan Romo Urroz.\nPLAN DE ESTUDIOS DE MÁSTER UNIVERSITARIO EN INNOVACIÓN EDUCATIVA\nDistribución del plan de estudios en créditos ECTS\nTipo de materia Cré"
   }
 }

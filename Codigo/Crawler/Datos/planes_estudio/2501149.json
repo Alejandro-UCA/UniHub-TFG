@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 1393/2007 (1)",
   "universidad_codigo": "057",
   "universidad_nombre": "IE Universidad",
-  "fecha_procesado": "2026-07-31T14:11:14.625014",
+  "fecha_procesado": "2026-08-03T12:17:14.809176",
   "boe_url": "http://www.boe.es/boe/dias/2014/09/22/pdfs/BOE-A-2014-9619.pdf",
   "boe_fecha": "2014-09-22",
   "plan_estudios": {
@@ -27,89 +27,477 @@
       "Trabajo fin de Grado.": "TFG",
       "Métodos de investigación.": "OB"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
         "materia": "Economía.",
-        "nombre_asignatura": "Economía.",
+        "nombre_elemento": "Economía.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Economía.",
-        "nombre_asignatura": "Microeconomía.",
+        "nombre_elemento": "Microeconomía.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Economía.",
-        "nombre_asignatura": "Macroeconomía.",
+        "nombre_elemento": "Macroeconomía.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Economía.",
-        "nombre_asignatura": "Entorno Económico Global.",
+        "nombre_elemento": "Entorno Económico Global.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Organización y Diseño.",
+        "nombre_elemento": "Organización y Diseño.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Empresa.",
-        "nombre_asignatura": "Dirección Comercial.",
+        "nombre_elemento": "Dirección Comercial.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Estadística.",
-        "nombre_asignatura": "Estadística.",
+        "nombre_elemento": "Estadística.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Derecho de la Empresa I.",
+        "nombre_elemento": "Derecho de la Empresa I.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Derecho.",
-        "nombre_asignatura": "Derecho de la Empresa II.",
+        "nombre_elemento": "Derecho de la Empresa II.",
         "creditos_ects": "",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Sociología.",
-        "nombre_asignatura": "Sociología Contemporánea.",
+        "nombre_elemento": "Sociología Contemporánea.",
         "creditos_ects": "",
         "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Economía.",
+        "nombre_elemento": "Economía.",
+        "creditos_ects": "",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho.",
+        "nombre_elemento": "Derecho.",
+        "creditos_ects": "",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Análisis de Mercado.",
+        "nombre_elemento": "Análisis de Mercado.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Contabilidad.",
+        "nombre_elemento": "Contabilidad.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Finanzas.",
+        "nombre_elemento": "Finanzas.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Matemáticas.",
+        "nombre_elemento": "Matemáticas.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Estadística.",
+        "nombre_elemento": "Estadística.",
+        "creditos_ects": "",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Econometría.",
+        "nombre_elemento": "Econometría.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Empresa.",
+        "nombre_elemento": "Empresa.",
+        "creditos_ects": "",
+        "caracter": "B/OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión de Empresa.",
+        "nombre_elemento": "Gestión de Empresa.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ética y Deontología.",
+        "nombre_elemento": "Ética y Deontología.",
+        "creditos_ects": "",
+        "caracter": "MB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Sociología.",
+        "nombre_elemento": "Sociología.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Habilidades.",
+        "nombre_elemento": "Habilidades.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativas.",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Métodos de Investigación.",
+        "nombre_elemento": "Métodos de Investigación.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Grado.",
+        "nombre_elemento": "Trabajo fin de Grado.",
+        "creditos_ects": "",
+        "caracter": "TFG",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Economía.",
+        "nombre_elemento": "Economía.",
+        "creditos_ects": "",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Contabilidad.",
+        "nombre_elemento": "Contabilidad.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Matemáticas.",
+        "nombre_elemento": "Matemáticas.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Empresa.",
+        "nombre_elemento": "Empresa.",
+        "creditos_ects": "",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión de Empresa.",
+        "nombre_elemento": "Gestión de Empresa.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ética y Deontología.",
+        "nombre_elemento": "Ética y Deontología.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Habilidades.",
+        "nombre_elemento": "Habilidades.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Sociología.",
+        "nombre_elemento": "Sociología.",
+        "creditos_ects": "",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Economía.",
+        "nombre_elemento": "Economía.",
+        "creditos_ects": "",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Derecho.",
+        "nombre_elemento": "Derecho.",
+        "creditos_ects": "",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Análisis de Mercado.",
+        "nombre_elemento": "Análisis de Mercado.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Contabilidad.",
+        "nombre_elemento": "Contabilidad.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Finanzas.",
+        "nombre_elemento": "Finanzas.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Estadística.",
+        "nombre_elemento": "Estadística.",
+        "creditos_ects": "",
+        "caracter": "B",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Econometría.",
+        "nombre_elemento": "Econometría.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Finanzas.",
+        "nombre_elemento": "Finanzas.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ética y Deontología.",
+        "nombre_elemento": "Ética y Deontología.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Empresa.",
+        "nombre_elemento": "Empresa.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión de Empresa.",
+        "nombre_elemento": "Gestión de Empresa.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativas.",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Habilidades.",
+        "nombre_elemento": "Habilidades.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Empresa.",
+        "nombre_elemento": "Empresa.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Gestión de Empresa.",
+        "nombre_elemento": "Gestión de Empresa.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativas.",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Métodos de investigación.",
+        "nombre_elemento": "Métodos de investigación.",
+        "creditos_ects": "",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo fin de Grado.",
+        "nombre_elemento": "Trabajo fin de Grado.",
+        "creditos_ects": "",
+        "caracter": "TFG",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 10,
+    "total_elementos": 52,
     "texto_extraido_muestra": "BOLETÍN OFICIAL DEL ESTADO\nNúm. 230 Lunes 22 de septiembre de 2014 Sec. III.   Pág. 73986\nIII. OTRAS DISPOSICIONES\nUNIVERSIDADES\n9619 Resolución de 28 de julio de 2014, de la IE Universidad, por la que se publica \nla modificación del plan de estudios de Graduado en Administración de \nEmpresas/Business Administration.\nEn cumplimiento de lo dispuesto en el artículo 16 del Real Decreto 861/2010, de 2 de \njulio, que modifica el artículo 28 Real Decreto 1393/2007, de 30 de octubre, por el que se \nestablece la ordenación de las enseñanzas universitarias oficiales, y una vez aceptadas \nlas modificaciones propuestas del plan de estudios del Grado en Administración de \nEmpresas/Business Administration por la Agencia para la Calidad del Sistema Universitario \nde Castilla y León el 1 de julio de 2014, y recibida la resolución favorable del Consejero \nde Educación de Castilla y León de fecha de 7 de julio de 2014,\nEste Rectorado ha resuelto ordenar la publicación, en el «Boletín Oficial del Estado"
   }
 }

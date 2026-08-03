@@ -4,7 +4,7 @@
   "nivel_academico": "Grado - RD 822/2021 (2)",
   "universidad_codigo": "057",
   "universidad_nombre": "IE Universidad",
-  "fecha_procesado": "2026-07-31T14:11:57.280230",
+  "fecha_procesado": "2026-08-03T12:17:54.621035",
   "boe_url": "http://www.boe.es/boe/dias/2025/03/28/pdfs/BOE-A-2025-6292.pdf",
   "boe_fecha": "2025-03-28",
   "plan_estudios": {
@@ -15,97 +15,153 @@
       "Trabajo de Fin de Grado (TFG).": "12",
       "Créditos totales.": "240"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
+        "materia": "Formación básica (B).",
+        "nombre_elemento": "Formación básica (B).",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Obligatoria (OB).",
+        "nombre_elemento": "Obligatoria (OB).",
+        "creditos_ects": "129",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativa (OP).",
+        "nombre_elemento": "Optativa (OP).",
+        "creditos_ects": "39",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo de Fin de Grado (TFG).",
+        "nombre_elemento": "Trabajo de Fin de Grado (TFG).",
+        "creditos_ects": "12",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
+        "creditos_ects": "240",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Historia global I.",
+        "nombre_elemento": "Historia global I.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Historia global II.",
+        "nombre_elemento": "Historia global II.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Metodología filosófica.",
+        "nombre_elemento": "Metodología filosófica.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Filosofía política y moral.",
+        "nombre_elemento": "Filosofía política y moral.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Introducción a las humanidades digitales.",
+        "nombre_elemento": "Introducción a las humanidades digitales.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Historia de la expresión artística I.",
+        "nombre_elemento": "Historia de la expresión artística I.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Historia de la expresión artística II.",
+        "nombre_elemento": "Historia de la expresión artística II.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Retórica y narrativa.",
+        "nombre_elemento": "Retórica y narrativa.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Metodología crítica en literatura.",
+        "nombre_elemento": "Metodología crítica en literatura.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Lingüística.",
+        "nombre_elemento": "Lingüística.",
         "creditos_ects": "6",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "",
-        "nombre_asignatura": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
         "creditos_ects": "60",
         "caracter": "",
         "curso": "",
         "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 11,
+    "total_elementos": 16,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n6292 Resolución de 17 de marzo de 2025, de IE Universidad, por la que se publica \nel plan de estudios de Graduado o Graduada en Humanidades/Bachelor in \nHumanities.\nEste Rectorado ha resuelto ordenar la publicación en el «Boletín Oficial del Estado» y \nen el «Boletín Oficial de Castilla y León», del plan de estudios conducente a la obtención \ndel título oficial de Graduado o Graduada en Humanidades/Bachelor in Humanities por \nla IE Universidad (1500190). Esta decisión se toma en cumplimiento de lo dispuesto en \nel artículo 8.3 de Ley Orgánica 2/2023, de 22 de marzo, del Sistema Universitario, y en el \nartículo 27.4 del Real Decreto 822/2021, de 28 de septiembre, por el que se establece la \norganización de las enseñanzas universitarias y del procedimiento de aseguramiento de \nsu calidad.\nEl título obtuvo la verificación del plan de estudios por el Consejo de Universidades \nel 17 de enero de 2024 tras el previo informe favorable de la Agencia para l"
   }
 }

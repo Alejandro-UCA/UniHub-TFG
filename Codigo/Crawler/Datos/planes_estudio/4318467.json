@@ -4,7 +4,7 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "057",
   "universidad_nombre": "IE Universidad",
-  "fecha_procesado": "2026-07-31T14:12:31.822491",
+  "fecha_procesado": "2026-08-03T12:18:24.978424",
   "boe_url": "http://www.boe.es/boe/dias/2024/02/26/pdfs/BOE-A-2024-3731.pdf",
   "boe_fecha": "2024-02-26",
   "plan_estudios": {
@@ -12,159 +12,236 @@
       "Obligatorias (OB).": "30",
       "Optativas (OP).": "0",
       "Trabajo de Fin de Máster (TFM).": "30",
-      "Créditos totales.": "60",
-      "Proyectual.": "Taller avanzado de proyectos: estrategias sostenibles.",
-      "Técnico.": "Taller avanzado de construcción 2: estructuras e innovación material.",
-      "Propio.": "Gestión de organizaciones en las industrias creativas.",
-      "Fin de carrera.": "Proyecto fin de carrera."
+      "Créditos totales.": "60"
     },
-    "asignaturas": [
+    "elementos_curriculares": [
       {
+        "modulo": "",
+        "materia": "Obligatorias (OB).",
+        "nombre_elemento": "Obligatorias (OB).",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Optativas (OP).",
+        "nombre_elemento": "Optativas (OP).",
+        "creditos_ects": "0",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Trabajo de Fin de Máster (TFM).",
+        "nombre_elemento": "Trabajo de Fin de Máster (TFM).",
+        "creditos_ects": "30",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Créditos totales.",
+        "nombre_elemento": "Créditos totales.",
+        "creditos_ects": "60",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
         "materia": "Proyectual.",
-        "nombre_asignatura": "Taller avanzado de proyectos: Estrategias sostenibles.",
+        "nombre_elemento": "Taller avanzado de proyectos: Estrategias sostenibles.",
         "creditos_ects": "9",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Proyectual.",
-        "nombre_asignatura": "Taller avanzado de urbanismo: Desarrollo y gestión sostenible.",
+        "nombre_elemento": "Taller avanzado de urbanismo: Desarrollo y gestión sostenible.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Técnico.",
-        "nombre_asignatura": "Taller avanzado de construcción 1: Sostenibilidad y eficiencia energética.",
+        "nombre_elemento": "Taller avanzado de construcción 1: Sostenibilidad y eficiencia energética.",
         "creditos_ects": "4",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Técnico.",
-        "nombre_asignatura": "Taller avanzado de construcción 2: Estructuras e innovación material.",
+        "nombre_elemento": "Taller avanzado de construcción 2: Estructuras e innovación material.",
         "creditos_ects": "5",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Propio.",
-        "nombre_asignatura": "Gestión de organizaciones en las Industrias creativas.",
+        "nombre_elemento": "Gestión de organizaciones en las Industrias creativas.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Propio.",
-        "nombre_asignatura": "Gestión estratégica de empresas.",
+        "nombre_elemento": "Gestión estratégica de empresas.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Propio.",
-        "nombre_asignatura": "Gestión de Proyectos.",
+        "nombre_elemento": "Gestión de Proyectos.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Fin de carrera.",
-        "nombre_asignatura": "Proyecto fin de carrera.",
+        "nombre_elemento": "Proyecto fin de carrera.",
         "creditos_ects": "30",
         "caracter": "TFM",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Proyectual.",
-        "nombre_asignatura": "Taller avanzado de proyectos: estrategias sostenibles.",
+        "nombre_elemento": "Taller avanzado de proyectos: estrategias sostenibles.",
         "creditos_ects": "9",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Proyectual.",
-        "nombre_asignatura": "Taller avanzado de urbanismo: desarrollo y gestión sostenible.",
+        "nombre_elemento": "Taller avanzado de urbanismo: desarrollo y gestión sostenible.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Técnico.",
-        "nombre_asignatura": "Taller avanzado de construcción 1: sostenibilidad y eficiencia energética.",
+        "nombre_elemento": "Taller avanzado de construcción 1: sostenibilidad y eficiencia energética.",
         "creditos_ects": "4",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Fin de carrera.",
-        "nombre_asignatura": "Proyecto fin de carrera.",
+        "nombre_elemento": "Proyecto fin de carrera.",
         "creditos_ects": "4",
         "caracter": "PFC",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "20",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
         "materia": "Propio.",
-        "nombre_asignatura": "Gestión de organizaciones en las industrias creativas.",
+        "nombre_elemento": "Gestión de organizaciones en las industrias creativas.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Propio.",
-        "nombre_asignatura": "Gestión estratégica de empresas.",
+        "nombre_elemento": "Gestión estratégica de empresas.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Propio.",
-        "nombre_asignatura": "Gestión de Proyectos.",
+        "nombre_elemento": "Gestión de Proyectos.",
         "creditos_ects": "3",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Técnico.",
-        "nombre_asignatura": "Taller avanzado de construcción 2: estructuras e innovación material.",
+        "nombre_elemento": "Taller avanzado de construcción 2: estructuras e innovación material.",
         "creditos_ects": "5",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
         "materia": "Fin de carrera.",
-        "nombre_asignatura": "Proyecto fin de carrera.",
+        "nombre_elemento": "Proyecto fin de carrera.",
         "creditos_ects": "6",
         "caracter": "PFC",
         "curso": "",
         "cuatrimestre": ""
       },
       {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "20",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
         "materia": "Fin de carrera.",
-        "nombre_asignatura": "Proyecto fin de carrera.",
+        "nombre_elemento": "Proyecto fin de carrera.",
         "creditos_ects": "20",
         "caracter": "PFC",
         "curso": "",
         "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Total.",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "20",
+        "caracter": "",
+        "curso": "",
+        "cuatrimestre": ""
       }
     ],
-    "total_asignaturas": 18,
+    "total_elementos": 25,
     "texto_extraido_muestra": "III. OTRAS DISPOSICIONES\nUNIVERSIDADES\n3731 Resolución de 14 de febrero de 2024, de IE Universidad, por la que se \npublica el plan de estudios de Máster Universitario en Arquitectura/Master in \nArchitecture.\nEste Rectorado ha resuelto ordenar la publicación en el «Boletín Oficial del Estado» y \nen el «Boletín Oficial de Castilla y León», del plan de estudios conducente a la obtención \ndel título oficial de Máster Universitario en Arquitectura/Master in Architecture (4318467). \nEsta decisión se toma en cumplimiento de lo dispuesto en el artículo 8.3 de Ley \nOrgánica 2/2023, de 22 de marzo, del Sistema Universitario y en el artículo 27 del Real \nDecreto 822/2021, de 28 de septiembre, por el que se establece la organización de las \nenseñanzas universitarias y del procedimiento de aseguramiento de su calidad.\nEl título obtuvo la verificación del plan de estudios por el Consejo de Universidades \nel 18 de julio de 2023 tras el previo informe favorable de la Agencia para la Calidad del \nSiste"
   }
 }

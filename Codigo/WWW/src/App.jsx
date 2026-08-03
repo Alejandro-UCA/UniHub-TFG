@@ -7,13 +7,13 @@ import PlanModal from './components/PlanModal';
 import Geolocation from './components/Geolocation';
 import AdminLogin from './components/AdminLogin';
 import AdminDashboard from './components/AdminDashboard';
+import Pagination from './components/Pagination';
 import Footer from './components/Footer';
 
 import { apiService } from './services/api';
 import usageTracker from './analytics/usageTracker';
 import { Search, Filter, RefreshCw, BookOpen, GraduationCap, MapPin } from 'lucide-react';
 
-// Fallback sample data for offline/demo mode if REST API is initializing
 const MOCK_UNIVERSITIES = [
   { codigo: "089", nombre: "CUNEF Universidad", tipo: "Privada", comunidad_autonoma: "Comunidad de Madrid", municipio: "Madrid", provincia: "Madrid", web: "www.cunef.edu", email: "info@cunef.edu" },
   { codigo: "057", nombre: "IE Universidad", tipo: "Privada", comunidad_autonoma: "Comunidad de Castilla y León", municipio: "Segovia", provincia: "Segovia", web: "www.ie.edu/universidad", email: "universidad@ie.edu" },
@@ -35,8 +35,15 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('inicio');
   const [isDark, setIsDark] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [showAdminModal, setShowAdminModal] = useState(false);
   const [selectedDegree, setSelectedDegree] = useState(null);
+
+  // Check URL route for manual /admin access
+  useEffect(() => {
+    const path = window.location.pathname;
+    if (path === '/admin' || path === '/admin/' || path === '/admin/login') {
+      setActiveTab('admin-login');
+    }
+  }, []);
 
   // Data states
   const [universities, setUniversities] = useState(MOCK_UNIVERSITIES);
@@ -48,11 +55,24 @@ export default function App() {
   const [selectedTipo, setSelectedTipo] = useState('todos');
   const [selectedCCAA, setSelectedCCAA] = useState('todas');
 
+  // Pagination states
+  const [univCurrentPage, setUnivCurrentPage] = useState(1);
+  const [univItemsPerPage, setUnivItemsPerPage] = useState(20);
+
+  const [degreeCurrentPage, setDegreeCurrentPage] = useState(1);
+  const [degreeItemsPerPage, setDegreeItemsPerPage] = useState(20);
+
   // Track initial page view & load data
   useEffect(() => {
     usageTracker.trackPageView('home');
     loadInitialData();
   }, []);
+
+  // Reset pagination on filter change
+  useEffect(() => {
+    setUnivCurrentPage(1);
+    setDegreeCurrentPage(1);
+  }, [searchQuery, selectedTipo, selectedCCAA]);
 
   // Theme toggle
   const toggleTheme = () => {
@@ -101,6 +121,17 @@ export default function App() {
     return matchesQuery && matchesTipo;
   });
 
+  // Paginated Slices
+  const paginatedUniversities = filteredUniversities.slice(
+    (univCurrentPage - 1) * univItemsPerPage,
+    univCurrentPage * univItemsPerPage
+  );
+
+  const paginatedDegrees = filteredDegrees.slice(
+    (degreeCurrentPage - 1) * degreeItemsPerPage,
+    degreeCurrentPage * degreeItemsPerPage
+  );
+
   const handleViewUniversityDegrees = (univ) => {
     setSearchQuery(univ.nombre);
     setActiveTab('titulaciones');
@@ -112,9 +143,6 @@ export default function App() {
       <Navbar 
         activeTab={activeTab}
         setActiveTab={setActiveTab}
-        isAdmin={isAdmin}
-        setIsAdmin={setIsAdmin}
-        setShowAdminModal={setShowAdminModal}
         isDark={isDark}
         toggleTheme={toggleTheme}
       />
@@ -135,7 +163,7 @@ export default function App() {
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.75rem' }}>
                 <div>
                   <h2 style={{ fontSize: '1.6rem', fontWeight: 800 }}>Universidades Destacadas</h2>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Explora los centros universitarios públicos y privados de España</p>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Las 6 universidades más visitadas en la plataforma</p>
                 </div>
                 <button 
                   className="btn btn-outline" 
@@ -213,7 +241,7 @@ export default function App() {
 
             {/* Universities Grid */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.5rem' }}>
-              {filteredUniversities.map((univ) => (
+              {paginatedUniversities.map((univ) => (
                 <UnivCard 
                   key={univ.codigo}
                   univ={univ}
@@ -221,6 +249,15 @@ export default function App() {
                 />
               ))}
             </div>
+
+            {/* Pagination Controls */}
+            <Pagination 
+              currentPage={univCurrentPage}
+              totalItems={filteredUniversities.length}
+              itemsPerPage={univItemsPerPage}
+              onPageChange={setUnivCurrentPage}
+              onItemsPerPageChange={setUnivItemsPerPage}
+            />
           </section>
         )}
 
@@ -276,7 +313,7 @@ export default function App() {
 
             {/* Degrees Grid */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.5rem' }}>
-              {filteredDegrees.map((degree) => (
+              {paginatedDegrees.map((degree) => (
                 <DegreeCard 
                   key={degree.codigo_estudio}
                   degree={degree}
@@ -284,6 +321,15 @@ export default function App() {
                 />
               ))}
             </div>
+
+            {/* Pagination Controls */}
+            <Pagination 
+              currentPage={degreeCurrentPage}
+              totalItems={filteredDegrees.length}
+              itemsPerPage={degreeItemsPerPage}
+              onPageChange={setDegreeCurrentPage}
+              onItemsPerPageChange={setDegreeItemsPerPage}
+            />
           </section>
         )}
 
@@ -294,7 +340,16 @@ export default function App() {
           />
         )}
 
-        {activeTab === 'admin' && (
+        {activeTab === 'admin-login' && !isAdmin && (
+          <AdminLogin 
+            onLoginSuccess={() => {
+              setIsAdmin(true);
+              setActiveTab('admin');
+            }}
+          />
+        )}
+
+        {activeTab === 'admin' && isAdmin && (
           <AdminDashboard 
             onLogout={() => {
               setIsAdmin(false);
@@ -312,18 +367,8 @@ export default function App() {
         />
       )}
 
-      {/* Admin Login Modal */}
-      <AdminLogin 
-        isOpen={showAdminModal}
-        onClose={() => setShowAdminModal(false)}
-        onLoginSuccess={() => {
-          setIsAdmin(true);
-          setActiveTab('admin');
-        }}
-      />
-
       {/* Footer */}
-      <Footer onOpenAdmin={() => setShowAdminModal(true)} />
+      <Footer onNavigate={(tab) => setActiveTab(tab)} />
     </div>
   );
 }

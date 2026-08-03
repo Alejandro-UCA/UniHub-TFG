@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { MapPin, Navigation, Compass, ArrowRight, ExternalLink, Globe } from 'lucide-react';
+import { MapPin, Navigation, Compass } from 'lucide-react';
 import { calculateHaversineDistance, SPANISH_CITIES_COORDS, getUniversityCoords } from '../utils/distance';
 import usageTracker from '../analytics/usageTracker';
 import UnivCard from './UnivCard';
+import Pagination from './Pagination';
 
 export default function Geolocation({ universities, onViewDegrees }) {
   const [userLocation, setUserLocation] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [selectedCity, setSelectedCity] = useState('cadiz'); // Default to Cádiz (UCA)
+
+  // Pagination states
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(20);
 
   // Request browser geolocation
   const handleGetLocation = () => {
@@ -33,9 +38,8 @@ export default function Geolocation({ universities, onViewDegrees }) {
       },
       (err) => {
         console.warn('Geolocation denied or failed:', err);
-        setError('No se pudo acceder a tu ubicación exacta. Se ha activado la estimación por ciudad (Cádiz / UCA).');
+        setError('No se pudo acceder a tu ubicación exacta. Se ha activado la estimación por ciudad (Cádiz).');
         setLoading(false);
-        // Fallback to selected preset city
         setUserLocation(SPANISH_CITIES_COORDS[selectedCity]);
       },
       { timeout: 10000, enableHighAccuracy: true }
@@ -56,6 +60,12 @@ export default function Geolocation({ universities, onViewDegrees }) {
       : 0;
     return { ...u, distanceKm: dist, targetCity: coords.name };
   }).sort((a, b) => a.distanceKm - b.distanceKm);
+
+  // Paginated Slice
+  const paginatedUnivs = univsWithDistance.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   return (
     <div className="container" style={{ padding: '2.5rem 1.5rem' }}>
@@ -103,6 +113,7 @@ export default function Geolocation({ universities, onViewDegrees }) {
               onChange={(e) => {
                 setSelectedCity(e.target.value);
                 setUserLocation(SPANISH_CITIES_COORDS[e.target.value]);
+                setCurrentPage(1);
               }}
               style={{
                 background: 'rgba(255, 255, 255, 0.15)',
@@ -144,31 +155,26 @@ export default function Geolocation({ universities, onViewDegrees }) {
         </div>
       )}
 
-      {/* Sorted Universities Grid */}
+      {/* Sorted Universities Grid with Distance integrated inside Card */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.5rem' }}>
-        {univsWithDistance.map((univ) => (
-          <div key={univ.codigo} style={{ position: 'relative' }}>
-            {/* Distance Badge */}
-            <div style={{
-              position: 'absolute',
-              top: '-10px',
-              right: '15px',
-              zIndex: 10,
-              background: 'linear-gradient(135deg, var(--uca-navy), var(--uca-blue))',
-              color: '#FFFFFF',
-              padding: '0.35rem 0.85rem',
-              borderRadius: '50px',
-              fontSize: '0.8rem',
-              fontWeight: 800,
-              boxShadow: 'var(--shadow-sm)',
-              border: '1px solid var(--uca-azure)'
-            }}>
-              A {univ.distanceKm} km
-            </div>
-            <UnivCard univ={univ} onViewDegrees={onViewDegrees} />
-          </div>
+        {paginatedUnivs.map((univ) => (
+          <UnivCard 
+            key={univ.codigo} 
+            univ={univ} 
+            onViewDegrees={onViewDegrees} 
+            distanceKm={univ.distanceKm}
+          />
         ))}
       </div>
+
+      {/* Pagination Controls */}
+      <Pagination 
+        currentPage={currentPage}
+        totalItems={univsWithDistance.length}
+        itemsPerPage={itemsPerPage}
+        onPageChange={setCurrentPage}
+        onItemsPerPageChange={setItemsPerPage}
+      />
     </div>
   );
 }

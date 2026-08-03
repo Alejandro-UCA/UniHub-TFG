@@ -1,6 +1,7 @@
 from typing import List, Optional
 from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.orm import Session
+from sqlalchemy import case
 
 from database.connection import get_db
 from models.models import Titulacion, PlanEstudios, Universidad
@@ -8,7 +9,7 @@ from schemas.schemas import TitulacionOut, TitulacionDetalleOut, PlanEstudiosOut
 
 router = APIRouter(prefix="/api/v1/titulaciones", tags=["Titulaciones y Planes de Estudio"])
 
-@router.get("", response_model=List[TitulacionOut], summary="Búsqueda global de titulaciones oficiales vigentes")
+@router.get("", response_model=List[TitulacionOut], summary="Búsqueda global de titulaciones oficiales (Públicas primero)")
 def list_titulaciones(
     titulo: Optional[str] = Query(None, description="Filtrar por nombre o palabra clave de la titulación"),
     nivel_academico: Optional[str] = Query(None, description="Filtrar por Grado, Máster o Doctorado"),
@@ -17,7 +18,7 @@ def list_titulaciones(
     limit: int = Query(100, ge=1, le=500),
     db: Session = Depends(get_db)
 ):
-    query = db.query(Titulacion)
+    query = db.query(Titulacion).join(Universidad)
     if titulo:
         query = query.filter(Titulacion.titulo.ilike(f"%{titulo}%"))
     if nivel_academico:
@@ -25,6 +26,10 @@ def list_titulaciones(
     if universidad_codigo:
         query = query.filter(Titulacion.universidad_codigo == universidad_codigo.zfill(3))
         
+    query = query.order_by(
+        case((Universidad.tipo.ilike("%públic%"), 0), (Universidad.tipo.ilike("%public%"), 0), else_=1),
+        Titulacion.titulo.asc()
+    )
     return query.offset(skip).limit(limit).all()
 
 @router.get("/{codigo_estudio}", response_model=TitulacionDetalleOut, summary="Obtener información detallada de una titulación")

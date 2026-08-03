@@ -7,27 +7,28 @@ import PlanModal from './components/PlanModal';
 import Geolocation from './components/Geolocation';
 import AdminLogin from './components/AdminLogin';
 import AdminDashboard from './components/AdminDashboard';
+import AboutUs from './components/AboutUs';
 import Pagination from './components/Pagination';
 import Footer from './components/Footer';
 
 import { apiService } from './services/api';
 import usageTracker from './analytics/usageTracker';
-import { Search, Filter, RefreshCw, BookOpen, GraduationCap, MapPin } from 'lucide-react';
+import { Search, Filter, BookOpen, GraduationCap, MapPin } from 'lucide-react';
 
 const MOCK_UNIVERSITIES = [
-  { codigo: "089", nombre: "CUNEF Universidad", tipo: "Privada", comunidad_autonoma: "Comunidad de Madrid", municipio: "Madrid", provincia: "Madrid", web: "www.cunef.edu", email: "info@cunef.edu" },
-  { codigo: "057", nombre: "IE Universidad", tipo: "Privada", comunidad_autonoma: "Comunidad de Castilla y León", municipio: "Segovia", provincia: "Segovia", web: "www.ie.edu/universidad", email: "universidad@ie.edu" },
   { codigo: "015", nombre: "Universidad Complutense de Madrid", tipo: "Pública", comunidad_autonoma: "Comunidad de Madrid", municipio: "Madrid", provincia: "Madrid", web: "www.ucm.es", email: "infocom@ucm.es" },
   { codigo: "005", nombre: "Universidad de Sevilla", tipo: "Pública", comunidad_autonoma: "Comunidad de Andalucía", municipio: "Sevilla", provincia: "Sevilla", web: "www.us.es", email: "info@us.es" },
   { codigo: "023", nombre: "Universidad de Cádiz (UCA)", tipo: "Pública", comunidad_autonoma: "Comunidad de Andalucía", municipio: "Cádiz", provincia: "Cádiz", web: "www.uca.es", email: "atencion.usuario@uca.es" },
-  { codigo: "003", nombre: "Universidad Autónoma de Madrid", tipo: "Pública", comunidad_autonoma: "Comunidad de Madrid", municipio: "Madrid", provincia: "Madrid", web: "www.uam.es", email: "informacion@uam.es" }
+  { codigo: "003", nombre: "Universidad Autónoma de Madrid", tipo: "Pública", comunidad_autonoma: "Comunidad de Madrid", municipio: "Madrid", provincia: "Madrid", web: "www.uam.es", email: "informacion@uam.es" },
+  { codigo: "089", nombre: "CUNEF Universidad", tipo: "Privada", comunidad_autonoma: "Comunidad de Madrid", municipio: "Madrid", provincia: "Madrid", web: "www.cunef.edu", email: "info@cunef.edu" },
+  { codigo: "057", nombre: "IE Universidad", tipo: "Privada", comunidad_autonoma: "Comunidad de Castilla y León", municipio: "Segovia", provincia: "Segovia", web: "www.ie.edu/universidad", email: "universidad@ie.edu" }
 ];
 
 const MOCK_DEGREES = [
+  { codigo_estudio: "2500021", titulo: "Graduado o Graduada en Ingeniería Informática por la Universidad de Cádiz", nivel_academico: "Grado - RD 1393/2007 (1)", estado: "Publicado en B.O.E.", universidad_codigo: "023", universidad_nombre: "Universidad de Cádiz", boe_url: "http://www.boe.es" },
   { codigo_estudio: "2504059", titulo: "Graduado o Graduada en Administración y Dirección de Empresas por la CUNEF Universidad", nivel_academico: "Grado - RD 822/2021 (2)", estado: "Publicado en B.O.E.", universidad_codigo: "089", universidad_nombre: "CUNEF Universidad", boe_url: "http://www.boe.es/boe/dias/2025/01/16/pdfs/BOE-A-2025-708.pdf", boe_fecha: "2025-01-16" },
   { codigo_estudio: "2504639", titulo: "Graduado o Graduada en Ciencia de Datos / Bachelor in Data Science por la CUNEF Universidad", nivel_academico: "Grado - RD 822/2021 (2)", estado: "Publicado en B.O.E.", universidad_codigo: "089", universidad_nombre: "CUNEF Universidad", boe_url: "http://www.boe.es/boe/dias/2024/06/10/pdfs/BOE-A-2024-11800.pdf", boe_fecha: "2024-06-10" },
   { codigo_estudio: "2504126", titulo: "Graduado o Graduada en Derecho por la CUNEF Universidad", nivel_academico: "Grado - RD 1393/2007 (1)", estado: "Publicado en B.O.E.", universidad_codigo: "089", universidad_nombre: "CUNEF Universidad" },
-  { codigo_estudio: "2500021", titulo: "Graduado o Graduada en Ingeniería Informática por la Universidad de Cádiz", nivel_academico: "Grado - RD 1393/2007 (1)", estado: "Publicado en B.O.E.", universidad_codigo: "023", universidad_nombre: "Universidad de Cádiz (UCA)" },
   { codigo_estudio: "4317230", titulo: "Máster Universitario en Ciencia de Datos e Inteligencia Artificial por la CUNEF Universidad", nivel_academico: "Máster - RD 822/2021 (3)", estado: "Publicado en B.O.E.", universidad_codigo: "089", universidad_nombre: "CUNEF Universidad" }
 ];
 
@@ -102,15 +103,21 @@ export default function App() {
     setSearchQuery(query);
   };
 
-  // Filtered universities
+  // Filtered & Sorted universities (Publics first, then Privates)
   const filteredUniversities = universities.filter(u => {
     const matchesQuery = !searchQuery || `${u.nombre} ${u.municipio} ${u.provincia}`.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesTipo = selectedTipo === 'todos' || (u.tipo || '').toLowerCase().includes(selectedTipo);
     const matchesCCAA = selectedCCAA === 'todas' || (u.comunidad_autonoma || '').toLowerCase().includes(selectedCCAA.toLowerCase());
     return matchesQuery && matchesTipo && matchesCCAA;
+  }).sort((a, b) => {
+    const isAPublic = (a.tipo || '').toLowerCase().includes('públic') || (a.tipo || '').toLowerCase().includes('public');
+    const isBPublic = (b.tipo || '').toLowerCase().includes('públic') || (b.tipo || '').toLowerCase().includes('public');
+    if (isAPublic && !isBPublic) return -1;
+    if (!isAPublic && isBPublic) return 1;
+    return (a.nombre || '').localeCompare(b.nombre || '');
   });
 
-  // Filtered degrees
+  // Filtered & Sorted degrees (Public universities first)
   const filteredDegrees = degrees.filter(d => {
     const matchesQuery = !searchQuery || `${d.titulo} ${d.codigo_estudio}`.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesTipo = selectedTipo === 'todos' || (
@@ -120,6 +127,9 @@ export default function App() {
     );
     return matchesQuery && matchesTipo;
   });
+
+  // Top 6 Most Visited Universities for Featured Section
+  const topVisitedUnivs = usageTracker.getTopVisitedUniversities(universities, 6);
 
   // Paginated Slices
   const paginatedUniversities = filteredUniversities.slice(
@@ -158,7 +168,7 @@ export default function App() {
               totalDegrees={degrees.length}
             />
 
-            {/* Featured Universities Preview */}
+            {/* Featured Universities Section (Top 6 Most Visited) */}
             <section className="container" style={{ padding: '3.5rem 1.5rem 1.5rem 1.5rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.75rem' }}>
                 <div>
@@ -174,7 +184,7 @@ export default function App() {
               </div>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.5rem' }}>
-                {universities.slice(0, 6).map((univ) => (
+                {topVisitedUnivs.map((univ) => (
                   <UnivCard 
                     key={univ.codigo}
                     univ={univ}
@@ -193,7 +203,7 @@ export default function App() {
                 Directorio Oficial de Universidades ({filteredUniversities.length})
               </h2>
               <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)' }}>
-                Información de contacto, sitio web oficial y titulaciones asociadas.
+                Ordenadas prioritariamente: primero públicas y posteriormente privadas.
               </p>
             </div>
 
@@ -338,6 +348,10 @@ export default function App() {
             universities={universities}
             onViewDegrees={handleViewUniversityDegrees}
           />
+        )}
+
+        {activeTab === 'sobre-nosotros' && (
+          <AboutUs />
         )}
 
         {activeTab === 'admin-login' && !isAdmin && (

@@ -34,7 +34,7 @@ export default function Hero({ onSearch, setActiveTab, totalUnivs, totalDegrees 
       }} />
 
       <div className="container" style={{ position: 'relative', zIndex: 2, textAlign: 'center', maxWidth: '900px' }}>
-        {/* UCA Badge */}
+        {/* UniHub Badge */}
         <div style={{
           display: 'inline-flex',
           alignItems: 'center',
@@ -48,7 +48,7 @@ export default function Hero({ onSearch, setActiveTab, totalUnivs, totalDegrees 
           marginBottom: '1.5rem',
           backdropFilter: 'blur(8px)'
         }}>
-          <span style={{ color: 'var(--uca-sun)' }}>★</span> Estilo e Identidad Visual de la Universidad de Cádiz (UCA)
+          <span style={{ color: 'var(--uca-sun)' }}>★</span> UniHub: Tu Guía de Educación Superior
         </div>
 
         <h1 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.4rem)', fontWeight: 800, marginBottom: '1.25rem', lineHeight: 1.15 }}>
@@ -56,7 +56,7 @@ export default function Hero({ onSearch, setActiveTab, totalUnivs, totalDegrees 
         </h1>
 
         <p style={{ fontSize: '1.15rem', color: '#E2E8F0', marginBottom: '2.5rem', fontWeight: 400, maxWidth: '750px', margin: '0 auto 2.5rem auto' }}>
-          Acceso centralizado a universidades públicas y privadas, Grados, Másteres y planes de estudio BOE con localización por cerca de tu posición actual.
+          Acceso centralizado a universidades públicas y privadas, Grados, Másteres y planes de estudio desglosados con localización por cercanía geográfica.
         </p>
 
         {/* Quick Search Form */}
@@ -76,7 +76,7 @@ export default function Hero({ onSearch, setActiveTab, totalUnivs, totalDegrees 
           </div>
           <input 
             type="text" 
-            placeholder="Busca titulación (ej. Derecho, Inteligencia Artificial, CUNEF...)"
+            placeholder="Busca titulación (ej. Derecho, Inteligencia Artificial, Informática...)"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             style={{
@@ -107,7 +107,7 @@ export default function Hero({ onSearch, setActiveTab, totalUnivs, totalDegrees 
           <div className="glass-panel" style={{ padding: '1.25rem', background: 'rgba(255, 255, 255, 0.08)', borderColor: 'rgba(255, 255, 255, 0.15)' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', color: 'var(--uca-azure)', marginBottom: '0.25rem' }}>
               <BookOpen size={22} />
-              <span style={{ fontSize: '1.8rem', fontWeight: 800 }}>{totalDegrees || '2.800+'}</span>
+              <span style={{ fontSize: '1.8rem', fontWeight: 800 }}>{totalDegrees || '1.800+'}</span>
             </div>
             <div style={{ fontSize: '0.85rem', color: '#CBD5E1', fontWeight: 500 }}>Titulaciones Vigentes</div>
           </div>

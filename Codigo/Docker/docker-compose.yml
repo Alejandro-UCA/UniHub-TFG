@@ -1,0 +1,103 @@
+version: '3.8'
+
+# ==============================================================================
+# Orquestador Docker Compose: Proyecto RUCT Universidades y Titulaciones
+# (Fase 1: Crawler, Fase 2: PostgreSQL & API, Fase 3: Portal Web, Fase 4: Docker)
+# ==============================================================================
+
+networks:
+  ruct_network:
+    driver: bridge
+    name: ruct_network
+
+volumes:
+  postgres_data:
+    name: ruct_postgres_data
+  datos_volume:
+    name: ruct_datos_volume
+
+services:
+  # ----------------------------------------------------------------------------
+  # CONTENEDOR 1: Base de Datos PostgreSQL (Fase 2)
+  # ----------------------------------------------------------------------------
+  db:
+    image: postgres:15-alpine
+    container_name: ruct_db
+    restart: always
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-ruct_db}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-admin}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ../API/database/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+    ports:
+      - "5432:5432"
+    networks:
+      - ruct_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-ruct_db}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ----------------------------------------------------------------------------
+  # CONTENEDOR 2: Rastreador / Crawler RUCT (Fase 1)
+  # ----------------------------------------------------------------------------
+  crawler:
+    build:
+      context: ../..
+      dockerfile: Codigo/Docker/crawler/Dockerfile
+    container_name: ruct_crawler
+    restart: "no"
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - datos_volume:/app/Datos
+    networks:
+      - ruct_network
+    profiles:
+      - full
+      - crawler
+
+  # ----------------------------------------------------------------------------
+  # CONTENEDOR 3: API REST Python / FastAPI (Fase 2)
+  # ----------------------------------------------------------------------------
+  api:
+    build:
+      context: ../..
+      dockerfile: Codigo/Docker/api/Dockerfile
+    container_name: ruct_api
+    restart: always
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: ${POSTGRES_DB:-ruct_db}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-admin}
+    volumes:
+      - datos_volume:/app/Datos:ro
+    ports:
+      - "${API_PORT:-8000}:8000"
+    networks:
+      - ruct_network
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # ----------------------------------------------------------------------------
+  # CONTENEDOR 4: Portal Web Frontend Nginx + React (Fase 3)
+  # ----------------------------------------------------------------------------
+  www:
+    build:
+      context: ../..
+      dockerfile: Codigo/Docker/www/Dockerfile
+    container_name: ruct_www
+    restart: always
+    ports:
+      - "${WEB_PORT:-80}:80"
+      - "${WEB_ALT_PORT:-5173}:80"
+    networks:
+      - ruct_network
+    depends_on:
+      - api

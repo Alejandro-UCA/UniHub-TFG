@@ -2,7 +2,7 @@ version: '3.8'
 
 # ==============================================================================
 # Orquestador Docker Compose: Proyecto RUCT Universidades y Titulaciones
-# (Fase 1: Crawler, Fase 2: PostgreSQL & API, Fase 3: Portal Web, Fase 4: Docker)
+# (Arranque conjunto automático de Fases 1, 2, 3 y 4)
 # ==============================================================================
 
 networks:
@@ -17,7 +17,6 @@ volumes:
 services:
   # ----------------------------------------------------------------------------
   # CONTENEDOR 1: Base de Datos PostgreSQL (Fase 2)
-  # Persistencia completa de datos relacionales en volumen 'postgres_data'
   # ----------------------------------------------------------------------------
   db:
     image: postgres:15-alpine
@@ -41,28 +40,23 @@ services:
       retries: 5
 
   # ----------------------------------------------------------------------------
-  # CONTENEDOR 2: Rastreador / Crawler RUCT (Fase 1)
-  # Persistencia directa en el sistema de archivos del host en Codigo/Crawler/Datos
+  # CONTENEDOR 2: Rastreador / Crawler RUCT (Fase 1) - Programación Cron 0 2 1 * *
   # ----------------------------------------------------------------------------
   crawler:
     build:
       context: ../..
       dockerfile: Codigo/Docker/crawler/Dockerfile
     container_name: ruct_crawler
-    restart: "no"
+    restart: always
     environment:
       - PYTHONUNBUFFERED=1
     volumes:
       - ../Crawler/Datos:/app/Datos
     networks:
       - ruct_network
-    profiles:
-      - full
-      - crawler
 
   # ----------------------------------------------------------------------------
   # CONTENEDOR 3: API REST Python / FastAPI (Fase 2)
-  # Acceso directo a los archivos JSON persistentes en Codigo/Crawler/Datos
   # ----------------------------------------------------------------------------
   api:
     build:

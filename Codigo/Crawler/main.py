@@ -20,7 +20,7 @@ from config import (
 )
 from downloader import RUCTDownloader
 from error_logger import ErrorLogger
-from checkpoint import CheckpointManager
+from checkpoint import CheckpointManager, atomic_json_dump
 from metrics import PerformanceTracker
 from parsers import (
     parse_universities_xls,
@@ -56,8 +56,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
         downloader.download_file(URL_UNIVERSIDADES_LIST, temp_univ_xls)
         universities = parse_universities_xls(temp_univ_xls)
         
-        with open(UNIVERSIDADES_JSON, "w", encoding="utf-8") as f:
-            json.dump(universities, f, ensure_ascii=False, indent=2)
+        atomic_json_dump(universities, UNIVERSIDADES_JSON)
             
         if os.path.exists(temp_univ_xls):
             os.remove(temp_univ_xls)
@@ -116,8 +115,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                 "titulaciones_vigentes": active_degrees
             }
             
-            with open(TITULACIONES_JSON, "w", encoding="utf-8") as f:
-                json.dump(titulaciones_por_universidad, f, ensure_ascii=False, indent=2)
+            atomic_json_dump(titulaciones_por_universidad, TITULACIONES_JSON)
                 
             if os.path.exists(temp_degrees_xls):
                 os.remove(temp_degrees_xls)
@@ -172,8 +170,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                         "boe_url": None,
                         "plan_estudios": None
                     }
-                    with open(plan_file, "w", encoding="utf-8") as f:
-                        json.dump(degree_data, f, ensure_ascii=False, indent=2)
+                    atomic_json_dump(degree_data, plan_file)
                     checkpoint.update_degree_record(d_code, None, None, datetime.now().isoformat())
                     continue
 
@@ -189,7 +186,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                 metrics.record_pdf_parse_time(t_parse_elapsed)
                 metrics.titulaciones_descargadas_actualizadas += 1
 
-                # Save / update degree JSON file
+                # Save / update degree JSON file atomically
                 degree_data = {
                     "codigo_estudio": d_code,
                     "titulo": d_title,
@@ -201,52 +198,45 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                     "boe_fecha": latest_boe_fecha,
                     "plan_estudios": curriculum_data
                 }
-
-                with open(plan_file, "w", encoding="utf-8") as f:
-                    json.dump(degree_data, f, ensure_ascii=False, indent=2)
-
+                atomic_json_dump(degree_data, plan_file)
+                
+                # Update checkpoint
+                checkpoint.update_degree_record(d_code, latest_boe_url, latest_boe_fecha, datetime.now().isoformat())
+                
                 if os.path.exists(pdf_path):
                     os.remove(pdf_path)
-
-                checkpoint.update_degree_record(d_code, latest_boe_url, latest_boe_fecha, datetime.now().isoformat())
-                num_elem = curriculum_data.get("total_elementos", 0)
-                print(f"     -> Guardados {num_elem} elementos curriculares en '{d_code}.json'. PDF borrado.")
+                    
+                print(f"     -> Plan de estudios BOE actualizado ({curriculum_data.get('total_elementos', 0)} elementos extraídos).")
 
             except Exception as e:
-                err_msg = f"Error al procesar titulación {d_code}"
+                err_msg = f"Error al procesar la titulación [{d_code}]"
                 print(f"     -> [ERROR NO BLOQUEANTE] {err_msg}: {e}")
-                logger.log_error("paso_3_procesamiento_titulacion", d_code, detail_url, err_msg, traceback.format_exc())
+                logger.log_error("paso_3_boe_pdf", d_code, detail_url, err_msg, traceback.format_exc())
                 metrics.errores_detectados += 1
-                pdf_path = os.path.join(TEMP_PDF_DIR, f"{d_code}_latest.pdf")
-                if os.path.exists(pdf_path):
-                    try:
-                        os.remove(pdf_path)
-                    except Exception:
-                        pass
+                continue
 
-        checkpoint.mark_university_processed(u_code)
+        # Save metrics periodically
         metrics.save()
+        checkpoint.mark_university_processed(u_code)
 
-    # Save final performance report
+    # Save final report
     metrics.save()
-    rep = metrics.generate_report()
-
-    print("\n======================================================================")
-    print("      CRAWLER COMPLETADO CON ÉXITO")
+    print("\n" + "=" * 70)
+    print("      CRAWLER RUCT FINALIZADO CON ÉXITO Y DE FORMA RESILIENTE")
     print("======================================================================")
-    print(" ESTADÍSTICAS DE RENDIMIENTO GUARDADAS EN:", ESTADISTICAS_JSON)
-    print(f"  - Memoria actual usada:      {rep['rendimiento_memoria']['uso_memoria_actual_mb']} MB")
-    print(f"  - Pico máximo de memoria:    {rep['rendimiento_memoria']['pico_maximo_memoria_mb']} MB")
-    print(f"  - Tiempo total reloj:        {rep['rendimiento_tiempo']['tiempo_total_ejecucion_seg']} s")
-    print(f"  - Tiempo computación CPU:    {rep['rendimiento_tiempo']['tiempo_procesamiento_cpu_seg']} s")
-    print(f"  - Tiempo espera E/S y Red:   {rep['rendimiento_tiempo']['tiempo_espera_io_red_seg']} s")
-    print(f"  - Titulaciones procesadas:   {rep['operaciones_crawler']['titulaciones_inspeccionadas']} (Al día: {rep['operaciones_crawler']['titulaciones_al_dia_sin_cambios']}, Nuevas/Actualizadas: {rep['operaciones_crawler']['titulaciones_nuevas_o_actualizadas']})")
+    print(f" -> Universidades inspeccionadas: {metrics.universidades_inspeccionadas}")
+    print(f" -> Titulaciones inspeccionadas:  {metrics.titulaciones_inspeccionadas}")
+    print(f" -> Titulaciones al día:          {metrics.titulaciones_al_dia}")
+    print(f" -> Titulaciones actualizadas:    {metrics.titulaciones_descargadas_actualizadas}")
+    print(f" -> PDFs parseados del BOE:       {metrics.pdfs_parseados}")
+    print(f" -> Errores (registrados en log): {metrics.errores_detectados}")
+    print(f" -> Métricas guardadas en:        '{ESTADISTICAS_JSON}'")
     print("======================================================================")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Crawler RUCT de Universidades y Titulaciones de España")
-    parser.add_argument("--limit-univ", type=int, default=None, help="Número máximo de universidades a procesar (para pruebas)")
-    parser.add_argument("--limit-degrees", type=int, default=None, help="Número máximo de titulaciones por universidad a procesar (para pruebas)")
-    
+    parser = argparse.ArgumentParser(description="Crawler para RUCT (Universidades y Titulaciones de España)")
+    parser.add_argument("--limit-univ", type=int, default=None, help="Limitar número de universidades a procesar (para pruebas)")
+    parser.add_argument("--limit-degrees", type=int, default=None, help="Limitar número de titulaciones por universidad (para pruebas)")
     args = parser.parse_args()
+
     run_crawler(limit_univ=args.limit_univ, limit_degrees=args.limit_degrees)

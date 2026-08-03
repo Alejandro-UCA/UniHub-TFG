@@ -122,12 +122,16 @@ export const apiService = {
     });
   },
 
-  // Crawler Stats & Error Logs
+  // Crawler Stats, Physical Container Stats & Error Logs
   async getCrawlerStats() {
     return fetchAPI('/estadisticas');
   },
 
   async getCrawlerErrors() {
     return fetchAPI('/errores');
+  },
+
+  async getContainerPhysicalStats() {
+    return fetchAPI('/estadisticas/contenedores');
   }
 };

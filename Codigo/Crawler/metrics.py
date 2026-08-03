@@ -4,12 +4,13 @@ import time
 import psutil
 from datetime import datetime
 from config import ESTADISTICAS_JSON
+from checkpoint import atomic_json_dump
 
 class PerformanceTracker:
     """
     Tracks execution metrics: memory usage (RSS, Peak), computation time (CPU user+system),
     I/O & network wait time, request counts, and PDF parsing metrics.
-    Saves results to estadisticas_rendimiento.json.
+    Saves results atomically to estadisticas_rendimiento.json.
     """
     def __init__(self, filepath=ESTADISTICAS_JSON):
         self.filepath = filepath
@@ -63,7 +64,6 @@ class PerformanceTracker:
         current_wall_time = time.perf_counter() - self.start_wall_time
         current_cpu_time = time.process_time() - self.start_cpu_time
         
-        # Estimated I/O wait time is total wall time minus CPU computation time
         io_wait_time = max(0.0, current_wall_time - current_cpu_time)
         
         current_mem_mb = round(self._get_current_memory_bytes() / (1024 * 1024), 2)
@@ -107,7 +107,6 @@ class PerformanceTracker:
         }
 
     def save(self):
-        """Saves current metrics report to estadisticas_rendimiento.json."""
+        """Saves current metrics report atomically to estadisticas_rendimiento.json."""
         report = self.generate_report()
-        with open(self.filepath, "w", encoding="utf-8") as f:
-            json.dump(report, f, ensure_ascii=False, indent=2)
+        atomic_json_dump(report, self.filepath)

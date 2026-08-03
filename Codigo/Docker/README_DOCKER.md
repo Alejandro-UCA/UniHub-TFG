@@ -1,76 +1,63 @@
-# Guía de Gestión e Instalación del Sistema Docker (Fase 4)
+# Entorno Docker y Orquestación de Servicios (Fase 4)
 
-Este directorio (`d:\Proyecto\Codigo\Docker\`) contiene la configuración y los artefactos de la **Fase 4** del proyecto. Permite desplegar de forma contenerizada y orquestada los 4 servicios del sistema mediante **Docker** y **Docker Compose**.
+Este directorio contiene la arquitectura física de contenerización y la orquestación mediante **Docker Compose** para la totalidad del proyecto.
 
 ---
 
-## 🏛️ Arquitectura de Contenedores y Persistencia Permanente de Datos
+## 🏗️ Servicios Integrados y Puertos
 
-| Servicio | Nombre Contenedor | Imagen / Dockerfile | Puerto Host | Estrategia de Persistencia Permanente |
+| Servicio | Contenedor | Fase | Puerto Host | Descripción |
 | :--- | :--- | :--- | :--- | :--- |
-| **`db`** | `ruct_db` | `postgres:15-alpine` | `5432` | **Volumen Nominado `postgres_data`**: Mantiene intactas las tablas y registros relacionales de PostgreSQL al reiniciar o apagar el contenedor. |
-| **`api`** | `ruct_api` | `api/Dockerfile` | `8000` | **Montaje Directo de Host `../Crawler/Datos`**: Acceso y lectura directa sobre los archivos `.json` persistentes en el disco del host. |
-| **`www`** | `ruct_www` | `www/Dockerfile` | `80`, `5173` | **Servidor Nginx**: Sirve los estáticos y redirige llamadas API vía proxy inverso. |
-| **`crawler`** | `ruct_crawler` | `crawler/Dockerfile` | - | **Montaje Directo de Host `../Crawler/Datos`**: Todos los archivos `.json` descargados, planes BOE, `checkpoint.json` y `estadisticas_rendimiento.json` se guardan en el disco físico local. |
+| **Base de Datos** | `ruct_db` | Fase 2 | `5432` | PostgreSQL 15 con esquema DDL y usuario de solo lectura `ruct_api_user`. |
+| **Rastreador** | `ruct_crawler` | Fase 1 | - | Python 3.10 con **demonio Cron (`0 2 1 * *`)** y escritura atómica. |
+| **API REST** | `ruct_api` | Fase 2 | `8000` | FastAPI + SQLAlchemy exponiendo endpoints de consulta, CRUD y métricas. |
+| **Portal Web** | `ruct_www` | Fase 3 | `80`, `5173` | Nginx + React (Vite) con diseño UCA, geolocalización y panel admin. |
 
 ---
 
-## 🚀 Guía de Despliegue con Docker Compose
+## 🕒 Programación Cron Automatizada (Fase 1)
 
-### 1. Construir y Levantar el Sistema (Base de Datos + API + Portal Web)
-Abra una consola en la carpeta `d:\Proyecto\Codigo\Docker\` y ejecute:
-
-```bash
-cd d:\Proyecto\Codigo\Docker
-docker compose up --build -d
+El contenedor `ruct_crawler` incluye la regla de programación mensual:
+```cron
+0 2 1 * * (El día 1 de cada mes a las 2:00 AM)
 ```
-
-Este comando:
-1. Creará la red privada `ruct_network` y asegurará el volumen de persistencia `postgres_data` y la carpeta de datos en el host `Codigo/Crawler/Datos`.
-2. Iniciará el contenedor de base de datos `ruct_db` e importará el esquema DDL `schema.sql`.
-3. Esperará a que la base de datos esté lista (*healthcheck*) para iniciar la API `ruct_api`.
-4. Compilará la aplicación React en Nginx e iniciará el portal web `ruct_www`.
+Al iniciar los contenedores por primera vez, el rastreador realiza una comprobación inicial y mantiene activo el demonio `cron` para ejecutar la actualización mensual desatendida.
 
 ---
 
-### 2. Verificar la Persistencia de Datos
-Aunque cierre los contenedores con `docker compose down` o reinicie el sistema, **toda la información recopilada se conserva permanentemente**:
-- **Archivos JSON del Rastreador y BOE PDFs**: Permanecen almacenados físicamente en `d:\Proyecto\Codigo\Crawler\Datos\`.
-- **Base de Datos PostgreSQL**: Se conserva íntegra en el volumen de Docker `ruct_postgres_data`.
+## 🔄 Concurrencia y Transaccionalidad Segura
+
+1. **Escritura Atómica en Disco**: El rastreador escribe primero en ficheros `.tmp` y aplica `os.replace`, garantizando que la API REST o la Web nunca lean un archivo parcial mientras el crawler descarga el BOE.
+2. **Aislamiento ACID en PostgreSQL**: Transacciones en SQLAlchemy que permiten consultas simultáneas en el Portal Web sin bloqueos ni inconsistencias.
 
 ---
 
-### 3. Cargar Datos JSON a PostgreSQL (ETL Loader)
+## 📊 Medición de Recurso Físico de Contenedores
 
-Para migrar la información extraída a la base de datos PostgreSQL dentro de la red Docker:
+La API REST expone el endpoint `GET /api/v1/estadisticas/contenedores` que devuelve:
+- **Memoria RAM Máxima (RSS MB y Peak MB)**
+- **Espacio en Disco Consumido por Volúmenes (MB/GB)**
+- **Uso de CPU % e Hilos de Procesamiento**
+- **Partición y Espacio Libre en Disco Anfitrión**
 
-```bash
-docker compose exec api python database/etl_loader.py
-```
-
----
-
-### 4. Ejecutar el Rastreador / Crawler (Fase 1)
-
-Para ejecutar el rastreador dentro de su contenedor aislado:
-
-```bash
-docker compose --profile crawler run --rm crawler python main.py
-```
+Esta información se presenta gráficamente en la pestaña **"Salud del Rastreador y Contenedores"** del Panel del Administrador de la Web.
 
 ---
 
-### 5. Acceso a los Servicios desde el Navegador
+## 🚀 Puesta en Marcha
 
-- 🌐 **Portal Web (Fase 3 - Estilo UCA)**: [http://localhost](http://localhost) o [http://localhost:5173](http://localhost:5173)
-- ⚡ **API REST Documentación Swagger UI (Fase 2)**: [http://localhost:8000/docs](http://localhost:8000/docs)
-- 📄 **API REST Documentación ReDoc**: [http://localhost:8000/redoc](http://localhost:8000/redoc)
+1. **Iniciar todos los servicios (Fases 1, 2, 3 y 4)**:
+   ```bash
+   cd d:\Proyecto\Codigo\Docker
+   docker compose up --build -d
+   ```
 
----
+2. **Ejecutar Carga de Datos en PostgreSQL (ETL)**:
+   ```bash
+   docker compose exec api python database/etl_loader.py
+   ```
 
-### 6. Detener los Contenedores MANTENIENDO los Datos Intactos
-
-- **Detener servicios (los datos se conservan al 100%)**:
-  ```bash
-  docker compose down
-  ```
+3. **Acceso al Portal Web e Interfaz**:
+   - Web Portal UCA: `http://localhost` o `http://localhost:5173`
+   - Documentación Swagger API: `http://localhost:8000/docs`
+   - Admin Login: `admin` / `admin_pass_2026`

@@ -5,7 +5,7 @@ from config import CHECKPOINT_JSON
 def is_valid_value(val) -> bool:
     """
     Returns True ONLY if val is a meaningful non-empty, non-undefined string/data.
-    Rejects None, empty string '', whitespace, 'undefined', 'null', 'n/a', 'none'.
+    Rejects None, empty string '', whitespace, 'undefined', 'null', 'n/a', 'nan'.
     """
     if val is None:
         return False
@@ -14,11 +14,17 @@ def is_valid_value(val) -> bool:
         return False
     return True
 
+def atomic_json_dump(data, filepath):
+    """Writes data to a temporary file first and replaces target file atomically."""
+    tmp_path = f"{filepath}.tmp"
+    with open(tmp_path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    os.replace(tmp_path, filepath)
+
 class CheckpointManager:
     """
     Manages crawler progress state and BOE metadata registry for incremental updates.
-    Enforces strict non-empty validation so empty ("") or "undefined" values are NEVER
-    counted as valid new/replaceable information.
+    Enforces strict non-empty validation and atomic file replacements for concurrency safety.
     """
     def __init__(self, filepath=CHECKPOINT_JSON):
         self.filepath = filepath
@@ -52,7 +58,6 @@ class CheckpointManager:
             self._save()
 
     def get_degree_record(self, degree_code: str) -> dict:
-        """Returns the stored BOE metadata record for a degree, if any."""
         processed = self.state.get("processed_degrees", {})
         if isinstance(processed, dict):
             return processed.get(degree_code)
@@ -61,13 +66,8 @@ class CheckpointManager:
         return None
 
     def is_degree_up_to_date(self, degree_code: str, current_boe_url: str, current_boe_fecha: str) -> bool:
-        """
-        Checks if the degree has already been processed with the EXACT SAME BOE URL/Date.
-        Rejects empty/undefined inputs so they are never treated as valid updates.
-        """
         if not is_valid_value(current_boe_url) and not is_valid_value(current_boe_fecha):
-            # Incoming data is empty or invalid, cannot determine as valid new replacement
-            return True  # Retain existing processed state without overwriting with empty data
+            return True
 
         record = self.get_degree_record(degree_code)
         if not record:
@@ -84,15 +84,11 @@ class CheckpointManager:
         return False
 
     def update_degree_record(self, degree_code: str, boe_url: str, boe_fecha: str, last_updated: str):
-        """
-        Updates stored record ONLY with non-empty, valid data values.
-        """
         if not isinstance(self.state.get("processed_degrees"), dict):
             self.state["processed_degrees"] = {}
             
         existing = self.state["processed_degrees"].get(degree_code, {})
         
-        # Keep previous valid value if incoming value is empty/undefined
         final_url = boe_url if is_valid_value(boe_url) else existing.get("boe_url")
         final_fecha = boe_fecha if is_valid_value(boe_fecha) else existing.get("boe_fecha")
         
@@ -104,5 +100,4 @@ class CheckpointManager:
         self._save()
 
     def _save(self):
-        with open(self.filepath, "w", encoding="utf-8") as f:
-            json.dump(self.state, f, ensure_ascii=False, indent=2)
+        atomic_json_dump(self.state, self.filepath)

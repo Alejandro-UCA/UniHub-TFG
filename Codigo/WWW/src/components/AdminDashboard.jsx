@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ShieldCheck, BarChart3, Activity, Server, Eye, Search, MapPin, Cpu, HardDrive, RefreshCw, LogOut, Plus, Edit, Trash2, Database, Building, BookOpen, AlertCircle } from 'lucide-react';
+import { ShieldCheck, BarChart3, Activity, Server, Eye, Search, MapPin, Cpu, HardDrive, RefreshCw, LogOut, Plus, Edit, Trash2, Database, Building, BookOpen, AlertCircle, Clock, Disc } from 'lucide-react';
 import usageTracker from '../analytics/usageTracker';
 import perfTracker from '../analytics/perfTracker';
 import { apiService } from '../services/api';
@@ -14,6 +14,7 @@ export default function AdminDashboard({ onLogout }) {
   const [perfReport, setPerfReport] = useState(perfTracker.getPerformanceReport());
   const [crawlerStats, setCrawlerStats] = useState([]);
   const [crawlerErrors, setCrawlerErrors] = useState([]);
+  const [containerStats, setContainerStats] = useState(null);
   const [dbUniversities, setDbUniversities] = useState([]);
   const [dbDegrees, setDbDegrees] = useState([]);
 
@@ -42,6 +43,9 @@ export default function AdminDashboard({ onLogout }) {
 
       const errorsData = await apiService.getCrawlerErrors();
       if (errorsData) setCrawlerErrors(errorsData);
+
+      const physStats = await apiService.getContainerPhysicalStats();
+      if (physStats) setContainerStats(physStats);
     } catch (err) {
       console.warn('API connection fallback active:', err.message);
     } finally {
@@ -228,7 +232,7 @@ export default function AdminDashboard({ onLogout }) {
           className={`btn ${activeSubTab === 'sistema' ? 'btn-primary' : 'btn-outline'}`}
           onClick={() => setActiveSubTab('sistema')}
         >
-          <Server size={18} /> Salud del Rastreador y Sistema
+          <Server size={18} /> Salud del Rastreador y Contenedores
         </button>
       </div>
 
@@ -301,10 +305,9 @@ export default function AdminDashboard({ onLogout }) {
         </div>
       )}
 
-      {/* TAB 2: GESTIÓN CRUD DE DATOS (ADMINISTRADOR) */}
+      {/* TAB 2: GESTIÓN CRUD DE DATOS */}
       {activeSubTab === 'crud' && (
         <div className="glass-panel" style={{ padding: '1.75rem' }}>
-          {/* Sub-selector: Universidades vs Titulaciones */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
             <div style={{ display: 'flex', gap: '0.5rem' }}>
               <button 
@@ -351,7 +354,6 @@ export default function AdminDashboard({ onLogout }) {
             </div>
           </div>
 
-          {/* CRUD Table: Universidades */}
           {crudTarget === 'universidades' && (
             <div style={{ overflowX: 'auto', border: '1px solid var(--border-light)', borderRadius: 'var(--radius-md)' }}>
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.88rem', textAlign: 'left' }}>
@@ -402,7 +404,6 @@ export default function AdminDashboard({ onLogout }) {
             </div>
           )}
 
-          {/* CRUD Table: Titulaciones */}
           {crudTarget === 'titulaciones' && (
             <div style={{ overflowX: 'auto', border: '1px solid var(--border-light)', borderRadius: 'var(--radius-md)' }}>
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.88rem', textAlign: 'left' }}>
@@ -451,7 +452,7 @@ export default function AdminDashboard({ onLogout }) {
         </div>
       )}
 
-      {/* TAB 3: RENDIMIENTO DE LA WEB */}
+      {/* TAB 3: RENDIMIENTO DE LA WEB (WEB VITALS) */}
       {activeSubTab === 'rendimiento' && (
         <div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
@@ -504,34 +505,98 @@ export default function AdminDashboard({ onLogout }) {
         </div>
       )}
 
-      {/* TAB 4: SALUD DEL SISTEMA Y CRAWLER */}
+      {/* TAB 4: SALUD DEL RASTREADOR Y CONSUMO FÍSICO DE CONTENEDORES DOCKER */}
       {activeSubTab === 'sistema' && (
-        <div className="glass-panel" style={{ padding: '1.75rem' }}>
-          <h4 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '1.25rem', color: 'var(--uca-blue)' }}>
-            Estado y Registro del Crawler de la Fase 1
-          </h4>
-
-          {crawlerStats.length === 0 ? (
-            <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-              No se han recibido registros recientes del crawler a través de la API REST de la Fase 2.
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+          {/* Cron Schedule Info Banner */}
+          <div className="glass-panel" style={{ background: 'linear-gradient(135deg, rgba(0, 43, 73, 0.95), rgba(0, 132, 200, 0.85))', color: '#FFFFFF', padding: '1.5rem', borderRadius: 'var(--radius-md)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
+              <Clock size={24} color="var(--uca-sun)" />
+              <h4 style={{ fontSize: '1.15rem', fontWeight: 800 }}>Programación Cron Activa en Contenedor Crawler (Fase 1)</h4>
             </div>
-          ) : (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              {crawlerStats.map((st, idx) => (
-                <div key={idx} style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
-                  <div style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--uca-cyan)', marginBottom: '0.5rem' }}>
-                    Reporte del {st.timestamp_reporte ? new Date(st.timestamp_reporte).toLocaleString() : 'Reciente'}
+            <p style={{ fontSize: '0.9rem', color: '#E2E8F0' }}>
+              El contenedor <strong>ruct_crawler</strong> ejecuta la sincronización de datos de forma automatizada cada mes el día <strong>1 de cada mes a las 2:00 AM (<code style={{ background: 'rgba(255,255,255,0.2)', padding: '0.1rem 0.4rem', borderRadius: '4px' }}>0 2 1 * *</code>)</strong>.
+            </p>
+          </div>
+
+          {/* Physical Resource Container Metrics */}
+          {containerStats && (
+            <div className="glass-panel" style={{ padding: '1.75rem' }}>
+              <h4 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '1.25rem', color: 'var(--uca-blue)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <HardDrive size={20} color="var(--uca-cyan)" /> Consumo Físico de Recursos de los Contenedores Docker
+              </h4>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: '1.25rem' }}>
+                <div style={{ background: 'var(--bg-main)', padding: '1.1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
+                  <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 700 }}>Memoria RAM Máxima (RSS)</div>
+                  <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--uca-navy)' }}>
+                    {containerStats.memoria_fisica.rss_actual_mb} MB
                   </div>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '0.75rem', fontSize: '0.85rem' }}>
-                    <div><strong>Memoria usada:</strong> {st.uso_memoria_actual_mb} MB</div>
-                    <div><strong>Pico Memoria:</strong> {st.pico_maximo_memoria_mb} MB</div>
-                    <div><strong>Tiempo total:</strong> {st.tiempo_total_ejecucion_seg} s</div>
-                    <div><strong>PDFs Parseados:</strong> {st.pdfs_parseados}</div>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-light)', marginTop: '0.25rem' }}>
+                    Virtual (VSZ): {containerStats.memoria_fisica.vsz_virtual_mb} MB ({containerStats.memoria_fisica.memoria_sistema_usada_porcentaje}% sistema)
                   </div>
                 </div>
-              ))}
+
+                <div style={{ background: 'var(--bg-main)', padding: '1.1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
+                  <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 700 }}>Espacio en Disco (Datos JSON/PDF)</div>
+                  <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--uca-blue)' }}>
+                    {containerStats.almacenamiento_disco.datos_json_y_pdf_mb} MB
+                  </div>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-light)', marginTop: '0.25rem' }}>
+                    Equivalente a {containerStats.almacenamiento_disco.datos_json_y_pdf_gb} GB en disco
+                  </div>
+                </div>
+
+                <div style={{ background: 'var(--bg-main)', padding: '1.1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
+                  <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 700 }}>Procesador CPU & Hilos</div>
+                  <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--uca-gold)' }}>
+                    {containerStats.procesador_cpu.porcentaje_cpu_actual}% CPU
+                  </div>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-light)', marginTop: '0.25rem' }}>
+                    CPU Acumulada: {containerStats.procesador_cpu.tiempo_cpu_acumulado_seg}s ({containerStats.procesador_cpu.num_hilos_activos} hilos)
+                  </div>
+                </div>
+
+                <div style={{ background: 'var(--bg-main)', padding: '1.1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
+                  <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 700 }}>Partición del Disco Anfitrión</div>
+                  <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#10B981' }}>
+                    {containerStats.almacenamiento_disco.porcentaje_disco_usado}% Usado
+                  </div>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-light)', marginTop: '0.25rem' }}>
+                    Libre: {containerStats.almacenamiento_disco.disco_libre_sistema_gb} GB de {containerStats.almacenamiento_disco.disco_total_sistema_gb} GB
+                  </div>
+                </div>
+              </div>
             </div>
           )}
+
+          {/* Crawler History Logs */}
+          <div className="glass-panel" style={{ padding: '1.75rem' }}>
+            <h4 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '1.25rem', color: 'var(--uca-blue)' }}>
+              Registro de Ejecuciones del Rastreador de la Fase 1
+            </h4>
+
+            {crawlerStats.length === 0 ? (
+              <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+                No se han recibido registros recientes del crawler a través de la API REST de la Fase 2.
+              </div>
+            ) : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {crawlerStats.map((st, idx) => (
+                  <div key={idx} style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
+                    <div style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--uca-cyan)', marginBottom: '0.5rem' }}>
+                      Reporte del {st.timestamp_reporte ? new Date(st.timestamp_reporte).toLocaleString() : 'Reciente'}
+                    </div>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '0.75rem', fontSize: '0.85rem' }}>
+                      <div><strong>Memoria usada:</strong> {st.uso_memoria_actual_mb} MB</div>
+                      <div><strong>Pico Memoria:</strong> {st.pico_maximo_memoria_mb} MB</div>
+                      <div><strong>Tiempo total:</strong> {st.tiempo_total_ejecucion_seg} s</div>
+                      <div><strong>PDFs Parseados:</strong> {st.pdfs_parseados}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       )}
 

@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session
 from database.connection import get_db
 from models.models import EstadisticaRendimiento, ErrorCrawler
 from schemas.schemas import EstadisticaRendimientoOut, ErrorCrawlerOut
+from metrics.container_metrics import collect_container_physical_stats
 
 router = APIRouter(prefix="/api/v1", tags=["Métricas y Salud del Crawler"])
 
@@ -22,3 +23,7 @@ def get_errores(
     db: Session = Depends(get_db)
 ):
     return db.query(ErrorCrawler).order_by(ErrorCrawler.id.desc()).offset(skip).limit(limit).all()
+
+@router.get("/estadisticas/contenedores", summary="Obtener métricas físicas del consumo de recursos de los contenedores Docker")
+def get_estadisticas_contenedores():
+    return collect_container_physical_stats()

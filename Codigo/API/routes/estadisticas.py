@@ -29,6 +29,165 @@ def get_errores(
 def get_estadisticas_contenedores():
     return collect_container_physical_stats()
 
+@router.get("/crawler/checkpoint", summary="Obtener datos detallados del checkpoint de la Fase 1 (Universidades, Titulaciones, PDFs descartados y fallos)")
+def get_crawler_checkpoint():
+    """
+    Lee el archivo checkpoint.json directamente del disco y expone el estado del rastreador,
+    incluyendo el registro de PDFs descartados por no ser plan de estudios y fallos de descarga.
+    """
+    import os, json
+    possible_paths = [
+        "/app/Datos/checkpoint.json",
+        "d:/Proyecto/Codigo/Crawler/Datos/checkpoint.json",
+        "Codigo/Crawler/Datos/checkpoint.json"
+    ]
+    checkpoint_data = {
+        "universities_downloaded": False,
+        "total_universidades_procesadas": 0,
+        "processed_universities": [],
+        "total_titulaciones_procesadas": 0,
+        "processed_degrees": {},
+        "total_pdfs_descartados_no_plan": 0,
+        "non_study_plan_pdfs": [],
+        "total_fallos_descarga_pdf": 0,
+        "failed_pdf_downloads": {}
+    }
+    for p in possible_paths:
+        if os.path.exists(p):
+            try:
+                with open(p, "r", encoding="utf-8") as f:
+                    raw = json.load(f)
+                    univs = raw.get("processed_universities", [])
+                    degs = raw.get("processed_degrees", {})
+                    non_plans = raw.get("non_study_plan_pdfs", [])
+                    failed = raw.get("failed_pdf_downloads", {})
+                    return {
+                        "universities_downloaded": raw.get("universities_downloaded", False),
+                        "total_universidades_procesadas": len(univs),
+                        "processed_universities": univs,
+                        "total_titulaciones_procesadas": len(degs) if isinstance(degs, dict) else len(degs),
+                        "processed_degrees": degs,
+                        "total_pdfs_descartados_no_plan": len(non_plans),
+                        "non_study_plan_pdfs": non_plans,
+                        "total_fallos_descarga_pdf": len(failed) if isinstance(failed, dict) else 0,
+                        "failed_pdf_downloads": failed
+                    }
+            except Exception as e:
+                print(f"Error al leer checkpoint.json en {p}: {e}")
+    return checkpoint_data
+
+@router.get("/crawler/errores_json", summary="Obtener registro completo de errores en formato JSON del crawler")
+def get_crawler_errores_json():
+    """
+    Lee el archivo errores_crawler.json directamente del disco de la Fase 1.
+    """
+    import os, json
+    possible_paths = [
+        "/app/Datos/errores_crawler.json",
+        "d:/Proyecto/Codigo/Crawler/Datos/errores_crawler.json",
+        "Codigo/Crawler/Datos/errores_crawler.json"
+    ]
+    for p in possible_paths:
+        if os.path.exists(p):
+            try:
+                with open(p, "r", encoding="utf-8") as f:
+                    return json.load(f)
+            except Exception:
+                pass
+    return []
+
+@router.get("/api_docs_info", summary="Obtener mapa interactivo de capacidades y documentación Swagger/ReDoc de la API REST")
+def get_api_docs_info():
+    """
+    Expone la estructura completa de controladores, métodos HTTP y capacidades de la API REST de UniHub.
+    """
+    return {
+        "titulo": "UniHub API REST - Catálogo de Enseñanza Superior",
+        "version": "1.0.0",
+        "base_url": "http://localhost:8000/api/v1",
+        "swagger_ui_url": "http://localhost:8000/docs",
+        "redoc_ui_url": "http://localhost:8000/redoc",
+        "modelos_autorizacion": "Rol de lectura pública + Rol exclusivo de Administración CRUD (/admin)",
+        "endpoints_disponibles": [
+            {
+                "metodo": "GET",
+                "path": "/api/v1/universidades",
+                "descripcion": "Listado con ordenación prioritaria (Públicas primero, Privadas después) con filtros por tipo, CCAA y nombre.",
+                "parametros": ["tipo (opcional)", "ccaa (opcional)", "nombre (opcional)", "skip", "limit"]
+            },
+            {
+                "metodo": "GET",
+                "path": "/api/v1/universidades/{codigo}",
+                "descripcion": "Obtiene la ficha detallada de una universidad por su código RUCT (3 dígitos)."
+            },
+            {
+                "metodo": "GET",
+                "path": "/api/v1/universidades/{codigo}/titulaciones",
+                "descripcion": "Obtiene el listado de titulaciones oficiales vigentes asociadas a una universidad."
+            },
+            {
+                "metodo": "POST",
+                "path": "/api/v1/universidades",
+                "descripcion": "[CRUD Admin] Crea un nuevo centro universitario en PostgreSQL."
+            },
+            {
+                "metodo": "PUT",
+                "path": "/api/v1/universidades/{codigo}",
+                "descripcion": "[CRUD Admin] Actualiza los datos de una universidad existente."
+            },
+            {
+                "metodo": "DELETE",
+                "path": "/api/v1/universidades/{codigo}",
+                "descripcion": "[CRUD Admin] Elimina una universidad y sus titulaciones asociadas (borrado en cascada)."
+            },
+            {
+                "metodo": "GET",
+                "path": "/api/v1/titulaciones",
+                "descripcion": "Listado de titulaciones clasificadas por nivel (Grado, Máster, Doctorado) con búsqueda."
+            },
+            {
+                "metodo": "GET",
+                "path": "/api/v1/titulaciones/{codigo_estudio}/plan-estudios",
+                "descripcion": "Visualiza la estructura curricular ECTS y enlace al BOE del plan de estudios."
+            },
+            {
+                "metodo": "POST",
+                "path": "/api/v1/titulaciones",
+                "descripcion": "[CRUD Admin] Registra una nueva titulación en la base de datos."
+            },
+            {
+                "metodo": "PUT",
+                "path": "/api/v1/titulaciones/{codigo_estudio}",
+                "descripcion": "[CRUD Admin] Modifica la información de una titulación."
+            },
+            {
+                "metodo": "DELETE",
+                "path": "/api/v1/titulaciones/{codigo_estudio}",
+                "descripcion": "[CRUD Admin] Elimina una titulación de la base de datos."
+            },
+            {
+                "metodo": "GET",
+                "path": "/api/v1/estadisticas/contenedores",
+                "descripcion": "Analizador en vivo del consumo de recursos físicos (RAM RSS MB, CPU %) por cada contenedor Docker."
+            },
+            {
+                "metodo": "GET",
+                "path": "/api/v1/crawler/checkpoint",
+                "descripcion": "Muestra el estado detallado de avance del rastreador, PDFs descartados y fallos de conexión de la Fase 1."
+            },
+            {
+                "metodo": "GET",
+                "path": "/api/v1/crawler/errores_json",
+                "descripcion": "Acceso directo al registro completo de errores de scraping (errores_crawler.json)."
+            },
+            {
+                "metodo": "POST",
+                "path": "/api/v1/etl/sync",
+                "descripcion": "Desencadena la carga e inserción atómica ETL de los JSON de la Fase 1 hacia PostgreSQL (Fase 2)."
+            }
+        ]
+    }
+
 @router.post("/etl/sync", summary="Ejecutar la sincronización ETL de datos de la Fase 1 a PostgreSQL (Fase 2)")
 def sync_etl_data(background_tasks: BackgroundTasks):
     background_tasks.add_task(run_etl)

@@ -133,5 +133,17 @@ export const apiService = {
 
   async getContainerPhysicalStats() {
     return fetchAPI('/estadisticas/contenedores');
+  },
+
+  async getCrawlerCheckpoint() {
+    return fetchAPI('/crawler/checkpoint');
+  },
+
+  async getCrawlerErrorsLog() {
+    return fetchAPI('/crawler/errores_json');
+  },
+
+  async getApiDocsInfo() {
+    return fetchAPI('/api_docs_info');
   }
 };

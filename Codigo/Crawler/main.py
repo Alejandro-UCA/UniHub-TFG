@@ -424,11 +424,16 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
     print(f" -> Titulaciones al día:          {metrics.titulaciones_al_dia}")
     print(f" -> Titulaciones actualizadas:    {metrics.titulaciones_descargadas_actualizadas}")
     print(f" -> PDFs parseados del BOE:       {metrics.pdfs_parseados}")
-    print(f" -> Errores (registrados en log): {metrics.errores_detectados}")
+    print(f" -> Errores (registrados en log): {metrics.errores_detectados}")    # -------------------------------------------------------------------------
+    # PARTE 2 DE LA FASE 1: ESCANEO PARALELO DE LAS WEBS OFICIALES DE UNIVERSIDADES
+    # -------------------------------------------------------------------------
+    from univ_web_crawler import run_phase1_part2
+    print("\n -> Inicializando Fase 1 - Parte 2 (Rastreo paralelo de webs oficiales de universidades)...")
+    run_phase1_part2(max_workers=4)
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Crawler UniHub para scraping de RUCT y BOE.")
+    parser = argparse.ArgumentParser(description="Crawler UniHub para scraping de RUCT, BOE y webs oficiales de universidades.")
     parser.add_argument("--limit-univ", type=int, default=None, help="Limitar número de universidades a procesar.")
     parser.add_argument("--limit-degrees", type=int, default=None, help="Limitar número de titulaciones por universidad.")
     args = parser.parse_args()
@@ -439,14 +444,3 @@ if __name__ == "__main__":
     trigger_api_etl_sync()
     print(f" -> Métricas guardadas en:        '{ESTADISTICAS_JSON}'")
     print("======================================================================")
-
-    # Automatic notification to Phase 2 API REST to trigger PostgreSQL ETL sync
-    trigger_api_etl_sync()
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Crawler para UniHub (Universidades y Titulaciones de España)")
-    parser.add_argument("--limit-univ", type=int, default=None, help="Limitar número de universidades a procesar (para pruebas)")
-    parser.add_argument("--limit-degrees", type=int, default=None, help="Limitar número de titulaciones por universidad (para pruebas)")
-    args = parser.parse_args()
-
-    run_crawler(limit_univ=args.limit_univ, limit_degrees=args.limit_degrees)

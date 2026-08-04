@@ -1,0 +1,187 @@
+{
+  "codigo_estudio": "2503928",
+  "titulo": "Graduado o Graduada en Computación e Inteligencia Artificial / Bachelor in Computer Science and Artificial Intelligence por la IE Universidad",
+  "nivel_academico": "Grado - RD 1393/2007 (1)",
+  "universidad_codigo": "057",
+  "universidad_nombre": "IE Universidad",
+  "fecha_procesado": "2026-08-04T14:47:11.508445",
+  "boe_url": "http://www.boe.es/boe/dias/2022/05/20/pdfs/BOE-A-2022-8318.pdf",
+  "boe_fecha": "2022-05-20",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2022/05/20/pdfs/BOE-A-2022-8318.pdf",
+    "http://www.boe.es/boe/dias/2020/03/03/pdfs/BOE-A-2020-3056.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica": "60",
+      "Obligatorias": "138",
+      "Optativas": "30",
+      "Trabajo Fin de Grado / Máster": "12"
+    },
+    "total_elementos": 18,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Formación Básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "30",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Ingeniería y Arquitectura.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Informática.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materias propias.",
+        "nombre_elemento": "Inteligencia artificial.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materias propias.",
+        "nombre_elemento": "Desarrollo profesional.",
+        "creditos_ects": "30",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Individuo, Sociedad e Inteligencia Artificial.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.ª",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Total ECTS periodo 1.",
+        "creditos_ects": "30",
+        "caracter": "PE",
+        "curso": "Total ECTS periodo 1.",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Total ECTS periodo 2.",
+        "creditos_ects": "30",
+        "caracter": "PE",
+        "curso": "Total ECTS periodo 2.",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Total ECTS.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Total ECTS periodo 3.",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "Total ECTS periodo 3.",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Total ECTS periodo 4.",
+        "creditos_ects": "30",
+        "caracter": "PE",
+        "curso": "Total ECTS periodo 4.",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Total ECTS periodo 5.",
+        "creditos_ects": "30",
+        "caracter": "PE",
+        "curso": "Total ECTS periodo 5.",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Total ECTS periodo 6.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "Total ECTS periodo 6.",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Total ECTS periodo 7.",
+        "creditos_ects": "30",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Total ECTS periodo 8.",
+        "creditos_ects": "30",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

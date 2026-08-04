@@ -1,0 +1,185 @@
+{
+  "codigo_estudio": "4316287",
+  "titulo": "Máster Universitario en Diseño Industrial por la Universidad Antonio de Nebrija",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "052",
+  "universidad_nombre": "Universidad Antonio de Nebrija",
+  "fecha_procesado": "2026-08-04T15:36:53.905642",
+  "boe_url": "http://www.boe.es/boe/dias/2019/04/26/pdfs/BOE-A-2019-6263.pdf",
+  "boe_fecha": "2019-04-26",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2019/04/26/pdfs/BOE-A-2019-6263.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "25",
+      "Optativas": "24",
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 18,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Primer semestre",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "Segundo semestre"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Técnicas de modelado digital.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Proyectos aplicados I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Proyectos gráficos y digitales.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Gestión integral de diseño.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Optativa.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fabricación aplicada para materiales tecnológicos.",
+        "nombre_elemento": "Diseño como herramienta de innovación.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fabricación aplicada para materiales tecnológicos.",
+        "nombre_elemento": "Cultura del diseño.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fabricación aplicada para materiales tecnológicos.",
+        "nombre_elemento": "Técnicas avanzadas de modelado digital.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fabricación aplicada para materiales tecnológicos.",
+        "nombre_elemento": "Aproximaciones estratégicas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fabricación aplicada para materiales tecnológicos.",
+        "nombre_elemento": "Estrategias de comunicación del proyecto.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fabricación aplicada para materiales tecnológicos.",
+        "nombre_elemento": "Diseño colectivo y espacio público.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fabricación aplicada para materiales tecnológicos.",
+        "nombre_elemento": "Investigación y desarrollo de nuevos productos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales aplicados al hábitat.",
+        "nombre_elemento": "Diseño de mobiliario de hogar.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales aplicados al hábitat.",
+        "nombre_elemento": "Tendencias en el hábitat.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales aplicados al hábitat.",
+        "nombre_elemento": "Emprendimiento en el diseño.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

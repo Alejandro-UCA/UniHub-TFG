@@ -1,0 +1,69 @@
+{
+  "codigo_estudio": "4311787",
+  "titulo": "Máster Universitario en Economía Social y Empresa Cooperativa por la Mondragon Unibertsitatea",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "061",
+  "universidad_nombre": "Mondragón Unibertsitatea",
+  "fecha_procesado": "2026-08-04T14:53:47.805207",
+  "boe_url": "http://www.boe.es/boe/dias/2016/12/26/pdfs/BOE-A-2016-12355.pdf",
+  "boe_fecha": "2016-12-26",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2016/12/26/pdfs/BOE-A-2016-12355.pdf",
+    "http://www.boe.es/boe/dias/2010/11/29/pdfs/BOE-A-2010-18347.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "30",
+      "Optativas": "20",
+      "Trabajo Fin de Grado / Máster": "10"
+    },
+    "total_elementos": 5,
+    "elementos_curriculares": [
+      {
+        "modulo": "20 20 20",
+        "materia": "",
+        "nombre_elemento": "Tipo",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "20 20 20",
+        "materia": "",
+        "nombre_elemento": "OB OB OB OB OB OB",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "20 20 20",
+        "materia": "",
+        "nombre_elemento": "OP OP OP OP OP OP",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "20 20 20",
+        "materia": "",
+        "nombre_elemento": "OP OP OP OP OP OP OP",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "20 20 20",
+        "materia": "",
+        "nombre_elemento": "TFM TFM",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

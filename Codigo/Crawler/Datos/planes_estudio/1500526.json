@@ -1,0 +1,31 @@
+{
+  "codigo_estudio": "1500526",
+  "titulo": "Graduado o Graduada en Enfermería por la Universidad Alfonso X el Sabio Mare Nostrum",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "106",
+  "universidad_nombre": "Universidad Alfonso X el Sabio Mare Nostrum",
+  "fecha_procesado": "2026-08-04T15:25:13.348420",
+  "boe_url": "http://www.boe.es/boe/dias/2025/12/06/pdfs/BOE-A-2025-24843.pdf",
+  "boe_fecha": "2025-12-06",
+  "all_boe_urls": [
+    "http://www.juntadeandalucia.es/eboja/2025/189/BOJA25-189-00022-12928-01_00326526.pdf",
+    "http://www.boe.es/boe/dias/2008/07/19/pdfs/A31680-31683.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Prácticas Externas": "3"
+    },
+    "total_elementos": 1,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "sotidérc soeporue ed ºN",
+        "creditos_ects": "06",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

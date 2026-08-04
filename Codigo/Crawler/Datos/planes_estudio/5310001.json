@@ -1,0 +1,127 @@
+{
+  "codigo_estudio": "5310001",
+  "titulo": "Programa Oficial de Doctorado en Ingeniería",
+  "nivel_academico": "Doctor - RD 1393/2007 (1)",
+  "universidad_codigo": "061",
+  "universidad_nombre": "Mondragón Unibertsitatea",
+  "fecha_procesado": "2026-08-04T14:50:39.556462",
+  "boe_url": "http://www.euskadi.eus/y22-bopv/es/bopv2/datos/2016/07/1603285a.pdf",
+  "boe_fecha": "2016-06-30",
+  "all_boe_urls": [
+    "http://www.euskadi.eus/y22-bopv/es/bopv2/datos/2016/07/1603285a.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {},
+    "total_elementos": 12,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "3000776",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "3001448",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "3000775",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "3000774",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "3001449",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "4310188",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "4310187",
+        "nombre_elemento": "4000307",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "4310187",
+        "nombre_elemento": "4000305",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "4310187",
+        "nombre_elemento": "5311161",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "4310187",
+        "nombre_elemento": "4000306",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "4310187",
+        "nombre_elemento": "4000304",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "4310187",
+        "nombre_elemento": "5310001",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

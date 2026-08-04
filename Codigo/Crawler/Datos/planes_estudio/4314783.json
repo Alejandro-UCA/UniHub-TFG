@@ -1,0 +1,268 @@
+{
+  "codigo_estudio": "4314783",
+  "titulo": "Máster Universitario en Dirección y Organización de Proyectos por la Universidad Antonio de Nebrija",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "052",
+  "universidad_nombre": "Universidad Antonio de Nebrija",
+  "fecha_procesado": "2026-08-04T15:36:36.380588",
+  "boe_url": "http://www.boe.es/boe/dias/2019/04/26/pdfs/BOE-A-2019-6262.pdf",
+  "boe_fecha": "2019-04-26",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2019/04/26/pdfs/BOE-A-2019-6262.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2015/11/03/BOCM-20151103-13.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "48",
+      "Optativas": "0",
+      "Prácticas Externas": "4",
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 27,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Primer semestre",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "Segundo semestre"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Fundamentos de la Dirección de Proyectos y Marco Conceptual.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Integración del Modelo de Gobierno con la Práctica de Dirección de Proyectos.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Esquema del Conocimiento: áreas de Conocimiento y Grupo de Procesos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Inicio del Proyecto: Business Case. Grupo de Procesos del Inicio.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Planificación I: Gestión del Alcance/Tiempo/ Costos/Calidad.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Planificación II: Gestión de los RRHH/ Comunicaciones/Riesgos/Adquisiciones/ Interesados.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Ejecución de Proyectos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Seguimiento y Control de Proyectos I: Avance/ Desviaciones/Validación/ Cronograma y Costos y Técnica del Valor Ganado.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "TITULACIÓN",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Composición Musical",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Traducción e Interpretación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "- 2015-2016: 1º y 2º - 2016-2017: 3º - 2017-2018: 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Desarrollo de Videojuegos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Nutrición Humana y Dietética",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Creación y Narración de Videojuegos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería en Tecnologías Ambientales",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Administración y Dirección de Empresas",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Lengua y Literatura Española",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Trabajo Social",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Protocolo, Organización de Eventos y Comunicación Corporativa",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Criminología",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Diseño",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Magisterio de Educación Infantil",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Magisterio de Educación Primaria",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

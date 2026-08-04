@@ -1,0 +1,31 @@
+{
+  "codigo_estudio": "2501208",
+  "titulo": "Graduado o Graduada en Turismo",
+  "nivel_academico": "Grado - RD 1393/2007 (1)",
+  "universidad_codigo": "057",
+  "universidad_nombre": "IE Universidad",
+  "fecha_procesado": "2026-08-04T14:47:40.549891",
+  "boe_url": "http://bocyl.jcyl.es/boletines/2019/06/04/pdf/BOCYL-D-04062019-7.pdf",
+  "boe_fecha": "2019-05-30",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2010/12/03/pdfs/BOE-A-2010-18643.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "9",
+      "Optativas": "18"
+    },
+    "total_elementos": 1,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Materias básicas Real Decreto 1393/2007",
+        "nombre_elemento": "MB MB/OP MB/OB MB/OB OB/OP MB/OB/OP OB MB/OP MB OB OB OB",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

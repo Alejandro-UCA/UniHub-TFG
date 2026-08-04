@@ -125,7 +125,8 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue):
                                     seen_subject_names.add(norm_name)
                                     combined_elementos.append(elem)
                         else:
-                            print(f"     [Proceso Parser] -> PDF #{cand_idx} de [{d_code}] no contenía tabla de asignaturas.")
+                            print(f"     [Proceso Parser] -> PDF #{cand_idx} de [{d_code}] no contenía tabla de asignaturas. Registrando como NO plan de estudios.")
+                            checkpoint.mark_non_study_plan_pdf(cand_url)
 
                     except Exception as pdf_err:
                         print(f"     [Proceso Parser] -> Error al procesar PDF candidate #{cand_idx} de [{d_code}]: {pdf_err}")
@@ -179,8 +180,7 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue):
 
     result_queue.put({
         "parsed_count": parsed_count,
-        "updated_degrees_count": updated_degrees_count,
-        "total_parse_time": total_parse_time
+        "updated_degrees_count": updated_degrees_count
     })
 
 
@@ -203,118 +203,91 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
     print("=" * 70)
     print("      INICIANDO CRAWLER UNIHUB (COMPUTACIÓN PARALELA: RED + PARSER)")
     print("======================================================================")
-    
-    metrics = PerformanceTracker()
-    downloader = RUCTDownloader(metrics_tracker=metrics)
+
+    downloader = RUCTDownloader()
     logger = ErrorLogger()
     checkpoint = CheckpointManager()
+    metrics = PerformanceTracker()
 
-    # -------------------------------------------------------------------------
-    # INICIALIZACIÓN DE COMPUTACIÓN PARALELA (PROCESO 1: RED | PROCESO 2: PARSER)
-    # -------------------------------------------------------------------------
+    # Lanzar Proceso 2 (Consumidor / Parser CPU & Escritura en disco)
     task_queue = mp.Queue(maxsize=100)
     result_queue = mp.Queue()
-
-    parser_process = mp.Process(
-        target=pdf_parser_consumer,
-        args=(task_queue, result_queue),
-        daemon=True
-    )
+    parser_process = mp.Process(target=pdf_parser_consumer, args=(task_queue, result_queue), daemon=True)
     parser_process.start()
-    print(" -> Proceso 2 (Parser CPU & Escritura en Disco) arrancado y listo en segundo plano.")
+    print(" -> Proceso 2 (Parser CPU & Escritura en Disco) arrancado y listo en segundo plano.\n")
+
+    # -------------------------------------------------------------------------
+    # PASO 1: Descargar / Inspeccionar listado de universidades (Públicas prioritarias)
+    # -------------------------------------------------------------------------
+    print("[Paso 1] Obteniendo listado oficial de universidades (Públicas prioritarias)...")
+    univ_file = os.path.join(TEMP_PDF_DIR, "universidades_list.xls")
     
-    # -------------------------------------------------------------------------
-    # PASO 1: Descargar listado oficial actualizado de universidades (PROCESO 1)
-    # -------------------------------------------------------------------------
-    print("\n[Paso 1] Obteniendo listado oficial de universidades...")
-    universities = []
     try:
-        temp_univ_xls = os.path.join(TEMP_PDF_DIR, "universidades_list.xls")
-        downloader.download_file(URL_UNIVERSIDADES_LIST, temp_univ_xls)
-        universities = parse_universities_xls(temp_univ_xls)
-        
+        t0 = time.perf_counter()
+        downloader.download_file(URL_UNIVERSIDADES_LIST, univ_file)
+        metrics.record_io_time(time.perf_counter() - t0)
+        universities = parse_universities_xls(univ_file)
         atomic_json_dump(universities, UNIVERSIDADES_JSON)
-            
-        if os.path.exists(temp_univ_xls):
-            os.remove(temp_univ_xls)
-            
         checkpoint.mark_universities_downloaded()
         print(f" -> {len(universities)} universidades comprobadas y actualizadas en '{UNIVERSIDADES_JSON}'.")
     except Exception as e:
-        err_msg = f"Error al descargar lista de universidades: {e}"
-        print(f" [ERROR NO BLOQUEANTE] {err_msg}")
-        logger.log_error("paso_1_universidades", "TODAS", URL_UNIVERSIDADES_LIST, err_msg, traceback.format_exc())
+        err_msg = "Error crítico al descargar el catálogo general de universidades"
+        print(f" [ERROR CRÍTICO] {err_msg}: {e}")
+        logger.log_error("paso_1_universidades", "ALL", URL_UNIVERSIDADES_LIST, err_msg, str(e))
         metrics.errores_detectados += 1
-        if os.path.exists(UNIVERSIDADES_JSON):
-            with open(UNIVERSIDADES_JSON, "r", encoding="utf-8") as f:
-                universities = json.load(f)
+        return
 
     if limit_univ:
         universities = universities[:limit_univ]
-        print(f" [INFO] Modo de prueba activado: limitado a {limit_univ} universidades.")
 
-    metrics.universidades_inspeccionadas = len(universities)
-
-    # Structure for titulaciones_universidad.json
+    # -------------------------------------------------------------------------
+    # PASOS 2 Y 3: Inspeccionar titulaciones por universidad y descargar PDFs candidatos
+    # -------------------------------------------------------------------------
+    print("\n[Paso 2 y 3] Inspeccionando titulaciones vigentes y descargando PDFs candidatos...\n")
     titulaciones_por_universidad = {}
-    if os.path.exists(TITULACIONES_JSON):
-        try:
-            with open(TITULACIONES_JSON, "r", encoding="utf-8") as f:
-                titulaciones_por_universidad = json.load(f)
-        except Exception:
-            titulaciones_por_universidad = {}
 
-    # -------------------------------------------------------------------------
-    # PASO 2 y 3: Recorrer TODAS las universidades (PROCESO 1: RED I/O)
-    # -------------------------------------------------------------------------
-    print("\n[Paso 2 y 3] Inspeccionando titulaciones vigentes y descargando PDFs candidatos...")
-    total_univ = len(universities)
-    
     for u_idx, univ in enumerate(universities, 1):
-        u_code = univ.get("codigo", "")
-        u_name = univ.get("nombre", "")
-        print(f"\n({u_idx}/{total_univ}) Procesando Universidad [{u_code}]: {u_name}")
-        
-        downloader.reset_university_context(u_code)
+        metrics.universidades_inspeccionadas += 1
+        u_code = univ["codigo"]
+        u_name = univ["nombre"]
+        u_tipo = univ.get("tipo", "Desconocido")
 
-        active_degrees = []
+        print(f"({u_idx}/{len(universities)}) Procesando Universidad [{u_code}] ({u_tipo}): {u_name}")
+
+        univ_degrees_file = os.path.join(TEMP_PDF_DIR, f"degrees_{u_code}.xls")
+        degrees_url = URL_ESTUDIOS_UNIV_TEMPLATE.format(codigo_universidad=u_code)
+
         try:
-            degrees_url = URL_ESTUDIOS_UNIV_TEMPLATE.format(codigo=u_code)
-            temp_degrees_xls = os.path.join(TEMP_PDF_DIR, f"degrees_{u_code}.xls")
-            
-            downloader.download_file(degrees_url, temp_degrees_xls)
-            active_degrees = parse_degrees_xls(temp_degrees_xls)
-            
-            titulaciones_por_universidad[u_code] = {
-                "universidad_codigo": u_code,
-                "universidad_nombre": u_name,
-                "universidad_tipo": univ.get("tipo", ""),
-                "comunidad_autonoma": univ.get("comunidad_autonoma", ""),
-                "total_titulaciones_vigentes_renovadas": len(active_degrees),
-                "titulaciones_vigentes": active_degrees
-            }
-            
-            atomic_json_dump(titulaciones_por_universidad, TITULACIONES_JSON)
-                
-            if os.path.exists(temp_degrees_xls):
-                os.remove(temp_degrees_xls)
-                
-            print(f"     -> {len(active_degrees)} titulaciones VIGENTES/RENOVADAS identificadas.")
-
+            t0 = time.perf_counter()
+            downloader.download_file(degrees_url, univ_degrees_file)
+            metrics.record_io_time(time.perf_counter() - t0)
+            active_degrees = parse_degrees_xls(univ_degrees_file)
         except SkipUniversityException as conn_exc:
             err_msg = f"Problemas de conexion continuados en la universidad [{u_code}] {u_name}"
             print(f"     -> [CORTOCIRCUITO] {err_msg}")
-            logger.log_error("paso_2_conexion_fallida", u_code, degrees_url, "Problemas de conexion continuados", str(conn_exc))
+            logger.log_error("paso_2_titulaciones_univ", u_code, degrees_url, "Problemas de conexion continuados", str(conn_exc))
             metrics.errores_detectados += 1
             continue
         except Exception as e:
-            err_msg = f"Error al obtener listado de titulaciones para la universidad {u_code}"
+            err_msg = f"Error al procesar la lista de titulaciones de la universidad [{u_code}]"
             print(f"     -> [ERROR NO BLOQUEANTE] {err_msg}: {e}")
-            logger.log_error("paso_2_titulaciones_xls", u_code, URL_ESTUDIOS_UNIV_TEMPLATE.format(codigo=u_code), err_msg, traceback.format_exc())
+            logger.log_error("paso_2_titulaciones_univ", u_code, degrees_url, err_msg, str(e))
             metrics.errores_detectados += 1
             continue
 
-        degrees_to_process = active_degrees
+        print(f"     -> {len(active_degrees)} titulaciones VIGENTES/RENOVADAS identificadas.")
+
+        titulaciones_por_universidad[u_code] = {
+            "universidad_codigo": u_code,
+            "universidad_nombre": u_name,
+            "tipo": u_tipo,
+            "total_titulaciones_vigentes": len(active_degrees),
+            "titulaciones_vigentes": active_degrees
+        }
+        atomic_json_dump(titulaciones_por_universidad, TITULACIONES_JSON)
+
+        # REQUERIMIENTO: Procesar titulaciones en orden inverso (última primero)
+        degrees_to_process = active_degrees[::-1]
         if limit_degrees:
             degrees_to_process = degrees_to_process[:limit_degrees]
 
@@ -358,6 +331,12 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                 for cand_idx, cand in enumerate(candidates, 1):
                     cand_url = cand["url"]
                     cand_date = cand.get("boe_date")
+
+                    # Omitir descarga si previamente se verificó que NO es un plan de estudios
+                    if checkpoint.is_non_study_plan_pdf(cand_url):
+                        print(f"     [Proceso Red] -> PDF #{cand_idx} previamente descartado (NO es plan de estudios). Omitiendo descarga.")
+                        continue
+
                     pdf_path = os.path.join(TEMP_PDF_DIR, f"{d_code}_candidate_{cand_idx}.pdf")
                     
                     try:
@@ -372,6 +351,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                         raise
                     except Exception as download_err:
                         print(f"     [Proceso Red] -> Error al descargar PDF candidate #{cand_idx}: {download_err}")
+                        checkpoint.record_pdf_download_failure(cand_url, d_code, str(download_err))
 
                 # Send task item to Producer-Consumer queue for Process 2 parsing
                 task_queue.put({

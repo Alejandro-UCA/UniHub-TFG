@@ -1,0 +1,88 @@
+{
+  "codigo_estudio": "4313499",
+  "titulo": "Máster Universitario en Creación y Gestión de Empresas de Turismo Activo por la Mondragon Unibertsitatea",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "061",
+  "universidad_nombre": "Mondragón Unibertsitatea",
+  "fecha_procesado": "2026-08-04T14:53:14.104342",
+  "boe_url": "http://www.euskadi.eus/y22-bopv/es/bopv2/datos/2015/12/1505249a.pdf",
+  "boe_fecha": "2015-12-01",
+  "all_boe_urls": [
+    "http://www.euskadi.eus/y22-bopv/es/bopv2/datos/2015/12/1505249a.pdf",
+    "http://www.boe.es/boe/dias/2014/03/17/pdfs/BOE-A-2014-2850.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "20",
+      "Optativas": "20",
+      "Prácticas Externas": "14",
+      "Trabajo Fin de Grado / Máster": "6"
+    },
+    "total_elementos": 7,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Código",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "4311786",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "4313499",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "4315602",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "4315711",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "ECTS",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "20 20 20",
+        "materia": "",
+        "nombre_elemento": "Tipo",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,365 @@
+{
+  "codigo_estudio": "4316691",
+  "titulo": "Máster Universitario en Marketing Digital y Redes Sociales por la Universidad a Distancia de Madrid",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "074",
+  "universidad_nombre": "Universidad a Distancia de Madrid",
+  "fecha_procesado": "2026-08-04T15:04:11.771104",
+  "boe_url": "http://www.boe.es/boe/dias/2020/03/18/pdfs/BOE-A-2020-3859.pdf",
+  "boe_fecha": "2020-03-18",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2020/03/18/pdfs/BOE-A-2020-3859.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2018/08/20/BOCM-20180820-4.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "48",
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 38,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Asignatura",
+        "materia": "",
+        "nombre_elemento": "Ecosistema y Transformación Digital.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Asignatura",
+        "materia": "",
+        "nombre_elemento": "El Cliente en la Era Social y Digital.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4-5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Asignatura",
+        "materia": "",
+        "nombre_elemento": "Plan de Marketing Digital.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Asignatura",
+        "materia": "",
+        "nombre_elemento": "Diseño Web, Comercio Electrónico y Experiencia de Usuario.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Asignatura",
+        "materia": "",
+        "nombre_elemento": "Redes Sociales y Marketing de Contenidos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Asignatura",
+        "materia": "",
+        "nombre_elemento": "Habilidades Profesionales.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4-5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Asignatura",
+        "materia": "",
+        "nombre_elemento": "Marketing en Buscadores.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Asignatura",
+        "materia": "",
+        "nombre_elemento": "Display Marketing y Planificación Publicitaria.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Asignatura",
+        "materia": "",
+        "nombre_elemento": "Inteligencia de Negocio y Gestión del Dato.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2-3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Asignatura",
+        "materia": "",
+        "nombre_elemento": "Analítica Web y en Redes Sociales.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4-5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Asignatura",
+        "materia": "",
+        "nombre_elemento": "Total horas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.500 horas",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Titulación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Grado en Filosofía, Política y Economía (título conjunto de la Universidad Pompeu Fabra (coordinadora), Universidad Autónoma de Madrid, Universidad Carlos III y Universidad Autónoma de Barcelona)",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ciencia e Ingeniería de Datos",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Historia y Política",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Empresa y Tecnología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Filosofía, Política y Economía (título conjunto de la Universidad Pompeu Fabra (coordinadora), Universidad Autónoma de Madrid, Universidad Carlos III y Universidad Autónoma de Barcelona)",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Gestión y Operaciones del Transporte Aéreo",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería de Robótica Software",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería de la Ciberseguridad",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Animación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "-2018-19: 1º y2º - 2019-20: 3º - 2020-21: 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Diseño Digital",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "-2018-19: 1º y 2º - 2019-20: 3º - 2020-21: 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Derecho",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Farmacia",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Gestión Empresarial basada en el Análisis de Datos (Business Analytics)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería en Sistemas de Telecomunicación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Publicidad",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Humanidades",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Análisis de Negocios/Business Analytics",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Filosofía, Política y Economía",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Inteligencia de Negocios",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Diseño/Bachelor in Design",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Gestión de Sistemas de Información/Bachelor in Management Information Systems",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Política, Derecho y Economía/Bachelor in Politics, Law and Economics",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

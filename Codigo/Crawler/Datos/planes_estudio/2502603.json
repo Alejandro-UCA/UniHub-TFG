@@ -1,0 +1,365 @@
+{
+  "codigo_estudio": "2502603",
+  "titulo": "Graduado o Graduada en Empresas y Actividades Turísticas por la Universidad a Distancia de Madrid",
+  "nivel_academico": "Grado - RD 1393/2007 (1)",
+  "universidad_codigo": "074",
+  "universidad_nombre": "Universidad a Distancia de Madrid",
+  "fecha_procesado": "2026-08-04T14:58:25.171562",
+  "boe_url": "http://www.boe.es/boe/dias/2013/06/13/pdfs/BOE-A-2013-6394.pdf",
+  "boe_fecha": "2013-06-13",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2013/06/13/pdfs/BOE-A-2013-6394.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2012/09/13/BOCM-20120913-11.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "6",
+      "Optativas": "6"
+    },
+    "total_elementos": 38,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Ciencias Sociales y Jurídicas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Ingeniería y Arquitectura.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Artes y Humanidades.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Idiomas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Organización de empresas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Turismo.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Jurídico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Contabilidad y métodos cuantitativos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Informática.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Prácticum.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Optativa.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Obligatoria.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Titulación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Educación Infantil",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "— Curso a curso. — Simultánea de los 4 cursos para alumnos en posesión de títulos universitarios oficiales según planes de estudio anteriores al Real Decreto 1393/2007, a los que sustituyen los nuevos grados.",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Educación Primaria",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "— Curso a curso — Simultánea de los 4 cursos para alumnos en posesión de títulos universitarios oficiales según planes de estudio anteriores al Real Decreto 1393/2007, a los que sustituyen los nuevos grados.",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Educación Social",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1º, 2º, 3º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería Electrónica de Comunicaciones",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Literatura General y Comparada",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Estudios Hispano-Alemanes (título conjunto de la Universidad Complutense de Madrid y la Universidad de Ratisbona (Alemania). Coordina la Universidad de Ratisbona)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Criminología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Pedagogía",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Creación Musical",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería Biomédica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Relaciones Internacionales",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Simultánea de 1º y 2º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Diseño Integral y Gestión de la Imagen",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Bellas Artes",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Comunicación Digital",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Empresas y Actividades Turísticas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1º, 2º, 3º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Magisterio de Educación Infantil",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Magisterio de Educación Primaria",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Magisterio Educación Primaria",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Magisterio Educación Infantil",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Fisioterapia",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Terapia Ocupacional",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Podología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3º y 4º",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

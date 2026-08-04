@@ -1,0 +1,204 @@
+{
+  "codigo_estudio": "4317815",
+  "titulo": "Máster Universitario en Formación del Profesorado de Gastronomía por la Mondragón Unibertsitatea",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "061",
+  "universidad_nombre": "Mondragón Unibertsitatea",
+  "fecha_procesado": "2026-08-04T14:54:05.920255",
+  "boe_url": "http://www.boe.es/boe/dias/2022/06/22/pdfs/BOE-A-2022-10343.pdf",
+  "boe_fecha": "2022-06-22",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2022/06/22/pdfs/BOE-A-2022-10343.pdf",
+    "http://www.euskadi.eus/y22-bopv/es/bopv2/datos/2021/08/2104483a.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "30",
+      "Optativas": "20",
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 20,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "30",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo fin de máster.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Contexto educativo, tendencias y retos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Proceso de aprendizaje y rol del docente.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Diseño de proyectos educativos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Innovación en los procesos de enseñanza-aprendizaje.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Diseño de experiencias de aprendizaje.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Experiencia de aprendizaje en Basque Culinary Center.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Procesos de enseñanza-aprendizaje en ecosistemas digitales.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Herramientas, metodologías y técnicas del aprendizaje en sala, coctelería y sumillería.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Herramientas, metodologías y técnicas del aprendizaje en cocina.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Herramientas, metodologías y técnicas de investigación en gastronomía.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Comunicación, gestión de equipos y resolución de conflictos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Trabajo de Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Código",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "4317815",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "4312397",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

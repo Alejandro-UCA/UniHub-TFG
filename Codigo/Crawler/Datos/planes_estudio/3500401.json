@@ -1,0 +1,303 @@
+{
+  "codigo_estudio": "3500401",
+  "titulo": "Máster Universitario en Finanzas Avanzadas por la Universidad Antonio de Nebrija",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "052",
+  "universidad_nombre": "Universidad Antonio de Nebrija",
+  "fecha_procesado": "2026-08-04T15:37:53.748252",
+  "boe_url": "http://www.boe.es/boe/dias/2025/01/02/pdfs/BOE-A-2025-75.pdf",
+  "boe_fecha": "2025-01-02",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2025/01/02/pdfs/BOE-A-2025-75.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2024/10/31/BOCM-20241031-17.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "36",
+      "Optativas": "12",
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 31,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Primer Semestre",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "Segundo Semestre"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Mercados financieros, regulación y sostenibilidad.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Análisis económico y finanzas.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Finanzas corporativas.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Análisis contable y modelización.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Métodos cuantitativos y programación aplicada a finanzas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Gestión de activos y carteras.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Control de gestión y reporting (1).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Inversiones corporativas (1).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Análisis financiero avanzado y financiación de proyectos (1).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Fiscalidad y estados financieros (1).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Finanzas corporativas internacionales (2).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Financiamiento comercial y de proyectos (2).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Fusiones, adquisiciones y reestructuraciones de empresa (2).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Apalancamiento financiero (2).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Análisis y decisiones de inversión (3).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Estrategias de inversión (3).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Derivados, inversiones alternativas, criptomonedas (3).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Gestión avanzada de carteras de inversión (3).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Extracción, transformación y carga de datos (SQL) en finanzas (4).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Datos financieros y técnicas de visualización (4).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Finanzas digitales I: Cloud & Blockchain y finanzas (4).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Finanzas digitales II: Aprendizaje automático, IA y finanzas (4).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "DENOMINACIÓN DEL TÍTULO",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario Erasmus Mundus en Inteligencia Artificial para Tratamiento de Imágenes y Visión Artificial / Erasmus Mundus Joint Master in Artificial Intelligence for Image Processing and Computer Vision",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "(cid:2) Université de Bordeaux, Francia (coordinadora) (cid:2) Universidad Autónoma de Madrid (cid:2) Pázmány Péter Katolikus Egyetem, Hungría",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Finanzas Avanzadas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "(cid:2) Presencial (cid:2) Virtual",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Nutrición en la Infancia y la Adolescencia",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Podología Deportiva",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Desarrollo de Aplicaciones Web",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

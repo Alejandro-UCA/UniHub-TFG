@@ -1,0 +1,58 @@
+{
+  "codigo_estudio": "4317323",
+  "titulo": "Máster Universitario en Enfermería de Práctica Avanzada en la Atención al Paciente Crónico por la Universidad a Distancia de Madrid",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "074",
+  "universidad_nombre": "Universidad a Distancia de Madrid",
+  "fecha_procesado": "2026-08-04T15:03:01.193528",
+  "boe_url": "http://www.boe.es/boe/dias/2021/05/13/pdfs/BOE-A-2021-7957.pdf",
+  "boe_fecha": "2021-05-13",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2021/05/13/pdfs/BOE-A-2021-7957.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "36",
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 4,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Formación Específica Obligatoria.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "18",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Trabajo de Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

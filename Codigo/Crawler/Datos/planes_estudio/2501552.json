@@ -1,0 +1,1695 @@
+{
+  "codigo_estudio": "2501552",
+  "titulo": "Graduado o Graduada en Derecho por la Universidad Alfonso X El Sabio",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "047",
+  "universidad_nombre": "Universidad Alfonso X El Sabio",
+  "fecha_procesado": "2026-08-04T15:13:24.470162",
+  "boe_url": "http://www.boe.es/boe/dias/2023/04/25/pdfs/BOE-A-2023-10041.pdf",
+  "boe_fecha": "2023-04-25",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2023/04/25/pdfs/BOE-A-2023-10041.pdf",
+    "http://www.boe.es/boe/dias/2020/05/20/pdfs/BOE-A-2020-5184.pdf",
+    "http://www.boe.es/boe/dias/2011/06/16/pdfs/BOE-A-2011-10459.pdf",
+    "http://www.boe.es/boe/dias/2011/01/27/pdfs/BOE-A-2011-1523.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2010/07/30/BOCM-20100730-22.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica": "60",
+      "Obligatorias": "144",
+      "Optativas": "24",
+      "Prácticas Externas": "6",
+      "Trabajo Fin de Grado / Máster": "6",
+      "Créditos Totales": "240"
+    },
+    "total_elementos": 185,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Formación Básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "24",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho Constitucional 1.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho Romano.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Introducción al Derecho Civil.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Introducción al Derecho.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Economía y Contabilidad para juristas.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho Constitucional 2.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Historia del Derecho.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Legal English.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Informática Aplicada: Aplicaciones tecnológicas y Programación para juristas.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Redacción aplicada y retórica jurídicas.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho Civil 1.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho Administrativo 1.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho Internacional Público.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Sociología jurídica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Fundamentos de Derecho tecnológico.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho Procesal 1.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho Administrativo 2.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho Procesal 2.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho de la UE.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho Civil 2.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho Penal 1.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Documentación e informática Jurídica.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho Civil 3.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho Penal 2.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho Procesal 3.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho Administrativo 3.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Modelos, estrategias y técnicas para competiciones en el ámbito jurídico y diplomático.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Sistema jurídico anglosajón.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Aspectos jurídicos de la negociación internacional.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derechos humanos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Organización y Administración de Empresas 1.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho Mercantil 1.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho Administrativo 4.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.ª",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho del Trabajo y la Seguridad Social.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho Financiero y Tributario 1.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Criminología.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho deportivo.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Organización y Administración de Empresas 2.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho Eclesiástico.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho Internacional Privado.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho Mercantil 2.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho Financiero y Tributario 2.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Gestión de proyectos jurídicos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Filosofía del Derecho.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Prácticas académicas externas (op).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Seguridad internacional, ciberseguridad y defensa.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Sostenibilidad, gobernanza y derecho ambiental.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Entorno empresarial.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho Procesal Laboral.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Cumplimiento normativo.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho internacional de los negocios.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Prácticas académicas externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Aspectos internacionales de la empresa.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Métodos alternativos de resolución de conflictos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia-Asignaturas",
+        "nombre_elemento": "Derecho Penal Económico.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Comunicación en Lengua Extranjera 1.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Comunicación en Lengua Extranjera 2.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Comunicación Oral y Escrita.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Informática Aplicada.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Introducción a la Economía.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Sociología General.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Derecho Administrativo.",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Derecho Civil.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Derecho Constitucional.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Derecho de la Seguridad Social.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Derecho del Trabajo.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Derecho Eclesiástico del Estado.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Derecho Financiero y Tributario.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Derecho Mercantil.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Derecho Penal.",
+        "creditos_ects": "12",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Derecho Procesal.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Documentación e Informática Jurídicas.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Fundamentos Históricos del Derecho y del Estado.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Derecho de la Unión Europea.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Prácticum (Prácticas externas).",
+        "creditos_ects": "12",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Asesoría Jurídica de Empresas.",
+        "creditos_ects": "24",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Derecho Privado.",
+        "creditos_ects": "24",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Derecho Público.",
+        "creditos_ects": "24",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "OB OB OB OB OB OB OP OP OP",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:2)(cid:3)(cid:4)(cid:5)(cid:6)(cid:7)(cid:8)(cid:3)(cid:9)(cid:10)(cid:11)",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "(cid:12)(cid:13)(cid:14)(cid:6)(cid:7)(cid:10)(cid:4)(cid:7)(cid:8)(cid:3)(cid:9)(cid:10)(cid:11) (cid:15)(cid:16)(cid:17)(cid:16)(cid:18)(cid:15)(cid:16)(cid:17)(cid:17)(cid:11)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:4)(cid:15)(cid:12)(cid:14)(cid:12)(cid:16)(cid:17)(cid:10)(cid:7)(cid:18)(cid:7)(cid:3)(cid:13)(cid:19)(cid:12)(cid:15)(cid:20)(cid:12)(cid:21)(cid:7)(cid:22)(cid:14)(cid:23)(cid:13)(cid:9)(cid:14)(cid:10)(cid:15)(cid:20)(cid:12)(cid:14)(cid:10)(cid:24)(cid:13)(cid:21)(cid:7)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:4)(cid:15)(cid:12)(cid:14)(cid:12)(cid:16)(cid:17)(cid:10)(cid:7)(cid:18)(cid:7)(cid:3)(cid:13)(cid:19)(cid:12)(cid:15)(cid:20)(cid:12)(cid:21)(cid:7)(cid:22)(cid:14)(cid:23)(cid:13)(cid:9)(cid:14)(cid:10)(cid:15)(cid:20)(cid:12)(cid:14)(cid:10)(cid:24)(cid:13)(cid:21)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:31)(cid:12)(cid:14)(cid:23)(cid:10) (cid:20)(cid:24)(cid:20)(cid:11)(cid:10)(cid:11)(cid:7)(cid:18)(cid:7)!(cid:20)(cid:14)(cid:10)(cid:14)\"(cid:10)(cid:21)(cid:7)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)#(cid:13)(cid:11)(cid:20)(cid:15)(cid:20)(cid:14)(cid:10)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:31)(cid:20)(cid:13)(cid:14)(cid:15)(cid:20)(cid:10)(cid:21)(cid:7)(cid:11)(cid:13)(cid:7)(cid:24)(cid:10)(cid:7)(cid:2)(cid:15)(cid:23)(cid:20)$(cid:20)(cid:11)(cid:10)(cid:11)(cid:7)!(cid:17)(cid:21)(cid:20)(cid:15)(cid:10)(cid:7)(cid:18)(cid:7)(cid:11)(cid:13)(cid:24)(cid:7)%(cid:13)&(cid:12)(cid:9)(cid:23)(cid:13)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:31)(cid:20)(cid:13)(cid:14)(cid:15)(cid:20)(cid:10)(cid:21)(cid:7)(cid:11)(cid:13)(cid:7)(cid:24)(cid:10)(cid:7)(cid:2)(cid:15)(cid:23)(cid:20)$(cid:20)(cid:11)(cid:10)(cid:11)(cid:7)!(cid:17)(cid:21)(cid:20)(cid:15)(cid:10)(cid:7)(cid:18)(cid:7)(cid:11)(cid:13)(cid:24)(cid:7)%(cid:13)&(cid:12)(cid:9)(cid:23)(cid:13)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)!(cid:10)(cid:9)(cid:16)(cid:10)(cid:15)(cid:20)(cid:10)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)#(cid:10)(cid:19)(cid:20)(cid:21)(cid:23)(cid:13)(cid:9)(cid:20)(cid:12)(cid:7)(cid:4)(cid:11)(cid:26)(cid:15)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7)(cid:22)(cid:14)((cid:10)(cid:14)(cid:23)(cid:20)(cid:24)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)#(cid:10)(cid:19)(cid:20)(cid:21)(cid:23)(cid:13)(cid:9)(cid:20)(cid:12)(cid:7)(cid:4)(cid:11)(cid:26)(cid:15)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7)(cid:22)(cid:14)((cid:10)(cid:14)(cid:23)(cid:20)(cid:24)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)#(cid:10)(cid:19)(cid:20)(cid:21)(cid:23)(cid:13)(cid:9)(cid:20)(cid:12)(cid:7)(cid:4)(cid:11)(cid:26)(cid:15)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7))(cid:9)(cid:20)(cid:16)(cid:10)(cid:9)(cid:20)(cid:10)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)#(cid:10)(cid:19)(cid:20)(cid:21)(cid:23)(cid:13)(cid:9)(cid:20)(cid:12)(cid:7)(cid:4)(cid:11)(cid:26)(cid:15)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7))(cid:9)(cid:20)(cid:16)(cid:10)(cid:9)(cid:20)(cid:10)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:13)(cid:14)(cid:7)*(cid:13)(cid:15)(cid:14)(cid:12)(cid:24)(cid:12)(cid:19)(cid:17)(cid:10)(cid:21)(cid:7)(cid:11)(cid:13)(cid:7)*(cid:13)(cid:24)(cid:13)(cid:15)(cid:12)(cid:16)(cid:26)(cid:14)(cid:20)(cid:15)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)*(cid:13)(cid:24)(cid:13)(cid:16)(cid:27)(cid:23)(cid:20)(cid:15)(cid:10)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:13)(cid:14)(cid:7)(cid:25)(cid:20)(cid:21)(cid:23)(cid:13)(cid:16)(cid:10)(cid:21)(cid:7)(cid:11)(cid:13)(cid:7)*(cid:13)(cid:24)(cid:13)(cid:15)(cid:12)(cid:16)(cid:26)(cid:14)(cid:20)(cid:15)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:4)(cid:24)(cid:13)(cid:15)(cid:23)(cid:9)’(cid:14)(cid:20)(cid:15)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:31)(cid:12)(cid:16)(cid:26)(cid:14)(cid:20)(cid:15)(cid:10)(cid:15)(cid:20)(cid:12)(cid:14)(cid:13)(cid:21)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:4)(cid:24)(cid:13)(cid:15)(cid:23)(cid:9)’(cid:14)(cid:20)(cid:15)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:31)(cid:12)(cid:16)(cid:26)(cid:14)(cid:20)(cid:15)(cid:10)(cid:15)(cid:20)(cid:12)(cid:14)(cid:13)(cid:21)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:13)(cid:14)(cid:7)(cid:4)(cid:24)(cid:13)(cid:15)(cid:23)(cid:9)’(cid:14)(cid:20)(cid:15)(cid:10)(cid:7)(cid:18)(cid:7)(cid:2)(cid:26)(cid:23)(cid:12)(cid:16)(cid:27)(cid:23)(cid:20)(cid:15)(cid:10)(cid:7)(cid:22)(cid:14)(cid:11)(cid:26)(cid:21)(cid:23)(cid:9)(cid:20)(cid:10)(cid:24)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:13)(cid:14)(cid:7)(cid:4)(cid:24)(cid:13)(cid:15)(cid:23)(cid:9)’(cid:14)(cid:20)(cid:15)(cid:10)(cid:7)(cid:18)(cid:7)(cid:2)(cid:26)(cid:23)(cid:12)(cid:16)(cid:27)(cid:23)(cid:20)(cid:15)(cid:10)(cid:7)(cid:22)(cid:14)(cid:11)(cid:26)(cid:21)(cid:23)(cid:9)(cid:20)(cid:10)(cid:24)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:4)(cid:11)(cid:26)(cid:15)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7)(cid:25)(cid:12)(cid:15)(cid:20)(cid:10)(cid:24)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:4)(cid:11)(cid:26)(cid:15)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7)(cid:25)(cid:12)(cid:15)(cid:20)(cid:10)(cid:24)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:31)(cid:20)(cid:13)(cid:14)(cid:15)(cid:20)(cid:10)(cid:21)(cid:7)(cid:2)(cid:16) (cid:20)(cid:13)(cid:14)(cid:23)(cid:10)(cid:24)(cid:13)(cid:21)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:31)(cid:20)(cid:13)(cid:14)(cid:15)(cid:20)(cid:10)(cid:21)(cid:7)(cid:2)(cid:16) (cid:20)(cid:13)(cid:14)(cid:23)(cid:10)(cid:24)(cid:13)(cid:21)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:2)(cid:9)+(cid:26)(cid:20)(cid:23)(cid:13)(cid:15)(cid:23)(cid:26)(cid:9)(cid:10)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:2)(cid:9)+(cid:26)(cid:20)(cid:23)(cid:13)(cid:15)(cid:23)(cid:26)(cid:9)(cid:10)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:4)(cid:11)(cid:20)((cid:20)(cid:15)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:4)(cid:11)(cid:20)((cid:20)(cid:15)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)*(cid:9)(cid:10)(cid:11)(cid:26)(cid:15)(cid:15)(cid:20)’(cid:14)(cid:7)(cid:13)(cid:7)(cid:22)(cid:14)(cid:23)(cid:13)(cid:9)&(cid:9)(cid:13)(cid:23)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)%(cid:13)(cid:9)(cid:13)(cid:15)-(cid:12)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:4)(cid:14)((cid:13)(cid:9)(cid:16)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:4)(cid:14)((cid:13)(cid:9)(cid:16)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:6)(cid:11)(cid:12)(cid:14)(cid:23)(cid:12)(cid:24)(cid:12)(cid:19)(cid:17)(cid:10)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:6)(cid:11)(cid:12)(cid:14)(cid:23)(cid:12)(cid:24)(cid:12)(cid:19)(cid:17)(cid:10)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)!(cid:20)(cid:21)(cid:20)(cid:12)(cid:23)(cid:13)(cid:9)(cid:10)&(cid:20)(cid:10)(cid:7)(cid:7)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)*(cid:13)(cid:9)(cid:10)&(cid:20)(cid:10)(cid:7)(cid:6)(cid:15)(cid:26)&(cid:10)(cid:15)(cid:20)(cid:12)(cid:14)(cid:10)(cid:24)(cid:7)(cid:7)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)*(cid:13)(cid:9)(cid:10)&(cid:20)(cid:10)(cid:7)(cid:6)(cid:15)(cid:26)&(cid:10)(cid:15)(cid:20)(cid:12)(cid:14)(cid:10)(cid:24)(cid:7)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7).(cid:13)(cid:24)(cid:24)(cid:10)(cid:21)(cid:7)(cid:2)(cid:9)(cid:23)(cid:13)(cid:21)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7).(cid:13)(cid:24)(cid:24)(cid:10)(cid:21)(cid:7)(cid:2)(cid:9)(cid:23)(cid:13)(cid:21)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:3)(cid:26)(cid:23)(cid:9)(cid:20)(cid:15)(cid:20)’(cid:14)(cid:7)/(cid:26)(cid:16)(cid:10)(cid:14)(cid:10)(cid:7)(cid:18)(cid:7)%(cid:20)(cid:13)(cid:23)0(cid:23)(cid:20)(cid:15)(cid:10)(cid:7)(cid:7)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:3)(cid:26)(cid:23)(cid:9)(cid:20)(cid:15)(cid:20)’(cid:14)(cid:7)/(cid:26)(cid:16)(cid:10)(cid:14)(cid:10)(cid:7)(cid:18)(cid:7)%(cid:20)(cid:13)(cid:23)0(cid:23)(cid:20)(cid:15)(cid:10)(cid:7)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7))(cid:12)(cid:11)(cid:12)(cid:24)(cid:12)(cid:19)(cid:17)(cid:10)(cid:7)(cid:7)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:31)(cid:12)(cid:16)(cid:26)(cid:14)(cid:20)(cid:15)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)1(cid:13)(cid:23)(cid:13)(cid:9)(cid:20)(cid:14)(cid:10)(cid:9)(cid:20)(cid:10)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)1(cid:13)(cid:23)(cid:13)(cid:9)(cid:20)(cid:14)(cid:10)(cid:9)(cid:20)(cid:10)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:2)(cid:13)(cid:9)(cid:12)(cid:13)(cid:21)&(cid:10)(cid:15)(cid:20)(cid:10)(cid:24)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:2)(cid:13)(cid:9)(cid:12)(cid:13)(cid:21)&(cid:10)(cid:15)(cid:20)(cid:10)(cid:24)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:6) (cid:9)(cid:10)(cid:21)(cid:7))2 (cid:24)(cid:20)(cid:15)(cid:10)(cid:21)(cid:7)(cid:13)(cid:14)(cid:7)(cid:31)(cid:12)(cid:14)(cid:21)(cid:23)(cid:9)(cid:26)(cid:15)(cid:15)(cid:20)(cid:12)(cid:14)(cid:13)(cid:21)(cid:7)(cid:31)(cid:20)$(cid:20)(cid:24)(cid:13)(cid:21)(cid:7)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:6) (cid:9)(cid:10)(cid:21)(cid:7))2 (cid:24)(cid:20)(cid:15)(cid:10)(cid:21)(cid:7)(cid:13)(cid:14)(cid:7)(cid:31)(cid:12)(cid:14)(cid:21)(cid:23)(cid:9)(cid:26)(cid:15)(cid:15)(cid:20)(cid:12)(cid:14)(cid:13)(cid:21)(cid:7)(cid:31)(cid:20)$(cid:20)(cid:24)(cid:13)(cid:21)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:6) (cid:9)(cid:10)(cid:21)(cid:7))2 (cid:24)(cid:20)(cid:15)(cid:10)(cid:21)(cid:7)(cid:13)(cid:14)(cid:7)/(cid:20)(cid:11)(cid:9)(cid:12)(cid:24)(cid:12)(cid:19)(cid:17)(cid:10)(cid:7)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:6) (cid:9)(cid:10)(cid:21)(cid:7))2 (cid:24)(cid:20)(cid:15)(cid:10)(cid:21)(cid:7)(cid:13)(cid:14)(cid:7)/(cid:20)(cid:11)(cid:9)(cid:12)(cid:24)(cid:12)(cid:19)(cid:17)(cid:10)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:6) (cid:9)(cid:10)(cid:21)(cid:7))2 (cid:24)(cid:20)(cid:15)(cid:10)(cid:21)(cid:7)(cid:13)(cid:14)(cid:7)*(cid:9)(cid:10)(cid:14)(cid:21)&(cid:12)(cid:9)(cid:23)(cid:13)(cid:21)(cid:7)(cid:7) (cid:18)(cid:7)(cid:25)(cid:13)(cid:9)$(cid:20)(cid:15)(cid:20)(cid:12)(cid:21)(cid:7)3(cid:9) (cid:10)(cid:14)(cid:12)(cid:21)(cid:7)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:6) (cid:9)(cid:10)(cid:21)(cid:7))2 (cid:24)(cid:20)(cid:15)(cid:10)(cid:21)(cid:7)(cid:13)(cid:14)(cid:7)*(cid:9)(cid:10)(cid:14)(cid:21)&(cid:12)(cid:9)(cid:23)(cid:13)(cid:21)(cid:7)(cid:7) (cid:18)(cid:7)(cid:25)(cid:13)(cid:9)$(cid:20)(cid:15)(cid:20)(cid:12)(cid:21)(cid:7)3(cid:9) (cid:10)(cid:14)(cid:12)(cid:21)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)5(cid:13)(cid:24)(cid:10)(cid:15)(cid:20)(cid:12)(cid:14)(cid:13)(cid:21)(cid:7)(cid:22)(cid:14)(cid:23)(cid:13)(cid:9)(cid:14)(cid:10)(cid:15)(cid:20)(cid:12)(cid:14)(cid:10)(cid:24)(cid:13)(cid:21)(cid:7)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "(cid:25)(cid:20)(cid:16)(cid:26)(cid:24)(cid:23)(cid:27)(cid:14)(cid:13)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:7) 4(cid:29)(cid:7)(cid:18)(cid:7),(cid:29)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:13)(cid:14)(cid:7)(cid:4)(cid:24)(cid:13)(cid:15)(cid:23)(cid:9)’(cid:14)(cid:20)(cid:15)(cid:10)(cid:7)(cid:18)(cid:7)(cid:2)(cid:26)(cid:23)(cid:12)(cid:16)(cid:27)(cid:23)(cid:20)(cid:15)(cid:10)(cid:7) (cid:22)(cid:14)(cid:11)(cid:26)(cid:21)(cid:23)(cid:9)(cid:20)(cid:10)(cid:24)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:13)(cid:14)(cid:7)(cid:4)(cid:24)(cid:13)(cid:15)(cid:23)(cid:9)’(cid:14)(cid:20)(cid:15)(cid:10)(cid:7)(cid:18)(cid:7)(cid:2)(cid:26)(cid:23)(cid:12)(cid:16)(cid:27)(cid:23)(cid:20)(cid:15)(cid:10)(cid:7) (cid:22)(cid:14)(cid:11)(cid:26)(cid:21)(cid:23)(cid:9)(cid:20)(cid:10)(cid:24)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)#(cid:13)(cid:15)(cid:27)(cid:14)(cid:20)(cid:15)(cid:10)(cid:7)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "(cid:25)(cid:20)(cid:16)(cid:26)(cid:24)(cid:23)(cid:27)(cid:14)(cid:13)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7) (cid:28)(cid:29)6(cid:7)(cid:30)(cid:29)6(cid:7)4(cid:29)(cid:7)(cid:18)(cid:7),(cid:29)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:13)(cid:14)(cid:7)*(cid:13)(cid:15)(cid:14)(cid:12)(cid:24)(cid:12)(cid:19)(cid:17)(cid:10)(cid:21)(cid:7)(cid:22)(cid:14)(cid:11)(cid:26)(cid:21)(cid:23)(cid:9)(cid:20)(cid:10)(cid:24)(cid:13)(cid:21)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:11)(cid:13)(cid:24)(cid:7)(cid:2)(cid:26)(cid:23)(cid:12)(cid:16)’$(cid:20)(cid:24)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:11)(cid:13)(cid:24)(cid:7)(cid:2)(cid:26)(cid:23)(cid:12)(cid:16)’$(cid:20)(cid:24)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)7(cid:13)(cid:14)(cid:19)(cid:26)(cid:10)(cid:21)(cid:7)#(cid:12)(cid:11)(cid:13)(cid:9)(cid:14)(cid:10)(cid:21)(cid:7)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "(cid:25)(cid:20)(cid:16)(cid:26)(cid:24)(cid:23)(cid:27)(cid:14)(cid:13)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:7) 4(cid:29)(cid:7)(cid:18)(cid:7),(cid:29)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:31)(cid:20)(cid:13)(cid:14)(cid:15)(cid:20)(cid:10)(cid:21)(cid:7)(cid:11)(cid:13)(cid:7)(cid:24)(cid:10)(cid:7)(cid:2)(cid:24)(cid:20)(cid:16)(cid:13)(cid:14)(cid:23)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:31)(cid:20)(cid:13)(cid:14)(cid:15)(cid:20)(cid:10)(cid:21)(cid:7)(cid:11)(cid:13)(cid:7)(cid:24)(cid:10)(cid:7)(cid:2)(cid:24)(cid:20)(cid:16)(cid:13)(cid:14)(cid:23)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7).(cid:20)(cid:12)+(cid:26)(cid:17)(cid:16)(cid:20)(cid:15)(cid:10)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:4)(cid:15)(cid:12)(cid:14)(cid:12)(cid:16)(cid:17)(cid:10)(cid:7)(cid:18)(cid:7)!(cid:20)(cid:14)(cid:10)(cid:14)\"(cid:10)(cid:21)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:4)(cid:15)(cid:12)(cid:14)(cid:12)(cid:16)(cid:17)(cid:10)(cid:7)(cid:18)(cid:7)!(cid:20)(cid:14)(cid:10)(cid:14)\"(cid:10)(cid:21)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)!(cid:20)(cid:24)(cid:12)(cid:21)(cid:12)((cid:17)(cid:10)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:8)(cid:13)(cid:21)(cid:23)(cid:20)’(cid:14)(cid:7)(cid:2)(cid:13)(cid:9)(cid:12)(cid:14)(cid:27)(cid:26)(cid:23)(cid:20)(cid:15)(cid:10)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:8)(cid:13)(cid:21)(cid:23)(cid:20)’(cid:14)(cid:7)(cid:2)(cid:13)(cid:9)(cid:12)(cid:14)(cid:27)(cid:26)(cid:23)(cid:20)(cid:15)(cid:10)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)*(cid:13)(cid:15)(cid:14)(cid:12)(cid:24)(cid:12)(cid:19)(cid:17)(cid:10)(cid:21)(cid:7)(cid:18)(cid:7)(cid:25)(cid:13)(cid:9)$(cid:20)(cid:15)(cid:20)(cid:12)(cid:21)(cid:7)(cid:11)(cid:13)(cid:7)*(cid:13)(cid:24)(cid:13)(cid:15)(cid:12)(cid:16)(cid:26)(cid:14)(cid:20)(cid:15)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:3)(cid:26)(cid:23)(cid:9)(cid:20)(cid:15)(cid:20)’(cid:14)(cid:7)/(cid:26)(cid:16)(cid:10)(cid:14)(cid:10)(cid:7)(cid:18)(cid:7)%(cid:20)(cid:13)(cid:23)0(cid:23)(cid:20)(cid:15)(cid:10)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:3)(cid:26)(cid:23)(cid:9)(cid:20)(cid:15)(cid:20)’(cid:14)(cid:7)/(cid:26)(cid:16)(cid:10)(cid:14)(cid:10)(cid:7)(cid:18)(cid:7)%(cid:20)(cid:13)(cid:23)0(cid:23)(cid:20)(cid:15)(cid:10)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:31)(cid:12)(cid:16)(cid:26)(cid:14)(cid:20)(cid:15)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7)(cid:2)(cid:26)(cid:11)(cid:20)(cid:12)$(cid:20)(cid:21)(cid:26)(cid:10)(cid:24)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:31)(cid:12)(cid:16)(cid:26)(cid:14)(cid:20)(cid:15)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7)(cid:2)(cid:26)(cid:11)(cid:20)(cid:12)$(cid:20)(cid:21)(cid:26)(cid:10)(cid:24)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:11)(cid:13)(cid:7)#(cid:10)(cid:13)(cid:21)(cid:23)(cid:9)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:4)(cid:11)(cid:26)(cid:15)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7)(cid:22)(cid:14)((cid:10)(cid:14)(cid:23)(cid:20)(cid:24)(cid:7)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "(cid:25)(cid:20)(cid:16)(cid:26)(cid:24)(cid:23)(cid:27)(cid:14)(cid:13)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:28)(cid:29)6(cid:7)(cid:30)(cid:29)6(cid:7)4(cid:29)(cid:7)(cid:18)(cid:7),(cid:29)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:11)(cid:13)(cid:7)#(cid:10)(cid:13)(cid:21)(cid:23)(cid:9)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:4)(cid:11)(cid:26)(cid:15)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7))(cid:9)(cid:20)(cid:16)(cid:10)(cid:9)(cid:20)(cid:10)(cid:7)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "(cid:25)(cid:20)(cid:16)(cid:26)(cid:24)(cid:23)(cid:27)(cid:14)(cid:13)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:28)(cid:29)6(cid:7)(cid:30)(cid:29)6(cid:7)4(cid:29)(cid:7)(cid:18)(cid:7),(cid:29)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7))(cid:13)(cid:9)(cid:20)(cid:12)(cid:11)(cid:20)(cid:21)(cid:16)(cid:12)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7))(cid:26) (cid:24)(cid:20)(cid:15)(cid:20)(cid:11)(cid:10)(cid:11)(cid:7)(cid:18)(cid:7)5(cid:13)(cid:24)(cid:10)(cid:15)(cid:20)(cid:12)(cid:14)(cid:13)(cid:21)(cid:7))2 (cid:24)(cid:20)(cid:15)(cid:10)(cid:21)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7))(cid:26) (cid:24)(cid:20)(cid:15)(cid:20)(cid:11)(cid:10)(cid:11)(cid:7)(cid:18)(cid:7)5(cid:13)(cid:24)(cid:10)(cid:15)(cid:20)(cid:12)(cid:14)(cid:13)(cid:21)(cid:7))2 (cid:24)(cid:20)(cid:15)(cid:10)(cid:21)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)*(cid:26)(cid:9)(cid:20)(cid:21)(cid:16)(cid:12)(cid:7)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "(cid:25)(cid:20)(cid:16)(cid:26)(cid:24)(cid:23)(cid:27)(cid:14)(cid:13)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:7) (cid:28)(cid:29)6(cid:7)(cid:30)(cid:29)6(cid:7)4(cid:29)(cid:7)(cid:18)(cid:7),(cid:29)(cid:11)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)!(cid:20)(cid:21)(cid:20)(cid:12)(cid:23)(cid:13)(cid:9)(cid:10)&(cid:20)(cid:10)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)8&(cid:23)(cid:20)(cid:15)(cid:10)(cid:7)(cid:18)(cid:7)(cid:6)&(cid:23)(cid:12)(cid:16)(cid:13)(cid:23)(cid:9)(cid:17)(cid:10)(cid:7)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "(cid:25)(cid:20)(cid:16)(cid:26)(cid:24)(cid:23)(cid:27)(cid:14)(cid:13)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7) (cid:7)(cid:28)(cid:29)6(cid:7)(cid:30)(cid:29)6(cid:7)4(cid:29)(cid:7)(cid:18)(cid:7),(cid:29)(cid:11)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)%(cid:20)(cid:21)(cid:13)9(cid:12)(cid:7)(cid:18)(cid:7)%(cid:13)(cid:21)(cid:10)(cid:9)(cid:9)(cid:12)(cid:24)(cid:24)(cid:12)(cid:7)(cid:11)(cid:13)(cid:7)1(cid:20)(cid:11)(cid:13)(cid:12):(cid:26)(cid:13)(cid:19)(cid:12)(cid:21)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)%(cid:20)(cid:21)(cid:13)9(cid:12)(cid:7)(cid:18)(cid:7)%(cid:13)(cid:21)(cid:10)(cid:9)(cid:9)(cid:12)(cid:24)(cid:24)(cid:12)(cid:7)(cid:11)(cid:13)(cid:7)1(cid:20)(cid:11)(cid:13)(cid:12):(cid:26)(cid:13)(cid:19)(cid:12)(cid:21)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7).(cid:20)(cid:12)(cid:16)0(cid:11)(cid:20)(cid:15)(cid:10)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:8)(cid:13)(cid:21)(cid:23)(cid:20)’(cid:14)(cid:7)(cid:18)(cid:7)(cid:2)(cid:11)(cid:16)(cid:20)(cid:14)(cid:20)(cid:21)(cid:23)(cid:9)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7))2 (cid:24)(cid:20)(cid:15)(cid:10)(cid:7)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:8)(cid:13)(cid:21)(cid:23)(cid:20)’(cid:14)(cid:7)(cid:18)(cid:7)(cid:2)(cid:11)(cid:16)(cid:20)(cid:14)(cid:20)(cid:21)(cid:23)(cid:9)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7))2 (cid:24)(cid:20)(cid:15)(cid:10)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:11)(cid:13)(cid:24)(cid:7)(cid:25)(cid:12)((cid:23);(cid:10)(cid:9)(cid:13)(cid:7)",
+        "creditos_ects": "30",
+        "caracter": "OB",
+        "curso": "(cid:25)(cid:20)(cid:16)(cid:26)(cid:24)(cid:23)(cid:27)(cid:14)(cid:13)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7) 4(cid:29)(cid:7)(cid:18)(cid:7)(cid:7),(cid:29)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:31)(cid:12)(cid:16)&(cid:26)(cid:23)(cid:10)(cid:11)(cid:12)(cid:9)(cid:13)(cid:21)(cid:7)",
+        "creditos_ects": "30",
+        "caracter": "OB",
+        "curso": "(cid:25)(cid:20)(cid:16)(cid:26)(cid:24)(cid:23)(cid:27)(cid:14)(cid:13)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7) 4(cid:29)(cid:7)(cid:18)(cid:7)(cid:7),(cid:29)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:22)(cid:14)((cid:12)(cid:9)(cid:16)(cid:27)(cid:23)(cid:20)(cid:15)(cid:10)(cid:7)",
+        "creditos_ects": "30",
+        "caracter": "OB",
+        "curso": "(cid:25)(cid:20)(cid:16)(cid:26)(cid:24)(cid:23)(cid:27)(cid:14)(cid:13)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7) 4(cid:29)(cid:7)(cid:18)(cid:7)(cid:7),(cid:29)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7))(cid:12)(cid:11)(cid:12)(cid:24)(cid:12)(cid:19)(cid:17)(cid:10)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)*(cid:13)(cid:9)(cid:10)&(cid:20)(cid:10)(cid:7)(cid:6)(cid:15)(cid:26)&(cid:10)(cid:15)(cid:20)(cid:12)(cid:14)(cid:10)(cid:24)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)*(cid:13)(cid:9)(cid:10)&(cid:20)(cid:10)(cid:7)(cid:6)(cid:15)(cid:26)&(cid:10)(cid:15)(cid:20)(cid:12)(cid:14)(cid:10)(cid:24)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:2)(cid:9)+(cid:26)(cid:13)(cid:12)(cid:24)(cid:12)(cid:19)(cid:17)(cid:10)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:2)(cid:9)+(cid:26)(cid:13)(cid:12)(cid:24)(cid:12)(cid:19)(cid:17)(cid:10)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7))(cid:21)(cid:20)(cid:15)(cid:12)(cid:24)(cid:12)(cid:19)(cid:17)(cid:10)(cid:7)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:2)(cid:11)(cid:16)(cid:20)(cid:14)(cid:20)(cid:21)(cid:23)(cid:9)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7)(cid:18)(cid:7)%(cid:20)(cid:9)(cid:13)(cid:15)(cid:15)(cid:20)’(cid:14)(cid:7)(cid:11)(cid:13)(cid:7)(cid:4)(cid:16)&(cid:9)(cid:13)(cid:21)(cid:10)(cid:21)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:2)(cid:11)(cid:16)(cid:20)(cid:14)(cid:20)(cid:21)(cid:23)(cid:9)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7)(cid:18)(cid:7)%(cid:20)(cid:9)(cid:13)(cid:15)(cid:15)(cid:20)’(cid:14)(cid:7)(cid:11)(cid:13)(cid:7)(cid:4)(cid:16)&(cid:9)(cid:13)(cid:21)(cid:10)(cid:21)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:13)(cid:14)(cid:7)(cid:6)(cid:9)(cid:19)(cid:10)(cid:14)(cid:20)\"(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7)(cid:22)(cid:14)(cid:11)(cid:26)(cid:21)(cid:23)(cid:9)(cid:20)(cid:10)(cid:24)(cid:7)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "(cid:25)(cid:20)(cid:16)(cid:26)(cid:24)(cid:23)(cid:27)(cid:14)(cid:13)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7) (cid:7)(cid:28)(cid:29)6(cid:7)(cid:30)(cid:29)6(cid:7)4(cid:29)(cid:7)(cid:18)(cid:7),(cid:29)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:2)(cid:13)(cid:9)(cid:12)(cid:13)(cid:21)&(cid:10)(cid:15)(cid:20)(cid:10)(cid:24)(cid:7)(cid:13)(cid:14)(cid:7)(cid:2)(cid:13)(cid:9)(cid:12)(cid:14)(cid:10)$(cid:13)(cid:21)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:2)(cid:13)(cid:9)(cid:12)(cid:13)(cid:21)&(cid:10)(cid:15)(cid:20)(cid:10)(cid:24)(cid:7)(cid:13)(cid:14)(cid:7)(cid:2)(cid:13)(cid:9)(cid:12)(cid:14)(cid:10)$(cid:13)(cid:21)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:2)(cid:9)(cid:23)(cid:13)(cid:7)(cid:4)(cid:24)(cid:13)(cid:15)(cid:23)(cid:9)’(cid:14)(cid:20)(cid:15)(cid:12)(cid:7)(cid:18)(cid:7)%(cid:20)(cid:19)(cid:20)(cid:23)(cid:10)(cid:24)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:2)(cid:9)(cid:23)(cid:13)(cid:7)(cid:4)(cid:24)(cid:13)(cid:15)(cid:23)(cid:9)’(cid:14)(cid:20)(cid:15)(cid:12)(cid:7)(cid:18)(cid:7)%(cid:20)(cid:19)(cid:20)(cid:23)(cid:10)(cid:24)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:2)(cid:9)(cid:23)(cid:13)(cid:21)(cid:7)(cid:4)(cid:21)(cid:15)0(cid:14)(cid:20)(cid:15)(cid:10)(cid:21)(cid:7)(cid:18)(cid:7)#(cid:13)(cid:11)(cid:20)(cid:27)(cid:23)(cid:20)(cid:15)(cid:10)(cid:21)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:2)(cid:9)(cid:23)(cid:13)(cid:21)(cid:7)(cid:4)(cid:21)(cid:15)0(cid:14)(cid:20)(cid:15)(cid:10)(cid:21)(cid:7)(cid:18)(cid:7)#(cid:13)(cid:11)(cid:20)(cid:27)(cid:23)(cid:20)(cid:15)(cid:10)(cid:21)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:4)(cid:11)(cid:26)(cid:15)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7)(cid:22)(cid:14)((cid:10)(cid:14)(cid:23)(cid:20)(cid:24)(cid:7)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "(cid:25)(cid:20)(cid:16)(cid:26)(cid:24)(cid:23)(cid:27)(cid:14)(cid:13)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:28)(cid:29)6(cid:7)(cid:30)(cid:29)6(cid:7)4(cid:29)(cid:7)(cid:7)(cid:18)(cid:7),(cid:29)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:4)(cid:11)(cid:26)(cid:15)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7))(cid:9)(cid:20)(cid:16)(cid:10)(cid:9)(cid:20)(cid:10)(cid:7)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "(cid:25)(cid:20)(cid:16)(cid:26)(cid:24)(cid:23)(cid:27)(cid:14)(cid:13)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:28)(cid:29)6(cid:7)(cid:30)(cid:29)6(cid:7)4(cid:29)(cid:7)(cid:7)(cid:18)(cid:7),(cid:29)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:24)(cid:10)(cid:7)(cid:4)(cid:14)(cid:13)(cid:9)(cid:19)(cid:17)(cid:10)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:24)(cid:10)(cid:7)(cid:4)(cid:14)(cid:13)(cid:9)(cid:19)(cid:17)(cid:10)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:6)(cid:9)(cid:19)(cid:10)(cid:14)(cid:20)\"(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:6)(cid:9)(cid:19)(cid:10)(cid:14)(cid:20)\"(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:4)(cid:24)0(cid:15)(cid:23)(cid:9)(cid:20)(cid:15)(cid:10)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:4)(cid:24)0(cid:15)(cid:23)(cid:9)(cid:20)(cid:15)(cid:10)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:4)(cid:24)(cid:13)(cid:15)(cid:23)(cid:9)’(cid:14)(cid:20)(cid:15)(cid:10)(cid:7)(cid:22)(cid:14)(cid:11)(cid:26)(cid:21)(cid:23)(cid:9)(cid:20)(cid:10)(cid:24)(cid:7)(cid:18)(cid:7)(cid:2)(cid:26)(cid:23)(cid:12)(cid:16)(cid:27)(cid:23)(cid:20)(cid:15)(cid:10)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:4)(cid:24)(cid:13)(cid:15)(cid:23)(cid:9)’(cid:14)(cid:20)(cid:15)(cid:10)(cid:7)(cid:22)(cid:14)(cid:11)(cid:26)(cid:21)(cid:23)(cid:9)(cid:20)(cid:10)(cid:24)(cid:7)(cid:18)(cid:7)(cid:2)(cid:26)(cid:23)(cid:12)(cid:16)(cid:27)(cid:23)(cid:20)(cid:15)(cid:10)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)=(cid:26)(cid:17)(cid:16)(cid:20)(cid:15)(cid:10)(cid:11)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:13)(cid:14)(cid:7)%(cid:20)(cid:21)(cid:13)9(cid:12)(cid:7)(cid:22)(cid:14)(cid:11)(cid:26)(cid:21)(cid:23)(cid:9)(cid:20)(cid:10)(cid:24)(cid:7)(cid:18)(cid:7)%(cid:13)(cid:21)(cid:10)(cid:9)(cid:9)(cid:12)(cid:24)(cid:24)(cid:12)(cid:7)(cid:11)(cid:13)(cid:7))(cid:9)(cid:12)(cid:11)(cid:26)(cid:15)(cid:23)(cid:12)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:2)(cid:9)+(cid:26)(cid:20)(cid:23)(cid:13)(cid:15)(cid:23)(cid:26)(cid:9)(cid:10)(cid:7)(cid:3)(cid:10)$(cid:10)(cid:24)(cid:11)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:2)(cid:9)+(cid:26)(cid:20)(cid:23)(cid:13)(cid:15)(cid:23)(cid:26)(cid:9)(cid:10)(cid:7)(cid:3)(cid:10)$(cid:10)(cid:24)(cid:11)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)#(cid:10)(cid:9)(cid:17)(cid:23)(cid:20)(cid:16)(cid:10)(cid:7)(cid:11)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)#(cid:10)(cid:23)(cid:13)(cid:16)(cid:27)(cid:23)(cid:20)(cid:15)(cid:10)(cid:21)(cid:7)(cid:13)(cid:7)(cid:22)(cid:14)((cid:12)(cid:9)(cid:16)(cid:27)(cid:23)(cid:20)(cid:15)(cid:10)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)!(cid:12)(cid:9)(cid:13)(cid:21)(cid:23)(cid:10)(cid:24)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:11)(cid:13)(cid:24)(cid:7)#(cid:13)(cid:11)(cid:20)(cid:12)(cid:7)(cid:3)(cid:10)(cid:23)(cid:26)(cid:9)(cid:10)(cid:24)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:11)(cid:13)(cid:24)(cid:7)#(cid:13)(cid:11)(cid:20)(cid:12)(cid:7)(cid:3)(cid:10)(cid:23)(cid:26)(cid:9)(cid:10)(cid:24)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:2)(cid:19)(cid:9)(cid:17)(cid:15)(cid:12)(cid:24)(cid:10)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:2)(cid:19)(cid:9)(cid:17)(cid:15)(cid:12)(cid:24)(cid:10)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:2)(cid:24)(cid:20)(cid:16)(cid:13)(cid:14)(cid:23)(cid:10)(cid:9)(cid:20)(cid:10)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:2)(cid:24)(cid:20)(cid:16)(cid:13)(cid:14)(cid:23)(cid:10)(cid:9)(cid:20)(cid:10)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:31)(cid:20)$(cid:20)(cid:24)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:8)(cid:13)(cid:12)(cid:16)(cid:27)(cid:23)(cid:20)(cid:15)(cid:10)(cid:7)(cid:18)(cid:7)*(cid:12)&(cid:12)(cid:19)(cid:9)(cid:10)((cid:17)(cid:10)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)*(cid:13)(cid:15)(cid:14)(cid:12)(cid:24)(cid:12)(cid:19)(cid:17)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:24)(cid:10)(cid:21)(cid:7)(cid:22)(cid:14)(cid:11)(cid:26)(cid:21)(cid:23)(cid:9)(cid:20)(cid:10)(cid:21)(cid:7)(cid:2)(cid:19)(cid:9)(cid:10)(cid:9)(cid:20)(cid:10)(cid:21)(cid:7)(cid:18)(cid:7)(cid:2)(cid:24)(cid:20)(cid:16)(cid:13)(cid:14)(cid:23)(cid:10)(cid:9)(cid:20)(cid:10)(cid:21)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)*(cid:13)(cid:15)(cid:14)(cid:12)(cid:24)(cid:12)(cid:19)(cid:17)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:24)(cid:10)(cid:21)(cid:7)(cid:22)(cid:14)(cid:11)(cid:26)(cid:21)(cid:23)(cid:9)(cid:20)(cid:10)(cid:21)(cid:7)(cid:2)(cid:19)(cid:9)(cid:10)(cid:9)(cid:20)(cid:10)(cid:21)(cid:7)(cid:18)(cid:7)(cid:2)(cid:24)(cid:20)(cid:16)(cid:13)(cid:14)(cid:23)(cid:10)(cid:9)(cid:20)(cid:10)(cid:21)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:4)(cid:24)(cid:13)(cid:15)(cid:23)(cid:9)(cid:12)(cid:16)(cid:13)(cid:15)(cid:27)(cid:14)(cid:20)(cid:15)(cid:10)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:4)(cid:24)(cid:13)(cid:15)(cid:23)(cid:9)(cid:12)(cid:16)(cid:13)(cid:15)(cid:27)(cid:14)(cid:20)(cid:15)(cid:10)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:4)(cid:15)(cid:12)(cid:14)(cid:12)(cid:16)(cid:17)(cid:10)(cid:7)!(cid:20)(cid:14)(cid:10)(cid:14)(cid:15)(cid:20)(cid:13)(cid:9)(cid:10)(cid:7)(cid:18)(cid:7)(cid:2)(cid:15)(cid:23)(cid:26)(cid:10)(cid:9)(cid:20)(cid:10)(cid:24)(cid:11)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:4)(cid:15)(cid:12)(cid:14)(cid:12)(cid:16)(cid:17)(cid:10)(cid:7)!(cid:20)(cid:14)(cid:10)(cid:14)(cid:15)(cid:20)(cid:13)(cid:9)(cid:10)(cid:7)(cid:18)(cid:7)(cid:2)(cid:15)(cid:23)(cid:26)(cid:10)(cid:9)(cid:20)(cid:10)(cid:24)(cid:11)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:31)(cid:20)(cid:13)(cid:14)(cid:15)(cid:20)(cid:10)(cid:21)(cid:7)(cid:2)(cid:16) (cid:20)(cid:13)(cid:14)(cid:23)(cid:10)(cid:24)(cid:13)(cid:21)(cid:11)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:31)(cid:20)(cid:13)(cid:14)(cid:15)(cid:20)(cid:10)(cid:21)(cid:7)(cid:2)(cid:16) (cid:20)(cid:13)(cid:14)(cid:23)(cid:10)(cid:24)(cid:13)(cid:21)(cid:11)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:2)(cid:16) (cid:20)(cid:13)(cid:14)(cid:23)(cid:10)(cid:24)(cid:11)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:2)(cid:16) (cid:20)(cid:13)(cid:14)(cid:23)(cid:10)(cid:24)(cid:11)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)*(cid:13)(cid:9)(cid:10)&(cid:20)(cid:10)(cid:7)(cid:6)(cid:15)(cid:26)&(cid:10)(cid:15)(cid:20)(cid:12)(cid:14)(cid:10)(cid:24)(cid:11)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)*(cid:13)(cid:9)(cid:10)&(cid:20)(cid:10)(cid:7)(cid:6)(cid:15)(cid:26)&(cid:10)(cid:15)(cid:20)(cid:12)(cid:14)(cid:10)(cid:24)(cid:11)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:19)(cid:26)(cid:10)(cid:24)(cid:11)(cid:10)(cid:11)(cid:7)(cid:11)(cid:13)(cid:7)(cid:8)0(cid:14)(cid:13)(cid:9)(cid:12)(cid:11)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:2)(cid:9)(cid:23)(cid:13)(cid:21)(cid:7)1(cid:20)(cid:21)(cid:26)(cid:10)(cid:24)(cid:13)(cid:21)(cid:7)(cid:18)(cid:7)%(cid:10)(cid:14)\"(cid:10)(cid:7)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:2)(cid:9)(cid:23)(cid:13)(cid:21)(cid:7)1(cid:20)(cid:21)(cid:26)(cid:10)(cid:24)(cid:13)(cid:21)(cid:7)(cid:18)(cid:7)%(cid:10)(cid:14)\"(cid:10)(cid:7)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7))(cid:13)(cid:11)(cid:10)(cid:19)(cid:12)(cid:19)(cid:17)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:24)(cid:10)(cid:21)(cid:7)(cid:2)(cid:9)(cid:23)(cid:13)(cid:21)(cid:7)1(cid:20)(cid:21)(cid:26)(cid:10)(cid:24)(cid:13)(cid:21)(cid:7)(cid:18)(cid:7)%(cid:10)(cid:14)\"(cid:10)(cid:7)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7))(cid:13)(cid:11)(cid:10)(cid:19)(cid:12)(cid:19)(cid:17)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:24)(cid:10)(cid:21)(cid:7)(cid:2)(cid:9)(cid:23)(cid:13)(cid:21)(cid:7)1(cid:20)(cid:21)(cid:26)(cid:10)(cid:24)(cid:13)(cid:21)(cid:7)(cid:18)(cid:7)%(cid:10)(cid:14)\"(cid:10)(cid:7)(cid:7)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)#(cid:10)(cid:23)(cid:13)(cid:16)(cid:27)(cid:23)(cid:20)(cid:15)(cid:10)(cid:21)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:31)(cid:20)(cid:13)(cid:14)(cid:15)(cid:20)(cid:10)(cid:21)(cid:7)(cid:31)(cid:9)(cid:20)(cid:16)(cid:20)(cid:14)(cid:12)(cid:24)’(cid:19)(cid:20)(cid:15)(cid:10)(cid:21)(cid:7)(cid:18)(cid:7)(cid:11)(cid:13)(cid:7)(cid:24)(cid:10)(cid:7)(cid:25)(cid:13)(cid:19)(cid:26)(cid:9)(cid:20)(cid:11)(cid:10)(cid:11)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:25)(cid:20)(cid:21)(cid:23)(cid:13)(cid:16)(cid:10)(cid:21)(cid:7)(cid:11)(cid:13)(cid:7)(cid:22)(cid:14)((cid:12)(cid:9)(cid:16)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(cid:8)(cid:9)(cid:10)(cid:11)(cid:12)(cid:7)(cid:13)(cid:14)(cid:7)(cid:22)(cid:14)(cid:19)(cid:13)(cid:14)(cid:20)(cid:13)(cid:9)(cid:17)(cid:10)(cid:7)(cid:11)(cid:13)(cid:7)(cid:25)(cid:20)(cid:21)(cid:23)(cid:13)(cid:16)(cid:10)(cid:21)(cid:7)(cid:11)(cid:13)(cid:7)*(cid:13)(cid:24)(cid:13)(cid:15)(cid:12)(cid:16)(cid:26)(cid:14)(cid:20)(cid:15)(cid:10)(cid:15)(cid:20)’(cid:14)(cid:7)",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

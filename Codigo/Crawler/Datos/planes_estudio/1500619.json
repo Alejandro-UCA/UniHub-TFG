@@ -1,0 +1,619 @@
+{
+  "codigo_estudio": "1500619",
+  "titulo": "Graduado o Graduada en Comunicación Estratégica, Protocolo y Organización de Eventos por la Universidad Antonio de Nebrija",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "052",
+  "universidad_nombre": "Universidad Antonio de Nebrija",
+  "fecha_procesado": "2026-08-04T15:29:38.002487",
+  "boe_url": "http://www.boe.es/boe/dias/2025/12/04/pdfs/BOE-A-2025-24717.pdf",
+  "boe_fecha": "2025-12-04",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2025/12/04/pdfs/BOE-A-2025-24717.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2025/10/01/BOCM-20251001-31.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica": "60",
+      "Obligatorias": "120",
+      "Optativas": "36",
+      "Créditos Totales": "240"
+    },
+    "total_elementos": 66,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "18",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Primer semestre",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "Segundo semestre"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Organización de la comunicación.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Escritura y argumentación.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Historia del ceremonial y protocolo.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Comunicación estratégica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Marketing y publicidad.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Tercer semestre",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "Cuarto semestre"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Derecho constitucional e instituciones del Estado.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Pensamiento creativo.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Protocolo social y en empresa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Plan de Comunicación estratégica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Comunicación digital y RR. SS.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Quinto semestre",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "Sexto semestre"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Producción de eventos y activación de marca.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Patrocinio y mecenazgo.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Responsabilidad Social Corporativa.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Comunicación interna.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Competencias profesionales.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Séptimo semestre",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "Octavo semestre"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Turismo y MICE.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Taller de Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Optativa 1.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Optativa 2.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Optativa 3.",
+        "creditos_ects": "3",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Comunicación política.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Emprendimiento en comunicación.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Comunicación deportiva.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Comunicación de moda y lifestyle.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Creación de contenidos: redes sociales e influencia.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Estrategia de ventas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Datos y analítica: Business intelligence.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Identidad corporativa e imagen de marca.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Diplomacia y resolución de conflictos internacionales.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Emblemática, símbolos políticos y derecho premial.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Comunicación de influencia.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Creación de campañas de influencia.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Selección e integración de creadores de contenido.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Eventos deportivos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Eventos de moda y lujo.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Gestión de relaciones y crisis con perfiles de influencia.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Medición de resultados en comunicación de influencia.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Diseño web y aplicaciones móviles.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Escenografía y dirección de arte.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Medios, arte y cultura.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Comunicación en tecnología e IA.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Narrativas sonoras y podcast.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Producción de formatos publicitarios.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Marketing y modelos de emprendimiento.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Diseño de portfolio.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Denominación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "Semestre"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Influencers, Marca y Reputación.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "FACULTAD DE MEDICINA Y CIENCIAS DE LA SALUD",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "ENSEÑANZAS",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Medicina",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería Biomédica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Madrid (c/ Serrano Jover, 4 y 6)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Bioinformática",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "FACULTAD DE CIENCIAS DE LA VIDA Y DE LA NATURALEZA",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ciencias de la Actividad Física y del Deporte",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Enfermería",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Fisioterapia",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Psicología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Madrid (c/ Asura, 90) Curso 2025/2026: 1º Curso 2026/2027: 2º Curso 2027/2028: 3º Curso 2028/2029: 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Neuropsicología",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Psicología General Sanitaria",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Psicopedagogía (virtual*)",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

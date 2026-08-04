@@ -1,0 +1,205 @@
+{
+  "codigo_estudio": "2503506",
+  "titulo": "Graduado o Graduada en Comunicación y Medios Digitales / Bachelor in Communication and Digital Media por la IE Universidad",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "057",
+  "universidad_nombre": "IE Universidad",
+  "fecha_procesado": "2026-08-04T14:47:13.791131",
+  "boe_url": "http://www.boe.es/boe/dias/2022/05/20/pdfs/BOE-A-2022-8319.pdf",
+  "boe_fecha": "2022-05-20",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2022/05/20/pdfs/BOE-A-2022-8319.pdf",
+    "http://www.boe.es/boe/dias/2018/03/27/pdfs/BOE-A-2018-4313.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica": "60",
+      "Obligatorias": "138",
+      "Optativas": "30",
+      "Trabajo Fin de Grado / Máster": "12"
+    },
+    "total_elementos": 20,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Formación Básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "30",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Ciencias Sociales y Jurídicas*.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Fundamentos y contextos de la comunicación y los medios.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Desarrollo y producción de contenido.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Estrategias integradas de comunicación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Comunicación y negocios.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Metodologías de investigación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Derecho. Ciencia Política. Economía.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Bases del Derecho. .............. Ciencias Políticas. ............... Bases del análisis económico....... Metodologías de análisis........... Gestión empresarial. ............. Habilidades. .................... Tecnología......................",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Derecho Público y Derecho Privado. . . Bases del Derecho. ............... Ciencias Políticas. ................ Metodologías de análisis............ Bases del análisis económico........ Diseño de políticas económicas. ..... Habilidades. ..................... Humanidades y retos globales. ......",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Derecho Público y Derecho Privado. . . . Econometría. ..................... Diseño de políticas económicas. ...... Metodología de análisis.............. Metodología para la toma de decisión... Ciencias Políticas. ................. Ciencias de la conducta. ............ Deontología.......................",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Optativas........................ Humanidades y retos globales. ...... Trabajo fin de Grado. ..............",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Comunicación",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Teorías y textos fundacionales de la comunicación. ... Contextos culturales, sociales, económicos, políticos y legales de la comunicación. .................... Creación de contenido audiovisual. . . . . . . . . . . . . . . . . Habilidades para la comunicación estratégica. ....... Estrategias y gestión de comunicación.............. Tecnología.................................... Habilidades. .................................. Gestión empresarial. ...........................",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "El ámbito empresarial de la comunicación y los medios. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Comunicación para empresas y organizaciones.... Estrategias y gestión de publicidad y marketing.... Estrategias y gestión de marca................. Habilidades para la comunicación estratégica. .... Lenguaje y narrativas para la creación de contenido. Desarrollo de medios digitales. ................ Habilidades. ............................... Humanidades y retos globales. ................ Contextos culturales, sociales, económicos, políticos y legales de la comunicación.................",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Metodologías creativas. . . . . . . . . . . . . . . . . . . . . . . Metodologías analíticas....................... Estrategias y gestión de publicidad y marketing.... Estrategias y gestión de comunicación........... Desarrollo y producción de contenidos creativos para marcas y entretenimiento.................... Desarrollo de medios digitales. ................ Lenguaje y narrativas para la creación de contenido. Deontología profesional.......................",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Optativo.................................... Desarrollo y producción de contenidos creativos para marcas y entretenimiento..................... Comunicación para empresas y organizaciones..... Humanidades y retos globales. ................. Trabajo final de grado. ........................",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

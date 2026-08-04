@@ -1,0 +1,1243 @@
+{
+  "codigo_estudio": "3500545",
+  "titulo": "Máster Universitario en Neuropsicología Clínica por la Universidad Alfonso X El Sabio",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "047",
+  "universidad_nombre": "Universidad Alfonso X El Sabio",
+  "fecha_procesado": "2026-08-04T15:23:17.546112",
+  "boe_url": "http://www.boe.es/boe/dias/2025/10/13/pdfs/BOE-A-2025-20359.pdf",
+  "boe_fecha": "2025-10-13",
+  "all_boe_urls": [
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2025/10/01/BOCM-20251001-32.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {},
+    "total_elementos": 136,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Denominación del título",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Computación Cuántica",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Patrimonio Territorial y Cambio Global",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario Erasmus Mundus en Química Teórica y Modelización Computacional / Erasmus Mundus Master in Theoretical Chemistry and Computational Modelling",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "ECTs",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "Máster Universitario en Ilustración, Narrativa y Diseño",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "Grado en Matemática Aplicada/ Bachelor in Applied Mathematics Grado en Inteligencia Artificial/ Bachelor in Artificial Intelligence",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "Centro",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "responsable",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "Calendario",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "implantación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "Denominación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "del título",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "Grado en Urban Sustainability Studies",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "Máster Universitario en Energías Renovables en Sistemas Térmicos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "Máster Universitario en Experiencia de Usuario y Análisis de Información Digital",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "Máster Universitario en Ingeniería Biomecánica y Dispositivos Médicos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "Máster Universitario en Ingeniería de Diseño Microelectrónico",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "Máster Universitario en Alta Dirección y Gestión Logística y Económica-Financiera en el ámbito de la Seguridad",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "Máster Universitario en Inteligencia y Contraterrorismo",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "Grado en Antropología Social y Cultural Grado en Biotecnología Grado en Filosofía, Política y Economía",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "Denominación del",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "título",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "Máster Universitario en Biología Molecular del Cáncer/Molecular Biology of Cancer",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "Modalidad",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "impartición",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "Máster Universitario en Co- mediación Arquitectónica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "Máster Universitario en Estudios Avanzados en Botánica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "Máster Universitario en Inteligencia Artificial",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "Máster Universitario en Lingüística y Tecnologías",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "Máster Universitario en Métodos Formales en Ingeniería Informática / Formal Methods in Computer Science",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Materiales Avanzados/ Master in Advanced Materials",
+        "nombre_elemento": "Máster Universitario en Hidrología en Ciencias de la Salud",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Universitario en Química de Materiales para el Futuro",
+        "nombre_elemento": "Máster Universitario en Construcción Industrializada y Prototipado en el Proyecto Arquitectónico",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Universitario en Química de Materiales para el Futuro",
+        "nombre_elemento": "Máster Universitario en Matemáticas Avanzadas",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Universitario en Química de Materiales para el Futuro",
+        "nombre_elemento": "Máster Universitario en Ingeniería Civil: Hidráulica, Energía y Medio Ambiente",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Universitario en Química de Materiales para el Futuro",
+        "nombre_elemento": "Máster Universitario en Lingüística y Tecnologías -",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Universitario en Química de Materiales para el Futuro",
+        "nombre_elemento": "Grado en Ingeniería Aeroespacial",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Universitario en Química de Materiales para el Futuro",
+        "nombre_elemento": "Grado en Traducción e Interpretación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Universitario en Química de Materiales para el Futuro",
+        "nombre_elemento": "Grado en Gastronomía",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Universitario en Química de Materiales para el Futuro",
+        "nombre_elemento": "Grado en Inteligencia, Seguridad y Diplomacia",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Universitario en Química de Materiales para el Futuro",
+        "nombre_elemento": "Grado en Historia del Arte y Patrimonio Cultural",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Universitario en Química de Materiales para el Futuro",
+        "nombre_elemento": "Grado en Biología",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Universitario en Química de Materiales para el Futuro",
+        "nombre_elemento": "Grado en Ingeniería en Tecnologías de Telecomunicación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Universitario en Química de Materiales para el Futuro",
+        "nombre_elemento": "Grado en Ciencia y Tecnología del Agua",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Universitario en Química de Materiales para el Futuro",
+        "nombre_elemento": "Máster Universitario en Investigación Biomédica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Universitario en Química de Materiales para el Futuro",
+        "nombre_elemento": "Máster Universitario en Conservación de Museos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Universitario en Química de Materiales para el Futuro",
+        "nombre_elemento": "Máster Universitario en Intervención Psicológica en Ámbitos Sociales y Comunitarios",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Universitario en Química de Materiales para el Futuro",
+        "nombre_elemento": "Máster Universitario en Ingeniería para la Discapacidad y la Rehabilitación",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Universitario en Química de Materiales para el Futuro",
+        "nombre_elemento": "Máster Universitario en Análisis de Datos Deportivos",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Centro responsable",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Estudios Globales",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario Erasmus Mundus en Ecología del Cambio Global y Gestión de la Biodiversidad / Erasmus Mundus Joint Master in Global Change Ecology and Biodiversity Management",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Grado en Pedagogía Grado en Relaciones Internacionales / Bachelor in International Relations Grado en Fundamentos de la Arquitectura",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "Curso a curso Curso 2025/2026: 1º, 2º, 3º y 4º Curso 2025/2026: 1º, 2º, 3º, 4º y 5º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Metodología de la Investigación en Educación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Prevención y Mediación de Conflictos en Entornos Educativos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Innovación Educativa",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Didáctica de las Matemáticas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Educación Emocional y Acompañamiento Pedagógico",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Rendimiento Deportivo y Prevención de Lesiones",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Dirección y Organización de Proyectos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Neuropsicología Clínica",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Dirección y Gestión Financiera",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Grado en Relaciones Internacionales Grado en Nutrición Humana y Dietética Grado en Artes Escénicas Grado en Publicidad y Relaciones Públicas Grado en Bellas Artes Grado en Comunicación Audiovisual",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Curso a curso Curso a curso Curso a curso -curso 2025/2056: 1º y 2º -curso 2026/2027: 3º -curso 2027/2028: 4º -curso 2025/2056: 1º y 2º -curso 2026/2027: 3º -curso 2027/2028: 4º Curso a curso",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Grado en Comunicación Estratégica, Protocolo y Organización de Eventos Grado en Diseño de Moda Grado en Ingeniería Civil Grado en Odontología Grado en Periodismo",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "-curso 2025/2056: 1º y 2º -curso 2026/2027: 3º -curso 2027/2028: 4º -2025/2026: 1º y 2º -2026/2027: 3º -2027/2028: 4º Curso a curso Curso a curso -2025/2026: 1º y 2º -2026/2027: 3º -2027/2028: 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Grado en Comunicación Estratégica, Protocolo y Organización de Eventos Grado en Criminología y Ciencias Forenses",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "-2025/2026: 1º y 2º -2026/2027: 3º -2027/2028: 4º Curso a curso",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Liderazgo y Dirección Estratégica de Personas",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Marketing y Comunicación del Lujo en Moda y Belleza",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Dirección Estratégica de Destinos Turísticos Inteligentes",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Sostenibilidad y Economía Circular",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Ingeniería Industrial",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Psicología General Sanitaria",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Ingeniería de Caminos, Canales y Puertos",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Negocios Internacionales/ Master in International Business",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Programa de Doctorado enMedicina y Epidemiología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Grado en Ilustración y Desarrollo Visual/Illustration and Visual Development Grado en Arte para Videojuegos/Bachelor in Game Art Grado en Diseño de Videojuegos/Bachelor in Game Design",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Investigación en Enfermería",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Producción de Animación, Efectos Visuales y Videojuegos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Grado en Inteligencia Artificial Grado en Ciencia y Tecnología Aplicadas al Deporte/Bachelor in Science and Technology Applied to Sport Grado en Gestión del Diseño /Bachelor in Design Management",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Curso a curso Curso a curso -Curso 2025/2026: 1º y 2º -Curso 2026/2027: 3º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Dirección y Gestión de Proyectos/Master in Project Management",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Investigación Educativa",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Fisioterapia en Paciente con Patología Cardiorrespiratoria",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Fisioterapia en el Paciente Pediátrico",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Ejercicio Físico en Patologías y Poblaciones Especiales",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Descubrimiento de Fármacos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Ciberdelincuencia",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Necesidades Educativas Especiales",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Diseño de Producto",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Grado en Ingeniería Física",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Calendario de",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Master Universitario en Acompañamiento Integral",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Enfermería de Práctica Avanzada en Cuidados Críticos, Urgencias y Emergencias",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Enfermería de Práctica Avanzada en el Cuidado Integral al Final de la Vida",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Psicopedagogía",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Enfermería de Práctica Avanzada en Salud Escolar",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Programa de Doctorado en Ciencias de la Salud y Deporte",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Programa de Doctorado en Ingeniería Industrial e Informática",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Grado en Filosofía, Política y Comunicación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Fisioterapia Musculoesquelética, Ejercicio Terapéutico y Razonamiento Clínico",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Criminalística",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Grado en Logopedia",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Grado en Psicología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Curso 2025/2026: 1º, 2º, 3º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Análisis de Datos para la Gestión Empresarial",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Dirección Financiera y Control de Gestión",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Dirección y Gestión Pública",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Elaboración y Verificación de Información sobre Sostenibilidad Empresarial",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Inteligencia Artificial Aplicada a la Educación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Tributación y Asesoría Fiscal",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Investigación en Trauma Psicológico",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Prevención del Suicidio",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Gestión/Master in Management (MIM)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Grado en Psicología Grado en Marketing y Comunicación Digital Grado en Ingeniería Informática",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Grado en Marketing/Bachelor in Marketing",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Grado en Administración y Dirección de Empresas Grado en Derecho Grado en Maestro en Educación Infantil",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Grado en Maestro en Educación Primaria Grado en Psicología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en el Ejercicio de la Abogacía y la Procura",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Dirección y Administración de Empresas (MBA)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Tecnología Educativa y Competencias Digitales",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Neuropsicología y Educación",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Marketing Digital",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Enseñanza de Español como Lengua Extranjera",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Grado en Educación Infantil Grado en Farmacia",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Dirección de Cadena de Suministro / Master in Supply Chain Management",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Gestión de Personas, Talento y Transformación Digital / Master in People Talent & Digital Transformation Management",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Dirección de Marketing y Gestión Comercial / Master in Marketing and Sales Management",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Comunicación Digital y Responsabilidad Social Corporativa",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Prevención e Intervención en Violencia de Género",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Industria 4.0",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Máster Universitario en Industria 4.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Fisioterapia Deportiva",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Programa de Doctorado en Marketing",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Grado en Robótica centrada en las personas",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Inteligencia Artificial Aplicada al Ámbito Educativo Máster Universitario en Ciberseguridad y Hacking Ético Máster Universitario en Industria 5.0",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Máster Universitario en Inteligencia Artificial Aplicada al Ámbito Educativo Máster Universitario en Ciberseguridad y Hacking Ético Máster Universitario en Industria 5.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Programa de Doctorado en Diseño y Tecnología Aplicados a la Empresa",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Centroresponsable",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Grado en Diseño de Moda/Bachelor in Fashion Design",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Grado en Humanidades/Bachelor in Humanities",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería Avanzada de Materiales",
+        "nombre_elemento": "Máster Universitario en Tecnología para los Asuntos Globales / Master in Technology for Global Affairs",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

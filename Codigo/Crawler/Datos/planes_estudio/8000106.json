@@ -1,0 +1,64 @@
+{
+  "codigo_estudio": "8000106",
+  "titulo": "Master of Arts in Photography",
+  "nivel_academico": "Título Extranjero",
+  "universidad_codigo": "096",
+  "universidad_nombre": "Centros extranjeros autorizados por la Comunidad Valenciana",
+  "fecha_procesado": "2026-08-04T14:45:19.679666",
+  "boe_url": "http://dogv.gva.es/datos/2025/10/23/pdf/2025_44007_es.pdf",
+  "boe_fecha": "2025-10-23",
+  "all_boe_urls": [
+    "http://dogv.gva.es/datos/2025/10/23/pdf/2025_44007_es.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {},
+    "total_elementos": 5,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Program name",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Bachelor of Arts (Honours) in Digital Media (Top-Up)",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1 year",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Bachelor of Arts (Honours) in Photography (Top-Up)",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1 year",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Master of Arts in Photography",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1 year",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Master of Arts in Illustration and Animation",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1 year",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

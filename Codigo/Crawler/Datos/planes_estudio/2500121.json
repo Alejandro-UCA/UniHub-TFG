@@ -1,0 +1,540 @@
+{
+  "codigo_estudio": "2500121",
+  "titulo": "Graduado o Graduada en Administración y Dirección de Empresas por la Mondragón Unibertsitatea",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "061",
+  "universidad_nombre": "Mondragón Unibertsitatea",
+  "fecha_procesado": "2026-08-04T14:50:45.031586",
+  "boe_url": "http://www.boe.es/boe/dias/2022/01/28/pdfs/BOE-A-2022-1402.pdf",
+  "boe_fecha": "2022-01-28",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2022/01/28/pdfs/BOE-A-2022-1402.pdf",
+    "http://www.boe.es/boe/dias/2018/07/28/pdfs/BOE-A-2018-10747.pdf",
+    "http://www.boe.es/boe/dias/2009/06/27/pdfs/BOE-A-2009-10662.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica": "67",
+      "Obligatorias": "65",
+      "Optativas": "78",
+      "Trabajo Fin de Grado / Máster": "30",
+      "Créditos Totales": "240"
+    },
+    "total_elementos": 57,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Tipología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Formación básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Trabajo de fin de grado.",
+        "creditos_ects": "30",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Economía.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Gestión Contable y Legal.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Empresa del S. XXI.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Marketing Estratégico.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Gestión Financiera y Fiscal.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Matemáticas y Estadística.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Empresa S. XXI.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Organización Orientada al Cliente.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Gestión de Producción y Operaciones.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Gestión de Personas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Gestión de la Organización Ambidiestra.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Nuevos Mercados e Internacionalización.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Desarrollo de Negocio.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Innovación en Producto, Servicio y Proceso.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia de Especialización V: Gestión del Talento.",
+        "nombre_elemento": "Especialización en Tendencias I.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia de Especialización V: Gestión del Talento.",
+        "nombre_elemento": "Especialización en Tendencias II.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia de Especialización V: Gestión del Talento.",
+        "nombre_elemento": "Estancias Internacionales I.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia de Especialización V: Gestión del Talento.",
+        "nombre_elemento": "Estancias Internacionales II.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia de Especialización V: Gestión del Talento.",
+        "nombre_elemento": "Estancias Internacionales III.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia de Especialización V: Gestión del Talento.",
+        "nombre_elemento": "Estancias Internacionales IV.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia de Especialización V: Gestión del Talento.",
+        "nombre_elemento": "Estancia en la Empresa I.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia de Especialización V: Gestión del Talento.",
+        "nombre_elemento": "La Organización y sus Funciones.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia de Especialización V: Gestión del Talento.",
+        "nombre_elemento": "Estancia en la Empresa II.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "1.º y 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia de Especialización V: Gestión del Talento.",
+        "nombre_elemento": "Una Visión Sistémica de la Competitividad y el Desarrollo.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "1.º y 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia de Especialización V: Gestión del Talento.",
+        "nombre_elemento": "Estancia en la Empresa III.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "1.º y 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia de Especialización V: Gestión del Talento.",
+        "nombre_elemento": "Desarrollo de una Nueva Actividad Empresarial.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "1.º y 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia de Especialización V: Gestión del Talento.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "30",
+        "caracter": "TFG/TFM",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia de Especialización V: Gestión del Talento.",
+        "nombre_elemento": "Prácticas Especializadas I.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia de Especialización V: Gestión del Talento.",
+        "nombre_elemento": "Prácticas Especializadas II.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia de Especialización V: Gestión del Talento.",
+        "nombre_elemento": "Prácticas Especializadas III.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia de Especialización V: Gestión del Talento.",
+        "nombre_elemento": "Prácticas Especializadas IV.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia de Especialización V: Gestión del Talento.",
+        "nombre_elemento": "Basque Culture.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia de Especialización V: Gestión del Talento.",
+        "nombre_elemento": "Spanish.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia de Especialización V: Gestión del Talento.",
+        "nombre_elemento": "Euskara Teknikoa.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia de Especialización V: Gestión del Talento.",
+        "nombre_elemento": "Global Project.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "N.º ECTS",
+        "nombre_elemento": "6 6 6 6 9 6 7 6 8",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "N.º ECTS",
+        "nombre_elemento": "1.º 1.º 2.º 2.º 1.º 1.º 1.º 1.º 1.º",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º y 2.º 1.º y 2.º 2.º 1.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "N.º ECTS",
+        "nombre_elemento": "2.º 2.º 2.º 2.º 2.º 2.º 2.º 2.º 3.º 3.º 3.º 2.º 3.º 3.º 3.º 3.º 3.º",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º 2.º 2.º 1.º 1.º 1.º 1.º 2.º 2.º 1.º 2.º 2.º 2.º 2.º 1.º 2.º 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "N.º ECTS",
+        "nombre_elemento": "3.º 3.º 4.º 4.º 4.º 4.º 4.º 3.º o 4.º 4.º 3.º o 4.º 4.º",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2.º 1.º 1.º 1.º 1.º 2.º 2.º 1.º 1.º 1.º 1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "N.º ECTS",
+        "nombre_elemento": "1.º 2.º 2.º 2.º 2.º 3.º 3.º 4.º 4.º",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º y 2.º 1.º 2.º 2.º 2.º 1.º 2.º 1.º 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "N.º ECTS",
+        "nombre_elemento": "1.º 2.º 3.º o 4.º 4.º 3.º o 4.º 4.º 2.º 3.º 3.º 3.º 3.º 3.º o 4.º 3.º o 4.º 4.º 4.º 3.º o 4.º 3.º o 4.º",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º y 2.º 2.º 1.º 2.º 1.º 2.º 1.º 1.º 1.º 2.º 1.º 1.º 1.º 2.º 2.º 1.º o 2.º 1.º o 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "N.º ECTS",
+        "nombre_elemento": "4.º 4.º 4.º 4.º 4.º",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º 2.º 2.º 2.º 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "N.º ECTS",
+        "nombre_elemento": "6 8 6 6 6 6 8 6 8",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.ºy 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "N.º ECTS",
+        "nombre_elemento": "1.º 1.º 1.º 1.º 1.º 1.º 2.º 2.º 2.º 2.º 2.º 2.º 2.º",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º 1.º 2.º 2.º 1.º 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "N.º ECTS",
+        "nombre_elemento": "2.º 2.º 3.º 3.º 3.º 3.º 3.º 3.º 3.º 3.º 3.º 3.º 3.º 4.º 4.º 4.º",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º y 2.º 2.º 1.º 1.º 1.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º 2.º 2.º 2.º 1.º 1.º 1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "N.º ECTS",
+        "nombre_elemento": "3.º 3.º 4.º 4.º 4.º",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2.º 2.º 1.º 1.º 1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "N.º ECTS",
+        "nombre_elemento": "3.º 4.º 4.º",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2.º 1.º 1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "N.º ECTS",
+        "nombre_elemento": "3.º 4.º 4.º 4.º",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2.º 1.º 1.º 1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "N.º ECTS",
+        "nombre_elemento": "1.º 2.º 2.º 3.º 3.º 4.º",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º y 2.º 1.º 2.º 1.º 2.º 1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "N.º ECTS",
+        "nombre_elemento": "1.º 2.º",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º y 2.º 1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "N.º ECTS",
+        "nombre_elemento": "4.º 4.º 4.º 4.º",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2.º 2.º 2.º 2.º",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

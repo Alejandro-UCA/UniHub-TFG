@@ -1,0 +1,786 @@
+{
+  "codigo_estudio": "2501564",
+  "titulo": "Graduado o Graduada en Maestro en Educación Infantil por la Universidad Alfonso X El Sabio",
+  "nivel_academico": "Grado - RD 1393/2007 (1)",
+  "universidad_codigo": "047",
+  "universidad_nombre": "Universidad Alfonso X El Sabio",
+  "fecha_procesado": "2026-08-04T15:16:48.971816",
+  "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2025/07/29/BOCM-20250729-34.PDF",
+  "boe_fecha": "2025-07-11",
+  "all_boe_urls": [
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2025/07/29/BOCM-20250729-34.PDF",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2010/11/29/BOCM-20101129-13.PDF",
+    "http://www.boe.es/boe/dias/2007/12/29/pdfs/A53735-53738.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {},
+    "total_elementos": 85,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Denominación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Cuidados Paliativos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Prevención y Tratamiento Psicológico de las Adicciones",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Terapias Contextuales",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Docencia Virtual/e- Learning",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Didáctica de la Lengua",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Turismo y Ocio",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Decreto 6/2022, de 23 de febrero (BOCM 28.02.22)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Periodismo, Comunicación Digital y Nuevos Medios",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Ciencias y Humanidades",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 1950/2023, de 1 de junio (BOCM 14.06.23)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Denominación del título a extinguir",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en América Latina y la Unión Europea: una cooperación estratégica",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Métodos Formales en Ingeniería Informática/Formal Methods in Computer Science (título conjunto de la Universidad Autónoma de Madrid, la Universidad Complutense de Madrid (coordinadora) y la Universidad Politécnica de Madrid)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Programa de Doctorado Erasmus Mundus en Ciencia e Ingeniería de la Fusión/International Doctoral College in Fusion Science and Engineering (FUSION-DC)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Interpretación Musical e Investigación Performativa",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Prevención de Riesgos Laborales y Cumplimiento Normativo",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Ciberdelincuencia",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Dirección de Empresas MBA",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Enfermería Pediátrica y Neonatal Intrahospitalaria",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Ingeniería Fotónica /Master in Photonics Engineering (título conjunto de la Universidad de Alcalá, la Universidad Carlos III de Madrid (coordinadora) y la Universidad Politécnica de Madrid)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Management y Gestión del Cambio",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Evaluación e Intervención con Adolescentes en Conflicto (Centro Universitario Cardenal Cisneros)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Investigación e Innovación en Inteligencia Computacional y Sistemas Interactivos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Investigación y Cuidados de Enfermería en Poblaciones Vulnerables",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Tecnologías Avanzadas en Comunicaciones/Master in Advanced Communications Technologies",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Ingeniería Estructural de Construcciones Industriales",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Tecnología e Innovación en Diseño de Moda (Centro Superior de Diseño de Moda)",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Emprendedores",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Marco Institucional y Crecimiento Económico",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Ingeniería Informática",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías de Procesado de Materiales",
+        "nombre_elemento": "Máster Universitario en Comunicación y Problemas Socioculturales",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías de Procesado de Materiales",
+        "nombre_elemento": "Máster Universitario en Bioética",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías de Procesado de Materiales",
+        "nombre_elemento": "Máster Universitario en Matemáticas Avanzadas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías de Procesado de Materiales",
+        "nombre_elemento": "Máster Universitario en Comunicación de la Salud",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías de Procesado de Materiales",
+        "nombre_elemento": "Grado en Dirección Comercial y Marketing",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías de Procesado de Materiales",
+        "nombre_elemento": "Grado en Maestro en Educación Infantil",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías de Procesado de Materiales",
+        "nombre_elemento": "Grado en Marketing",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías de Procesado de Materiales",
+        "nombre_elemento": "Máster Universitario en Dirección y Gestión de Centros Educativos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías de Procesado de Materiales",
+        "nombre_elemento": "Grado en Psicología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías de Procesado de Materiales",
+        "nombre_elemento": "Grado en Administración y Dirección de Empresas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías de Procesado de Materiales",
+        "nombre_elemento": "Grado en Creación y Narración de Videojuegos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías de Procesado de Materiales",
+        "nombre_elemento": "Grado en Periodismo",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías de Procesado de Materiales",
+        "nombre_elemento": "Grado en Análisis de Negocios/Business Analytics",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías de Procesado de Materiales",
+        "nombre_elemento": "Grado en Publicidad",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías de Procesado de Materiales",
+        "nombre_elemento": "Máster Universitario en Acción Política, Fortalecimiento Institucional y Participación Ciudadana en el Estado de Derecho",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías de Procesado de Materiales",
+        "nombre_elemento": "Grado en Ingeniería de Sistemas en la Nube e Internet de las Cosas / Bachelor in Cloud System Engineering and Internet of Things",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías de Procesado de Materiales",
+        "nombre_elemento": "Máster Universitario en Instituciones y Mercados Financieros",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Titulación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Arquitectura",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado de Maestro en Educación Infantil",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Simultánea de 1º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado de Maestro en Educación Primaria",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Simultánea de 1º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Lenguas Modernas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Lenguas Modernas y Gestión",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Relaciones Internacionales",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Óptica y Optometría",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "Simultánea de 1º y 2º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Proyectos de Interiorismo",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería Telemática",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería Electrónica Industrial y Automática",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería Eléctrica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería Mecánica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Turismo",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería en Diseño Industrial y Desarrollo de Producto",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería de Sonido e Imagen",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería de Sistemas de Telecomunicación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Diseño de Interiores",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Fisioterapia",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Trabajo Social",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Protocolo y Organización de Eventos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Criminología y Seguridad",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Diseño",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Conservación y Restauración del Patrimonio Cultural",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Derecho, Mención en Derecho Francés",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Gestión Informática Empresarial",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Derecho",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería Civil y Territorial",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería Geológica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería en Tecnología Minera",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería y Ciencia Agronómica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería Agroambiental",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Fundamentos de la Arquitectura",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Criminología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Economía",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "esririuqda nebed euq saicnetepmoC",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "al ,sarotomocisp ,nóicatimi al al ed ne aicnedicni otcapmi ;dadilarutlucretni le al euq .etnecod osergorp al led ne ,nóicamrofni ed le us ed revomorp radroba avitacude rodatneiro ne y nóicneta ratseneib ne sedadirailucep arojem sacitcárp ne y avitulove nóicacude omoc litnafni selitnafni al noc :ralocse nóicnuf la al aígolocisp ,savitingoc ,nóicatnemirepxe rebas y arap satsilaicepse nóicargetni y rotut senoicutitsni y railimaf e dadilarutlucitlum y adiv al ,rotomocisp ed y saicitnemila al ed neyubirtnoc ísa ,etnaidutse sal a y nóicavonni al ed saígoloncet ed solpmeje nóicacude saleucse sotluda al ed sollorrased sacitsíretcarac al ,nóicavresbo sol y selaugi selanoiseforp al recerovaf arap ed senoicnuf sal sarto y sotneimatnuya nóicacude al ;selanoicarenegretni ed solitse ed ,sailimaf ollorrased ,savitcefa oicicreje le ne elbixelf euq serotcaf omoc adac a nóicneta odnacifitnedi ,ogeuj al a riubirtnoc odnazilitu .senoisulcnoc y selanoicanretni ed sovitacude sotceyorp sal aluger euq recreje a le nóicalsigel .selaicifO sol reconoC sus y apate al ,dadisoiruc sol noc nóiccaretni sorto sosrucer rebas ,sailimaf natcefa euq ed sopit ,nóicatnemila saicnerac res rebas odaroseforp al ne ed oicapse omoc ísa lanoicavresbo ed emrofni saicneirepxe ed sairatisrevinU saznañesnE .ralocse y laicos al ed daditnedi al ,datrebil al ed acigógadep a ramrofni rebaS ririuqdA .neetnalp y reconoC .ovitacude rop sadazinagro lautca dadeicos e orenég ed setnerefid sol al ,oñeus le ne ratceteD .sonrotsart y nóicautis y opurg led ominá ed sodatse ortnec led areuf y le ne y alua le .otcefa y dadiliuqnart ,dadilaer al y acitcárp aígolodotem etnaidem nu rarobale y reconoC .lanoicanretni otneimiuges y nóicarobale al reconoC .selaicos .nóicacude ,railimaf al reconoceR al ,aímonotua .nóicneta es euq osecorp ,aleucse al ed senoicaler ,ailimaf sonrotsart sohcid ,etnaidutse ortned ne ojabart al erbos dadilaer setnega al ed sal ed nóicanedrO ed oterceD laeR led II oxenA otxetnoc le ne ,6-0 odoirep le ne ejazidnerpa .anarpmet nóicneta ed sotnemadnuf al a onrot ne sotibáh ed nóicisiuqda al nóisnemid al reconoC .ocitsírueh y ocilóbmis .laudividni ozreufse le y ovitarepooc al noc sadanoicaler sal y savitingoc senoicnufsid selaicepse savitacude sedadisecen sal a nóicneta le ne etnemzacife ridicni arap sailimaf al ed areuf y ortned senoicca ne rarobaloc setnaveler sám senoitseuc sal acitírc amrof ed sal ne soibmac ;sallatnap sal ed y selausivoidua al ed acirótsih nóiculove al reconoC .elbinetsos racifitnedI .selbadulas otneimatropmoc ranoiculos arap sodazilaicepse selanoiseforp .setnaidutse sol ed adac ed nóicnuf ne etnaibmac se litnafni sol y soiraroh sol ,ralocse onrotne le ne dadiraluger ed selanoiseforp sorto noc opiuqe ne rajabart ed senoicautis sal ed nóicazinagro al ne ,dadiruges ritimsnart y setnaidutse sol ed sedadisecen ranoixelfer redop arap ocisáb otnemurtsni opmac ed sisilána radrobA .ortsiger y nóicavresbo al etnemacitírc rednerpmoc ,sodinetbo sotad le ne y oeporue otxetnoc le ne ,loñapse al ne rapicitraP .opiuqe ne ojabart led aicnatropmi y selanoiseforp sorto noc y oirotirret le noc dadilac ed rotcaf omoc ailimaf us y etnaidutse le núges ed sol reconoC revomorp ogeuj ojabart al sal noc y revomorP raroprocni ollorrased y ollorrased sol noc odauceda nóicacude al rebaS y ejazidnerpa nu se acitámetsis ed sol razilana ovitacude al nóicarobaloc adac noc sacisáb y sovitacude rebaS le ,setimíl le ,savitceloc ,ejazidnerpa ne ortseam nóicacinumoc e sejaugnel nu rarobaloC ociuqísp ne y dadilibatse .setnaidutse sal rednetA sacincét rebaS ametsis rarolaV lanosrep .6-3 .savitcefa .railimaf razilanA y ed airaid ed .litnafni ne sairetam sal ed saicnetepmoC sosecorp sol rednerpmoC y 3-0 sodoirep sol ne aicnafni ,selaicos ,savitacinumoc ed y samron ed nóicatpeca sedadivitca ne nóicapicitrap ed sedatlucifid racifitnedI led y ortnec led nóicarobaloc .sedatlucifid noc setnaidutse ed sozal renetnam y raerC nóicacude al noc nóicaler .anadaduic nóicamrof al sol ed ovitacude y laicos laicos nóisulcni e nóicanimircsid .railimaf otxetnoc socisáb soipicnirp sol reconoC .lausiv y avitidua nóicpecrep y ocisíf ollorrased le nebrutrep acimánid al euq rednerpmoC al ed aicnatropmi al rarolaV sol ed largetni e ocinómra saicneuces sal ed nóicacifinalp .6-3 odoirep led y 3-0 odoirep nóicavresbo al euq rednerpmoC sal ranimoD .litnafni nóicacude .selausivoidua y nóicatnemucod le ne litnafni aleucse al rautiS nóicacude ne sarodavonni y ortnec ed sotceyorp ed ocram nóicaler al rarolaV .nóicazinagro al ne",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "ed ºN",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "oludóM",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "led .)soña sonrotsart ed y ejazidnerpa 6-0( ,ralocse .setnecod sisilána .litnafni .nóicatnemila dadilanosrep y ejazidnerpa .aleucse oicapse sedadilibah y acitámetsis nóicacude acisáb ,sovitacude y nóicamrof sosecorP al ed ollorrased ed sedatlucifiD ollorrased ailimaf ,dadeicoS y dulas ,aicnafnI led nóicazinagrO y selairetam nóicavresbO .sotxetnoc ed aleucse eD aL",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

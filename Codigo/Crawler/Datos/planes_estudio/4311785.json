@@ -1,0 +1,113 @@
+{
+  "codigo_estudio": "4311785",
+  "titulo": "Máster Universitario en Comunicación, Seguridad y Defensa",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "057",
+  "universidad_nombre": "IE Universidad",
+  "fecha_procesado": "2026-08-04T14:48:07.265475",
+  "boe_url": "http://bocyl.jcyl.es/boletines/2019/06/04/pdf/BOCYL-D-04062019-7.pdf",
+  "boe_fecha": "2019-05-30",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2013/08/05/pdfs/BOE-A-2013-8637.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "6",
+      "Optativas": "5",
+      "Trabajo Fin de Grado / Máster": "10"
+    },
+    "total_elementos": 10,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Materia.",
+        "nombre_elemento": "Seguridad y defensa. Aspectos conceptuales.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia.",
+        "nombre_elemento": "Defensa nacional y Fuerzas Armadas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia.",
+        "nombre_elemento": "Las organizaciones internacionales de seguridad y defensa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia.",
+        "nombre_elemento": "Los desafíos a la seguridad en el siglo XXI.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia.",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia.",
+        "nombre_elemento": "Bases de la comunicación especializada en Seguridad y Defensa (I) (Documentación y Redacción Periodísticas especializadas, Técnicas avanzadas de expresión, Publicaciones especializadas).",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia.",
+        "nombre_elemento": "Bases de la comunicación especializada en Seguridad (II) (Relaciones con los medios, Administración comunicativa en Seguridad y Defensa, La comunicación en las Fuerzas Armadas y de Seguridad).",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia.",
+        "nombre_elemento": "Comunicación internacional.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia.",
+        "nombre_elemento": "La información en conflictos armados (prensa, radio, televisión cine e internet) y el Periodismo de guerra.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

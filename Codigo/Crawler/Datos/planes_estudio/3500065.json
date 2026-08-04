@@ -1,0 +1,188 @@
+{
+  "codigo_estudio": "3500065",
+  "titulo": "Máster Universitario en Emprendimiento e Innovación Abierta por la Mondragón Unibertsitatea",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "061",
+  "universidad_nombre": "Mondragón Unibertsitatea",
+  "fecha_procesado": "2026-08-04T14:53:49.999049",
+  "boe_url": "http://www.boe.es/boe/dias/2024/05/17/pdfs/BOE-A-2024-10008.pdf",
+  "boe_fecha": "2024-05-17",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2024/05/17/pdfs/BOE-A-2024-10008.pdf",
+    "http://www.euskadi.eus/web01-bopv/es/bopv2/datos/2023/08/2303925a.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "42",
+      "Optativas": "12",
+      "Prácticas Externas": "0",
+      "Trabajo Fin de Grado / Máster": "6",
+      "Créditos Totales": "9"
+    },
+    "total_elementos": 18,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "ECONOMÍA Y EMPRESA I.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "ECONOMÍA Y EMPRESA II.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "CREACIÓN Y DESARROLLO DE EQUIPOS Y COMUNIDADES",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "LIDERAZGO, APRENDIZAJE AUTOGESTIONADO Y DESARROLLO PERSONAL.",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "GESTIÓN Y DESARROLLO DE PROYECTOS DE INNOVACIÓN EN EQUIPO.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "TOTAL.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "CONOCIMIENTO EXPERTO JURÍDICO-LEGALES Y FINANCIEROS PARA EMPRENDEDORES.",
+        "creditos_ects": "4,5",
+        "caracter": "PE",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "CONOCIMIENTO EXPERTO EN TECNOLOGÍAS EMERGENTES Y HERRAMIENTAS DIGITALES.",
+        "creditos_ects": "4,5",
+        "caracter": "PE",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "ECOSISTEMAS DE EMPRENDIMIENTO E INNOVACIÓN; AGENTES Y ALIANZAS.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "MARKETING ESTRATÉGICO.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "ESTRATEGIA DE EMPRENDIMIENTO E INNOVACIÓN ABIERTA.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "GENERACIÓN DE MODELOS DE NEGOCIO.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "ACCESO A LA INVERSIÓN Y FINANCIACIÓN.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "DESARROLLO DE NUEVOS NEGOCIOS.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "PRÁCTICAS EN EMPRESA.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "TRABAJO FIN DE MÁSTER.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Código",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "3500065",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

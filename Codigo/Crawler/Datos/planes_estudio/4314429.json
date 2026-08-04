@@ -1,0 +1,101 @@
+{
+  "codigo_estudio": "4314429",
+  "titulo": "Máster Universitario en Gerontología Psicosocial por la Universidad a Distancia de Madrid",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "074",
+  "universidad_nombre": "Universidad a Distancia de Madrid",
+  "fecha_procesado": "2026-08-04T15:03:40.812847",
+  "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2021/08/05/BOCM-20210805-12.PDF",
+  "boe_fecha": "2021-07-27",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2014/03/19/pdfs/BOE-A-2014-2946.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2013/11/07/BOCM-20131107-7.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {},
+    "total_elementos": 9,
+    "elementos_curriculares": [
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "La Gerontología como Ciencia.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Políticas Sociales para Mayores.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Evaluación e Intervención Gerontológica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Aspectos Legales y Éticos en Gerontología.",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Desarrollo Directivo en Centros de Atención a la Tercera Edad.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Evaluación e Intervención en Demencias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

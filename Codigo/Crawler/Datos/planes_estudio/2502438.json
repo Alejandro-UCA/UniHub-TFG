@@ -1,0 +1,563 @@
+{
+  "codigo_estudio": "2502438",
+  "titulo": "Graduado o Graduada en Enfermería por la Universidad Antonio de Nebrija",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "052",
+  "universidad_nombre": "Universidad Antonio de Nebrija",
+  "fecha_procesado": "2026-08-04T15:30:38.919596",
+  "boe_url": "http://www.boe.es/boe/dias/2012/07/03/pdfs/BOE-A-2012-8923.pdf",
+  "boe_fecha": "2012-07-03",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2012/07/03/pdfs/BOE-A-2012-8923.pdf",
+    "http://www.boe.es/boe/dias/2011/03/21/pdfs/BOE-A-2011-5175.pdf",
+    "http://www.boe.es/boe/dias/2008/07/19/pdfs/A31680-31683.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "6"
+    },
+    "total_elementos": 60,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Anatomía Humana.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Bioquímica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Fisiología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Psicología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Estadística.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Fisiopatología.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Farmacología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Antropología.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Idioma Moderno.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Anatomía Humana General.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Fisiología Humana.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Psicología General y de la Salud.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Psicología Social y Comunicación Humana.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Estadística y Tecnologías de la Información Aplicadas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Antropología de la Salud.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Inglés Técnico en Ciencias de la Salud.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Fisiopatología I.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Fisiopatología II.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Nutrición y Dietética.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Historia, Teoría y Metodología de la Enfermería.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Cuidados Básicos de Enfermería y Soporte Vital Básico.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Enfermería Clínica General I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Enfermería Clínica General II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Enfermería en Obstetricia y Ginecología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Enfermería en Salud Mental.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Cuidados de Enfermería al Paciente en Estado Crítico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Enfermería Pediátrica.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Enfermería Geriátrica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Cuidados Paliativos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Salud Pública y Demografía.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Epidemiología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Enfermería Comunitaria y Educación para la Salud.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Bioética y Ética Profesional de Enfermería.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Legislación Sanitaria y Gestión de Servicios de Enfermería.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Metodología de la Investigación en Ciencias de la Salud.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Taller de Competencias Interprofesionales.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Terapias Complementarias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Salud Laboral.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Drogodependencias.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Actividades de voluntariado.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Actividades de participación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Prácticas Tuteladas Nivel Básico.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Prácticas Tuteladas Nivel Medio.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Prácticas Tuteladas Nivel Avanzado.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Obligatoria.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Prácticas tuteladas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Optativa (3).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "Optativa (3).",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "T.F.G.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia Real Decreto 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Psicología General y de la Salud. Psicología Social y Comunicación Humana.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia Real Decreto 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Fisiopatología I. Fisiopatología II.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia Real Decreto 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Farmacología. Nutrición y Dietética.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia Real Decreto 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Historia, Teoría y Metodología de la Enfermería. Cuidados Básicos de Enfermería y Soporte Vital Básico.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia Real Decreto 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Enfermería Clínica General I. Enfermería Clínica General II. Enfermería en Obstetricia y Ginecología. Enfermería en Salud Mental. Cuidados de Enfermería al Paciente en Estado Crítico. Enfermería Pediátrica. Enfermería Geriátrica. Cuidados Paliativos.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia Real Decreto 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Salud Pública y Demografía. Epidemiología. Enfermería Comunitaria y Educación para la Salud.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia Real Decreto 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Bioética y Ética Profesional de Enfermería. Legislación Sanitaria y Gestión de Servicios de Enfermería.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia Real Decreto 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Prácticas Tuteladas Nivel Básico. Prácticas Tuteladas Nivel Medio. Prácticas Tuteladas Nivel Avanzado.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia Real Decreto 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Optativa (*).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "sotidérc soeporue ed ºN",
+        "creditos_ects": "06",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

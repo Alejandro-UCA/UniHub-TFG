@@ -1,0 +1,103 @@
+{
+  "codigo_estudio": "4313162",
+  "titulo": "Máster Universitario en Comunicación Corporativa / Corporate Communication por la IE Universidad",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "057",
+  "universidad_nombre": "IE Universidad",
+  "fecha_procesado": "2026-08-04T14:48:03.653702",
+  "boe_url": "http://bocyl.jcyl.es/boletines/2021/01/25/pdf/BOCYL-D-25012021-9.pdf",
+  "boe_fecha": "2021-01-21",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2013/01/08/pdfs/BOE-A-2013-261.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "5",
+      "Trabajo Fin de Grado / Máster": "6"
+    },
+    "total_elementos": 9,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "La comunicación y la llegada de los nuevos medios.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "La comunicación en el siglo XXI.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Conexiones con las funciones de la comunicación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Conexiones con las funciones empresariales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Capacidades de comunicación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Capacidades de investigación, analíticas y de gobernanza.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Áreas básicas de la comunicación corporativa.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Áreas para la gestión de la comunicación en momentos de cambios y crisis.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

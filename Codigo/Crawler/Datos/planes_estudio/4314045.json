@@ -1,0 +1,123 @@
+{
+  "codigo_estudio": "4314045",
+  "titulo": "Máster Universitario en Creación Teatral y Coreográfica por la Universidad Antonio de Nebrija",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "052",
+  "universidad_nombre": "Universidad Antonio de Nebrija",
+  "fecha_procesado": "2026-08-04T15:35:33.753836",
+  "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2016/01/05/BOCM-20160105-16.PDF",
+  "boe_fecha": "2015-12-14",
+  "all_boe_urls": [
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2016/01/05/BOCM-20160105-16.PDF",
+    "http://www.boe.es/boe/dias/2014/03/17/pdfs/BOE-A-2014-2865.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2013/11/07/BOCM-20131107-7.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "6",
+      "Optativas": "13"
+    },
+    "total_elementos": 11,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Metodología de la investigación en las artes escénicas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Procesos creativos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Recursos materiales para la creación escénica.",
+        "nombre_elemento": "Música para la creación escénica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Recursos materiales para la creación escénica.",
+        "nombre_elemento": "Filosofía y estética en la creación contemporánea.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Recursos materiales para la creación escénica.",
+        "nombre_elemento": "Estilos y lenguajes de la escena.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Recursos materiales para la creación escénica.",
+        "nombre_elemento": "Práctica de la creación teatral.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Recursos materiales para la creación escénica.",
+        "nombre_elemento": "Proyecto coreográfico.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Destilación y presentación del material coreográfico.",
+        "nombre_elemento": "Formatos de exposición y divulgación de la obra coreográfica.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Destilación y presentación del material coreográfico.",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Destilación y presentación del material coreográfico.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "2",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

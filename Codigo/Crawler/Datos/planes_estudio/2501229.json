@@ -1,0 +1,1506 @@
+{
+  "codigo_estudio": "2501229",
+  "titulo": "Graduado o Graduada en Creación, Administración y Dirección de Empresas por la Universidad Antonio de Nebrija",
+  "nivel_academico": "Grado - RD 1393/2007 (1)",
+  "universidad_codigo": "052",
+  "universidad_nombre": "Universidad Antonio de Nebrija",
+  "fecha_procesado": "2026-08-04T15:29:41.009747",
+  "boe_url": "http://www.boe.es/boe/dias/2020/07/10/pdfs/BOE-A-2020-7715.pdf",
+  "boe_fecha": "2020-07-10",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2020/07/10/pdfs/BOE-A-2020-7715.pdf",
+    "http://www.boe.es/boe/dias/2016/12/06/pdfs/BOE-A-2016-11624.pdf",
+    "http://www.boe.es/boe/dias/2014/03/17/pdfs/BOE-A-2014-2860.pdf",
+    "http://www.boe.es/boe/dias/2012/07/03/pdfs/BOE-A-2012-8920.pdf",
+    "http://www.boe.es/boe/dias/2010/08/02/pdfs/BOE-A-2010-12407.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica": "60",
+      "Obligatorias": "156",
+      "Optativas": "12",
+      "Créditos Totales": "240",
+      "Trabajo Fin de Grado / Máster": "8",
+      "Prácticas Externas": "18"
+    },
+    "total_elementos": 164,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Primer semestre",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "Segundo semestre"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Análisis de la empresa/Business analysis.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Fundamentos de economía/Principles of economics.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Tecnología aplicada a la empresa/ Business appliedtechnology.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Matemáticas para la empresa/Business mathematics.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Seminario de competencias I/Research skills assessment I.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Tercer semestre",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "Cuarto semestre"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Advancedenglish.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Fundamentos de marketing para la empresa/Principles of marketing.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Contabilidad financiera avanzada/ Advancedfinancialaccounting.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Implantación y lanzamiento de nuevas empresas/Lean start up.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Análisis del entorno económico/ Externaleconomicanalysis.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Quinto semestre",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "Sexto semestre"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Dirección de personas y equipos/Human resourcesmanagement.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Contabilidad analítica y de gestión/ Managerial and costaccounting.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Diagnóstico económico y financiero de la empresa/Economic and financialanalysis.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Análisis avanzado de datos/Advanced data analysis.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Investigación de mercados/Marketing research.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Séptimo semestre",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "Octavo semestre"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Liderezgo y espíritu emprendedor/Leadership and entrepreneurialspirit.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Dirección estratégica/Strategicmanagement.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Dirección comercial integrada/ Commercialmanagementintegration.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Dirección financiera/Financialmanagement.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Seminario de competencias III/ Researchskillsassessment III.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Negocios internacionales/International business.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Derecho aplicado a la empresa II/ Business law II.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Administración de la empresa familiar/Familybusinessmanagement.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Internacionalización de nuevas empresas/New ventureinternationalization.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Mercados e instrumentos financieros para la empresa/Business financialmarkets.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Desarrollo del espíritu participativo y solidario: Clubes/Solidarity and participationprinciples.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Desarrollo del espíritu participativo y solidario: Actividades académicas varias/Solidarity and participationprinciples.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Desarrollo del espíritu participativo y solidario: Representación de alumnos/Solidarity and participationprinciples.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Desarrollo del espíritu participativo y solidario: Responsabilidad social corporativa/Solidarity and participationprinciples.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Aspectos legales para el emprendimiento/Legal aspectsforentrepreneurship.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Big data.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Business intelligence.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Teoría de juegos/Gametheory.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Procesos de emprendimiento e innovación I.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Procesos de emprendimiento e innovación II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Simulador de negocios.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Emprendimiento internacional en economías avanzadas y emergentes.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Creación y financiación de nuevas empresas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Dirección y organización de empresas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Dirección de personas y equipos.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Administración de la empresa familiar.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Gestion de la produccion y servicios.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Dirección estratégica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Dirección comercial integrada.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Negocios internacionales.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Contabilidad financiera avanzada.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Contabilidad analítica y de gestión.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Comportamiento de la empresa y el consumidor.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Análisis del entorno económico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Análisis de la economía española y de la UE.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Análisis avanzado de datos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Matemáticas financieras.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Diagnóstico económico y financiero de la empresa.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Mercados e instrumentos financieros.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Dirección financiera.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Investigación de mercados.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Contabilidad financiera.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Análisis de la empresa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Fundamentos de economía.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Derecho aplicado a la empresa I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Advanced english.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Fundamentos de marketing para la empresa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Tecnología aplicada a la empresa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Tendencias de la economia global.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Estadística aplicada.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Matematicas para la empresa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Derecho aplicado a la empresa II.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Regimen fiscal de la empresa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Advanced business english.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Informática de gestión avanzada.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Seminarios de desarrollo de competencias I.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Seminarios de desarrollo de competencias II.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Seminarios de desarrollo de competencias III.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Desarrollo del espíritu participativo y solidario.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1-8",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Evaluación del desarrollo de capacidades en la empresa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias básicas Real Decreto 1393/2007",
+        "nombre_elemento": "Empresa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias básicas Real Decreto 1393/2007",
+        "nombre_elemento": "Economía.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias básicas Real Decreto 1393/2007",
+        "nombre_elemento": "Derecho.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias básicas Real Decreto 1393/2007",
+        "nombre_elemento": "Estadística.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias básicas Real Decreto 1393/2007",
+        "nombre_elemento": "Idioma Moderno.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias básicas Real Decreto 1393/2007",
+        "nombre_elemento": "Tecnologías de la información y de la comunicación aplicadas a la empresa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias básicas Real Decreto 1393/2007",
+        "nombre_elemento": "Gestión de la producción y servicios.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias básicas Real Decreto 1393/2007",
+        "nombre_elemento": "Dirección comercial integrada (off y on-line).",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias básicas Real Decreto 1393/2007",
+        "nombre_elemento": "Microeconomía.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias básicas Real Decreto 1393/2007",
+        "nombre_elemento": "Macroeconomía.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias básicas Real Decreto 1393/2007",
+        "nombre_elemento": "Economía española y de la UE.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias básicas Real Decreto 1393/2007",
+        "nombre_elemento": "La empresa y su entorno.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias básicas Real Decreto 1393/2007",
+        "nombre_elemento": "Introducción al derecho.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias básicas Real Decreto 1393/2007",
+        "nombre_elemento": "Lenguas modernas.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias básicas Real Decreto 1393/2007",
+        "nombre_elemento": "Fundamentos de marketing.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias básicas Real Decreto 1393/2007",
+        "nombre_elemento": "Tendencias de la economía global.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias básicas Real Decreto 1393/2007",
+        "nombre_elemento": "Matemáticas.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias básicas Real Decreto 1393/2007",
+        "nombre_elemento": "Derecho mercantil.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias básicas Real Decreto 1393/2007",
+        "nombre_elemento": "Régimen fiscal de la empresa.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias básicas Real Decreto 1393/2007",
+        "nombre_elemento": "Creación de empresas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias básicas Real Decreto 1393/2007",
+        "nombre_elemento": "Gestión de proyectos empresariales.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias básicas Real Decreto 1393/2007",
+        "nombre_elemento": "Emprendimiento y generación de ideas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Comunicación. Empresa. Economía. Derecho. Historia. Estadística. Idioma Moderno.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 6 6 6 6 6 6 6 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Teoría de la Comunicación. La Empresa y su Entorno. Fundamentos de Economía. Introducción al Derecho. Lenguas Modernas. Fundamentos de Marketing. Mundo Contemporáneo. Tendencias de la Economía global. Estadística Aplicada. Matemáticas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Econometría.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Contabilidad Financiera. Contabilidad de Sociedades. Contabilidad Analítica y de Gestión.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Microeconomía. Macroeconomía. Economía Española y de la Unión Europea.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Matemáticas Financieras. Diagnóstico Económico y Financiero de la Empresa. Mercados e Instrumentos Financieros. Dirección Financiera.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Derecho Mercantil. Régimen Fiscal de la Empresa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Seminario Desarrollo de Competencias I. Seminario Desarrollo de Competencias II. Seminario Desarrollo de Competencias III.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Básica............... Básica............... Básica............... Básica............... Obligatoria ........... Obligatoria ........... Obligatoria ........... Básica............... Básica............... Obligatoria ........... Obligatoria ........... Obligatoria ........... Básica............... Básica............... Básica............... Obligatoria ........... Obligatoria ........... Obligatoria ........... Obligatoria ........... Básica............... Obligatoria ........... Optativa ............. Optativa ............. Optativa ............. Optativa ............. Optativa ............. Optativa ............. Optativa ............. Prácticas............. Obligatoria ........... Optativa ............. Obligatoria ........... Obligatoria ........... Optativa ............. Optativa ............. Trabajo Fin de Grado...",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de Materias",
+        "nombre_elemento": "Formación Básica",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de Materias",
+        "nombre_elemento": "Obligatorias",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de Materias",
+        "nombre_elemento": "Optativas",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de Materias",
+        "nombre_elemento": "Prácticas Profesionales",
+        "creditos_ects": "18",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de Materias",
+        "nombre_elemento": "Trabajo Fin de Grado",
+        "creditos_ects": "18",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de Materias",
+        "nombre_elemento": "TOTAL",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Ciencias Sociales y Jurídicas* Arte y Humanidades",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "1 1 1 1 2 2 2 2 1 2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Métodos Cuantitativos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Dirección de Empresas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 6 6 6 6 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Contabilidad",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Análisis Económico",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Finanzas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 6 6 6 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Marco jurídico",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Seminarios Desarrollo de Competencias",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Desarrollo del Espíritu participativo y Solidario",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Evaluación del Desarrollo de Capacidades en la Empresa",
+        "creditos_ects": "18",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Fundamentos de Economía",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Teoría de la Comunicación",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "La Empresa y su Entorno",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Matemáticas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Fundamentos de Marketing",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Introducción al Derecho",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Contabilidad Financiera",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Microeconomía",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Lenguas Modernas I",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Seminario de Desarrollo de Competencias I",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Lenguas Modernas II",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Mundo Contemporáneo",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Historia del Pensamiento Político",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Contabilidad de Sociedades",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Matemáticas Financieras",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Psicología Social",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Estadística Aplicada",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Dirección y Organización de Empresas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Macroeconomía",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Seminario de Desarrollo de Competencias II",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Diagnóstico Económico y Financiero de la Empresa",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Contabilidad Analítica y de Gestión",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Derecho del Trabajo y de la Seguridad Social",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Derecho Mercantil",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Mercados e Instrumentos Financieros",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Gestión y Dirección de Entidades Financieras",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Economía Española y de la Unión Europea",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Dirección Comercial",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Análisis y Gestión del Riesgo Financiero",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Econometría",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Seminario de Desarrollo de Competencias III",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Dirección Financiera",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Régimen Fiscal de la Empresa",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Dirección de la Innovación",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Creación de Empresas",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias de Formación Básica",
+        "nombre_elemento": "Dirección Estratégica",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

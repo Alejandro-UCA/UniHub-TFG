@@ -1,0 +1,77 @@
+{
+  "codigo_estudio": "2504500",
+  "titulo": "Graduado o Graduada en Estudios Urbanos / Bachelor in Urban Studies por la IE Universidad",
+  "nivel_academico": "Grado - RD 1393/2007 (1)",
+  "universidad_codigo": "057",
+  "universidad_nombre": "IE Universidad",
+  "fecha_procesado": "2026-08-04T14:47:23.800338",
+  "boe_url": "http://www.boe.es/boe/dias/2023/01/17/pdfs/BOE-A-2023-1174.pdf",
+  "boe_fecha": "2023-01-17",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2023/01/17/pdfs/BOE-A-2023-1174.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica": "60",
+      "Obligatorias": "138",
+      "Optativas": "30"
+    },
+    "total_elementos": 6,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Materias optativas.",
+        "nombre_elemento": "Trabajo fin de grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materias optativas.",
+        "nombre_elemento": "Interdisciplinar. 108 ECTS.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materias optativas.",
+        "nombre_elemento": "Herramientas. 36 ECTS.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materias optativas.",
+        "nombre_elemento": "Habilidades y conocimiento. 33 ECTS.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo optativas. 30 ECTS.",
+        "materia": "Materias optativas.",
+        "nombre_elemento": "Trabajo de fin de grado. 12 ECTS.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo optativas. 30 ECTS.",
+        "materia": "Materias optativas.",
+        "nombre_elemento": "Total ECTS.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

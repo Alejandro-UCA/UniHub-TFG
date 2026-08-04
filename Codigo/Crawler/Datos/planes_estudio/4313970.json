@@ -1,0 +1,231 @@
+{
+  "codigo_estudio": "4313970",
+  "titulo": "Máster Universitario en Dirección de Publicidad Integrada por la Universidad Antonio de Nebrija",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "052",
+  "universidad_nombre": "Universidad Antonio de Nebrija",
+  "fecha_procesado": "2026-08-04T15:36:24.686018",
+  "boe_url": "http://www.boe.es/boe/dias/2020/07/13/pdfs/BOE-A-2020-7780.pdf",
+  "boe_fecha": "2020-07-13",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2020/07/13/pdfs/BOE-A-2020-7780.pdf",
+    "http://www.boe.es/boe/dias/2014/03/17/pdfs/BOE-A-2014-2866.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2013/11/07/BOCM-20131107-7.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "48",
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 23,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Primer semestre",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "Segundo semestre"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Creación y estrategia de marca: Branding.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Creatividad integrada.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Target, puntos de contacto y gestión de medios POEM.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Dirección de cuentas (Cliente y proceso).",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Social media strategy.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Diseño y dirección de arte.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Investigación, analítica web y control de eficacia.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Creación de contenido de marca (Branded Content).",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Normativa y regulación profesional.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Planificación estratégica (Account Planning).",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Medios sociales y Community Manager.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Mobile Marketing y nuevas tendencias online.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Planificación de medios integrada.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Creatividad publicitaria integrada y digital.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Taller de creación de contenido de marca (Branded Content).",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Dirección creativa estratégica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Habilidades directivas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Producción.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Prácticas profesionales.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

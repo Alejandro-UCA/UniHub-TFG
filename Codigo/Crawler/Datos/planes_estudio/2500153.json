@@ -1,0 +1,1496 @@
+{
+  "codigo_estudio": "2500153",
+  "titulo": "Graduado o Graduada en Turismo por la Universidad Antonio de Nebrija",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "052",
+  "universidad_nombre": "Universidad Antonio de Nebrija",
+  "fecha_procesado": "2026-08-04T15:34:31.061766",
+  "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2025/10/14/BOCM-20251014-29.PDF",
+  "boe_fecha": "2025-09-29",
+  "all_boe_urls": [
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2025/10/14/BOCM-20251014-29.PDF",
+    "http://www.boe.es/boe/dias/2019/04/30/pdfs/BOE-A-2019-6479.pdf",
+    "http://www.boe.es/boe/dias/2012/07/03/pdfs/BOE-A-2012-8927.pdf",
+    "http://www.boe.es/boe/dias/2009/04/14/pdfs/BOE-A-2009-6285.pdf",
+    "http://www.bocm.es/boletin/CM_Boletin_BOCM/20080811_B/19000.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "30",
+      "Optativas": "3",
+      "Prácticas Externas": "30",
+      "Trabajo Fin de Grado / Máster": "30",
+      "Créditos Totales": "75"
+    },
+    "total_elementos": 163,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Denominación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Negocios Digitales",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 1950/2023, de 1 de junio (BOCM 14.06.23)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Diseño y Desarrollo de Videojuegos y Entornos Virtuales",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Análisis de Datos para la Epidemiología y Salud Pública",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Dirección de Negocios Internacionales",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 137/2020, de 29 de julio (BOCM 6.08.20)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Enfermería de Urgencias y Emergencias",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 1950/2023, de 1 de junio (BOCM 14.06.23)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Medicina de Urgencias y Emergencias",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 1950/2023, de 1 de junio (BOCM 14.06.23)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Medicina de Urgencias Hospitalarias y Paciente Crítico",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 1950/2023, de 1 de junio (BOCM 14.06.23)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Bioinformática",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 1950/2023, de 1 de junio (BOCM 14.06.23)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Arte Digital y Tecnologías Creativas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 1950/2023, de 1 de junio (BOCM 14.06.23)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Sociología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "BOE 6.01.24",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ciencias Políticas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 1950/2023, de 1 de junio (BOCM 14.06.23)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Educación Intercultural",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 1950/2023, de 1 de junio (BOCM 14.06.23)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Investigación en Bioética",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 1950/2023, de 1 de junio (BOCM 14.06.23)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Gobernanza Pública y Corporativa / Master in Public and Corporate Governance",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 1950/2023, de 1 de junio (BOCM 14.06.23)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Asesoramiento Financiero y Bancario",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Energías Renovables",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 1950/2023, de 1 de junio (BOCM 14.06.23)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Denominación del título a extinguir",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Estudios Norteamericanos (título conjunto de la Universidad de Alcalá (coordinadora) y la Universidad Complutense de Madrid)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Banca y Finanzas/ Finance & Banking",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 137/2020, de 29 de julio -BOCM 6.08.20",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Gestión Integral de Inmuebles y Servicios en el Patrimonio Arquitectónico",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 3130/2015, de 14 de octubre - BOCM 3.11.15",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Programa de Doctorado en Psicología Clínica y de la Salud",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 3910/2013, de 12 de diciembre - BOCM 3.01.14",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Grado en Estudios Hispano-Alemanes (título conjunto con la Universidad",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Complutense y la Universidad de Ratisbona, Alemania (coordinadora)).",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Gestión de Desastres (título conjunto de la Universidad Complutense de Madrid (coordinadora) y la Universidad Politécnica de Madrid)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 3130/2015, de 14 de octubre (BOCM 3.11.15)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Política Internacional. Estudios Sectoriales y de Área",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Ingeniería Fotónica / Master in Photonics Engineering (título conjunto de la Universidad de Alcalá, la Universidad Carlos III de Madrid (coordinadora) y la Universidad Politécnica de Madrid)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Comunicación Arquitectónica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 3130/2015, de 14 de octubre (BOCM 3.11.15)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Métodos Formales en la Ingeniería Informática (título conjunto de la Universidad Complutense de Madrid (coordinadora); Universidad Politécnica de Madrid; y Universidad Autónoma de Madrid)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Programa de Doctorado en Ciencias Sociales y Jurídicas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 3910/2013, de 12 de diciembre - BOCM 3.01.14",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Grado en Maestro en Educación Primaria",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Diseño de Productos y Servicios",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 137/2020, de 29 de julio - BOCM 6.08.20",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Grado en Turismo",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Grado en Relaciones Internacionales",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Grado en Artes Escénicas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Grado en Publicidad y Relaciones Públicas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Ingeniería Industrial",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Grado en Ingeniería Informática Biomédica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Investigación Clínica Avanzada en Oncología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Grado en Diseño de Productos Interactivos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Marketing Digital, Comunicación y Redes Sociales",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Relaciones Internacionales y Comunicación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Grado en Musicología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Grado en Ciencias de la Actividad Física y del Deporte",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Grado en Fisioterapia",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Investigación Musical",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Mediación Educativa y Problemas de Conducta en el Aula",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Actividad Física y Salud",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Grado en Periodismo",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Grado en Ingeniería de Tecnologías y Servicios de Telecomunicación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Grado en Psicología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Gestión Sanitaria",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Tecnología Educativa",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Mercado del Arte",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 11239/2012, de 5 de octubre - BOCM 30.10.12",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Dirección de Empresas Hoteleras",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 11239/2012, de 5 de octubre - BOCM 30.10.12",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Gestión Integrada de Prevención, Calidad y Medio Ambiente",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Asesoría Fiscal",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Dirección Económico Financiera",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Grado en Gestión de la Comunicación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Grado en Administración y Dirección de Empresas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Grado en Derecho",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Grado en Educación Infantil",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Grado en Educación Primaria",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Atención Temprana: Prevención, Detección e Intervención en las Alteraciones del Desarrollo y del Aprendizaje",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Acceso a la Abogacía y la Procura",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Psicopedagogía",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Alta Dirección / Master in Senior Management",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Decreto 6/2022, de 23 de febrero (BOCM 28.02.22) Cambio denominación – informe favorable Fundación para el Conocimiento Madrimasd (24.04.23)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Análisis de las Relaciones Económicas Internacionales",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Comunicación Corporativa y Responsabilidad Social Corporativa",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Decreto 6/2022, de 23 de febrero - BOCM 28.02.22",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Dirección de la Cadena de Suministro",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Decreto 6/2022, de 23 de febrero - BOCM 28.02.22",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Dirección en Marketing Internacional / Master in International Marketing Management",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Decreto 6/2022, de 23 de febrero - BOCM 28.02.22 Cambio denominación - informe favorable Fundación para el Conocimiento Madrimasd (26.05.23)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Programa de Doctorado en Física de la Luz y de la Materia",
+        "nombre_elemento": "Máster Universitario en Dirección de Turismo Internacional y Ocio",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "ECTS",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "6 6 6 6 6",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6 6 6 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "6 6 6 6 6 6 6 6",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4 4 4 4 4 4 4 4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Economía.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Empresa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Estadística.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Sociología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Geografía.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Historia.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Idioma Moderno.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Estructura de los mercados turísticos. Creación de productos turísticos. Legislación turística.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Investigación de Mercados.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Marketing Turístico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Microeconomía. Macroeconomía.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Lenguas Modernas III. Lenguas Modernas IV.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Contabilidad financiera. Contabilidad analítica y de gestión.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Planificación de destinos turísticos. Evaluación de impactos turísticos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Dirección y Organización de Empresas. Innovación y Creación de empresas. Dirección Estratégica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Nuevas tecnologías en el ámbito turístico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Dirección de hoteles (op 1). Operaciones y procesos en el sector hotelero (op2). Evaluación de proyectos hoteleros (op 3). Turismo de congresos y eventos (MICE) (op4).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "Dirección de hoteles (op 1). Operaciones y procesos en el sector hotelero (op2). Evaluación de proyectos hoteleros (op 3). Turismo de congresos y eventos (MICE) (op4).",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "La Distribución en el Sector Turístico (op1). Operaciones y Procesos en Touroperación (op2). Contratación en el Sector Turístico (op3). Internacionalización de Empresas Turísticas (op4).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Gestión de Destinos Turísticos (op1). Política Turística (op2). Modelos de Desarrollo Turístico (op3). Marketing de Destinos (op4).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Seminario de desarrollo de competencias I. Seminario de desarrollo de competencias II. Seminario de desarrollo de competencias III.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Desarrollo del espíritu participativo y solidario.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Evaluación del desarrollo de capacidades en la empresa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Básica......... Básica......... Obligatoria ..... Básica......... Obligatoria ..... Básica......... Básica......... Obligatoria ..... Obligatoria ..... Obligatoria .....",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Obligatoria ..... Obligatoria ..... Obligatoria ..... Obligatoria .....",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Obligatoria ... Optativa ..... Optativa ..... Optativa ..... Optativa ..... Optativa ..... Optativa ..... Optativa ..... Obligatoria ...",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia RD 1393/2007, de 29 de octubre",
+        "nombre_elemento": "Obligatoria ... Optativa ..... Optativa ..... Obligatoria ... Optativa ..... Optativa ..... Optativa ..... Obligatoria ...",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia (RD 1393/2007, de 29 de octubre)",
+        "nombre_elemento": "Planificación y modelos de desarrollo turístico. Evaluación de impactos turísticos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia (RD 1393/2007, de 29 de octubre)",
+        "nombre_elemento": "Gestión de las empresas de hostelería. El sector de la distribución y del transporte turístico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia (RD 1393/2007, de 29 de octubre)",
+        "nombre_elemento": "Evaluación de proyectos turísticos. Nuevas tecnologías en el ámbito turístico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia (RD 1393/2007, de 29 de octubre)",
+        "nombre_elemento": "Marketing. Marketing turístico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia (RD 1393/2007, de 29 de octubre)",
+        "nombre_elemento": "Creación de empresas. Organización empresarial.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia (RD 1393/2007, de 29 de octubre)",
+        "nombre_elemento": "Análisis y dirección financiera. Matemáticas financieras.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia (RD 1393/2007, de 29 de octubre)",
+        "nombre_elemento": "Dirección de RRHH.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia (RD 1393/2007, de 29 de octubre)",
+        "nombre_elemento": "Básica. Básica. Básica. Obligatoria. Obligatoria. Obligatoria. Básica. Básica. Obligatoria. Obligatoria. Obligatoria.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia (RD 1393/2007, de 29 de octubre)",
+        "nombre_elemento": "Básica. Básica. Básica. Obligatoria. Obligatoria. Básica. Básica. Obligatoria. Optativa. Obligatoria.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia (RD 1393/2007, de 29 de octubre)",
+        "nombre_elemento": "Obligatoria. Optativa. Optativa. Obligatoria. Optativa. Optativa. Obligatoria.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia (RD 1393/2007, de 29 de octubre)",
+        "nombre_elemento": "Optativa. Optativa. Optativa. Obligatoria. Obligatoria. Optativa. Optativa. Obligatoria.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Localización",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM Nº 87 de 12-4-06 pg.36",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM nº 87 de 12-4-06 pg. 37",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM Nº 149 de 24-06-08. pg. 14",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM Nº 39 de 15-2-07 Pg.5",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "BOCM Nº 39 de 15-2-07 Pg.5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM Nº 87 de 12-4-06 pg. 57",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "BOCM Nº 87 de 12-4-06 pg. 57",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM nº 87 de 12-4-06 pg. 38",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "BOCM nº 87 de 12-4-06 pg. 38",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM nº 87 de 12-4-06 pg. 39",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "BOCM nº 87 de 12-4-06 pg. 39",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM nº 87 de 12-4-06 pg. 41",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "BOCM nº 87 de 12-4-06 pg. 41",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM nº 87 de 12-4-06 pg. 43",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "BOCM nº 87 de 12-4-06 pg. 43",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Plazas ligadas a la amortización de otras",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "ANEXO CUERPO DE TÉCNICOS SUPERIORES ESPECIALISTAS, ESPECIALIDAD DE CIENCIAS HUMANÍSTICAS Y SOCIALES, DE ADMINISTRACIÓN ESPECIAL, GRUPO A, DE LA COMUNIDAD DE MADRID Turno libre",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "N.ode orden",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(03/22.929/08)",
+        "creditos_ects": "03",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "APELLIDOS Y NOMBRE",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "TRINIDAD SEPÚLVEDA FÁTIMA",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.226.663",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "PRIETO MARTÍNEZ, LAURA BEATRIZ",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "VARELA GARCÍA, Mª CONCEPCIÓN",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "TOBÍAS BORREGA, ENCARNACIÓN",
+        "creditos_ects": "24",
+        "caracter": "OB",
+        "curso": "2.527.684",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "GONZÁLEZ ÁLVAREZ, LAURA",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "GARCÍA MARTÍN, VIRGINIA",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "RODRÍGUEZ BRAVO, ANA Mª",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.900.784",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "PÉREZ DE ALBÉNIZ GARCÍA, CARMEN",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5.252.383",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "PÉREZ JAIME, Mª ANTONIA",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "LÓPEZ ORTEGO, Mª CRISTINA",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "MAROTO ALONSO, VIRGINIA",
+        "creditos_ects": "24",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "GARCÍA TÉLLEZ, RAQUEL",
+        "creditos_ects": "24",
+        "caracter": "OB",
+        "curso": "2.257.370",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "SÁNCHEZ BLÁZQUEZ, ROSA Mª",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.200.030",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BARRIO LUCÍA, VICENTE",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.492.872",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BRAVO BARAHONA, PILAR",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.610.973",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "DEL OLMO PÉREZ, MONTSERRAT",
+        "creditos_ects": "18",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "CARPINTERO DELGADO, ERIKA Mª",
+        "creditos_ects": "24",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "ANEXO ESCALA TÉCNICA SUPERIOR DE ADMINISTRACIÓN DE LA UNIVERSIDAD AUTÓNOMA DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "N.oorden",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(03/22.008/08)",
+        "creditos_ects": "03",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Adjudicataria",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "María Cuesta Acosta",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "B.O.C.M.Núm.190 LUNES11DEAGOSTODE2008 Pág.85 Losdatospersonalesrecogidoshansidoincorporadosytratadosenelfichero“SistemaIntegraldeGestiónySeguimientoAdmi- nistrativo”(SIGSA),cuyafinalidadeslaidentificacióndelosinteresadosenlosexpedientesquesegestionan,ypodránsercedidosdecon- formidadconlalegislaciónvigenteenmateriadeproteccióndedatosdecarácterpersonal. ElórganoresponsabledelficheroeslaDirecciónGeneraldeGestiónAmbientalUrbanadelÁreadeGobiernodeMedioAmbien- te,antelaqueelinteresadopodráejercerlosderechosdeacceso,rectificación,cancelaciónyoposición,enlacalleBustamante,número16, plantacuarta,todolocualseinformaencumplimientodelartículo5delaLeyOrgánica15/1999,de13dediciembre,deProteccióndeDa- tosdeCarácterPersonal. Madrid,a27dejuniode2008.—Lasecretariageneraltécnica,AdoraciónMuñozMerchante. (02/9.371/08) MADRID OTROSANUNCIOS ÁreadeGobiernodeMedioAmbiente DirecciónGeneraldeGestiónAmbientalUrbana DepartamentodeGestiónAdministrativa UnidadTécnicaAdministrativaII EDICTO Deacuerdoconlodispuestoenlosartículos59.5y61delaLey30/1992,deRégimenJurídicodelasAdministracionesPúblicasy delProcedimientoAdministrativoComún,yhabiendosidointentadanotificaciónindividualsinquehayasidoposiblepracticarla,sehace públicolosiguiente: “ElAyuntamientodeMadridhacomenzadolaincoacióndeexpedientesobreabandonodevehículo,fundamentándoseeneltiem- podepermanenciaestacionadoenlavíapúblicayenelestadodeconservacióndelmismo,deacuerdoconloestablecidoenelartículo71.1 delRealDecretoLegislativo339/1990,de2demarzo,porelqueseapruebaeltextoarticuladodelaLeydeTráfico,CirculacióndeVe- hículosaMotorySeguridadVial,yhabiendointentadosunotificaciónalosquefigurancomopropietariosenlabasededatosdelaJefa- turaProvincialdeTráficoyqueserelacionanacontinuación,seprocedeanotificarmedianteedictolasiguienterelación. Paraquenosecontinúeconlatramitacióndelexpediente,deberáaportarenelplazodediezdíasdesdesupublicaciónenelBOLE- TÍNOFICIALDELACOMUNIDADDEMADRID,fotocopiadelossiguientesdocumentos:permisodecirculación,tarjetadeinspeccióntécnica",
+        "nombre_elemento": "conITVpasada,seguroobligatorioalcorrientedepagoyúltimorecibopagadodelimpuestodevehículosdetracciónmecánica. Encasodenoaportarladocumentaciónrequeridaenelplazoseñalado,secontinuarálatramitacióndelexpedientesobreabando- nodevehículo,informandoqueelabandonodevehículosseconsideracomoabandonoderesiduosnopeligrososenvíapúblicaquepodría",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "públicolosiguiente: “ElAyuntamientodeMadridhacomenzadolaincoacióndeexpedientesobreabandonodevehículo,fundamentándoseeneltiem- podepermanenciaestacionadoenlavíapúblicayenelestadodeconservacióndelmismo,deacuerdoconloestablecidoenelartículo71.1 delRealDecretoLegislativo339/1990,de2demarzo,porelqueseapruebaeltextoarticuladodelaLeydeTráfico,CirculacióndeVe- hículosaMotorySeguridadVial,yhabiendointentadosunotificaciónalosquefigurancomopropietariosenlabasededatosdelaJefa- turaProvincialdeTráficoyqueserelacionanacontinuación,seprocedeanotificarmedianteedictolasiguienterelación. Paraquenosecontinúeconlatramitacióndelexpediente,deberáaportarenelplazodediezdíasdesdesupublicaciónenelBOLE- TÍNOFICIALDELACOMUNIDADDEMADRID,fotocopiadelossiguientesdocumentos:permisodecirculación,tarjetadeinspeccióntécnica conITVpasada,seguroobligatorioalcorrientedepagoyúltimorecibopagadodelimpuestodevehículosdetracciónmecánica. Encasodenoaportarladocumentaciónrequeridaenelplazoseñalado,secontinuarálatramitacióndelexpedientesobreabando- nodevehículo,informandoqueelabandonodevehículosseconsideracomoabandonoderesiduosnopeligrososenvíapúblicaquepodría sersancionadoconmultade600a30.000euros,deconformidadconelartículo35.1.b)delaLey10/1998,de21deabril,deResiduos. Sehacepúblicoparaconocimientodelosinteresados,advirtiéndolesdequelosexpedientesobranenlasdependenciasmunicipa- lesdelÁreadeGobiernodeMedioAmbiente(calleBustamante,número16).” EDICTONÚMERO91/2008SOBREVEHÍCULOSABANDONADOS",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "públicolosiguiente: “ElAyuntamientodeMadridhacomenzadolaincoacióndeexpedientesobreabandonodevehículo,fundamentándoseeneltiem- podepermanenciaestacionadoenlavíapúblicayenelestadodeconservacióndelmismo,deacuerdoconloestablecidoenelartículo71.1 delRealDecretoLegislativo339/1990,de2demarzo,porelqueseapruebaeltextoarticuladodelaLeydeTráfico,CirculacióndeVe- hículosaMotorySeguridadVial,yhabiendointentadosunotificaciónalosquefigurancomopropietariosenlabasededatosdelaJefa- turaProvincialdeTráficoyqueserelacionanacontinuación,seprocedeanotificarmedianteedictolasiguienterelación. Paraquenosecontinúeconlatramitacióndelexpediente,deberáaportarenelplazodediezdíasdesdesupublicaciónenelBOLE- TÍNOFICIALDELACOMUNIDADDEMADRID,fotocopiadelossiguientesdocumentos:permisodecirculación,tarjetadeinspeccióntécnica conITVpasada,seguroobligatorioalcorrientedepagoyúltimorecibopagadodelimpuestodevehículosdetracciónmecánica. Encasodenoaportarladocumentaciónrequeridaenelplazoseñalado,secontinuarálatramitacióndelexpedientesobreabando- nodevehículo,informandoqueelabandonodevehículosseconsideracomoabandonoderesiduosnopeligrososenvíapúblicaquepodría sersancionadoconmultade600a30.000euros,deconformidadconelartículo35.1.b)delaLey10/1998,de21deabril,deResiduos. Sehacepúblicoparaconocimientodelosinteresados,advirtiéndolesdequelosexpedientesobranenlasdependenciasmunicipa- lesdelÁreadeGobiernodeMedioAmbiente(calleBustamante,número16).” EDICTONÚMERO91/2008SOBREVEHÍCULOSABANDONADOS",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Pág.88 LUNES11DEAGOSTODE2008 B.O.C.M.Núm.190 Losdatospersonalesrecogidoshansidoincorporadosytratadosenelfichero“SistemaIntegraldeGestiónySeguimientoAdmi- nistrativo”(SIGSA),cuyafinalidadeslaidentificacióndelosinteresadosenlosexpedientesquesegestionan,ypodránsercedidosdecon- formidadconlalegislaciónvigenteenmateriadeproteccióndedatosdecarácterpersonal. ElórganoresponsabledelficheroeslaDirecciónGeneraldeGestiónAmbientalUrbanadelÁreadeGobiernodeMedioAmbien- te,antelaqueelinteresadopodráejercerlosderechosdeacceso,rectificación,cancelaciónyoposición,enlacalleBustamante,número16, plantacuarta,todolocualseinformaencumplimientodelartículo5delaLeyOrgánica15/1999,de13dediciembre,deProteccióndeDa- tosdeCarácterPersonal. Madrid,a30dejuniode2008.—Lasecretariageneraltécnica,AdoraciónMuñozMerchante. (02/9.463/08) ALCOBENDAS (cid:2) Losinteresadospodránsolicitarlasadaptacionesespecífi- cas para la realización de las pruebas del proceso de se- OFERTASDEEMPLEO lección. (cid:2) Atalefecto,juntoconlainstanciadeberánindicarlo,soli- Se convoca una plaza de subalterno, escala de Administración citandolasadaptacionesdetiempoymediosparalareali- General,grupoE(concurso-oposición,funcionariodecarrera,turno zacióndelaspruebasconcretas,asícomolasnecesidades discapacitado), de conformidad con la Oferta de Empleo Público específicas. de2008, publicada en el BOLETÍN OFICIAL DE LA COMUNIDAD DE (cid:2) Elcandidatoadjuntaráeldictamentécnicofacultativoemi- MADRIDde10dejuliode2008. tidoporelórganotécnicodecalificacióndelgradodemi- Las bases que rigen la citada convocatoria se ajustarán a las nusvalíacompetente,acreditandodeformafehacientelas",
+        "nombre_elemento": "publicadas en el BOLETÍN OFICIAL DE LA COMUNIDAD DE MA- DRIDdefecha23demayo,incluyendolassiguientesespecifica- ciones: — Enlabaseprimera,correspondientea“Objetodelaconvoca- toria”,seañadeelsiguientepárrafo: (cid:2) Encasodenocompareceraspirantesqueoptenalaplazao concurriendonosuperaranlaspruebasselectivasninguno deellos,seacumularándichasplazasalasdelturnolibre parasuprovisiónreglamentaria. — Enlabasesegunda,correspondientea“Requisitosdelosas- pirantes”,seañadeelsiguienterequisito: (cid:2) Tener una discapacidad reconocida con un grado de mi- nusvalíaigualosuperioral33por100.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "deficiencias/pertinentes que han dado origen al grado de minusvalía reconocido, todo ello de conformidad con el apartado cuarto de la Orden del Ministerio de Presiden- cia1822/2006(“BoletínOficialdelEstado”de13dejunio de2006). (cid:2) Los aspirantes que opten a esta convocatoria quedarán exentosdelpagodelastasasenconceptodederechosde examen. — Enlabasedécima,correspondientea“Presentacióndedocu- mentos”,seañadeelsiguientepunto: (cid:2) Certificadoqueacrediteelgradodeminusvalíareconoci- do, expedido por la Comunidad de Madrid o por el IMSERSO,enelcasodecertificacionesanterioresa1999. Alcobendas,a6deagostode2008.—Laalcaldesaenfunciones, MaríaConcepciónVillalónBlesa.",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Pág.88 LUNES11DEAGOSTODE2008 B.O.C.M.Núm.190 Losdatospersonalesrecogidoshansidoincorporadosytratadosenelfichero“SistemaIntegraldeGestiónySeguimientoAdmi- nistrativo”(SIGSA),cuyafinalidadeslaidentificacióndelosinteresadosenlosexpedientesquesegestionan,ypodránsercedidosdecon- formidadconlalegislaciónvigenteenmateriadeproteccióndedatosdecarácterpersonal. ElórganoresponsabledelficheroeslaDirecciónGeneraldeGestiónAmbientalUrbanadelÁreadeGobiernodeMedioAmbien- te,antelaqueelinteresadopodráejercerlosderechosdeacceso,rectificación,cancelaciónyoposición,enlacalleBustamante,número16, plantacuarta,todolocualseinformaencumplimientodelartículo5delaLeyOrgánica15/1999,de13dediciembre,deProteccióndeDa- tosdeCarácterPersonal. Madrid,a30dejuniode2008.—Lasecretariageneraltécnica,AdoraciónMuñozMerchante. (02/9.463/08) ALCOBENDAS (cid:2) Losinteresadospodránsolicitarlasadaptacionesespecífi- cas para la realización de las pruebas del proceso de se- OFERTASDEEMPLEO lección. (cid:2) Atalefecto,juntoconlainstanciadeberánindicarlo,soli- Se convoca una plaza de subalterno, escala de Administración citandolasadaptacionesdetiempoymediosparalareali- General,grupoE(concurso-oposición,funcionariodecarrera,turno zacióndelaspruebasconcretas,asícomolasnecesidades discapacitado), de conformidad con la Oferta de Empleo Público específicas. de2008, publicada en el BOLETÍN OFICIAL DE LA COMUNIDAD DE (cid:2) Elcandidatoadjuntaráeldictamentécnicofacultativoemi- MADRIDde10dejuliode2008. tidoporelórganotécnicodecalificacióndelgradodemi- Las bases que rigen la citada convocatoria se ajustarán a las nusvalíacompetente,acreditandodeformafehacientelas",
+        "nombre_elemento": "rasdeade- Meco,a10dejuliode2008.—Elalcalde-presidente,PedroLuis SanzCarlavilla. (03/21.718/08) MECO RÉGIMENECONÓMICO 332.344,57 Aprobado inicialmente por el Pleno de este Ayuntamiento, con obreelva- fecha 29 de mayo de 2008, el expediente de modificación presu- puestaria4/2008,decréditoextraordinario,unaveztranscurridoel plazodereclamaciónsinquesehayapresentadoninguna,seelevaa definitivadichamodificación,cuyoresumeneselsiguiente: Modificacióndecrédito4/2008:créditoextraordinarioparacum- plimiento de sentencia 243, sobre liquidación obra centro cultural Real. EscueladeMúsica. mación:un ndepropo- nicaypro-",
+        "creditos_ects": "03",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Pág.88 LUNES11DEAGOSTODE2008 B.O.C.M.Núm.190 Losdatospersonalesrecogidoshansidoincorporadosytratadosenelfichero“SistemaIntegraldeGestiónySeguimientoAdmi- nistrativo”(SIGSA),cuyafinalidadeslaidentificacióndelosinteresadosenlosexpedientesquesegestionan,ypodránsercedidosdecon- formidadconlalegislaciónvigenteenmateriadeproteccióndedatosdecarácterpersonal. ElórganoresponsabledelficheroeslaDirecciónGeneraldeGestiónAmbientalUrbanadelÁreadeGobiernodeMedioAmbien- te,antelaqueelinteresadopodráejercerlosderechosdeacceso,rectificación,cancelaciónyoposición,enlacalleBustamante,número16, plantacuarta,todolocualseinformaencumplimientodelartículo5delaLeyOrgánica15/1999,de13dediciembre,deProteccióndeDa- tosdeCarácterPersonal. Madrid,a30dejuniode2008.—Lasecretariageneraltécnica,AdoraciónMuñozMerchante. (02/9.463/08) ALCOBENDAS (cid:2) Losinteresadospodránsolicitarlasadaptacionesespecífi- cas para la realización de las pruebas del proceso de se- OFERTASDEEMPLEO lección. (cid:2) Atalefecto,juntoconlainstanciadeberánindicarlo,soli- Se convoca una plaza de subalterno, escala de Administración citandolasadaptacionesdetiempoymediosparalareali- General,grupoE(concurso-oposición,funcionariodecarrera,turno zacióndelaspruebasconcretas,asícomolasnecesidades discapacitado), de conformidad con la Oferta de Empleo Público específicas. de2008, publicada en el BOLETÍN OFICIAL DE LA COMUNIDAD DE (cid:2) Elcandidatoadjuntaráeldictamentécnicofacultativoemi- MADRIDde10dejuliode2008. tidoporelórganotécnicodecalificacióndelgradodemi- Las bases que rigen la citada convocatoria se ajustarán a las nusvalíacompetente,acreditandodeformafehacientelas",
+        "nombre_elemento": "ÁREAS DE SENSIBILIDAD ACÚSTICA",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Pág.88 LUNES11DEAGOSTODE2008 B.O.C.M.Núm.190 Losdatospersonalesrecogidoshansidoincorporadosytratadosenelfichero“SistemaIntegraldeGestiónySeguimientoAdmi- nistrativo”(SIGSA),cuyafinalidadeslaidentificacióndelosinteresadosenlosexpedientesquesegestionan,ypodránsercedidosdecon- formidadconlalegislaciónvigenteenmateriadeproteccióndedatosdecarácterpersonal. ElórganoresponsabledelficheroeslaDirecciónGeneraldeGestiónAmbientalUrbanadelÁreadeGobiernodeMedioAmbien- te,antelaqueelinteresadopodráejercerlosderechosdeacceso,rectificación,cancelaciónyoposición,enlacalleBustamante,número16, plantacuarta,todolocualseinformaencumplimientodelartículo5delaLeyOrgánica15/1999,de13dediciembre,deProteccióndeDa- tosdeCarácterPersonal. Madrid,a30dejuniode2008.—Lasecretariageneraltécnica,AdoraciónMuñozMerchante. (02/9.463/08) ALCOBENDAS (cid:2) Losinteresadospodránsolicitarlasadaptacionesespecífi- cas para la realización de las pruebas del proceso de se- OFERTASDEEMPLEO lección. (cid:2) Atalefecto,juntoconlainstanciadeberánindicarlo,soli- Se convoca una plaza de subalterno, escala de Administración citandolasadaptacionesdetiempoymediosparalareali- General,grupoE(concurso-oposición,funcionariodecarrera,turno zacióndelaspruebasconcretas,asícomolasnecesidades discapacitado), de conformidad con la Oferta de Empleo Público específicas. de2008, publicada en el BOLETÍN OFICIAL DE LA COMUNIDAD DE (cid:2) Elcandidatoadjuntaráeldictamentécnicofacultativoemi- MADRIDde10dejuliode2008. tidoporelórganotécnicodecalificacióndelgradodemi- Las bases que rigen la citada convocatoria se ajustarán a las nusvalíacompetente,acreditandodeformafehacientelas",
+        "nombre_elemento": "TIPO I",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Pág.88 LUNES11DEAGOSTODE2008 B.O.C.M.Núm.190 Losdatospersonalesrecogidoshansidoincorporadosytratadosenelfichero“SistemaIntegraldeGestiónySeguimientoAdmi- nistrativo”(SIGSA),cuyafinalidadeslaidentificacióndelosinteresadosenlosexpedientesquesegestionan,ypodránsercedidosdecon- formidadconlalegislaciónvigenteenmateriadeproteccióndedatosdecarácterpersonal. ElórganoresponsabledelficheroeslaDirecciónGeneraldeGestiónAmbientalUrbanadelÁreadeGobiernodeMedioAmbien- te,antelaqueelinteresadopodráejercerlosderechosdeacceso,rectificación,cancelaciónyoposición,enlacalleBustamante,número16, plantacuarta,todolocualseinformaencumplimientodelartículo5delaLeyOrgánica15/1999,de13dediciembre,deProteccióndeDa- tosdeCarácterPersonal. Madrid,a30dejuniode2008.—Lasecretariageneraltécnica,AdoraciónMuñozMerchante. (02/9.463/08) ALCOBENDAS (cid:2) Losinteresadospodránsolicitarlasadaptacionesespecífi- cas para la realización de las pruebas del proceso de se- OFERTASDEEMPLEO lección. (cid:2) Atalefecto,juntoconlainstanciadeberánindicarlo,soli- Se convoca una plaza de subalterno, escala de Administración citandolasadaptacionesdetiempoymediosparalareali- General,grupoE(concurso-oposición,funcionariodecarrera,turno zacióndelaspruebasconcretas,asícomolasnecesidades discapacitado), de conformidad con la Oferta de Empleo Público específicas. de2008, publicada en el BOLETÍN OFICIAL DE LA COMUNIDAD DE (cid:2) Elcandidatoadjuntaráeldictamentécnicofacultativoemi- MADRIDde10dejuliode2008. tidoporelórganotécnicodecalificacióndelgradodemi- Las bases que rigen la citada convocatoria se ajustarán a las nusvalíacompetente,acreditandodeformafehacientelas",
+        "nombre_elemento": "TIPO II",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Pág.88 LUNES11DEAGOSTODE2008 B.O.C.M.Núm.190 Losdatospersonalesrecogidoshansidoincorporadosytratadosenelfichero“SistemaIntegraldeGestiónySeguimientoAdmi- nistrativo”(SIGSA),cuyafinalidadeslaidentificacióndelosinteresadosenlosexpedientesquesegestionan,ypodránsercedidosdecon- formidadconlalegislaciónvigenteenmateriadeproteccióndedatosdecarácterpersonal. ElórganoresponsabledelficheroeslaDirecciónGeneraldeGestiónAmbientalUrbanadelÁreadeGobiernodeMedioAmbien- te,antelaqueelinteresadopodráejercerlosderechosdeacceso,rectificación,cancelaciónyoposición,enlacalleBustamante,número16, plantacuarta,todolocualseinformaencumplimientodelartículo5delaLeyOrgánica15/1999,de13dediciembre,deProteccióndeDa- tosdeCarácterPersonal. Madrid,a30dejuniode2008.—Lasecretariageneraltécnica,AdoraciónMuñozMerchante. (02/9.463/08) ALCOBENDAS (cid:2) Losinteresadospodránsolicitarlasadaptacionesespecífi- cas para la realización de las pruebas del proceso de se- OFERTASDEEMPLEO lección. (cid:2) Atalefecto,juntoconlainstanciadeberánindicarlo,soli- Se convoca una plaza de subalterno, escala de Administración citandolasadaptacionesdetiempoymediosparalareali- General,grupoE(concurso-oposición,funcionariodecarrera,turno zacióndelaspruebasconcretas,asícomolasnecesidades discapacitado), de conformidad con la Oferta de Empleo Público específicas. de2008, publicada en el BOLETÍN OFICIAL DE LA COMUNIDAD DE (cid:2) Elcandidatoadjuntaráeldictamentécnicofacultativoemi- MADRIDde10dejuliode2008. tidoporelórganotécnicodecalificacióndelgradodemi- Las bases que rigen la citada convocatoria se ajustarán a las nusvalíacompetente,acreditandodeformafehacientelas",
+        "nombre_elemento": "TIPO III",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Pág.88 LUNES11DEAGOSTODE2008 B.O.C.M.Núm.190 Losdatospersonalesrecogidoshansidoincorporadosytratadosenelfichero“SistemaIntegraldeGestiónySeguimientoAdmi- nistrativo”(SIGSA),cuyafinalidadeslaidentificacióndelosinteresadosenlosexpedientesquesegestionan,ypodránsercedidosdecon- formidadconlalegislaciónvigenteenmateriadeproteccióndedatosdecarácterpersonal. ElórganoresponsabledelficheroeslaDirecciónGeneraldeGestiónAmbientalUrbanadelÁreadeGobiernodeMedioAmbien- te,antelaqueelinteresadopodráejercerlosderechosdeacceso,rectificación,cancelaciónyoposición,enlacalleBustamante,número16, plantacuarta,todolocualseinformaencumplimientodelartículo5delaLeyOrgánica15/1999,de13dediciembre,deProteccióndeDa- tosdeCarácterPersonal. Madrid,a30dejuniode2008.—Lasecretariageneraltécnica,AdoraciónMuñozMerchante. (02/9.463/08) ALCOBENDAS (cid:2) Losinteresadospodránsolicitarlasadaptacionesespecífi- cas para la realización de las pruebas del proceso de se- OFERTASDEEMPLEO lección. (cid:2) Atalefecto,juntoconlainstanciadeberánindicarlo,soli- Se convoca una plaza de subalterno, escala de Administración citandolasadaptacionesdetiempoymediosparalareali- General,grupoE(concurso-oposición,funcionariodecarrera,turno zacióndelaspruebasconcretas,asícomolasnecesidades discapacitado), de conformidad con la Oferta de Empleo Público específicas. de2008, publicada en el BOLETÍN OFICIAL DE LA COMUNIDAD DE (cid:2) Elcandidatoadjuntaráeldictamentécnicofacultativoemi- MADRIDde10dejuliode2008. tidoporelórganotécnicodecalificacióndelgradodemi- Las bases que rigen la citada convocatoria se ajustarán a las nusvalíacompetente,acreditandodeformafehacientelas",
+        "nombre_elemento": "TIPO IV",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Pág.88 LUNES11DEAGOSTODE2008 B.O.C.M.Núm.190 Losdatospersonalesrecogidoshansidoincorporadosytratadosenelfichero“SistemaIntegraldeGestiónySeguimientoAdmi- nistrativo”(SIGSA),cuyafinalidadeslaidentificacióndelosinteresadosenlosexpedientesquesegestionan,ypodránsercedidosdecon- formidadconlalegislaciónvigenteenmateriadeproteccióndedatosdecarácterpersonal. ElórganoresponsabledelficheroeslaDirecciónGeneraldeGestiónAmbientalUrbanadelÁreadeGobiernodeMedioAmbien- te,antelaqueelinteresadopodráejercerlosderechosdeacceso,rectificación,cancelaciónyoposición,enlacalleBustamante,número16, plantacuarta,todolocualseinformaencumplimientodelartículo5delaLeyOrgánica15/1999,de13dediciembre,deProteccióndeDa- tosdeCarácterPersonal. Madrid,a30dejuniode2008.—Lasecretariageneraltécnica,AdoraciónMuñozMerchante. (02/9.463/08) ALCOBENDAS (cid:2) Losinteresadospodránsolicitarlasadaptacionesespecífi- cas para la realización de las pruebas del proceso de se- OFERTASDEEMPLEO lección. (cid:2) Atalefecto,juntoconlainstanciadeberánindicarlo,soli- Se convoca una plaza de subalterno, escala de Administración citandolasadaptacionesdetiempoymediosparalareali- General,grupoE(concurso-oposición,funcionariodecarrera,turno zacióndelaspruebasconcretas,asícomolasnecesidades discapacitado), de conformidad con la Oferta de Empleo Público específicas. de2008, publicada en el BOLETÍN OFICIAL DE LA COMUNIDAD DE (cid:2) Elcandidatoadjuntaráeldictamentécnicofacultativoemi- MADRIDde10dejuliode2008. tidoporelórganotécnicodecalificacióndelgradodemi- Las bases que rigen la citada convocatoria se ajustarán a las nusvalíacompetente,acreditandodeformafehacientelas",
+        "nombre_elemento": "TIPO V",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Pág.88 LUNES11DEAGOSTODE2008 B.O.C.M.Núm.190 Losdatospersonalesrecogidoshansidoincorporadosytratadosenelfichero“SistemaIntegraldeGestiónySeguimientoAdmi- nistrativo”(SIGSA),cuyafinalidadeslaidentificacióndelosinteresadosenlosexpedientesquesegestionan,ypodránsercedidosdecon- formidadconlalegislaciónvigenteenmateriadeproteccióndedatosdecarácterpersonal. ElórganoresponsabledelficheroeslaDirecciónGeneraldeGestiónAmbientalUrbanadelÁreadeGobiernodeMedioAmbien- te,antelaqueelinteresadopodráejercerlosderechosdeacceso,rectificación,cancelaciónyoposición,enlacalleBustamante,número16, plantacuarta,todolocualseinformaencumplimientodelartículo5delaLeyOrgánica15/1999,de13dediciembre,deProteccióndeDa- tosdeCarácterPersonal. Madrid,a30dejuniode2008.—Lasecretariageneraltécnica,AdoraciónMuñozMerchante. (02/9.463/08) ALCOBENDAS (cid:2) Losinteresadospodránsolicitarlasadaptacionesespecífi- cas para la realización de las pruebas del proceso de se- OFERTASDEEMPLEO lección. (cid:2) Atalefecto,juntoconlainstanciadeberánindicarlo,soli- Se convoca una plaza de subalterno, escala de Administración citandolasadaptacionesdetiempoymediosparalareali- General,grupoE(concurso-oposición,funcionariodecarrera,turno zacióndelaspruebasconcretas,asícomolasnecesidades discapacitado), de conformidad con la Oferta de Empleo Público específicas. de2008, publicada en el BOLETÍN OFICIAL DE LA COMUNIDAD DE (cid:2) Elcandidatoadjuntaráeldictamentécnicofacultativoemi- MADRIDde10dejuliode2008. tidoporelórganotécnicodecalificacióndelgradodemi- Las bases que rigen la citada convocatoria se ajustarán a las nusvalíacompetente,acreditandodeformafehacientelas",
+        "nombre_elemento": "USO DEL LOCAL RECEPTOR",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Pág.88 LUNES11DEAGOSTODE2008 B.O.C.M.Núm.190 Losdatospersonalesrecogidoshansidoincorporadosytratadosenelfichero“SistemaIntegraldeGestiónySeguimientoAdmi- nistrativo”(SIGSA),cuyafinalidadeslaidentificacióndelosinteresadosenlosexpedientesquesegestionan,ypodránsercedidosdecon- formidadconlalegislaciónvigenteenmateriadeproteccióndedatosdecarácterpersonal. ElórganoresponsabledelficheroeslaDirecciónGeneraldeGestiónAmbientalUrbanadelÁreadeGobiernodeMedioAmbien- te,antelaqueelinteresadopodráejercerlosderechosdeacceso,rectificación,cancelaciónyoposición,enlacalleBustamante,número16, plantacuarta,todolocualseinformaencumplimientodelartículo5delaLeyOrgánica15/1999,de13dediciembre,deProteccióndeDa- tosdeCarácterPersonal. Madrid,a30dejuniode2008.—Lasecretariageneraltécnica,AdoraciónMuñozMerchante. (02/9.463/08) ALCOBENDAS (cid:2) Losinteresadospodránsolicitarlasadaptacionesespecífi- cas para la realización de las pruebas del proceso de se- OFERTASDEEMPLEO lección. (cid:2) Atalefecto,juntoconlainstanciadeberánindicarlo,soli- Se convoca una plaza de subalterno, escala de Administración citandolasadaptacionesdetiempoymediosparalareali- General,grupoE(concurso-oposición,funcionariodecarrera,turno zacióndelaspruebasconcretas,asícomolasnecesidades discapacitado), de conformidad con la Oferta de Empleo Público específicas. de2008, publicada en el BOLETÍN OFICIAL DE LA COMUNIDAD DE (cid:2) Elcandidatoadjuntaráeldictamentécnicofacultativoemi- MADRIDde10dejuliode2008. tidoporelórganotécnicodecalificacióndelgradodemi- Las bases que rigen la citada convocatoria se ajustarán a las nusvalíacompetente,acreditandodeformafehacientelas",
+        "nombre_elemento": "TIPO VI Área de trabajo",
+        "creditos_ects": "30",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Pág.88 LUNES11DEAGOSTODE2008 B.O.C.M.Núm.190 Losdatospersonalesrecogidoshansidoincorporadosytratadosenelfichero“SistemaIntegraldeGestiónySeguimientoAdmi- nistrativo”(SIGSA),cuyafinalidadeslaidentificacióndelosinteresadosenlosexpedientesquesegestionan,ypodránsercedidosdecon- formidadconlalegislaciónvigenteenmateriadeproteccióndedatosdecarácterpersonal. ElórganoresponsabledelficheroeslaDirecciónGeneraldeGestiónAmbientalUrbanadelÁreadeGobiernodeMedioAmbien- te,antelaqueelinteresadopodráejercerlosderechosdeacceso,rectificación,cancelaciónyoposición,enlacalleBustamante,número16, plantacuarta,todolocualseinformaencumplimientodelartículo5delaLeyOrgánica15/1999,de13dediciembre,deProteccióndeDa- tosdeCarácterPersonal. Madrid,a30dejuniode2008.—Lasecretariageneraltécnica,AdoraciónMuñozMerchante. (02/9.463/08) ALCOBENDAS (cid:2) Losinteresadospodránsolicitarlasadaptacionesespecífi- cas para la realización de las pruebas del proceso de se- OFERTASDEEMPLEO lección. (cid:2) Atalefecto,juntoconlainstanciadeberánindicarlo,soli- Se convoca una plaza de subalterno, escala de Administración citandolasadaptacionesdetiempoymediosparalareali- General,grupoE(concurso-oposición,funcionariodecarrera,turno zacióndelaspruebasconcretas,asícomolasnecesidades discapacitado), de conformidad con la Oferta de Empleo Público específicas. de2008, publicada en el BOLETÍN OFICIAL DE LA COMUNIDAD DE (cid:2) Elcandidatoadjuntaráeldictamentécnicofacultativoemi- MADRIDde10dejuliode2008. tidoporelórganotécnicodecalificacióndelgradodemi- Las bases que rigen la citada convocatoria se ajustarán a las nusvalíacompetente,acreditandodeformafehacientelas",
+        "nombre_elemento": "TIPO VII Área de vivienda",
+        "creditos_ects": "30",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

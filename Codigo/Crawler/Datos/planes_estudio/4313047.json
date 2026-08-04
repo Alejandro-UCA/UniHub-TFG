@@ -1,0 +1,4502 @@
+{
+  "codigo_estudio": "4313047",
+  "titulo": "Máster Universitario en Ingeniería Industrial por la Mondragón Unibertsitatea",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "061",
+  "universidad_nombre": "Mondragón Unibertsitatea",
+  "fecha_procesado": "2026-08-04T14:54:37.240048",
+  "boe_url": "http://www.boe.es/boe/dias/2025/12/25/pdfs/BOE-A-2025-26597.pdf",
+  "boe_fecha": "2025-12-25",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2025/12/25/pdfs/BOE-A-2025-26597.pdf",
+    "http://www.boe.es/boe/dias/2025/01/28/pdfs/BOE-A-2025-1559.pdf",
+    "http://www.boe.es/boe/dias/2025/01/27/pdfs/BOE-A-2025-1476.pdf",
+    "http://www.boe.es/boe/dias/2024/05/06/pdfs/BOE-A-2024-9116.pdf",
+    "http://www.boe.es/boe/dias/2013/02/08/pdfs/BOE-A-2013-1370.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica": "61",
+      "Obligatorias": "103",
+      "Optativas": "63",
+      "Trabajo Fin de Grado / Máster": "12",
+      "Créditos Totales": "240"
+    },
+    "total_elementos": 497,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Formación básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "103,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "12.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Duración.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4 años",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Matemáticas I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Expresión gráfica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Física I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Fundamentos de informática.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Fundamentos metodológicos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Empresa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Matemáticas II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Química.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Física II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Matemáticas III.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Total ECTS: 43,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Energía y sostenibilidad.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Tecnología electrónica I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Automatización I.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Máquinas eléctricas.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Mecánica de fluidos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia y tecnología de materiales.",
+        "nombre_elemento": "Instrumentación y Control.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia y tecnología de materiales.",
+        "nombre_elemento": "Tecnología electrónica II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia y tecnología de materiales.",
+        "nombre_elemento": "Energía térmica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia y tecnología de materiales.",
+        "nombre_elemento": "Microprocesadores.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia y tecnología de materiales.",
+        "nombre_elemento": "Conversión de la energía eléctrica.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia y tecnología de materiales.",
+        "nombre_elemento": "Control de procesos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia y tecnología de materiales.",
+        "nombre_elemento": "Tecnologías de almacenamiento de energía.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia y tecnología de materiales.",
+        "nombre_elemento": "Ciclos de generación termofluídica.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia y tecnología de materiales.",
+        "nombre_elemento": "Oficina de proyectos energéticos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia y tecnología de materiales.",
+        "nombre_elemento": "Eficiencia energética en componentes.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia y tecnología de materiales.",
+        "nombre_elemento": "Sistemas de adquisición de datos y monitorización.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia y tecnología de materiales.",
+        "nombre_elemento": "Conversión de la energía electromecánica.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia y tecnología de materiales.",
+        "nombre_elemento": "Generación y transporte de la energía eléctrica.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia y tecnología de materiales.",
+        "nombre_elemento": "Generación distribuida y energías renovables.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia y tecnología de materiales.",
+        "nombre_elemento": "Prácticas en empresa III.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia y tecnología de materiales.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Expresión Gráfica I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Expresión Artística I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Expresión Gráfica II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Estética y creatividad.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Prototipado.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Metodología del diseño.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Procesos de Fabricación I.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales I.",
+        "nombre_elemento": "Procesos de fabricación II.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales I.",
+        "nombre_elemento": "Expresión Gráfica III.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales I.",
+        "nombre_elemento": "Diseño de productos eléctricos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales I.",
+        "nombre_elemento": "Estética II.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Diseño asistido por ordenador I.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Usabilidad.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Expresión artística II.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Ingeniería térmica y de fluidos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Aspectos medioambientales.",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Metodología del diseño II.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Marketing y comunicación.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Estadística.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Aspectos legales.",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Diseño gráfico.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Envase y embalaje.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Diseño asistido por ordenador II.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Máquinas eléctricas y accionamientos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Tecnologías de fabricación I.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia de los materiales metálicos.",
+        "nombre_elemento": "Tecnologías de fabricación II.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia de los materiales metálicos.",
+        "nombre_elemento": "Ingeniería térmica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería y selección de materiales.",
+        "nombre_elemento": "Automatización industrial básica.",
+        "creditos_ects": "3",
+        "caracter": "FB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería y selección de materiales.",
+        "nombre_elemento": "Optimización ambiental de procesos: Plásticos y compuestos.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería y selección de materiales.",
+        "nombre_elemento": "Organización industrial.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería y selección de materiales.",
+        "nombre_elemento": "Optimización ambiental de procesos: Fundición.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería y selección de materiales.",
+        "nombre_elemento": "Ciencia y tecnología ambiental.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería y selección de materiales.",
+        "nombre_elemento": "Análisis de ciclo de vida.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería y selección de materiales.",
+        "nombre_elemento": "Electrónica e instrumentación.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería y selección de materiales.",
+        "nombre_elemento": "Optimización ambiental de procesos: Mecanizado.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería y selección de materiales.",
+        "nombre_elemento": "Optimización ambiental de procesos: Conformado.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería y selección de materiales.",
+        "nombre_elemento": "Ingeniería de calidad.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería y selección de materiales.",
+        "nombre_elemento": "Teoría de máquinas y mecanismos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería y selección de materiales.",
+        "nombre_elemento": "Automatización industrial avanzada.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Fundamentos de electrónica analógica.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Fundamentos de electrónica digital.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia, tecnología y química de los materiales.",
+        "nombre_elemento": "Tecnología Electrónica.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia, tecnología y química de los materiales.",
+        "nombre_elemento": "Tecnologías medioambientales y sostenibilidad.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia, tecnología y química de los materiales.",
+        "nombre_elemento": "Electrotécnia.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia, tecnología y química de los materiales.",
+        "nombre_elemento": "Modelado, simulación y control de sistemas multifísicos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia, tecnología y química de los materiales.",
+        "nombre_elemento": "Ingeniería de control.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia, tecnología y química de los materiales.",
+        "nombre_elemento": "Instrumentación electrónica.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia, tecnología y química de los materiales.",
+        "nombre_elemento": "Diseño de equipos electrónicos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia, tecnología y química de los materiales.",
+        "nombre_elemento": "Accionamientos eléctricos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia, tecnología y química de los materiales.",
+        "nombre_elemento": "Electrónica de potencia.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia, tecnología y química de los materiales.",
+        "nombre_elemento": "Sistemas productivos y electrotecnologías.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia, tecnología y química de los materiales.",
+        "nombre_elemento": "Sistemas robotizados.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia, tecnología y química de los materiales.",
+        "nombre_elemento": "Oficina técnica y gestión de proyectos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia, tecnología y química de los materiales.",
+        "nombre_elemento": "Informática y comunicaciones industriales.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia, tecnología y química de los materiales.",
+        "nombre_elemento": "Control avanzado.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia, tecnología y química de los materiales.",
+        "nombre_elemento": "Prácticas en la Empresa III.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Fundamentos de Redes de Comunicaciones.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Física.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Programación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Sistemas digitales electrónicos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Matemática Discreta.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Métodos estadísticos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Infraestructuras y sistemas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Arquitectura de computadores.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Informática industrial.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Redes de comunicaciones I.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Programación avanzada.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Ingeniería Web I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Análisis y diseño del software.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Bases de Datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Redes de comunicaciones II.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Sistemas operativos.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Gestión de proyectos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Ingeniería del Software.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Inteligencia artificial.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Ingeniería Web II.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Seguridad.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Ingeniería de datos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Sistemas concurrentes y distribuidos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Interfaz persona-máquina.",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Sistemas de información.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Estadística básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Estadística industrial.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Procesos de fabricación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e ingeniería de los materiales.",
+        "nombre_elemento": "Sistemas fluídicos industriales.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e ingeniería de los materiales.",
+        "nombre_elemento": "Calidad, Seguridad y Medio Ambiente.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e ingeniería de los materiales.",
+        "nombre_elemento": "Logística I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e ingeniería de los materiales.",
+        "nombre_elemento": "Gestión de activos físicos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e ingeniería de los materiales.",
+        "nombre_elemento": "Ingeniería de fabricación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e ingeniería de los materiales.",
+        "nombre_elemento": "Métodos Cuantitativos de Organización Industrial I.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e ingeniería de los materiales.",
+        "nombre_elemento": "Métodos Cuantitativos de Organización Industrial II.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e ingeniería de los materiales.",
+        "nombre_elemento": "Finanzas y comercio internacional.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e ingeniería de los materiales.",
+        "nombre_elemento": "Logística II.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e ingeniería de los materiales.",
+        "nombre_elemento": "Técnicas y herramientas de optimización II.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e ingeniería de los materiales.",
+        "nombre_elemento": "Modelos de Gestión.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e ingeniería de los materiales.",
+        "nombre_elemento": "Gestión de Personas.",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e ingeniería de los materiales.",
+        "nombre_elemento": "Técnicas de creatividad.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e ingeniería de los materiales.",
+        "nombre_elemento": "Ingeniería Ambiental.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Fundamentos metodológicos I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos de ciencia de materiales.",
+        "nombre_elemento": "Ingeniería de procesos I.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos de ciencia de materiales.",
+        "nombre_elemento": "Mecánica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos de ciencia de materiales.",
+        "nombre_elemento": "Termodinámica.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y Resistencia de Materiales I.",
+        "nombre_elemento": "Ingeniería de procesos II.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y Resistencia de Materiales I.",
+        "nombre_elemento": "Ingeniería de producción.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y Resistencia de Materiales I.",
+        "nombre_elemento": "Introducción al diseño mecánico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y Resistencia de Materiales I.",
+        "nombre_elemento": "Diseño mecánico.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y Resistencia de Materiales I.",
+        "nombre_elemento": "Tecnología de accionamientos neumáticos e hidraúlicos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y Resistencia de Materiales I.",
+        "nombre_elemento": "Teoría de mecanismos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales II.",
+        "nombre_elemento": "Tecnologías de accionamientos eléctricos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales II.",
+        "nombre_elemento": "Oficina técnica: proyectos mecánicos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales II.",
+        "nombre_elemento": "Teoría de Estructuras y Construcciones Industriales.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales para la ingeniería.",
+        "nombre_elemento": "Ingeniería Medioambiental.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales para la ingeniería.",
+        "nombre_elemento": "Automatización de máquinas y procesos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales para la ingeniería.",
+        "nombre_elemento": "Sistemas electrónicos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales para la ingeniería.",
+        "nombre_elemento": "Diseño de máquinas.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales para la ingeniería.",
+        "nombre_elemento": "Modelización numérica para el diseño.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales para la ingeniería.",
+        "nombre_elemento": "Modelado avanzado CAD.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales para la ingeniería.",
+        "nombre_elemento": "Instrumentación industrial para el diseño.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales para la ingeniería.",
+        "nombre_elemento": "Prácticas de Diseño mecánico en empresa I.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales para la ingeniería.",
+        "nombre_elemento": "Análisis de Procesos Industriales.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales para la ingeniería.",
+        "nombre_elemento": "Modelización numérica para la fabricación.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales para la ingeniería.",
+        "nombre_elemento": "Fabricación asistida/CAM.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales para la ingeniería.",
+        "nombre_elemento": "Instrumentación industrial para procesos.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales para la ingeniería.",
+        "nombre_elemento": "Prácticas de procesos de fabricación en empresa I.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos Biomédicos y biomateriales.",
+        "nombre_elemento": "Procesamiento de señales e imágenes biomédicas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos Biomédicos y biomateriales.",
+        "nombre_elemento": "Imagen biomédica en entorno virtual.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos Biomédicos y biomateriales.",
+        "nombre_elemento": "Envejecimiento: Retos y oportunidades.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos Biomédicos y biomateriales.",
+        "nombre_elemento": "IoT: Smart connected home.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos Biomédicos y biomateriales.",
+        "nombre_elemento": "Sistemas de rehabilitación.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos Biomédicos y biomateriales.",
+        "nombre_elemento": "Accesibilidad e interfaces humanas.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos Biomédicos y biomateriales.",
+        "nombre_elemento": "Prácticas de biomecánica en empresa I.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos Biomédicos y biomateriales.",
+        "nombre_elemento": "Prácticas de Diseño mecánico en empresa II.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos Biomédicos y biomateriales.",
+        "nombre_elemento": "Prácticas de procesos de fabricación en empresa II.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos Biomédicos y biomateriales.",
+        "nombre_elemento": "Prácticas de biomecánica en empresa II.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos Biomédicos y biomateriales.",
+        "nombre_elemento": "Trabajo de fin de grado.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Fundamentos Biomédicos y biomateriales.",
+        "nombre_elemento": "Duración en años.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Mecánica y teoría de mecanismos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Matemáticas aplicadas a la Ingeniería.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Condiciones laborales y seguridad laboral. Protección del medio ambiente.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Perfil de Acceso – Bachillerato",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Fundamentos de ingeniería eléctrica. (*)",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Fundamentos de ingeniería electrónica. (*)",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Perfil de Acceso – CFGS de Fabricación Mecánica e Instalación y Mantenimiento",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Perfil de Acceso – CFGS de Electricidad y Electrónica",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Tecnología mecánica. (*)",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Tecnologías de fabricación. (*)",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Tecnología mecánica.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Sistemas Mecánicos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Sistemas eléctricos de potencia.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Tecnologías de fabricación.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Laboratorio de Tecnologías de fabricación.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Introducción a la Automatización.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Laboratorio de Montaje de sistemas mecatrónicos I.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Laboratorio de Montaje de sistemas mecatrónicos II.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Proyecto Mecatrónico.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Elementos Mecánicos.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Introducción a Sistemas de Gestión industrial: Mantenimiento.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Introducción a Sistemas de Gestión industrial: Calidad.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Fundamentos de ingeniería eléctrica.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Fundamentos de ingeniería electrónica.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Documentación técnica de sistemas eléctricos.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Mantenimiento y reparación de equipos electrónicos.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Montaje y puesta en marcha de equipos electrónicos.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Modelado y simulación de sistemas dinámicos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Sistemas electrómecánicos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "CAD eléctrico avanzado.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Análisis de datos.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Ingeniería de Equipos Productivos y Sistemas Automatizados I.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "10,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Gestión de activos industriales.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Automatización industrial.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Ingeniería térmica y de fluídos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Sistemas de adquisición de datos y control en tiempo real.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Visión artificial.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Ingeniería de Equipos Productivos y Sistemas Automatizados II.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "10,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Gestión de proyectos y personas.",
+        "creditos_ects": "4,5",
+        "caracter": "PE",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Diseño y ensayo de sistemas mecánicos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Sistemas robotizados y visión artificial.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Laboratorio de instrumentación.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Introducción a la fabricación aditiva.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Calibración de equipos de medición.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Ingeniería de equipos productivos y sistemas automatizados III.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Prácticas en Empresa I.",
+        "creditos_ects": "18",
+        "caracter": "PE",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Fundamentos de ingeniería eléctrica (*).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Fundamentos de ingeniería electrónica (*).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Tecnología mecánica (*).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Tecnologías de fabricación (*).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Modelizado y dimensionado de transmisiones mecánicas.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Matemáticas avanzadas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Biología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Anatomía humana y fisiología I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Anatomía humana y fisiología II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Fundamentos de electrónica.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Biomecánica.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales I.",
+        "nombre_elemento": "Instrumental médico, prótesis e implantes.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Procesamiento de señales biomédicas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Monitorización y acondicionamiento de señales biomédicas.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Física III.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Fabricación de equipamiento médico.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Diseño mecánico de equipamiento médico.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Equipamientos tecnológicos en medicina.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Tecnologías de control y robótica.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Sistemas de imagen médica.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Sistemas de información en la sanidad.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Procesamiento de imágenes biomédicas.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Ingeniería hospitalaria.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Certificaciones y normativas sanitarias.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Patología general.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Procesado de datos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Prácticas de tecnologías sanitarias.",
+        "creditos_ects": "12",
+        "caracter": "PE",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Obligatorias (comunes).",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "15",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "ESTRUCTURAS METÁLICAS Y DE HORMIGÓN ARMADO.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1/1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "CONSTRUCCIONES INDUSTRIALES Y URBANISMO.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1/1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "INSTALACIONES.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1/1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "TECNOLOGÍA ELÉCTRICA.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1/1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "ADMINISTRACIÓN DE EMPRESAS.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1/1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "TRANSPORTE Y MANUTENCIÓN INDUSTRIAL.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1/1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "AUTOMATIZACIÓN AVANZADA DE PROCESOS INDUSTRIALES.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1/1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "DISEÑO, CÁLCULO Y VERIFICACIÓN DE MÁQUINAS.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1/2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "INGENIERÍA ENERGÉTICA.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1/2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "OPERACIONES PRODUCTIVAS.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "1/2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "TECNOLOGÍA DE PROCESOS QUÍMICOS.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1/2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "ESTRATEGIA Y GESTIÓN DE LA INNOVACIÓN TECNOLÓGICA.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1/2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "ITINERARIO DUAL.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "2/1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "ITINERARIO ACADÉMICO.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "2/1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "ITINERARIO INVESTIGACIÓN.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2/1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "ESTRATEGIA DE MARCA Y PRODUCTO.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "DISEÑO DE SERVICIOS.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "DISEÑO CENTRADO EN LAS PERSONAS.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "GESTIÓN ECONÓMICO FINANCIERA DEL DISEÑO.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "DISEÑO PARTICIPATIVO.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "TALLER DE DISEÑO ESTRATÉGICO.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "TENDENCIAS EN DISEÑO I (*).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "PRÁCTICAS EN ALTERNANCIA I (*).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "PRÁCTICAS DE FORMACIÓN DUAL I (*).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "EXPERIENCIA DE USUARIO Y USABILIDAD.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "METODOLOGIA Y GESTIÓN AVANZADA DEL DISEÑO.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "COMUNICACIÓN VISUAL AVANZADA.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "TENDENCIAS EN DISEÑO II.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "TALLER DE DISEÑO DE INTERACCIÓN.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "DISEÑO DE INTERACCIÓN.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "PROTOTIPADO EN DISEÑO.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "PRÁCTICAS EN ALTERNANCIA II.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "PRÁCTICAS DE FORMACIÓN DUAL II.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Itinerario",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Académico.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "DUAL.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Investigación.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Diseño de convertidores electrónicos de potencia.",
+        "creditos_ects": "4.5",
+        "caracter": "OB",
+        "curso": "4.5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Análisis de convertidores electrónicos de potencia.",
+        "creditos_ects": "4.5",
+        "caracter": "OB",
+        "curso": "4.5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Diseño de máquinas eléctricas.",
+        "creditos_ects": "4.5",
+        "caracter": "OB",
+        "curso": "4.5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Modelado y análisis de máquinas eléctricas.",
+        "creditos_ects": "4.5",
+        "caracter": "OB",
+        "curso": "4.5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Accionamientos.",
+        "creditos_ects": "4.5",
+        "caracter": "OB",
+        "curso": "4.5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Análisis térmico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Prácticas I (*).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Proyecto de semestre I (*).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "Proyecto de semestre I (*)."
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Almacenamiento de energía.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Tracción eléctrica ferroviaria.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Electromovilidad.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Generación de energía eólica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Transporte y distribución de la energía eléctrica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Generación de energía eléctrica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Aplicaciones de convertidores conectados a la red eléctrica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3.5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Prácticas II (*).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Proyecto de semestre II (*).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": "Proyecto de semestre II (*)."
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Prácticas de Formación DUAL II (*).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Fundamentos del Aprendizaje Automático.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Aprendizaje Automático.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Visualización de Datos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Seguridad en Infraestructuras y Redes.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Plataformas e Infraestructuras.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Arquitecturas Avanzadas de Software.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Prácticas en Empresa I (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Tecnologías IoT I (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Inteligencia de Datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Aprendizaje Automático Avanzado.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Seguridad Ofensiva.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Seguridad del Software.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Gestión de la Seguridad.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Integración y Despliegue Continuo.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Prácticas en Empresa II (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Tecnologías IoT II (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Itinerario: Especialización académica.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Itinerario: Mención en DUAL.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Itinerario: Iniciación en tareas de investigación.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Comunes.",
+        "creditos_ects": "15",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Gemelos digitales para sistemas de energía.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Fundamentos de diseño Térmico.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Sistemas de almacenamiento.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Adquisición de datos y teoría de la señal.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Analítica de datos y fundamentos de aprendizaje automático.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Modelado y simulación de sistemas de energía.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Fundamentos de Labview (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Control avanzado de sistemas de energía.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Sistemas en tiempo real.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Diseño de sistemas electrónicos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Plataformas de testeo y validación.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Monitorización inteligente.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Inteligencia artificial en aplicaciones de energía.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Sistemas de prototipado rápido (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Prácticas en Alternancia II (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Iniciación en tareas de investigación.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Aplicaciones Informáticas de la Empresa (AIE).",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Fundamentos de la cadena de suministro.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Finanzas en la dirección de operaciones.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Gestión de compras.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Conceptos avanzados de producción.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Dirección de la producción.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "7,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Empresa Digital (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Empresa centrada en las personas.",
+        "creditos_ects": "4,5",
+        "caracter": "PE",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Producción sostenible.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Transporte internacional de mercancías.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Modelos de mejora continua.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Producción ajustada.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "7,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Análisis de la variabilidad de los procesos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Principio Line Back (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Matemáticas IV.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Electrónica digital.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Prácticas en alternancia I.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Ingeniería y cambios sociales.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Inglés para la ciencia y la técnica.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Euskara para la ciencia y la técnica.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia y tecnología de materiales.",
+        "nombre_elemento": "Automatización II.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia y tecnología de materiales.",
+        "nombre_elemento": "Redacción de textos científico-técnicos en Inglés.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia y tecnología de materiales.",
+        "nombre_elemento": "Retos de las empresas del siglo XXI.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia y tecnología de materiales.",
+        "nombre_elemento": "Redacción de textos científico-técnicos en Euskara.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia y tecnología de materiales.",
+        "nombre_elemento": "Oficina de proyectos energéticos I.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia y tecnología de materiales.",
+        "nombre_elemento": "Prácticas en alternancia III.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Resistencia de materiales.",
+        "nombre_elemento": "Prácticas en alternancia IV.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Resistencia de materiales.",
+        "nombre_elemento": "Sistemas de producción y fabricación.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Resistencia de materiales.",
+        "nombre_elemento": "Oficina de proyectos energéticos II.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Resistencia de materiales.",
+        "nombre_elemento": "Auditorías energéticas.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Resistencia de materiales.",
+        "nombre_elemento": "Opción acceso Máster en Tecnologías Biomédicas",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Resistencia de materiales.",
+        "nombre_elemento": "Fundamentos biomédicos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales.",
+        "nombre_elemento": "Bioseñales y procesamiento de señal.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales.",
+        "nombre_elemento": "Redes de comunicación y sistemas de información.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales.",
+        "nombre_elemento": "Prácticas en empresa II.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Estética I.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Creatividad.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Metodología del diseño I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales I.",
+        "nombre_elemento": "Euskera para la ciencia y la técnica.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Diseño de productos mecánicos.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Redacción de textos científico-técnicos en euskera.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Diseño de acabados.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Practicas en alternancia III.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Diseño social.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Practicas en alternancia IV.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Experiencia de usuario.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Gestión de proyectos de diseño.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Calidad.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Prácticas en Empresa (1.ª parte).",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Opción acceso Máster en Ingeniería Industrial",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales.",
+        "nombre_elemento": "Prácticas en Empresa (2.ª parte).",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia de los materiales metálicos.",
+        "nombre_elemento": "Simulación de procesos multifísicos I.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería y selección de materiales.",
+        "nombre_elemento": "Simulación de procesos multifísicos II.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería y selección de materiales.",
+        "nombre_elemento": "Tecnologías de tratamiento: agua y aire.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería y selección de materiales.",
+        "nombre_elemento": "Gestión y oficina de Proyectos.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería y selección de materiales.",
+        "nombre_elemento": "Sistemas de generación de energía.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería y selección de materiales.",
+        "nombre_elemento": "Gestión y tratamiento de residuos industriales.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería y selección de materiales.",
+        "nombre_elemento": "Orientación Laboral.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales.",
+        "nombre_elemento": "Biomecanica.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia, Tecnología y Química de los Materiales.",
+        "nombre_elemento": "Electrotecnia.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia, Tecnología y Química de los Materiales.",
+        "nombre_elemento": "Laboratorio de Electrónica.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia, Tecnología y Química de los Materiales.",
+        "nombre_elemento": "Electrónica Industrial.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia, Tecnología y Química de los Materiales.",
+        "nombre_elemento": "Sistemas de Almacenamiento de Energía.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia, Tecnología y Química de los Materiales.",
+        "nombre_elemento": "Tecnologías de la Información y de la Comunicación.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia, Tecnología y Química de los Materiales.",
+        "nombre_elemento": "Laboratorio de Control de Convertidores.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia, Tecnología y Química de los Materiales.",
+        "nombre_elemento": "Introducción a los Sistemas de Medida.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia, Tecnología y Química de los Materiales.",
+        "nombre_elemento": "Prácticas en la Empresa I.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales.",
+        "nombre_elemento": "Prácticas en la Empresa II.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Electrónica Analógica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Infraestructura y Sistemas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Sistemas lógicos programables.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Laboratorio tecnológico.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Arquitectura de computadores I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Análisis y Diseño Software.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Laboratorio de sistemas móviles.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Interfaz Hombre Máquina.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Laboratorio Tecnologías de la Información y Comunicación.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Arquitectura de computadores II.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Laboratorio Sistemas Gráficos Interactivos.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Innovación y emprendimiento.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Bases de datos avanzadas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e ingeniería de los materiales.",
+        "nombre_elemento": "Técnicas y herramientas de mejora.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e ingeniería de los materiales.",
+        "nombre_elemento": "Técnicas y herramientas de optimización I.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e ingeniería de los materiales.",
+        "nombre_elemento": "Tecnología energética.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e ingeniería de los materiales.",
+        "nombre_elemento": "Ingeniería de Producto.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e ingeniería de los materiales.",
+        "nombre_elemento": "Mejora de Procesos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e ingeniería de los materiales.",
+        "nombre_elemento": "Nuevos Sectores Emergentes.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y Resistencia de Materiales I.",
+        "nombre_elemento": "Ingeniería de Procesos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y Resistencia de Materiales I.",
+        "nombre_elemento": "Laboratorio de Ingeniería Mecánica I.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y Resistencia de Materiales II.",
+        "nombre_elemento": "Laboratorio de Ingeniería Mecánica II.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y Resistencia de Materiales II.",
+        "nombre_elemento": "Electrónica y Automática.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería de Materiales.",
+        "nombre_elemento": "Laboratorio de Ingeniería Mecánica III.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería de Materiales.",
+        "nombre_elemento": "Mención: Diseño Mecánico",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería de Materiales.",
+        "nombre_elemento": "Diseño Industrial.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería de Materiales.",
+        "nombre_elemento": "Prácticas en Empresa 1.1.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería de Materiales.",
+        "nombre_elemento": "Prácticas en Empresa 1.2.",
+        "creditos_ects": "9",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería de Materiales.",
+        "nombre_elemento": "Técnicas experimentales para el diseño.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería de Materiales.",
+        "nombre_elemento": "Prácticas en Empresa 1.3.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería de Materiales.",
+        "nombre_elemento": "Mención: Procesos de Fabricación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería de Materiales.",
+        "nombre_elemento": "Fabricación asistida / CAM.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería de Materiales.",
+        "nombre_elemento": "Prácticas en Empresa 2.1.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería de Materiales.",
+        "nombre_elemento": "Prácticas en Empresa 2.2.",
+        "creditos_ects": "9",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería de Materiales.",
+        "nombre_elemento": "Técnicas experimentales para la fabricación.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería de Materiales.",
+        "nombre_elemento": "Prácticas en Empresa 2.3.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ingeniería de Materiales.",
+        "nombre_elemento": "Mención: Biomecánica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales.",
+        "nombre_elemento": "Introducción a la biomecánica.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales.",
+        "nombre_elemento": "Prácticas en Empresa.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Perfil de acceso: Bachillerato",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Fundamentos de ingeniería eléctrica (*)",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Fundamentos de ingeniería electrónica (*)",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Perfil de acceso: CFGS de Fabricación Mecánica e Instalación y Mantenimiento",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Perfil de acceso: CFGS de Electricidad y Electrónica",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Tecnología mecánica (*)",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Tecnologías de fabricación (*)",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Perfil de acceso: Bachillerato.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Perfil de acceso: CFGS de Fabricación Mecánica e Instalación y Mantenimiento.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Perfil de acceso: CFGS de Electricidad y Electrónica.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Inglés para la ciencia y la técnica (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Ingeniería y cambios sociales (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Euskara para la ciencia y la técnica (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Microprocesadores (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Redacción de textos científico-técnicos en Inglés (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Retos de las empresas del siglo XXI (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Redacción de textos científico-técnicos en Euskara (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "Ingeniería de equipos productivos y sistemas automatizados IV.",
+        "creditos_ects": "18",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y resistencia de materiales.",
+        "nombre_elemento": "N.º de ECTS.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "AUTOMATIZACION INDUSTRIAL.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "1/1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "DISEÑO, CALCULO Y VERIFICACIÓN DE MÁQUINAS.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1/2 Mondragon 1/1 Donostialdea",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "ELEMENTOS FINITOS EN MECÁNICA ESTRUCTURAL.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "1/1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "VIBRACIONES MECÁNICAS.",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "1/1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "INGENIERÍA DE MATERIALES Y PROCESOS.",
+        "nombre_elemento": "INTRODUCCIÓN AL MÉTODO DE ELEMENTOS FINITOS.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "1/1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "INGENIERÍA DE MATERIALES.",
+        "nombre_elemento": "SEGURIDAD LABORAL Y SISTEMAS DE GESTIÓN.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1/2 Mondragon 1/1 Donostialdea",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "INGENIERÍA DE MATERIALES.",
+        "nombre_elemento": "PROCESOS DE TRANSFORMACIÓN POR MECANIZADO.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1/1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "PROCESOS DE FABRICACIÓN DE MATERIALES COMPUESTOS.",
+        "nombre_elemento": "FABRICACIÓN AVANZADA.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1/1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "PROCESOS DE FABRICACIÓN DE MATERIALES COMPUESTOS.",
+        "nombre_elemento": "ESTRATEGIA, INVESTIGACIÓN E INNOVACION TECNOLÓGICAS.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "1/2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "PROCESOS DE FABRICACIÓN DE MATERIALES COMPUESTOS.",
+        "nombre_elemento": "PROCESOS DE SOLIDIFICACIÓN DE METALES.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2/1 Mondragon 1/2 Donostialdea",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "CONFORMADO DE MATERIALES.",
+        "nombre_elemento": "ENERGIA Y RED ELECTRICA.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "1/2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "CONFORMADO DE MATERIALES.",
+        "nombre_elemento": "MODELADO Y CONTROL DE MÁQUINAS ELÉCTRICAS.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1/2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "CONFORMADO DE MATERIALES.",
+        "nombre_elemento": "MODELADO DE CONVERTIDORES ELECTRÓNICOS DE POTENCIA.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1/2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "COMÚN.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2/1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Anatomía humana.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Fisiología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales I.",
+        "nombre_elemento": "Sistemas Eléctricos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Ingeniería inversa y CAM.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Sensores y redes de comunicaciones.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Redacción de textos científicos-técnicos en Inglés.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Redacción de textos científicos-técnicos en Euskara.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Diseño industrial de nuevos productos.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Medical Imaging Systems.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Gestión de unidades sanitarias.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Emprendimiento y Propiedad Industrial.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Administración y Dirección de Empresas.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Deontología Biomédica.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Envejecimiento y la 3.ª edad.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Prácticas de empresa I.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Biomateriales II.",
+        "nombre_elemento": "Opción acceso Master en Ingeniería Industrial",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "LABORATORIO DE INTEGRIDAD ESTRUCTURAL I.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "1 / 1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "COMPORTAMIENTO MECÁNICO DE MATERIALES.",
+        "nombre_elemento": "LABORATORIO DE INTEGRIDAD ESTRUCTURAL II.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "1 / 2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Resistencia de materiales.",
+        "nombre_elemento": "Opción acceso Máster en Tecnologías Biomédicas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

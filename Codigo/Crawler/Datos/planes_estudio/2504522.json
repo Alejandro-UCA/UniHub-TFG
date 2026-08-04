@@ -1,0 +1,584 @@
+{
+  "codigo_estudio": "2504522",
+  "titulo": "Graduado o Graduada en Ingeniería Física Aplicada a la Industria por la Mondragón Unibertsitatea",
+  "nivel_academico": "Grado - RD 1393/2007 (1)",
+  "universidad_codigo": "061",
+  "universidad_nombre": "Mondragón Unibertsitatea",
+  "fecha_procesado": "2026-08-04T14:52:39.643314",
+  "boe_url": "http://www.boe.es/boe/dias/2024/05/11/pdfs/BOE-A-2024-9527.pdf",
+  "boe_fecha": "2024-05-11",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2024/05/11/pdfs/BOE-A-2024-9527.pdf",
+    "http://www.euskadi.eus/y22-bopv/es/bopv2/datos/2022/08/2203597a.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica": "60",
+      "Obligatorias": "126",
+      "Optativas": "42",
+      "Trabajo Fin de Grado / Máster": "12",
+      "Créditos Totales": "240"
+    },
+    "total_elementos": 62,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Formación básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Duración.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Fundamentos Metodológicos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Física General I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Cálculo I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Álgebra Lineal.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Fundamentos de Informática.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Física General II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Química.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Economía y Empresa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Expresión Gráfica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Fundamentos de Ingeniería Electrónica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Cálculo II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Mecánica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Métodos Matemáticos Aplicados a la Ingeniería.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Estadística.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Técnicas Experimentales I.",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Programación I.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Termodinámica.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Física Cuántica I.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Métodos Matemáticos Aplicados a la Física.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Métodos Numéricos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Física de Fluidos.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Técnicas Experimentales II.",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Electrónica y Automática.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Electromagnetismo I.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Modelización Matemática.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Electromagnetismo II.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Programación II.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Física Estadística.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Física Cuántica II.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Matemática Discreta (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Prácticas en alternancia (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Óptica y Visión Artificial.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Robótica, Modelado y Control.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Inteligencia Artificial: Aprendizaje Automático.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Instrumentación y tratamiento de señal.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Física Relativista.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Física del Estado Sólido.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Automatización de Procesos (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Prácticas en alternancia II (*).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Computación Cuántica.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Inteligencia Artificial: Computación Evolutiva.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Nanotecnología.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Fotónica.",
+        "creditos_ects": "4,5",
+        "caracter": "OB",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Prácticas en empresa I (*).",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Opción acceso Máster en Tecnologías Biomédicas",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Fundamentos Biomédicos (*).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Bioseñales y Procesamiento de Señal (*).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Diseño y Análisis de Sistemas Mecánicos (*).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Opción acceso Máster en Energía y Electrónica de Potencia y Máster en Sistemas Inteligentes de Energía",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Electrotecnia (*).",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Electrónica de Potencia (*).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Conversión de la Energía Electromecánica (*).",
+        "creditos_ects": "4,5",
+        "caracter": "OP",
+        "curso": "4,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Prácticas en empresa II.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Ciencia e Ingeniería de Materiales.",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Código",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "2504522",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "4318200",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "4318189",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "4318190",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

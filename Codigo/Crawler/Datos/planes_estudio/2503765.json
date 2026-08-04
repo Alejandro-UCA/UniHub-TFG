@@ -1,0 +1,358 @@
+{
+  "codigo_estudio": "2503765",
+  "titulo": "Graduado o Graduada en Comportamiento y Ciencias Sociales / Bachelor in Behavior and Social Sciences por la IE Universidad",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "057",
+  "universidad_nombre": "IE Universidad",
+  "fecha_procesado": "2026-08-04T14:47:09.825712",
+  "boe_url": "http://www.boe.es/boe/dias/2022/05/20/pdfs/BOE-A-2022-8317.pdf",
+  "boe_fecha": "2022-05-20",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2022/05/20/pdfs/BOE-A-2022-8317.pdf",
+    "http://www.boe.es/boe/dias/2019/06/08/pdfs/BOE-A-2019-8542.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica": "60",
+      "Obligatorias": "138",
+      "Optativas": "30",
+      "Trabajo Fin de Grado / Máster": "12"
+    },
+    "total_elementos": 37,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Formación Básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "30",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Ciencias Sociales y Jurídicas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Métodos de análisis.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Sociología y Antropología.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Transversal.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Psicología.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Economía y Empresa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Ciencias Políticas y Derecho.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Desarrollo profesional.",
+        "creditos_ects": "30",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Estadística",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Empresa",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Sociología",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Comunicación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Matemáticas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Fundamentos de Innovación y Sociedad.",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Estadística. Empresa.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "9 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Fundamentos de Análisis Estadístico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Sociología. Empresa. Comunicación.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "12 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Estadística. Informática. Matemáticas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Programación aplicada a los datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Analítica de Negocio. Aprendizaje Automático.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Programación aplicada a los datos. Infraestructura de datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Habilidades profesionales.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Empresa.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Análisis Estadístico Aplicado. Aprendizaje Automático.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "9 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Gestión y Almacenamiento de Datos. Entornos Tecnológicos aplicado a la analítica de datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Análisis Estadístico Aplicado. Analítica de Negocio.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Gestión y Almacenamiento de Datos. Infraestructura de datos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Análisis Estadístico Aplicado.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Ciencias Sociales *",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Psicología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Ciencias Sociales. Psicología. Estadística. Empresa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 6 9 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Estadística. Comunicación. Empresa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Fundamentos y Métodos Cualitativos. Métodos Cuantitativos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 6",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

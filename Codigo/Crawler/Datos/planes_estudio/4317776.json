@@ -1,0 +1,1887 @@
+{
+  "codigo_estudio": "4317776",
+  "titulo": "Máster Universitario en Seguridad del Paciente y Calidad Asistencial por la Universidad Alfonso X El Sabio",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "047",
+  "universidad_nombre": "Universidad Alfonso X El Sabio",
+  "fecha_procesado": "2026-08-04T15:24:28.263459",
+  "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2023/06/14/BOCM-20230614-25.PDF",
+  "boe_fecha": "2023-06-01",
+  "all_boe_urls": [
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2023/06/14/BOCM-20230614-25.PDF",
+    "http://www.boe.es/boe/dias/2022/01/14/pdfs/BOE-A-2022-604.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2021/07/21/BOCM-20210721-30.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "48",
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 207,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "DENOMINACIÓN DEL TÍTULO",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Especialización en el Desarrollo Comunicativo y Lingüístico en la Etapa de 0 a 6 años",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "Máster Universitario en Especialización en el Desarrollo Comunicativo y Lingüístico en la Etapa de 0 a 6 años",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Investigación e Innovación en Pedagogía de la Música",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Historia Contemporánea",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Ingeniería del Diseño Industrial",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Ingeniería Circular",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Estudios Contemporáneos sobre Mundo Árabe y Comunidades Musulmanas: Mediación Social y Gestión de Conflictos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en I+D+i en la Industria Alimentaria",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "CENTROS ADSCRITOS",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Psicopedagogía",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería en Tecnologías Aeroespaciales",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Aprendizaje Automático y Datos Masivos",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Agricultura de Precisión",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Comunicación Digital",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Cinematografía /Bachelor in Filmmaking",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Negocios Digitales",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Educación Infantil",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Ingeniería en Sistemas Industriales",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "- Curso 2023/2024: 1º y 2º - Curso 2024/2025: 3º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Marketing",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Educación Bilingüe/ Master in Bilingual Education",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Dirección y Administración de Empresas – MBA",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Logística",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Energías Renovables",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Odontología Digital",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Marketing Digital",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Inteligencia Artificial",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Fisioterapia",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Psicología General Sanitaria",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Neuropsicología",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Español como Lengua Extranjera: Didáctica e Investigación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Calidad e Innovación Educativa",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Atención Temprana",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Programa de Doctorado en Ingeniería y Gestión de Proyectos",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Medicina",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "- 2023/2024: 1º y 2º - 2024/2025: 3º - 2025/2026: 4º - 2026/2027: 5º - 2027/2028: 6º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Farmacia",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Biomedicina",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Ingeniería Robótica e Inteligencia Artificial",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Medicina de Urgencias Hospitalarias y Paciente Crítico",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Enfermería de Urgencias y Emergencias",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Medicina de Urgencias y Emergencias",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Ciencias Políticas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "- Curso 2023/2024: 1º y 2º - Curso 2024/2025: 3º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Historia",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "- Curso 2023/2024: 1º y 2º - Curso 2024/2025: 3º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Bioinformática",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "- Curso 2023/2024: 1º y 2º - Curso 2024/2025: 3º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Arte Digital y Tecnologías Creativas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Diseño de Producto",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Diseño de Interiores",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Diseño Urbano y Movilidad Sostenible",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Derecho de Familia",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Educación Intercultural",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Metodologías Activas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Violencia de Género y Políticas de Igualdad",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Terapia Psicológica de Pareja y Sexualidad",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Auditoría de Cuentas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Derecho Digital y Tecnológico",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Dirección de Comercio Electrónico",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Educación en STEAM (Ciencias, Tecnología, Ingeniería, Artes y Matemáticas)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Fisioterapia Invasiva",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Biotecnología Clínica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Fisioterapia Oncológica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Investigación en Bioética",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Práctica Tributaria",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Mercados Financieros y Banca de Inversión Tributaria",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Derecho de las Transacciones Internacionales / Master in Laws (LL.M.) in International Transactions",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Derecho",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Genética",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Dirección Internacional de Negocios / Bachelor in International Business Management",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Economía y Finanzas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Filosofía, Política y Economía",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Ingeniería de Sistemas de Inteligencia Artificial",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Relaciones Internacionales",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Bioinformática y Análisis de Datos Biomédicos",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Master Universitario en Ciencias y Humanidades",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Gobernanza Pública y Corporativa / Master in Public and Corporate Governance",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Ciencia e Ingeniería de Datos/Bachelor in Data Science and Engineering",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Análisis y Divulgación de Datos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Nutrición Personalizada e Intervención Nutricional",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Publicidad y Creación de Marca",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Animación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Diseño y Desarrollo de Videojuegos y Entornos Virtuales",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Curso 2024/2025: 1º, 2º, 3º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Diseño Multimedia y Gráfico",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Curso 2024/2025: 1º, 2º, 3º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Diseño de Interiores",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Ciencia de Datos",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Empresa y Tecnología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Estudios Internacionales / Bachelor in International Studies",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Criminología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Física",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Psicología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Educación Primaria",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Acceso a la Abogacía",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Guion Audiovisual",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Prevención de Riesgos Laborales",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Estudios Urbanos / Bachelor in Urban Studies",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Economía Aplicada/Master in Applied Economics",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Relaciones Internacionales/Master in International Relations",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "DENOMINACIÓN DEL TÍTULO A EXTINGUIR",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Calidad de Aguas Continentales / Inland Water Quality Assessment",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Historia Contemporánea (título conjunto de la Universidad Autónoma de Barcelona; la Universidad Autónoma de Madrid; la Universidad Complutense de Madrid; la Universidad de Cantabria; la Universidad de Santiago de Compostela; la Universidad de Zaragoza; la Universidad del País Vasco/Euskal Herriko Unibertsitatea; la Universidad Internacional Menéndez Pelayo y la Universitat de València (Estudi General)",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Estudios Avanzados sobre Islam en la Sociedad Europea Contemporánea",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Arteterapia y Educación Artística para la Inclusión Social (título conjunto de las Universidades Autónoma de Madrid, Complutense y Valladolid. Coordina la Universidad Complutense)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Desarrollo de Aplicaciones y Servicios para Dispositivos Móviles",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Responsabilidad Civil Extracontractual",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Ingeniería de Telecomunicación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Innovación y Dirección de Empresas Gastronómicas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Cinematografía y Artes Audiovisuales",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Criminología y Seguridad",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Gestión Avanzada de la Promoción y la Explotación de Infraestructuras",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Seguridad del Paciente y Calidad Asistencial",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Protección Internacional de los Derechos Humanos, Políticas Públicas y Sostenibilidad",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Ingeniería de Seguridad de la Información y las Comunicaciones",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Didáctica del Español como Lengua Extranjera",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Lingüística Aplicada a la Enseñanza del Español como Lengua Extranjera",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Derecho de los Negocios Internacionales / Master in International Business Law",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Grado en Gestión Urbana / Bachelor of Urban Management",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Dirección de la Empresa Familiar",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Educación Bilingüe",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Recuperación Funcional Integral",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Ingeniería en Automoción",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería de Materiales",
+        "nombre_elemento": "Máster Universitario en Electrofisiología Cardiaca, Diagnóstica y Terapéutica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Evaluación de tecnologías sanitarias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1 º Cuatrimestre.",
+        "cuatrimestre": "1 º Cuatrimestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Marco legal de la responsabilidad sanitaria. Bioética.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1 º Cuatrimestre.",
+        "cuatrimestre": "1 º Cuatrimestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Gestión del riesgo clínico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1 º Cuatrimestre.",
+        "cuatrimestre": "1 º Cuatrimestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Calidad asistencial: concepto y dimensiones.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1 º Cuatrimestre.",
+        "cuatrimestre": "1 º Cuatrimestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Seguridad del paciente: normas y planes estratégicos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1 º Cuatrimestre.",
+        "cuatrimestre": "1 º Cuatrimestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Error médico y efecto adversos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2 º Cuatrimestre.",
+        "cuatrimestre": "2 º Cuatrimestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Seguridad del medicamento y productos sanitarios.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2 º Cuatrimestre.",
+        "cuatrimestre": "2 º Cuatrimestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Evidencia clínica: fuentes de información e investigación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2 º Cuatrimestre.",
+        "cuatrimestre": "2 º Cuatrimestre."
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Administración y Dirección de Empresas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "- 2021/2022: 1º y 2º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Economía",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "- 2021/2022: 1º y 2º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Economía y Negocios Internacionales",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "- 2021/2022: 1º y 2º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Finanzas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "- 2021/2022: 1º y 2º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Turismo",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "- 2021/2022: 1º y 2º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Arquitectura Técnica y Edificación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "- 2021/2022: 1º, 2º 3º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Facultad de Ciencias Económicas,",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Empresariales y Turismo",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Matemáticas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Maestro en Educación Primaria",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería Informática",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Diseño Audiovisual e Ilustración",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Diseño de Interiores/Bachelor in Interior Design",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Gestión y Comunicación de la Moda",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Física Computacional",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Medio Ambiente y Sostenibilidad",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Terapia Ocupacional",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "- curso 2021/2022: 1º y 2º - curso 2022/2023: 3º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Logopedia",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "- curso 2021/2022: 1º y 2º - curso 2022/2023: 3º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Musicología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Educación Social",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería Mecánica",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Nutrición Humana y Dietética",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ciencias de la Actividad Física y del Deporte",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Administración y Dirección de Empresas/ Bachelor in Business Administration",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Arte Digital",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería en Tecnologías para Animación y Videojuegos",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Marketing/Bachelor in Marketing",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Óptica y Optometría",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2021/2022: 1º, 2º, 3º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Análisis de Negocios",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Administración de Empresas / Bachelor in Business Administration",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Comportamiento y Ciencias Sociales / Bachelor in Behavior and Social Sciences",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Computación e Inteligencia Artificial / Bachelor in Computer Science and Artificial Intelligence",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Comunicación y Medios Digitales / Bachelor in Communication and Digital Media",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Datos y Analítica de Negocio / Bachelor in Data and Business Analytics",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Derecho / Bachelor of Laws",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Economía / Bachelor in Economics",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Filosofía, Política, Derecho y Economía / Bachelor in Philosophy, Politics, Law and Economics",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Contabilidad y Finanzas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ciencia y Tecnología de la Edificación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Analítica de Negocio y Grandes Volúmenes de Datos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Investigación en Ciencias",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Contabilidad",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Derecho Público",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "MU Erasmus Mundus en Física de Plasmas y Fusión Nuclear/European Master of Science in Nuclear Fusion and Engineering Physics (Fusion-EP) (título conjunto de las Universidades Carlos III de Madrid (coordinadora), Complutense de Madrid, Universiteit Gent (Bélgica), Universität Stuttgart (Alemania) y Université Henri Poincaré Nancy 1 (Francia)",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "MU Erasmus Mundus en Física de Plasmas y Fusión Nuclear/European Master of Science in Nuclear Fusion and Engineering Physics (Fusion-EP) (título conjunto de las Universidades Carlos III de Madrid (coordinadora), Complutense de Madrid, Universiteit Gent (Bélgica), Universität Stuttgart (Alemania) y Université Henri Poincaré Nancy 1 (Francia)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Ingeniería Matemática",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Ingeniería Telemática",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Arqueología del Mediterráneo en la Antigüedad Clásica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Arqueología Prehistórica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario Internacional de Estudios Contemporáneos de América Latina (título conjunto de la Universidad Complutense de Madrid (coordinadora), la Universidad de Costa Rica y la Universidad de la República de Uruguay)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario Erasmus Mundus en Nano- y Bio- fotónica Molecular/Molecular Nano- and Bio- photonics (Universidad Complutense de Madrid, Universidad Politechnika Wroclawska- Wroclaw University of Technology (Polonia), Université de Paris V-Descartes (Francia), Uniwersytet Wroclawski (Polonia) y École Normale Supérieure de Cachan (Francia))",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Psicología de la Educación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario Erasmus Mundus en Procedimientos Parlamentarios y Técnica Legislativa/Legislativa/Parliamentary Procedures and Legislative Drafting (título conjunto de la Universidad Complutense de Madrid; Luiss Libera Università Internazionale degli Studi Sociali Guido Carli (Italia) y University of London (Reino Unido))",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Ingeniería Geodésica y Cartografía",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Fotografía",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Composición en Músicas Contemporáneas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Traducción e Interpretación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería Civil en Transportes y Servicios Urbanos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Podología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Ingeniería de Desarrollo para Dispositivos Móviles",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Endodoncia",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Medicina de Pequeños Animales",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Finanzas y Seguros",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Menopausia",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Diseño y Desarrollo de Videojuegos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Comunicación Global y Estratégica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Ingeniería de Sistemas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería y Tecnología de Nuevos Materiales",
+        "nombre_elemento": "Máster Universitario en Gestión Integral de Ensayos Clínicos Veterinarios",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería y Tecnología de Nuevos Materiales",
+        "nombre_elemento": "Máster Universitario en Administración y Dirección de Empresas. MBA",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería y Tecnología de Nuevos Materiales",
+        "nombre_elemento": "Máster Universitario en Banca y Finanzas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería y Tecnología de Nuevos Materiales",
+        "nombre_elemento": "Máster Universitario en Dirección Estratégica de Comercio Internacional",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería y Tecnología de Nuevos Materiales",
+        "nombre_elemento": "Grado en Marketing y Gestión Comercial",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería y Tecnología de Nuevos Materiales",
+        "nombre_elemento": "Grado en Óptica, Optometría y Audiología",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería y Tecnología de Nuevos Materiales",
+        "nombre_elemento": "Máster Universitario en Ciencias Actuariales y Financieras",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería y Tecnología de Nuevos Materiales",
+        "nombre_elemento": "Máster Universitario en Periodoncia Médico Quirúrgica",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería y Tecnología de Nuevos Materiales",
+        "nombre_elemento": "Máster Universitario en Humanidades Digitales",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería y Tecnología de Nuevos Materiales",
+        "nombre_elemento": "Máster Universitario en Trade Marketing y Comercio Electrónico",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería y Tecnología de Nuevos Materiales",
+        "nombre_elemento": "Máster Universitario en Dirección de Empresas (MBA)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Ingeniería y Tecnología de Nuevos Materiales",
+        "nombre_elemento": "Máster Universitario en Banca y Asesoría Financiera",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "codigo_estudio": "2500011",
+  "titulo": "Graduado o Graduada en Ciencias del Trabajo y Recursos Humanos",
+  "nivel_academico": "Grado - RD 1393/2007 (1)",
+  "universidad_codigo": "074",
+  "universidad_nombre": "Universidad a Distancia de Madrid",
+  "fecha_procesado": "2026-08-04T14:58:04.111154",
+  "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2014/08/12/BOCM-20140812-4.PDF",
+  "boe_fecha": "2014-07-24",
+  "all_boe_urls": [
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2014/08/12/BOCM-20140812-4.PDF",
+    "http://www.boe.es/boe/dias/2009/08/06/pdfs/BOE-A-2009-13105.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {},
+    "total_elementos": 4,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Economía, Empresa y Mercado de Trabajo. Economía, Empresa y Mercado de Trabajo. Marco Normativo de las Relaciones Laborales y de la Seguridad Social. Elementos Jurídicos Básicos para las Relaciones Laborales. Marco Normativo de las Relaciones Laborales y de la Seguridad Social. Teoría y Sistemas de Relaciones Laborales. Sociología del Trabajo y Técnicas de Investigación Social. Sociología del Trabajo y Técnicas de Investigación Social.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2 2 2 2 2 2 2 2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Prácticum.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de conocimiento",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "4",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

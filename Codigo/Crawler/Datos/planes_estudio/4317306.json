@@ -1,0 +1,31 @@
+{
+  "codigo_estudio": "4317306",
+  "titulo": "Máster Universitario en Administración de Empresas para Arquitectura y Diseño / Master in Business for Architecture and Design por la IE Universidad",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "057",
+  "universidad_nombre": "IE Universidad",
+  "fecha_procesado": "2026-08-04T14:47:45.097969",
+  "boe_url": "http://www.boe.es/boe/dias/2021/03/11/pdfs/BOE-A-2021-3833.pdf",
+  "boe_fecha": "2021-03-11",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2021/03/11/pdfs/BOE-A-2021-3833.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "51",
+      "Trabajo Fin de Grado / Máster": "9"
+    },
+    "total_elementos": 1,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Materias obligatorias.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "9",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

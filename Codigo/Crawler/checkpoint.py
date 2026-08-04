@@ -55,13 +55,20 @@ class CheckpointManager:
         if os.path.exists(self.filepath):
             try:
                 with open(self.filepath, "r", encoding="utf-8") as f:
-                    return json.load(f)
+                    data = json.load(f)
+                    if "non_study_plan_pdfs" not in data:
+                        data["non_study_plan_pdfs"] = []
+                    if "failed_pdf_downloads" not in data:
+                        data["failed_pdf_downloads"] = {}
+                    return data
             except Exception:
                 pass
         return {
             "universities_downloaded": False,
             "processed_universities": [],
             "processed_degrees": {},  # Map: degree_code -> {"boe_url": ..., "boe_fecha": ..., "last_updated": ...}
+            "non_study_plan_pdfs": [], # URLs de PDFs descartados por no ser de plan de estudios
+            "failed_pdf_downloads": {} # Mapa de URLs fallidas -> {degree_code, reason, timestamp}
         }
 
     def mark_universities_downloaded(self):
@@ -70,7 +77,6 @@ class CheckpointManager:
 
     def is_university_processed(self, univ_code: str) -> bool:
         with CheckpointManager._lock:
-            # Check latest state on disk if available
             disk_state = self._load_checkpoint()
             return univ_code in disk_state.get("processed_universities", []) or univ_code in self.state.get("processed_universities", [])
 
@@ -79,6 +85,35 @@ class CheckpointManager:
             self.state["processed_universities"] = []
         if univ_code not in self.state["processed_universities"]:
             self.state["processed_universities"].append(univ_code)
+        self._save()
+
+    def is_non_study_plan_pdf(self, pdf_url: str) -> bool:
+        if not is_valid_value(pdf_url):
+            return False
+        with CheckpointManager._lock:
+            disk_state = self._load_checkpoint()
+            non_plans = set(disk_state.get("non_study_plan_pdfs", [])).union(set(self.state.get("non_study_plan_pdfs", [])))
+            return pdf_url in non_plans
+
+    def mark_non_study_plan_pdf(self, pdf_url: str):
+        if not is_valid_value(pdf_url):
+            return
+        if "non_study_plan_pdfs" not in self.state:
+            self.state["non_study_plan_pdfs"] = []
+        if pdf_url not in self.state["non_study_plan_pdfs"]:
+            self.state["non_study_plan_pdfs"].append(pdf_url)
+            self._save()
+
+    def record_pdf_download_failure(self, pdf_url: str, degree_code: str, reason: str):
+        if not is_valid_value(pdf_url):
+            return
+        if "failed_pdf_downloads" not in self.state:
+            self.state["failed_pdf_downloads"] = {}
+        self.state["failed_pdf_downloads"][pdf_url] = {
+            "codigo_estudio": degree_code,
+            "motivo_fallo": reason,
+            "timestamp": datetime.now().isoformat()
+        }
         self._save()
 
     def get_degree_record(self, degree_code: str) -> dict:
@@ -145,6 +180,20 @@ class CheckpointManager:
                         for k, v in disk_degrees.items():
                             if k not in self.state["processed_degrees"]:
                                 self.state["processed_degrees"][k] = v
+
+                    # Merge non_study_plan_pdfs
+                    disk_non_plans = set(disk_state.get("non_study_plan_pdfs", []))
+                    local_non_plans = set(self.state.get("non_study_plan_pdfs", []))
+                    self.state["non_study_plan_pdfs"] = list(disk_non_plans.union(local_non_plans))
+
+                    # Merge failed_pdf_downloads
+                    disk_failed = disk_state.get("failed_pdf_downloads", {})
+                    if isinstance(disk_failed, dict):
+                        if not isinstance(self.state.get("failed_pdf_downloads"), dict):
+                            self.state["failed_pdf_downloads"] = {}
+                        for k, v in disk_failed.items():
+                            if k not in self.state["failed_pdf_downloads"]:
+                                self.state["failed_pdf_downloads"][k] = v
                 except Exception:
                     pass
 

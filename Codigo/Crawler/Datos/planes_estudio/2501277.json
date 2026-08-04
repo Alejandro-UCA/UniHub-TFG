@@ -1,0 +1,451 @@
+{
+  "codigo_estudio": "2501277",
+  "titulo": "Graduado o Graduada en Liderazgo Emprendedor e Innovación por la Mondragón Unibertsitatea",
+  "nivel_academico": "Grado - RD 1393/2007 (1)",
+  "universidad_codigo": "061",
+  "universidad_nombre": "Mondragón Unibertsitatea",
+  "fecha_procesado": "2026-08-04T14:53:02.782020",
+  "boe_url": "http://www.boe.es/boe/dias/2023/03/24/pdfs/BOE-A-2023-7654.pdf",
+  "boe_fecha": "2023-03-24",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2023/03/24/pdfs/BOE-A-2023-7654.pdf",
+    "http://www.boe.es/boe/dias/2022/01/28/pdfs/BOE-A-2022-1404.pdf",
+    "http://www.boe.es/boe/dias/2016/12/26/pdfs/BOE-A-2016-12353.pdf",
+    "http://www.boe.es/boe/dias/2010/11/04/pdfs/BOE-A-2010-16970.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica": "60",
+      "Obligatorias": "145",
+      "Optativas": "5",
+      "Trabajo Fin de Grado / Máster": "30",
+      "Créditos Totales": "240"
+    },
+    "total_elementos": 47,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Formación básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "30",
+        "caracter": "TFG/TFM",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Creación y Organización de Empresas I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º y 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Creación y Organización de Empresas II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º y 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Finanzas para Emprendedores I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º y 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Finanzas para Emprendedores II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º y 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Creación y desarrollo de la empresa: Herramientas para la Gestión Financiera, Legal y Digital I.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "1.º y 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Creación y desarrollo de la empresa: Herramientas para la Gestión Financiera, Legal y Digital II.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "1.º y 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Tecnologías Emergentes I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º y 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Tecnologías Emergentes II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º y 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo I: Fundamentos de la Creación y la Gestión de Empresa.",
+        "materia": "Asignatura",
+        "nombre_elemento": "Creación y Organización de Empresa I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo I: Fundamentos de la Creación y la Gestión de Empresa.",
+        "materia": "Asignatura",
+        "nombre_elemento": "Creación y Organización de Empresa II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo II: Emprendimiento y Enfoque a Clientes.",
+        "materia": "Asignatura",
+        "nombre_elemento": "Gestión de Clientes, Marketing y Ventas I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo II: Emprendimiento y Enfoque a Clientes.",
+        "materia": "Asignatura",
+        "nombre_elemento": "Gestión de Clientes, Marketing y Ventas II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo III: Liderazgo, Aprendizaje Autogestionado y Desarrollo Personal.",
+        "materia": "Asignatura",
+        "nombre_elemento": "Liderazgo, Aprendizaje Autogestionado y Desarrollo Personal I.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "1.º y 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo III: Liderazgo, Aprendizaje Autogestionado y Desarrollo Personal.",
+        "materia": "Asignatura",
+        "nombre_elemento": "Liderazgo, Aprendizaje Autogestionado y Desarrollo Personal II.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo III: Liderazgo, Aprendizaje Autogestionado y Desarrollo Personal.",
+        "materia": "Asignatura",
+        "nombre_elemento": "Liderazgo, Aprendizaje Autogestionado y Desarrollo Personal III.",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo IV: Creación y Desarrollo de Equipos y Comunidades.",
+        "materia": "Asignatura",
+        "nombre_elemento": "Creación y Desarrollo de Equipos y Comunidades I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º y 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo IV: Creación y Desarrollo de Equipos y Comunidades.",
+        "materia": "Asignatura",
+        "nombre_elemento": "Creación y Desarrollo de Equipos y Comunidades II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo IV: Creación y Desarrollo de Equipos y Comunidades.",
+        "materia": "Asignatura",
+        "nombre_elemento": "Creación y Desarrollo de Equipos y Comunidades III.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo V: Personas Globales.",
+        "materia": "Asignatura",
+        "nombre_elemento": "Estancias Internacionales (Learning Journeys) a Ecosistemas de Innovación y Emprendimiento I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo V: Personas Globales.",
+        "materia": "Asignatura",
+        "nombre_elemento": "Estancias Internacionales (Learning Journeys) a Ecosistemas de Innovación y Emprendimiento II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo V: Personas Globales.",
+        "materia": "Asignatura",
+        "nombre_elemento": "Estancias Internacionales (Learning Journeys) a Ecosistemas de Innovación y Emprendimiento III.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1.º y 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo V: Personas Globales.",
+        "materia": "Asignatura",
+        "nombre_elemento": "Idiomas: Inglés.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo V: Personas Globales.",
+        "materia": "Asignatura",
+        "nombre_elemento": "Idiomas: Chino.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo V: Personas Globales.",
+        "materia": "Asignatura",
+        "nombre_elemento": "Idiomas: Tercer Idioma.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo VI: Pensamientos de Diseño, Innovación Abierta y Generación de Modelos de Negocio.",
+        "materia": "Asignatura",
+        "nombre_elemento": "Pensamiento de Diseño y Generación de Modelos de Negocio I.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo VI: Pensamientos de Diseño, Innovación Abierta y Generación de Modelos de Negocio.",
+        "materia": "Asignatura",
+        "nombre_elemento": "Pensamiento de Diseño y Generación de Modelos de Negocio II.",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo VI: Pensamientos de Diseño, Innovación Abierta y Generación de Modelos de Negocio.",
+        "materia": "Asignatura",
+        "nombre_elemento": "Estrategia e Innovación Estratégica I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo VI: Pensamientos de Diseño, Innovación Abierta y Generación de Modelos de Negocio.",
+        "materia": "Asignatura",
+        "nombre_elemento": "Estrategia e Innovación Estratégica II.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo VII: Incubación de Startups e Intraemprendimiento: Inversión y Financiación.",
+        "materia": "Asignatura",
+        "nombre_elemento": "Programa Startups de Impacto.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo VII: Incubación de Startups e Intraemprendimiento: Inversión y Financiación.",
+        "materia": "Asignatura",
+        "nombre_elemento": "Incubación e Intraemprendimiento: Acceso a la Inversión y Financiación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º y 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo VIII: Especialización y Proyecto Final.",
+        "materia": "Asignatura",
+        "nombre_elemento": "Tecnologías Exponenciales y sus Aplicaciones en Negocios e Industrias: Inteligencia Artificial, BlockChain y Fabricación Digital I.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "1.º y 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo VIII: Especialización y Proyecto Final.",
+        "materia": "Asignatura",
+        "nombre_elemento": "Tecnologías Exponenciales y sus Aplicaciones en Negocios e Industrias: Inteligencia Artificial, BlockChain y Fabricación Digital II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º y 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo VIII: Especialización y Proyecto Final.",
+        "materia": "Asignatura",
+        "nombre_elemento": "Trabajo Final de Grado.",
+        "creditos_ects": "30",
+        "caracter": "TFG/TFM",
+        "curso": "1.º y 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Tipología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "30",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Asignatura",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Número de ECTS",
+        "nombre_elemento": "6 6 6 6 6 6 8 8 8",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.ºy 2.º 1.º y 2.º 1.º y 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Número de ECTS",
+        "nombre_elemento": "1.º 1.º 1.º 1.º 2.º 2.º 2.º 2.º",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Número de ECTS",
+        "nombre_elemento": "1.º 1.º 1.º 1.º 2.º 3.º 3.º 3.º 3.º",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º 1.º 2.º 2.º 1.º 1.º 1.º 2.º 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Número de ECTS",
+        "nombre_elemento": "1.º 1.º 2.º 2.º 2.º 3º 3º 3º 3º",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.º 2.º 1.º 1.º 1.º 1.º 1.º 1.º 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Número de ECTS",
+        "nombre_elemento": "1.º 2.º 2.º 2.º 3º 3º 3º 3º",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º 2.º 2.º 2.º 2.º 2.º 2.º 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Número de ECTS",
+        "nombre_elemento": "1.º 1.º 2.º 3º 2.º 3º 4.º",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.º y 2.º 1.º 1.º 1.º 2.º 1.º y 2.º 1.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Número de ECTS",
+        "nombre_elemento": "3.º 3.º 3.º 3.º 3.º 3.º 3.º 3.º 4.º",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º y 2.º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Número de ECTS",
+        "nombre_elemento": "4.º 4.º 4.º 4.º",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "1.º y 2.º 1.º y 2.º 1.º y 2.º 1.º",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

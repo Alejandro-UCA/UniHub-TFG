@@ -1,0 +1,482 @@
+{
+  "codigo_estudio": "4311003",
+  "titulo": "Máster Universitario en Habilitación Docente para el Ejercicio de las Profesiones de Profesor de Educación Secundaria Obligatoria y Bachillerato, Formación Profesional y Enseñanzas de Idiomas por la Mondragón Unibertsitatea",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "061",
+  "universidad_nombre": "Mondragón Unibertsitatea",
+  "fecha_procesado": "2026-08-04T14:54:18.627259",
+  "boe_url": "http://www.boe.es/boe/dias/2016/05/30/pdfs/BOE-A-2016-5120.pdf",
+  "boe_fecha": "2016-05-30",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2016/05/30/pdfs/BOE-A-2016-5120.pdf",
+    "http://www.boe.es/boe/dias/2013/02/08/pdfs/BOE-A-2013-1369.pdf",
+    "http://www.boe.es/buscar/pdf/2007/BOE-A-2007-22450-consolidado.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "4"
+    },
+    "total_elementos": 51,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Sociedad, familia y educación....................................... Procesos y contextos educativos. ................................... Aprendizaje y desarrollo de la personalidad. . . . . . . . . . . . . . . . . . . . . . . . . . . . Innovación docente e iniciación a la investigación educativa............... Educación plurilingüe e intercultural. ................................. Tecnologías de la información y comunicación en la educación............. Complementos para la formación disciplinar. Ciencias Naturales y Matemáticas................................................... Aprendizaje y enseñanza de las Ciencias Naturales y Matemáticas. ........ Innovación docente e iniciación a la investigación educativa en las Ciencias Naturales y Matemáticas. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Complementos para la formación disciplinar. Humanidades y Ciencias Sociales....................................................... Aprendizaje y enseñanza de las Humanidades y Ciencias Sociales. ........ Innovación docente e iniciación a la investigación educativa en las Humanidades y Ciencias Sociales.................................. Complementos para la formación disciplinar. Tecnología.................. Aprendizaje y enseñanza de la Tecnología............................. Innovación docente e iniciación a la investigación educativa en Tecnología. .. Complementos para la formación disciplinar. Lengua y Literatura. .......... Aprendizaje y enseñanza de la Lengua y Literatura...................... Innovación docente e iniciación a la investigación educativa en Lengua y Literatura......................................................... Complementos para la formación disciplinar. Educación Artística. .......... Aprendizaje y enseñanza de la Educación Artística. ..................... Innovación docente e iniciación a la investigación educativa en Educación Artística. ......................................................... Complementos para la formación disciplinar. Educación Física............. Aprendizaje y enseñanza de la Educación Física........................ Innovación docente e iniciación a la investigación educativa en Educación Física.......................................................... Practicum....................................................... Trabajo fin de máster.............................................. Sociedad, familia y educación....................................... Procesos y contextos educativos. ................................... Desarrollo, aprendizaje y educación.................................. Los ámbitos de la orientación educativa y el asesoramiento psicopedagógico. Educación inclusiva y atención a la diversidad.......................... Innovación docente e iniciación a la investigación educativa. Gestión del cambio I. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . La investigación e innovación educativa y la gestión del cambio II. ......... Los procesos de orientación educativa y el asesoramiento psicopedagógico. . Practicum....................................................... Trabajo fin de máster..............................................",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4 4 6 4 4 4 3 9 3 3 9 3 3 9 3 3 9 3 3 9 3 3 9 3 13 6 4 4 4 6 7 4 4 6 13 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Sociedad, familia y educación.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Procesos y contextos educativos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Aprendizaje y desarrollo de la personalidad.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Tecnologías de la información y comunicación en la educación.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Planificación del proceso de enseñanza aprendizaje: La organización de la Secuencia Didáctica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Innovación docente e iniciación a la investigación educativa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Practicum.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Taller sobre el clima del aula.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Investigación educativa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Educación plurilingüe e intercultural.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Taller de lenguas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Introducción a la Educación Secundaria Obligatoria.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Introducción al Bachillerato.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Introducción a los Ciclos Formativos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Introducción a la Enseñanza de Idiomas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Bases de la orientación educativa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Orientación y tutoría.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Orientación y atención a la diversidad.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Complementos para la formación disciplinar. Ciencias Experimentales.",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Aprendizaje y enseñanza de las Ciencias Experimentales.",
+        "creditos_ects": "9",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Innovación docente e iniciación a la investigación educativa en las Ciencias Experimentales.",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Complementos para la formación disciplinar. Tecnología.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Aprendizaje y enseñanza de la Tecnología.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Innovación docente e iniciación a la investigación educativa en Tecnología.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Complementos para la formación disciplinar. Matemáticas.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Aprendizaje y enseñanza de las matemáticas.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Innovación docente e iniciación a la investigación educativa en Matemáticas.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Complementos para la formación disciplinar. Ciencias Sociales, Geografía e Historia.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Aprendizaje y enseñanza de las Ciencias Sociales, Geografía e Historia.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Innovación docente e iniciación a la investigación educativa en las Ciencias Sociales, Geografía e Historia.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Complementos para la formación disciplinar. Educación Física y Actividades Deportivas.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Aprendizaje y enseñanza de la Educación Física y Actividades Deportivas.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Innovación docente e iniciación a la investigación educativa en Educación Física y Actividades Deportivas.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Complementos para la formación disciplinar. Lenguas y Literaturas.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Aprendizaje y enseñanza de las lenguas y Literaturas.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Innovación docente e iniciación a la investigación educativa en Lenguas y Literaturas.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Complementos para la formación disciplinar. Administración y Empresa.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Aprendizaje y enseñanza de administración y empresa.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Innovación docente e iniciación a la investigación educativa en Administración y Empresa.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Complementos para la formación disciplinar. Procesos y medios de comunicación.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Aprendizaje y enseñanza de los Procesos y Medios de Comunicación.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Innovación docente e iniciación a la investigación educativa en Procesos y Medios de comunicación.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Genérico.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Específico.",
+        "creditos_ects": "24",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materias",
+        "nombre_elemento": "GENÉRICO",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Desarrollo, aprendizaje y educación.",
+        "nombre_elemento": "ESPECÍFICO",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Los ámbitos de la orientación educativa y el asesoramiento psicopedagógico.",
+        "nombre_elemento": "Los procesos de la orientación educativa y el asesoramiento psicopedagógico.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Los ámbitos de la orientación educativa y el asesoramiento psicopedagógico.",
+        "nombre_elemento": "Educación inclusiva y atención a la diversidad.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Los ámbitos de la orientación educativa y el asesoramiento psicopedagógico.",
+        "nombre_elemento": "La investigación e innovación educativa y la gestión del cambio.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

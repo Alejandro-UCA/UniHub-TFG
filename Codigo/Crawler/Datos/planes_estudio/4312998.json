@@ -1,0 +1,203 @@
+{
+  "codigo_estudio": "4312998",
+  "titulo": "Máster Universitario en Asesoría Jurídico-Laboral por la Universidad a Distancia de Madrid",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "074",
+  "universidad_nombre": "Universidad a Distancia de Madrid",
+  "fecha_procesado": "2026-08-04T15:00:55.768598",
+  "boe_url": "http://www.boe.es/boe/dias/2012/03/28/pdfs/BOE-A-2012-4303.pdf",
+  "boe_fecha": "2012-03-28",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2012/03/28/pdfs/BOE-A-2012-4303.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2011/10/25/BOCM-20111025-16.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "48",
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 20,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "MATERIAS QUE CONSTITUYEN EL MÁSTER UNIVERSITARIO EN ASESORÍA JURIDICO-LABORAL Y SU DISTRIBUCIÓN EN CRÉDITOS ECTS",
+        "nombre_elemento": "OBLIGATORIAS",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "MATERIAS QUE CONSTITUYEN EL MÁSTER UNIVERSITARIO EN ASESORÍA JURIDICO-LABORAL Y SU DISTRIBUCIÓN EN CRÉDITOS ECTS",
+        "nombre_elemento": "OPTATIVAS",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "MATERIAS QUE CONSTITUYEN EL MÁSTER UNIVERSITARIO EN ASESORÍA JURIDICO-LABORAL Y SU DISTRIBUCIÓN EN CRÉDITOS ECTS",
+        "nombre_elemento": "PRÁCTICAS EXTERNAS",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "MATERIAS QUE CONSTITUYEN EL MÁSTER UNIVERSITARIO EN ASESORÍA JURIDICO-LABORAL Y SU DISTRIBUCIÓN EN CRÉDITOS ECTS",
+        "nombre_elemento": "TRABAJO FIN DE MÁSTER",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "MATERIAS QUE CONSTITUYEN EL MÁSTER UNIVERSITARIO EN ASESORÍA JURIDICO-LABORAL Y SU DISTRIBUCIÓN EN CRÉDITOS ECTS",
+        "nombre_elemento": "TOTAL",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Asignatura",
+        "materia": "MATERIAS QUE CONSTITUYEN EL MÁSTER UNIVERSITARIO EN ASESORÍA JURIDICO-LABORAL Y SU DISTRIBUCIÓN EN CRÉDITOS ECTS",
+        "nombre_elemento": "Informática Aplicada a la Asesoría Jurídico-Laboral",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1 semana",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Asignatura",
+        "materia": "MATERIAS QUE CONSTITUYEN EL MÁSTER UNIVERSITARIO EN ASESORÍA JURIDICO-LABORAL Y SU DISTRIBUCIÓN EN CRÉDITOS ECTS",
+        "nombre_elemento": "Procedimientos Administrativos en el Ámbito Socio-Laboral",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "5 semanas",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Asignatura",
+        "materia": "MATERIAS QUE CONSTITUYEN EL MÁSTER UNIVERSITARIO EN ASESORÍA JURIDICO-LABORAL Y SU DISTRIBUCIÓN EN CRÉDITOS ECTS",
+        "nombre_elemento": "Intervención en los Procesos Civiles, Contenciosos y Penales",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "3 semanas",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Asignatura",
+        "materia": "MATERIAS QUE CONSTITUYEN EL MÁSTER UNIVERSITARIO EN ASESORÍA JURIDICO-LABORAL Y SU DISTRIBUCIÓN EN CRÉDITOS ECTS",
+        "nombre_elemento": "Práctica Procesal Laboral",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "5 semanas",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Asignatura",
+        "materia": "MATERIAS QUE CONSTITUYEN EL MÁSTER UNIVERSITARIO EN ASESORÍA JURIDICO-LABORAL Y SU DISTRIBUCIÓN EN CRÉDITOS ECTS",
+        "nombre_elemento": "Auditoría Jurídico-Laboral",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5 semanas",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Asignatura",
+        "materia": "MATERIAS QUE CONSTITUYEN EL MÁSTER UNIVERSITARIO EN ASESORÍA JURIDICO-LABORAL Y SU DISTRIBUCIÓN EN CRÉDITOS ECTS",
+        "nombre_elemento": "Diseño de Políticas de Contratación, Cláusulas Contractuales y Política Retributiva",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "5 semanas",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Asignatura",
+        "materia": "MATERIAS QUE CONSTITUYEN EL MÁSTER UNIVERSITARIO EN ASESORÍA JURIDICO-LABORAL Y SU DISTRIBUCIÓN EN CRÉDITOS ECTS",
+        "nombre_elemento": "Efectos Laborales en la Reestructuración y Sucesión de Empresas",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "3 semanas",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Asignatura",
+        "materia": "Estrategia Empresarial en Materia de Despidos e Indemnizaciones",
+        "nombre_elemento": "Responsabilidad Empresarial por Incumplimientos Socio-Laborales",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "3 semanas",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Asignatura",
+        "materia": "Estrategia Empresarial en Materia de Despidos e Indemnizaciones",
+        "nombre_elemento": "Seguridad Social y Empresa: Políticas de Protección Social",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "3 semanas",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Asignatura",
+        "materia": "Estrategia Empresarial en Materia de Despidos e Indemnizaciones",
+        "nombre_elemento": "Procesos y Estrategias de Negociación Colectiva",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "3 semanas",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Asignatura",
+        "materia": "Estrategia Empresarial en Materia de Despidos e Indemnizaciones",
+        "nombre_elemento": "Habilidades y Competencias Profesionales del Asesor Jurídico- Laboral",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "3 semanas",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Asignatura",
+        "materia": "Estrategia Empresarial en Materia de Despidos e Indemnizaciones",
+        "nombre_elemento": "TOTAL CREDITOS",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Asignatura",
+        "materia": "Estrategia Empresarial en Materia de Despidos e Indemnizaciones",
+        "nombre_elemento": "TOTAL HORAS ESTUDIO",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.500-1.800 h estudio",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Asignatura",
+        "materia": "Estrategia Empresarial en Materia de Despidos e Indemnizaciones",
+        "nombre_elemento": "ESTIMACIÓN HORAS ESTUDIO DIARIAS",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 h/estudio",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

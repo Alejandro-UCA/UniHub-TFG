@@ -1,0 +1,76 @@
+{
+  "codigo_estudio": "4317756",
+  "titulo": "Máster Universitario en Gestión de la Administración Pública / Master in Public Administration por la IE Universidad",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "057",
+  "universidad_nombre": "IE Universidad",
+  "fecha_procesado": "2026-08-04T14:48:41.531620",
+  "boe_url": "http://www.boe.es/boe/dias/2021/12/08/pdfs/BOE-A-2021-20311.pdf",
+  "boe_fecha": "2021-12-08",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2021/12/08/pdfs/BOE-A-2021-20311.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "45",
+      "Optativas": "9"
+    },
+    "total_elementos": 6,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Materias optativas.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materias optativas.",
+        "nombre_elemento": "Economía. 12 ECTS (OB).",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materias optativas.",
+        "nombre_elemento": "Ciencia Política. 18 ECTS (OB + OP).",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materias optativas.",
+        "nombre_elemento": "Gestión de Proyectos. 12 ECTS (OB).",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materias optativas.",
+        "nombre_elemento": "Tecnología. 12 ECTS (OB).",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materias optativas.",
+        "nombre_elemento": "Proyecto Final. 6 ECTS.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

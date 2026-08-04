@@ -1,0 +1,29 @@
+{
+  "codigo_estudio": "4313059",
+  "titulo": "Master Universitario en Tecnologías de Edificación Sostenible por la Universidad Antonio de Nebrija",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "052",
+  "universidad_nombre": "Universidad Antonio de Nebrija",
+  "fecha_procesado": "2026-08-04T15:41:25.857651",
+  "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2017/01/05/BOCM-20170105-29.PDF",
+  "boe_fecha": "2016-12-12",
+  "all_boe_urls": [
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2017/01/05/BOCM-20170105-29.PDF",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2011/10/25/BOCM-20111025-16.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {},
+    "total_elementos": 1,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

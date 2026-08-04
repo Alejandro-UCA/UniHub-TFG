@@ -1,0 +1,196 @@
+{
+  "codigo_estudio": "2502888",
+  "titulo": "Graduado o Graduada en Derecho por la Universidad a Distancia de Madrid",
+  "nivel_academico": "Grado - RD 1393/2007 (1)",
+  "universidad_codigo": "074",
+  "universidad_nombre": "Universidad a Distancia de Madrid",
+  "fecha_procesado": "2026-08-04T14:58:14.175757",
+  "boe_url": "http://www.boe.es/boe/dias/2015/05/06/pdfs/BOE-A-2015-5062.pdf",
+  "boe_fecha": "2015-05-06",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2015/05/06/pdfs/BOE-A-2015-5062.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2014/08/12/BOCM-20140812-4.PDF",
+    "http://www.boe.es/boe/dias/2011/06/16/pdfs/BOE-A-2011-10459.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "6",
+      "Optativas": "1",
+      "Prácticas Externas": "1"
+    },
+    "total_elementos": 19,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Ingeniería y Arquitectura.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Ciencias Sociales y Jurídicas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Derecho Civil.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Ciencias Jurídicas Básicas.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Derecho Administrativo.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Derecho Internacional y Comunitario.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Derecho Mercantil.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Derecho Penal.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Derecho Financiero y Tributario.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Derecho Procesal.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Derecho Social.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Prácticum.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Formación Multidisciplinar.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Derecho de la Empresa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Obligatoria.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Rama de Conocimiento",
+        "nombre_elemento": "Optativa.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "Optativa 3.",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

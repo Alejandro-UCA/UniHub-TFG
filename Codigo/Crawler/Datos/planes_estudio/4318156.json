@@ -1,0 +1,67 @@
+{
+  "codigo_estudio": "4318156",
+  "titulo": "Máster Universitario en Relaciones Internacionales / Master in International Relations por la IE Universidad",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "057",
+  "universidad_nombre": "IE Universidad",
+  "fecha_procesado": "2026-08-04T14:49:00.437741",
+  "boe_url": "http://www.boe.es/boe/dias/2023/01/17/pdfs/BOE-A-2023-1176.pdf",
+  "boe_fecha": "2023-01-17",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2023/01/17/pdfs/BOE-A-2023-1176.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "33",
+      "Optativas": "21"
+    },
+    "total_elementos": 5,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Materias optativas.",
+        "nombre_elemento": "Trabajo fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materias optativas.",
+        "nombre_elemento": "Metodología y Habilidades. 12 ECTS (OB).",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materias optativas.",
+        "nombre_elemento": "Estudios Avanzados en Relaciones Internacionales. 27 ECTS. (21 OB + 6 OP).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materias optativas.",
+        "nombre_elemento": "Especialidades** 15 ECTS (OP).",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materias optativas.",
+        "nombre_elemento": "Trabajo fin de Máster *** 6 ECTS (TFM).",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

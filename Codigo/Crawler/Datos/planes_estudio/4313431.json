@@ -1,0 +1,32 @@
+{
+  "codigo_estudio": "4313431",
+  "titulo": "Máster Universitario en Gestión del Planeamiento Territorial y Urbanístico por la Universidad Alfonso X El Sabio",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "047",
+  "universidad_nombre": "Universidad Alfonso X El Sabio",
+  "fecha_procesado": "2026-08-04T15:20:43.477210",
+  "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2016/01/05/BOCM-20160105-16.PDF",
+  "boe_fecha": "2015-12-14",
+  "all_boe_urls": [
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2016/01/05/BOCM-20160105-16.PDF",
+    "http://www.boe.es/boe/dias/2013/06/05/pdfs/BOE-A-2013-5993.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2012/10/30/BOCM-20121030-1.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "6"
+    },
+    "total_elementos": 1,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

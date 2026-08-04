@@ -1,0 +1,130 @@
+{
+  "codigo_estudio": "3500672",
+  "titulo": "Máster Universitario en Dinamización de la Cultura Vasca por la Mondragón Unibertsitatea",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "061",
+  "universidad_nombre": "Mondragón Unibertsitatea",
+  "fecha_procesado": "2026-08-04T14:53:17.584921",
+  "boe_url": "http://www.boe.es/boe/dias/2026/06/22/pdfs/BOE-A-2026-13570.pdf",
+  "boe_fecha": "2026-06-22",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2026/06/22/pdfs/BOE-A-2026-13570.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "48",
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 12,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo fin de máster.",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "1. SOCIOLINGÜÍSTICA Y COMUNIDAD LINGÜÍSTICA.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "2. HISTORIA Y ÁMBITO DE LA DINAMIZACIÓN DE LA CULTURA VASCA.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "3. ANÁLISIS DE LA SOCIEDAD CONTEMPORÁNEA.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "4. OPORTUNIDADES Y RETOS DE LA DINAMIZACIÓN DE LA CULTURA VASCA.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "5. CLAVES PEDAGÓGICAS Y CURRICULARES DE LA CULTURA VASCA.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "6. RETOS Y ESTRATEGIAS DIDÁCTICAS PARA LA TRANSMISIÓN DE LA CULTURA VASCA.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "7. ESTRUCTURAS, POLÍTICAS Y ESTRATEGIAS DE LA DINAMIZACIÓN DE LA CULTURA VASCA.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "8. DINAMIZACIÓN DE LAS INICIATIVAS CULTURALES LOCALES.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "9. TRABAJO DE FIN DE MÁSTER.",
+        "creditos_ects": "9",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "codigo_estudio": "4310127",
+  "titulo": "Máster Universitario en Gestión",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "057",
+  "universidad_nombre": "IE Universidad",
+  "fecha_procesado": "2026-08-04T14:48:37.103310",
+  "boe_url": "http://bocyl.jcyl.es/boletines/2019/06/04/pdf/BOCYL-D-04062019-7.pdf",
+  "boe_fecha": "2019-05-30",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2013/08/05/pdfs/BOE-A-2013-8644.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "2",
+      "Optativas": "24",
+      "Trabajo Fin de Grado / Máster": "6"
+    },
+    "total_elementos": 1,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Management general. Gestión del deporte. Gestión financiera y finanzas cuantitativas. Gestión de empresas biotecnológicas y de ciencias de la vida. Gestión de telecomunicaciones y empresas digitales. Gestión del marketing. Publicidad online y nuevos medios en la red.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

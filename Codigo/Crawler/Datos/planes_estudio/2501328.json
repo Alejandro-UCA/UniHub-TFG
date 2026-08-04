@@ -1,0 +1,672 @@
+{
+  "codigo_estudio": "2501328",
+  "titulo": "Graduado o Graduada en Ingeniería Electrónica Industrial y Automática por la Universidad Alfonso X El Sabio",
+  "nivel_academico": "Grado - RD 1393/2007 (1)",
+  "universidad_codigo": "047",
+  "universidad_nombre": "Universidad Alfonso X El Sabio",
+  "fecha_procesado": "2026-08-04T15:15:34.766793",
+  "boe_url": "http://www.boe.es/boe/dias/2022/01/17/pdfs/BOE-A-2022-739.pdf",
+  "boe_fecha": "2022-01-17",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2022/01/17/pdfs/BOE-A-2022-739.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2010/11/29/BOCM-20101129-13.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "156",
+      "Optativas": "12",
+      "Créditos Totales": "240"
+    },
+    "total_elementos": 72,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Básicas.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Communication Skills/Habilidades de comunicación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1.er semestre.",
+        "cuatrimestre": "1.er semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Química.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.er semestre.",
+        "cuatrimestre": "1.er semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Expresión Gráfica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1.er semestre.",
+        "cuatrimestre": "1.er semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Informática.",
+        "creditos_ects": "3",
+        "caracter": "FB",
+        "curso": "1.er semestre.",
+        "cuatrimestre": "1.er semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Matemáticas.",
+        "creditos_ects": "4,5",
+        "caracter": "FB",
+        "curso": "1.er semestre.",
+        "cuatrimestre": "1.er semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Física.",
+        "creditos_ects": "4,5",
+        "caracter": "FB",
+        "curso": "1.er semestre.",
+        "cuatrimestre": "1.er semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Ingeniería Eléctrica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.º semestre.",
+        "cuatrimestre": "2.º semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales.",
+        "nombre_elemento": "Profesional Skills/Habilidades profesionales.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2.º semestre.",
+        "cuatrimestre": "2.º semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales.",
+        "nombre_elemento": "Empresa.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2.º semestre.",
+        "cuatrimestre": "2.º semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Ingeniería de fabricación.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3.er semestre.",
+        "cuatrimestre": "3.er semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Estadística.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "3.er semestre.",
+        "cuatrimestre": "3.er semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Data Analytics/Analisis de datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4.º semestre.",
+        "cuatrimestre": "4.º semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Electrotecnia.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4.º semestre.",
+        "cuatrimestre": "4.º semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Ingeniería Electrónica y Automática.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4.º semestre.",
+        "cuatrimestre": "4.º semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Ingeniería Térmica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4.º semestre.",
+        "cuatrimestre": "4.º semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Organización.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "4.º semestre.",
+        "cuatrimestre": "4.º semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales.",
+        "nombre_elemento": "Electrónica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5.º semestre.",
+        "cuatrimestre": "5.º semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales.",
+        "nombre_elemento": "Ingeniería de Fluidos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5.º semestre.",
+        "cuatrimestre": "5.º semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales.",
+        "nombre_elemento": "Ingeniería Mecánica.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "5.º semestre.",
+        "cuatrimestre": "5.º semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales.",
+        "nombre_elemento": "New Technologies/Nuevas tecnologías.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6.º semestre.",
+        "cuatrimestre": "6.º semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales.",
+        "nombre_elemento": "Automatización industrial.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "6.º semestre.",
+        "cuatrimestre": "6.º semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales.",
+        "nombre_elemento": "Regulación automática.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6.º semestre.",
+        "cuatrimestre": "6.º semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales.",
+        "nombre_elemento": "Optatividad.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": "7.º semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales.",
+        "nombre_elemento": "Control.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "7.º semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales.",
+        "nombre_elemento": "Proyectos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": "7.º semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales.",
+        "nombre_elemento": "Medio Ambiente.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "7.º semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales.",
+        "nombre_elemento": "Project Management/Gestión de proyectos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": "8.º semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales.",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": "8.º semestre."
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Titulación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Arquitectura",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado de Maestro en Educación Infantil",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Simultánea de 1º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado de Maestro en Educación Primaria",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Simultánea de 1º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Lenguas Modernas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Lenguas Modernas y Gestión",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Relaciones Internacionales",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Óptica y Optometría",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "Simultánea de 1º y 2º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Proyectos de Interiorismo",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería Telemática",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería Electrónica Industrial y Automática",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería Eléctrica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería Mecánica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Turismo",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Dirección Comercial y Marketing",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Administración y Dirección de Empresas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería en Diseño Industrial y Desarrollo de Producto",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería de Sonido e Imagen",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería de Sistemas de Telecomunicación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Diseño de Interiores",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Fisioterapia",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Trabajo Social",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Protocolo y Organización de Eventos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Criminología y Seguridad",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Diseño",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Conservación y Restauración del Patrimonio Cultural",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Derecho, Mención en Derecho Francés",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Gestión Informática Empresarial",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Derecho",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Marketing",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería Civil y Territorial",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería Geológica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería en Tecnología Minera",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería y Ciencia Agronómica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería Agroambiental",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Fundamentos de la Arquitectura",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Criminología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Economía",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

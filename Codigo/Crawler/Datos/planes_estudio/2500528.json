@@ -1,0 +1,928 @@
+{
+  "codigo_estudio": "2500528",
+  "titulo": "Graduado o Graduada en Bellas Artes por la Universidad Antonio de Nebrija",
+  "nivel_academico": "Grado - RD 1393/2007 (1)",
+  "universidad_codigo": "052",
+  "universidad_nombre": "Universidad Antonio de Nebrija",
+  "fecha_procesado": "2026-08-04T15:29:29.371603",
+  "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2026/01/02/BOCM-20260102-27.PDF",
+  "boe_fecha": "2025-12-11",
+  "all_boe_urls": [
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2026/01/02/BOCM-20260102-27.PDF",
+    "http://www.boe.es/boe/dias/2021/08/02/pdfs/BOE-A-2021-13166.pdf",
+    "http://www.boe.es/boe/dias/2020/07/13/pdfs/BOE-A-2020-7778.pdf",
+    "http://www.boe.es/boe/dias/2010/08/02/pdfs/BOE-A-2010-12410.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica": "60",
+      "Obligatorias": "132",
+      "Optativas": "18",
+      "Créditos Totales": "240",
+      "Prácticas Externas": "24"
+    },
+    "total_elementos": 100,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "DENOMINACIÓN DEL TÍTULO A EXTINGUIR",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Periodismo",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Bellas Artes",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Diseño de Moda",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Comunicación Audiovisual",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Comunicación Corporativa, Protocolo y Organización de Eventos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Comunicación Corporativa, Protocolo y Organización de Eventos (Centro de Educación Superior “Felipe Moreno- Nebrija”)",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Seguridad",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Psicología General Sanitaria",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 1950/2023, de 1 de junio (BOCM 14.06.23)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Empresas y Destinos Turísticos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Orden 2393/2019, de 1 de agosto (BOCM 12.08.19)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Gestión de Riesgos en Conflictos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "18",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Primer semestre",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "Segundo semestre"
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Historia del arte / History of art.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Desarrollo de competencias profesionales I / Development of profesional competencies I.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Tercer semestre",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "Cuarto semestre"
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Dibujo técnico.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Expresión gráfica: color y forma.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Taller de proyectos de pintura y dibujo.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Técnicas de Estampación e Impresión.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Diseño Asistido por Ordenador I.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Quinto semestre",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "Sexto semestre"
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Taller de Proyectos de creación contemporánea I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Técnicas de animación digital y representación 3D.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Pintura: estrategias y procesos.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Laboratorio de volumen.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Optativa 2.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Séptimo semestre",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": "Octavo semestre"
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Proyectos e innovación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "La producción artística y la industria cultural.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Arte sonoro.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Proyectos escultóricos.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Desarrollo de competencias profesionales III/ Development of Professional Competencies III.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Programación web (Optativa 1).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Diseño Asistido por ordenador II (Optativa 1).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Infografía 3D (Optativa 2).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Tecnología audiovisual aplicada (Optativa 2).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Taller de Proyectos de Creación contemporánea II (Optativa 3).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Espacios urbanos del III milenio (Optativa 3).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Envase y medio ambiente (Optativa 3).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "La empresa y su entorno.",
+        "nombre_elemento": "Expresión Gráfica I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "La empresa y su entorno.",
+        "nombre_elemento": "Análisis de la forma y el color I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "La empresa y su entorno.",
+        "nombre_elemento": "Desarrollo del espíritu participativo y solidario.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "La empresa y su entorno.",
+        "nombre_elemento": "Fotografía.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "La empresa y su entorno.",
+        "nombre_elemento": "Fundamentos de Informática.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "La empresa y su entorno.",
+        "nombre_elemento": "Optativas: Infografía 3D/Tecnología audiovisual aplicada",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "La empresa y su entorno.",
+        "nombre_elemento": "Taller de Proyectos de creación contemporánea I",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "La empresa y su entorno.",
+        "nombre_elemento": "Técnicas de animación digital y representación 3D",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "La empresa y su entorno.",
+        "nombre_elemento": "Seminario de desarrollo de competencias II",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "La empresa y su entorno.",
+        "nombre_elemento": "Taller de animación digital.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "Optativa 2*.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "BA0P37",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "BA0P38",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "BA0P39",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "BA0P40",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "BA0P41",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "BA0P42",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Técnicas y materiales digitales I.",
+        "nombre_elemento": "BA0P43",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2»",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de Materias",
+        "nombre_elemento": "Formación Básica",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de Materias",
+        "nombre_elemento": "Obligatorias",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de Materias",
+        "nombre_elemento": "Optativas",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de Materias",
+        "nombre_elemento": "Prácticas Profesionales",
+        "creditos_ects": "18",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de Materias",
+        "nombre_elemento": "Proyecto Fin de Grado",
+        "creditos_ects": "18",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de Materias",
+        "nombre_elemento": "TOTAL",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Procesos de Creación Artística: Materiales y Tecnología",
+        "nombre_elemento": "Principios Básicos para la Configuración de la Obra Artística",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Procesos de Creación Artística: Materiales y Tecnología",
+        "nombre_elemento": "Cultura y Contextos",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Procesos de Creación Artística: Materiales y Tecnología",
+        "nombre_elemento": "La Producción Artística y la Industria Cultural",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Procesos de Creación Artística: Materiales y Tecnología",
+        "nombre_elemento": "Estrategias Creativas y Proyectos Artísticos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 6 6 6 6 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Procesos de Creación Artística: Materiales y Tecnología",
+        "nombre_elemento": "Seminarios desarrollo de competencias",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Procesos de Creación Artística: Materiales y Tecnología",
+        "nombre_elemento": "Desarrollo del espíritu participativo y solidario",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Procesos de Creación Artística: Materiales y Tecnología",
+        "nombre_elemento": "Evaluación del desarrollo de capacidades en la empresa",
+        "creditos_ects": "18",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Procesos de Creación Artística: Materiales y Tecnología",
+        "nombre_elemento": "Trabajo fin de grado",
+        "creditos_ects": "18",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Procesos de Creación Artística: Materiales y Tecnología",
+        "nombre_elemento": "Historia del Arte",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y materiales de dibujo",
+        "nombre_elemento": "La Empresa y su Entorno",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y materiales de dibujo",
+        "nombre_elemento": "Expresión Gráfica I",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y materiales de dibujo",
+        "nombre_elemento": "Análisis de la Forma y el Color I",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y Materiales de la Pintura",
+        "nombre_elemento": "Estética I",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y Materiales de Escultura",
+        "nombre_elemento": "Expresión Gráfica II",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y Materiales de Escultura",
+        "nombre_elemento": "Análisis de la Forma y el Color II",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y Materiales de Escultura",
+        "nombre_elemento": "Taller de Proyectos de Pintura y Dibujo",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y Materiales de Escultura",
+        "nombre_elemento": "Técnicas de Estampación e Impresión",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y Materiales de Escultura",
+        "nombre_elemento": "Fotografía",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y Materiales de Escultura",
+        "nombre_elemento": "Diseño Asistido por Ordenador I",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y Materiales de Escultura",
+        "nombre_elemento": "Fundamentos de Informática",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y Materiales de Escultura",
+        "nombre_elemento": "Tecnología Audiovisual",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y Materiales de Escultura",
+        "nombre_elemento": "Metodología del Diseño",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y Materiales de Escultura",
+        "nombre_elemento": "Estética II",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y Materiales de Escultura",
+        "nombre_elemento": "Optativa 1",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y Materiales de Escultura",
+        "nombre_elemento": "Lidera I",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y Materiales de Escultura",
+        "nombre_elemento": "Creatividad y Proyectos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y Materiales de Escultura",
+        "nombre_elemento": "Fotografía y Arte Digital",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y Materiales de Escultura",
+        "nombre_elemento": "Optativa 2",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y Materiales de Escultura",
+        "nombre_elemento": "Diseño Gráfico y Comunicación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y Materiales de Escultura",
+        "nombre_elemento": "Lidera II",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y Materiales de Escultura",
+        "nombre_elemento": "Proyectos e Innovación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y Materiales de Escultura",
+        "nombre_elemento": "Vanguardias Artísticas de los Siglos XX y XXI",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y Materiales de Escultura",
+        "nombre_elemento": "Taller de Animación Digital",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y Materiales de Escultura",
+        "nombre_elemento": "Optativa 3",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Técnicas y Materiales de Escultura",
+        "nombre_elemento": "Lidera III",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

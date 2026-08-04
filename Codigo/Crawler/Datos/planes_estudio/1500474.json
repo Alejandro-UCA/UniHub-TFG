@@ -1,0 +1,403 @@
+{
+  "codigo_estudio": "1500474",
+  "titulo": "Graduado o Graduada en Industrias Culturales y Creativas por la Mondragón Unibertsitatea",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "061",
+  "universidad_nombre": "Mondragón Unibertsitatea",
+  "fecha_procesado": "2026-08-04T14:51:18.661312",
+  "boe_url": "http://www.boe.es/boe/dias/2026/06/22/pdfs/BOE-A-2026-13569.pdf",
+  "boe_fecha": "2026-06-22",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2026/06/22/pdfs/BOE-A-2026-13569.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica": "60",
+      "Obligatorias": "108",
+      "Optativas": "18",
+      "Prácticas Externas": "3",
+      "Créditos Totales": "240"
+    },
+    "total_elementos": 42,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo materia",
+        "nombre_elemento": "Formación Básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo materia",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo materia",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo materia",
+        "nombre_elemento": "Proyecto fin de Grado.",
+        "creditos_ects": "18",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo materia",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Formación Básica",
+        "nombre_elemento": "Introducción a la cultura y la creatividad.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Formación Básica",
+        "nombre_elemento": "Lengua, comunicación y transmisión de la cultura.",
+        "creditos_ects": "12",
+        "caracter": "PE",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Formación Básica",
+        "nombre_elemento": "Sectores de las industrias culturales y creativas.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Formación Básica",
+        "nombre_elemento": "Historia y teoría de la comunicación audiovisual.",
+        "creditos_ects": "12",
+        "caracter": "PE",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Formación Básica",
+        "nombre_elemento": "Derecho, ética y deontología en las industrias culturales y creativas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Formación Básica",
+        "nombre_elemento": "Fundamentos de gestión en entornos culturales y creativos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Tecnologías digitales, cultura visual y cibercultura.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Estrategia y gestión de la comunicación digital.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Arte, patrimonio y procesos de mediación cultural.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Comunicación para la transformación sociocultural.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Laboratorio I: Ideación, creación, producción y gestión de proyectos.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Economía de la cultura.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Practicum I: Desarrollo profesional general.",
+        "creditos_ects": "18",
+        "caracter": "PE",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Ecosistemas culturales y proyectos internacionales creativos e innovadores.",
+        "creditos_ects": "18",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Laboratorio II: Marketing digital y difusión del objeto cultural.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Tendencias y retos del futuro en las industrias culturales y creativas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "MEDIACIÓN Y ARTES VISUALES: Mediación en arte.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3/4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "MEDIACIÓN Y ARTES VISUALES: Gestión cultural y artística.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3/4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "MEDIACIÓN Y ARTES VISUALES: Profesionalización del artista emergente.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3/4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "MEDIACIÓN Y ARTES VISUALES: Promoción y difusión audiovisual.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3/4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "MEDIACIÓN Y ARTES VISUALES: Técnicas avanzadas de producción y edición digital.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3/4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "MODA Y DISEÑO: Historia, diseño y creación de moda.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3/4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "MODA Y DISEÑO: Gestión de empresas y proyectos de moda.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3/4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "MODA Y DISEÑO: Comunicación para la industria de la moda.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3/4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "MODA Y DISEÑO: Fotografía de moda.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3/4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "MODA Y DISEÑO: Taller de diseño gráfico.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3/4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "MÚSICA Y ESCENA: Cultura e industria musical.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3/4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "MÚSICA Y ESCENA: Programación y gestión musical.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3/4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "MÚSICA Y ESCENA: Producción de espectáculos y escena.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3/4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "MÚSICA Y ESCENA: Comunicación para la industria musical.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3/4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "MÚSICA Y ESCENA: Introducción a las artes escénicas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3/4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "MÚSICA Y ESCENA: Producción de bandas sonoras y música para medios audiovisuales.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3/4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "MÚSICA Y ESCENA: Taller de creación de videoclips.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "3/4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "CONOCIMIENTOS GENERALES: Inglés técnico I.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3/4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "CONOCIMIENTOS GENERALES: Inglés técnico II.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3/4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Trabajo Fin de Grado (TFG).",
+        "creditos_ects": "18",
+        "caracter": "TFG/TFM",
+        "curso": "4",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

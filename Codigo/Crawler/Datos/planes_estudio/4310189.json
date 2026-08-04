@@ -1,0 +1,41 @@
+{
+  "codigo_estudio": "4310189",
+  "titulo": "Máster Universitario en Innovación Empresarial y Dirección de Proyectos por la Mondragón Unibertsitatea",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "061",
+  "universidad_nombre": "Mondragón Unibertsitatea",
+  "fecha_procesado": "2026-08-04T14:54:37.666390",
+  "boe_url": "http://www.boe.es/boe/dias/2010/11/04/pdfs/BOE-A-2010-16972.pdf",
+  "boe_fecha": "2010-11-04",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2010/11/04/pdfs/BOE-A-2010-16972.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "2",
+      "Optativas": "4",
+      "Trabajo Fin de Grado / Máster": "8"
+    },
+    "total_elementos": 2,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Tipo",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "OB OB OP OB OP OP OB TFM",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

@@ -48,6 +48,14 @@ def parse_universities_xls(filepath: str) -> list:
                 "telefono": row_dict.get("Teléfono 1", row_dict.get("TelÃ©fono 1", ""))
             })
             
+    # Ordenación prioritaria: Universidades Públicas primero, Privadas después
+    def get_univ_priority(u):
+        tipo_lower = u.get("tipo", "").lower()
+        if "pública" in tipo_lower or "publica" in tipo_lower:
+            return 0
+        return 1
+
+    universities.sort(key=get_univ_priority)
     return universities
 
 

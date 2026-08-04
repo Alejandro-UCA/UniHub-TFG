@@ -1,0 +1,29 @@
+{
+  "codigo_estudio": "4313723",
+  "titulo": "Máster Universitario en Proyectos Arquitectónicos Avanzados por la Universidad Alfonso X El Sabio",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "047",
+  "universidad_nombre": "Universidad Alfonso X El Sabio",
+  "fecha_procesado": "2026-08-04T15:24:01.493104",
+  "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2016/01/05/BOCM-20160105-16.PDF",
+  "boe_fecha": "2015-12-14",
+  "all_boe_urls": [
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2016/01/05/BOCM-20160105-16.PDF",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2013/11/07/BOCM-20131107-7.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {},
+    "total_elementos": 1,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

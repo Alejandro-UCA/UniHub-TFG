@@ -1,6 +1,7 @@
 import os
 import json
 import time
+import threading
 import psutil
 from datetime import datetime
 from config import ESTADISTICAS_JSON
@@ -12,6 +13,8 @@ class PerformanceTracker:
     I/O & network wait time, request counts, and PDF parsing metrics.
     Saves results atomically to estadisticas_rendimiento.json.
     """
+    _lock = threading.Lock()
+
     def __init__(self, filepath=ESTADISTICAS_JSON):
         self.filepath = filepath
         self.process = psutil.Process(os.getpid())
@@ -48,14 +51,16 @@ class PerformanceTracker:
 
     def record_io_time(self, seconds: float):
         """Records time spent on network HTTP requests or disk I/O."""
-        self.total_io_network_time += seconds
-        self._update_peak_memory()
+        with PerformanceTracker._lock:
+            self.total_io_network_time += seconds
+            self._update_peak_memory()
 
     def record_pdf_parse_time(self, seconds: float):
         """Records time spent parsing PDF curricula."""
-        self.total_pdf_parsing_time += seconds
-        self.pdfs_parseados += 1
-        self._update_peak_memory()
+        with PerformanceTracker._lock:
+            self.total_pdf_parsing_time += seconds
+            self.pdfs_parseados += 1
+            self._update_peak_memory()
 
     def generate_report(self) -> dict:
         """Generates a complete metrics report dictionary."""
@@ -108,5 +113,6 @@ class PerformanceTracker:
 
     def save(self):
         """Saves current metrics report atomically to estadisticas_rendimiento.json."""
-        report = self.generate_report()
-        atomic_json_dump(report, self.filepath)
+        with PerformanceTracker._lock:
+            report = self.generate_report()
+            atomic_json_dump(report, self.filepath)

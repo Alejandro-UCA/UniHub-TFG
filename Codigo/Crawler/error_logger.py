@@ -1,10 +1,13 @@
 import json
 import os
+import threading
 from datetime import datetime
 from config import ERRORES_JSON
 from checkpoint import atomic_json_dump
 
 class ErrorLogger:
+    _lock = threading.Lock()
+
     def __init__(self, filepath=ERRORES_JSON):
         self.filepath = filepath
         self.errors = self._load_errors()
@@ -30,8 +33,10 @@ class ErrorLogger:
             "motivo_fallo": reason,
             "detalles_excepcion": exception_details or ""
         }
-        self.errors.append(entry)
-        self._save_errors()
+        with ErrorLogger._lock:
+            self.errors = self._load_errors()
+            self.errors.append(entry)
+            self._save_errors()
 
     def _save_errors(self):
         atomic_json_dump(self.errors, self.filepath)

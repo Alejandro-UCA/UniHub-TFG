@@ -4,13 +4,25 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "086",
   "universidad_nombre": "Centros dependientes del Ministerio de Defensa",
-  "fecha_procesado": "2026-08-03T11:52:59.806246",
+  "fecha_procesado": "2026-08-04T14:27:24.894433",
   "boe_url": "http://www.boe.es/boe/dias/2021/06/17/pdfs/BOE-A-2021-10088.pdf",
   "boe_fecha": "2021-06-17",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2016/10/21/pdfs/BOE-A-2016-9636.pdf"
+  ],
   "plan_estudios": {
     "resumen_creditos": {},
-    "elementos_curriculares": [],
-    "total_elementos": 0,
-    "texto_extraido_muestra": "I. DISPOSICIONES GENERALES\nMINISTERIO DE UNIVERSIDADES\n10088 Resolución de 9 de junio de 2021, de la Secretaría General de Universidades, \npor la que se publica el Acuerdo del Consejo de Ministros de 8 de junio de \n2021, por el que se establece el carácter oficial de determinados títulos de \nMáster y su inscripción en el Registro de Universidades, Centros y Títulos.\nEl Consejo de Ministros, en su reunión de 8 de junio de 2021, ha aprobado el \nAcuerdo por el que se establece el carácter oficial de determinados títulos de Máster y su \ninscripción en el Registro de Universidades, Centros y Títulos.\nEl Real Decreto 1393/2007, de 29 de octubre, por el que se establece la ordenación \nde las enseñanzas universitarias oficiales, dispone, en su artículo 26, que los Acuerdos \ndel Consejo de Ministros por los que se establezca el carácter oficial de los títulos \nuniversitarios serán publicados en el «Boletín Oficial del Estado».\nEn cumplimiento del citado precepto, esta Secretaría General de Univ"
+    "total_elementos": 1,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "30 20 10 6-30",
+        "creditos_ects": "30",
+        "caracter": "OB",
+        "curso": "30 20 10 6-30",
+        "cuatrimestre": ""
+      }
+    ]
   }
 }

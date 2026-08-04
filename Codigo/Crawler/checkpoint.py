@@ -1,5 +1,7 @@
 import json
 import os
+import uuid
+import threading
 from config import CHECKPOINT_JSON
 
 def is_valid_value(val) -> bool:
@@ -15,17 +17,36 @@ def is_valid_value(val) -> bool:
     return True
 
 def atomic_json_dump(data, filepath):
-    """Writes data to a temporary file first and replaces target file atomically."""
-    tmp_path = f"{filepath}.tmp"
-    with open(tmp_path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-    os.replace(tmp_path, filepath)
+    """
+    Writes data to a thread-and-process-unique temporary file first 
+    and replaces target file atomically. Ensures directory exists.
+    """
+    dir_path = os.path.dirname(os.path.abspath(filepath))
+    if dir_path:
+        os.makedirs(dir_path, exist_ok=True)
+
+    unique_id = f"{os.getpid()}_{threading.get_ident()}_{uuid.uuid4().hex[:8]}"
+    tmp_path = f"{filepath}.tmp.{unique_id}"
+    
+    try:
+        with open(tmp_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+        os.replace(tmp_path, filepath)
+    except Exception as e:
+        if os.path.exists(tmp_path):
+            try:
+                os.remove(tmp_path)
+            except Exception:
+                pass
+        raise e
 
 class CheckpointManager:
     """
     Manages crawler progress state and BOE metadata registry for incremental updates.
-    Enforces strict non-empty validation and atomic file replacements for concurrency safety.
+    Enforces strict non-empty validation, thread locks, and atomic file replacements.
     """
+    _lock = threading.Lock()
+
     def __init__(self, filepath=CHECKPOINT_JSON):
         self.filepath = filepath
         self.state = self._load_checkpoint()
@@ -48,17 +69,21 @@ class CheckpointManager:
         self._save()
 
     def is_university_processed(self, univ_code: str) -> bool:
-        return univ_code in self.state.get("processed_universities", [])
+        with CheckpointManager._lock:
+            # Check latest state on disk if available
+            disk_state = self._load_checkpoint()
+            return univ_code in disk_state.get("processed_universities", []) or univ_code in self.state.get("processed_universities", [])
 
     def mark_university_processed(self, univ_code: str):
         if "processed_universities" not in self.state:
             self.state["processed_universities"] = []
         if univ_code not in self.state["processed_universities"]:
             self.state["processed_universities"].append(univ_code)
-            self._save()
+        self._save()
 
     def get_degree_record(self, degree_code: str) -> dict:
-        processed = self.state.get("processed_degrees", {})
+        disk_state = self._load_checkpoint()
+        processed = disk_state.get("processed_degrees", self.state.get("processed_degrees", {}))
         if isinstance(processed, dict):
             return processed.get(degree_code)
         elif isinstance(processed, list):
@@ -100,4 +125,27 @@ class CheckpointManager:
         self._save()
 
     def _save(self):
-        atomic_json_dump(self.state, self.filepath)
+        with CheckpointManager._lock:
+            # Merge state with disk to prevent concurrent overwrites
+            if os.path.exists(self.filepath):
+                try:
+                    with open(self.filepath, "r", encoding="utf-8") as f:
+                        disk_state = json.load(f)
+                    
+                    # Merge processed_universities
+                    disk_univs = set(disk_state.get("processed_universities", []))
+                    local_univs = set(self.state.get("processed_universities", []))
+                    self.state["processed_universities"] = list(disk_univs.union(local_univs))
+                    
+                    # Merge processed_degrees
+                    disk_degrees = disk_state.get("processed_degrees", {})
+                    if isinstance(disk_degrees, dict):
+                        if not isinstance(self.state.get("processed_degrees"), dict):
+                            self.state["processed_degrees"] = {}
+                        for k, v in disk_degrees.items():
+                            if k not in self.state["processed_degrees"]:
+                                self.state["processed_degrees"][k] = v
+                except Exception:
+                    pass
+
+            atomic_json_dump(self.state, self.filepath)

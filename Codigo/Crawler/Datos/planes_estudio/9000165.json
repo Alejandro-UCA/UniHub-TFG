@@ -4,13 +4,18 @@
   "nivel_academico": "Título Equivalente",
   "universidad_codigo": "099",
   "universidad_nombre": "Centros autorizados para impartir Enseñanzas Artísticas Superiores",
-  "fecha_procesado": "2026-08-03T11:52:35.809824",
+  "fecha_procesado": "2026-08-04T14:27:13.204322",
   "boe_url": "http://www.boe.es/eli/es/lo/1990/10/03/1/dof/spa/pdf",
   "boe_fecha": "1990-10-04",
+  "all_boe_urls": [
+    "http://www.boe.es/eli/es/lo/1990/10/03/1/dof/spa/pdf"
+  ],
   "plan_estudios": {
-    "resumen_creditos": {},
-    "elementos_curriculares": [],
+    "resumen_creditos": {
+      "Obligatorias": "3",
+      "Optativas": "2"
+    },
     "total_elementos": 0,
-    "texto_extraido_muestra": "-~..;.,\n.',<\nBüE núm. 238\n1.\nJueves 4 octubre 1990\nDisposiciones generales\n28927\n\"\nPREAMBULO\nA todos 105 que la presente vieren y entcndieren~\nSabed: Que las Cortes Generales han\"aprobado y Yo vengo en\ns:.mcionar la siguiente Ley Orgánica:\nLos sistemas educativos desempeñan funciones esenciales para la\nvida de los individuos y de las sociedades. Las posibilidades de\ndesarrollo armónico de unos y de otras se asientan en la educación que\naquéllos proporcionan.\nEl objetivo primero y fundamental de la educación es el de\nproporcionar a los niños y a las niñas, a los jóvenes de uno y otro sexo,\n~na ~ormación plena que les permita conformar su propia y esencial\nIdentidad, así como construir una concepción de la realidad que integre\na la vez el conocimiento y la valoración ética y moral de la misma. Tal\nformación plena ha de ir dirigida al desarrollo de su capacidad para\nejercer, de manera critlca y en una sociedad axiológicarnente plural, la\nIibenad. la tolerancia y la solidaridad.\n~n la ed,:"
+    "elementos_curriculares": []
   }
 }

@@ -112,14 +112,18 @@ def parse_degrees_xls(filepath: str) -> list:
         ]
         has_blacklist = any(term in estado_norm for term in blacklist)
 
-        # 2. LISTA BLANCA ESTRICTA (Únicamente términos explícitos de actividad/autorización real)
+        # 2. LISTA BLANCA ESTRICTA (Términos explícitos de actividad, publicación en BOE o autorización real)
         whitelist = [
             "vigente", 
             "impartiendose", 
             "autorizad", 
             "renovad", 
             "acreditad", 
-            "alta"
+            "alta",
+            "publicad",
+            "b.o.e",
+            "boe",
+            "inscrit"
         ]
         has_whitelist = any(term in estado_norm for term in whitelist)
 

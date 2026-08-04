@@ -198,8 +198,13 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                     checkpoint.update_degree_record(d_code, None, None, datetime.now().isoformat())
                     continue
 
-                # Scan ALL PDF candidates on the page until we find one with valid curriculum
+                # Scan ALL PDF candidates on the page to merge curriculum data from all available BOE publications
                 valid_curriculum_found = False
+                combined_resumen_creditos = {}
+                combined_elementos = []
+                seen_subject_names = set()
+                processed_boe_urls = []
+
                 for cand_idx, cand in enumerate(candidates, 1):
                     cand_url = cand["url"]
                     cand_date = cand.get("boe_date")
@@ -214,44 +219,62 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                         t_parse_elapsed = time.perf_counter() - t_parse_start
 
                         total_elems = curriculum_data.get("total_elementos", 0)
-                        resumen_count = len(curriculum_data.get("resumen_creditos", {}))
+                        resumen = curriculum_data.get("resumen_creditos", {})
+                        resumen_count = len(resumen)
 
                         if total_elems > 0 or resumen_count > 0:
-                            print(f"     -> [ÉXITO] PDF #{cand_idx} contiene plan de estudios válido ({total_elems} asignaturas/elementos).")
+                            print(f"     -> [ÉXITO] PDF #{cand_idx} contiene información válida del plan de estudios ({total_elems} elementos, {resumen_count} resumen créditos).")
                             metrics.record_pdf_parse_time(t_parse_elapsed)
-                            metrics.titulaciones_descargadas_actualizadas += 1
                             valid_curriculum_found = True
+                            processed_boe_urls.append(cand_url)
 
-                            degree_data = {
-                                "codigo_estudio": d_code,
-                                "titulo": d_title,
-                                "nivel_academico": deg.get("nivel_academico", ""),
-                                "universidad_codigo": u_code,
-                                "universidad_nombre": u_name,
-                                "fecha_procesado": datetime.now().isoformat(),
-                                "boe_url": cand_url,
-                                "boe_fecha": cand_date,
-                                "plan_estudios": curriculum_data
-                            }
-                            atomic_json_dump(degree_data, plan_file)
-                            checkpoint.update_degree_record(d_code, cand_url, cand_date, datetime.now().isoformat())
+                            # Merge credit summary (first seen key takes precedence for newest BOE)
+                            for k, v in resumen.items():
+                                if k not in combined_resumen_creditos:
+                                    combined_resumen_creditos[k] = v
 
-                            if os.path.exists(pdf_path):
-                                os.remove(pdf_path)
-                            break
+                            # Merge subject elements avoiding exact duplicate names
+                            for elem in curriculum_data.get("elementos_curriculares", []):
+                                norm_name = elem.get("nombre_elemento", "").strip().lower()
+                                if norm_name and norm_name not in seen_subject_names:
+                                    seen_subject_names.add(norm_name)
+                                    combined_elementos.append(elem)
                         else:
-                            print(f"     -> PDF #{cand_idx} no contiene estructura de asignaturas. Probando siguiente...")
-                            if os.path.exists(pdf_path):
-                                os.remove(pdf_path)
+                            print(f"     -> PDF #{cand_idx} no contiene estructura de asignaturas.")
 
                     except SkipUniversityException:
                         raise
                     except Exception as pdf_err:
                         print(f"     -> Error al procesar PDF candidate #{cand_idx}: {pdf_err}")
+                    finally:
                         if os.path.exists(pdf_path):
-                            os.remove(pdf_path)
+                            try:
+                                os.remove(pdf_path)
+                            except Exception:
+                                pass
 
-                if not valid_curriculum_found:
+                if valid_curriculum_found:
+                    metrics.titulaciones_descargadas_actualizadas += 1
+                    curriculum_combined = {
+                        "resumen_creditos": combined_resumen_creditos,
+                        "total_elementos": len(combined_elementos),
+                        "elementos_curriculares": combined_elementos
+                    }
+                    degree_data = {
+                        "codigo_estudio": d_code,
+                        "titulo": d_title,
+                        "nivel_academico": deg.get("nivel_academico", ""),
+                        "universidad_codigo": u_code,
+                        "universidad_nombre": u_name,
+                        "fecha_procesado": datetime.now().isoformat(),
+                        "boe_url": latest_boe_url,
+                        "boe_fecha": latest_boe_fecha,
+                        "all_boe_urls": processed_boe_urls,
+                        "plan_estudios": curriculum_combined
+                    }
+                    atomic_json_dump(degree_data, plan_file)
+                    checkpoint.update_degree_record(d_code, latest_boe_url, latest_boe_fecha, datetime.now().isoformat())
+                else:
                     print(f"     -> [AVISO] Ningún PDF de la titulación [{d_code}] contenía asignaturas desglosadas. Guardando metadatos base.")
                     degree_data = {
                         "codigo_estudio": d_code,

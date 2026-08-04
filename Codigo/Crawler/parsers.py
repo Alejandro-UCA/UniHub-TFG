@@ -76,29 +76,54 @@ def parse_degrees_xls(filepath: str) -> list:
                 val = val[:-2]
             row_dict[header] = val
         
-        code = row_dict.get("Código", row_dict.get("CÃ³digo", ""))
-        title = row_dict.get("Título", row_dict.get("TÃ­tulo", ""))
-        nivel = row_dict.get("Nivel académico", row_dict.get("Nivel acadÃ©mico", ""))
-        estado = row_dict.get("Estado", "")
+        code = row_dict.get("Código") or row_dict.get("CÃ³digo") or ""
+        title = row_dict.get("Título") or row_dict.get("TÃ­tulo") or ""
+        nivel = row_dict.get("Nivel académico") or row_dict.get("Nivel acadÃ©mico") or ""
+        estado = (
+            row_dict.get("Estado") or 
+            row_dict.get("Estado del título") or 
+            row_dict.get("Estado del tÃ­tulo") or 
+            row_dict.get("Estado del estudio") or 
+            row_dict.get("Situación") or 
+            row_dict.get("SituaciÃ³n") or ""
+        )
         
-        # Meticulous filter for active statuses (case-insensitive)
-        estado_lower = estado.lower().strip()
-        
+        # Helper para normalización estricta de acentos y distorsiones de codificación UTF-8
+        def normalize_text(text: str) -> str:
+            if not text:
+                return ""
+            t = text.lower().strip()
+            # Eliminar distorsiones de doble codificación UTF-8 / ISO-8859-1
+            t = t.replace("Ã³", "o").replace("Ã¡", "a").replace("Ã©", "e").replace("Ã­", "i").replace("Ãº", "u").replace("Ã±", "n")
+            # Normalizar tildes y diéresis estándar
+            t = t.replace("ó", "o").replace("á", "a").replace("é", "e").replace("í", "i").replace("ú", "u").replace("ñ", "n")
+            t = t.replace("ö", "o").replace("ä", "a").replace("ë", "e").replace("ï", "i").replace("ü", "u")
+            return t
+
+        estado_norm = normalize_text(estado)
+
+        # 1. LISTA NEGRA AMPLIADA (Términos que denotan inactividad, extinción o desestimación)
         blacklist = [
-            "extinguido", "extinguida", "extinguidos", "extinguidas", "extinguid",
-            "no vigente", "en extinción", "extincion", "derogado", "derogada", 
-            "cancelado", "cancelada", "baja", "eliminado", "eliminada", 
-            "sin docencia", "revocado", "revocada", "suspendido", "suspendida"
+            "extinguid", "extincion", "extinta", "extinto",
+            "no vigente", "sin docencia", "baja",
+            "derogad", "cancelad", "eliminad", "revocad",
+            "suspendid", "caducad", "desestimad", "sustituid",
+            "no impartid", "sin efecto", "cierre", "cerrad", "archivo"
         ]
-        has_blacklist = any(term in estado_lower for term in blacklist)
-        
+        has_blacklist = any(term in estado_norm for term in blacklist)
+
+        # 2. LISTA BLANCA ESTRICTA (Únicamente términos explícitos de actividad/autorización real)
         whitelist = [
-            "vigente", "autorizado", "autorizada", "publicado", "publicada", 
-            "b.o.e", "boe", "renovado", "renovada", "impartiéndose", "impartiendose", 
-            "acreditado", "acreditada", "inscrito", "inscrita", "alta"
+            "vigente", 
+            "impartiendose", 
+            "autorizad", 
+            "renovad", 
+            "acreditad", 
+            "alta"
         ]
-        has_whitelist = any(term in estado_lower for term in whitelist)
-        
+        has_whitelist = any(term in estado_norm for term in whitelist)
+
+        # La titulación debe pertenecer a la Lista Blanca Y NO contener ningún término de la Lista Negra
         if code and title and has_whitelist and not has_blacklist:
             raw_active_degrees.append({
                 "codigo_estudio": code,

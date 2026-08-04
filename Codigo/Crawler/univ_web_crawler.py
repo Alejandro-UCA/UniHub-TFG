@@ -24,6 +24,17 @@ from checkpoint import CheckpointManager, atomic_json_dump
 from parsers import parse_boe_pdf
 
 
+# Lista ampliada de palabras clave y sinónimos para portales académicos y planes de estudio
+ACADEMIC_KEYWORDS = [
+    "grado", "grados", "máster", "másteres", "master", "masteres",
+    "doctorado", "doctorados", "titulación", "titulaciones", "estudio", "estudios",
+    "enseñanza", "enseñanzas", "oferta-academica", "oferta_academica", "oferta-formativa",
+    "plan-de-estudios", "plan_estudios", "plan-estudios", "planes-de-estudio",
+    "guia-docente", "guias-docentes", "asignaturas", "programas", "curriculo",
+    "currículo", "pensum", "malla-curricular", "titulos-oficiales", "estudios-oficiales"
+]
+
+
 class UniversityWebCrawler:
     """
     Fase 1 - Parte 2: Crawling paralelo de las webs oficiales de las universidades
@@ -63,13 +74,51 @@ class UniversityWebCrawler:
             print(f"   [robots.txt] No se pudo comprobar robots.txt para {target_url}: {e}. Se asume permitido.")
             return True
 
+    def fetch_sitemap_urls(self, base_url: str) -> set:
+        """
+        Previamente accede al Sitemap (sitemap.xml / sitemap_index.xml) del portal académico
+        para detectar directamente las URLs disponibles en el sitio web de la universidad.
+        """
+        sitemap_candidate_urls = set()
+        parsed = urllib.parse.urlparse(base_url)
+        if not parsed.scheme or not parsed.netloc:
+            return sitemap_candidate_urls
+
+        domain_base = f"{parsed.scheme}://{parsed.netloc}"
+        sitemap_targets = [
+            f"{domain_base}/sitemap.xml",
+            f"{domain_base}/sitemap_index.xml",
+            f"{domain_base}/sitemap-grados.xml",
+            f"{domain_base}/sitemap-estudios.xml"
+        ]
+
+        downloader = RUCTDownloader(delay=0.2, timeout=10)
+
+        for sm_url in sitemap_targets:
+            try:
+                xml_content = downloader.fetch_text(sm_url)
+                if xml_content and ("<urlset" in xml_content or "<sitemapindex" in xml_content or "<loc>" in xml_content):
+                    print(f"     [Sitemap] Sitemap XML detectado y analizado en '{sm_url}'.")
+                    locs = re.findall(r"<loc>(.*?)</loc>", xml_content, re.IGNORECASE)
+                    for loc in locs:
+                        loc_clean = loc.strip()
+                        loc_lower = loc_clean.lower()
+                        if any(kw in loc_lower for kw in ACADEMIC_KEYWORDS):
+                            sitemap_candidate_urls.add(loc_clean)
+                    if sitemap_candidate_urls:
+                        break
+            except Exception:
+                continue
+
+        return sitemap_candidate_urls
+
     def process_university_web(self, univ: dict, titulaciones_por_univ: dict) -> dict:
         """
         Procesa una universidad en la Parte 2:
         1. Comprueba si tiene web oficial.
         2. Identifica titulaciones sin plan de estudios.
         3. Verifica permiso en robots.txt.
-        4. Escanea la web de la universidad para buscar la información faltante y guarda la URL directa.
+        4. Accede previamente al Sitemap XML (si existe) y escanea el portal académico con sinónimos ampliados.
         """
         u_code = univ.get("codigo", "")
         u_name = univ.get("nombre", "")
@@ -131,9 +180,13 @@ class UniversityWebCrawler:
 
         print(f" 🟢 [Parte 2] Universidad [{u_code}] {u_name}: Crawling PERMITIDO por robots.txt. Iniciando escaneo web...")
 
-        # 4. Escaneo/recorrido meticuloso de la web oficial de la universidad
+        # 4. Acceso previo al Sitemap XML del portal académico
         downloader = RUCTDownloader(delay=0.5, timeout=15)
-        
+        sitemap_urls = self.fetch_sitemap_urls(web_url)
+        if sitemap_urls:
+            print(f"     -> {len(sitemap_urls)} URLs académicas indexadas extraídas del Sitemap XML de la universidad.")
+
+        # 5. Escaneo/recorrido meticuloso de la web oficial de la universidad
         for d_idx, deg in enumerate(missing_degrees, 1):
             d_code = deg.get("codigo_estudio", "")
             d_title = deg.get("titulo", "")
@@ -169,26 +222,76 @@ class UniversityWebCrawler:
                 except Exception as e:
                     print(f"     -> Falló lectura de URL directa previa: {e}")
 
-            # ESTRATEGIA: Escaneo de portales académicos y palabras clave de la titulación
+            title_keywords = [w for w in d_title.split() if len(w) > 4 and w.lower() not in ["grado", "máster", "master", "universitario", "oficial", "sobre", "entre", "doctorado"]]
+
+            # ESTRATEGIA 1: Escaneo priorizado de URLs obtenidas del Sitemap XML
+            if not found_curriculum and sitemap_urls:
+                sitemap_matches = [url for url in sitemap_urls if any(kw.lower() in url.lower() for kw in title_keywords)]
+                for sm_candidate_url in sitemap_matches[:5]:
+                    if found_curriculum:
+                        break
+                    try:
+                        time.sleep(0.5)
+                        if sm_candidate_url.lower().endswith(".pdf"):
+                            temp_pdf = os.path.join(TEMP_PDF_DIR, f"web_{d_code}.pdf")
+                            try:
+                                downloader.download_file(sm_candidate_url, temp_pdf)
+                                parsed = parse_boe_pdf(temp_pdf)
+                                if os.path.exists(temp_pdf):
+                                    os.remove(temp_pdf)
+                                if parsed.get("total_elementos", 0) > 0 or len(parsed.get("resumen_creditos", {})) > 0:
+                                    found_curriculum = parsed
+                                    direct_source_url = sm_candidate_url
+                                    print(f"     -> Encontrado plan de estudios desde Sitemap XML: {sm_candidate_url}")
+                                    break
+                            except Exception:
+                                if os.path.exists(temp_pdf):
+                                    os.remove(temp_pdf)
+                        else:
+                            sub_html = downloader.fetch_text(sm_candidate_url)
+                            sub_soup = BeautifulSoup(sub_html, "html.parser")
+                            tables = sub_soup.find_all("table")
+                            elementos_html = []
+                            for t in tables:
+                                for row in t.find_all("tr"):
+                                    cols = [td.get_text(strip=True) for td in row.find_all(["td", "th"])]
+                                    if len(cols) >= 2 and len(cols[0]) > 3:
+                                        elementos_html.append({
+                                            "nombre_elemento": cols[0],
+                                            "creditos_ects": cols[1] if len(cols) > 1 else "6",
+                                            "caracter": "OB",
+                                            "curso": cols[2] if len(cols) > 2 else ""
+                                        })
+                            if len(elementos_html) > 3:
+                                found_curriculum = {
+                                    "resumen_creditos": {"Créditos Totales": "240" if "grado" in d_title.lower() else "60"},
+                                    "total_elementos": len(elementos_html),
+                                    "elementos_curriculares": elementos_html
+                                }
+                                direct_source_url = sm_candidate_url
+                                print(f"     -> Encontradas asignaturas HTML desde Sitemap XML: {sm_candidate_url}")
+                                break
+                    except Exception as sm_err:
+                        print(f"     -> Error al probar URL del Sitemap '{sm_candidate_url}': {sm_err}")
+
+            # ESTRATEGIA 2: Escaneo de portales académicos con sinónimos amplios
             if not found_curriculum:
                 try:
                     home_html = downloader.fetch_text(web_url)
                     soup = BeautifulSoup(home_html, "html.parser")
 
-                    academic_keywords = ["grado", "master", "máster", "titulacion", "titulaciones", "estudios", "oferta"]
                     candidate_urls = set()
 
                     for a in soup.find_all("a", href=True):
                         href = a["href"].strip()
                         text = a.get_text(strip=True).lower()
 
-                        if any(kw in text for kw in academic_keywords) or any(kw in href.lower() for kw in academic_keywords):
+                        if any(kw in text for kw in ACADEMIC_KEYWORDS) or any(kw in href.lower() for kw in ACADEMIC_KEYWORDS):
                             full_url = urllib.parse.urljoin(web_url, href)
                             if urllib.parse.urlparse(full_url).netloc == urllib.parse.urlparse(web_url).netloc:
                                 candidate_urls.add(full_url)
 
-                    scanned_urls = list(candidate_urls)[:5]
-                    title_keywords = [w for w in d_title.split() if len(w) > 4 and w.lower() not in ["grado", "máster", "master", "universitario", "oficial", "sobre", "entre"]]
+                    scanned_urls = list(candidate_urls)[:8]
                     
                     for candidate_page_url in scanned_urls:
                         if found_curriculum:

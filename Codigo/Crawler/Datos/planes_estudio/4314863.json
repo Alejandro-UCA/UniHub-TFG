@@ -4,18 +4,18 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "022",
   "universidad_nombre": "Universidad Autónoma de Barcelona",
-  "fecha_procesado": "2026-08-05T04:23:25.160403",
+  "fecha_procesado": "2026-08-05T13:08:39.450503",
   "boe_url": "http://www.boe.es/boe/dias/2019/11/26/pdfs/BOE-A-2019-17011.pdf",
   "boe_fecha": "2019-11-26",
   "all_boe_urls": [
-    "http://www.boe.es/boe/dias/2019/11/26/pdfs/BOE-A-2019-17011.pdf",
-    "http://www.boe.es/boe/dias/2018/03/24/pdfs/BOE-A-2018-4180.pdf"
+    "http://www.boe.es/boe/dias/2018/03/24/pdfs/BOE-A-2018-4180.pdf",
+    "http://www.boe.es/boe/dias/2019/11/26/pdfs/BOE-A-2019-17011.pdf"
   ],
   "plan_estudios": {
     "resumen_creditos": {
-      "Obligatorias": "35",
-      "Optativas": "10",
+      "Obligatorias": "15",
       "Trabajo Fin de Grado / Máster": "15",
+      "Optativas": "10",
       "Créditos Totales": "60"
     },
     "total_elementos": 7,

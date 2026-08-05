@@ -4,12 +4,12 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "022",
   "universidad_nombre": "Universidad Autónoma de Barcelona",
-  "fecha_procesado": "2026-08-05T12:47:50.347512",
+  "fecha_procesado": "2026-08-05T13:02:54.495278",
   "boe_url": "http://boe.es/boe/dias/2020/11/23/pdfs/BOE-A-2020-14768.pdf",
   "boe_fecha": "2020-11-23",
   "all_boe_urls": [
-    "http://boe.es/boe/dias/2020/11/23/pdfs/BOE-A-2020-14768.pdf",
-    "http://www.boe.es/boe/dias/2019/12/03/pdfs/BOE-A-2019-17455.pdf"
+    "http://www.boe.es/boe/dias/2019/12/03/pdfs/BOE-A-2019-17455.pdf",
+    "http://boe.es/boe/dias/2020/11/23/pdfs/BOE-A-2020-14768.pdf"
   ],
   "plan_estudios": {
     "resumen_creditos": {
@@ -47,7 +47,7 @@
       {
         "modulo": "Módulo",
         "materia": "",
-        "nombre_elemento": "Bases para el Estudio de la Traducción, la Traductología y los Estudios Interculturales B-A.",
+        "nombre_elemento": "Traducción y Estudios Interculturales.",
         "creditos_ects": "15",
         "caracter": "OB",
         "curso": "",
@@ -56,7 +56,7 @@
       {
         "modulo": "Módulo",
         "materia": "",
-        "nombre_elemento": "Interpretación en los Servicios Públicos B-A.",
+        "nombre_elemento": "Interpretación en los Servicios Públicos.",
         "creditos_ects": "15",
         "caracter": "OP",
         "curso": "",
@@ -65,7 +65,7 @@
       {
         "modulo": "Módulo",
         "materia": "",
-        "nombre_elemento": "Mediación Intercultural y Traducción B-A.",
+        "nombre_elemento": "Mediación Intercultural y Traducción.",
         "creditos_ects": "15",
         "caracter": "OP",
         "curso": "",
@@ -74,7 +74,7 @@
       {
         "modulo": "Módulo",
         "materia": "",
-        "nombre_elemento": "Traducción Especializada Jurídica, Técnica y Audiovisual B-A.",
+        "nombre_elemento": "Traducción Especializada Jurídica, Técnica y Audiovisual.",
         "creditos_ects": "15",
         "caracter": "OP",
         "curso": "",
@@ -110,7 +110,7 @@
       {
         "modulo": "Módulo",
         "materia": "",
-        "nombre_elemento": "Traducción y Estudios Interculturales.",
+        "nombre_elemento": "Bases para el Estudio de la Traducción, la Traductología y los Estudios Interculturales B-A.",
         "creditos_ects": "15",
         "caracter": "OB",
         "curso": "",
@@ -119,7 +119,7 @@
       {
         "modulo": "Módulo",
         "materia": "",
-        "nombre_elemento": "Interpretación en los Servicios Públicos.",
+        "nombre_elemento": "Interpretación en los Servicios Públicos B-A.",
         "creditos_ects": "15",
         "caracter": "OP",
         "curso": "",
@@ -128,7 +128,7 @@
       {
         "modulo": "Módulo",
         "materia": "",
-        "nombre_elemento": "Mediación Intercultural y Traducción.",
+        "nombre_elemento": "Mediación Intercultural y Traducción B-A.",
         "creditos_ects": "15",
         "caracter": "OP",
         "curso": "",
@@ -137,7 +137,7 @@
       {
         "modulo": "Módulo",
         "materia": "",
-        "nombre_elemento": "Traducción Especializada Jurídica, Técnica y Audiovisual.",
+        "nombre_elemento": "Traducción Especializada Jurídica, Técnica y Audiovisual B-A.",
         "creditos_ects": "15",
         "caracter": "OP",
         "curso": "",

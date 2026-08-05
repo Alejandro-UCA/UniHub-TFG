@@ -1,0 +1,28 @@
+{
+  "codigo_estudio": "4314735",
+  "titulo": "Máster Universitario en Investigación Clínica por la Universidad Autónoma de Barcelona; la Universidad de Barcelona y la Universidad Pompeu Fabra",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T13:04:05.126109",
+  "boe_url": "http://www.boe.es/boe/dias/2015/11/23/pdfs/BOE-A-2015-12677.pdf",
+  "boe_fecha": "2015-11-23",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2015/11/23/pdfs/BOE-A-2015-12677.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {},
+    "total_elementos": 1,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "6 6 6 36 36 36 36 36 36 36 36 18",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6 6 6 36 36 36 36 36 36 36 36 18",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

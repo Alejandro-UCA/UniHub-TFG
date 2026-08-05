@@ -1,0 +1,85 @@
+{
+  "codigo_estudio": "4317563",
+  "titulo": "Máster Universitario en Medicina Transfusional y Terapias Celulares y Tisulares / Master in Transfusion Medicine and Cellular and Tissue Therapies por la Universidad Autónoma de Barcelona y Universiteit Leiden(Países Bajos)",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T13:03:42.372645",
+  "boe_url": "http://www.boe.es/boe/dias/2023/02/06/pdfs/BOE-A-2023-3119.pdf",
+  "boe_fecha": "2023-02-06",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2023/02/06/pdfs/BOE-A-2023-3119.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "45",
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 7,
+    "elementos_curriculares": [
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Trabajo de fin de máster.",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Donación de Sangre.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Gestión de Proyectos en un Banco de Sangre y Tejidos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Inmunohematología.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Terapia Celular y Tisular. Banco de Tejidos.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Transfusión Sanguínea.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

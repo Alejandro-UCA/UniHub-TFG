@@ -4,21 +4,111 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "022",
   "universidad_nombre": "Universidad Autónoma de Barcelona",
-  "fecha_procesado": "2026-08-05T08:09:18.066609",
+  "fecha_procesado": "2026-08-05T13:05:33.343587",
   "boe_url": "http://www.boe.es/boe/dias/2023/11/10/pdfs/BOE-A-2023-22848.pdf",
   "boe_fecha": "2023-11-10",
   "all_boe_urls": [
-    "http://www.boe.es/boe/dias/2023/11/10/pdfs/BOE-A-2023-22848.pdf",
-    "http://www.boe.es/boe/dias/2018/07/18/pdfs/BOE-A-2018-10117.pdf"
+    "http://www.boe.es/boe/dias/2018/07/18/pdfs/BOE-A-2018-10117.pdf",
+    "http://www.boe.es/boe/dias/2023/11/10/pdfs/BOE-A-2023-22848.pdf"
   ],
   "plan_estudios": {
     "resumen_creditos": {
+      "Créditos Totales": "60",
       "Obligatorias": "33",
-      "Optativas": "18",
-      "Créditos Totales": "60"
+      "Optativas": "18"
     },
     "total_elementos": 64,
     "elementos_curriculares": [
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Obligatorios",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Prácticas externas",
+        "creditos_ects": "9",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Trabajo de fin de máster",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Economía del Deporte y Gestión Estratégica",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Gestión de Eventos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Gestión de Instalaciones",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Gestión Financiera para el Deporte",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Gestión, Innovación y Liderazgo en Organizaciones Deportivas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Marketing Deportivo",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Patrocinio Deportivo",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
       {
         "modulo": "Tipo de módulo",
         "materia": "",
@@ -502,96 +592,6 @@
         "nombre_elemento": "Teorías y Sistemas Educativos: Desigualdades, Política y Cambio Social.",
         "creditos_ects": "6",
         "caracter": "OP",
-        "curso": "6",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "Tipo de módulo",
-        "materia": "",
-        "nombre_elemento": "Obligatorios",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "Tipo de módulo",
-        "materia": "",
-        "nombre_elemento": "Prácticas externas",
-        "creditos_ects": "9",
-        "caracter": "PE",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "Tipo de módulo",
-        "materia": "",
-        "nombre_elemento": "Trabajo de fin de máster",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "6",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "Módulo",
-        "materia": "",
-        "nombre_elemento": "Economía del Deporte y Gestión Estratégica",
-        "creditos_ects": "9",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "Módulo",
-        "materia": "",
-        "nombre_elemento": "Gestión de Eventos",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "6",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "Módulo",
-        "materia": "",
-        "nombre_elemento": "Gestión de Instalaciones",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "6",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "Módulo",
-        "materia": "",
-        "nombre_elemento": "Gestión Financiera para el Deporte",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "6",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "Módulo",
-        "materia": "",
-        "nombre_elemento": "Gestión, Innovación y Liderazgo en Organizaciones Deportivas",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "6",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "Módulo",
-        "materia": "",
-        "nombre_elemento": "Marketing Deportivo",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "6",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "Módulo",
-        "materia": "",
-        "nombre_elemento": "Patrocinio Deportivo",
-        "creditos_ects": "6",
-        "caracter": "OB",
         "curso": "6",
         "cuatrimestre": ""
       }

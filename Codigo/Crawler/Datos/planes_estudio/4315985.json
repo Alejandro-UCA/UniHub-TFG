@@ -4,13 +4,13 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "022",
   "universidad_nombre": "Universidad Autónoma de Barcelona",
-  "fecha_procesado": "2026-08-05T07:37:42.741893",
+  "fecha_procesado": "2026-08-05T13:05:57.438856",
   "boe_url": "http://www.boe.es/boe/dias/2025/08/09/pdfs/BOE-A-2025-16599.pdf",
   "boe_fecha": "2025-08-09",
   "all_boe_urls": [
-    "http://www.boe.es/boe/dias/2025/08/09/pdfs/BOE-A-2025-16599.pdf",
     "http://www.boe.es/boe/dias/2022/04/01/pdfs/BOE-A-2022-5257.pdf",
-    "http://www.boe.es/boe/dias/2019/10/25/pdfs/BOE-A-2019-15394.pdf"
+    "http://www.boe.es/boe/dias/2019/10/25/pdfs/BOE-A-2019-15394.pdf",
+    "http://www.boe.es/boe/dias/2025/08/09/pdfs/BOE-A-2025-16599.pdf"
   ],
   "plan_estudios": {
     "resumen_creditos": {
@@ -19,39 +19,165 @@
     "total_elementos": 107,
     "elementos_curriculares": [
       {
-        "modulo": "",
+        "modulo": "Tipo de módulo",
         "materia": "",
         "nombre_elemento": "Obligatorios.",
-        "creditos_ects": "15.0",
+        "creditos_ects": "30",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "modulo": "",
+        "modulo": "Tipo de módulo",
         "materia": "",
         "nombre_elemento": "Optativos.",
-        "creditos_ects": "6",
+        "creditos_ects": "12",
         "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "modulo": "",
+        "modulo": "Tipo de módulo",
         "materia": "",
-        "nombre_elemento": "Trabajo de Fin de Máster.",
-        "creditos_ects": "9.0",
-        "caracter": "OB",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "12",
+        "caracter": "PE",
         "curso": "",
         "cuatrimestre": ""
       },
       {
-        "modulo": "",
+        "modulo": "Tipo de módulo",
         "materia": "",
-        "nombre_elemento": "Prácticas Externas.",
-        "creditos_ects": "9.0",
-        "caracter": "PE",
-        "curso": "",
+        "nombre_elemento": "Trabajo de fin de máster.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Bases de Datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Datos Geoespaciales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Geoservicios.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Sistemas de Información Geográfica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Sistemas de Navegación y de Observación de la Tierra.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Desarrollo de Software.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Técnicas de Programación.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Gestión de Productos de Geoinformación.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Innovación y Smart Cities.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Diseño de Aplicaciones y Gestión de Proyectos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Desarrollo de Software(1).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Técnicas de Programación(1).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Gestión de Productos de Geoinformación(2).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Innovación y Smart Cities(2).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
         "cuatrimestre": ""
       },
       {
@@ -462,24 +588,6 @@
       {
         "modulo": "",
         "materia": "Materia",
-        "nombre_elemento": "Datos Geoespaciales.",
-        "creditos_ects": "6.0",
-        "caracter": "OB",
-        "curso": "6.0",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "Materia",
-        "nombre_elemento": "Geoservicios.",
-        "creditos_ects": "6.0",
-        "caracter": "OB",
-        "curso": "6.0",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "Materia",
         "nombre_elemento": "Desarrollo de Geoaplicaciones.",
         "creditos_ects": "6.0",
         "caracter": "OP",
@@ -507,36 +615,9 @@
       {
         "modulo": "",
         "materia": "Materia",
-        "nombre_elemento": "Bases de Datos.",
-        "creditos_ects": "6.0",
-        "caracter": "OB",
-        "curso": "6.0",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "Materia",
         "nombre_elemento": "Proyectos 3D y Estrategias de Negocio en Geoinformación.",
         "creditos_ects": "6.0",
         "caracter": "OP",
-        "curso": "6.0",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "Materia",
-        "nombre_elemento": "Sistemas de Navegación y de Observación de la Tierra.",
-        "creditos_ects": "6.0",
-        "caracter": "OB",
-        "curso": "6.0",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "Materia",
-        "nombre_elemento": "Sistemas de Información Geográfica.",
-        "creditos_ects": "6.0",
-        "caracter": "OB",
         "curso": "6.0",
         "cuatrimestre": ""
       },
@@ -898,87 +979,6 @@
         "creditos_ects": "15.0",
         "caracter": "OP",
         "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "Módulo",
-        "materia": "",
-        "nombre_elemento": "Desarrollo de Software.",
-        "creditos_ects": "6",
-        "caracter": "OP",
-        "curso": "6",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "Módulo",
-        "materia": "",
-        "nombre_elemento": "Técnicas de Programación.",
-        "creditos_ects": "6",
-        "caracter": "OP",
-        "curso": "6",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "Módulo",
-        "materia": "",
-        "nombre_elemento": "Gestión de Productos de Geoinformación.",
-        "creditos_ects": "6",
-        "caracter": "OP",
-        "curso": "6",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "Módulo",
-        "materia": "",
-        "nombre_elemento": "Innovación y Smart Cities.",
-        "creditos_ects": "6",
-        "caracter": "OP",
-        "curso": "6",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "Módulo",
-        "materia": "",
-        "nombre_elemento": "Diseño de Aplicaciones y Gestión de Proyectos.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "6",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "Módulo",
-        "materia": "",
-        "nombre_elemento": "Desarrollo de Software(1).",
-        "creditos_ects": "6",
-        "caracter": "OP",
-        "curso": "6",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "Módulo",
-        "materia": "",
-        "nombre_elemento": "Técnicas de Programación(1).",
-        "creditos_ects": "6",
-        "caracter": "OP",
-        "curso": "6",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "Módulo",
-        "materia": "",
-        "nombre_elemento": "Gestión de Productos de Geoinformación(2).",
-        "creditos_ects": "6",
-        "caracter": "OP",
-        "curso": "6",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "Módulo",
-        "materia": "",
-        "nombre_elemento": "Innovación y Smart Cities(2).",
-        "creditos_ects": "6",
-        "caracter": "OP",
-        "curso": "6",
         "cuatrimestre": ""
       }
     ]

@@ -1,21 +1,21 @@
 {
-  "timestamp_reporte": "2026-08-05T12:44:56.218229",
+  "timestamp_reporte": "2026-08-05T12:56:23.612181",
   "rendimiento_memoria": {
-    "uso_memoria_actual_mb": 62.36,
-    "pico_maximo_memoria_mb": 64.93,
-    "porcentaje_uso_memoria_sistema": 0.39
+    "uso_memoria_actual_mb": 69.77,
+    "pico_maximo_memoria_mb": 69.77,
+    "porcentaje_uso_memoria_sistema": 0.44
   },
   "rendimiento_tiempo": {
-    "tiempo_total_ejecucion_seg": 140.51,
-    "tiempo_procesamiento_cpu_seg": 1.08,
-    "tiempo_espera_io_red_seg": 139.43,
-    "tiempo_especifico_descargas_http_seg": 7.01,
+    "tiempo_total_ejecucion_seg": 202.41,
+    "tiempo_procesamiento_cpu_seg": 5.01,
+    "tiempo_espera_io_red_seg": 197.4,
+    "tiempo_especifico_descargas_http_seg": 7.03,
     "tiempo_especifico_parseo_pdf_seg": 0.0
   },
   "operaciones_crawler": {
     "universidades_inspeccionadas": 8,
     "titulaciones_inspeccionadas": 132,
-    "titulaciones_al_dia_sin_cambios": 132,
+    "titulaciones_al_dia_sin_cambios": 0,
     "titulaciones_nuevas_o_actualizadas": 0,
     "pdfs_boe_descargados_y_parseados": 0,
     "errores_registrados": 0

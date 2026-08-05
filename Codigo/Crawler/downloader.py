@@ -86,10 +86,17 @@ class RUCTDownloader:
         """Resets failure counter on successful request."""
         self.consecutive_failures = 0
 
-    def _handle_connection_failure(self, error_details: str):
+    def _handle_connection_failure(self, error_details: str) -> bool:
         """
-        Increments failure counter. Handles 5-minute pause and 15-minute skip thresholds.
+        Increments failure counter for genuine network/server overloads.
+        Handles 5-minute pause and 15-minute skip thresholds.
+        Returns True if a 5-minute pause was completed (signalling a request retry).
         """
+        # HTTP 404 Not Found means missing file on server (not connection overload). Do NOT count towards circuit breaker.
+        if "404" in str(error_details):
+            print(f" [ADVERTENCIA] Recurso no encontrado (HTTP 404): {error_details}")
+            return False
+
         self.consecutive_failures += 1
         print(f" [ADVERTENCIA] Fallo de conexión #{self.consecutive_failures}/10: {error_details}")
         
@@ -99,10 +106,12 @@ class RUCTDownloader:
                 print(f"\n⚠️ [RESILIENCIA] 10 fallos de conexión seguidos detectados. Pausando 5 minutos para reanudar (Pausa #{self.pause_count_univ}/3)...")
                 time.sleep(300) # 5 minutes pause
                 self.consecutive_failures = 0
+                return True
             else:
                 print(f"\n❌ [CORTOCIRCUITO] 3 pausas de 5 minutos alcanzadas (15 min acumulados en la universidad [{self.current_univ_code}]). Saltando a la siguiente universidad...")
                 self.consecutive_failures = 0
                 raise SkipUniversityException(f"Problemas de conexion continuados en la universidad [{self.current_univ_code}]")
+        return False
 
     def fetch_content(self, url: str) -> bytes:
         """Fetches raw content from a URL with connection resilience and HTTPS fallback."""
@@ -133,7 +142,10 @@ class RUCTDownloader:
                     print(f"     [Proceso Red] -> Falló conexión a '{target_url}'. Reintentando con HTTPS...")
                     continue
 
-        self._handle_connection_failure(str(last_error))
+        should_retry = self._handle_connection_failure(str(last_error))
+        if should_retry:
+            print(f" 🔄 [RESILIENCIA] Reintentando petición tras la pausa de 5 minutos para '{url}'...")
+            return self.fetch_content(url)
         raise last_error
 
     def fetch_text(self, url: str, encoding="utf-8") -> str:
@@ -181,5 +193,8 @@ class RUCTDownloader:
                     print(f"     [Proceso Red] -> Falló conexión HTTP a '{target_url}'. Reintentando con HTTPS...")
                     continue
 
-        self._handle_connection_failure(str(last_error))
+        should_retry = self._handle_connection_failure(str(last_error))
+        if should_retry:
+            print(f" 🔄 [RESILIENCIA] Reintentando descarga tras la pausa de 5 minutos para '{url}'...")
+            return self.download_file(url, destination_path, is_pdf=is_pdf)
         raise last_error

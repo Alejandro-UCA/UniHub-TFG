@@ -4,8 +4,290 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "022",
   "universidad_nombre": "Universidad Autónoma de Barcelona",
-  "fecha_procesado": "2026-08-05T12:45:50.772919",
-  "boe_url": "http://https://www.boe.es/boe/dias/2022/11/16/pdfs/BOE-A-2022-18885.pdf",
+  "fecha_procesado": "2026-08-05T13:02:39.311166",
+  "boe_url": "https://www.boe.es/boe/dias/2022/11/16/pdfs/BOE-A-2022-18885.pdf",
   "boe_fecha": "2022-11-16",
-  "plan_estudios": null
+  "all_boe_urls": [
+    "https://www.boe.es/boe/dias/2022/11/16/pdfs/BOE-A-2022-18885.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "37",
+      "Optativas": "52",
+      "Créditos Totales": "120"
+    },
+    "total_elementos": 30,
+    "elementos_curriculares": [
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "37,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "52,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Trabajo de fin de máster.",
+        "creditos_ects": "30",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "AquaHealth Club.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "7,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Enfermedades en Acuicultura.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Estadística Aplicada.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Genética Acuícola.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Gestión de Comunidades Acuáticas Microbianas.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Gestión de Enfermedades Víricas.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Inmunología de Peces y Mariscos.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Principios de Larvicultura de Peces Marinos.",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Acuicultura y Ecosistemas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "7,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Bienestar Animal en Peces y Salud.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "7,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Ciencia de Animales de Laboratorio.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "7,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Competencia en Gestión de Equipos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "7,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Metodologías de Análisis Ambiental y Calidad de Aguas Costeras.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "7,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "7,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Producción Acuícola de Juveniles.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "7,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Sistemas de Recirculación.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "7,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Estrés, Patología, Respuesta Inmunitaria y Salud Ambiental.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Fisiología de las Especies Acuícolas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Gestión Básica de Instalaciones Acuícolas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Gestión de la Producción y Salud en Instalaciones Acuícolas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Prácticas Externas Ampliadas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "22,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Calidad del Agua.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Ciencia de Animales de Laboratorio: Ética y Diseño en Experimentación Animal.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Consultoría Académica y Módulos MOS.",
+        "materia": "",
+        "nombre_elemento": "Fronteras en Salud Animal.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Consultoría Académica y Módulos MOS.",
+        "materia": "",
+        "nombre_elemento": "Nutrición y Salud en Acuicultura.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Consultoría Académica y Módulos MOS.",
+        "materia": "",
+        "nombre_elemento": "Proyecto Corto de Investigación.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Consultoría Académica y Módulos MOS.",
+        "materia": "",
+        "nombre_elemento": "Sostenibilidad en Producción de Peces y Marisco.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      }
+    ]
+  }
 }

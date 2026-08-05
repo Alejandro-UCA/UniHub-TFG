@@ -88,10 +88,15 @@ CREATE TABLE IF NOT EXISTS estadisticas_rendimiento (
     errores_registrados INT
 );
 
+-- Extension de Trigramas para busquedas de texto ultra rapidas
+CREATE EXTENSION IF NOT EXISTS pg_trgm;
+
 -- Indices de rendimiento para consultas de la API REST
 CREATE INDEX IF NOT EXISTS idx_univ_codigo ON universidades(codigo);
+CREATE INDEX IF NOT EXISTS idx_univ_nombre_trgm ON universidades USING gin (nombre gin_trgm_ops);
 CREATE INDEX IF NOT EXISTS idx_tit_univ ON titulaciones(universidad_codigo);
 CREATE INDEX IF NOT EXISTS idx_tit_nivel ON titulaciones(nivel_academico);
+CREATE INDEX IF NOT EXISTS idx_tit_titulo_trgm ON titulaciones USING gin (titulo gin_trgm_ops);
 CREATE INDEX IF NOT EXISTS idx_elem_plan ON elementos_curriculares(plan_estudio_id);
 CREATE INDEX IF NOT EXISTS idx_elem_caracter ON elementos_curriculares(caracter);
 

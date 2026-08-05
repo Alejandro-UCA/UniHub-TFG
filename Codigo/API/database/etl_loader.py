@@ -103,7 +103,7 @@ def run_etl():
         db.commit()
         print(f" -> {total_tits} titulaciones vigentes migradas con éxito.")
 
-    # 3. Migrar Planes de Estudio y Elementos Curriculares
+    # 3. Migrar Planes de Estudio y Elementos Curriculares (Optimizado con Bulk Save)
     planes_dir = os.path.join(crawler_datos_dir, "Planes")
     if not os.path.exists(planes_dir):
         planes_dir = os.path.join(crawler_datos_dir, "planes_estudio")
@@ -112,6 +112,9 @@ def run_etl():
         plan_files = [f for f in os.listdir(planes_dir) if f.endswith(".json")]
         print(f"Migrando {len(plan_files)} planes de estudio en PDF...")
         
+        resumenes_bulk = []
+        elementos_bulk = []
+
         for p_file in plan_files:
             p_path = os.path.join(planes_dir, p_file)
             with open(p_path, "r", encoding="utf-8") as f:
@@ -143,16 +146,23 @@ def run_etl():
                 )
                 db.add(plan_obj)
                 db.flush()
+            else:
+                # Si el plan ya existe, actualizar metadatos y limpiar asignaturas previas para refrescar limpiamente
+                plan_obj.boe_url = p_data.get("boe_url") or plan_obj.boe_url
+                plan_obj.boe_fecha = boe_date_val or plan_obj.boe_fecha
+                plan_obj.fecha_procesado = datetime.now()
+                db.query(ResumenCreditos).filter(ResumenCreditos.plan_estudio_id == plan_obj.id).delete()
+                db.query(ElementoCurricular).filter(ElementoCurricular.plan_estudio_id == plan_obj.id).delete()
             
-            # Migrate credit summaries & subjects
+            # Acumular en lote para inserción masiva (Bulk Save)
             pe_data = p_data.get("plan_estudios") or {}
             res_cred = pe_data.get("resumen_creditos") or {}
             for k, v in res_cred.items():
-                db.add(ResumenCreditos(plan_estudio_id=plan_obj.id, tipo_credito=str(k), cantidad_creditos=str(v)))
+                resumenes_bulk.append(ResumenCreditos(plan_estudio_id=plan_obj.id, tipo_credito=str(k), cantidad_creditos=str(v)))
                 
             elems = pe_data.get("elementos_curriculares") or []
             for elem in elems:
-                db.add(ElementoCurricular(
+                elementos_bulk.append(ElementoCurricular(
                     plan_estudio_id=plan_obj.id,
                     modulo=elem.get("modulo"),
                     materia=elem.get("materia"),
@@ -162,10 +172,16 @@ def run_etl():
                     curso=elem.get("curso"),
                     cuatrimestre=elem.get("cuatrimestre")
                 ))
-        db.commit()
-        print(" -> Planes de estudio y asignaturas migradas con éxito.")
 
-    # 4. Migrar Registro de Errores
+        if resumenes_bulk:
+            db.bulk_save_objects(resumenes_bulk)
+        if elementos_bulk:
+            db.bulk_save_objects(elementos_bulk)
+
+        db.commit()
+        print(" -> Planes de estudio y asignaturas migradas en lote con éxito.")
+
+    # 4. Migrar Registro de Errores con Desduplicación
     err_json_path = os.path.join(crawler_datos_dir, "errores_crawler.json")
     if os.path.exists(err_json_path):
         with open(err_json_path, "r", encoding="utf-8") as f:
@@ -177,18 +193,29 @@ def run_etl():
                     ts = datetime.fromisoformat(err["timestamp"])
                 except Exception:
                     pass
-            db.add(ErrorCrawler(
-                timestamp=ts,
-                fase=err.get("fase"),
-                id_entidad=err.get("id_entidad"),
-                url=err.get("url"),
-                motivo_fallo=err.get("motivo_fallo"),
-                detalles_excepcion=err.get("detalles_excepcion")
-            ))
-        db.commit()
-        print(" -> Registro de errores migrado con éxito.")
+            
+            # Desduplicación: Verificar si ya existe este fallo
+            id_ent = err.get("id_entidad")
+            motivo = err.get("motivo_fallo")
+            existing_err = db.query(ErrorCrawler).filter(
+                ErrorCrawler.id_entidad == id_ent,
+                ErrorCrawler.motivo_fallo == motivo,
+                ErrorCrawler.timestamp == ts
+            ).first()
 
-    # 5. Migrar Estadísticas de Rendimiento
+            if not existing_err:
+                db.add(ErrorCrawler(
+                    timestamp=ts,
+                    fase=err.get("fase"),
+                    id_entidad=id_ent,
+                    url=err.get("url"),
+                    motivo_fallo=motivo,
+                    detalles_excepcion=err.get("detalles_excepcion")
+                ))
+        db.commit()
+        print(" -> Registro de errores migrado con éxito (desduplicado).")
+
+    # 5. Migrar Estadísticas de Rendimiento con Desduplicación
     stat_json_path = os.path.join(crawler_datos_dir, "estadisticas_rendimiento.json")
     if os.path.exists(stat_json_path):
         with open(stat_json_path, "r", encoding="utf-8") as f:
@@ -205,23 +232,31 @@ def run_etl():
             except Exception:
                 pass
                 
-        db.add(EstadisticaRendimiento(
-            timestamp_reporte=ts_rep,
-            uso_memoria_actual_mb=mem.get("uso_memoria_actual_mb"),
-            pico_maximo_memoria_mb=mem.get("pico_maximo_memoria_mb"),
-            porcentaje_uso_memoria=mem.get("porcentaje_uso_memoria_sistema"),
-            tiempo_total_ejecucion_seg=time_info.get("tiempo_total_ejecucion_seg"),
-            tiempo_procesamiento_cpu_seg=time_info.get("tiempo_procesamiento_cpu_seg"),
-            tiempo_espera_io_red_seg=time_info.get("tiempo_espera_io_red_seg"),
-            universidades_inspeccionadas=ops.get("universidades_inspeccionadas"),
-            titulaciones_inspeccionadas=ops.get("titulaciones_inspeccionadas"),
-            titulaciones_al_dia=ops.get("titulaciones_al_dia_sin_cambios"),
-            titulaciones_actualizadas=ops.get("titulaciones_nuevas_o_actualizadas"),
-            pdfs_parseados=ops.get("pdfs_boe_descargados_y_parseados"),
-            errores_registrados=ops.get("errores_registrados")
-        ))
-        db.commit()
-        print(" -> Estadísticas de rendimiento migradas con éxito.")
+        # Desduplicación: Verificar si la estadística con este timestamp_reporte ya fue migrada
+        existing_stat = None
+        if ts_rep:
+            existing_stat = db.query(EstadisticaRendimiento).filter(
+                EstadisticaRendimiento.timestamp_reporte == ts_rep
+            ).first()
+
+        if not existing_stat:
+            db.add(EstadisticaRendimiento(
+                timestamp_reporte=ts_rep,
+                uso_memoria_actual_mb=mem.get("uso_memoria_actual_mb"),
+                pico_maximo_memoria_mb=mem.get("pico_maximo_memoria_mb"),
+                porcentaje_uso_memoria=mem.get("porcentaje_uso_memoria_sistema"),
+                tiempo_total_ejecucion_seg=time_info.get("tiempo_total_ejecucion_seg"),
+                tiempo_procesamiento_cpu_seg=time_info.get("tiempo_procesamiento_cpu_seg"),
+                tiempo_espera_io_red_seg=time_info.get("tiempo_espera_io_red_seg"),
+                universidades_inspeccionadas=ops.get("universidades_inspeccionadas"),
+                titulaciones_inspeccionadas=ops.get("titulaciones_inspeccionadas"),
+                titulaciones_al_dia=ops.get("titulaciones_al_dia_sin_cambios"),
+                titulaciones_actualizadas=ops.get("titulaciones_nuevas_o_actualizadas"),
+                pdfs_parseados=ops.get("pdfs_boe_descargados_y_parseados"),
+                errores_registrados=ops.get("errores_registrados")
+            ))
+            db.commit()
+            print(" -> Estadísticas de rendimiento migradas con éxito (desduplicadas).")
 
     db.close()
     print("=" * 70)

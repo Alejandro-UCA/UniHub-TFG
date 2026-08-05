@@ -1,0 +1,656 @@
+{
+  "codigo_estudio": "4317770",
+  "titulo": "Máster Universitario en El Mundo Ibérico Medieval: Hispania, al-Andalus y Sefarad por la Universidad Autónoma de Madrid y la Universidad de Málaga",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "023",
+  "universidad_nombre": "Universidad Autónoma de Madrid",
+  "fecha_procesado": "2026-08-05T17:57:25.905506",
+  "boe_url": "http://www.boe.es/boe/dias/2024/12/02/pdfs/BOE-A-2024-25132.pdf",
+  "boe_fecha": "2024-12-02",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2024/12/02/pdfs/BOE-A-2024-25132.pdf",
+    "http://www.boe.es/boe/dias/2021/11/09/pdfs/BOE-A-2021-18359.pdf",
+    "http://www.juntadeandalucia.es/eboja/2021/132/BOJA21-132-00011-11585-01_00195409.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "1",
+      "Optativas": "1",
+      "Trabajo Fin de Grado / Máster": "2",
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 70,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias (OB).",
+        "creditos_ects": "30",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas (OP).",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo Fin de Máster (TFM).",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Obligatorio (30 créditos)",
+        "materia": "Materias",
+        "nombre_elemento": "Fundamentos y Métodos.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Optativo (51 créditos de los que habrá que cursar, al menos, 18)",
+        "materia": "Materias",
+        "nombre_elemento": "Espacios, Poderes y Sociedades.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Optativo (51 créditos de los que habrá que cursar, al menos, 18)",
+        "materia": "Materias",
+        "nombre_elemento": "Identidades Religiosas y Políticas.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Optativo (51 créditos de los que habrá que cursar, al menos, 18)",
+        "materia": "Materias",
+        "nombre_elemento": "Las Expresiones Artísticas.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Trabajo Fin de Máster (12 Créditos)",
+        "materia": "Lenguaje y Materialidad.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Trabajo Fin de Máster (12 Créditos)",
+        "materia": "Lenguaje y Materialidad.",
+        "nombre_elemento": "De Roma a al-Andalus: Cambios y Permanencias (siglos IV-VIII) (UMA/UAM).",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Trabajo Fin de Máster (12 Créditos)",
+        "materia": "Lenguaje y Materialidad.",
+        "nombre_elemento": "Fuentes y Metodologías para el Estudio de la Edad Media Ibérica (UMA/UAM).",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Trabajo Fin de Máster (12 Créditos)",
+        "materia": "Lenguaje y Materialidad.",
+        "nombre_elemento": "Fundamentos del Arte Medieval Hispano: Tradición e Innovación (siglos VIII-XV) (UMA/UAM).",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Trabajo Fin de Máster (12 Créditos)",
+        "materia": "Lenguaje y Materialidad.",
+        "nombre_elemento": "Arte y Arquitectura en al-Andalus (UMA).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Trabajo Fin de Máster (12 Créditos)",
+        "materia": "Lenguaje y Materialidad.",
+        "nombre_elemento": "Creatividad y Significado de la Imagen Medieval (UAM).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Trabajo Fin de Máster (12 Créditos)",
+        "materia": "Lenguaje y Materialidad.",
+        "nombre_elemento": "Del Centro a la Periferia: la Ciudad y sus Nuevas Identidades en un Mundo en Transición (siglos III-VII) (UMA).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Trabajo Fin de Máster (12 Créditos)",
+        "materia": "El Libro Medieval: Materialidad y Cultura Gráfica (UAM).",
+        "nombre_elemento": "Fuentes Árabes para la Historia de al-Andalus (UMA).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Trabajo Fin de Máster (12 Créditos)",
+        "materia": "El Libro Medieval: Materialidad y Cultura Gráfica (UAM).",
+        "nombre_elemento": "Fundamentos de la Lengua Árabe para el Estudio del Patrimonio (UMA).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Trabajo Fin de Máster (12 Créditos)",
+        "materia": "El Libro Medieval: Materialidad y Cultura Gráfica (UAM).",
+        "nombre_elemento": "Guerra y Violencia en la Iberia Medieval (UAM).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Trabajo Fin de Máster (12 Créditos)",
+        "materia": "El Libro Medieval: Materialidad y Cultura Gráfica (UAM).",
+        "nombre_elemento": "Religión Rural en la Tardoantigüedad Hispana (UMA).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Trabajo Fin de Máster (12 Créditos)",
+        "materia": "El Libro Medieval: Materialidad y Cultura Gráfica (UAM).",
+        "nombre_elemento": "Sociedades y Espacios de Frontera (UAM).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Trabajo Fin de Máster (12 Créditos)",
+        "materia": "El Libro Medieval: Materialidad y Cultura Gráfica (UAM).",
+        "nombre_elemento": "Paisajes Diversos: Sistemas Económicos y Sociedades en el Medievo Ibérico (UMA/UAM).",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Trabajo Fin de Máster (12 Créditos)",
+        "materia": "El Libro Medieval: Materialidad y Cultura Gráfica (UAM).",
+        "nombre_elemento": "Poderes y Cultura Política en las Sociedades Ibéricas (siglos VIII-XV) (UMA/UAM).",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Trabajo Fin de Máster (12 Créditos)",
+        "materia": "El Libro Medieval: Materialidad y Cultura Gráfica (UAM).",
+        "nombre_elemento": "Ciudad y Territorio en el Medievo Hispánico (siglos XI-XV) (UMA/UAM).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Trabajo Fin de Máster (12 Créditos)",
+        "materia": "El Libro Medieval: Materialidad y Cultura Gráfica (UAM).",
+        "nombre_elemento": "El Edificio Medieval: Espacios, Procesos y Funciones (UAM).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Trabajo Fin de Máster (12 Créditos)",
+        "materia": "El Libro Medieval: Materialidad y Cultura Gráfica (UAM).",
+        "nombre_elemento": "Espacios de la Vida Cotidiana en el Medievo Ibérico (UAM).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Trabajo Fin de Máster (12 Créditos)",
+        "materia": "El Libro Medieval: Materialidad y Cultura Gráfica (UAM).",
+        "nombre_elemento": "Espiritualidad y Religiosidad en la Edad Media Hispánica (UAM).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Trabajo Fin de Máster (12 Créditos)",
+        "materia": "El Libro Medieval: Materialidad y Cultura Gráfica (UAM).",
+        "nombre_elemento": "La Alteridad y la Ley: Mudéjares, Judíos y Conversos (siglos XI-XV) (UMA/UAM).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Trabajo Fin de Máster (12 Créditos)",
+        "materia": "El Libro Medieval: Materialidad y Cultura Gráfica (UAM).",
+        "nombre_elemento": "Música en la Iberia Medieval (UMA).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Trabajo Fin de Máster (12 Créditos)",
+        "materia": "El Libro Medieval: Materialidad y Cultura Gráfica (UAM).",
+        "nombre_elemento": "Pervivencia y Manipulación de un Mito: al-Andalus (UMA/UAM).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Trabajo Fin de Máster (12 Créditos)",
+        "materia": "El Libro Medieval: Materialidad y Cultura Gráfica (UAM).",
+        "nombre_elemento": "Poderes, Sociedades y Fiscalidad en la Baja Edad Media Hispana (UMA).",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "30",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Boletín Oficial de la Junta de Andalucía",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "NUEVAS ENSEÑANZAS OFICIALES DE GRADO, MÁSTER Y DOCTORADO",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "TÍTULO",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Graduado o Graduada en Enfer- mería",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Trans- formación Digital de Empresas por la Universidad de Almería; la Universidad de Granada; la Universidad de Málaga y la Uni- versidad Internacional de An- dalucía",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Bioeconomía Circular y Sostenibilidad por la Universidad de Almería y la Universidad de Córdoba",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "ENSEÑANZAS OFICIALES DE GRADO, MÁSTER Y DOCTORADO SUPRIMIDAS",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Graduado o Graduada en Enfermería",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Violencia Criminal: Características, Prevención y Tratamiento de la Violencia por la Universidad de Cádiz",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Sistema Penal y Criminalidad",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Avances en Ciencias Gastronómicas por la Universidad de Córdoba y la Universidad de Granada",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Bioeconomía Circular y Sostenibilidad por la Universidad de Córdoba y la Universidad de Almería",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "Máster Universitario en Gestión del Fuego en Paisajes Forestales por la Universidad de Córdoba",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "Máster Universitario en Inteligencia Computacional e Internet de las Cosas por la Universidad de Córdoba",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "Máster Universitario en Pluralismo Religioso: Judios, Griegos y Árabes desde la Tardoantigüedad a la Edad Moderna por la Universidad de Córdoba",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "Máster Universitario en Protección Vegetal por la Universidad de Córdoba",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "Máster Universitario Erasmus Mundus en Ciencia del Color,",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "Imágenes y Visión Computacional / Erasmus Mundus Master in Computational Color and Spectral Imaging por la Universidad de Granada; Itä- Suomen Yliopisto-University of Eastern Finland (UEF) (Finlandia); Norges Teknisk- Naturvitenskapelige Universitet (Noruega) y Université Jean Monnet-Saint Etienne (Francia)",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "Máster Universitario Erasmus Mundus en Estudios de las Mujeres y de Género / Eramus Mundus Master in Women's and Gender Studies por la Universidad de Granada; la Universidad de Oviedo; Alma Mater Studiorum - Università di Bologna (Italia); Universiteit Utrecht (Países Bajos); University of York (Reino Unido) y Uniwersytet Lódzki (Polonia)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "Máster Universitario Erasmus Mundus en Excelencia en Salud Pública / Erasmus Mundus Master in European Public Health por la Universidad de Granada; Ecole Des Hautes Etudes en Santé Publique Ehesp (Francia); Universiteit Maastricht (Países Bajos); University College Dublin, National University of Ireland, DU (Irlanda); University of Sheffield (Reino Unido); Université de Liège (Bélgica); Université de Rennes 1(Francia) y Uniwersytet Jagiellonski (Polonia)",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "Máster Universitario Erasmus Mundus en Excelencia en Salud Pública / Erasmus Mundus Master in European Public Health por la Universidad de Granada; Ecole Des Hautes Etudes en Santé Publique Ehesp (Francia); Universiteit Maastricht (Países Bajos); University College Dublin, National University of Ireland, DU (Irlanda); University of Sheffield (Reino Unido); Université de Liège (Bélgica); Université de Rennes 1(Francia) y Uniwersytet Jagiellonski (Polonia)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "Máster Universitario en Avances en Ciencias Gastronómicas por la Universidad de Granada y la Universidad de Córdoba",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "Máster Universitario en Pensamiento Estratégico y Seguridad Global por la Universidad de Granada",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "Programa de Doctorado en Nutrición y Ciencias de los Alimentos por la Universidad de Granada",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "Máster Universitario Erasmus Mundus en Ciencia y Tecnología del Color / Color in Science and Industry por la Universidad de Granada; Itä- Suomen Yliopisto-University of Eastern Finland (UEF) (Finlandia); Norges Teknisk- Naturvitenskapelige Universitet(Noruega) y Université Jean Monnet-Saint Etienne(Francia)",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "Máster Universitario Erasmus Mundus en Estudios de las Mujeres y de Género por la Universidad de Granada; la Universidad de Oviedo; Alma Mater Studiorum - Università di Bologna (Italia); Kozep-Europai Egyetem-Central European",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "University(Hungría); Universiteit Utrecht(Países Bajos); University of Hull(Reino Unido); University of York (Reino Unido) y Uniwersytet Lódzki(Polonia)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "Máster Universitario Erasmus Mundus en Excelencia en Salud Pública por la Universidad de Granada; Ecole Des Hautes Etudes en Santé Publique Ehesp(Francia); Universiteit Maastricht(Países Bajos); University of Sheffield(Reino Unido); Université de Rennes 1(Francia) y Uniwersytet Jagiellonski(Polonia)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Máster Universitario Erasmus Mundus en Excelencia en Salud Pública por la Universidad de Granada; Ecole Des Hautes Etudes en Santé Publique Ehesp(Francia); Universiteit Maastricht(Países Bajos); University of Sheffield(Reino Unido); Université de Rennes 1(Francia) y Uniwersytet Jagiellonski(Polonia)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "Programa de Doctorado en Nutrición y Ciencias de los Alimentos por la Universidad de Granada y la Universidad de las Illes Balears",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "Máster Universitario en Trans- porte Intermodal y Logística por la Universidad de Huelva",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "Máster Universitario en Análisis de Datos Ómicos y Biología de Sistemas por la Universidad de Sevilla y la Universidad Internacional de Andalucía",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "Máster Universitario en Arqueología de los Paisajes Culturales por la Universidad de Jaén y la Universidad Internacional de Andalucía",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "Graduado o Graduada en Historia del Arte",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "Graduado o Graduada en Geografía e Historia",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "Máster Universitario en Ingeniería de los Sistemas Fotovoltaicos por la Universidad de Jaén",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "Máster Universitario en Trans- formación Digital de Empre- sas por la Universidad de Al- mería; la Universidad de Gra- nada; la Universidad de Mála- ga y la Universidad Internacio- nal de Andalucía",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "Máster Universitario en El Mundo Ibérico Medieval: Hispania, al Andalus y Sefarad, por la Universidad Autónoma de Madrid y por la Universidad de Málaga",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "Máster Universitario en Ingeniería de Telecomunicación por la Universidad de Sevilla",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Máster Universitario en Tecnologías Avanzadas de Materiales para la Construcción Sostenible por la Universidad de Córdoba y la Universidad de Granada",
+        "nombre_elemento": "Máster Universitario en Ingeniería de Telecomunicación",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

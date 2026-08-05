@@ -1,0 +1,559 @@
+{
+  "codigo_estudio": "5600567",
+  "titulo": "Programa de Doctorado en Historia Contemporánea por la Universidad Autónoma de Madrid; la Universidad Complutense de Madrid; la Universidad de Cantabria; la Universidad de Santiago de Compostela; la Universidad de Zaragoza; la Universidad del País Vasco/Euskal Herriko Unibertsitatea y la Universitat de València (Estudi General)",
+  "nivel_academico": "Doctor - RD 99/2011 (0)",
+  "universidad_codigo": "023",
+  "universidad_nombre": "Universidad Autónoma de Madrid",
+  "fecha_procesado": "2026-08-05T18:03:42.339139",
+  "boe_url": "http://www.boe.es/boe/dias/2015/03/18/pdfs/BOE-A-2015-2892.pdf",
+  "boe_fecha": "2015-03-18",
+  "all_boe_urls": [
+    "http://www.lehendakaritza.ejgv.euskadi.eus/r48-bopv2/es/bopv2/datos/2013/12/1305372a.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {},
+    "total_elementos": 60,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Denominación Título",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorado en Matemáticas y Estadística",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorado en Historia Contemporánea",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorado en Investigación y Evaluación de Medicamentos. Aplicación de la Tecnología Farmacéutica al Desarrollo de Terapias Avanzadas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorado en Neurociencias",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorado en Nutrigenómica y Nutrición Personalizada",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorado en Psicología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorado en Sistemas de Energía Eléctrica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorado en Adquisición de Lenguas en Contextos Multilingües / Language Acquisition in Multilingual Settings",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorado en Lingüística y Filología Vascas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorado en Ciencias de la Antigüedad",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorado en Europa y el Mundo Atlántico: Poder, Cultura y Sociedad",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorado en Filosofía, Ciencia y Valores",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorado en Investigación en Arte Contemporáneo",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorado en Lingüística /Linguistics",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorado en Literatura Comparada y Estudios Literarios",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Física de Nanoestructuras y Materiales Avanzados / Physics of Nanostructures and Advanced Materials",
+        "nombre_elemento": "Doctorado en Agrobiología Ambiental",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Física de Nanoestructuras y Materiales Avanzados / Physics of Nanostructures and Advanced Materials",
+        "nombre_elemento": "Doctorado en Biodiversidad, Funcionamiento y Gestión de Ecosistemas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Física de Nanoestructuras y Materiales Avanzados / Physics of Nanostructures and Advanced Materials",
+        "nombre_elemento": "Doctorado en Biología Molecular y Biomedicina / Molecular Biology and Biomedicine",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Ciencia y Tecnología de Materiales",
+        "nombre_elemento": "Doctorado en Cuaternario: Cambios Ambientales y Huella humana",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Ciencia y Tecnología de Materiales",
+        "nombre_elemento": "Doctorado en Contaminación y Toxicología Ambientales / Environmental Contamination and Toxicology",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Ciencia y Tecnología de Materiales",
+        "nombre_elemento": "Doctorado en Estrategias Científicas Interdisciplinares en Patrimonio y Paisaje (ECIPP)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Ciencia y Tecnología de Materiales",
+        "nombre_elemento": "Doctorado en Física",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Ciencia y Tecnología de Materiales",
+        "nombre_elemento": "Doctorado en Láseres y Aplicaciones en Química (QUIMILASER)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Química Aplicada y Materiales Poliméricos",
+        "nombre_elemento": "Doctorado en Química Sintética e Industrial",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Química Aplicada y Materiales Poliméricos",
+        "nombre_elemento": "Doctorado en Química Teórica y Modelización Computacional / Theoretical Chemistry and Computational Modelling",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Química Aplicada y Materiales Poliméricos",
+        "nombre_elemento": "Doctorado en Economía: Instrumentos del Análisis Económico",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Química Aplicada y Materiales Poliméricos",
+        "nombre_elemento": "Doctorado en Psicodidáctica: Psicología de la Educación y Didácticas Específicas",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Química Aplicada y Materiales Poliméricos",
+        "nombre_elemento": "Doctorado en Actividad Física y Deporte",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Química Aplicada y Materiales Poliméricos",
+        "nombre_elemento": "Doctorado en La Globalización a Examen: Retos y Respuestas Interdisciplinares",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Química Aplicada y Materiales Poliméricos",
+        "nombre_elemento": "Doctorado en Comunicación Social",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Química Aplicada y Materiales Poliméricos",
+        "nombre_elemento": "Doctorado en Derechos Humanos, Poderes Públicos, Unión Europea: Derecho Público y Privado",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Química Aplicada y Materiales Poliméricos",
+        "nombre_elemento": "Doctorado en Dirección Empresarial, Conocimientos e Innovación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Química Aplicada y Materiales Poliméricos",
+        "nombre_elemento": "Doctorado en Educación: Escuela, Lengua y Sociedad",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Química Aplicada y Materiales Poliméricos",
+        "nombre_elemento": "Doctorado en Estudios Feministas y de Género",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Química Aplicada y Materiales Poliméricos",
+        "nombre_elemento": "Doctorado en Derecho Internacional Público y Relaciones Internacionales",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Química Aplicada y Materiales Poliméricos",
+        "nombre_elemento": "Doctorado en Estudios sobre Desarrollo",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Química Aplicada y Materiales Poliméricos",
+        "nombre_elemento": "Doctorado en Finanzas y Economía Cuantitativas / Quantitative Finance and Economics",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Química Aplicada y Materiales Poliméricos",
+        "nombre_elemento": "Doctorado en Integración Económica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Química Aplicada y Materiales Poliméricos",
+        "nombre_elemento": "Doctorado en Modelos y Áreas de Investigación en Ciencias Sociales",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Química Aplicada y Materiales Poliméricos",
+        "nombre_elemento": "Doctorado en Sociedad, Politica y Cultura",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Química Aplicada y Materiales Poliméricos",
+        "nombre_elemento": "Doctorado en Análisis y Procesamiento del Lenguaje",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Química Aplicada y Materiales Poliméricos",
+        "nombre_elemento": "Doctorado en Eficiencia Energética y Sostenibilidad en Ingeniería y Arquitectura",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Química Aplicada y Materiales Poliméricos",
+        "nombre_elemento": "Doctorado en Electrónica y Telecomunicaciones",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Química Aplicada y Materiales Poliméricos",
+        "nombre_elemento": "Doctorado en Ingeniería Ambiental",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Química Aplicada y Materiales Poliméricos",
+        "nombre_elemento": "Doctorado en Ingeniería de Control, Automatización y Robótica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Ingeniería de Materiales Renovables",
+        "nombre_elemento": "Doctorado en Ingeniería de Proyectos / Project Engineering",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Ingeniería de Materiales Renovables",
+        "nombre_elemento": "Doctorado en Ingeniería Física",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Ingeniería de Materiales Renovables",
+        "nombre_elemento": "Doctorado en Ingeniería Informática",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Ingeniería de Materiales Renovables",
+        "nombre_elemento": "Doctorado en Ingeniería Mecánica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Ingeniería de Materiales Renovables",
+        "nombre_elemento": "Doctorado en Ingeniería Química",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Ingeniería de Materiales Renovables",
+        "nombre_elemento": "Doctorado en Patrimonio Arquitectónico, Civil, Urbanístico y Rehabilitación de Construcciones Existentes",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Ingeniería de Materiales Renovables",
+        "nombre_elemento": "Doctorado en Tecnologías de la Información y Comunicaciones en Redes Móviles / Mobile Network Information and Communication Technologies",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Ingeniería de Materiales Renovables",
+        "nombre_elemento": "Doctorado en Análisis Forense",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Ingeniería de Materiales Renovables",
+        "nombre_elemento": "Doctorado en Calidad y Seguridad Alimentaria",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Ingeniería de Materiales Renovables",
+        "nombre_elemento": "Doctorado en Farmacología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Ingeniería de Materiales Renovables",
+        "nombre_elemento": "Doctorado en Inmunología, Microbiología y Parasitología / Immunology, Microbiology and Parasitology",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Ingeniería de Materiales Renovables",
+        "nombre_elemento": "Doctorado en Investigación Biomédica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Ingeniería de Materiales Renovables",
+        "nombre_elemento": "Doctorado en Medicina y Cirugía",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Doctorado en Ingeniería de Materiales Renovables",
+        "nombre_elemento": "Doctorado en Salud Pública",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "codigo_estudio": "4310043",
+  "titulo": "Máster Universitario en Psicología de la Educación por la Universidad Autónoma de Madrid",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "023",
+  "universidad_nombre": "Universidad Autónoma de Madrid",
+  "fecha_procesado": "2026-08-05T17:54:44.930742",
+  "boe_url": "http://www.boe.es/boe/dias/2014/06/05/pdfs/BOE-A-2014-5946.pdf",
+  "boe_fecha": "2014-06-05",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2014/06/05/pdfs/BOE-A-2014-5946.pdf",
+    "http://www.boe.es/boe/dias/2010/07/12/pdfs/BOE-A-2010-11081.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {},
+    "total_elementos": 2,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "20 10",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "5 5 5 5 5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 5 2.5 2.5 2.5 5 2.5 2.5 5 2.5 2.5 5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 5 5 2.5 7,5",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5 5 5 5 5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 5 2.5 2.5 2.5 5 2.5 2.5 5 2.5 2.5 5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 5 5 2.5 7,5",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

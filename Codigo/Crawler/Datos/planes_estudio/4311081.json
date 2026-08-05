@@ -1,0 +1,272 @@
+{
+  "codigo_estudio": "4311081",
+  "titulo": "Máster Universitario en Psicología de la Salud",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "023",
+  "universidad_nombre": "Universidad Autónoma de Madrid",
+  "fecha_procesado": "2026-08-05T17:54:43.541281",
+  "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2014/08/12/BOCM-20140812-4.PDF",
+  "boe_fecha": "2014-07-24",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2010/07/12/pdfs/BOE-A-2010-11082.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2014/08/12/BOCM-20140812-4.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {},
+    "total_elementos": 28,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Competencia investigadora y profesional.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Entrenamiento en habilidades básicas del Psicólogo Clínico y de la Salud.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Avances en técnicas de intervención.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Psicopatología y psicología clínica infantil y adolescente.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Psicología clínica en adultos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "7,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Problemas de pareja, familia y sexualidad.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Psicología clínica en mayores.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Trastornos neuropsicológicos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Intervención en Psicología de la Salud.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "7,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Intervención en trastornos crónicos de salud.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Psicooncología, cuidados paliativos y duelo.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Psicología clínica laboral.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Intervención en situaciones de crisis, emergencias y catástrofes.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Psicología positiva y calidad de vida.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Psicología clínica y envejecimiento. Trastornos clínicos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Psicología de la Salud y envejecimiento activo.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Demencias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Dependencia, cuidadores e intervención familiar.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Intervención en problemas familiares.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Terapia de pareja e intervención en el proceso de separación y divorcio.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "7,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Evaluación e intervención en problemas sexuales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Fundamentos de análisis, evaluación e intervención de las alteraciones neurocognitivas de la memoria, del lenguaje y del desarrollo.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "7,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Trastornos neuropsicológicos en poblaciones clínicas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Evaluación, diagnóstico y rehabilitación neuropsicológicos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Prácticas profesionales.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Taller de entrenamiento personalizado en habilidades del terapeuta.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "2,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "7,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

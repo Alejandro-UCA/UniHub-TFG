@@ -1,0 +1,43 @@
+{
+  "codigo_estudio": "4310016",
+  "titulo": "Máster Universitario en Química Inorgánica Molecular por la Universidad Autónoma de Madrid y la Universidad de Alcalá",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "023",
+  "universidad_nombre": "Universidad Autónoma de Madrid",
+  "fecha_procesado": "2026-08-05T17:54:33.468002",
+  "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2013/11/07/BOCM-20131107-7.PDF",
+  "boe_fecha": "2013-10-18",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2012/03/12/pdfs/BOE-A-2012-3517.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2013/11/07/BOCM-20131107-7.PDF",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2013/11/07/BOCM-20131107-7.PDF",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2009/08/27/2009-08-27_25082009_0018.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2009/08/27/2009-08-27_25082009_0018.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "9"
+    },
+    "total_elementos": 2,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "aprobó las Resoluciones de 28 de octubre y de 29 de diciembre de2008,porlasqueseestableceuncauceprocedimentalabreviado",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "codigo_estudio": "4310665",
+  "titulo": "Máster Universitario en Multimedia y Comunicaciones por la Universidad Carlos III de Madrid y la Universidad Rey Juan Carlos",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "036",
+  "universidad_nombre": "Universidad Carlos III de Madrid",
+  "fecha_procesado": "2026-08-05T18:05:18.109490",
+  "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2013/11/07/BOCM-20131107-7.PDF",
+  "boe_fecha": "2013-10-18",
+  "all_boe_urls": [
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2013/11/07/BOCM-20131107-7.PDF",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2013/11/07/BOCM-20131107-7.PDF",
+    "http://www.boe.es/boe/dias/2011/06/23/pdfs/BOE-A-2011-10937.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2009/11/23/2009-11-23_20112009_0265.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2009/11/23/2009-11-23_20112009_0265.pdf",
+    "http://www.boe.es/boe/dias/2010/09/17/pdfs/BOE-A-2010-14281.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Créditos Totales": "7"
+    },
+    "total_elementos": 10,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "ECTS ofertados",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "6 6 6 6 6 12",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 6 6 6 6 12",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "DAT Madrid-Oeste",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Denominación centro",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "IES“Jaime Ferrán”(Co- llado Villalba)",
+        "creditos_ects": "4.500",
+        "caracter": "OB",
+        "curso": "4.500",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Total",
+        "creditos_ects": "4.500",
+        "caracter": "OB",
+        "curso": "4.500",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "DAT Madrid-Sur",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "IES“Vicente Aleixandre” (Pinto)",
+        "creditos_ects": "3.000",
+        "caracter": "OB",
+        "curso": "3.000",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "IES“Laguna de Joatzel” (Getafe)",
+        "creditos_ects": "4.500",
+        "caracter": "OB",
+        "curso": "4.500",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,294 @@
+{
+  "codigo_estudio": "4314823",
+  "titulo": "Máster Universitario en Asesoramiento y Consultoría Jurídico-Laboral por la Universidad Carlos III de Madrid",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "036",
+  "universidad_nombre": "Universidad Carlos III de Madrid",
+  "fecha_procesado": "2026-08-05T18:08:16.884932",
+  "boe_url": "http://www.boe.es/boe/dias/2020/05/04/pdfs/BOE-A-2020-4807.pdf",
+  "boe_fecha": "2020-05-04",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2015/02/25/pdfs/BOE-A-2015-1927.pdf",
+    "http://www.boe.es/boe/dias/2020/05/04/pdfs/BOE-A-2020-4807.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2014/08/12/BOCM-20140812-4.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Prácticas Externas": "6",
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 30,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Derecho del Trabajo de la Unión Europea / European Union Labour Law.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Derecho del Trabajo Internacional y Comparado / Internacional and Comparative Labour Law.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Relaciones Laborales Individuales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Marco Jurídico de la Prevención de Riesgos Laborales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Solución Judicial y Extrajudicial de Conflictos Laborales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Procedimientos Administrativos en Materia Laboral.",
+        "nombre_elemento": "Habilidades de Negociación y de Resolución de Conflictos Laborales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Procedimientos Administrativos en Materia Laboral.",
+        "nombre_elemento": "Derecho de la Seguridad Social.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Procedimientos Administrativos en Materia Laboral.",
+        "nombre_elemento": "Emprendimiento y Trabajo Autónomo.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Procedimientos Administrativos en Materia Laboral.",
+        "nombre_elemento": "Derecho de la Representación de los Trabajadores, Negociación Colectiva y Conflictos Colectivos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Procedimientos Administrativos en Materia Laboral.",
+        "nombre_elemento": "Previsión Social Complementaria.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Procedimientos Administrativos en Materia Laboral.",
+        "nombre_elemento": "Derechos Fundamentales y Relaciones Laborales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Procedimientos Administrativos en Materia Laboral.",
+        "nombre_elemento": "Extranjería e Inmigración Laboral.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Procedimientos Administrativos en Materia Laboral.",
+        "nombre_elemento": "Derecho Laboral del Empleo Público.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Sistema de Responsabilidad en Materia de Prevención de Riesgos Laborales.",
+        "nombre_elemento": "Seminario de Actualidad Laboral.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Sistema de Responsabilidad en Materia de Prevención de Riesgos Laborales.",
+        "nombre_elemento": "Derecho del Trabajo Transnacional: Movilidad Transnacional de Trabajadores y de Empresas / Transnational Labour Law: cross-border employee and employer mobility.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Sistema de Responsabilidad en Materia de Prevención de Riesgos Laborales.",
+        "nombre_elemento": "Derecho Tributario para las Relaciones Laborales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Sistema de Responsabilidad en Materia de Prevención de Riesgos Laborales.",
+        "nombre_elemento": "Derecho de Sociedades para las Relaciones Laborales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Sistema de Responsabilidad en Materia de Prevención de Riesgos Laborales.",
+        "nombre_elemento": "Práctica Profesional externa.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Sistema de Responsabilidad en Materia de Prevención de Riesgos Laborales.",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Tipo",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Obligatorias (O).",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Optativas (OP).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Prácticas Externas (PE).",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de Máster (TFM).",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Derecho del Trabajo y Seguridad Social.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Derecho Financiero y Tributario.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Derecho Mercantil.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Prácticas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

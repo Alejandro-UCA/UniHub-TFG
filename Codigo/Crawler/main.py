@@ -8,6 +8,8 @@ import concurrent.futures
 import multiprocessing as mp
 from datetime import datetime
 
+from bs4 import BeautifulSoup
+
 from config import (
     UNIVERSIDADES_JSON,
     TITULACIONES_JSON,
@@ -18,7 +20,8 @@ from config import (
     TEMP_PDF_DIR,
     URL_UNIVERSIDADES_LIST,
     URL_ESTUDIOS_UNIV_TEMPLATE,
-    URL_DETALLE_ESTUDIO_TEMPLATE
+    URL_DETALLE_ESTUDIO_TEMPLATE,
+    URL_VERIFICACION_ESTADO_TEMPLATE
 )
 from downloader import RUCTDownloader, SkipUniversityException
 from error_logger import ErrorLogger
@@ -155,7 +158,7 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue):
                         "fecha_procesado": datetime.now().isoformat(),
                         "boe_url": latest_boe_url,
                         "boe_fecha": latest_boe_fecha,
-                        "all_boe_urls": processed_boe_urls,
+                        "all_boe_urls": task.get("all_boe_urls", processed_boe_urls),
                         "plan_estudios": curriculum_combined
                     }
                     atomic_json_dump(degree_data, plan_file)
@@ -313,13 +316,27 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                 html_content = downloader.fetch_text(detail_url)
                 boe_info = parse_degree_detail_html(html_content)
 
-                if boe_info.get("is_extinct"):
-                    st_text = boe_info.get("status_text", "Extinguida")
-                    print(f"     -> [DESECHADO] Titulación [{d_code}] confirmada como INACTIVA/EXTINGUIDA en ficha HTML del RUCT ({st_text}). Omitiendo.")
-                    checkpoint.mark_extinct_degree(d_code, st_text)
-                    continue
-
+                is_extinct = boe_info.get("is_extinct", False)
+                st_text = boe_info.get("status_text", "")
                 candidates = boe_info.get("all_boe_candidates", [])
+
+                # Si no hay candidatos BOE y no se detectó extinción en la ficha de detalle, consultar listaestudios
+                if not candidates and not is_extinct:
+                    status_url = URL_VERIFICACION_ESTADO_TEMPLATE.format(codigo_estudio=d_code)
+                    try:
+                        st_html = downloader.fetch_text(status_url)
+                        st_soup = BeautifulSoup(st_html, "html.parser")
+                        full_st_text = st_soup.get_text()
+                        if "(TITULACIÓN EXTINGUIDA)" in full_st_text or "EXTINGUID" in full_st_text.upper() or "SIN DOCENCIA" in full_st_text.upper():
+                            is_extinct = True
+                            st_text = "TITULACIÓN EXTINGUIDA"
+                    except Exception:
+                        pass
+
+                if is_extinct:
+                    print(f"     -> [DESECHADO] Titulación [{d_code}] confirmada como INACTIVA/EXTINGUIDA en RUCT ({st_text or 'Extinguida'}). Omitiendo.")
+                    checkpoint.mark_extinct_degree(d_code, st_text or "Extinguida")
+                    continue
                 
                 latest_boe_url = boe_info.get("latest_boe_url")
                 latest_boe_fecha = boe_info.get("boe_date")
@@ -341,7 +358,14 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                     })
                     continue
 
-                # Download all PDF candidates in Process 1 (Multithreaded I/O) and queue them for Process 2
+                # Seleccionar ÚNICAMENTE el candidato BOE MÁS RECIENTE (candidates[0]) y descartar los anteriores
+                most_recent_candidate = candidates[:1]
+                discarded_older_boes = [c["url"] for c in candidates[1:]]
+
+                if len(candidates) > 1:
+                    print(f"     -> {len(discarded_older_boes)} BOEs históricos anteriores descartados (procesando únicamente el BOE más reciente).")
+
+                # Download ONLY the single most recent PDF candidate in Process 1 and queue it for Process 2
                 downloaded_pdf_items = []
 
                 def fetch_single_candidate(cand_tuple):
@@ -350,17 +374,17 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                     cand_date = cand.get("boe_date")
 
                     if checkpoint.is_non_study_plan_pdf(cand_url):
-                        print(f"     [Proceso Red] -> PDF #{cand_idx} previamente descartado (NO es plan de estudios). Omitiendo descarga.")
+                        print(f"     [Proceso Red] -> PDF más reciente previamente descartado (NO es plan de estudios). Omitiendo descarga.")
                         return None
 
                     if checkpoint.is_unreachable_url(cand_url):
-                        print(f"     [Proceso Red] -> PDF #{cand_idx} previamente registrado como inalcanzable (servidor inactivo). Omitiendo descarga.")
+                        print(f"     [Proceso Red] -> PDF más reciente previamente registrado como inalcanzable (servidor inactivo). Omitiendo descarga.")
                         return None
 
                     pdf_path = os.path.join(TEMP_PDF_DIR, f"{d_code}_candidate_{cand_idx}.pdf")
 
                     try:
-                        print(f"     [Proceso Red] -> Descargando PDF #{cand_idx}/{len(candidates)} ({cand_date or 'fecha n/a'})...")
+                        print(f"     [Proceso Red] -> Descargando PDF más reciente del BOE ({cand_date or 'fecha n/a'})...")
                         downloader.download_file(cand_url, pdf_path, is_pdf=True)
                         return {
                             "cand_url": cand_url,
@@ -370,12 +394,12 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                     except SkipUniversityException:
                         raise
                     except Exception as download_err:
-                        print(f"     [Proceso Red] -> Error al descargar PDF candidate #{cand_idx}: {download_err}")
+                        print(f"     [Proceso Red] -> Error al descargar PDF del BOE: {download_err}")
                         checkpoint.record_pdf_download_failure(cand_url, d_code, str(download_err))
                         return None
 
-                with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
-                    futures = [executor.submit(fetch_single_candidate, (c_idx, c)) for c_idx, c in enumerate(candidates, 1)]
+                with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
+                    futures = [executor.submit(fetch_single_candidate, (c_idx, c)) for c_idx, c in enumerate(most_recent_candidate, 1)]
                     for future in concurrent.futures.as_completed(futures):
                         try:
                             item_res = future.result()
@@ -396,6 +420,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                     "nivel_academico": deg.get("nivel_academico", ""),
                     "latest_boe_url": latest_boe_url,
                     "latest_boe_fecha": latest_boe_fecha,
+                    "all_boe_urls": [c["url"] for c in candidates],
                     "pdf_items": downloaded_pdf_items
                 })
 

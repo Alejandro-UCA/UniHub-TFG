@@ -30,6 +30,11 @@ URL_ESTUDIOS_UNIV_TEMPLATE = (
 )
 
 URL_DETALLE_ESTUDIO_TEMPLATE = (
+    "https://www.educacion.gob.es/ruct/estudiouniversidad.action"
+    "?codigoCiclo=SC&codigoEstudio={codigo_estudio}&actual=universidad"
+)
+
+URL_VERIFICACION_ESTADO_TEMPLATE = (
     "https://www.educacion.gob.es/ruct/listaestudios"
     "?actual=estudios&codigoEstudio={codigo_estudio}"
 )

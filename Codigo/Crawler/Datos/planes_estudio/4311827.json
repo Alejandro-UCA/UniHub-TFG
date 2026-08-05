@@ -1,0 +1,56 @@
+{
+  "codigo_estudio": "4311827",
+  "titulo": "Máster Universitario en Dirección de Recursos Humanos por la Universidad Autónoma de Madrid",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "023",
+  "universidad_nombre": "Universidad Autónoma de Madrid",
+  "fecha_procesado": "2026-08-05T17:57:37.476444",
+  "boe_url": "http://www.boe.es/boe/dias/2012/07/17/pdfs/BOE-A-2012-9561.pdf",
+  "boe_fecha": "2012-07-17",
+  "all_boe_urls": [
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2010/11/10/BOCM-20101110-17.PDF",
+    "http://www.boe.es/boe/dias/2012/07/17/pdfs/BOE-A-2012-9561.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {},
+    "total_elementos": 4,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Itinerario",
+        "nombre_elemento": "Común.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Itinerario",
+        "nombre_elemento": "Profesional.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Itinerario",
+        "nombre_elemento": "Investigador.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

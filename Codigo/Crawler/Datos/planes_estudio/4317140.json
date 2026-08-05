@@ -1,0 +1,366 @@
+{
+  "codigo_estudio": "4317140",
+  "titulo": "Máster Universitario en Aprendizaje Profundo para Inteligencia Artificial de Audio y Visual / Master in Deep Learning for Audio and Visual Artificial Intelligence por la Universidad Autónoma de Madrid",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "023",
+  "universidad_nombre": "Universidad Autónoma de Madrid",
+  "fecha_procesado": "2026-08-05T17:58:38.621496",
+  "boe_url": "http://www.boe.es/boe/dias/2025/10/23/pdfs/BOE-A-2025-21376.pdf",
+  "boe_fecha": "2025-10-23",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2025/10/23/pdfs/BOE-A-2025-21376.pdf",
+    "http://www.boe.es/boe/dias/2021/03/26/pdfs/BOE-A-2021-4780.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2020/08/06/BOCM-20200806-17.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "48",
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 38,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Semestre 1",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Semestre 2",
+        "cuatrimestre": "Semestre 2"
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "ECTS: 30",
+        "creditos_ects": "30",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Fundamentos y herramientas básicas para aprendizaje profundo/Deep Learning fundamentals and basic tools [8 ECTS].",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "Biometría e inteligencia aplicada/Biometrics & Applied Intelligence [6 ECTS].",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Revisión de Técnicas Asentadas de Tratamiento de Señal/Review of Established Signal Processing Techniques [4 ECTS].",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "Computación de altas prestaciones para aprendizaje profundo/High Performance Architetures for Deep learning [6 ECTS].",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Aprendizaje Profundo para procesamiento de señales de audio: arquitecturas y aplicaciones/ Deep Learning for Audio Signal Processing: Architectures and Applications [6 ECTS].",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Metodologías y seminarios de investigación/ Research methodologies and seminars [6 ECTS].",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Aprendizaje Profundo para procesamiento visual y multimodal: modelos e impacto socio- ambientales/Deep Learning for Visual and Multimodal Processing: Models and Socio- environmental Impacts [6 ECTS].",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "Aprendizaje Profundo para procesamiento visual y multimodal: modelos e impacto socio- ambientales/Deep Learning for Visual and Multimodal Processing: Models and Socio- environmental Impacts [6 ECTS].",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Aprendizaje Profundo para procesamiento de imagen y video: estrategias de aprendizaje y aplicaciones/Deep Learning for Image and Video Processing: Learning Strategies and Applications [6 ECTS].",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Aprendizaje Profundo para procesamiento de imagen y video: estrategias de aprendizaje y aplicaciones/Deep Learning for Image and Video Processing: Learning Strategies and Applications [6 ECTS].",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Fundamentos y herramientas básicas para aprendizaje profundo. / Fundamentals of Deep Learning and basic Tools.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Revisión de Técnicas Asentadas de Tratamiento de Señal / Review of Established Signal Processing Techniques.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Aprendizaje Profundo para procesamiento de señales de audio / Deep Learning for audio signal processing.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Aprendizaje Profundo para procesamiento de señales de imagen / Deep Learning for image signal processing.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Aprendizaje Profundo para procesamiento de señales de video / Deep Learning for video signal processing.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Computación de altas prestaciones para aprendizaje profundo / High Performance Architectures for Deep Learning.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Biometrìa e inteligencia aplicada/Biometrics and Applied Intelligence",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Metodologías y seminarios de investigación / Research methodologies and seminars.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo Fin de Máster / Master Thesis.",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "TITULACIÓN",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ciencias (título conjunto de la Universidad Autónoma de Madrid (coordinadora), Universidad Autónoma de Barcelona y Universidad Carlos III de Madrid)",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería Biomédica",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería y Sistemas de Datos",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ciencia de Datos e Inteligencia Artificial",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Psicología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Biotecnología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Biomedicina",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería Matemática",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Inteligencia de Negocios/Business Intelligence",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Emprendimiento y Gestión de Empresas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Publicidad Creativa",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Pedagogía",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "Curso 2020-2021: 1º, 2º, 3º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Maestro en Educación Primaria",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "-2020-2021: 1º y 2º - 2021-2022: 3º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Maestro en Educación Infantil",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "-2020-2021: 1º y 2º - 2021-2022: 3º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Diseño Gráfico y Multimedia",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "-2020-2021: 1º y 2º - 2021-2022: 3º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Veterinaria",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería en Industria Conectada",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Economía",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2020-2021: 1º, 2º, 3ºy 4º",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

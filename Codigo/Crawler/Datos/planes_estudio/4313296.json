@@ -4,19 +4,19 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "022",
   "universidad_nombre": "Universidad Autónoma de Barcelona",
-  "fecha_procesado": "2026-08-05T13:02:58.758000",
+  "fecha_procesado": "2026-08-05T13:50:07.986920",
   "boe_url": "http://www.boe.es/boe/dias/2024/02/21/pdfs/BOE-A-2024-3360.pdf",
   "boe_fecha": "2024-02-21",
   "all_boe_urls": [
-    "http://www.boe.es/boe/dias/2021/03/27/pdfs/BOE-A-2021-4838.pdf",
-    "http://www.boe.es/boe/dias/2024/02/21/pdfs/BOE-A-2024-3360.pdf"
+    "http://www.boe.es/boe/dias/2024/02/21/pdfs/BOE-A-2024-3360.pdf",
+    "http://www.boe.es/boe/dias/2021/03/27/pdfs/BOE-A-2021-4838.pdf"
   ],
   "plan_estudios": {
     "resumen_creditos": {
-      "Obligatorias": "22",
-      "Optativas": "28",
-      "Trabajo Fin de Grado / Máster": "10",
-      "Créditos Totales": "60"
+      "Obligatorias": "30",
+      "Optativas": "24",
+      "Créditos Totales": "90",
+      "Trabajo Fin de Grado / Máster": "10"
     },
     "total_elementos": 19,
     "elementos_curriculares": [
@@ -24,7 +24,7 @@
         "modulo": "",
         "materia": "",
         "nombre_elemento": "Obligatorias.",
-        "creditos_ects": "6",
+        "creditos_ects": "30",
         "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
@@ -33,35 +33,8 @@
         "modulo": "",
         "materia": "",
         "nombre_elemento": "Optativas.",
-        "creditos_ects": "6",
+        "creditos_ects": "24",
         "caracter": "OP",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Trabajo Fin de Máster.",
-        "creditos_ects": "6",
-        "caracter": "TFG/TFM",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Total.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "Módulo Fundamental en Seguridad Internacional.",
-        "materia": "",
-        "nombre_elemento": "Trabajo de Fin de Máster.",
-        "creditos_ects": "6",
-        "caracter": "TFG/TFM",
         "curso": "",
         "cuatrimestre": ""
       },
@@ -71,6 +44,24 @@
         "nombre_elemento": "Prácticas externas.",
         "creditos_ects": "30",
         "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       },
@@ -189,6 +180,15 @@
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Fundamental en Seguridad Internacional.",
+        "materia": "",
+        "nombre_elemento": "Trabajo de Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "",
         "cuatrimestre": ""
       }
     ]

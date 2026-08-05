@@ -4,17 +4,17 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "022",
   "universidad_nombre": "Universidad Autónoma de Barcelona",
-  "fecha_procesado": "2026-08-05T13:03:29.492869",
+  "fecha_procesado": "2026-08-05T13:52:14.386455",
   "boe_url": "http://www.boe.es/boe/dias/2025/08/09/pdfs/BOE-A-2025-16599.pdf",
   "boe_fecha": "2025-08-09",
   "all_boe_urls": [
     "http://www.boe.es/boe/dias/2017/06/05/pdfs/BOE-A-2017-6349.pdf",
-    "http://www.boe.es/boe/dias/2025/08/09/pdfs/BOE-A-2025-16599.pdf",
-    "http://boe.es/boe/dias/2020/11/23/pdfs/BOE-A-2020-14765.pdf"
+    "http://boe.es/boe/dias/2020/11/23/pdfs/BOE-A-2020-14765.pdf",
+    "http://www.boe.es/boe/dias/2025/08/09/pdfs/BOE-A-2025-16599.pdf"
   ],
   "plan_estudios": {
     "resumen_creditos": {
-      "Créditos Totales": "60"
+      "Créditos Totales": "120"
     },
     "total_elementos": 101,
     "elementos_curriculares": [
@@ -28,12 +28,120 @@
         "cuatrimestre": ""
       },
       {
-        "modulo": "",
+        "modulo": "Tipo de módulo",
         "materia": "",
         "nombre_elemento": "Obligatorios.",
-        "creditos_ects": "15.0",
+        "creditos_ects": "6",
         "caracter": "OB",
         "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Trabajo de fin de máster.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Metodología de la Investigación y Diseño de Estudios Clínicos.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Teoría y Tecnología Osteopática Cervical, Craneal y Facial.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Teoría y Tecnología Osteopática del Aparato Locomotor I.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Teoría y Tecnología Osteopática del Aparato Locomotor II.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Teoría y Tecnología Osteopática del Aparato Locomotor III.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Teoría y Tecnología Osteopática del Aparato Locomotor IV.",
+        "creditos_ects": "9",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Teoría y Tecnología Osteopática del Aparato Locomotor V.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Teoria y Tecnología Osteopática Especial.",
+        "creditos_ects": "9",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Teoría y Tecnología Osteopática Torácica, Abdominal y Pelviana.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Teoría y Tecnología Osteopáticas de la ATM y Dolor Crónico.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
         "cuatrimestre": ""
       },
       {
@@ -42,24 +150,6 @@
         "nombre_elemento": "Optativos.",
         "creditos_ects": "6",
         "caracter": "OP",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Trabajo de Fin de Máster.",
-        "creditos_ects": "9.0",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Prácticas Externas.",
-        "creditos_ects": "9.0",
-        "caracter": "PE",
         "curso": "",
         "cuatrimestre": ""
       },
@@ -822,51 +912,6 @@
       {
         "modulo": "",
         "materia": "Materia",
-        "nombre_elemento": "Teoría y Tecnología Osteopática del Aparato Locomotor I.",
-        "creditos_ects": "12.0",
-        "caracter": "OP",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "Materia",
-        "nombre_elemento": "Teoría y Tecnología Osteopática Cervical, Craneal y Facial.",
-        "creditos_ects": "15.0",
-        "caracter": "OP",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "Materia",
-        "nombre_elemento": "Teoría y Tecnología Osteopática del Aparato Locomotor III.",
-        "creditos_ects": "9.0",
-        "caracter": "OP",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "Materia",
-        "nombre_elemento": "Metodología de la Investigación y Diseño de Estudios Clínicos.",
-        "creditos_ects": "9.0",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "Materia",
-        "nombre_elemento": "Teoría y Tecnología Osteopática del Aparato Locomotor IV.",
-        "creditos_ects": "6.0",
-        "caracter": "OP",
-        "curso": "6.0",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "Materia",
         "nombre_elemento": "Teoría y Tecnología Osteopáticas del Dolor Crónico.",
         "creditos_ects": "6.0",
         "caracter": "OP",
@@ -880,51 +925,6 @@
         "creditos_ects": "9.0",
         "caracter": "OP",
         "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "Materia",
-        "nombre_elemento": "Teoría y Tecnología Osteopática del Aparato Locomotor V.",
-        "creditos_ects": "12.0",
-        "caracter": "OP",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "Materia",
-        "nombre_elemento": "Teoría y Tecnología Osteopática del Aparato Locomotor II.",
-        "creditos_ects": "12.0",
-        "caracter": "OP",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "Materia",
-        "nombre_elemento": "Teoría y Tecnología Osteopática Torácica, Abdominal y Pelviana.",
-        "creditos_ects": "15.0",
-        "caracter": "OP",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "Módulo",
-        "materia": "",
-        "nombre_elemento": "Teoria y Tecnología Osteopática Especial.",
-        "creditos_ects": "9",
-        "caracter": "OP",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "Módulo",
-        "materia": "",
-        "nombre_elemento": "Teoría y Tecnología Osteopáticas de la ATM y Dolor Crónico.",
-        "creditos_ects": "6",
-        "caracter": "OP",
-        "curso": "6",
         "cuatrimestre": ""
       }
     ]

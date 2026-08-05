@@ -4,12 +4,12 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "022",
   "universidad_nombre": "Universidad Autónoma de Barcelona",
-  "fecha_procesado": "2026-08-05T13:03:10.343698",
+  "fecha_procesado": "2026-08-05T13:51:02.543599",
   "boe_url": "http://www.boe.es/boe/dias/2014/12/26/pdfs/BOE-A-2014-13511.pdf",
   "boe_fecha": "2014-12-26",
   "all_boe_urls": [
-    "http://www.boe.es/boe/dias/2014/12/26/pdfs/BOE-A-2014-13511.pdf",
-    "http://www.boe.es/boe/dias/2014/11/14/pdfs/BOE-A-2014-11800.pdf"
+    "http://www.boe.es/boe/dias/2014/11/14/pdfs/BOE-A-2014-11800.pdf",
+    "http://www.boe.es/boe/dias/2014/12/26/pdfs/BOE-A-2014-13511.pdf"
   ],
   "plan_estudios": {
     "resumen_creditos": {},
@@ -18,19 +18,19 @@
       {
         "modulo": "",
         "materia": "",
-        "nombre_elemento": "5 5 5 5 5 5 5 5 5 20",
+        "nombre_elemento": "5 5 5 5 5 5 5 5 5 5 5 5 5 20",
         "creditos_ects": "6",
         "caracter": "OP",
-        "curso": "5 5 5 5 5 5 5 5 5 20",
+        "curso": "5 5 5 5 5 5 5 5 5 5 5 5 5 20",
         "cuatrimestre": ""
       },
       {
         "modulo": "",
         "materia": "",
-        "nombre_elemento": "5 5 5 5 5 5 5 5 5 5 5 5 5 20",
+        "nombre_elemento": "5 5 5 5 5 5 5 5 5 20",
         "creditos_ects": "6",
         "caracter": "OP",
-        "curso": "5 5 5 5 5 5 5 5 5 5 5 5 5 20",
+        "curso": "5 5 5 5 5 5 5 5 5 20",
         "cuatrimestre": ""
       }
     ]

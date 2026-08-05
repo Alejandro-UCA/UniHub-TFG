@@ -4,12 +4,12 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "022",
   "universidad_nombre": "Universidad Autónoma de Barcelona",
-  "fecha_procesado": "2026-08-05T13:03:31.566830",
+  "fecha_procesado": "2026-08-05T13:52:19.787228",
   "boe_url": "http://www.boe.es/boe/dias/2022/07/30/pdfs/BOE-A-2022-12797.pdf",
   "boe_fecha": "2022-07-30",
   "all_boe_urls": [
-    "http://www.boe.es/boe/dias/2017/06/05/pdfs/BOE-A-2017-6348.pdf",
-    "http://www.boe.es/boe/dias/2022/07/30/pdfs/BOE-A-2022-12797.pdf"
+    "http://www.boe.es/boe/dias/2022/07/30/pdfs/BOE-A-2022-12797.pdf",
+    "http://www.boe.es/boe/dias/2017/06/05/pdfs/BOE-A-2017-6348.pdf"
   ],
   "plan_estudios": {
     "resumen_creditos": {
@@ -17,15 +17,6 @@
     },
     "total_elementos": 9,
     "elementos_curriculares": [
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "9 12 9 9 9 12",
-        "creditos_ects": "9",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
       {
         "modulo": "Tipo de módulo",
         "materia": "",
@@ -95,6 +86,15 @@
         "nombre_elemento": "Trabajo Fin de Máster.",
         "creditos_ects": "15",
         "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "9 12 9 9 9 12",
+        "creditos_ects": "9",
+        "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       }

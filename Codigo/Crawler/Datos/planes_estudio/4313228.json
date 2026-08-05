@@ -4,25 +4,25 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "022",
   "universidad_nombre": "Universidad Autónoma de Barcelona",
-  "fecha_procesado": "2026-08-05T13:03:22.708789",
+  "fecha_procesado": "2026-08-05T13:51:50.893873",
   "boe_url": "http://www.boe.es/boe/dias/2022/04/01/pdfs/BOE-A-2022-5265.pdf",
   "boe_fecha": "2022-04-01",
   "all_boe_urls": [
-    "http://www.boe.es/boe/dias/2019/08/05/pdfs/BOE-A-2019-11518.pdf",
-    "http://www.boe.es/boe/dias/2022/04/01/pdfs/BOE-A-2022-5265.pdf"
+    "http://www.boe.es/boe/dias/2022/04/01/pdfs/BOE-A-2022-5265.pdf",
+    "http://www.boe.es/boe/dias/2019/08/05/pdfs/BOE-A-2019-11518.pdf"
   ],
   "plan_estudios": {
     "resumen_creditos": {
+      "Créditos Totales": "60",
       "Obligatorias": "18",
-      "Optativas": "30",
-      "Créditos Totales": "60"
+      "Optativas": "30"
     },
     "total_elementos": 18,
     "elementos_curriculares": [
       {
         "modulo": "Tipo de módulo",
         "materia": "",
-        "nombre_elemento": "Obligatorias",
+        "nombre_elemento": "Obligatorios.",
         "creditos_ects": "18",
         "caracter": "OB",
         "curso": "",
@@ -31,7 +31,7 @@
       {
         "modulo": "Tipo de módulo",
         "materia": "",
-        "nombre_elemento": "Optativas",
+        "nombre_elemento": "Optativos.",
         "creditos_ects": "30",
         "caracter": "OP",
         "curso": "",
@@ -40,7 +40,7 @@
       {
         "modulo": "Tipo de módulo",
         "materia": "",
-        "nombre_elemento": "Trabajo de fin de máster",
+        "nombre_elemento": "Trabajo de fin de máster.",
         "creditos_ects": "12",
         "caracter": "OB",
         "curso": "",
@@ -62,15 +62,6 @@
         "creditos_ects": "6",
         "caracter": "OB",
         "curso": "6",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "Módulo",
-        "materia": "",
-        "nombre_elemento": "Trabajo de Fin de Máster.",
-        "creditos_ects": "12",
-        "caracter": "OB",
-        "curso": "",
         "cuatrimestre": ""
       },
       {
@@ -166,7 +157,7 @@
       {
         "modulo": "Tipo de módulo",
         "materia": "",
-        "nombre_elemento": "Obligatorios.",
+        "nombre_elemento": "Obligatorias",
         "creditos_ects": "18",
         "caracter": "OB",
         "curso": "",
@@ -175,9 +166,18 @@
       {
         "modulo": "Tipo de módulo",
         "materia": "",
-        "nombre_elemento": "Optativos.",
+        "nombre_elemento": "Optativas",
         "creditos_ects": "30",
         "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Trabajo de fin de máster",
+        "creditos_ects": "12",
+        "caracter": "OB",
         "curso": "",
         "cuatrimestre": ""
       }

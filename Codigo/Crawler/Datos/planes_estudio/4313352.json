@@ -4,12 +4,12 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "022",
   "universidad_nombre": "Universidad Autónoma de Barcelona",
-  "fecha_procesado": "2026-08-05T13:03:17.627424",
+  "fecha_procesado": "2026-08-05T13:51:29.671558",
   "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/9223/2042722.pdf",
   "boe_fecha": "2024-08-02",
   "all_boe_urls": [
-    "http://www.boe.es/boe/dias/2014/11/14/pdfs/BOE-A-2014-11799.pdf",
-    "http://www.boe.es/boe/dias/2019/11/25/pdfs/BOE-A-2019-16947.pdf"
+    "http://www.boe.es/boe/dias/2019/11/25/pdfs/BOE-A-2019-16947.pdf",
+    "http://www.boe.es/boe/dias/2014/11/14/pdfs/BOE-A-2014-11799.pdf"
   ],
   "plan_estudios": {
     "resumen_creditos": {
@@ -18,15 +18,6 @@
     },
     "total_elementos": 13,
     "elementos_curriculares": [
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "21 14 10",
-        "creditos_ects": "6",
-        "caracter": "OP",
-        "curso": "",
-        "cuatrimestre": ""
-      },
       {
         "modulo": "",
         "materia": "Tipo de materia",
@@ -132,6 +123,15 @@
         "nombre_elemento": "Prácticas Externas.",
         "creditos_ects": "6",
         "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "21 14 10",
+        "creditos_ects": "6",
+        "caracter": "OP",
         "curso": "",
         "cuatrimestre": ""
       }

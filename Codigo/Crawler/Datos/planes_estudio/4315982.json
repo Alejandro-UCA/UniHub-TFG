@@ -4,12 +4,12 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "022",
   "universidad_nombre": "Universidad Autónoma de Barcelona",
-  "fecha_procesado": "2026-08-05T13:02:55.296832",
+  "fecha_procesado": "2026-08-05T13:49:57.723710",
   "boe_url": "http://boe.es/boe/dias/2020/11/23/pdfs/BOE-A-2020-14767.pdf",
   "boe_fecha": "2020-11-23",
   "all_boe_urls": [
-    "http://www.boe.es/boe/dias/2018/08/17/pdfs/BOE-A-2018-11690.pdf",
-    "http://boe.es/boe/dias/2020/11/23/pdfs/BOE-A-2020-14767.pdf"
+    "http://boe.es/boe/dias/2020/11/23/pdfs/BOE-A-2020-14767.pdf",
+    "http://www.boe.es/boe/dias/2018/08/17/pdfs/BOE-A-2018-11690.pdf"
   ],
   "plan_estudios": {
     "resumen_creditos": {
@@ -17,15 +17,6 @@
     },
     "total_elementos": 9,
     "elementos_curriculares": [
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "9 9 9 6 6 15 6",
-        "creditos_ects": "9",
-        "caracter": "OB",
-        "curso": "9 9 9 6 6 15 6",
-        "cuatrimestre": ""
-      },
       {
         "modulo": "Tipo de módulo",
         "materia": "",
@@ -96,6 +87,15 @@
         "creditos_ects": "6",
         "caracter": "PE",
         "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "9 9 9 6 6 15 6",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "9 9 9 6 6 15 6",
         "cuatrimestre": ""
       }
     ]

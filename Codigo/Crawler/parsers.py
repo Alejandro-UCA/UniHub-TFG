@@ -138,7 +138,7 @@ def parse_degrees_xls(filepath: str) -> list:
         has_whitelist = any(term in estado_norm for term in whitelist)
 
         # 3. RECHAZO DE NIVELES ACADÉMICOS Y TÍTULOS PRE-BOLONIA EXTEXTOS (LRU)
-        legacy_levels = ["solo segundo ciclo", "ciclo largo", "primer ciclo", "primer y segundo ciclo", "pre-bolonia"]
+        legacy_levels = ["solo segundo ciclo", "ciclo corto", "ciclo largo", "primer ciclo", "primer y segundo ciclo", "pre-bolonia"]
         is_legacy_level = any(leg in nivel_norm for leg in legacy_levels)
 
         valid_eees_level = any(eees in nivel_norm for eees in ["grado", "master", "doctorado"])
@@ -146,8 +146,8 @@ def parse_degrees_xls(filepath: str) -> list:
         legacy_title_prefixes = ["licenciado", "licenciada", "diplomado", "diplomada", "ingeniero tecnico", "ingeniera tecnica", "arquitecto tecnico", "arquitecta tecnica"]
         is_legacy_title = any(title_norm.startswith(prefix) for prefix in legacy_title_prefixes)
 
-        # La titulación debe pertenecer a la Lista Blanca, NO estar en Lista Negra y NO ser un plan antiguo Pre-Bolonia
-        if code and title and has_whitelist and not has_blacklist and not is_legacy_level and not is_legacy_title and (valid_eees_level or not nivel):
+        # La titulación debe pertenecer a la Lista Blanca, NO estar en Lista Negra y NO ser un plan antiguo Pre-Bolonia (LRU)
+        if code and title and has_whitelist and not has_blacklist and not is_legacy_level and not is_legacy_title:
             raw_active_degrees.append({
                 "codigo_estudio": code,
                 "titulo": title,

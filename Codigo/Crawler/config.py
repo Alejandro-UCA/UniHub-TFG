@@ -26,7 +26,7 @@ URL_UNIVERSIDADES_LIST = (
 
 URL_ESTUDIOS_UNIV_TEMPLATE = (
     "https://www.educacion.gob.es/ruct/listaestudiosuniversidad"
-    "?actual=universidades&d-1335801-e=2&6578706f7274=1&codigoUniversidad={codigo}"
+    "?actual=universidades&d-1335801-e=2&6578706f7274=1&codigoUniversidad={codigo_universidad}"
 )
 
 URL_DETALLE_ESTUDIO_TEMPLATE = (

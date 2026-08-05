@@ -1,16 +1,5 @@
 [
   {
-    "codigo": "099",
-    "nombre": "Centros autorizados para impartir Enseñanzas Artísticas Superiores",
-    "tipo": "Privada",
-    "comunidad_autonoma": "Comunidad de Madrid",
-    "municipio": "Madrid",
-    "provincia": "Madrid",
-    "web": "",
-    "email": "",
-    "telefono": ""
-  },
-  {
     "codigo": "086",
     "nombre": "Centros dependientes del Ministerio de Defensa",
     "tipo": "Pública",
@@ -99,116 +88,6 @@
     "telefono": ""
   },
   {
-    "codigo": "089",
-    "nombre": "CUNEF Universidad",
-    "tipo": "Privada",
-    "comunidad_autonoma": "Comunidad de Madrid",
-    "municipio": "Madrid",
-    "provincia": "Madrid",
-    "web": "www.cunef.edu",
-    "email": "",
-    "telefono": "91 444 51 61"
-  },
-  {
-    "codigo": "087",
-    "nombre": "ESIC Universidad",
-    "tipo": "Privada",
-    "comunidad_autonoma": "Comunidad de Madrid",
-    "municipio": "Pozuelo de Alarcón",
-    "provincia": "Madrid",
-    "web": "www.esic.edu/university/",
-    "email": "",
-    "telefono": "914524167"
-  },
-  {
-    "codigo": "057",
-    "nombre": "IE Universidad",
-    "tipo": "Privada",
-    "comunidad_autonoma": "Comunidad de Castilla y León",
-    "municipio": "Segovia",
-    "provincia": "Segovia",
-    "web": "www.ie.edu/universidad",
-    "email": "universidad@ie.edu",
-    "telefono": "921412410"
-  },
-  {
-    "codigo": "109",
-    "nombre": "IE Universidad Madrid",
-    "tipo": "Privada",
-    "comunidad_autonoma": "Comunidad de Madrid",
-    "municipio": "Madrid",
-    "provincia": "Madrid",
-    "web": "",
-    "email": "",
-    "telefono": ""
-  },
-  {
-    "codigo": "061",
-    "nombre": "Mondragón Unibertsitatea",
-    "tipo": "Privada",
-    "comunidad_autonoma": "Comunidad Autónoma del País Vasco",
-    "municipio": "Arrasate/Mondragón",
-    "provincia": "Gipuzkoa",
-    "web": "www.mondragon.edu",
-    "email": "",
-    "telefono": "943712185"
-  },
-  {
-    "codigo": "000",
-    "nombre": "Otros Centros de Nivel Universitario",
-    "tipo": "Privada",
-    "comunidad_autonoma": "Comunidad de Madrid",
-    "municipio": "Madrid",
-    "provincia": "Madrid",
-    "web": "",
-    "email": "",
-    "telefono": ""
-  },
-  {
-    "codigo": "074",
-    "nombre": "Universidad a Distancia de Madrid",
-    "tipo": "Privada",
-    "comunidad_autonoma": "Comunidad de Madrid",
-    "municipio": "Collado Villalba",
-    "provincia": "Madrid",
-    "web": "www.udima.es",
-    "email": "",
-    "telefono": "918561699"
-  },
-  {
-    "codigo": "047",
-    "nombre": "Universidad Alfonso X El Sabio",
-    "tipo": "Privada",
-    "comunidad_autonoma": "Comunidad de Madrid",
-    "municipio": "Villanueva de la Cañada",
-    "provincia": "Madrid",
-    "web": "www.uax.es",
-    "email": "info@uax.es",
-    "telefono": "918109200"
-  },
-  {
-    "codigo": "106",
-    "nombre": "Universidad Alfonso X el Sabio Mare Nostrum",
-    "tipo": "Privada",
-    "comunidad_autonoma": "Comunidad Autónoma de Andalucía",
-    "municipio": "Málaga",
-    "provincia": "Málaga",
-    "web": "29004",
-    "email": "",
-    "telefono": ""
-  },
-  {
-    "codigo": "052",
-    "nombre": "Universidad Antonio de Nebrija",
-    "tipo": "Privada",
-    "comunidad_autonoma": "Comunidad de Madrid",
-    "municipio": "Hoyo de Manzanares",
-    "provincia": "Madrid",
-    "web": "www.nebrija.com",
-    "email": "informa@nebrija.es",
-    "telefono": "902321322"
-  },
-  {
     "codigo": "022",
     "nombre": "Universidad Autónoma de Barcelona",
     "tipo": "Pública",
@@ -231,28 +110,6 @@
     "telefono": "914975000"
   },
   {
-    "codigo": "065",
-    "nombre": "Universidad Camilo José Cela",
-    "tipo": "Privada",
-    "comunidad_autonoma": "Comunidad de Madrid",
-    "municipio": "Villanueva de la Cañada",
-    "provincia": "Madrid",
-    "web": "www.ucjc.edu",
-    "email": "info@ucjc.edu",
-    "telefono": "918153131"
-  },
-  {
-    "codigo": "067",
-    "nombre": "Universidad Cardenal Herrera-CEU",
-    "tipo": "Privada",
-    "comunidad_autonoma": "Comunidad Valenciana",
-    "municipio": "Alfara del Patriarca",
-    "provincia": "Valencia/València",
-    "web": "www.uchceu.es/",
-    "email": "",
-    "telefono": "961369000"
-  },
-  {
     "codigo": "036",
     "nombre": "Universidad Carlos III de Madrid",
     "tipo": "Pública",
@@ -262,50 +119,6 @@
     "web": "www.uc3m.es",
     "email": "futurosestudiantes@uc3m.es",
     "telefono": "916249500"
-  },
-  {
-    "codigo": "072",
-    "nombre": "Universidad Católica de Valencia San Vicente Mártir",
-    "tipo": "Privada (de la Iglesia Católica)",
-    "comunidad_autonoma": "Comunidad Valenciana",
-    "municipio": "València",
-    "provincia": "Valencia/València",
-    "web": "www.ucv.es",
-    "email": "",
-    "telefono": "963637412"
-  },
-  {
-    "codigo": "066",
-    "nombre": "Universidad Católica San Antonio",
-    "tipo": "Privada (de la Iglesia Católica)",
-    "comunidad_autonoma": "Región de Murcia",
-    "municipio": "Murcia",
-    "provincia": "Murcia",
-    "web": "www.ucam.edu",
-    "email": "info@ucam.edu",
-    "telefono": "968278800"
-  },
-  {
-    "codigo": "059",
-    "nombre": "Universidad Católica Santa Teresa de Jesús de Ávila",
-    "tipo": "Privada (de la Iglesia Católica)",
-    "comunidad_autonoma": "Comunidad de Castilla y León",
-    "municipio": "Ávila",
-    "provincia": "Ávila",
-    "web": "www.ucavila.es",
-    "email": "info@ucavila.es",
-    "telefono": "920251020"
-  },
-  {
-    "codigo": "102",
-    "nombre": "Universidad CEU Fernando III",
-    "tipo": "Privada",
-    "comunidad_autonoma": "Comunidad Autónoma de Andalucía",
-    "municipio": "Bormujos",
-    "provincia": "Sevilla",
-    "web": "uf3ceu.es",
-    "email": "",
-    "telefono": ""
   },
   {
     "codigo": "010",
@@ -429,28 +242,6 @@
     "telefono": "957218000"
   },
   {
-    "codigo": "030",
-    "nombre": "Universidad de Deusto",
-    "tipo": "Privada (concordataria)",
-    "comunidad_autonoma": "Comunidad Autónoma del País Vasco",
-    "municipio": "Bilbao",
-    "provincia": "Bizkaia",
-    "web": "www.deusto.es",
-    "email": "web@deusto.es",
-    "telefono": "944139000"
-  },
-  {
-    "codigo": "100",
-    "nombre": "Universidad de Diseño, Innovación y Tecnología (UDIT)",
-    "tipo": "Privada",
-    "comunidad_autonoma": "Comunidad de Madrid",
-    "municipio": "Madrid",
-    "provincia": "Madrid",
-    "web": "udit.es",
-    "email": "",
-    "telefono": "915 55 25 28"
-  },
-  {
     "codigo": "002",
     "nombre": "Universidad de Extremadura",
     "tipo": "Pública",
@@ -517,17 +308,6 @@
     "telefono": "941299104"
   },
   {
-    "codigo": "090",
-    "nombre": "Universidad de las Hespérides",
-    "tipo": "Privada",
-    "comunidad_autonoma": "Comunidad Autónoma de Canarias",
-    "municipio": "Palmas de Gran Canaria, Las",
-    "provincia": "Las Palmas",
-    "web": "hesperides.edu.es/",
-    "email": "",
-    "telefono": ""
-  },
-  {
     "codigo": "026",
     "nombre": "Universidad de Las Palmas de Gran Canaria",
     "tipo": "Pública",
@@ -572,17 +352,6 @@
     "telefono": "952131000"
   },
   {
-    "codigo": "110",
-    "nombre": "Universidad de Mallorca",
-    "tipo": "Privada",
-    "comunidad_autonoma": "Comunidad Autónoma de las Illes Balears",
-    "municipio": "Palma",
-    "provincia": "Illes Balears",
-    "web": "",
-    "email": "",
-    "telefono": ""
-  },
-  {
     "codigo": "012",
     "nombre": "Universidad de Murcia",
     "tipo": "Pública",
@@ -592,17 +361,6 @@
     "web": "www.um.es",
     "email": "rector@um.es",
     "telefono": "968363000"
-  },
-  {
-    "codigo": "031",
-    "nombre": "Universidad de Navarra",
-    "tipo": "Privada (concordataria)",
-    "comunidad_autonoma": "Comunidad Foral de Navarra",
-    "municipio": "Pamplona/Iruña",
-    "provincia": "Navarra",
-    "web": "www.unav.es",
-    "email": "info@unav.es",
-    "telefono": "948425600"
   },
   {
     "codigo": "013",
@@ -660,17 +418,6 @@
     "telefono": "983423000"
   },
   {
-    "codigo": "060",
-    "nombre": "Universidad de Vic-Universidad Central de Catalunya",
-    "tipo": "Privada",
-    "comunidad_autonoma": "Comunidad Autónoma de Cataluña",
-    "municipio": "Vic",
-    "provincia": "Barcelona",
-    "web": "www.uvic-ucc.cat/es",
-    "email": "info@uvic.cat",
-    "telefono": "938861222"
-  },
-  {
     "codigo": "038",
     "nombre": "Universidad de Vigo",
     "tipo": "Pública",
@@ -693,17 +440,6 @@
     "telefono": "976761001"
   },
   {
-    "codigo": "085",
-    "nombre": "Universidad del Atlántico Medio",
-    "tipo": "Privada",
-    "comunidad_autonoma": "Comunidad Autónoma de Canarias",
-    "municipio": "Palmas de Gran Canaria, Las",
-    "provincia": "Las Palmas",
-    "web": "www.universidadatlanticomedio.es",
-    "email": "",
-    "telefono": "828 019 019"
-  },
-  {
     "codigo": "020",
     "nombre": "Universidad del País Vasco/Euskal Herriko Unibertsitatea",
     "tipo": "Pública",
@@ -713,6 +449,457 @@
     "web": "www.ehu.es",
     "email": "rgzadmin@lg.ehu.es",
     "telefono": "946012000"
+  },
+  {
+    "codigo": "063",
+    "nombre": "Universidad Internacional de Andalucía",
+    "tipo": "Pública",
+    "comunidad_autonoma": "Comunidad Autónoma de Andalucía",
+    "municipio": "Sevilla",
+    "provincia": "Sevilla",
+    "web": "",
+    "email": "postgrado@unia.es",
+    "telefono": "954462299"
+  },
+  {
+    "codigo": "071",
+    "nombre": "Universidad Internacional Menéndez Pelayo",
+    "tipo": "Pública",
+    "comunidad_autonoma": "Comunidad de Madrid",
+    "municipio": "Madrid",
+    "provincia": "Madrid",
+    "web": "www.uimp.es",
+    "email": "",
+    "telefono": "915920600"
+  },
+  {
+    "codigo": "040",
+    "nombre": "Universidad Jaume I de Castellón",
+    "tipo": "Pública",
+    "comunidad_autonoma": "Comunidad Valenciana",
+    "municipio": "Castelló de la Plana",
+    "provincia": "Castellón/Castelló",
+    "web": "www.uji.es",
+    "email": "info@uji.es",
+    "telefono": "964728000"
+  },
+  {
+    "codigo": "055",
+    "nombre": "Universidad Miguel Hernández de Elche",
+    "tipo": "Pública",
+    "comunidad_autonoma": "Comunidad Valenciana",
+    "municipio": "Elx/Elche",
+    "provincia": "Alicante/Alacant",
+    "web": "www.umh.es",
+    "email": "info@umh.es",
+    "telefono": "966658500"
+  },
+  {
+    "codigo": "028",
+    "nombre": "Universidad Nacional de Educación a Distancia",
+    "tipo": "Pública",
+    "comunidad_autonoma": "Comunidad de Madrid",
+    "municipio": "Madrid",
+    "provincia": "Madrid",
+    "web": "www.uned.es",
+    "email": "infouned@adm.uned.es",
+    "telefono": "91398600"
+  },
+  {
+    "codigo": "058",
+    "nombre": "Universidad Pablo de Olavide",
+    "tipo": "Pública",
+    "comunidad_autonoma": "Comunidad Autónoma de Andalucía",
+    "municipio": "Sevilla",
+    "provincia": "Sevilla",
+    "web": "www.upo.es",
+    "email": "",
+    "telefono": "954349200"
+  },
+  {
+    "codigo": "064",
+    "nombre": "Universidad Politécnica de Cartagena",
+    "tipo": "Pública",
+    "comunidad_autonoma": "Región de Murcia",
+    "municipio": "Cartagena",
+    "provincia": "Murcia",
+    "web": "www.upct.es",
+    "email": "gestion.academica@upct.es",
+    "telefono": "968325400"
+  },
+  {
+    "codigo": "024",
+    "nombre": "Universidad Politécnica de Catalunya",
+    "tipo": "Pública",
+    "comunidad_autonoma": "Comunidad Autónoma de Cataluña",
+    "municipio": "Barcelona",
+    "provincia": "Barcelona",
+    "web": "www.upc.es",
+    "email": "info@upc.edu",
+    "telefono": "934016200"
+  },
+  {
+    "codigo": "025",
+    "nombre": "Universidad Politécnica de Madrid",
+    "tipo": "Pública",
+    "comunidad_autonoma": "Comunidad de Madrid",
+    "municipio": "Madrid",
+    "provincia": "Madrid",
+    "web": "www.upm.es",
+    "email": "gabinete.rector@upm.es",
+    "telefono": "913366200"
+  },
+  {
+    "codigo": "039",
+    "nombre": "Universidad Pompeu Fabra",
+    "tipo": "Pública",
+    "comunidad_autonoma": "Comunidad Autónoma de Cataluña",
+    "municipio": "Barcelona",
+    "provincia": "Barcelona",
+    "web": "www.upf.edu",
+    "email": "",
+    "telefono": "935422000"
+  },
+  {
+    "codigo": "035",
+    "nombre": "Universidad Pública de Navarra",
+    "tipo": "Pública",
+    "comunidad_autonoma": "Comunidad Foral de Navarra",
+    "municipio": "Pamplona/Iruña",
+    "provincia": "Navarra",
+    "web": "www.unavarra.es",
+    "email": "infoweb@unavarra.es",
+    "telefono": "948169000"
+  },
+  {
+    "codigo": "056",
+    "nombre": "Universidad Rey Juan Carlos",
+    "tipo": "Pública",
+    "comunidad_autonoma": "Comunidad de Madrid",
+    "municipio": "Móstoles",
+    "provincia": "Madrid",
+    "web": "www.urjc.es",
+    "email": "info@urjc.es",
+    "telefono": "916655060"
+  },
+  {
+    "codigo": "042",
+    "nombre": "Universidad Rovira i Virgili",
+    "tipo": "Pública",
+    "comunidad_autonoma": "Comunidad Autónoma de Cataluña",
+    "municipio": "Tarragona",
+    "provincia": "Tarragona",
+    "web": "www.urv.cat/ca",
+    "email": "info@urv.cat",
+    "telefono": "977558000"
+  },
+  {
+    "codigo": "043",
+    "nombre": "Universitat de Girona",
+    "tipo": "Pública",
+    "comunidad_autonoma": "Comunidad Autónoma de Cataluña",
+    "municipio": "Girona",
+    "provincia": "Girona",
+    "web": "",
+    "email": "informacio@udg.edu",
+    "telefono": "972418046"
+  },
+  {
+    "codigo": "003",
+    "nombre": "Universitat de les Illes Balears",
+    "tipo": "Pública",
+    "comunidad_autonoma": "Comunidad Autónoma de las Illes Balears",
+    "municipio": "Palma",
+    "provincia": "Illes Balears",
+    "web": "www.uib.es/",
+    "email": "informacio@uib.es",
+    "telefono": "971173000"
+  },
+  {
+    "codigo": "018",
+    "nombre": "Universitat de València (Estudi General)",
+    "tipo": "Pública",
+    "comunidad_autonoma": "Comunidad Valenciana",
+    "municipio": "València",
+    "provincia": "Valencia/València",
+    "web": "www.uv.es",
+    "email": "servei.estudiants@uv.es",
+    "telefono": "963864100"
+  },
+  {
+    "codigo": "027",
+    "nombre": "Universitat Politècnica de València",
+    "tipo": "Pública",
+    "comunidad_autonoma": "Comunidad Valenciana",
+    "municipio": "València",
+    "provincia": "Valencia/València",
+    "web": "www.upv.es",
+    "email": "informacion@upv.es",
+    "telefono": "963877000"
+  },
+  {
+    "codigo": "099",
+    "nombre": "Centros autorizados para impartir Enseñanzas Artísticas Superiores",
+    "tipo": "Privada",
+    "comunidad_autonoma": "Comunidad de Madrid",
+    "municipio": "Madrid",
+    "provincia": "Madrid",
+    "web": "",
+    "email": "",
+    "telefono": ""
+  },
+  {
+    "codigo": "089",
+    "nombre": "CUNEF Universidad",
+    "tipo": "Privada",
+    "comunidad_autonoma": "Comunidad de Madrid",
+    "municipio": "Madrid",
+    "provincia": "Madrid",
+    "web": "www.cunef.edu",
+    "email": "",
+    "telefono": "91 444 51 61"
+  },
+  {
+    "codigo": "087",
+    "nombre": "ESIC Universidad",
+    "tipo": "Privada",
+    "comunidad_autonoma": "Comunidad de Madrid",
+    "municipio": "Pozuelo de Alarcón",
+    "provincia": "Madrid",
+    "web": "www.esic.edu/university/",
+    "email": "",
+    "telefono": "914524167"
+  },
+  {
+    "codigo": "057",
+    "nombre": "IE Universidad",
+    "tipo": "Privada",
+    "comunidad_autonoma": "Comunidad de Castilla y León",
+    "municipio": "Segovia",
+    "provincia": "Segovia",
+    "web": "www.ie.edu/universidad",
+    "email": "universidad@ie.edu",
+    "telefono": "921412410"
+  },
+  {
+    "codigo": "109",
+    "nombre": "IE Universidad Madrid",
+    "tipo": "Privada",
+    "comunidad_autonoma": "Comunidad de Madrid",
+    "municipio": "Madrid",
+    "provincia": "Madrid",
+    "web": "",
+    "email": "",
+    "telefono": ""
+  },
+  {
+    "codigo": "061",
+    "nombre": "Mondragón Unibertsitatea",
+    "tipo": "Privada",
+    "comunidad_autonoma": "Comunidad Autónoma del País Vasco",
+    "municipio": "Arrasate/Mondragón",
+    "provincia": "Gipuzkoa",
+    "web": "www.mondragon.edu",
+    "email": "",
+    "telefono": "943712185"
+  },
+  {
+    "codigo": "000",
+    "nombre": "Otros Centros de Nivel Universitario",
+    "tipo": "Privada",
+    "comunidad_autonoma": "Comunidad de Madrid",
+    "municipio": "Madrid",
+    "provincia": "Madrid",
+    "web": "",
+    "email": "",
+    "telefono": ""
+  },
+  {
+    "codigo": "074",
+    "nombre": "Universidad a Distancia de Madrid",
+    "tipo": "Privada",
+    "comunidad_autonoma": "Comunidad de Madrid",
+    "municipio": "Collado Villalba",
+    "provincia": "Madrid",
+    "web": "www.udima.es",
+    "email": "",
+    "telefono": "918561699"
+  },
+  {
+    "codigo": "047",
+    "nombre": "Universidad Alfonso X El Sabio",
+    "tipo": "Privada",
+    "comunidad_autonoma": "Comunidad de Madrid",
+    "municipio": "Villanueva de la Cañada",
+    "provincia": "Madrid",
+    "web": "www.uax.es",
+    "email": "info@uax.es",
+    "telefono": "918109200"
+  },
+  {
+    "codigo": "106",
+    "nombre": "Universidad Alfonso X el Sabio Mare Nostrum",
+    "tipo": "Privada",
+    "comunidad_autonoma": "Comunidad Autónoma de Andalucía",
+    "municipio": "Málaga",
+    "provincia": "Málaga",
+    "web": "29004",
+    "email": "",
+    "telefono": ""
+  },
+  {
+    "codigo": "052",
+    "nombre": "Universidad Antonio de Nebrija",
+    "tipo": "Privada",
+    "comunidad_autonoma": "Comunidad de Madrid",
+    "municipio": "Hoyo de Manzanares",
+    "provincia": "Madrid",
+    "web": "www.nebrija.com",
+    "email": "informa@nebrija.es",
+    "telefono": "902321322"
+  },
+  {
+    "codigo": "065",
+    "nombre": "Universidad Camilo José Cela",
+    "tipo": "Privada",
+    "comunidad_autonoma": "Comunidad de Madrid",
+    "municipio": "Villanueva de la Cañada",
+    "provincia": "Madrid",
+    "web": "www.ucjc.edu",
+    "email": "info@ucjc.edu",
+    "telefono": "918153131"
+  },
+  {
+    "codigo": "067",
+    "nombre": "Universidad Cardenal Herrera-CEU",
+    "tipo": "Privada",
+    "comunidad_autonoma": "Comunidad Valenciana",
+    "municipio": "Alfara del Patriarca",
+    "provincia": "Valencia/València",
+    "web": "www.uchceu.es/",
+    "email": "",
+    "telefono": "961369000"
+  },
+  {
+    "codigo": "072",
+    "nombre": "Universidad Católica de Valencia San Vicente Mártir",
+    "tipo": "Privada (de la Iglesia Católica)",
+    "comunidad_autonoma": "Comunidad Valenciana",
+    "municipio": "València",
+    "provincia": "Valencia/València",
+    "web": "www.ucv.es",
+    "email": "",
+    "telefono": "963637412"
+  },
+  {
+    "codigo": "066",
+    "nombre": "Universidad Católica San Antonio",
+    "tipo": "Privada (de la Iglesia Católica)",
+    "comunidad_autonoma": "Región de Murcia",
+    "municipio": "Murcia",
+    "provincia": "Murcia",
+    "web": "www.ucam.edu",
+    "email": "info@ucam.edu",
+    "telefono": "968278800"
+  },
+  {
+    "codigo": "059",
+    "nombre": "Universidad Católica Santa Teresa de Jesús de Ávila",
+    "tipo": "Privada (de la Iglesia Católica)",
+    "comunidad_autonoma": "Comunidad de Castilla y León",
+    "municipio": "Ávila",
+    "provincia": "Ávila",
+    "web": "www.ucavila.es",
+    "email": "info@ucavila.es",
+    "telefono": "920251020"
+  },
+  {
+    "codigo": "102",
+    "nombre": "Universidad CEU Fernando III",
+    "tipo": "Privada",
+    "comunidad_autonoma": "Comunidad Autónoma de Andalucía",
+    "municipio": "Bormujos",
+    "provincia": "Sevilla",
+    "web": "uf3ceu.es",
+    "email": "",
+    "telefono": ""
+  },
+  {
+    "codigo": "030",
+    "nombre": "Universidad de Deusto",
+    "tipo": "Privada (concordataria)",
+    "comunidad_autonoma": "Comunidad Autónoma del País Vasco",
+    "municipio": "Bilbao",
+    "provincia": "Bizkaia",
+    "web": "www.deusto.es",
+    "email": "web@deusto.es",
+    "telefono": "944139000"
+  },
+  {
+    "codigo": "100",
+    "nombre": "Universidad de Diseño, Innovación y Tecnología (UDIT)",
+    "tipo": "Privada",
+    "comunidad_autonoma": "Comunidad de Madrid",
+    "municipio": "Madrid",
+    "provincia": "Madrid",
+    "web": "udit.es",
+    "email": "",
+    "telefono": "915 55 25 28"
+  },
+  {
+    "codigo": "090",
+    "nombre": "Universidad de las Hespérides",
+    "tipo": "Privada",
+    "comunidad_autonoma": "Comunidad Autónoma de Canarias",
+    "municipio": "Palmas de Gran Canaria, Las",
+    "provincia": "Las Palmas",
+    "web": "hesperides.edu.es/",
+    "email": "",
+    "telefono": ""
+  },
+  {
+    "codigo": "110",
+    "nombre": "Universidad de Mallorca",
+    "tipo": "Privada",
+    "comunidad_autonoma": "Comunidad Autónoma de las Illes Balears",
+    "municipio": "Palma",
+    "provincia": "Illes Balears",
+    "web": "",
+    "email": "",
+    "telefono": ""
+  },
+  {
+    "codigo": "031",
+    "nombre": "Universidad de Navarra",
+    "tipo": "Privada (concordataria)",
+    "comunidad_autonoma": "Comunidad Foral de Navarra",
+    "municipio": "Pamplona/Iruña",
+    "provincia": "Navarra",
+    "web": "www.unav.es",
+    "email": "info@unav.es",
+    "telefono": "948425600"
+  },
+  {
+    "codigo": "060",
+    "nombre": "Universidad de Vic-Universidad Central de Catalunya",
+    "tipo": "Privada",
+    "comunidad_autonoma": "Comunidad Autónoma de Cataluña",
+    "municipio": "Vic",
+    "provincia": "Barcelona",
+    "web": "www.uvic-ucc.cat/es",
+    "email": "info@uvic.cat",
+    "telefono": "938861222"
+  },
+  {
+    "codigo": "085",
+    "nombre": "Universidad del Atlántico Medio",
+    "tipo": "Privada",
+    "comunidad_autonoma": "Comunidad Autónoma de Canarias",
+    "municipio": "Palmas de Gran Canaria, Las",
+    "provincia": "Las Palmas",
+    "web": "www.universidadatlanticomedio.es",
+    "email": "",
+    "telefono": "828 019 019"
   },
   {
     "codigo": "098",
@@ -825,17 +1012,6 @@
     "telefono": ""
   },
   {
-    "codigo": "063",
-    "nombre": "Universidad Internacional de Andalucía",
-    "tipo": "Pública",
-    "comunidad_autonoma": "Comunidad Autónoma de Andalucía",
-    "municipio": "Sevilla",
-    "provincia": "Sevilla",
-    "web": "",
-    "email": "postgrado@unia.es",
-    "telefono": "954462299"
-  },
-  {
     "codigo": "094",
     "nombre": "Universidad Internacional de la Empresa",
     "tipo": "Privada",
@@ -869,17 +1045,6 @@
     "telefono": "947671731"
   },
   {
-    "codigo": "071",
-    "nombre": "Universidad Internacional Menéndez Pelayo",
-    "tipo": "Pública",
-    "comunidad_autonoma": "Comunidad de Madrid",
-    "municipio": "Madrid",
-    "provincia": "Madrid",
-    "web": "www.uimp.es",
-    "email": "",
-    "telefono": "915920600"
-  },
-  {
     "codigo": "108",
     "nombre": "Universidad Internacional para el Desarrollo UNINDE",
     "tipo": "Privada",
@@ -902,17 +1067,6 @@
     "telefono": "917 340 413"
   },
   {
-    "codigo": "040",
-    "nombre": "Universidad Jaume I de Castellón",
-    "tipo": "Pública",
-    "comunidad_autonoma": "Comunidad Valenciana",
-    "municipio": "Castelló de la Plana",
-    "provincia": "Castellón/Castelló",
-    "web": "www.uji.es",
-    "email": "info@uji.es",
-    "telefono": "964728000"
-  },
-  {
     "codigo": "081",
     "nombre": "Universidad Loyola Andalucía",
     "tipo": "Privada",
@@ -922,83 +1076,6 @@
     "web": "www.uloyola.es",
     "email": "sgeneral@uloyola.es",
     "telefono": "957222110"
-  },
-  {
-    "codigo": "055",
-    "nombre": "Universidad Miguel Hernández de Elche",
-    "tipo": "Pública",
-    "comunidad_autonoma": "Comunidad Valenciana",
-    "municipio": "Elx/Elche",
-    "provincia": "Alicante/Alacant",
-    "web": "www.umh.es",
-    "email": "info@umh.es",
-    "telefono": "966658500"
-  },
-  {
-    "codigo": "028",
-    "nombre": "Universidad Nacional de Educación a Distancia",
-    "tipo": "Pública",
-    "comunidad_autonoma": "Comunidad de Madrid",
-    "municipio": "Madrid",
-    "provincia": "Madrid",
-    "web": "www.uned.es",
-    "email": "infouned@adm.uned.es",
-    "telefono": "91398600"
-  },
-  {
-    "codigo": "058",
-    "nombre": "Universidad Pablo de Olavide",
-    "tipo": "Pública",
-    "comunidad_autonoma": "Comunidad Autónoma de Andalucía",
-    "municipio": "Sevilla",
-    "provincia": "Sevilla",
-    "web": "www.upo.es",
-    "email": "",
-    "telefono": "954349200"
-  },
-  {
-    "codigo": "064",
-    "nombre": "Universidad Politécnica de Cartagena",
-    "tipo": "Pública",
-    "comunidad_autonoma": "Región de Murcia",
-    "municipio": "Cartagena",
-    "provincia": "Murcia",
-    "web": "www.upct.es",
-    "email": "gestion.academica@upct.es",
-    "telefono": "968325400"
-  },
-  {
-    "codigo": "024",
-    "nombre": "Universidad Politécnica de Catalunya",
-    "tipo": "Pública",
-    "comunidad_autonoma": "Comunidad Autónoma de Cataluña",
-    "municipio": "Barcelona",
-    "provincia": "Barcelona",
-    "web": "www.upc.es",
-    "email": "info@upc.edu",
-    "telefono": "934016200"
-  },
-  {
-    "codigo": "025",
-    "nombre": "Universidad Politécnica de Madrid",
-    "tipo": "Pública",
-    "comunidad_autonoma": "Comunidad de Madrid",
-    "municipio": "Madrid",
-    "provincia": "Madrid",
-    "web": "www.upm.es",
-    "email": "gabinete.rector@upm.es",
-    "telefono": "913366200"
-  },
-  {
-    "codigo": "039",
-    "nombre": "Universidad Pompeu Fabra",
-    "tipo": "Pública",
-    "comunidad_autonoma": "Comunidad Autónoma de Cataluña",
-    "municipio": "Barcelona",
-    "provincia": "Barcelona",
-    "web": "www.upf.edu",
-    "email": "",
-    "telefono": "935422000"
   },
   {
     "codigo": "033",
@@ -1023,17 +1100,6 @@
     "telefono": "923277102"
   },
   {
-    "codigo": "035",
-    "nombre": "Universidad Pública de Navarra",
-    "tipo": "Pública",
-    "comunidad_autonoma": "Comunidad Foral de Navarra",
-    "municipio": "Pamplona/Iruña",
-    "provincia": "Navarra",
-    "web": "www.unavarra.es",
-    "email": "infoweb@unavarra.es",
-    "telefono": "948169000"
-  },
-  {
     "codigo": "041",
     "nombre": "Universidad Ramón Llull",
     "tipo": "Privada",
@@ -1043,28 +1109,6 @@
     "web": "www.url.edu",
     "email": "info@url.edu",
     "telefono": "936022200"
-  },
-  {
-    "codigo": "056",
-    "nombre": "Universidad Rey Juan Carlos",
-    "tipo": "Pública",
-    "comunidad_autonoma": "Comunidad de Madrid",
-    "municipio": "Móstoles",
-    "provincia": "Madrid",
-    "web": "www.urjc.es",
-    "email": "info@urjc.es",
-    "telefono": "916655060"
-  },
-  {
-    "codigo": "042",
-    "nombre": "Universidad Rovira i Virgili",
-    "tipo": "Pública",
-    "comunidad_autonoma": "Comunidad Autónoma de Cataluña",
-    "municipio": "Tarragona",
-    "provincia": "Tarragona",
-    "web": "www.urv.cat/ca",
-    "email": "info@urv.cat",
-    "telefono": "977558000"
   },
   {
     "codigo": "073",
@@ -1122,39 +1166,6 @@
     "telefono": "932540900"
   },
   {
-    "codigo": "043",
-    "nombre": "Universitat de Girona",
-    "tipo": "Pública",
-    "comunidad_autonoma": "Comunidad Autónoma de Cataluña",
-    "municipio": "Girona",
-    "provincia": "Girona",
-    "web": "",
-    "email": "informacio@udg.edu",
-    "telefono": "972418046"
-  },
-  {
-    "codigo": "003",
-    "nombre": "Universitat de les Illes Balears",
-    "tipo": "Pública",
-    "comunidad_autonoma": "Comunidad Autónoma de las Illes Balears",
-    "municipio": "Palma",
-    "provincia": "Illes Balears",
-    "web": "www.uib.es/",
-    "email": "informacio@uib.es",
-    "telefono": "971173000"
-  },
-  {
-    "codigo": "018",
-    "nombre": "Universitat de València (Estudi General)",
-    "tipo": "Pública",
-    "comunidad_autonoma": "Comunidad Valenciana",
-    "municipio": "València",
-    "provincia": "Valencia/València",
-    "web": "www.uv.es",
-    "email": "servei.estudiants@uv.es",
-    "telefono": "963864100"
-  },
-  {
     "codigo": "062",
     "nombre": "Universitat Internacional de Catalunya",
     "tipo": "Privada",
@@ -1186,16 +1197,5 @@
     "web": "www.uoc.es",
     "email": "",
     "telefono": "902372373"
-  },
-  {
-    "codigo": "027",
-    "nombre": "Universitat Politècnica de València",
-    "tipo": "Pública",
-    "comunidad_autonoma": "Comunidad Valenciana",
-    "municipio": "València",
-    "provincia": "Valencia/València",
-    "web": "www.upv.es",
-    "email": "informacion@upv.es",
-    "telefono": "963877000"
   }
 ]

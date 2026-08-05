@@ -256,7 +256,10 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
         print(f"({u_idx}/{len(universities)}) Procesando Universidad [{u_code}] ({u_tipo}): {u_name}")
 
         univ_degrees_file = os.path.join(TEMP_PDF_DIR, f"degrees_{u_code}.xls")
-        degrees_url = URL_ESTUDIOS_UNIV_TEMPLATE.format(codigo_universidad=u_code)
+        try:
+            degrees_url = URL_ESTUDIOS_UNIV_TEMPLATE.format(codigo_universidad=u_code, codigo=u_code)
+        except KeyError:
+            degrees_url = URL_ESTUDIOS_UNIV_TEMPLATE.format(codigo=u_code)
 
         try:
             t0 = time.perf_counter()

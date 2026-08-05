@@ -1,0 +1,40 @@
+{
+  "codigo_estudio": "4311060",
+  "titulo": "Máster Universitario en Salud Pública por la Universidad Autónoma de Barcelona y la Universidad Pompeu Fabra",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T12:48:18.827266",
+  "boe_url": "http://www.boe.es/boe/dias/2018/03/24/pdfs/BOE-A-2018-4188.pdf",
+  "boe_fecha": "2018-03-24",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2018/03/24/pdfs/BOE-A-2018-4188.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "3",
+      "Trabajo Fin de Grado / Máster": "30"
+    },
+    "total_elementos": 2,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Profesionalización.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Investigación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

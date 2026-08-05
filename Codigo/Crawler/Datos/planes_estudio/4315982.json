@@ -1,0 +1,103 @@
+{
+  "codigo_estudio": "4315982",
+  "titulo": "Máster Universitario en Traducción Audiovisual por la Universidad Autónoma de Barcelona",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T12:47:54.045081",
+  "boe_url": "http://boe.es/boe/dias/2020/11/23/pdfs/BOE-A-2020-14767.pdf",
+  "boe_fecha": "2020-11-23",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2018/08/17/pdfs/BOE-A-2018-11690.pdf",
+    "http://boe.es/boe/dias/2020/11/23/pdfs/BOE-A-2020-14767.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 9,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "9 9 9 6 6 15 6",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "9 9 9 6 6 15 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Obligatorios.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Trabajo de fin de máster.",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Audiodescripción y Subtitulado para Personas Sordas B-A.",
+        "creditos_ects": "9",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Doblaje y Subtitulación B-A.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Herramientas y Metodología Aplicadas a la Traducción Audiovisual.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Localización Multimedia y de Videojuegos B-A.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Teoría de la Traducción Audiovisual.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Voces Superpuestas y Rehablado B-A.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

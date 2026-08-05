@@ -1,0 +1,28 @@
+{
+  "codigo_estudio": "4314229",
+  "titulo": "Máster Universitario en Prevención y Gestión de Riesgos en la Comunidad por la Universidad Autónoma de Barcelona y la Universidad Ramón Llull",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T12:49:38.690945",
+  "boe_url": "http://www.boe.es/boe/dias/2018/08/17/pdfs/BOE-A-2018-11689.pdf",
+  "boe_fecha": "2018-08-17",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2018/08/17/pdfs/BOE-A-2018-11689.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {},
+    "total_elementos": 1,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "9 12 6 6 6 12 9 9",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "9 12 6 6 6 12 9 9",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

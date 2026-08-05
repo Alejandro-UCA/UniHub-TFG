@@ -1,0 +1,716 @@
+{
+  "codigo_estudio": "3500115",
+  "titulo": "Máster Universitario en Química y Bioquímica Sanitarias por la Universidad Autónoma de Barcelona; la Universidad de Barcelona; la Universidad de Girona; la Universidad Rovira i Virgili y la Universitat de València (Estudi General)",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T12:49:07.199420",
+  "boe_url": "http://www.boe.es/boe/dias/2026/02/16/pdfs/BOE-A-2026-3621.pdf",
+  "boe_fecha": "2026-02-16",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2026/02/16/pdfs/BOE-A-2026-3621.pdf",
+    "http://dogv.gva.es/datos/2024/07/03/pdf/2024_6538.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "18",
+      "Créditos Totales": "90"
+    },
+    "total_elementos": 77,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Prácticas Externas Obligatorias.",
+        "creditos_ects": "18",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Trabajo Final de Máster.",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Bioquímica Clínica y Biología Molecular.",
+        "creditos_ects": "18",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Análisis y Gestión en Química Sanitaria.",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Investigación e Innovación en el Ámbito Sanitario.",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Química y Bioquímica Avanzadas en el Ámbito Sanitario.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "18",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "GRAU",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Títol",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grau en Gestió Logística i Transport per la Universitat",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Internacional de València.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grau en Física per la Universitat Internacional de València.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grau en Ciència de Dades i Intel·ligència Artificial per la",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Universitat Internacional de València.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Facultat de Ciències",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Socials i Jurídiques.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "MÀSTER",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Societat Digital per la Universitat de València (Estudi General).",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Migracions per la Universitat de València (Estudi General); Le Conservatoire National des Arts et Métiers - París; Università della Calabria i Université Catholique de Lille (Fupl).",
+        "creditos_ects": "30",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Gestió de la Qualitat per la Universitat de València (Estudi General).",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Treball Social en l’Àmbit Sanitari per la Universitat d’Alacant; la Universitat de Barcelona; la Universitat de Girona; la Universitat de Lleida; la Universitat de Múr cia; la Universitat Rovira i Virgili; la Universitat de les Illes Balears i la Universitat de València (Estudi General).",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Química i Bioquímica Sanitàries per la Universitat Autònoma de Barcelona; la Universitat de Barcelona; la Universitat de Girona; la Universitat Rovira i Virgili i la Universitat de València (Estudi General).",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Tecnologies Quàntiques / Master in Quantum Technologies per la Universitat de La Laguna; la Universitat de Múrcia; la Universitat de Saragossa; la Universitat Internacional Menéndez Pelayo; la Universitat Politècnica de Cartagena; la Universitat Politècnica de Madrid i la Universitat de València (Estudi General).",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Protecció Radiològica Ambiental per la Universitat de Barcelona; la Universitat de Cantàbria; la Universitat d’Extremadura; la Universitat de Huelva; la Universitat de Las Palmas de Gran Canaria; la Universitat de les Illes Balears i la Universitat de València (Estudi General).",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Rehabilitació i Sostenibilitat en Edificació per la Universitat Politècnica de València.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Professor/a d’Educació Secundària per la Universitat Politècnica de València.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Noves Tecnologies i Eficiència Energètica en Edificació per la Universitat d’Alacant.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Prevenció de la Violència de Gènere i Intervenció des d’un Enfocament Interdisciplinari per la Universitat d’Alacant.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Competències Professionals Avançades per a Mestres per la Universitat Catòlica de València Sant Vicent Màrtir.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Comunicació i Narrativa en el Discurs Digital per la Universitat Internacional de València.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Fisioteràpia Neurològica per la Universitat Internacional de València.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Gestió de les Tecnologies de la Informació i Comunicació per la Universitat Internacional de València.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Enginyeria Industrial per la Universitat Internacional de València.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Metodologies Actives i Digitals per la Universitat Internacional de València.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Psicologia en Infància i Adolescència per la Universitat Internacional de València.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Enginyeria d’Organització Industrial per la Universitat Internacional de València.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Robòtica i Automatització de Processos per la Universitat Internacional de València.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Didàctica de les Matemàtiques per la Universitat Internacional de València.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Fiscalitat Internacional per la Universitat Internacional de València.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Direcció i Administració d’Empreses- MBA per la Universitat Europea de València.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Auditoria de Comptes per la Universitat Europea de València.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Psicologia Jurídica i Forense per la Universitat Europea de València.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Màster universitari en Fisioteràpia Esportiva per la Universitat Europea de València.",
+        "creditos_ects": "30",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "DOCTORAT",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorat en Didàctica de les Ciències Experimentals per la Universitat Autònoma de Barcelona; la Universitat Complutense de Madrid; la Universitat d’Alacant; la Universitat d’Almeria; la Universitat de Castella-la Manxa; la Universitat de Cadis; la Universitat de Còrdova; la Universitat de Girona; la Universitat de Jaén; la Universitat de Múrcia; la Universitat de Màlaga; la Universitat de Santiago de Compostel·la; la Universitat de Saragossa i la Universitat del País Basc / Euskal Herriko Unibersitatea.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "places 1r any: 6 2n any:",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorat en Història, Patrimoni i Territori per la Universitat Jaume I de Castelló.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorat en Creació Artística per la Universitat Miguel Hernández d’Elx.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorat en Intervenció Psicosocial, Desenvolupament Social i Educació per a la Salut i el Benestar per la Universitat Miguel Hernández d’Elx.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorat en Salut Pública, Comunitària i Addiccions per la Universitat Internacional de València.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "1r any: 5 2n any: 5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorat en Ciència de Dades i Big Data per la Universitat Internacional de València.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "1r any: 5 2n any: 5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "GRADO",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Título",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Gestión Logística y Transporte por la Universidad",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Internacional de Valencia.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Física por la Universidad Internacional de Valencia.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ciencia de Datos e Inteligencia Artificial por la",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Universidad Internacional de Valencia.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Facultad de Ciencias",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Sociales y Jurídicas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "MÁSTER",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Sociedad Digital por la Universitat de València (Estudi General).",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Migraciones por la Universitat de València (Estudi General); Le Conservatoire National des Arts et Métiers - París; Università della Calabria y Université Catholique de Lille (Fupl).",
+        "creditos_ects": "30",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Gestión de la Calidad por la Universitat de València (Estudi General).",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Trabajo Social en el Ámbito Sanitario por la Universidad de Alicante; la Universitat de Barcelona; la Universitat de Girona; la Universitat de Lleida; la Universidad de Murcia; la Universitat Rovira i Virgili; la Universitat de les Illes Balears y la Universitat de Valencia (Estudi General).",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Química y Bioquímica Sanitarias por la Universitat Autònoma de Barcelona; la Universitat de Barcelona; la Universitat de Girona; la Universitat Rovira i Virgili y la Universitat de Valencia (Estudi General).",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Tecnologías Cuánticas/Master in Quantum Technologies por la Universidad de La Laguna; la Universidad de Murcia; la Universidad de Zaragoza; la Universidad Internacional Menéndez Pelayo; la Universidad Politécnica de Cartagena; la Universidad Politécnica de Madrid y la Universitat de València (Estudi General).",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "1º año: 60 2º año: 60",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Dirección y Administración de Empresas-MBA por la Universidad Europea de Valencia.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "1º año: 90 2º año: 90",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Auditoría de Cuentas por la Universidad Europea de Valencia.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Psicología Jurídica y Forense por la Universidad Europea de Valencia.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Máster Universitario en Fisioterapia Deportiva por la Universidad Europea de Valencia.",
+        "creditos_ects": "30",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "DOCTORADO",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorado en Didáctica de las Ciencias Experimentales por la Universitat Autònoma de Barcelona; la Universidad Complutense de Madrid; la Universidad de Alicante; la Universidad de Almería; la Universidad de Castilla-La Mancha; la Universidad de Cádiz; la Universidad de Córdoba; la Universitat de Girona; la Universidad de Jaén; la Universidad de Murcia; la Universidad de Málaga; la Universidad de Santiago de Compostela; la Universidad de Zaragoza y la Universidad del País Vasco/Euskal Herriko Unibersitatea.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "plazas 1º año: 6 2º año: 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorado en Historia, Patrimonio y Territorio por la Universitat Jaume I de Castellón.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1º año: 7 2º año: 5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorado en Creación Artística por la Universidad Miguel Hernández de Elche.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1º año: 10 2º año: 10",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorado en Intervención Psicosocial, Desarrollo Social y Educación para la Salud y el Bienestar por la Universidad Miguel Hernández de Elche.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1º año: 10 2º año: 10",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorado en Salud Pública, Comunitaria y Adicciones por la Universidad Internacional de Valencia.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1º año: 5 2º año: 5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Doctorado en Ciencia de Datos y Big Data por la Universidad Internacional de Valencia.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1º año: 5 2º año: 5",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

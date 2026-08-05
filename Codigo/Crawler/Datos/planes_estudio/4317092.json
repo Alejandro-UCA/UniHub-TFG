@@ -1,0 +1,111 @@
+{
+  "codigo_estudio": "4317092",
+  "titulo": "Máster Universitario Erasmus Mundus en Modelos y Métodos de Economía Cuantitativa / Erasmus Mundus in Models and Methods of Quantitative Economics por la Universidad Autónoma de Barcelona; Szkola Glówna Handlowa w Warszawie(Polonia); Universitá Degli Studi \"Ca' Foscari\" di Venezia(Italia); Université Catholique de Louvain(Bélgica) y Université de Paris I - Panthéon-Sorbonne(Francia)",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T12:46:04.886084",
+  "boe_url": "http://www.boe.es/boe/dias/2022/07/30/pdfs/BOE-A-2022-12795.pdf",
+  "boe_fecha": "2022-07-30",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2022/07/30/pdfs/BOE-A-2022-12795.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Créditos Totales": "120"
+    },
+    "total_elementos": 10,
+    "elementos_curriculares": [
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Obligatorios.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Optativos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Trabajo de fin de máster.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Ciclos Económicos y Política Monetaria.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Econometría.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Juegos e Información.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Macroeconomía Dinámica y Políticas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Mercados y Decisiones.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Optativo de Especialización.",
+        "materia": "",
+        "nombre_elemento": "Probabilidad y Estadística.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo Optativo de Especialización.",
+        "materia": "",
+        "nombre_elemento": "Trabajo de Investigación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

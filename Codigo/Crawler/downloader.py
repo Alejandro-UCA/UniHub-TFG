@@ -58,7 +58,18 @@ class RUCTDownloader:
         self.pause_count_univ = 0
 
     def _normalize_url(self, url: str) -> str:
-        """Normalizes legacy domains to modern active hostnames."""
+        """Normalizes legacy domains and cleans malformed protocol prefixes."""
+        url = url.strip()
+        while url.startswith("http://https://") or url.startswith("https://http://") or url.startswith("http://http://") or url.startswith("https://https://"):
+            if url.startswith("http://https://"):
+                url = "https://" + url[15:]
+            elif url.startswith("https://http://"):
+                url = "http://" + url[15:]
+            elif url.startswith("http://http://"):
+                url = "http://" + url[14:]
+            elif url.startswith("https://https://"):
+                url = "https://" + url[16:]
+
         for old_domain, new_domain in self.DOMAIN_MAPPINGS.items():
             if old_domain in url:
                 url = url.replace(old_domain, new_domain)

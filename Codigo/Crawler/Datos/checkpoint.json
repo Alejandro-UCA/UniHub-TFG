@@ -1,25 +1,25 @@
 {
   "universities_downloaded": true,
   "processed_universities": [
-    "095",
-    "096",
-    "047",
-    "000",
-    "086",
-    "093",
-    "057",
-    "052",
-    "109",
-    "091",
-    "061",
-    "099",
-    "106",
-    "105",
-    "089",
-    "101",
     "092",
+    "095",
+    "099",
+    "093",
+    "086",
+    "057",
+    "091",
+    "096",
+    "052",
+    "106",
+    "089",
+    "061",
     "087",
-    "074"
+    "074",
+    "047",
+    "109",
+    "000",
+    "105",
+    "101"
   ],
   "processed_degrees": {
     "9000164": {
@@ -6656,9 +6656,438 @@
       "boe_url": "http://www.boe.es/boe/dias/2015/02/23/pdfs/BOE-A-2015-1848.pdf",
       "boe_fecha": "2015-02-23",
       "last_updated": "2026-08-05T09:22:09.751316"
+    },
+    "9000001": {
+      "boe_url": "http://www.boe.es/boe/dias/2005/06/04/pdfs/A18947-18948.pdf",
+      "boe_fecha": "2005-06-04",
+      "last_updated": "2026-08-05T12:44:59.511266"
+    },
+    "4317926": {
+      "boe_url": "http://https://www.boe.es/boe/dias/2022/11/16/pdfs/BOE-A-2022-18885.pdf",
+      "boe_fecha": "2022-11-16",
+      "last_updated": "2026-08-05T12:45:50.776755"
+    },
+    "4312993": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7383/1615881.pdf",
+      "boe_fecha": "2017-05-29",
+      "last_updated": "2026-08-05T12:45:52.341729"
+    },
+    "4311353": {
+      "boe_url": "http://www.boe.es/boe/dias/2015/03/26/pdfs/BOE-A-2015-3221.pdf",
+      "boe_fecha": "2015-03-26",
+      "last_updated": "2026-08-05T12:45:56.652656"
+    },
+    "4313295": {
+      "boe_url": "http://www.boe.es/boe/dias/2021/03/27/pdfs/BOE-A-2021-4840.pdf",
+      "boe_fecha": "2021-03-27",
+      "last_updated": "2026-08-05T12:45:58.271619"
+    },
+    "4317165": {
+      "boe_url": "http://www.boe.es/boe/dias/2022/04/01/pdfs/BOE-A-2022-5253.pdf",
+      "boe_fecha": "2022-04-01",
+      "last_updated": "2026-08-05T12:46:00.282611"
+    },
+    "3002914": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T12:46:00.870182"
+    },
+    "3001034": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6591/1346257.pdf",
+      "boe_fecha": "2014-02-28",
+      "last_updated": "2026-08-05T12:46:02.741424"
+    },
+    "4317092": {
+      "boe_url": "http://www.boe.es/boe/dias/2022/07/30/pdfs/BOE-A-2022-12795.pdf",
+      "boe_fecha": "2022-07-30",
+      "last_updated": "2026-08-05T12:46:04.891479"
+    },
+    "4314979": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7862/1740345.pdf",
+      "boe_fecha": "2019-04-16",
+      "last_updated": "2026-08-05T12:46:07.104840"
+    },
+    "3002906": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7040/1468079.pdf",
+      "boe_fecha": "2015-12-16",
+      "last_updated": "2026-08-05T12:46:10.240219"
+    },
+    "4310932": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7040/1468079.pdf",
+      "boe_fecha": "2015-12-16",
+      "last_updated": "2026-08-05T12:46:17.457262"
+    },
+    "4315683": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7862/1740345.pdf",
+      "boe_fecha": "2019-04-16",
+      "last_updated": "2026-08-05T12:46:19.037794"
+    },
+    "4317932": {
+      "boe_url": "http://www.boe.es/boe/dias/2022/11/16/pdfs/BOE-A-2022-18888.pdf",
+      "boe_fecha": "2022-11-16",
+      "last_updated": "2026-08-05T12:46:20.936055"
+    },
+    "4317155": {
+      "boe_url": "http://www.boe.es/boe/dias/2022/04/01/pdfs/BOE-A-2022-5267.pdf",
+      "boe_fecha": "2022-04-01",
+      "last_updated": "2026-08-05T12:46:22.628861"
+    },
+    "4312407": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/8453/1861119.pdf",
+      "boe_fecha": "2021-06-30",
+      "last_updated": "2026-08-05T12:46:26.627535"
+    },
+    "3500042": {
+      "boe_url": "http://www.boe.es/boe/dias/2023/10/30/pdfs/BOE-A-2023-22129.pdf",
+      "boe_fecha": "2023-10-30",
+      "last_updated": "2026-08-05T12:46:28.962454"
+    },
+    "4317205": {
+      "boe_url": "http://www.boe.es/boe/dias/2021/09/13/pdfs/BOE-A-2021-14826.pdf",
+      "boe_fecha": "2021-09-13",
+      "last_updated": "2026-08-05T12:46:31.610936"
+    },
+    "4313261": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7657/1685064.pdf",
+      "boe_fecha": "2018-06-29",
+      "last_updated": "2026-08-05T12:46:34.082524"
+    },
+    "4317523": {
+      "boe_url": "http://www.boe.es/boe/dias/2023/03/28/pdfs/BOE-A-2023-7934.pdf",
+      "boe_fecha": "2023-03-28",
+      "last_updated": "2026-08-05T12:47:25.959458"
+    },
+    "3500482": {
+      "boe_url": "http://www.boe.es/boe/dias/2024/10/16/pdfs/BOE-A-2024-21216.pdf",
+      "boe_fecha": "2024-10-16",
+      "last_updated": "2026-08-05T12:47:27.890057"
+    },
+    "4316055": {
+      "boe_url": "http://www.boe.es/boe/dias/2017/10/24/pdfs/BOE-A-2017-12135.pdf",
+      "boe_fecha": "2017-10-24",
+      "last_updated": "2026-08-05T12:47:29.231517"
+    },
+    "4311350": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6436/1313524.pdf",
+      "boe_fecha": "2013-07-31",
+      "last_updated": "2026-08-05T12:47:31.338036"
+    },
+    "4315915": {
+      "boe_url": "http://www.boe.es/boe/dias/2018/08/17/pdfs/BOE-A-2018-11693.pdf",
+      "boe_fecha": "2018-08-17",
+      "last_updated": "2026-08-05T12:47:32.870267"
+    },
+    "4314099": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/8976/1988485.pdf",
+      "boe_fecha": "2023-08-01",
+      "last_updated": "2026-08-05T12:47:38.161638"
+    },
+    "4313666": {
+      "boe_url": "http://www.boe.es/boe/dias/2016/08/11/pdfs/BOE-A-2016-7795.pdf",
+      "boe_fecha": "2016-08-11",
+      "last_updated": "2026-08-05T12:47:39.900185"
+    },
+    "4313807": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7383/1615881.pdf",
+      "boe_fecha": "2017-05-29",
+      "last_updated": "2026-08-05T12:47:41.861959"
+    },
+    "4315497": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/9223/2042722.pdf",
+      "boe_fecha": "2024-08-02",
+      "last_updated": "2026-08-05T12:47:45.083565"
+    },
+    "4315970": {
+      "boe_url": "http://www.boe.es/boe/dias/2018/08/17/pdfs/BOE-A-2018-11691.pdf",
+      "boe_fecha": "2018-08-17",
+      "last_updated": "2026-08-05T12:47:46.922028"
+    },
+    "4316560": {
+      "boe_url": "http://boe.es/boe/dias/2020/11/23/pdfs/BOE-A-2020-14768.pdf",
+      "boe_fecha": "2020-11-23",
+      "last_updated": "2026-08-05T12:47:50.350975"
+    },
+    "4314918": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7830/1732511.pdf",
+      "boe_fecha": "2019-02-28",
+      "last_updated": "2026-08-05T12:47:52.206317"
+    },
+    "4315982": {
+      "boe_url": "http://boe.es/boe/dias/2020/11/23/pdfs/BOE-A-2020-14767.pdf",
+      "boe_fecha": "2020-11-23",
+      "last_updated": "2026-08-05T12:47:54.049343"
+    },
+    "4310921": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6436/1313524.pdf",
+      "boe_fecha": "2013-07-31",
+      "last_updated": "2026-08-05T12:47:55.871567"
+    },
+    "4314828": {
+      "boe_url": "http://www.boe.es/boe/dias/2015/10/21/pdfs/BOE-A-2015-11314.pdf",
+      "boe_fecha": "2015-10-21",
+      "last_updated": "2026-08-05T12:47:58.211267"
+    },
+    "4311331": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6436/1313524.pdf",
+      "boe_fecha": "2013-07-31",
+      "last_updated": "2026-08-05T12:47:59.919612"
+    },
+    "4312464": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6855/1420355.pdf",
+      "boe_fecha": "2015-03-27",
+      "last_updated": "2026-08-05T12:48:02.243235"
+    },
+    "4313296": {
+      "boe_url": "http://www.boe.es/boe/dias/2024/02/21/pdfs/BOE-A-2024-3360.pdf",
+      "boe_fecha": "2024-02-21",
+      "last_updated": "2026-08-05T12:48:04.282163"
+    },
+    "4312898": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/8267/1821267.pdf",
+      "boe_fecha": "2020-10-28",
+      "last_updated": "2026-08-05T12:48:06.814994"
+    },
+    "4314752": {
+      "boe_url": "http://www.boe.es/boe/dias/2015/11/23/pdfs/BOE-A-2015-12682.pdf",
+      "boe_fecha": "2015-11-23",
+      "last_updated": "2026-08-05T12:48:09.931593"
+    },
+    "4311670": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7175/1523557.pdf",
+      "boe_fecha": "2016-07-21",
+      "last_updated": "2026-08-05T12:48:13.831012"
+    },
+    "4311330": {
+      "boe_url": "http://www.boe.es/boe/dias/2015/12/03/pdfs/BOE-A-2015-13093.pdf",
+      "boe_fecha": "2015-12-03",
+      "last_updated": "2026-08-05T12:48:15.200722"
+    },
+    "3001262": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6436/1313524.pdf",
+      "boe_fecha": "2013-07-31",
+      "last_updated": "2026-08-05T12:48:16.825340"
+    },
+    "4311060": {
+      "boe_url": "http://www.boe.es/boe/dias/2018/03/24/pdfs/BOE-A-2018-4188.pdf",
+      "boe_fecha": "2018-03-24",
+      "last_updated": "2026-08-05T12:48:18.832003"
+    },
+    "3002861": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6388/1302915.pdf",
+      "boe_fecha": "2013-05-21",
+      "last_updated": "2026-08-05T12:48:20.928365"
+    },
+    "4310058": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6436/1313524.pdf",
+      "boe_fecha": "2013-07-31",
+      "last_updated": "2026-08-05T12:48:22.859647"
+    },
+    "4313410": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7657/1685064.pdf",
+      "boe_fecha": "2018-06-29",
+      "last_updated": "2026-08-05T12:48:25.996841"
+    },
+    "4313778": {
+      "boe_url": "http://bocyl.jcyl.es/boletines/2019/06/04/pdf/BOCYL-D-04062019-7.pdf",
+      "boe_fecha": "2019-05-30",
+      "last_updated": "2026-08-05T12:48:49.084555"
+    },
+    "4318303": {
+      "boe_url": "http://www.boe.es/boe/dias/2023/11/23/pdfs/BOE-A-2023-23877.pdf",
+      "boe_fecha": "2023-11-23",
+      "last_updated": "2026-08-05T12:48:50.359658"
+    },
+    "4313800": {
+      "boe_url": "http://www.boe.es/boe/dias/2024/07/29/pdfs/BOE-A-2024-15657.pdf",
+      "boe_fecha": "2024-07-29",
+      "last_updated": "2026-08-05T12:48:54.024509"
+    },
+    "4312127": {
+      "boe_url": "http://www.boe.es/boe/dias/2021/03/27/pdfs/BOE-A-2021-4837.pdf",
+      "boe_fecha": "2021-03-27",
+      "last_updated": "2026-08-05T12:48:56.361023"
+    },
+    "4312329": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/8973/1988057.pdf",
+      "boe_fecha": "2023-07-27",
+      "last_updated": "2026-08-05T12:48:58.342482"
+    },
+    "4313351": {
+      "boe_url": "http://www.boe.es/boe/dias/2014/12/26/pdfs/BOE-A-2014-13511.pdf",
+      "boe_fecha": "2014-12-26",
+      "last_updated": "2026-08-05T12:49:01.431190"
+    },
+    "4310939": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6436/1313524.pdf",
+      "boe_fecha": "2013-07-31",
+      "last_updated": "2026-08-05T12:49:03.325453"
+    },
+    "3500115": {
+      "boe_url": "http://www.boe.es/boe/dias/2026/02/16/pdfs/BOE-A-2026-3621.pdf",
+      "boe_fecha": "2026-02-16",
+      "last_updated": "2026-08-05T12:49:07.205154"
+    },
+    "4311428": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6591/1346257.pdf",
+      "boe_fecha": "2014-02-28",
+      "last_updated": "2026-08-05T12:49:09.311403"
+    },
+    "4313385": {
+      "boe_url": "http://www.boe.es/boe/dias/2016/08/11/pdfs/BOE-A-2016-7793.pdf",
+      "boe_fecha": "2016-08-11",
+      "last_updated": "2026-08-05T12:49:11.524512"
+    },
+    "4310029": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6591/1346257.pdf",
+      "boe_fecha": "2014-02-28",
+      "last_updated": "2026-08-05T12:49:13.406283"
+    },
+    "4313754": {
+      "boe_url": "http://boe.es/boe/dias/2020/11/23/pdfs/BOE-A-2020-14766.pdf",
+      "boe_fecha": "2020-11-23",
+      "last_updated": "2026-08-05T12:49:15.566249"
+    },
+    "4317571": {
+      "boe_url": "http://www.boe.es/boe/dias/2023/02/06/pdfs/BOE-A-2023-3120.pdf",
+      "boe_fecha": "2023-02-06",
+      "last_updated": "2026-08-05T12:49:17.944992"
+    },
+    "4314949": {
+      "boe_url": "http://www.boe.es/boe/dias/2022/07/30/pdfs/BOE-A-2022-12798.pdf",
+      "boe_fecha": "2022-07-30",
+      "last_updated": "2026-08-05T12:49:25.672940"
+    },
+    "4316214": {
+      "boe_url": "http://www.boe.es/boe/dias/2019/08/05/pdfs/BOE-A-2019-11520.pdf",
+      "boe_fecha": "2019-08-05",
+      "last_updated": "2026-08-05T12:49:28.594526"
+    },
+    "4313352": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/9223/2042722.pdf",
+      "boe_fecha": "2024-08-02",
+      "last_updated": "2026-08-05T12:49:33.309707"
+    },
+    "4310038": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7175/1523557.pdf",
+      "boe_fecha": "2016-07-21",
+      "last_updated": "2026-08-05T12:49:35.252158"
+    },
+    "4314229": {
+      "boe_url": "http://www.boe.es/boe/dias/2018/08/17/pdfs/BOE-A-2018-11689.pdf",
+      "boe_fecha": "2018-08-17",
+      "last_updated": "2026-08-05T12:49:38.694102"
+    },
+    "4313137": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/8532/1876348.pdf",
+      "boe_fecha": "2021-10-20",
+      "last_updated": "2026-08-05T12:49:41.429805"
+    },
+    "4313901": {
+      "boe_url": "http://www.boe.es/boe/dias/2015/07/15/pdfs/BOE-A-2015-7903.pdf",
+      "boe_fecha": "2015-07-15",
+      "last_updated": "2026-08-05T12:49:58.635928"
+    },
+    "4315658": {
+      "boe_url": "http://www.boe.es/boe/dias/2018/07/18/pdfs/BOE-A-2018-10121.pdf",
+      "boe_fecha": "2018-07-18",
+      "last_updated": "2026-08-05T12:50:01.311380"
+    },
+    "4312126": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6550/1335707.pdf",
+      "boe_fecha": "2014-01-15",
+      "last_updated": "2026-08-05T12:50:03.958843"
+    },
+    "4318312": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/9223/2042722.pdf",
+      "boe_fecha": "2024-08-02",
+      "last_updated": "2026-08-05T12:50:06.496763"
+    },
+    "4313228": {
+      "boe_url": "http://www.boe.es/boe/dias/2022/04/01/pdfs/BOE-A-2022-5265.pdf",
+      "boe_fecha": "2022-04-01",
+      "last_updated": "2026-08-05T12:50:09.293694"
+    },
+    "4310938": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6436/1313524.pdf",
+      "boe_fecha": "2013-07-31",
+      "last_updated": "2026-08-05T12:50:10.852215"
+    },
+    "4314947": {
+      "boe_url": "http://www.boe.es/boe/dias/2015/07/15/pdfs/BOE-A-2015-7903.pdf",
+      "boe_fecha": "2015-07-15",
+      "last_updated": "2026-08-05T12:50:12.990884"
+    },
+    "4316493": {
+      "boe_url": "http://www.boe.es/boe/dias/2019/12/03/pdfs/BOE-A-2019-17454.pdf",
+      "boe_fecha": "2019-12-03",
+      "last_updated": "2026-08-05T12:50:15.062536"
+    },
+    "4311327": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6388/1302915.pdf",
+      "boe_fecha": "2013-05-21",
+      "last_updated": "2026-08-05T12:50:17.017982"
+    },
+    "3001763": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T12:50:18.187284"
+    },
+    "4313991": {
+      "boe_url": "http://www.boe.es/boe/dias/2018/08/17/pdfs/BOE-A-2018-11688.pdf",
+      "boe_fecha": "2018-08-17",
+      "last_updated": "2026-08-05T12:50:20.075125"
+    },
+    "4310937": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6591/1346257.pdf",
+      "boe_fecha": "2014-02-28",
+      "last_updated": "2026-08-05T12:50:21.993535"
     }
   },
-  "non_study_plan_pdfs": [],
+  "non_study_plan_pdfs": [
+    "http://www.boe.es/boe/dias/2014/06/23/pdfs/BOE-A-2014-6548.pdf",
+    "http://www.boe.es/boe/dias/2014/10/18/pdfs/BOE-A-2014-10574.pdf",
+    "http://www.boe.es/boe/dias/2011/11/25/pdfs/BOE-A-2011-18531.pdf",
+    "http://www.boe.es/boe/dias/2018/09/07/pdfs/BOE-A-2018-12228.pdf",
+    "http://www.boe.es/boe/dias/2016/10/26/pdfs/BOE-A-2016-9786.pdf",
+    "http://www.boe.es/boe/dias/2015/07/15/pdfs/BOE-A-2015-7903.pdf",
+    "http://www.boe.es/boe/dias/2016/08/11/pdfs/BOE-A-2016-7791.pdf",
+    "http://www.boe.es/boe/dias/2016/08/11/pdfs/BOE-A-2016-7793.pdf",
+    "http://www.boe.es/boe/dias/2014/03/11/pdfs/BOE-A-2014-2600.pdf",
+    "http://www.boe.es/boe/dias/2016/08/11/pdfs/BOE-A-2016-7792.pdf",
+    "http://www.boe.es/boe/dias/2017/10/24/pdfs/BOE-A-2017-12135.pdf",
+    "http://www.boe.es/boe/dias/2011/02/24/pdfs/BOE-A-2011-3633.pdf",
+    "http://www.boe.es/boe/dias/2016/08/11/pdfs/BOE-A-2016-7795.pdf",
+    "http://www.boe.es/boe/dias/2024/09/27/pdfs/BOE-A-2024-19393.pdf",
+    "http://www.boe.es/boe/dias/2016/10/03/pdfs/BOE-A-2016-9071.pdf",
+    "http://www.boe.es/boe/dias/2021/05/10/pdfs/BOE-A-2021-7690.pdf",
+    "http://www.boe.es/boe/dias/2015/03/26/pdfs/BOE-A-2015-3221.pdf",
+    "http://www.boe.es/boe/dias/2021/09/13/pdfs/BOE-A-2021-14826.pdf",
+    "http://www.boe.es/boe/dias/2014/02/07/pdfs/BOE-A-2014-1287.pdf",
+    "http://www.boe.es/boe/dias/2016/02/19/pdfs/BOE-A-2016-1690.pdf",
+    "http://www.boe.es/boe/dias/2013/02/08/pdfs/BOE-A-2013-1334.pdf",
+    "http://www.boe.es/boe/dias/2013/06/04/pdfs/BOE-A-2013-5872.pdf",
+    "http://www.boe.es/boe/dias/2010/12/16/pdfs/BOE-A-2010-19334.pdf",
+    "http://www.boe.es/boe/dias/2023/03/28/pdfs/BOE-A-2023-7934.pdf",
+    "http://www.boe.es/boe/dias/2014/03/25/pdfs/BOE-A-2014-3237.pdf",
+    "http://www.boe.es/boe/dias/2011/11/02/pdfs/BOE-A-2011-17279.pdf",
+    "http://www.boe.es/boe/dias/2023/10/30/pdfs/BOE-A-2023-22129.pdf",
+    "http://www.boe.es/boe/dias/2018/03/08/pdfs/BOE-A-2018-3293.pdf",
+    "http://bocyl.jcyl.es/boletines/2019/06/04/pdf/BOCYL-D-04062019-7.pdf",
+    "http://www.boe.es/boe/dias/2014/03/25/pdfs/BOE-A-2014-3236.pdf",
+    "http://www.boe.es/boe/dias/2019/08/26/pdfs/BOE-A-2019-12450.pdf",
+    "http://www.boe.es/boe/dias/2015/12/03/pdfs/BOE-A-2015-13093.pdf",
+    "http://www.boe.es/boe/dias/2005/06/04/pdfs/A18947-18948.pdf",
+    "http://www.boe.es/boe/dias/2011/08/04/pdfs/BOE-A-2011-13386.pdf",
+    "http://www.boe.es/boe/dias/2018/02/05/pdfs/BOE-A-2018-1509.pdf",
+    "http://www.boe.es/boe/dias/2016/10/03/pdfs/BOE-A-2016-9070.pdf",
+    "http://www.boe.es/boe/dias/2022/10/28/pdfs/BOE-A-2022-17598.pdf",
+    "http://www.boe.es/boe/dias/2015/10/21/pdfs/BOE-A-2015-11314.pdf",
+    "http://www.boe.es/boe/dias/2020/05/13/pdfs/BOE-A-2020-4968.pdf",
+    "http://www.boe.es/boe/dias/2015/11/23/pdfs/BOE-A-2015-12682.pdf",
+    "http://www.boe.es/boe/dias/2022/01/15/pdfs/BOE-A-2022-619.pdf",
+    "http://www.boe.es/boe/dias/2016/08/11/pdfs/BOE-A-2016-7794.pdf",
+    "http://www.boe.es/boe/dias/2013/11/15/pdfs/BOE-A-2013-11939.pdf"
+  ],
   "failed_pdf_downloads": {},
   "unreachable_urls": []
 }

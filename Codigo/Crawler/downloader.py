@@ -1,8 +1,11 @@
 import time
 import requests
+import urllib3
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 from config import REQUEST_DELAY, MAX_RETRIES, HTTP_TIMEOUT, USER_AGENT
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 class SkipUniversityException(Exception):
     """Raised when consecutive connection failures exceed 3 cycles of 5-minute pauses for a university."""
@@ -11,10 +14,15 @@ class SkipUniversityException(Exception):
 class RUCTDownloader:
     """
     Handles robust HTTP requests with rate limiting, retries, browser headers,
-    and a circuit breaker for connection resilience:
+    automatic HTTP->HTTPS fallback, and a circuit breaker for connection resilience:
     - 10 consecutive failures -> 5-minute (300s) pause.
     - 3 consecutive 5-minute pauses -> raise SkipUniversityException and log error.
     """
+    DOMAIN_MAPPINGS = {
+        "portaldogc.gencat.cat": "dogc.gencat.cat",
+        "www.boa.aragon.es": "boa.aragon.es"
+    }
+
     def __init__(self, delay=REQUEST_DELAY, max_retries=MAX_RETRIES, timeout=HTTP_TIMEOUT, metrics_tracker=None):
         self.delay = delay
         self.timeout = timeout
@@ -49,6 +57,13 @@ class RUCTDownloader:
         self.consecutive_failures = 0
         self.pause_count_univ = 0
 
+    def _normalize_url(self, url: str) -> str:
+        """Normalizes legacy domains to modern active hostnames."""
+        for old_domain, new_domain in self.DOMAIN_MAPPINGS.items():
+            if old_domain in url:
+                url = url.replace(old_domain, new_domain)
+        return url
+
     def _apply_delay(self):
         """Enforces rate limiting delay between requests."""
         elapsed = time.time() - self.last_request_time
@@ -79,22 +94,36 @@ class RUCTDownloader:
                 raise SkipUniversityException(f"Problemas de conexion continuados en la universidad [{self.current_univ_code}]")
 
     def fetch_content(self, url: str) -> bytes:
-        """Fetches raw content from a URL with connection resilience."""
+        """Fetches raw content from a URL with connection resilience and HTTPS fallback."""
+        url = self._normalize_url(url)
         self._apply_delay()
         t0 = time.perf_counter()
-        try:
-            response = self.session.get(url, timeout=self.timeout)
-            response.raise_for_status()
-            elapsed = time.perf_counter() - t0
-            if self.metrics_tracker:
-                self.metrics_tracker.record_io_time(elapsed)
-            self._handle_connection_success()
-            return response.content
-        except SkipUniversityException:
-            raise
-        except Exception as e:
-            self._handle_connection_failure(str(e))
-            raise e
+
+        urls_to_try = [url]
+        if url.startswith("http://"):
+            urls_to_try.append("https://" + url[7:])
+
+        last_error = None
+        for attempt_idx, target_url in enumerate(urls_to_try, 1):
+            try:
+                verify_ssl = False if target_url.startswith("https://") else True
+                response = self.session.get(target_url, timeout=self.timeout, verify=verify_ssl)
+                response.raise_for_status()
+                elapsed = time.perf_counter() - t0
+                if self.metrics_tracker:
+                    self.metrics_tracker.record_io_time(elapsed)
+                self._handle_connection_success()
+                return response.content
+            except SkipUniversityException:
+                raise
+            except Exception as e:
+                last_error = e
+                if attempt_idx < len(urls_to_try):
+                    print(f"     [Proceso Red] -> Falló conexión a '{target_url}'. Reintentando con HTTPS...")
+                    continue
+
+        self._handle_connection_failure(str(last_error))
+        raise last_error
 
     def fetch_text(self, url: str, encoding="utf-8") -> str:
         """Fetches decoded string content from a URL."""
@@ -102,22 +131,37 @@ class RUCTDownloader:
         return content.decode(encoding, errors="replace")
 
     def download_file(self, url: str, destination_path: str):
-        """Downloads a remote file directly to disk with connection resilience."""
+        """Downloads a remote file directly to disk with connection resilience and HTTPS fallback."""
+        url = self._normalize_url(url)
         self._apply_delay()
         t0 = time.perf_counter()
-        try:
-            with self.session.get(url, stream=True, timeout=self.timeout) as response:
-                response.raise_for_status()
-                with open(destination_path, "wb") as f:
-                    for chunk in response.iter_content(chunk_size=8192):
-                        if chunk:
-                            f.write(chunk)
-            elapsed = time.perf_counter() - t0
-            if self.metrics_tracker:
-                self.metrics_tracker.record_io_time(elapsed)
-            self._handle_connection_success()
-        except SkipUniversityException:
-            raise
-        except Exception as e:
-            self._handle_connection_failure(str(e))
-            raise e
+
+        urls_to_try = [url]
+        if url.startswith("http://"):
+            urls_to_try.append("https://" + url[7:])
+
+        last_error = None
+        for attempt_idx, target_url in enumerate(urls_to_try, 1):
+            try:
+                verify_ssl = False if target_url.startswith("https://") else True
+                with self.session.get(target_url, stream=True, timeout=self.timeout, verify=verify_ssl) as response:
+                    response.raise_for_status()
+                    with open(destination_path, "wb") as f:
+                        for chunk in response.iter_content(chunk_size=8192):
+                            if chunk:
+                                f.write(chunk)
+                elapsed = time.perf_counter() - t0
+                if self.metrics_tracker:
+                    self.metrics_tracker.record_io_time(elapsed)
+                self._handle_connection_success()
+                return
+            except SkipUniversityException:
+                raise
+            except Exception as e:
+                last_error = e
+                if attempt_idx < len(urls_to_try):
+                    print(f"     [Proceso Red] -> Falló conexión HTTP a '{target_url}'. Reintentando con HTTPS...")
+                    continue
+
+        self._handle_connection_failure(str(last_error))
+        raise last_error

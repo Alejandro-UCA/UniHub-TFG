@@ -1,0 +1,28 @@
+{
+  "codigo_estudio": "4313785",
+  "titulo": "Máster Universitario en Gestión Aeronáutica por la Universidad Autónoma de Barcelona",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T07:45:35.803371",
+  "boe_url": "http://www.boe.es/boe/dias/2018/01/22/pdfs/BOE-A-2018-783.pdf",
+  "boe_fecha": "2018-01-22",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2018/01/22/pdfs/BOE-A-2018-783.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {},
+    "total_elementos": 1,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "6 6 6 6 6 6 6 6 12",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 6 6 6 6 6 6 6 12",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

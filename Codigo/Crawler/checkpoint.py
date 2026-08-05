@@ -60,6 +60,8 @@ class CheckpointManager:
                         data["non_study_plan_pdfs"] = []
                     if "failed_pdf_downloads" not in data:
                         data["failed_pdf_downloads"] = {}
+                    if "unreachable_urls" not in data:
+                        data["unreachable_urls"] = []
                     return data
             except Exception:
                 pass
@@ -68,7 +70,8 @@ class CheckpointManager:
             "processed_universities": [],
             "processed_degrees": {},  # Map: degree_code -> {"boe_url": ..., "boe_fecha": ..., "last_updated": ...}
             "non_study_plan_pdfs": [], # URLs de PDFs descartados por no ser de plan de estudios
-            "failed_pdf_downloads": {} # Mapa de URLs fallidas -> {degree_code, reason, timestamp}
+            "failed_pdf_downloads": {}, # Mapa de URLs fallidas -> {degree_code, reason, timestamp}
+            "unreachable_urls": [] # Lista de URLs confirmadas inalcanzables (HTTP + HTTPS rechazada)
         }
 
     def mark_universities_downloaded(self):
@@ -104,6 +107,23 @@ class CheckpointManager:
             self.state["non_study_plan_pdfs"].append(pdf_url)
             self._save()
 
+    def is_unreachable_url(self, pdf_url: str) -> bool:
+        if not is_valid_value(pdf_url):
+            return False
+        with CheckpointManager._lock:
+            disk_state = self._load_checkpoint()
+            unreachable = set(disk_state.get("unreachable_urls", [])).union(set(self.state.get("unreachable_urls", [])))
+            return pdf_url in unreachable
+
+    def mark_unreachable_url(self, pdf_url: str):
+        if not is_valid_value(pdf_url):
+            return
+        if "unreachable_urls" not in self.state:
+            self.state["unreachable_urls"] = []
+        if pdf_url not in self.state["unreachable_urls"]:
+            self.state["unreachable_urls"].append(pdf_url)
+            self._save()
+
     def record_pdf_download_failure(self, pdf_url: str, degree_code: str, reason: str):
         if not is_valid_value(pdf_url):
             return
@@ -114,7 +134,7 @@ class CheckpointManager:
             "motivo_fallo": reason,
             "timestamp": datetime.now().isoformat()
         }
-        self._save()
+        self.mark_unreachable_url(pdf_url)
 
     def get_degree_record(self, degree_code: str) -> dict:
         disk_state = self._load_checkpoint()
@@ -194,6 +214,11 @@ class CheckpointManager:
                         for k, v in disk_failed.items():
                             if k not in self.state["failed_pdf_downloads"]:
                                 self.state["failed_pdf_downloads"][k] = v
+
+                    # Merge unreachable_urls
+                    disk_unreachable = set(disk_state.get("unreachable_urls", []))
+                    local_unreachable = set(self.state.get("unreachable_urls", []))
+                    self.state["unreachable_urls"] = list(disk_unreachable.union(local_unreachable))
                 except Exception:
                     pass
 

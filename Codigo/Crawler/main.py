@@ -332,9 +332,13 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                     cand_url = cand["url"]
                     cand_date = cand.get("boe_date")
 
-                    # Omitir descarga si previamente se verificó que NO es un plan de estudios
+                    # Omitir descarga si previamente se verificó que NO es un plan de estudios o es inalcanzable
                     if checkpoint.is_non_study_plan_pdf(cand_url):
                         print(f"     [Proceso Red] -> PDF #{cand_idx} previamente descartado (NO es plan de estudios). Omitiendo descarga.")
+                        continue
+
+                    if checkpoint.is_unreachable_url(cand_url):
+                        print(f"     [Proceso Red] -> PDF #{cand_idx} previamente registrado como inalcanzable (servidor inactivo). Omitiendo descarga.")
                         continue
 
                     pdf_path = os.path.join(TEMP_PDF_DIR, f"{d_code}_candidate_{cand_idx}.pdf")

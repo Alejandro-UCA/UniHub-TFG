@@ -3,8 +3,14 @@
     "universidad_codigo": "086",
     "universidad_nombre": "Centros dependientes del Ministerio de Defensa",
     "tipo": "Pública",
-    "total_titulaciones_vigentes": 3,
+    "total_titulaciones_vigentes": 4,
     "titulaciones_vigentes": [
+      {
+        "codigo_estudio": "5601528",
+        "titulo": "Programa de Doctorado en Ingeniería de Armas Navales por la Escuela Técnica Superior de Ingenieros de Armas Navales",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
       {
         "codigo_estudio": "4317709",
         "titulo": "Máster en Ingeniería de Armamento y Material por la Escuela Politécnica Superior del Ejército",
@@ -29,57 +35,1840 @@
     "universidad_codigo": "105",
     "universidad_nombre": "Centros extranjeros autorizados por la Comunidad Autónoma de Aragón",
     "tipo": "Pública",
-    "total_titulaciones_vigentes": 0,
-    "titulaciones_vigentes": []
+    "total_titulaciones_vigentes": 12,
+    "titulaciones_vigentes": [
+      {
+        "codigo_estudio": "8000084",
+        "titulo": "Bachelor of Arts (Honours) Business Management - BA (Hons) Business Management",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000077",
+        "titulo": "Bachelor of Arts (Honours) in Business Administration - BA (Hons) in Business Administration",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000085",
+        "titulo": "Bachelor of Science (Honours) Applied Computing - BSc (Hons) Applied Computing",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000078",
+        "titulo": "Bachelor of Science (Honours) in Computer Science - BSc (Hons) in Computer Science",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000082",
+        "titulo": "Foundation Certificate in Business - FC in Business",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000083",
+        "titulo": "Foundation Certificate in Information Technology - FC in Information Technology",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000080",
+        "titulo": "Master of Arts in Banking and Finance - MA in Banking and Finance",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000086",
+        "titulo": "Master of Business Administration - MBA",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000088",
+        "titulo": "Master of Science Computer Networks and Security - MSc Computer Networks and Security",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000087",
+        "titulo": "Master of Science Financial Management - MSc Financial Management",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000081",
+        "titulo": "Master of Science in Communication Technology - MSc in Communication Technology",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000101",
+        "titulo": "MSc (Master of Science) Software Engineering and Artificial Intelligence",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      }
+    ]
   },
   "092": {
     "universidad_codigo": "092",
     "universidad_nombre": "Centros extranjeros autorizados por la Comunidad Autónoma de Cantabria",
     "tipo": "Pública",
-    "total_titulaciones_vigentes": 0,
-    "titulaciones_vigentes": []
+    "total_titulaciones_vigentes": 3,
+    "titulaciones_vigentes": [
+      {
+        "codigo_estudio": "8000054",
+        "titulo": "BA (Honours) in Advertising, Marketing Communications and Public Relations",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000055",
+        "titulo": "BA (Honours) in International Business Management",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000053",
+        "titulo": "BA (Honours) in Journalism",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      }
+    ]
   },
   "101": {
     "universidad_codigo": "101",
     "universidad_nombre": "Centros extranjeros autorizados por la Comunidad Autónoma de Cataluña",
     "tipo": "Pública",
-    "total_titulaciones_vigentes": 0,
-    "titulaciones_vigentes": []
+    "total_titulaciones_vigentes": 8,
+    "titulaciones_vigentes": [
+      {
+        "codigo_estudio": "8000063",
+        "titulo": "BA (Hons) Business Management",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000066",
+        "titulo": "Bachelor in Management",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000068",
+        "titulo": "Bachelor of Arts Business Administration",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000103",
+        "titulo": "Bachelor of Business Administration and Digital Innovation",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000067",
+        "titulo": "Master in Management",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000112",
+        "titulo": "Master of Business Administration (MBA)",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000102",
+        "titulo": "Master of Science (MSc) in Management",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000113",
+        "titulo": "MSc International Business Management",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      }
+    ]
   },
   "095": {
     "universidad_codigo": "095",
     "universidad_nombre": "Centros extranjeros autorizados por la Comunidad Autónoma del País Vasco",
     "tipo": "Pública",
-    "total_titulaciones_vigentes": 0,
-    "titulaciones_vigentes": []
+    "total_titulaciones_vigentes": 4,
+    "titulaciones_vigentes": [
+      {
+        "codigo_estudio": "8000076",
+        "titulo": "Bachelor of Fine Arts in Digital Art and Animation",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000124",
+        "titulo": "Bachelor of Science in Computer Science and Game Design (BSGD)",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000125",
+        "titulo": "Bachelor of Science in Computer Science in Artificial Intelligence (BSAI)",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000075",
+        "titulo": "Bachelor of Science in Computer Science in Real-Time Interactive Simulation",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      }
+    ]
   },
   "093": {
     "universidad_codigo": "093",
     "universidad_nombre": "Centros extranjeros autorizados por la Comunidad de Andalucía",
     "tipo": "Pública",
-    "total_titulaciones_vigentes": 0,
-    "titulaciones_vigentes": []
+    "total_titulaciones_vigentes": 45,
+    "titulaciones_vigentes": [
+      {
+        "codigo_estudio": "8000046",
+        "titulo": "B. Sc. (Honours) in Architecture",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000043",
+        "titulo": "B. Sc. (Honours) in Environmental Sciencies",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000047",
+        "titulo": "B. Sc. (Honours) in Physical Education and Sport",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000048",
+        "titulo": "B. Sc. (Honours) in Political Science and Administration",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000045",
+        "titulo": "B. Sc. (Honours) in Technical Architecture",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000044",
+        "titulo": "BA (Honours) in Communications, Advertising and Public Relations",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000064",
+        "titulo": "BA (Honours) in Information Sciences, Advertising and Public Relations",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000042",
+        "titulo": "BA (Honours) in Law",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000069",
+        "titulo": "BA (Hons) Advertising and Brand Design",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000091",
+        "titulo": "BA (Hons) Animation and VFX",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000070",
+        "titulo": "BA (Hons) Business Management",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000090",
+        "titulo": "BA (Hons) Computer Games Design",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000111",
+        "titulo": "BA (Hons) Education Studies",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000092",
+        "titulo": "BA (Hons) Hospitality and Hotel Management",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000093",
+        "titulo": "BA (Hons) International Business Management",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000110",
+        "titulo": "BA (Hons) International Hospitality Management",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000122",
+        "titulo": "BA (Hons) Law and International Studies",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000095",
+        "titulo": "BA (Hons) Marketing and Social Media",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000071",
+        "titulo": "BA (Hons) Physical Education",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000094",
+        "titulo": "BA (Hons) Politics and International Relations",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000099",
+        "titulo": "Bachelor en sciences du management-Diplôme de management international. Grade de licence",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000040",
+        "titulo": "Bachelor of Arts (Honours) in Communications (Journalism)",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000041",
+        "titulo": "Bachelor of Arts (Honours) in Marketing (Research and Techniques)",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000038",
+        "titulo": "Bachelor of Arts in Business Administration",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000057",
+        "titulo": "Bachelor of Science in Communications",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000056",
+        "titulo": "Bachelor of Science in Journalist",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000059",
+        "titulo": "Bachelor of Science in Management",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000058",
+        "titulo": "Bachelor of Science Political Science",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000108",
+        "titulo": "BSc (Hons) Economics and Finance",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000109",
+        "titulo": "BSc (Hons) International Business Management",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000123",
+        "titulo": "BSc (Hons) Psychology",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000089",
+        "titulo": "BSc (Hons) Sport and Exercise Science",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000037",
+        "titulo": "Diploma in Business Administration",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000039",
+        "titulo": "Diploma in Communications (Journalism)",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000096",
+        "titulo": "MA International Relations",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000073",
+        "titulo": "MA Physical Education, Sport and Physical Literacy",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000074",
+        "titulo": "MA Visual Communication",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000060",
+        "titulo": "Master of Science in Communications",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000062",
+        "titulo": "Master of Science in Management",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000061",
+        "titulo": "Master of Science in Political Science",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000098",
+        "titulo": "Masters in Business Administration",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000072",
+        "titulo": "MBA",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000121",
+        "titulo": "MSc Digital Marketing",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000097",
+        "titulo": "MSc International Business Management",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000100",
+        "titulo": "Programme grande école. Grade de master",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      }
+    ]
   },
   "091": {
     "universidad_codigo": "091",
     "universidad_nombre": "Centros extranjeros autorizados por la Comunidad de Madrid",
     "tipo": "Pública",
-    "total_titulaciones_vigentes": 0,
-    "titulaciones_vigentes": []
+    "total_titulaciones_vigentes": 49,
+    "titulaciones_vigentes": [
+      {
+        "codigo_estudio": "8000026",
+        "titulo": "Associate of Artes in Liberal Studies",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000025",
+        "titulo": "Associate of Arts in Liberal Studies with a Concentration in Communications",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000024",
+        "titulo": "Associate of Science in Business",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000020",
+        "titulo": "Associate of Science in International Business",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000000",
+        "titulo": "Bachelor in Art History",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000001",
+        "titulo": "Bachelor in Communication",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000002",
+        "titulo": "Bachelor in Computer Science",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000003",
+        "titulo": "Bachelor in Economics",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000004",
+        "titulo": "Bachelor in English",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000005",
+        "titulo": "Bachelor in History",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000006",
+        "titulo": "Bachelor in International Business",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000007",
+        "titulo": "Bachelor in International Studies",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000030",
+        "titulo": "Bachelor in Management / Diplôme d'études supérieures en commerce et en entrepreneuriat",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000008",
+        "titulo": "Bachelor in Marketing",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000009",
+        "titulo": "Bachelor in Philosophy",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000010",
+        "titulo": "Bachelor in Political Science",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000011",
+        "titulo": "Bachelor in Psychology",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000012",
+        "titulo": "Bachelor in Spanish",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000049",
+        "titulo": "Bachelor of Arts, B.A.",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000018",
+        "titulo": "Bachelor of Arts in International Hospitality and Tourism Management",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000029",
+        "titulo": "Bachelor of Arts in International Studies",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000051",
+        "titulo": "Bachelor of Fine Arts, B.F.A.",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000050",
+        "titulo": "Bachelor of Science, B.S.",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000052",
+        "titulo": "Bachelor of Science Business in Administration, B.S.B.A.",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000114",
+        "titulo": "Bachelor of Science in Applied Mathematics and Artificial Intelligence",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000120",
+        "titulo": "Bachelor of Science in Business Analytics",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000027",
+        "titulo": "Bachelor of Science in Business Management",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000019",
+        "titulo": "Bachelor of Science in Digital Business",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000015",
+        "titulo": "Bachelor of Science in International Business",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000016",
+        "titulo": "Bachelor of Science in International Economics",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000017",
+        "titulo": "Bachelor of Science in international Relations and Diplomacy",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000028",
+        "titulo": "Bachelor of Science in Marketing Communication",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000034",
+        "titulo": "Licenciatura en Administración de Empresas",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000033",
+        "titulo": "Licenciatura en Entrepreunership",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000036",
+        "titulo": "Maestría en Economía",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000035",
+        "titulo": "Máster in Business Administration (MBA)",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000031",
+        "titulo": "Master in Management / Programme Grande Ecole",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000013",
+        "titulo": "Master in Political Science and Public Affairs",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000014",
+        "titulo": "Master in Spanish",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000115",
+        "titulo": "Master of Arts in International Relations and Diplomacy",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000118",
+        "titulo": "Master of Science in Data Science",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000116",
+        "titulo": "Master of Science in Digital Marketing and E-Commerce",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000117",
+        "titulo": "Master of Science in Global Finance",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000119",
+        "titulo": "Master of Science in Sustainability Management",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000065",
+        "titulo": "Master of Science (MSC)/Diplôme dÉtudes Avancées en Management International des Entreprises",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000022",
+        "titulo": "Master's in Business Administration",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000023",
+        "titulo": "Master's in International Business",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000021",
+        "titulo": "Master's in international Hospitality and Tourism Management",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000032",
+        "titulo": "MBA in International Management / Diplôme d'enseignement supérieur en management international",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      }
+    ]
   },
   "096": {
     "universidad_codigo": "096",
     "universidad_nombre": "Centros extranjeros autorizados por la Comunidad Valenciana",
     "tipo": "Pública",
-    "total_titulaciones_vigentes": 0,
-    "titulaciones_vigentes": []
+    "total_titulaciones_vigentes": 4,
+    "titulaciones_vigentes": [
+      {
+        "codigo_estudio": "8000104",
+        "titulo": "Bachelor of Arts (Honours) in Digital Media (Top-Up)",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000105",
+        "titulo": "Bachelor of Arts (Honours) in Photography (Top-Up)",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000107",
+        "titulo": "Master of Arts in Illustration and Animation",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "8000106",
+        "titulo": "Master of Arts in Photography",
+        "nivel_academico": "Título Extranjero",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      }
+    ]
   },
   "022": {
     "universidad_codigo": "022",
     "universidad_nombre": "Universidad Autónoma de Barcelona",
     "tipo": "Pública",
-    "total_titulaciones_vigentes": 394,
+    "total_titulaciones_vigentes": 566,
     "titulaciones_vigentes": [
+      {
+        "codigo_estudio": "4001663",
+        "titulo": "Doctor en Programa Oficial de Posgrado en Arte y Musicología",
+        "nivel_academico": "Doctor - RD 56/2005 (2)",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "4000110",
+        "titulo": "Doctor en Programa Oficial de Posgrado en Biociencias",
+        "nivel_academico": "Doctor - RD 56/2005 (2)",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "4000860",
+        "titulo": "Doctor en Programa Oficial de Posgrado en Ciencia Política",
+        "nivel_academico": "Doctor - RD 56/2005 (2)",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "4000111",
+        "titulo": "Doctor en Programa Oficial de Posgrado en Ciencia y Tecnología Ambientales",
+        "nivel_academico": "Doctor - RD 56/2005 (2)",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "4000112",
+        "titulo": "Doctor en Programa Oficial de Posgrado en Ciencias",
+        "nivel_academico": "Doctor - RD 56/2005 (2)",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "4000861",
+        "titulo": "Doctor en Programa Oficial de Posgrado en Ciencias de la Educación",
+        "nivel_academico": "Doctor - RD 56/2005 (2)",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "4001666",
+        "titulo": "Doctor en Programa Oficial de Posgrado en Derecho",
+        "nivel_academico": "Doctor - RD 56/2005 (2)",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "4000113",
+        "titulo": "Doctor en Programa Oficial de Posgrado en Economía y Empresa",
+        "nivel_academico": "Doctor - RD 56/2005 (2)",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "4000862",
+        "titulo": "Doctor en Programa Oficial de Posgrado en Estudios Europeos",
+        "nivel_academico": "Doctor - RD 56/2005 (2)",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "4000115",
+        "titulo": "Doctor en Programa Oficial de Posgrado en Estudios Sociales y Culturales",
+        "nivel_academico": "Doctor - RD 56/2005 (2)",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "4000863",
+        "titulo": "Doctor en Programa Oficial de Posgrado en Filosofía y Humanidades",
+        "nivel_academico": "Doctor - RD 56/2005 (2)",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "4000116",
+        "titulo": "Doctor en Programa Oficial de Posgrado en Geografía, Demografía y Planificación Territorial",
+        "nivel_academico": "Doctor - RD 56/2005 (2)",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "4000864",
+        "titulo": "Doctor en Programa Oficial de Posgrado en Historia",
+        "nivel_academico": "Doctor - RD 56/2005 (2)",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "4000114",
+        "titulo": "Doctor en Programa Oficial de Posgrado en Ingeniería",
+        "nivel_academico": "Doctor - RD 56/2005 (2)",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "4000865",
+        "titulo": "Doctor en Programa Oficial de Posgrado en Lengua y Literatura",
+        "nivel_academico": "Doctor - RD 56/2005 (2)",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "4000552",
+        "titulo": "Doctor en Programa Oficial de Posgrado en Medicina y Salud",
+        "nivel_academico": "Doctor - RD 56/2005 (2)",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "4000553",
+        "titulo": "Doctor en Programa Oficial de Posgrado en Psicología",
+        "nivel_academico": "Doctor - RD 56/2005 (2)",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "4000554",
+        "titulo": "Doctor en Programa Oficial de Posgrado en Sociología",
+        "nivel_academico": "Doctor - RD 56/2005 (2)",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "4000119",
+        "titulo": "Doctor en Programa Oficial de Posgrado en Traducción, Interpretación y sus Contextos Socioculturales",
+        "nivel_academico": "Doctor - RD 56/2005 (2)",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "4000120",
+        "titulo": "Doctor en Programa Oficial de Posgrado en Veterinaria y Ciencias Alimentarias",
+        "nivel_academico": "Doctor - RD 56/2005 (2)",
+        "estado": "Autorizado por Comunidad Aut&oacute;noma"
+      },
+      {
+        "codigo_estudio": "5600106",
+        "titulo": "Programa de Doctorado en Acuicultura por la Universidad Autónoma de Barcelona y la Universidad de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600097",
+        "titulo": "Programa de Doctorado en Análisis Económico por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600163",
+        "titulo": "Programa de Doctorado en Antropología Social y Cultural por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600396",
+        "titulo": "Programa de Doctorado en Arqueología Clásica por la Universidad Autónoma de Barcelona y la Universidad Rovira i Virgili",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601035",
+        "titulo": "Programa de Doctorado en Arqueología Prehistórica por la Universidad Autónoma de Barcelona y la Universidad de Cantabria",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601136",
+        "titulo": "Programa de Doctorado en Biodiversidad por la Universidad Autónoma de Barcelona y la Universidad de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601480",
+        "titulo": "Programa de Doctorado en Bioinformática / Bioinformatics por la Universidad Autónoma de Barcelona; la Universidad de Barcelona; la Universidad de Girona; la Universidad de Lleida; la Universidad de Vic-Universidad Central de Catalunya; la Universidad Politécnica de Catalunya; la Universidad Rovira i Virgili y la Universitat Oberta de Catalunya",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601327",
+        "titulo": "Programa de Doctorado en Bioinformática / Doctorate in Bioinformatics por la Universidad Autónoma de Barcelona; la Universidad de Girona; la Universidad de Lleida; la Universidad de Vic-Universidad Central de Catalunya; la Universidad Politécnica de Catalunya y la Universitat Oberta de Catalunya",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601031",
+        "titulo": "Programa de Doctorado en Biología Celular por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600161",
+        "titulo": "Programa de Doctorado en Biología y Biotecnología Vegetal por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600594",
+        "titulo": "Programa de Doctorado en Bioquímica, Biología Molecular y Biomedicina por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600146",
+        "titulo": "Programa de Doctorado en Biotecnología por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601140",
+        "titulo": "Programa de Doctorado en Ciencia Cognitiva y Lenguaje por la Universidad Autónoma de Barcelona; la Universidad de Barcelona y la Universidad Rovira i Virgili",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600164",
+        "titulo": "Programa de Doctorado en Ciencia de los Alimentos por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600169",
+        "titulo": "Programa de Doctorado en Ciencia de Materiales por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601121",
+        "titulo": "Programa de Doctorado en Ciencia Política, Políticas Públicas y Relaciones Internacionales / Politics, Policies and International Relations por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600237",
+        "titulo": "Programa de Doctorado en Ciencia y Tecnología Ambientales por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601361",
+        "titulo": "Programa de Doctorado en Ciencias de la Antigüedad y la Edad Media por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601481",
+        "titulo": "Programa de Doctorado en Ciencias del Deporte por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600168",
+        "titulo": "Programa de Doctorado en Cirugía y Ciencias Morfológicas por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601002",
+        "titulo": "Programa de Doctorado en Comunicación Audiovisual y Publicidad por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601291",
+        "titulo": "Programa de Doctorado en Comunicación Estratégica, Publicidad y Relaciones Públicas por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600175",
+        "titulo": "Programa de Doctorado en Comunicación y Periodismo por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600098",
+        "titulo": "Programa de Doctorado en Creación y Gestión de Empresas / IDEM, Doctorate Program in Entrepreneurship and Management por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601056",
+        "titulo": "Programa de Doctorado en Culturas en Contacto en el Mediterráneo por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600147",
+        "titulo": "Programa de Doctorado en Demografía por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601057",
+        "titulo": "Programa de Doctorado en Derecho por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601512",
+        "titulo": "Programa de Doctorado en Didáctica de las Ciencias Experimentales por la Universidad Autónoma de Barcelona; la Universidad Complutense de Madrid; la Universidad de Alicante; la Universidad de Almería; la Universidad de Castilla-La Mancha; la Universidad de Cádiz; la Universidad de Córdoba; la Universidad de Girona; la Universidad de Jaén; la Universidad de Murcia; la Universidad de Málaga; la Universidad de Santiago de Compostela; la Universidad de Zaragoza y la Universidad del País Vasco/Euskal Herriko Unibertsitatea",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600166",
+        "titulo": "Programa de Doctorado en Ecología Terrestre por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601030",
+        "titulo": "Programa de Doctorado en Economía Aplicada por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600272",
+        "titulo": "Programa de Doctorado en Economía, Organización y Gestión (Business Economics) / Doctorate Program in Economics, Management and Organization por la Universidad Autónoma de Barcelona; la Universidad Pública de Navarra y la Universitat de les Illes Balears",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600222",
+        "titulo": "Programa de Doctorado en Educación por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600570",
+        "titulo": "Programa de Doctorado en Electroquímica. Ciencia y Tecnología por la Universidad Autónoma de Barcelona; la Universidad Autónoma de Madrid; la Universidad de Alicante; la Universidad de Barcelona; la Universidad de Burgos; la Universidad de Córdoba; la Universidad de Lleida; la Universidad de Murcia; la Universidad de Sevilla; la Universidad Politécnica de Cartagena y la Universitat de València (Estudi General)",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601154",
+        "titulo": "Programa de Doctorado en Estudios de Género: Culturas, Sociedades y Políticas por la Universidad Autónoma de Barcelona; la Universidad de Barcelona; la Universidad de Girona; la Universidad de Vic-Universidad Central de Catalunya y la Universidad Rovira i Virgili",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601050",
+        "titulo": "Programa de Doctorado en Farmacología por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600230",
+        "titulo": "Programa de Doctorado en Filología Española por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600101",
+        "titulo": "Programa de Doctorado en Filología Inglesa por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601058",
+        "titulo": "Programa de Doctorado en Filosofía por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600245",
+        "titulo": "Programa de Doctorado en Física por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600213",
+        "titulo": "Programa de Doctorado en Genética por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600474",
+        "titulo": "Programa de Doctorado en Geografía por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600879",
+        "titulo": "Programa de Doctorado en Geología por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600236",
+        "titulo": "Programa de Doctorado en Historia Comparada, Política y Social por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600103",
+        "titulo": "Programa de Doctorado en Historia de la Ciencia por la Universidad Autónoma de Barcelona y la Universidad de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600558",
+        "titulo": "Programa de Doctorado en Historia del Arte y Musicología por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600243",
+        "titulo": "Programa de Doctorado en Informática por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600882",
+        "titulo": "Programa de Doctorado en Ingeniería Electrónica y de Telecomunicación por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601092",
+        "titulo": "Programa de Doctorado en Inmunología Avanzada por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601059",
+        "titulo": "Programa de Doctorado en Lengua y Literatura Catalanas y Estudios Teatrales por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601053",
+        "titulo": "Programa de Doctorado en Lenguas y Culturas Románicas por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600220",
+        "titulo": "Programa de Doctorado en Matemáticas por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600242",
+        "titulo": "Programa de Doctorado en Medicina por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600214",
+        "titulo": "Programa de Doctorado en Medicina y Sanidad Animales por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601127",
+        "titulo": "Programa de Doctorado en Medios, Comunicación y Cultura por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601032",
+        "titulo": "Programa de Doctorado en Metodología de la Investigación Biomédica y Salud Pública por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600479",
+        "titulo": "Programa de Doctorado en Microbiología por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600239",
+        "titulo": "Programa de Doctorado en Neurociencias por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601033",
+        "titulo": "Programa de Doctorado en Pediatría, Obstetricia y Ginecología por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600902",
+        "titulo": "Programa de Doctorado en Persona y Sociedad en el Mundo Contemporáneo por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600221",
+        "titulo": "Programa de Doctorado en Producción Animal por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600100",
+        "titulo": "Programa de Doctorado en Psicología Clínica y de la Salud por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601054",
+        "titulo": "Programa de Doctorado en Psicología de la Comunicación y Cambio por la Universidad Autónoma de Barcelona y la Universidad de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601167",
+        "titulo": "Programa de Doctorado en Psicología de la Educación por la Universidad Autónoma de Barcelona; la Universidad de Barcelona; la Universidad de Girona y la Universidad Ramón Llull",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601051",
+        "titulo": "Programa de Doctorado en Psicología de la Salud y del Deporte por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600470",
+        "titulo": "Programa de Doctorado en Psiquiatría por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600219",
+        "titulo": "Programa de Doctorado en Química por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601113",
+        "titulo": "Programa de Doctorado en Seguridad Humana y Derecho Global por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600160",
+        "titulo": "Programa de Doctorado en Sociología por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601055",
+        "titulo": "Programa de Doctorado en Teoría de la Literatura y Literatura Comparada por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600218",
+        "titulo": "Programa de Doctorado en Traducción y Estudios Interculturales por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5601364",
+        "titulo": "Programa de Doctorado en Turismo por la Universidad Autónoma de Barcelona",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5600127",
+        "titulo": "Programa de Doctorado Erasmus Mundus en Derecho, Ciencia y Tecnología / Doctorate in Law, Science and Technology por la Universidad Autónoma de Barcelona; Alma Mater Studiorum - Universitâ di Bologna (Italia); Mykolo Romerio Universitetas(Lituania); Università degli Studi di Torino(Italia) y Université du Luxembourg(Luxemburgo)",
+        "nivel_academico": "Doctor - RD 99/2011 (0)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5311106",
+        "titulo": "Programa Oficial de Doctorado en Acuicultura",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310018",
+        "titulo": "Programa Oficial de Doctorado en Análisis Económico",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310019",
+        "titulo": "Programa Oficial de Doctorado en Antropología Social y Cultural",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310020",
+        "titulo": "Programa Oficial de Doctorado en Arqueología Prehistórica",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310021",
+        "titulo": "Programa Oficial de Doctorado en Biodiversidad",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5311907",
+        "titulo": "Programa Oficial de Doctorado en Biología Animal",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310022",
+        "titulo": "Programa Oficial de Doctorado en Biología Celular",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310024",
+        "titulo": "Programa Oficial de Doctorado en Biología y Biotecnología Vegetal",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310025",
+        "titulo": "Programa Oficial de Doctorado en Bioquímica, Biología Molecular y Biomedicina",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310026",
+        "titulo": "Programa Oficial de Doctorado en Biotecnología",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310027",
+        "titulo": "Programa Oficial de Doctorado en Ciencia Cognitiva y Lenguaje",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310028",
+        "titulo": "Programa Oficial de Doctorado en Ciencia de los Alimentos",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310029",
+        "titulo": "Programa Oficial de Doctorado en Ciencia de Materiales",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310030",
+        "titulo": "Programa Oficial de Doctorado en Ciencia Política",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310031",
+        "titulo": "Programa Oficial de Doctorado en Ciencia y Tecnología Ambientales",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5311783",
+        "titulo": "Programa Oficial de Doctorado en Cirugía",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5311108",
+        "titulo": "Programa Oficial de Doctorado en Computación de Altas Prestaciones",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310032",
+        "titulo": "Programa Oficial de Doctorado en Comunicación Audiovisual y Publicidad",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310033",
+        "titulo": "Programa Oficial de Doctorado en Comunicación y Periodismo",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310034",
+        "titulo": "Programa Oficial de Doctorado en Contenidos de Comunicación en la Era Digital",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310035",
+        "titulo": "Programa Oficial de Doctorado en Culturas en Contacto en el Mediterráneo",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310036",
+        "titulo": "Programa Oficial de Doctorado en Demografía",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310037",
+        "titulo": "Programa Oficial de Doctorado en Derecho Privado",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5311784",
+        "titulo": "Programa Oficial de Doctorado en Derecho Público Global",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5311908",
+        "titulo": "Programa Oficial de Doctorado en Derecho Público y Filosofía Juridicopolítica",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5311909",
+        "titulo": "Programa Oficial de Doctorado en Didáctica de la Educación Física, de las Artes Visuales, de la Música y de la Voz",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5311823",
+        "titulo": "Programa Oficial de Doctorado en Didáctica de la Historia, la Geografía y las Ciencias Sociales",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310038",
+        "titulo": "Programa Oficial de Doctorado en Didáctica de la Lengua y de la Literatura",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310039",
+        "titulo": "Programa Oficial de Doctorado en Didáctica de las Matemáticas y de las Ciencias",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310040",
+        "titulo": "Programa Oficial de Doctorado en Ecología Terrestre",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310041",
+        "titulo": "Programa Oficial de Doctorado en Economía Aplicada",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5311283",
+        "titulo": "Programa Oficial de Doctorado en Economía, Organización y Gestión (Business Economics)",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310042",
+        "titulo": "Programa Oficial de Doctorado en Educación",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5311785",
+        "titulo": "Programa Oficial de Doctorado en Egiptología",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310078",
+        "titulo": "Programa Oficial de Doctorado en Electroquímica. Ciencia y Tecnología",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310044",
+        "titulo": "Programa Oficial de Doctorado en Farmacología",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310045",
+        "titulo": "Programa Oficial de Doctorado en Filología Española",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310046",
+        "titulo": "Programa Oficial de Doctorado en Filología Inglesa",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5311489",
+        "titulo": "Programa Oficial de Doctorado en Filosofía",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310047",
+        "titulo": "Programa Oficial de Doctorado en Física",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310048",
+        "titulo": "Programa Oficial de Doctorado en Genética",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310049",
+        "titulo": "Programa Oficial de Doctorado en Geografía",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310050",
+        "titulo": "Programa Oficial de Doctorado en Geología",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310051",
+        "titulo": "Programa Oficial de Doctorado en Historia Comparada, Política y Social",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310052",
+        "titulo": "Programa Oficial de Doctorado en Historia de la Ciencia",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310053",
+        "titulo": "Programa Oficial de Doctorado en Historia del Arte y Musicología",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310054",
+        "titulo": "Programa Oficial de Doctorado en Historia Económica",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310055",
+        "titulo": "Programa Oficial de Doctorado en Informática",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5311109",
+        "titulo": "Programa Oficial de Doctorado en Ingeniería Electrónica",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310056",
+        "titulo": "Programa Oficial de Doctorado en Inmunología",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5311910",
+        "titulo": "Programa Oficial de Doctorado en Inteligencia Ambiental y Accesibilidad",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310057",
+        "titulo": "Programa Oficial de Doctorado en Internacional en Creación y Gestión de Empresas",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310058",
+        "titulo": "Programa Oficial de Doctorado en Lengua y Literatura Catalanas y Estudios Teatrales",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310059",
+        "titulo": "Programa Oficial de Doctorado en Lenguas y Culturas Románicas",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5311115",
+        "titulo": "Programa Oficial de Doctorado en Matemáticas",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5311824",
+        "titulo": "Programa Oficial de Doctorado en Medicina",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310060",
+        "titulo": "Programa Oficial de Doctorado en Medicina y Sanidad Animales",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5311786",
+        "titulo": "Programa Oficial de Doctorado en Medios, Comunicación y Cultura",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310061",
+        "titulo": "Programa Oficial de Doctorado en Microbiología",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5311110",
+        "titulo": "Programa Oficial de Doctorado en Microelectrónica y Sistemas Electrónicos",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5311825",
+        "titulo": "Programa Oficial de Doctorado en Morfología y Patología Estructural y Molecular",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310062",
+        "titulo": "Programa Oficial de Doctorado en Neurociencias",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310063",
+        "titulo": "Programa Oficial de Doctorado en Pediatría, Obstetricia y Ginecología, Medicina Preventiva y Salud Pública",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310064",
+        "titulo": "Programa Oficial de Doctorado en Políticas Públicas y Transformación Social",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310065",
+        "titulo": "Programa Oficial de Doctorado en Producción Animal",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310066",
+        "titulo": "Programa Oficial de Doctorado en Psicología",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5311111",
+        "titulo": "Programa Oficial de Doctorado en Psicología Clínica y de la Salud",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310067",
+        "titulo": "Programa Oficial de Doctorado en Psicología de la Educación",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310068",
+        "titulo": "Programa Oficial de Doctorado en Psicología de la Salud y Psicología del Deporte",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310069",
+        "titulo": "Programa Oficial de Doctorado en Psicología Social",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5311826",
+        "titulo": "Programa Oficial de Doctorado en Psiquiatría",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5311787",
+        "titulo": "Programa Oficial de Doctorado en Publicidad y Relaciones Públicas",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310070",
+        "titulo": "Programa Oficial de Doctorado en Química",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5311112",
+        "titulo": "Programa Oficial de Doctorado en Química Teórica y Computacional",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310071",
+        "titulo": "Programa Oficial de Doctorado en Relaciones Internacionales e Integración Europea",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310072",
+        "titulo": "Programa Oficial de Doctorado en Sociología",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310073",
+        "titulo": "Programa Oficial de Doctorado en Telecomunicación e Ingeniería de Sistemas",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310074",
+        "titulo": "Programa Oficial de Doctorado en Teoría de la Literatura y Literatura Comparada",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "5310075",
+        "titulo": "Programa Oficial de Doctorado en Traducción y Estudios Interculturales",
+        "nivel_academico": "Doctor - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
       {
         "codigo_estudio": "2501572",
         "titulo": "Graduado o Graduada en Administración y Dirección de Empresas por la Universidad Autónoma de Barcelona",
@@ -2442,6 +4231,12 @@
         "codigo_estudio": "4317926",
         "titulo": "Máster Universitario Erasmus Mundus en Sanidad Acuícola / Erasmus Mundus Master of Science in Health Management in Aquaculture por la Universidad Autónoma de Barcelona; la Universidad de Barcelona; Norges Teknisk-Naturvitenskapelige Universitet(Noruega); Universiteit Gent(Bélgica) y Wageningen Universiteit(Países Bajos)",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "9000001",
+        "titulo": "Graduado Superior en Biotecnología",
+        "nivel_academico": "Título Equivalente",
         "estado": "Publicado en B.O.E."
       }
     ]

@@ -1,505 +1,636 @@
 {
   "universities_downloaded": false,
   "processed_universities": [
-    "095",
-    "101",
-    "105",
-    "086",
-    "092",
-    "093",
     "091",
+    "101",
+    "093",
+    "095",
+    "086",
+    "105",
+    "092",
     "096"
   ],
   "processed_degrees": {
     "4317706": {
       "boe_url": "http://www.boe.es/boe/dias/2021/06/17/pdfs/BOE-A-2021-10088.pdf",
       "boe_fecha": "2021-06-17",
-      "last_updated": "2026-08-05T13:48:33.051947"
+      "last_updated": "2026-08-05T13:53:48.446656"
     },
     "4317708": {
       "boe_url": "http://www.boe.es/boe/dias/2021/06/17/pdfs/BOE-A-2021-10088.pdf",
       "boe_fecha": "2021-06-17",
-      "last_updated": "2026-08-05T13:48:34.693071"
+      "last_updated": "2026-08-05T13:53:50.056689"
     },
     "4317709": {
       "boe_url": "http://www.boe.es/boe/dias/2021/06/17/pdfs/BOE-A-2021-10088.pdf",
       "boe_fecha": "2021-06-17",
-      "last_updated": "2026-08-05T13:48:36.667060"
+      "last_updated": "2026-08-05T13:53:52.013658"
     },
-    "4317926": {
-      "boe_url": "https://www.boe.es/boe/dias/2022/11/16/pdfs/BOE-A-2022-18885.pdf",
-      "boe_fecha": "2022-11-16",
-      "last_updated": "2026-08-05T13:48:47.944165"
+    "5601528": {
+      "boe_url": "http://www.boe.es/boe/dias/2024/04/17/pdfs/BOE-A-2024-7595.pdf",
+      "boe_fecha": "2024-04-17",
+      "last_updated": "2026-08-05T13:53:53.800854"
     },
-    "4312993": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7383/1615881.pdf",
-      "boe_fecha": "2017-05-29",
-      "last_updated": "2026-08-05T13:48:49.974621"
-    },
-    "4311353": {
-      "boe_url": "http://www.boe.es/boe/dias/2015/03/26/pdfs/BOE-A-2015-3221.pdf",
-      "boe_fecha": "2015-03-26",
-      "last_updated": "2026-08-05T13:48:54.224660"
-    },
-    "4313295": {
-      "boe_url": "http://www.boe.es/boe/dias/2021/03/27/pdfs/BOE-A-2021-4840.pdf",
-      "boe_fecha": "2021-03-27",
-      "last_updated": "2026-08-05T13:48:55.955462"
-    },
-    "4317165": {
-      "boe_url": "http://www.boe.es/boe/dias/2022/04/01/pdfs/BOE-A-2022-5253.pdf",
-      "boe_fecha": "2022-04-01",
-      "last_updated": "2026-08-05T13:48:58.014813"
-    },
-    "3002914": {
+    "8000101": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T13:48:58.734632"
+      "last_updated": "2026-08-05T13:53:55.868090"
     },
-    "3001034": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6591/1346257.pdf",
-      "boe_fecha": "2014-02-28",
-      "last_updated": "2026-08-05T13:49:00.436432"
-    },
-    "4317092": {
-      "boe_url": "http://www.boe.es/boe/dias/2022/07/30/pdfs/BOE-A-2022-12795.pdf",
-      "boe_fecha": "2022-07-30",
-      "last_updated": "2026-08-05T13:49:02.604448"
-    },
-    "4314979": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7862/1740345.pdf",
-      "boe_fecha": "2019-04-16",
-      "last_updated": "2026-08-05T13:49:04.818266"
-    },
-    "3002906": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7040/1468079.pdf",
-      "boe_fecha": "2015-12-16",
-      "last_updated": "2026-08-05T13:49:06.568544"
-    },
-    "4310932": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7040/1468079.pdf",
-      "boe_fecha": "2015-12-16",
-      "last_updated": "2026-08-05T13:49:09.552881"
-    },
-    "4315683": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7862/1740345.pdf",
-      "boe_fecha": "2019-04-16",
-      "last_updated": "2026-08-05T13:49:11.090757"
-    },
-    "4317932": {
-      "boe_url": "http://www.boe.es/boe/dias/2022/11/16/pdfs/BOE-A-2022-18888.pdf",
-      "boe_fecha": "2022-11-16",
-      "last_updated": "2026-08-05T13:49:12.993489"
-    },
-    "4317155": {
-      "boe_url": "http://www.boe.es/boe/dias/2022/04/01/pdfs/BOE-A-2022-5267.pdf",
-      "boe_fecha": "2022-04-01",
-      "last_updated": "2026-08-05T13:49:14.668785"
-    },
-    "4312407": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/8453/1861119.pdf",
-      "boe_fecha": "2021-06-30",
-      "last_updated": "2026-08-05T13:49:18.654705"
-    },
-    "3500042": {
-      "boe_url": "http://www.boe.es/boe/dias/2023/10/30/pdfs/BOE-A-2023-22129.pdf",
-      "boe_fecha": "2023-10-30",
-      "last_updated": "2026-08-05T13:49:20.913351"
-    },
-    "4317205": {
-      "boe_url": "http://www.boe.es/boe/dias/2021/09/13/pdfs/BOE-A-2021-14826.pdf",
-      "boe_fecha": "2021-09-13",
-      "last_updated": "2026-08-05T13:49:23.673514"
-    },
-    "4313261": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7657/1685064.pdf",
-      "boe_fecha": "2018-06-29",
-      "last_updated": "2026-08-05T13:49:26.115792"
-    },
-    "4317523": {
-      "boe_url": "http://www.boe.es/boe/dias/2023/03/28/pdfs/BOE-A-2023-7934.pdf",
-      "boe_fecha": "2023-03-28",
-      "last_updated": "2026-08-05T13:49:28.916090"
-    },
-    "3500482": {
-      "boe_url": "http://www.boe.es/boe/dias/2024/10/16/pdfs/BOE-A-2024-21216.pdf",
-      "boe_fecha": "2024-10-16",
-      "last_updated": "2026-08-05T13:49:31.399766"
-    },
-    "4316055": {
-      "boe_url": "http://www.boe.es/boe/dias/2017/10/24/pdfs/BOE-A-2017-12135.pdf",
-      "boe_fecha": "2017-10-24",
-      "last_updated": "2026-08-05T13:49:32.879665"
-    },
-    "4311350": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6436/1313524.pdf",
-      "boe_fecha": "2013-07-31",
-      "last_updated": "2026-08-05T13:49:34.968232"
-    },
-    "4315915": {
-      "boe_url": "http://www.boe.es/boe/dias/2018/08/17/pdfs/BOE-A-2018-11693.pdf",
-      "boe_fecha": "2018-08-17",
-      "last_updated": "2026-08-05T13:49:36.567434"
-    },
-    "4314099": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/8976/1988485.pdf",
-      "boe_fecha": "2023-08-01",
-      "last_updated": "2026-08-05T13:49:41.887557"
-    },
-    "4313666": {
-      "boe_url": "http://www.boe.es/boe/dias/2016/08/11/pdfs/BOE-A-2016-7795.pdf",
-      "boe_fecha": "2016-08-11",
-      "last_updated": "2026-08-05T13:49:43.624457"
-    },
-    "4313807": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7383/1615881.pdf",
-      "boe_fecha": "2017-05-29",
-      "last_updated": "2026-08-05T13:49:45.594533"
-    },
-    "4315497": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/9223/2042722.pdf",
-      "boe_fecha": "2024-08-02",
-      "last_updated": "2026-08-05T13:49:48.818439"
-    },
-    "4315970": {
-      "boe_url": "http://www.boe.es/boe/dias/2018/08/17/pdfs/BOE-A-2018-11691.pdf",
-      "boe_fecha": "2018-08-17",
-      "last_updated": "2026-08-05T13:49:50.546407"
-    },
-    "4316560": {
-      "boe_url": "http://boe.es/boe/dias/2020/11/23/pdfs/BOE-A-2020-14768.pdf",
-      "boe_fecha": "2020-11-23",
-      "last_updated": "2026-08-05T13:49:54.023450"
-    },
-    "4314918": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7830/1732511.pdf",
-      "boe_fecha": "2019-02-28",
-      "last_updated": "2026-08-05T13:49:55.898697"
-    },
-    "4315982": {
-      "boe_url": "http://boe.es/boe/dias/2020/11/23/pdfs/BOE-A-2020-14767.pdf",
-      "boe_fecha": "2020-11-23",
-      "last_updated": "2026-08-05T13:49:57.727666"
-    },
-    "4310921": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6436/1313524.pdf",
-      "boe_fecha": "2013-07-31",
-      "last_updated": "2026-08-05T13:49:59.611444"
-    },
-    "4314828": {
-      "boe_url": "http://www.boe.es/boe/dias/2015/10/21/pdfs/BOE-A-2015-11314.pdf",
-      "boe_fecha": "2015-10-21",
-      "last_updated": "2026-08-05T13:50:01.885769"
-    },
-    "4311331": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6436/1313524.pdf",
-      "boe_fecha": "2013-07-31",
-      "last_updated": "2026-08-05T13:50:03.604450"
-    },
-    "4312464": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6855/1420355.pdf",
-      "boe_fecha": "2015-03-27",
-      "last_updated": "2026-08-05T13:50:05.910399"
-    },
-    "4313296": {
-      "boe_url": "http://www.boe.es/boe/dias/2024/02/21/pdfs/BOE-A-2024-3360.pdf",
-      "boe_fecha": "2024-02-21",
-      "last_updated": "2026-08-05T13:50:07.991660"
-    },
-    "4312898": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/8267/1821267.pdf",
-      "boe_fecha": "2020-10-28",
-      "last_updated": "2026-08-05T13:50:10.527474"
-    },
-    "4314752": {
-      "boe_url": "http://www.boe.es/boe/dias/2015/11/23/pdfs/BOE-A-2015-12682.pdf",
-      "boe_fecha": "2015-11-23",
-      "last_updated": "2026-08-05T13:50:13.612941"
-    },
-    "4311670": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7175/1523557.pdf",
-      "boe_fecha": "2016-07-21",
-      "last_updated": "2026-08-05T13:50:17.508190"
-    },
-    "4311330": {
-      "boe_url": "http://www.boe.es/boe/dias/2015/12/03/pdfs/BOE-A-2015-13093.pdf",
-      "boe_fecha": "2015-12-03",
-      "last_updated": "2026-08-05T13:50:18.938839"
-    },
-    "3001262": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6436/1313524.pdf",
-      "boe_fecha": "2013-07-31",
-      "last_updated": "2026-08-05T13:50:20.550444"
-    },
-    "4311060": {
-      "boe_url": "http://www.boe.es/boe/dias/2018/03/24/pdfs/BOE-A-2018-4188.pdf",
-      "boe_fecha": "2018-03-24",
-      "last_updated": "2026-08-05T13:50:22.520439"
-    },
-    "3002861": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6388/1302915.pdf",
-      "boe_fecha": "2013-05-21",
-      "last_updated": "2026-08-05T13:50:24.628795"
-    },
-    "4310058": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6436/1313524.pdf",
-      "boe_fecha": "2013-07-31",
-      "last_updated": "2026-08-05T13:50:26.556625"
-    },
-    "4313410": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7657/1685064.pdf",
-      "boe_fecha": "2018-06-29",
-      "last_updated": "2026-08-05T13:50:29.698094"
-    },
-    "4313778": {
-      "boe_url": "http://bocyl.jcyl.es/boletines/2019/06/04/pdf/BOCYL-D-04062019-7.pdf",
-      "boe_fecha": "2019-05-30",
-      "last_updated": "2026-08-05T13:50:52.920581"
-    },
-    "4318303": {
-      "boe_url": "http://www.boe.es/boe/dias/2023/11/23/pdfs/BOE-A-2023-23877.pdf",
-      "boe_fecha": "2023-11-23",
-      "last_updated": "2026-08-05T13:50:53.503729"
-    },
-    "4313800": {
-      "boe_url": "http://www.boe.es/boe/dias/2024/07/29/pdfs/BOE-A-2024-15657.pdf",
-      "boe_fecha": "2024-07-29",
-      "last_updated": "2026-08-05T13:50:55.079001"
-    },
-    "4312127": {
-      "boe_url": "http://www.boe.es/boe/dias/2021/03/27/pdfs/BOE-A-2021-4837.pdf",
-      "boe_fecha": "2021-03-27",
-      "last_updated": "2026-08-05T13:50:57.513773"
-    },
-    "4312329": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/8973/1988057.pdf",
-      "boe_fecha": "2023-07-27",
-      "last_updated": "2026-08-05T13:50:59.514466"
-    },
-    "4313351": {
-      "boe_url": "http://www.boe.es/boe/dias/2014/12/26/pdfs/BOE-A-2014-13511.pdf",
-      "boe_fecha": "2014-12-26",
-      "last_updated": "2026-08-05T13:51:02.547482"
-    },
-    "4310939": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6436/1313524.pdf",
-      "boe_fecha": "2013-07-31",
-      "last_updated": "2026-08-05T13:51:04.443665"
-    },
-    "3500115": {
-      "boe_url": "http://www.boe.es/boe/dias/2026/02/16/pdfs/BOE-A-2026-3621.pdf",
-      "boe_fecha": "2026-02-16",
-      "last_updated": "2026-08-05T13:51:08.454861"
-    },
-    "4311428": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6591/1346257.pdf",
-      "boe_fecha": "2014-02-28",
-      "last_updated": "2026-08-05T13:51:10.427929"
-    },
-    "4313385": {
-      "boe_url": "http://www.boe.es/boe/dias/2016/08/11/pdfs/BOE-A-2016-7793.pdf",
-      "boe_fecha": "2016-08-11",
-      "last_updated": "2026-08-05T13:51:12.664387"
-    },
-    "4310029": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6591/1346257.pdf",
-      "boe_fecha": "2014-02-28",
-      "last_updated": "2026-08-05T13:51:14.502916"
-    },
-    "4313754": {
-      "boe_url": "http://boe.es/boe/dias/2020/11/23/pdfs/BOE-A-2020-14766.pdf",
-      "boe_fecha": "2020-11-23",
-      "last_updated": "2026-08-05T13:51:16.665877"
-    },
-    "4317571": {
-      "boe_url": "http://www.boe.es/boe/dias/2023/02/06/pdfs/BOE-A-2023-3120.pdf",
-      "boe_fecha": "2023-02-06",
-      "last_updated": "2026-08-05T13:51:19.053150"
-    },
-    "4314949": {
-      "boe_url": "http://www.boe.es/boe/dias/2022/07/30/pdfs/BOE-A-2022-12798.pdf",
-      "boe_fecha": "2022-07-30",
-      "last_updated": "2026-08-05T13:51:21.846211"
-    },
-    "4316214": {
-      "boe_url": "http://www.boe.es/boe/dias/2019/08/05/pdfs/BOE-A-2019-11520.pdf",
-      "boe_fecha": "2019-08-05",
-      "last_updated": "2026-08-05T13:51:24.920447"
-    },
-    "4313352": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/9223/2042722.pdf",
-      "boe_fecha": "2024-08-02",
-      "last_updated": "2026-08-05T13:51:29.675535"
-    },
-    "4310038": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7175/1523557.pdf",
-      "boe_fecha": "2016-07-21",
-      "last_updated": "2026-08-05T13:51:31.676382"
-    },
-    "4314229": {
-      "boe_url": "http://www.boe.es/boe/dias/2018/08/17/pdfs/BOE-A-2018-11689.pdf",
-      "boe_fecha": "2018-08-17",
-      "last_updated": "2026-08-05T13:51:35.201730"
-    },
-    "4313137": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/8532/1876348.pdf",
-      "boe_fecha": "2021-10-20",
-      "last_updated": "2026-08-05T13:51:37.748446"
-    },
-    "4313901": {
-      "boe_url": "http://www.boe.es/boe/dias/2015/07/15/pdfs/BOE-A-2015-7903.pdf",
-      "boe_fecha": "2015-07-15",
-      "last_updated": "2026-08-05T13:51:39.586535"
-    },
-    "4315658": {
-      "boe_url": "http://www.boe.es/boe/dias/2018/07/18/pdfs/BOE-A-2018-10121.pdf",
-      "boe_fecha": "2018-07-18",
-      "last_updated": "2026-08-05T13:51:42.948395"
-    },
-    "4312126": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6550/1335707.pdf",
-      "boe_fecha": "2014-01-15",
-      "last_updated": "2026-08-05T13:51:45.568890"
-    },
-    "4318312": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/9223/2042722.pdf",
-      "boe_fecha": "2024-08-02",
-      "last_updated": "2026-08-05T13:51:48.154811"
-    },
-    "4313228": {
-      "boe_url": "http://www.boe.es/boe/dias/2022/04/01/pdfs/BOE-A-2022-5265.pdf",
-      "boe_fecha": "2022-04-01",
-      "last_updated": "2026-08-05T13:51:50.898408"
-    },
-    "4310938": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6436/1313524.pdf",
-      "boe_fecha": "2013-07-31",
-      "last_updated": "2026-08-05T13:51:52.550868"
-    },
-    "4314947": {
-      "boe_url": "http://www.boe.es/boe/dias/2015/07/15/pdfs/BOE-A-2015-7903.pdf",
-      "boe_fecha": "2015-07-15",
-      "last_updated": "2026-08-05T13:51:54.609619"
-    },
-    "4316493": {
-      "boe_url": "http://www.boe.es/boe/dias/2019/12/03/pdfs/BOE-A-2019-17454.pdf",
-      "boe_fecha": "2019-12-03",
-      "last_updated": "2026-08-05T13:51:56.680149"
-    },
-    "4311327": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6388/1302915.pdf",
-      "boe_fecha": "2013-05-21",
-      "last_updated": "2026-08-05T13:51:58.577097"
-    },
-    "3001763": {
+    "8000081": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T13:51:59.593265"
+      "last_updated": "2026-08-05T13:53:56.944908"
     },
-    "4313991": {
-      "boe_url": "http://www.boe.es/boe/dias/2018/08/17/pdfs/BOE-A-2018-11688.pdf",
-      "boe_fecha": "2018-08-17",
-      "last_updated": "2026-08-05T13:52:01.638223"
+    "8000087": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:53:57.851435"
     },
-    "4310937": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6591/1346257.pdf",
-      "boe_fecha": "2014-02-28",
-      "last_updated": "2026-08-05T13:52:03.577539"
+    "8000088": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:53:58.937371"
     },
-    "4314104": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7383/1615881.pdf",
-      "boe_fecha": "2017-05-29",
-      "last_updated": "2026-08-05T13:52:06.889948"
+    "8000086": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:53:59.993408"
     },
-    "4318288": {
-      "boe_url": "http://www.boe.es/boe/dias/2023/11/23/pdfs/BOE-A-2023-23877.pdf",
-      "boe_fecha": "2023-11-23",
-      "last_updated": "2026-08-05T13:52:08.950370"
+    "8000080": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:00.879084"
     },
-    "4316238": {
-      "boe_url": "http://www.boe.es/boe/dias/2019/08/05/pdfs/BOE-A-2019-11517.pdf",
-      "boe_fecha": "2019-08-05",
-      "last_updated": "2026-08-05T13:52:10.610938"
+    "8000083": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:01.995578"
     },
-    "4313858": {
-      "boe_url": "http://www.boe.es/boe/dias/2025/08/09/pdfs/BOE-A-2025-16599.pdf",
-      "boe_fecha": "2025-08-09",
-      "last_updated": "2026-08-05T13:52:14.391456"
+    "8000082": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:02.822461"
     },
-    "4316821": {
-      "boe_url": "http://www.boe.es/boe/dias/2023/11/13/pdfs/BOE-A-2023-23047.pdf",
-      "boe_fecha": "2023-11-13",
-      "last_updated": "2026-08-05T13:52:16.700917"
+    "8000078": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:03.859895"
     },
-    "4317093": {
-      "boe_url": "http://www.boe.es/boe/dias/2021/09/13/pdfs/BOE-A-2021-14826.pdf",
-      "boe_fecha": "2021-09-13",
-      "last_updated": "2026-08-05T13:52:17.608653"
+    "8000085": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:04.971423"
     },
-    "4313792": {
-      "boe_url": "http://www.boe.es/boe/dias/2022/07/30/pdfs/BOE-A-2022-12797.pdf",
-      "boe_fecha": "2022-07-30",
-      "last_updated": "2026-08-05T13:52:19.792349"
+    "8000077": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:05.916205"
     },
-    "4313132": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7040/1468079.pdf",
-      "boe_fecha": "2015-12-16",
-      "last_updated": "2026-08-05T13:52:21.721430"
+    "8000084": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:06.939788"
     },
-    "4311352": {
-      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6388/1302915.pdf",
-      "boe_fecha": "2013-05-21",
-      "last_updated": "2026-08-05T13:52:23.524106"
+    "8000053": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:08.834119"
+    },
+    "8000055": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:09.833269"
+    },
+    "8000054": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:10.824043"
+    },
+    "8000113": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:12.870626"
+    },
+    "8000102": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:14.008443"
+    },
+    "8000112": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:14.982125"
+    },
+    "8000067": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7142/1506530.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:16.914595"
+    },
+    "8000103": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:17.987745"
+    },
+    "8000068": {
+      "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/6217/1261125.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:19.870061"
+    },
+    "8000066": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:20.959485"
+    },
+    "8000063": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:21.958747"
+    },
+    "8000075": {
+      "boe_url": "http://www.euskadi.eus/web01-bopv/es/bopv2/datos/2022/01/2200440a.pdf",
+      "boe_fecha": "2200-01-22",
+      "last_updated": "2026-08-05T13:54:25.141392"
+    },
+    "8000125": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:25.882464"
+    },
+    "8000124": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:26.852886"
+    },
+    "8000076": {
+      "boe_url": "http://www.euskadi.eus/web01-bopv/es/bopv2/datos/2022/01/2200440a.pdf",
+      "boe_fecha": "2200-01-22",
+      "last_updated": "2026-08-05T13:54:27.840746"
+    },
+    "8000100": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2025/87/BOJA25-087-00005-6332-01_00319933.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:31.487174"
+    },
+    "8000097": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2025/74/BOJA25-074-00005-5486-01_00319132.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:33.236144"
+    },
+    "8000121": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2026/53/BOJA26-053-00005-3686-01_00334907.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:35.248328"
+    },
+    "8000072": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2023/56/BOJA23-056-00004-5380-01_00280430.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:37.140639"
+    },
+    "8000098": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2025/74/BOJA25-074-00005-5486-01_00319132.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:37.884467"
+    },
+    "8000061": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2021/226/BOJA21-226-00003-18576-01_00250805.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:40.011952"
+    },
+    "8000062": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2021/226/BOJA21-226-00003-18576-01_00250805.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:40.932561"
+    },
+    "8000060": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2021/226/BOJA21-226-00003-18576-01_00250805.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:41.881059"
+    },
+    "8000074": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2023/56/BOJA23-056-00004-5380-01_00280430.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:42.950541"
+    },
+    "8000073": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2023/56/BOJA23-056-00004-5380-01_00280430.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:44.050960"
+    },
+    "8000096": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2025/74/BOJA25-074-00005-5486-01_00319132.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:44.948208"
+    },
+    "8000039": {
+      "boe_url": "http://www.juntadeandalucia.es/boja/1996/95/d22.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:46.993141"
+    },
+    "8000037": {
+      "boe_url": "http://www.juntadeandalucia.es/boja/1995/110/d32.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:48.793218"
+    },
+    "8000089": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2025/64/BOJA25-064-00005-4702-01_00318304.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:51.281678"
+    },
+    "8000123": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2026/53/BOJA26-053-00005-3686-01_00334907.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:51.819740"
+    },
+    "8000109": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2025/211/BOJA25-211-00005-14602-01_00328199.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:54.252065"
+    },
+    "8000108": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2025/211/BOJA25-211-00005-14602-01_00328199.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:54.822050"
+    },
+    "8000058": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2021/226/BOJA21-226-00003-18576-01_00250805.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:56.110888"
+    },
+    "8000059": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2021/226/BOJA21-226-00003-18576-01_00250805.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:57.047711"
+    },
+    "8000056": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2021/226/BOJA21-226-00003-18576-01_00250805.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:57.903969"
+    },
+    "8000057": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2021/226/BOJA21-226-00003-18576-01_00250805.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:58.979084"
+    },
+    "8000038": {
+      "boe_url": "http://www.juntadeandalucia.es/boja/1995/110/d32.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:54:59.993316"
+    },
+    "8000041": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:00.979916"
+    },
+    "8000040": {
+      "boe_url": "http://www.juntadeandalucia.es/boja/1996/95/d22.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:01.864829"
+    },
+    "8000099": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2025/87/BOJA25-087-00005-6332-01_00319933.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:02.949620"
+    },
+    "8000094": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2025/74/BOJA25-074-00005-5486-01_00319132.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:03.951150"
+    },
+    "8000071": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2023/56/BOJA23-056-00004-5380-01_00280430.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:04.984633"
+    },
+    "8000095": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2025/74/BOJA25-074-00005-5486-01_00319132.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:05.886440"
+    },
+    "8000122": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2026/53/BOJA26-053-00005-3686-01_00334907.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:06.865222"
+    },
+    "8000110": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2025/211/BOJA25-211-00005-14602-01_00328199.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:07.875133"
+    },
+    "8000093": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2025/74/BOJA25-074-00005-5486-01_00319132.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:09.005261"
+    },
+    "8000092": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2025/64/BOJA25-064-00005-4702-01_00318304.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:09.849091"
+    },
+    "8000111": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2025/211/BOJA25-211-00005-14602-01_00328199.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:10.903871"
+    },
+    "8000090": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2025/64/BOJA25-064-00005-4702-01_00318304.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:11.843741"
+    },
+    "8000070": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2023/56/BOJA23-056-00004-5380-01_00280430.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:12.817330"
+    },
+    "8000091": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2025/64/BOJA25-064-00005-4702-01_00318304.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:13.840370"
+    },
+    "8000069": {
+      "boe_url": "http://www.juntadeandalucia.es/eboja/2023/56/BOJA23-056-00004-5380-01_00280430.pdf",
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:14.903055"
+    },
+    "8000042": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:15.924306"
+    },
+    "8000064": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:16.820349"
+    },
+    "8000044": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:17.976211"
+    },
+    "8000045": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:18.989437"
+    },
+    "8000048": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:20.021652"
+    },
+    "8000047": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:20.949165"
+    },
+    "8000043": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:22.023211"
+    },
+    "8000046": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:22.845681"
+    },
+    "8000032": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2019/06/26/BOCM-20190626-12.PDF",
+      "boe_fecha": "2019-06-26",
+      "last_updated": "2026-08-05T13:55:25.912423"
+    },
+    "8000021": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:26.955253"
+    },
+    "8000023": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:27.880157"
+    },
+    "8000022": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:55:28.841029"
+    },
+    "8000065": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2022/03/10/BOCM-20220310-30.PDF",
+      "boe_fecha": "2022-03-10",
+      "last_updated": "2026-08-05T13:55:30.856145"
+    },
+    "8000119": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2025/12/30/BOCM-20251230-19.PDF",
+      "boe_fecha": "2025-12-30",
+      "last_updated": "2026-08-05T13:55:33.006671"
+    },
+    "8000117": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2025/12/30/BOCM-20251230-19.PDF",
+      "boe_fecha": "2025-12-30",
+      "last_updated": "2026-08-05T13:55:34.963190"
+    },
+    "8000116": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2025/12/30/BOCM-20251230-19.PDF",
+      "boe_fecha": "2025-12-30",
+      "last_updated": "2026-08-05T13:55:36.957491"
+    },
+    "8000118": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2025/12/30/BOCM-20251230-19.PDF",
+      "boe_fecha": "2025-12-30",
+      "last_updated": "2026-08-05T13:55:38.959613"
+    },
+    "8000115": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2025/12/30/BOCM-20251230-19.PDF",
+      "boe_fecha": "2025-12-30",
+      "last_updated": "2026-08-05T13:55:40.964649"
+    },
+    "8000014": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Boletin_BOCM/1996/10/23/25300.pdf",
+      "boe_fecha": "1996-10-23",
+      "last_updated": "2026-08-05T13:56:08.435747"
+    },
+    "8000013": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Boletin_BOCM/1996/10/23/25300.pdf",
+      "boe_fecha": "1996-10-23",
+      "last_updated": "2026-08-05T13:56:33.856663"
+    },
+    "8000031": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2019/06/26/BOCM-20190626-12.PDF",
+      "boe_fecha": "2019-06-26",
+      "last_updated": "2026-08-05T13:56:33.866159"
+    },
+    "8000035": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2018/05/18/BOCM-20180518-20.PDF",
+      "boe_fecha": "2018-05-18",
+      "last_updated": "2026-08-05T13:56:34.011169"
+    },
+    "8000036": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2018/05/18/BOCM-20180518-20.PDF",
+      "boe_fecha": "2018-05-18",
+      "last_updated": "2026-08-05T13:56:34.155197"
+    },
+    "8000033": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2018/05/18/BOCM-20180518-20.PDF",
+      "boe_fecha": "2018-05-18",
+      "last_updated": "2026-08-05T13:56:34.290178"
+    },
+    "8000034": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2018/05/18/BOCM-20180518-20.PDF",
+      "boe_fecha": "2018-05-18",
+      "last_updated": "2026-08-05T13:56:34.430006"
+    },
+    "8000028": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2019/06/07/BOCM-20190607-12.PDF",
+      "boe_fecha": "2019-06-07",
+      "last_updated": "2026-08-05T13:56:35.166731"
+    },
+    "8000017": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:56:35.181356"
+    },
+    "8000016": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:56:35.192585"
+    },
+    "8000015": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:56:35.206437"
+    },
+    "8000019": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:56:35.219645"
+    },
+    "8000027": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2019/06/07/BOCM-20190607-12.PDF",
+      "boe_fecha": "2019-06-07",
+      "last_updated": "2026-08-05T13:56:35.390264"
+    },
+    "8000120": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2025/12/30/BOCM-20251230-19.PDF",
+      "boe_fecha": "2025-12-30",
+      "last_updated": "2026-08-05T13:56:35.630487"
+    },
+    "8000114": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2025/12/30/BOCM-20251230-19.PDF",
+      "boe_fecha": "2025-12-30",
+      "last_updated": "2026-08-05T13:56:35.876701"
+    },
+    "8000052": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Boletin_BOCM/1999/05/19/11700.pdf",
+      "boe_fecha": "1999-05-19",
+      "last_updated": "2026-08-05T13:56:57.855208"
+    },
+    "8000050": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Boletin_BOCM/1999/05/19/11700.pdf",
+      "boe_fecha": "1999-05-19",
+      "last_updated": "2026-08-05T13:57:18.510167"
+    },
+    "8000051": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Boletin_BOCM/1999/05/19/11700.pdf",
+      "boe_fecha": "1999-05-19",
+      "last_updated": "2026-08-05T13:57:38.860269"
+    },
+    "8000029": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2019/06/07/BOCM-20190607-12.PDF",
+      "boe_fecha": "2019-06-07",
+      "last_updated": "2026-08-05T13:57:39.012379"
+    },
+    "8000018": {
+      "boe_url": null,
+      "boe_fecha": null,
+      "last_updated": "2026-08-05T13:57:39.021059"
+    },
+    "8000049": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Boletin_BOCM/1999/05/19/11700.pdf",
+      "boe_fecha": "1999-05-19",
+      "last_updated": "2026-08-05T13:57:59.676413"
+    },
+    "8000012": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Boletin_BOCM/1996/10/23/25300.pdf",
+      "boe_fecha": "1996-10-23",
+      "last_updated": "2026-08-05T13:58:24.185612"
+    },
+    "8000011": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Boletin_BOCM/1996/10/23/25300.pdf",
+      "boe_fecha": "1996-10-23",
+      "last_updated": "2026-08-05T13:58:48.738527"
+    },
+    "8000010": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Boletin_BOCM/1996/10/23/25300.pdf",
+      "boe_fecha": "1996-10-23",
+      "last_updated": "2026-08-05T13:59:13.325770"
+    },
+    "8000009": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Boletin_BOCM/1996/10/23/25300.pdf",
+      "boe_fecha": "1996-10-23",
+      "last_updated": "2026-08-05T13:59:37.748550"
+    },
+    "8000008": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Boletin_BOCM/1996/10/23/25300.pdf",
+      "boe_fecha": "1996-10-23",
+      "last_updated": "2026-08-05T14:00:02.266789"
+    },
+    "8000030": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2017/04/06/BOCM-20170406-20.PDF",
+      "boe_fecha": "2017-04-06",
+      "last_updated": "2026-08-05T14:00:02.392474"
+    },
+    "8000007": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Boletin_BOCM/1996/10/23/25300.pdf",
+      "boe_fecha": "1996-10-23",
+      "last_updated": "2026-08-05T14:00:26.931212"
+    },
+    "8000006": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Boletin_BOCM/1996/10/23/25300.pdf",
+      "boe_fecha": "1996-10-23",
+      "last_updated": "2026-08-05T14:00:51.426047"
+    },
+    "8000005": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Boletin_BOCM/1996/10/23/25300.pdf",
+      "boe_fecha": "1996-10-23",
+      "last_updated": "2026-08-05T14:01:15.986610"
+    },
+    "8000004": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Boletin_BOCM/1996/10/23/25300.pdf",
+      "boe_fecha": "1996-10-23",
+      "last_updated": "2026-08-05T14:01:40.115259"
+    },
+    "8000003": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Boletin_BOCM/1996/10/23/25300.pdf",
+      "boe_fecha": "1996-10-23",
+      "last_updated": "2026-08-05T14:02:04.303056"
+    },
+    "8000002": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Boletin_BOCM/1996/10/23/25300.pdf",
+      "boe_fecha": "1996-10-23",
+      "last_updated": "2026-08-05T14:02:28.730127"
+    },
+    "8000001": {
+      "boe_url": "http://www.bocm.es/boletin/CM_Boletin_BOCM/1996/10/23/25300.pdf",
+      "boe_fecha": "1996-10-23",
+      "last_updated": "2026-08-05T14:02:53.112827"
     }
   },
   "non_study_plan_pdfs": [
-    "http://www.boe.es/boe/dias/2015/07/15/pdfs/BOE-A-2015-7903.pdf",
-    "http://www.boe.es/boe/dias/2016/08/11/pdfs/BOE-A-2016-7792.pdf",
-    "http://www.boe.es/boe/dias/2022/10/28/pdfs/BOE-A-2022-17598.pdf",
-    "http://www.boe.es/boe/dias/2015/10/21/pdfs/BOE-A-2015-11314.pdf",
-    "http://www.boe.es/boe/dias/2014/02/07/pdfs/BOE-A-2014-1287.pdf",
-    "http://www.boe.es/boe/dias/2016/10/03/pdfs/BOE-A-2016-9070.pdf",
-    "http://www.boe.es/boe/dias/2014/03/25/pdfs/BOE-A-2014-3237.pdf",
-    "http://www.boe.es/boe/dias/2023/10/30/pdfs/BOE-A-2023-22129.pdf",
-    "http://www.boe.es/boe/dias/2015/12/03/pdfs/BOE-A-2015-13093.pdf",
-    "http://www.boe.es/boe/dias/2017/10/24/pdfs/BOE-A-2017-12135.pdf",
-    "http://www.boe.es/boe/dias/2014/09/27/pdfs/BOE-A-2014-9783.pdf",
-    "http://www.boe.es/boe/dias/2024/09/27/pdfs/BOE-A-2024-19393.pdf",
-    "http://www.boe.es/boe/dias/2021/09/13/pdfs/BOE-A-2021-14826.pdf",
-    "http://www.boe.es/boe/dias/2019/08/26/pdfs/BOE-A-2019-12450.pdf",
-    "http://www.boe.es/boe/dias/2011/02/24/pdfs/BOE-A-2011-3633.pdf",
-    "http://www.boe.es/boe/dias/2016/08/11/pdfs/BOE-A-2016-7791.pdf",
-    "http://bocyl.jcyl.es/boletines/2019/06/04/pdf/BOCYL-D-04062019-7.pdf",
-    "http://www.boe.es/boe/dias/2014/03/11/pdfs/BOE-A-2014-2600.pdf",
-    "http://www.boe.es/boe/dias/2016/08/11/pdfs/BOE-A-2016-7793.pdf",
-    "http://www.boe.es/boe/dias/2016/10/26/pdfs/BOE-A-2016-9786.pdf",
-    "http://www.boe.es/boe/dias/2016/08/11/pdfs/BOE-A-2016-7794.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2019/06/26/BOCM-20190626-12.PDF",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2019/06/07/BOCM-20190607-12.PDF",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2018/05/18/BOCM-20180518-20.PDF",
     "http://www.boe.es/boe/dias/2021/06/17/pdfs/BOE-A-2021-10088.pdf",
-    "http://www.boe.es/boe/dias/2018/02/05/pdfs/BOE-A-2018-1509.pdf",
-    "http://www.boe.es/boe/dias/2010/12/16/pdfs/BOE-A-2010-19334.pdf",
-    "http://www.boe.es/boe/dias/2014/10/18/pdfs/BOE-A-2014-10574.pdf",
-    "http://www.boe.es/boe/dias/2018/09/07/pdfs/BOE-A-2018-12228.pdf",
-    "http://www.boe.es/boe/dias/2022/01/15/pdfs/BOE-A-2022-619.pdf",
-    "http://www.boe.es/boe/dias/2013/06/04/pdfs/BOE-A-2013-5872.pdf",
-    "http://www.boe.es/boe/dias/2016/08/11/pdfs/BOE-A-2016-7795.pdf",
-    "http://www.boe.es/boe/dias/2021/05/10/pdfs/BOE-A-2021-7690.pdf",
+    "http://www.juntadeandalucia.es/eboja/2025/87/BOJA25-087-00005-6332-01_00319933.pdf",
+    "http://www.euskadi.eus/web01-bopv/es/bopv2/datos/2022/01/2200440a.pdf",
+    "http://www.juntadeandalucia.es/eboja/2021/226/BOJA21-226-00003-18576-01_00250805.pdf",
+    "http://www.juntadeandalucia.es/eboja/2025/74/BOJA25-074-00005-5486-01_00319132.pdf",
+    "http://www.juntadeandalucia.es/eboja/2026/53/BOJA26-053-00005-3686-01_00334907.pdf",
+    "http://www.juntadeandalucia.es/eboja/2025/211/BOJA25-211-00005-14602-01_00328199.pdf",
+    "http://www.boe.es/boe/dias/2014/09/27/pdfs/BOE-A-2014-9783.pdf",
     "http://www.boe.es/boe/dias/2014/03/25/pdfs/BOE-A-2014-3188.pdf",
-    "http://www.boe.es/boe/dias/2011/08/04/pdfs/BOE-A-2011-13386.pdf",
-    "http://www.boe.es/boe/dias/2016/02/19/pdfs/BOE-A-2016-1690.pdf",
-    "http://www.boe.es/boe/dias/2011/11/25/pdfs/BOE-A-2011-18531.pdf",
-    "http://www.boe.es/boe/dias/2018/03/08/pdfs/BOE-A-2018-3293.pdf",
-    "http://www.boe.es/boe/dias/2011/11/02/pdfs/BOE-A-2011-17279.pdf",
-    "http://www.boe.es/boe/dias/2014/03/25/pdfs/BOE-A-2014-3234.pdf",
-    "http://www.boe.es/boe/dias/2014/12/29/pdfs/BOE-A-2014-13571.pdf",
-    "http://www.boe.es/boe/dias/2013/02/08/pdfs/BOE-A-2013-1334.pdf",
-    "http://www.boe.es/boe/dias/2013/11/15/pdfs/BOE-A-2013-11939.pdf",
-    "http://www.boe.es/boe/dias/2015/03/26/pdfs/BOE-A-2015-3221.pdf",
-    "http://www.boe.es/boe/dias/2014/06/23/pdfs/BOE-A-2014-6548.pdf",
-    "http://www.boe.es/boe/dias/2020/05/13/pdfs/BOE-A-2020-4968.pdf",
-    "http://www.boe.es/boe/dias/2014/03/25/pdfs/BOE-A-2014-3236.pdf",
-    "http://www.boe.es/boe/dias/2016/10/03/pdfs/BOE-A-2016-9071.pdf",
-    "http://www.boe.es/boe/dias/2015/11/23/pdfs/BOE-A-2015-12682.pdf",
-    "http://www.boe.es/boe/dias/2023/03/28/pdfs/BOE-A-2023-7934.pdf"
+    "http://www.juntadeandalucia.es/eboja/2023/56/BOJA23-056-00004-5380-01_00280430.pdf",
+    "http://www.boe.es/boe/dias/2024/04/17/pdfs/BOE-A-2024-7595.pdf",
+    "http://www.juntadeandalucia.es/boja/1995/110/d32.pdf",
+    "http://www.juntadeandalucia.es/boja/1996/95/d22.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2022/03/10/BOCM-20220310-30.PDF",
+    "http://www.juntadeandalucia.es/eboja/2025/64/BOJA25-064-00005-4702-01_00318304.pdf"
   ],
   "failed_pdf_downloads": {},
   "unreachable_urls": []

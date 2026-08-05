@@ -137,11 +137,9 @@ def parse_degrees_xls(filepath: str) -> list:
         ]
         has_whitelist = any(term in estado_norm for term in whitelist)
 
-        # 3. RECHAZO DE NIVELES ACADÉMICOS Y TÍTULOS PRE-BOLONIA EXTEXTOS (LRU)
-        legacy_levels = ["solo segundo ciclo", "ciclo corto", "ciclo largo", "primer ciclo", "primer y segundo ciclo", "pre-bolonia"]
+        # 3. RECHAZO DE NIVELES ACADÉMICOS Y TÍTULOS PRE-BOLONIA EXTEXTOS (LRU / RD 56/2005)
+        legacy_levels = ["solo segundo ciclo", "ciclo corto", "ciclo largo", "primer ciclo", "primer y segundo ciclo", "pre-bolonia", "rd 56/2005"]
         is_legacy_level = any(leg in nivel_norm for leg in legacy_levels)
-
-        valid_eees_level = any(eees in nivel_norm for eees in ["grado", "master", "doctorado"])
 
         legacy_title_prefixes = ["licenciado", "licenciada", "diplomado", "diplomada", "ingeniero tecnico", "ingeniera tecnica", "arquitecto tecnico", "arquitecta tecnica"]
         is_legacy_title = any(title_norm.startswith(prefix) for prefix in legacy_title_prefixes)
@@ -180,17 +178,37 @@ def parse_degrees_xls(filepath: str) -> list:
 
 def parse_degree_detail_html(html_content: str) -> dict:
     """
-    Parses the HTML of the degree detail page to find all BOE PDF links,
-    checks if degree is extinct on HTML detail page, and returns candidate links.
+    Parses the HTML of the degree detail page to verify real-time status and extract all BOE PDF links.
+    Returns a dictionary with is_extinct (bool), exact status text, and candidate BOE links.
     """
     soup = BeautifulSoup(html_content, "html.parser")
     full_text_lower = soup.get_text().lower()
 
-    # CAPA 2: Inspeccionar si la ficha HTML oficial indica extinción explícita
-    extinction_markers = ["titulacion extinguida", "titulación extinguida", "estudio extinguido", "enseñanza extinguida", "sin docencia"]
-    if any(marker in full_text_lower for marker in extinction_markers):
+    # Extraer el texto exacto del estado desde la celda de la tabla HTML (ej. Estado del título:)
+    status_text = ""
+    for tr in soup.find_all("tr"):
+        th = tr.find(["th", "td"])
+        if th and any(k in th.get_text().lower() for k in ["estado", "situación", "situacion", "vigencia"]):
+            tds = tr.find_all("td")
+            if tds:
+                status_text = tds[-1].get_text(strip=True)
+                break
+
+    # Lista de términos de extinción e inactividad en la ficha HTML oficial en vivo
+    extinction_markers = [
+        "extinguid", "extincion", "extinta", "extinto",
+        "sin docencia", "baja", "derogad", "cancelad",
+        "eliminad", "revocad", "suspendid", "caducad",
+        "desestimad", "sustituid", "no impartid", "sin efecto",
+        "cierre", "cerrad", "archivo", "rd 56/2005"
+    ]
+
+    is_extinct = any(marker in full_text_lower for marker in extinction_markers) or any(marker in status_text.lower() for marker in extinction_markers)
+
+    if is_extinct:
         return {
             "is_extinct": True,
+            "status_text": status_text or "Extinguida",
             "latest_boe_url": None,
             "boe_date": None,
             "all_boe_links": [],

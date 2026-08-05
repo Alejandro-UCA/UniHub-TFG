@@ -310,7 +310,8 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                 boe_info = parse_degree_detail_html(html_content)
 
                 if boe_info.get("is_extinct"):
-                    print(f"     -> [DESECHADO] Titulación [{d_code}] confirmada como EXTINGUIDA en la ficha HTML del RUCT. Omitiendo.")
+                    st_text = boe_info.get("status_text", "Extinguida")
+                    print(f"     -> [DESECHADO] Titulación [{d_code}] confirmada como INACTIVA/EXTINGUIDA en ficha HTML del RUCT ({st_text}). Omitiendo.")
                     continue
 
                 candidates = boe_info.get("all_boe_candidates", [])

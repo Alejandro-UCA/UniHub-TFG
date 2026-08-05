@@ -3,6 +3,7 @@ import sys
 import re
 import json
 import time
+import gzip
 import urllib.parse
 from urllib.robotparser import RobotFileParser
 from bs4 import BeautifulSoup
@@ -87,7 +88,9 @@ class UniversityWebCrawler:
         domain_base = f"{parsed.scheme}://{parsed.netloc}"
         sitemap_targets = [
             f"{domain_base}/sitemap.xml",
+            f"{domain_base}/sitemap.xml.gz",
             f"{domain_base}/sitemap_index.xml",
+            f"{domain_base}/sitemap_index.xml.gz",
             f"{domain_base}/sitemap-grados.xml",
             f"{domain_base}/sitemap-estudios.xml"
         ]
@@ -96,7 +99,17 @@ class UniversityWebCrawler:
 
         for sm_url in sitemap_targets:
             try:
-                xml_content = downloader.fetch_text(sm_url)
+                raw_bytes = downloader.fetch_content(sm_url)
+                if not raw_bytes:
+                    continue
+
+                if sm_url.endswith(".gz") or raw_bytes.startswith(b"\x1f\x8b"):
+                    try:
+                        raw_bytes = gzip.decompress(raw_bytes)
+                    except Exception:
+                        pass
+
+                xml_content = raw_bytes.decode("utf-8", errors="replace")
                 if xml_content and ("<urlset" in xml_content or "<sitemapindex" in xml_content or "<loc>" in xml_content):
                     print(f"     [Sitemap] Sitemap XML detectado y analizado en '{sm_url}'.")
                     locs = re.findall(r"<loc>(.*?)</loc>", xml_content, re.IGNORECASE)

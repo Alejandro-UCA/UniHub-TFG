@@ -146,9 +146,16 @@ class RUCTDownloader:
                 verify_ssl = False if target_url.startswith("https://") else True
                 with self.session.get(target_url, stream=True, timeout=self.timeout, verify=verify_ssl) as response:
                     response.raise_for_status()
+                    
+                    first_chunk = True
                     with open(destination_path, "wb") as f:
                         for chunk in response.iter_content(chunk_size=8192):
                             if chunk:
+                                if first_chunk:
+                                    first_chunk = False
+                                    content_type = response.headers.get("Content-Type", "").lower()
+                                    if not (b"%PDF-" in chunk[:1024] or "application/pdf" in content_type):
+                                        raise ValueError("Respuesta HTTP no es un PDF válido (posible HTML u otro tipo de contenido)")
                                 f.write(chunk)
                 elapsed = time.perf_counter() - t0
                 if self.metrics_tracker:

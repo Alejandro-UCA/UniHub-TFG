@@ -4,6 +4,7 @@ import json
 import time
 import traceback
 import argparse
+import concurrent.futures
 import multiprocessing as mp
 from datetime import datetime
 
@@ -326,36 +327,50 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                     })
                     continue
 
-                # Download all PDF candidates in Process 1 and queue them for Process 2
+                # Download all PDF candidates in Process 1 (Multithreaded I/O) and queue them for Process 2
                 downloaded_pdf_items = []
-                for cand_idx, cand in enumerate(candidates, 1):
+
+                def fetch_single_candidate(cand_tuple):
+                    cand_idx, cand = cand_tuple
                     cand_url = cand["url"]
                     cand_date = cand.get("boe_date")
 
-                    # Omitir descarga si previamente se verificó que NO es un plan de estudios o es inalcanzable
                     if checkpoint.is_non_study_plan_pdf(cand_url):
                         print(f"     [Proceso Red] -> PDF #{cand_idx} previamente descartado (NO es plan de estudios). Omitiendo descarga.")
-                        continue
+                        return None
 
                     if checkpoint.is_unreachable_url(cand_url):
                         print(f"     [Proceso Red] -> PDF #{cand_idx} previamente registrado como inalcanzable (servidor inactivo). Omitiendo descarga.")
-                        continue
+                        return None
 
                     pdf_path = os.path.join(TEMP_PDF_DIR, f"{d_code}_candidate_{cand_idx}.pdf")
-                    
+
                     try:
                         print(f"     [Proceso Red] -> Descargando PDF #{cand_idx}/{len(candidates)} ({cand_date or 'fecha n/a'})...")
                         downloader.download_file(cand_url, pdf_path)
-                        downloaded_pdf_items.append({
+                        return {
                             "cand_url": cand_url,
                             "cand_date": cand_date,
                             "pdf_path": pdf_path
-                        })
+                        }
                     except SkipUniversityException:
                         raise
                     except Exception as download_err:
                         print(f"     [Proceso Red] -> Error al descargar PDF candidate #{cand_idx}: {download_err}")
                         checkpoint.record_pdf_download_failure(cand_url, d_code, str(download_err))
+                        return None
+
+                with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
+                    futures = [executor.submit(fetch_single_candidate, (c_idx, c)) for c_idx, c in enumerate(candidates, 1)]
+                    for future in concurrent.futures.as_completed(futures):
+                        try:
+                            item_res = future.result()
+                            if item_res:
+                                downloaded_pdf_items.append(item_res)
+                        except SkipUniversityException:
+                            raise
+                        except Exception:
+                            pass
 
                 # Send task item to Producer-Consumer queue for Process 2 parsing
                 task_queue.put({

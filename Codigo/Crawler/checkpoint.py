@@ -49,11 +49,17 @@ class CheckpointManager:
 
     def __init__(self, filepath=CHECKPOINT_JSON):
         self.filepath = filepath
+        self._last_mtime = 0
+        self._cached_state = None
         self.state = self._load_checkpoint()
 
     def _load_checkpoint(self):
         if os.path.exists(self.filepath):
             try:
+                mtime = os.path.getmtime(self.filepath)
+                if self._cached_state and mtime == self._last_mtime:
+                    return self._cached_state
+
                 with open(self.filepath, "r", encoding="utf-8") as f:
                     data = json.load(f)
                     if "non_study_plan_pdfs" not in data:
@@ -62,10 +68,12 @@ class CheckpointManager:
                         data["failed_pdf_downloads"] = {}
                     if "unreachable_urls" not in data:
                         data["unreachable_urls"] = []
+                    self._last_mtime = mtime
+                    self._cached_state = data
                     return data
             except Exception:
                 pass
-        return {
+        default_state = {
             "universities_downloaded": False,
             "processed_universities": [],
             "processed_degrees": {},  # Map: degree_code -> {"boe_url": ..., "boe_fecha": ..., "last_updated": ...}
@@ -73,6 +81,8 @@ class CheckpointManager:
             "failed_pdf_downloads": {}, # Mapa de URLs fallidas -> {degree_code, reason, timestamp}
             "unreachable_urls": [] # Lista de URLs confirmadas inalcanzables (HTTP + HTTPS rechazada)
         }
+        self._cached_state = default_state
+        return default_state
 
     def mark_universities_downloaded(self):
         self.state["universities_downloaded"] = True

@@ -186,18 +186,18 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue):
 
 
 def trigger_api_etl_sync():
-    """Notifies Phase 2 (FastAPI REST API) to run ETL synchronization automatically."""
+    """Notifies Phase 2 (FastAPI REST API) to run ETL synchronization automatically only when Phase 1 finishes completely."""
     try:
         import requests
         api_sync_url = os.getenv("API_SYNC_URL", "http://api:8000/api/v1/etl/sync")
-        print(f"\n[Fase 1 -> Fase 2] Notificando a la API REST ({api_sync_url}) para sincronización en PostgreSQL...")
-        resp = requests.post(api_sync_url, timeout=10)
+        print(f"\n[Fase 1 Completa -> Fase 2] Notificando a la API REST para sincronización en PostgreSQL ({api_sync_url})...")
+        resp = requests.post(api_sync_url, timeout=5)
         if resp.ok:
-            print(" -> Sincronización ETL iniciada en la Base de Datos PostgreSQL de la Fase 2.")
+            print(" -> Sincronización ETL iniciada con éxito en PostgreSQL (Fase 2).")
         else:
-            print(f" -> Solicitud enviada. Código HTTP: {resp.status_code}")
-    except Exception as e:
-        print(f" -> Notificación previa no enviada (se sincronizará en el siguiente ciclo o manualmente): {e}")
+            print(f" -> Respuesta de la API REST: Código HTTP {resp.status_code}")
+    except Exception:
+        print(" -> Nota: La Fase 1 ha finalizado. La Fase 2 se sincronizará cuando el servicio API esté disponible o se ejecute manualmente el ETL.")
 
 
 def run_crawler(limit_univ: int = None, limit_degrees: int = None):
@@ -347,7 +347,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
 
                     try:
                         print(f"     [Proceso Red] -> Descargando PDF #{cand_idx}/{len(candidates)} ({cand_date or 'fecha n/a'})...")
-                        downloader.download_file(cand_url, pdf_path)
+                        downloader.download_file(cand_url, pdf_path, is_pdf=True)
                         return {
                             "cand_url": cand_url,
                             "cand_date": cand_date,
@@ -423,12 +423,21 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
     print(f" -> Titulaciones al día:          {metrics.titulaciones_al_dia}")
     print(f" -> Titulaciones actualizadas:    {metrics.titulaciones_descargadas_actualizadas}")
     print(f" -> PDFs parseados del BOE:       {metrics.pdfs_parseados}")
-    print(f" -> Errores (registrados en log): {metrics.errores_detectados}")    # -------------------------------------------------------------------------
+    print(f" -> Errores (registrados en log): {metrics.errores_detectados}")
+
+    # -------------------------------------------------------------------------
     # PARTE 2 DE LA FASE 1: ESCANEO PARALELO DE LAS WEBS OFICIALES DE UNIVERSIDADES
     # -------------------------------------------------------------------------
     from univ_web_crawler import run_phase1_part2
     print("\n -> Inicializando Fase 1 - Parte 2 (Rastreo paralelo de webs oficiales de universidades)...")
     run_phase1_part2(max_workers=4)
+
+    # -------------------------------------------------------------------------
+    # NOTIFICACIÓN A FASE 2: SÓLO AL FINALIZAR LA FASE 1 AL COMPLETO
+    # -------------------------------------------------------------------------
+    trigger_api_etl_sync()
+    print(f" -> Métricas guardadas en:        '{ESTADISTICAS_JSON}'")
+    print("======================================================================")
 
 
 if __name__ == "__main__":
@@ -438,8 +447,3 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     run_crawler(limit_univ=args.limit_univ, limit_degrees=args.limit_degrees)
-    
-    # Notify REST API ETL process automatically upon completion
-    trigger_api_etl_sync()
-    print(f" -> Métricas guardadas en:        '{ESTADISTICAS_JSON}'")
-    print("======================================================================")

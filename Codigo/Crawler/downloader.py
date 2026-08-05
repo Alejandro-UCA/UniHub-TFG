@@ -130,7 +130,7 @@ class RUCTDownloader:
         content = self.fetch_content(url)
         return content.decode(encoding, errors="replace")
 
-    def download_file(self, url: str, destination_path: str):
+    def download_file(self, url: str, destination_path: str, is_pdf: bool = False):
         """Downloads a remote file directly to disk with connection resilience and HTTPS fallback."""
         url = self._normalize_url(url)
         self._apply_delay()
@@ -151,7 +151,7 @@ class RUCTDownloader:
                     with open(destination_path, "wb") as f:
                         for chunk in response.iter_content(chunk_size=8192):
                             if chunk:
-                                if first_chunk:
+                                if is_pdf and first_chunk:
                                     first_chunk = False
                                     content_type = response.headers.get("Content-Type", "").lower()
                                     if not (b"%PDF-" in chunk[:1024] or "application/pdf" in content_type):

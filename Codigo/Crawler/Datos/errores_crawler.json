@@ -1,0 +1,10 @@
+[
+  {
+    "timestamp": "2026-08-05T12:34:42.577629",
+    "fase": "paso_1_universidades",
+    "id_entidad": "ALL",
+    "url": "https://www.educacion.gob.es/ruct/listauniversidades?actual=universidades&cccaa=&tipo_univ=&d-8320336-e=2&6578706f7274=1&codigoUniversidad=&consulta=1",
+    "motivo_fallo": "Error crítico al descargar el catálogo general de universidades",
+    "detalles_excepcion": "Respuesta HTTP no es un PDF válido (posible HTML u otro tipo de contenido)"
+  }
+]

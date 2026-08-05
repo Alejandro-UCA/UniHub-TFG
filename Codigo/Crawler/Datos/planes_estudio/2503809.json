@@ -2,13 +2,16 @@
   "codigo_estudio": "2503809",
   "titulo": "Graduado o Graduada en Filosofía, Política y Economía por la Universidad Autónoma de Barcelona; la Universidad Autónoma de Madrid; la Universidad Carlos III de Madrid y la Universidad Pompeu Fabra",
   "nivel_academico": "Grado - RD 1393/2007 (1)",
-  "universidad_codigo": "023",
-  "universidad_nombre": "Universidad Autónoma de Madrid",
-  "fecha_procesado": "2026-08-05T17:59:58.267697",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T18:27:59.443368",
   "boe_url": "http://www.boe.es/boe/dias/2019/10/21/pdfs/BOE-A-2019-15095.pdf",
   "boe_fecha": "2019-10-21",
   "all_boe_urls": [
     "http://www.boe.es/boe/dias/2019/10/21/pdfs/BOE-A-2019-15095.pdf",
+    "http://www.boe.es/boe/dias/2019/04/23/pdfs/BOE-A-2019-6032.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/7798/1723964.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/7798/1723964.pdf",
     "http://www.bocm.es/boletin/CM_Orden_BOCM/2018/08/20/BOCM-20180820-4.PDF",
     "http://www.bocm.es/boletin/CM_Orden_BOCM/2018/08/20/BOCM-20180820-4.PDF"
   ],
@@ -19,7 +22,7 @@
       "Optativas": "78",
       "Créditos Totales": "240"
     },
-    "total_elementos": 44,
+    "total_elementos": 21,
     "elementos_curriculares": [
       {
         "modulo": "",
@@ -209,214 +212,10 @@
         "caracter": "OB",
         "curso": "3-4",
         "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Titulación",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Grado en Filosofía, Política y Economía (título conjunto de la Universidad Pompeu Fabra (coordinadora), Universidad Autónoma de Madrid, Universidad Carlos III y Universidad Autónoma de Barcelona)",
-        "creditos_ects": "6",
-        "caracter": "PE",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Ciencia e Ingeniería de Datos",
-        "creditos_ects": "6",
-        "caracter": "PE",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Historia y Política",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Empresa y Tecnología",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Filosofía, Política y Economía (título conjunto de la Universidad Pompeu Fabra (coordinadora), Universidad Autónoma de Madrid, Universidad Carlos III y Universidad Autónoma de Barcelona)",
-        "creditos_ects": "6",
-        "caracter": "PE",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Gestión y Operaciones del Transporte Aéreo",
-        "creditos_ects": "6",
-        "caracter": "PE",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Ingeniería de Robótica Software",
-        "creditos_ects": "6",
-        "caracter": "PE",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Ingeniería de la Ciberseguridad",
-        "creditos_ects": "6",
-        "caracter": "PE",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Animación",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "-2018-19: 1º y2º - 2019-20: 3º - 2020-21: 4º",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Diseño Digital",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "-2018-19: 1º y 2º - 2019-20: 3º - 2020-21: 4º",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Derecho",
-        "creditos_ects": "6",
-        "caracter": "OP",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Farmacia",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Gestión Empresarial basada en el Análisis de Datos (Business Analytics)",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Ingeniería en Sistemas de Telecomunicación",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Publicidad",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Humanidades",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Análisis de Negocios/Business Analytics",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Filosofía, Política y Economía",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Inteligencia de Negocios",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Diseño/Bachelor in Design",
-        "creditos_ects": "6",
-        "caracter": "PE",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Gestión de Sistemas de Información/Bachelor in Management Information Systems",
-        "creditos_ects": "6",
-        "caracter": "PE",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Política, Derecho y Economía/Bachelor in Politics, Law and Economics",
-        "creditos_ects": "6",
-        "caracter": "PE",
-        "curso": "",
-        "cuatrimestre": ""
       }
     ]
-  }
+  },
+  "precio_credito_ects": 18.46,
+  "precio_estimado_anual": 1162.6,
+  "fuente_precio": "Oficial SIIU Ministerio / Decreto Comunidad Autónoma de Cataluña"
 }

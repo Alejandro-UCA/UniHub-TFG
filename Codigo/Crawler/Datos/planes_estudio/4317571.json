@@ -1,0 +1,81 @@
+{
+  "codigo_estudio": "4317571",
+  "titulo": "Máster Universitario en Psicología Jurídica y Forense por la Universidad Autónoma de Barcelona",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T18:21:34.824573",
+  "boe_url": "http://www.boe.es/boe/dias/2023/02/06/pdfs/BOE-A-2023-3120.pdf",
+  "boe_fecha": "2023-02-06",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2023/02/06/pdfs/BOE-A-2023-3120.pdf",
+    "http://www.boe.es/boe/dias/2022/10/28/pdfs/BOE-A-2022-17598.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/8727/1923047.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "48",
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 6,
+    "elementos_curriculares": [
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Trabajo de fin de máster.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Fundamentos Psicológicos en Psicología Forense.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Integración de la Valoración Forense.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Técnicas Psicológicas dentro del Ámbito Forense.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  },
+  "precio_credito_ects": 37.6,
+  "precio_estimado_anual": 2311.0,
+  "fuente_precio": "Oficial SIIU Ministerio / Decreto Comunidad Autónoma de Cataluña"
+}

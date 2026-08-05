@@ -1,0 +1,63 @@
+{
+  "codigo_estudio": "4313725",
+  "titulo": "Máster Universitario en Iniciación a la Investigación en Salud Mental por la Universidad Autónoma de Barcelona; la Universidad Complutense de Madrid; la Universidad de Barcelona; la Universidad de Cádiz y la Universidad de Cantabria",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T18:22:33.240467",
+  "boe_url": "http://www.boe.es/boe/dias/2015/02/23/pdfs/BOE-A-2015-1848.pdf",
+  "boe_fecha": "2015-02-23",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2015/02/23/pdfs/BOE-A-2015-1848.pdf",
+    "http://www.boe.es/boe/dias/2014/10/18/pdfs/BOE-A-2014-10574.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/6665/1364493.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/6665/1364493.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2013/11/07/BOCM-20131107-7.PDF",
+    "http://www.juntadeandalucia.es/eboja/2013/139/BOJA13-139-00071-12178-01_00030947.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {},
+    "total_elementos": 4,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Aspectos Generales de la Neurobiología. .............. Estancias en Unidades de Investigación................",
+        "creditos_ects": "9",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Introducción a la Investigación Biomédica. ............. Bases de la Patología Psiquiátrica: Avances Recientes en los Fundamentos Químicos y Moleculares de la Patología Psiquiátrica.....................................",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Modelos Animales de Patología Psiquiátrica............. Psicofarmacología: Nuevos Mecanismos y Dianas Moleculares en el Tratamiento de los Trastornos Psíquicos. Terapias Físicas...................................",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4 17 3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Epidemiología en Psiquiatría......................... Psiquiatría Clínica. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Neuroimagen..................................... Psiquiatría Social..................................",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4 21 3 3",
+        "cuatrimestre": ""
+      }
+    ]
+  },
+  "precio_credito_ects": 37.6,
+  "precio_estimado_anual": 2311.0,
+  "fuente_precio": "Oficial SIIU Ministerio / Decreto Comunidad Autónoma de Cataluña"
+}

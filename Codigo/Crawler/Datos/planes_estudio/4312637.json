@@ -1,0 +1,162 @@
+{
+  "codigo_estudio": "4312637",
+  "titulo": "Máster Universitario en Musicología, Educación Musical e Interpretación de la Música Antigua por la Universidad Autónoma de Barcelona",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T18:21:39.006680",
+  "boe_url": "http://www.boe.es/boe/dias/2022/04/01/pdfs/BOE-A-2022-5263.pdf",
+  "boe_fecha": "2022-04-01",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2022/04/01/pdfs/BOE-A-2022-5263.pdf",
+    "http://www.boe.es/boe/dias/2014/03/25/pdfs/BOE-A-2014-3233.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/6190/1257666.pdf",
+    "http://www.boe.es/boe/dias/2012/03/26/pdfs/BOE-A-2012-4129.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 15,
+    "elementos_curriculares": [
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Obligatorios.",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Optativos.",
+        "creditos_ects": "30",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Trabajo de fin de máster.",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Metodologías de la Investigación en Ciencias de la Música y Aplicación Interpretativa de las Investigaciones.",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Análisis y Notación de la Música Antigua.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Fuentes y Repertorio de la Música Antigua.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Fundamentos Teóricos de la Interpretación de la Música Antigua.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Gestión y Realización de Proyectos de Música Antigua.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "La Praxis Interpretativa de la Música Antigua.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Prácticas Interpretativas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Archivística y Patrimonio Musical.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Didáctica de la Música.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "La Investigación Musical en el Entorno Urbano Contemporáneo.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Metodologías de la Investigación en Musicología Histórica.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Técnicas Aplicativas de la Etnomusicología.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  },
+  "precio_credito_ects": 37.6,
+  "precio_estimado_anual": 2311.0,
+  "fuente_precio": "Oficial SIIU Ministerio / Decreto Comunidad Autónoma de Cataluña"
+}

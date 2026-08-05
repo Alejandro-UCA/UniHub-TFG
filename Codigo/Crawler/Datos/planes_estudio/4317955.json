@@ -1,0 +1,65 @@
+{
+  "codigo_estudio": "4317955",
+  "titulo": "Máster Universitario en Arqueología Clásica Aplicada. Investigación y Transferencia por la Universidad Autónoma de Barcelona y la Universidad Rovira i Virgili",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T18:25:48.311479",
+  "boe_url": "http://www.boe.es/boe/dias/2023/05/27/pdfs/BOE-A-2023-12412.pdf",
+  "boe_fecha": "2023-05-27",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2023/05/27/pdfs/BOE-A-2023-12412.pdf",
+    "http://www.boe.es/boe/dias/2022/10/28/pdfs/BOE-A-2022-17598.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/8727/1923047.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/8727/1923047.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "1",
+      "Optativas": "9",
+      "Trabajo Fin de Grado / Máster": "1"
+    },
+    "total_elementos": 4,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias (Ob).",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas (Op).",
+        "creditos_ects": "9",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Prácticas externas (PE).",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo de fin de máster (TFM).",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  },
+  "precio_credito_ects": 37.6,
+  "precio_estimado_anual": 2311.0,
+  "fuente_precio": "Oficial SIIU Ministerio / Decreto Comunidad Autónoma de Cataluña"
+}

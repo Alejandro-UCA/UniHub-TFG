@@ -1,0 +1,107 @@
+{
+  "codigo_estudio": "4317118",
+  "titulo": "Máster Universitario en Estudios Globales de Asia Oriental por la Universidad Autónoma de Barcelona",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T18:24:11.233372",
+  "boe_url": "http://www.boe.es/boe/dias/2022/04/01/pdfs/BOE-A-2022-5254.pdf",
+  "boe_fecha": "2022-04-01",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2022/04/01/pdfs/BOE-A-2022-5254.pdf",
+    "http://www.boe.es/boe/dias/2021/03/04/pdfs/BOE-A-2021-3361.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/8267/1821267.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 9,
+    "elementos_curriculares": [
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Obligatorios.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Optativos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Trabajo de fin de máster.",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Estudios de Caso.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Geopolítica, Economía y Medioambiente.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Política y Sociedad de Asia Oriental.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Movilidad, Transporte y Territorio. Planeamiento y Gestión.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Sistemas de Medios Comparados.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Turismo y Planeamiento.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      }
+    ]
+  },
+  "precio_credito_ects": 37.6,
+  "precio_estimado_anual": 2311.0,
+  "fuente_precio": "Oficial SIIU Ministerio / Decreto Comunidad Autónoma de Cataluña"
+}

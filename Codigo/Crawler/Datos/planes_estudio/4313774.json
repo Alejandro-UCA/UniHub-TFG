@@ -1,0 +1,134 @@
+{
+  "codigo_estudio": "4313774",
+  "titulo": "Máster Universitario en Ecología Terrestre y Gestión de la Biodiversidad por la Universidad Autónoma de Barcelona",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T18:24:34.269444",
+  "boe_url": "http://www.boe.es/boe/dias/2018/07/18/pdfs/BOE-A-2018-10113.pdf",
+  "boe_fecha": "2018-07-18",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2018/07/18/pdfs/BOE-A-2018-10113.pdf",
+    "http://www.boe.es/boe/dias/2014/12/29/pdfs/BOE-A-2014-13571.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/6736/1377925.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 12,
+    "elementos_curriculares": [
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Obligatorios",
+        "creditos_ects": "24",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Optativos",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Trabajo de fin de máster",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Bases para la Conservación y Gestión de la Biodiversidad",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Ecología Espacial",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Estadística y Modelización Ambiental",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Contenidos Avanzados de Ecología Terrestre(1)",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Diseño y Metodología de Proyectos en Ecología Terrestre(1)",
+        "creditos_ects": "9",
+        "caracter": "OP",
+        "curso": "Diseño y Metodología de Proyectos en Ecología Terrestre(1)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Métodos Experimentales en Ecología Terrestre(1)",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Diseño y Metodología de Proyectos en Gestión de Fauna y Flora(2)",
+        "creditos_ects": "9",
+        "caracter": "OP",
+        "curso": "Diseño y Metodología de Proyectos en Gestión de Fauna y Flora(2)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Evolución y Análisis del Paisaje Vegetal(2)",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Gestión y Aplicaciones de la Diversidad Animal(2)",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      }
+    ]
+  },
+  "precio_credito_ects": 37.6,
+  "precio_estimado_anual": 2311.0,
+  "fuente_precio": "Oficial SIIU Ministerio / Decreto Comunidad Autónoma de Cataluña"
+}

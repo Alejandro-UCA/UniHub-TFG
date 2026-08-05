@@ -1,0 +1,367 @@
+{
+  "codigo_estudio": "2500797",
+  "titulo": "Graduado o Graduada en Educación Infantil por la Universidad Autónoma de Barcelona",
+  "nivel_academico": "Grado - RD 1393/2007 (1)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T18:28:42.979436",
+  "boe_url": "http://www.boe.es/boe/dias/2022/07/27/pdfs/BOE-A-2022-12571.pdf",
+  "boe_fecha": "2022-07-27",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2022/07/27/pdfs/BOE-A-2022-12571.pdf",
+    "http://boe.es/boe/dias/2020/11/24/pdfs/BOE-A-2020-14857.pdf",
+    "http://www.boe.es/boe/dias/2016/08/11/pdfs/BOE-A-2016-7796.pdf",
+    "http://www.boe.es/boe/dias/2013/11/20/pdfs/BOE-A-2013-12167.pdf",
+    "http://www.boe.es/boe/dias/2012/07/12/pdfs/BOE-A-2012-9281.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/6083/1228803.pdf",
+    "http://www.boe.es/boe/dias/2007/12/29/pdfs/A53735-53738.pdf",
+    "http://www.boe.es/boe/dias/2007/12/21/pdfs/A52846-52846.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica": "100",
+      "Obligatorias": "60",
+      "Optativas": "30",
+      "Créditos Totales": "240"
+    },
+    "total_elementos": 37,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Formación básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "30",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo de fin de grado.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Comunicación e interacción educativa.",
+        "creditos_ects": "12",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Dificultades de aprendizaje y trastornos del desarrollo.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Educación y contextos educativos.",
+        "creditos_ects": "12",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Infancia, salud y alimentación.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "La escuela de educación infantil.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Miremos el Mundo: Proyectos Transdisciplinarios.",
+        "creditos_ects": "12",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Observación sistemática y análisis de contextos.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Organización del espacio escolar, materiales y habilidades docentes.",
+        "nombre_elemento": "Procesos educativos, aprendizaje y desarrollo de la personalidad (0-6 años).",
+        "creditos_ects": "18",
+        "caracter": "FB",
+        "curso": "Procesos educativos, aprendizaje y desarrollo de la personalidad (0-6 años).",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Organización del espacio escolar, materiales y habilidades docentes.",
+        "nombre_elemento": "Sociedad, familia y escuela.",
+        "creditos_ects": "12",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Organización del espacio escolar, materiales y habilidades docentes.",
+        "nombre_elemento": "Aprendizaje de las ciencias de la naturaleza, de las ciencias sociales y de la matemática.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Organización del espacio escolar, materiales y habilidades docentes.",
+        "nombre_elemento": "Aprendizaje de las lenguas y lectoescritura.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Organización del espacio escolar, materiales y habilidades docentes.",
+        "nombre_elemento": "Música, expresión plástica y corporal.",
+        "creditos_ects": "24",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Organización del espacio escolar, materiales y habilidades docentes.",
+        "nombre_elemento": "Prácticum y trabajo de fin de grado.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Organización del espacio escolar, materiales y habilidades docentes.",
+        "nombre_elemento": "Acogida lingüística en la escuela.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Organización del espacio escolar, materiales y habilidades docentes.",
+        "nombre_elemento": "Biblioteca escolar.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Organización del espacio escolar, materiales y habilidades docentes.",
+        "nombre_elemento": "Educación de las Artes Visuales.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Organización del espacio escolar, materiales y habilidades docentes.",
+        "nombre_elemento": "Educación Musical.",
+        "creditos_ects": "24",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Organización del espacio escolar, materiales y habilidades docentes.",
+        "nombre_elemento": "Educación Plástica y Visual.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Organización del espacio escolar, materiales y habilidades docentes.",
+        "nombre_elemento": "Educación, sostenibilidad y consumo.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Organización del espacio escolar, materiales y habilidades docentes.",
+        "nombre_elemento": "Estrategias de mediación.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Organización del espacio escolar, materiales y habilidades docentes.",
+        "nombre_elemento": "Juego y actividad matemática en educación infantil.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Organización del espacio escolar, materiales y habilidades docentes.",
+        "nombre_elemento": "Juego y movimiento en educación infantil.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Organización del espacio escolar, materiales y habilidades docentes.",
+        "nombre_elemento": "La actividad didáctica en el ciclo 0-3.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Organización del espacio escolar, materiales y habilidades docentes.",
+        "nombre_elemento": "La Actualidad y las Ciencias Sociales en Educación Primaria: la Formación del Pensamiento Crítico.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "La Enseñanza del Inglés en la Educación Infantil.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "La experimentación en educación infantil.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Narrativa y poesía en educación infantil.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Necesidades educativas específicas en Educación Infantil.",
+        "creditos_ects": "24",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Proyectos globalizadores desde las ciencias sociales en educación infantil.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Proyectos Musicales en Educación Infantil.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Religión, cultura y valores.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Tecnologías para el aprendizaje y el conocimiento (TAC).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      }
+    ]
+  },
+  "precio_credito_ects": 18.46,
+  "precio_estimado_anual": 1162.6,
+  "fuente_precio": "Oficial SIIU Ministerio / Decreto Comunidad Autónoma de Cataluña"
+}

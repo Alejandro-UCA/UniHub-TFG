@@ -2,30 +2,32 @@
   "codigo_estudio": "5310078",
   "titulo": "Programa Oficial de Doctorado en Electroquímica. Ciencia y Tecnología",
   "nivel_academico": "Doctor - RD 1393/2007 (1)",
-  "universidad_codigo": "023",
-  "universidad_nombre": "Universidad Autónoma de Madrid",
-  "fecha_procesado": "2026-08-05T18:02:25.212215",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T18:30:26.697169",
   "boe_url": "http://www.juntadeandalucia.es/eboja/2018/131/BOJA18-131-00031-11785-01_00139109.pdf",
   "boe_fecha": "2018-07-03",
   "all_boe_urls": [
+    "http://www.juntadeandalucia.es/eboja/2018/131/BOJA18-131-00031-11785-01_00139109.pdf",
+    "http://www.juntadeandalucia.es/eboja/2018/131/BOJA18-131-00031-11785-01_00139109.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/6908/1433665.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/6908/1433665.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/6908/1433665.pdf",
+    "http://www.boe.es/boe/dias/2015/03/26/pdfs/BOE-A-2015-3221.pdf",
     "http://www.bocm.es/boletin/CM_Orden_BOCM/2014/08/12/BOCM-20140812-4.PDF",
-    "http://www.juntadeandalucia.es/eboja/2018/131/BOJA18-131-00031-11785-01_00139109.pdf",
-    "http://www.juntadeandalucia.es/eboja/2018/131/BOJA18-131-00031-11785-01_00139109.pdf",
-    "http://www.bocm.es/boletin/CM_Orden_BOCM/2010/11/10/BOCM-20101110-17.PDF"
+    "http://www.boe.es/boe/dias/2012/07/12/pdfs/BOE-A-2012-9280.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/5813/1166140.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/5813/1166140.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/5813/1166140.pdf",
+    "http://www.docv.gva.es/datos/2010/10/26/pdf/2010_11468.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2010/11/10/BOCM-20101110-17.PDF",
+    "http://www.docv.gva.es/datos/2014/04/28/pdf/2014_3754.pdf",
+    "http://bocyl.jcyl.es/boletines/2010/01/20/pdf/BOCYL-D-20012010-15.pdf"
   ],
   "plan_estudios": {
     "resumen_creditos": {},
-    "total_elementos": 769,
+    "total_elementos": 768,
     "elementos_curriculares": [
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
       {
         "modulo": "",
         "materia": "",

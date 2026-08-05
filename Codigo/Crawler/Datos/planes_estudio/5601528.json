@@ -4,8 +4,11 @@
   "nivel_academico": "Doctor - RD 99/2011 (0)",
   "universidad_codigo": "086",
   "universidad_nombre": "Centros dependientes del Ministerio de Defensa",
-  "fecha_procesado": "2026-08-05T17:52:36.243180",
+  "fecha_procesado": "2026-08-05T18:09:57.779922",
   "boe_url": "http://www.boe.es/boe/dias/2024/04/17/pdfs/BOE-A-2024-7595.pdf",
   "boe_fecha": "2024-04-17",
-  "plan_estudios": null
+  "plan_estudios": null,
+  "precio_credito_ects": 19.43,
+  "precio_estimado_anual": 1215.8,
+  "fuente_precio": "Oficial SIIU Ministerio / Decreto Comunidad de Madrid"
 }

@@ -16,9 +16,9 @@ El objetivo de negocio principal es ofrecer un portal público centralizado de e
 
 \section{Requisitos funcionales}
 \begin{itemize}
-    \item \textbf{RF-01 Descarga de Catálogo Oficial:} Descargar e inspeccionar archivos XLS de universidades y titulaciones.
+    \item \textbf{RF-01 Descarga de Catálogo Oficial y Computación Paralela:} Descargar e inspeccionar catálogos de universidades y titulaciones mediante una arquitectura en 2 procesos paralelos (Productor de red I/O y Consumidor de análisis CPU).
     \item \textbf{RF-02 Filtrado Estricto de Vigencia y Clasificación de Doctorados:} Excluir titulaciones extinguidas, no vigentes o eliminadas; conservar únicamente las vigentes o autorizadas y clasificar Doctorados (RD 99/2011).
-    \item \textbf{RF-03 Parseo Meticuloso de BOE:} Escanear todos los PDF candidatos del BOE para extraer asignaturas, módulos, materias, créditos ECTS, curso y cuatrimestre.
+    \item \textbf{RF-03 Parseo Meticuloso Multi-PDF de BOE:} Escanear todos los PDF candidatos del BOE para extraer y fusionar asignaturas, módulos, materias, créditos ECTS, curso y cuatrimestre sin detenerse en la primera coincidencia.
     \item \textbf{RF-04 Resiliencia y Notificación Automática:} Aplicar pausas de 5 min (10 fallos) y cortocircuito a los 15 min ante caídas de red, notificando via POST a la API REST al finalizar.
     \item \textbf{RF-05 Regla de No Sobrescritura Vacía:} Evitar que campos vacíos o indeterminados (\texttt{""}, \texttt{"undefined"}) sobrescriban información previa válida.
     \item \textbf{RF-06 API REST de Consulta con Ordenación Prioritaria:} Endpoints para listar universidades (públicas primero, privadas después) y titulaciones por nivel académico.
@@ -30,6 +30,7 @@ El objetivo de negocio principal es ofrecer un portal público centralizado de e
     \item \textbf{RF-12 Universidades Destacadas (Top 6):} Cálculo dinámico de las 6 universidades más consultadas en la plataforma.
     \item \textbf{RF-13 Sección "Sobre Nosotros":} Página informativa del TFG de Alejandro Ramos Rodríguez (Ingeniería Informática, UCA).
     \item \textbf{RF-14 Panel del Administrador en Ruta Manual \texttt{/admin}:} Acceso aislado sin botón visible para gestionar CRUD y monitorear la salud individual de contenedores.
+    \item \textbf{RF-15 Rastreo Paralelo de Webs Oficiales (Fase 1 - Parte 2):} Escanear en paralelo las webs oficiales de las universidades para titulaciones sin plan de estudios, verificando estrictamente \texttt{robots.txt}, analizando el Sitemap XML, buscando mediante 26 sinónimos académicos y guardando la URL directa de acceso en \texttt{web\_fuente\_directa\_url}.
 \end{itemize}
 
 \section{Requisitos no funcionales}

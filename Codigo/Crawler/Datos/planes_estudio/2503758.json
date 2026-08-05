@@ -1,0 +1,155 @@
+{
+  "codigo_estudio": "2503758",
+  "titulo": "Graduado o Graduada en Ingeniería de Datos por la Universidad Autónoma de Barcelona",
+  "nivel_academico": "Grado - RD 1393/2007 (1)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T18:27:36.327284",
+  "boe_url": "http://www.boe.es/boe/dias/2019/08/05/pdfs/BOE-A-2019-11506.pdf",
+  "boe_fecha": "2019-08-05",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2019/08/05/pdfs/BOE-A-2019-11506.pdf",
+    "http://www.boe.es/boe/dias/2019/04/23/pdfs/BOE-A-2019-6032.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/7798/1723964.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica": "60",
+      "Obligatorias": "120",
+      "Optativas": "48",
+      "Créditos Totales": "240"
+    },
+    "total_elementos": 14,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Formación básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo de fin de grado.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Empresa.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Matemáticas.",
+        "creditos_ects": "12",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Análisis y Visualización de Datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Procesamiento de Datos.",
+        "creditos_ects": "24",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Formación Optativa.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Almacenamiento y Transmisión de Datos.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "Formación básica (6) / Obligatoria (30). (Otras Ramas).",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Extracción de Datos Digitales.",
+        "creditos_ects": "15",
+        "caracter": "FB",
+        "curso": "Formación básica (9) / Obligatoria (6). (Otras Ramas).",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Informática.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Representación de Datos.",
+        "creditos_ects": "18",
+        "caracter": "FB",
+        "curso": "Formación básica (6) / Obligatoria (12). (Otras Ramas).",
+        "cuatrimestre": ""
+      }
+    ]
+  },
+  "precio_credito_ects": 18.46,
+  "precio_estimado_anual": 1162.6,
+  "fuente_precio": "Oficial SIIU Ministerio / Decreto Comunidad Autónoma de Cataluña"
+}

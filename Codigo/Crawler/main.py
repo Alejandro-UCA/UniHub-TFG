@@ -472,6 +472,12 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
     run_phase1_part2(max_workers=4)
 
     # -------------------------------------------------------------------------
+    # PARTE 3 DE LA FASE 1: CÁLCULO DE PRECIOS ECTS Y MATRÍCULAS DE UNIVERSIDADES PÚBLICAS
+    # -------------------------------------------------------------------------
+    from precios_crawler import run_phase1_part3
+    run_phase1_part3()
+
+    # -------------------------------------------------------------------------
     # NOTIFICACIÓN A FASE 2: SÓLO AL FINALIZAR LA FASE 1 AL COMPLETO
     # -------------------------------------------------------------------------
     trigger_api_etl_sync()

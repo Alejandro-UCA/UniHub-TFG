@@ -1,0 +1,739 @@
+{
+  "codigo_estudio": "4318306",
+  "titulo": "Máster Universitario en Logistics and Supply Chain Management por la Universidad Autónoma de Barcelona; Rigas Tehniska Universitate(Letonia) y Technische Hochschule Wildau(Alemania)",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T18:21:42.052385",
+  "boe_url": "http://www.boe.es/boe/dias/2023/11/23/pdfs/BOE-A-2023-23877.pdf",
+  "boe_fecha": "2023-11-23",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2023/11/23/pdfs/BOE-A-2023-23877.pdf",
+    "http://www.boe.es/boe/dias/2023/10/30/pdfs/BOE-A-2023-22129.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/8973/1988057.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "96",
+      "Optativas": "30",
+      "Créditos Totales": "120"
+    },
+    "total_elementos": 79,
+    "elementos_curriculares": [
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "9",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Trabajo de fin de máster.",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Clasificación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Derecho y Régimen Jurídico de los Documentos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Descripción y Recuperación de la Información.",
+        "creditos_ects": "9",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Documentos Fotográficos, Gráficos y Audiovisuales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Fundamentos de Archivística.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Gestión de Proyectos y Comunicación.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Gobernanza de Datos.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Ingeniería de Procesos y Análisis Documental.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Preservación Digital y Archivo Electrónico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Producción Documental I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Producción Documental II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Sistemas de Gestión Documental.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Sistemas de Información y Arquitectura de Sistemas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Valoración, Transparencia y Acceso a la Información.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "30",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Sostenibilidad e Ingeniería Verde.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Tecnología de Ingeniería, Innovación e Investigación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Análisis de Datos, Optimización y Toma de Decisiones.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Aprendizaje Profundo.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Computación Avanzada de Altas Prestaciones.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Gestión y Desarrollo de Aplicaciones en la Nube.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Industria Inteligente.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Sistemas Ciberfísicos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Transmisión de Datos y Criptografía.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Transmisión de Datos y Seguridad.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Biología Computacional y Análisis de Datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Biotecnología Agraria.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Genómica Vegetal.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Interacciones Planta-Ambiente.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Biología de Sistemas de las Plantas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Biología Molecular de las Plantas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Crecimiento y Desarrollo Vegetal.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Fisiología y Metabolismo Vegetales.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Diseño Escénico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Estructuras y Procedimientos de la Dramaturgia Contemporánea.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Metodologías de Análisis e Investigación: Texto Dramático y Actuación Performativa.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Teoría e Historia de la Representación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Teoría y Práctica de la Recepción Teatral.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "La Escena Expandida: Diálogos entre las Artes.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Laboratorio de Dirección de Actores y Escenificación I.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Laboratorio de Dirección de Actores y Escenificación II.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Laboratorio de Dramaturgia I.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Laboratorio de Dramaturgia II.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Metodología de la Investigación en la Danza.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Prácticum.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Especificación y Evaluación de Sistemas de Control y Gestión Logística.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Implantación y Puesta en Marcha del Sistema Logístico.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Gestión en Logística.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "13.5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Sistemas de Información en Logística.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "16.5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Dimensión Europea de la Logística y la Gestión de Cadenas de Suministro.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Fundamentos de Ingeniería para LSCM.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Fundamentos de Logística y Gestión de Cadenas de Suministro.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Gestión de Flujo en Redes de Suministro.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Gestión de Proyectos.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Habilidades en Gerencia.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Pensamiento Sistémico.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Tecnologías de la Información.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tecnologías de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Toma de Decisiones.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Introducción a la Paleontología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Paleobiología Continental.",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Paleobiología Marina.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Prácticas de Paleobiología I.",
+        "creditos_ects": "12",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Prácticas de Paleobiología II.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Actores en Educación y Desarrollo.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Desigualdades Globales, Pobreza y Educación para el Desarrollo.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Políticas Educativas Globales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Técnicas Básicas de Investigación.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Teorías de Justicia Social en Educación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Escuela de Invierno.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Trabajo de campo.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Educación Comparada.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Educación Especial e Inclusiva.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Técnicas Avanzadas de Investigación.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Educación y Desarrollo Internacional.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Investigación Política Avanzada.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Análisis y Diseño de Sistemas de Manipulación de Materiales y de Transporte.",
+        "nombre_elemento": "Perspectivas Comparativas sobre Educación y Desarrollo.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  },
+  "precio_credito_ects": 37.6,
+  "precio_estimado_anual": 2311.0,
+  "fuente_precio": "Oficial SIIU Ministerio / Decreto Comunidad Autónoma de Cataluña"
+}

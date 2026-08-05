@@ -1,0 +1,116 @@
+{
+  "codigo_estudio": "4316493",
+  "titulo": "Máster Universitario en Periodismo e Innovación en Contenidos Digitales por la Universidad Autónoma de Barcelona",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T18:21:36.368640",
+  "boe_url": "http://www.boe.es/boe/dias/2019/12/03/pdfs/BOE-A-2019-17454.pdf",
+  "boe_fecha": "2019-12-03",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2019/12/03/pdfs/BOE-A-2019-17454.pdf",
+    "http://www.boe.es/boe/dias/2019/08/26/pdfs/BOE-A-2019-12450.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/7830/1732511.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 10,
+    "elementos_curriculares": [
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Obligatorios.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "9",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Trabajo de fin de máster.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Creación y Desarrollo de Proyectos de Investigación Aplicados al Periodismo.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Estrategia Digital y Posicionamiento de Contenidos Periodísticos.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Modelos, Estructuras y Regulación de los Medios y el Periodismo Digitales.",
+        "creditos_ects": "9",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Narrativas Digitales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Prácticas Profesionales Externas.",
+        "creditos_ects": "9",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Taller de Producción Periodística.",
+        "creditos_ects": "9",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Tecnologías y Sistemas de Producción y Gestión de Contenidos Digitales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      }
+    ]
+  },
+  "precio_credito_ects": 37.6,
+  "precio_estimado_anual": 2311.0,
+  "fuente_precio": "Oficial SIIU Ministerio / Decreto Comunidad Autónoma de Cataluña"
+}

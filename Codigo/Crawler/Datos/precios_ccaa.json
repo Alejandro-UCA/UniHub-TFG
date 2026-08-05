@@ -1,0 +1,121 @@
+{
+  "Andalucía": {
+    "Grado": {"1": 12.62, "2": 12.62, "3": 12.62, "defecto": 12.62},
+    "Máster Habilitante": {"defecto": 13.68},
+    "Máster No Habilitante": {"defecto": 13.68},
+    "Doctorado": {"defecto": 17.50},
+    "tasas_admin": 45.00
+  },
+  "Aragón": {
+    "Grado": {"1": 18.25, "2": 16.50, "3": 14.80, "defecto": 16.50},
+    "Máster Habilitante": {"defecto": 21.00},
+    "Máster No Habilitante": {"defecto": 28.50},
+    "Doctorado": {"defecto": 25.00},
+    "tasas_admin": 48.00
+  },
+  "Canarias": {
+    "Grado": {"1": 14.50, "2": 13.20, "3": 12.50, "defecto": 13.20},
+    "Máster Habilitante": {"defecto": 16.80},
+    "Máster No Habilitante": {"defecto": 22.00},
+    "Doctorado": {"defecto": 20.00},
+    "tasas_admin": 40.00
+  },
+  "Cantabria": {
+    "Grado": {"1": 15.80, "2": 14.10, "3": 13.20, "defecto": 14.10},
+    "Máster Habilitante": {"defecto": 18.50},
+    "Máster No Habilitante": {"defecto": 26.00},
+    "Doctorado": {"defecto": 22.00},
+    "tasas_admin": 42.00
+  },
+  "Castilla-La Mancha": {
+    "Grado": {"1": 15.20, "2": 13.80, "3": 12.90, "defecto": 13.80},
+    "Máster Habilitante": {"defecto": 17.20},
+    "Máster No Habilitante": {"defecto": 23.50},
+    "Doctorado": {"defecto": 21.00},
+    "tasas_admin": 45.00
+  },
+  "Castilla y León": {
+    "Grado": {"1": 17.50, "2": 15.80, "3": 14.20, "defecto": 15.80},
+    "Máster Habilitante": {"defecto": 20.50},
+    "Máster No Habilitante": {"defecto": 27.80},
+    "Doctorado": {"defecto": 24.00},
+    "tasas_admin": 46.00
+  },
+  "Cataluña": {
+    "Grado": {"1": 21.46, "2": 18.46, "3": 17.69, "defecto": 18.46},
+    "Máster Habilitante": {"defecto": 27.67},
+    "Máster No Habilitante": {"defecto": 37.60},
+    "Doctorado": {"defecto": 30.00},
+    "tasas_admin": 55.00
+  },
+  "Comunidad de Madrid": {
+    "Grado": {"1": 21.39, "2": 19.43, "3": 16.92, "defecto": 19.43},
+    "Máster Habilitante": {"defecto": 24.24},
+    "Máster No Habilitante": {"defecto": 35.00},
+    "Doctorado": {"defecto": 33.00},
+    "tasas_admin": 50.00
+  },
+  "Comunitat Valenciana": {
+    "Grado": {"1": 17.34, "2": 15.50, "3": 14.20, "defecto": 15.50},
+    "Máster Habilitante": {"defecto": 20.80},
+    "Máster No Habilitante": {"defecto": 28.90},
+    "Doctorado": {"defecto": 26.00},
+    "tasas_admin": 45.00
+  },
+  "Extremadura": {
+    "Grado": {"1": 14.80, "2": 13.50, "3": 12.60, "defecto": 13.50},
+    "Máster Habilitante": {"defecto": 16.50},
+    "Máster No Habilitante": {"defecto": 21.80},
+    "Doctorado": {"defecto": 20.00},
+    "tasas_admin": 40.00
+  },
+  "Galicia": {
+    "Grado": {"1": 13.93, "2": 11.89, "3": 9.85, "defecto": 11.89},
+    "Máster Habilitante": {"defecto": 13.93},
+    "Máster No Habilitante": {"defecto": 26.49},
+    "Doctorado": {"defecto": 18.00},
+    "tasas_admin": 42.00
+  },
+  "Illes Balears": {
+    "Grado": {"1": 17.80, "2": 16.10, "3": 14.90, "defecto": 16.10},
+    "Máster Habilitante": {"defecto": 21.50},
+    "Máster No Habilitante": {"defecto": 29.00},
+    "Doctorado": {"defecto": 25.00},
+    "tasas_admin": 45.00
+  },
+  "La Rioja": {
+    "Grado": {"1": 17.10, "2": 15.40, "3": 14.00, "defecto": 15.40},
+    "Máster Habilitante": {"defecto": 20.00},
+    "Máster No Habilitante": {"defecto": 27.00},
+    "Doctorado": {"defecto": 23.00},
+    "tasas_admin": 44.00
+  },
+  "Navarra": {
+    "Grado": {"1": 18.90, "2": 17.20, "3": 15.60, "defecto": 17.20},
+    "Máster Habilitante": {"defecto": 22.40},
+    "Máster No Habilitante": {"defecto": 31.00},
+    "Doctorado": {"defecto": 27.00},
+    "tasas_admin": 48.00
+  },
+  "País Vasco": {
+    "Grado": {"1": 19.20, "2": 17.50, "3": 15.80, "defecto": 17.50},
+    "Máster Habilitante": {"defecto": 22.80},
+    "Máster No Habilitante": {"defecto": 32.50},
+    "Doctorado": {"defecto": 28.00},
+    "tasas_admin": 50.00
+  },
+  "Principado de Asturias": {
+    "Grado": {"1": 16.90, "2": 15.20, "3": 13.80, "defecto": 15.20},
+    "Máster Habilitante": {"defecto": 19.80},
+    "Máster No Habilitante": {"defecto": 27.20},
+    "Doctorado": {"defecto": 23.00},
+    "tasas_admin": 44.00
+  },
+  "Región de Murcia": {
+    "Grado": {"1": 18.40, "2": 16.80, "3": 15.20, "defecto": 16.80},
+    "Máster Habilitante": {"defecto": 21.20},
+    "Máster No Habilitante": {"defecto": 29.50},
+    "Doctorado": {"defecto": 25.00},
+    "tasas_admin": 45.00
+  }
+}

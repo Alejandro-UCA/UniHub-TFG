@@ -1,0 +1,448 @@
+{
+  "codigo_estudio": "2502442",
+  "titulo": "Graduado o Graduada en Medicina por la Universidad Autónoma de Barcelona",
+  "nivel_academico": "Grado - RD 1393/2007 (1)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T18:26:54.514558",
+  "boe_url": "http://www.boe.es/boe/dias/2022/07/27/pdfs/BOE-A-2022-12574.pdf",
+  "boe_fecha": "2022-07-27",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2022/07/27/pdfs/BOE-A-2022-12574.pdf",
+    "http://www.boe.es/boe/dias/2019/12/03/pdfs/BOE-A-2019-17461.pdf",
+    "http://www.boe.es/boe/dias/2016/08/11/pdfs/BOE-A-2016-7766.pdf",
+    "http://www.boe.es/boe/dias/2013/07/09/pdfs/BOE-A-2013-7527.pdf",
+    "http://www.boe.es/boe/dias/2013/02/08/pdfs/BOE-A-2013-1336.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/6201/1258879.pdf",
+    "http://www.boe.es/boe/dias/2008/02/15/pdfs/A08351-08355.pdf",
+    "http://www.boe.es/boe/dias/2007/12/21/pdfs/A52849-52850.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica": "92",
+      "Obligatorias": "176",
+      "Optativas": "18",
+      "Créditos Totales": "360"
+    },
+    "total_elementos": 46,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Formación básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo de fin de grado.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Anatomía Humana I.",
+        "creditos_ects": "12",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Anatomía Humana II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Bioestadística.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Biología.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Bioquímica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Física.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Fisiología.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Histología.",
+        "creditos_ects": "9",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Propedéutica de las Ciencias de la Salud.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Psicología.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Anatomía Patológica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Bases de la Obstetricia y Ginecología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Bioética.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Clínica de Aparatos y Sistemas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Dermatología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Desarrollo y Salud desde el Nacimiento a la Adolescencia.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Farmacología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Fundamentos de la Cirugía.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Genética.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Inmunología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Integración de Ciencias Básicas y Clínicas.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Medicina Forense.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Microbiología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Nutrición.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Oncología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Otalmología.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Otorrinolaringología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Patología General.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Prácticas Clínicas Tuteladas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Psiquiatría Clínica.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Radiología y Medicina Física.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Salud Pública.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Simulación Aplicada en Medicina y Cirugía.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Cirugía Clínica.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Clínica Médica.",
+        "creditos_ects": "24",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Laboratorio Clínico y Experimental.",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Medicina y Humanismo.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Prácticas Multidisciplinares.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Salud Materno-infantil.",
+        "creditos_ects": "9",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Salud Mental.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Salud Pública y Servicios de Salud.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      }
+    ]
+  },
+  "precio_credito_ects": 18.46,
+  "precio_estimado_anual": 1162.6,
+  "fuente_precio": "Oficial SIIU Ministerio / Decreto Comunidad Autónoma de Cataluña"
+}

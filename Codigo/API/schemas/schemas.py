@@ -39,6 +39,9 @@ class TitulacionBase(BaseModel):
     nivel_academico: Optional[str] = None
     estado: Optional[str] = None
     universidad_codigo: str
+    precio_credito_ects: Optional[float] = None
+    precio_estimado_anual: Optional[float] = None
+    fuente_precio: Optional[str] = None
 
 class TitulacionCreate(TitulacionBase):
     pass

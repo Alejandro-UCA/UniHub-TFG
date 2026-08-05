@@ -29,6 +29,9 @@ class Titulacion(Base):
     nivel_academico = Column(Text, index=True)
     estado = Column(String(200))
     universidad_codigo = Column(String(10), ForeignKey("universidades.codigo", ondelete="CASCADE"), nullable=False)
+    precio_credito_ects = Column(Numeric(6, 2), nullable=True)
+    precio_estimado_anual = Column(Numeric(8, 2), nullable=True)
+    fuente_precio = Column(Text, nullable=True)
     creado_en = Column(DateTime, default=func.now())
 
     universidad = relationship("Universidad", back_populates="titulaciones")

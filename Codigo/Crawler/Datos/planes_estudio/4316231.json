@@ -1,0 +1,135 @@
+{
+  "codigo_estudio": "4316231",
+  "titulo": "Máster Universitario en Biología, Genómica y Biotecnología Vegetales / Plant Biology, Genomics and Biotechnology por la Universidad Autónoma de Barcelona y la Universidad de Barcelona",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T18:25:36.264958",
+  "boe_url": "http://www.boe.es/boe/dias/2019/08/05/pdfs/BOE-A-2019-11512.pdf",
+  "boe_fecha": "2019-08-05",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2019/08/05/pdfs/BOE-A-2019-11512.pdf",
+    "http://www.boe.es/boe/dias/2018/09/07/pdfs/BOE-A-2018-12228.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/7657/1685064.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/7657/1685064.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 12,
+    "elementos_curriculares": [
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Obligatorios.",
+        "creditos_ects": "24",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Optativos.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "9",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Trabajo de fin de máster.",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Biología Molecular e Ingeniería Genética de las Plantas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Biotecnología Agraria.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Fisiología y Metabolismo Vegetales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Genómica Vegetal.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Aprendizaje Basado en Problemas en Biología Vegetal.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Biología de Sistemas de las Plantas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Desarrollo Vegetal y Respuestas Medioambientales.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Nuevas Perspectivas en Biología Vegetal.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      }
+    ]
+  },
+  "precio_credito_ects": 37.6,
+  "precio_estimado_anual": 2311.0,
+  "fuente_precio": "Oficial SIIU Ministerio / Decreto Comunidad Autónoma de Cataluña"
+}

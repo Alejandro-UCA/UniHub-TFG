@@ -97,9 +97,16 @@ def run_etl():
                         titulo=t.get("titulo", ""),
                         nivel_academico=t.get("nivel_academico", ""),
                         estado=t.get("estado", ""),
-                        universidad_codigo=u_code
+                        universidad_codigo=u_code,
+                        precio_credito_ects=t.get("precio_credito_ects"),
+                        precio_estimado_anual=t.get("precio_estimado_anual"),
+                        fuente_precio=t.get("fuente_precio")
                     )
                     db.add(tit_obj)
+                else:
+                    existing.precio_credito_ects = t.get("precio_credito_ects")
+                    existing.precio_estimado_anual = t.get("precio_estimado_anual")
+                    existing.fuente_precio = t.get("fuente_precio")
         db.commit()
         print(f" -> {total_tits} titulaciones vigentes migradas con éxito.")
 
@@ -124,10 +131,14 @@ def run_etl():
             if not d_code:
                 continue
                 
-            # Verify degree exists
+            # Verify degree exists and update price fields
             tit_obj = db.query(Titulacion).filter(Titulacion.codigo_estudio == d_code).first()
             if not tit_obj:
                 continue
+
+            tit_obj.precio_credito_ects = p_data.get("precio_credito_ects")
+            tit_obj.precio_estimado_anual = p_data.get("precio_estimado_anual")
+            tit_obj.fuente_precio = p_data.get("fuente_precio")
                 
             boe_date_val = None
             if p_data.get("boe_fecha"):

@@ -1,0 +1,339 @@
+{
+  "codigo_estudio": "3500161",
+  "titulo": "Máster Universitario en Health Data Science por la Universidad Autónoma de Barcelona; la Universidad de Barcelona; la Universidad de Girona; la Universidad de Lleida; la Universidad de Vic-Universidad Central de Catalunya; la Universidad Politécnica de Catalunya; la Universidad Rovira i Virgili y Université Grenoble Alpes(Francia)",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T18:22:58.540749",
+  "boe_url": "http://www.boe.es/boe/dias/2025/12/03/pdfs/BOE-A-2025-24544.pdf",
+  "boe_fecha": "2025-12-03",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2025/12/03/pdfs/BOE-A-2025-24544.pdf",
+    "http://www.boe.es/boe/dias/2024/09/27/pdfs/BOE-A-2024-19393.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/9223/2042722.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/9223/2042722.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/9223/2042722.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/9223/2042722.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/9223/2042722.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/9223/2042722.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/9223/2042722.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "13",
+      "Optativas": "10"
+    },
+    "total_elementos": 34,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias (OB).",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Prácticas académicas externas (PAE).",
+        "creditos_ects": "30",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo de Fin de Máster (TFM).",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias para el Ejercicio Especializado de la Abogacía y la Procura.",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "30",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias para el Ejercicio Especializado de la Abogacía y la Procura.",
+        "nombre_elemento": "Trabajo de Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas (OP).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "28,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Health Data.",
+        "creditos_ects": "24",
+        "caracter": "OP",
+        "curso": "Mixta (OB:13,5 OP:10,5)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Health Data Technologies.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "Mixta (OB:10,5 OP:3)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Heath Data Science.",
+        "creditos_ects": "24",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Health Data Analytics.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Entrepreneurship and Innovation.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "19,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Internship.",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Master Thesis.",
+        "creditos_ects": "9",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Simulación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Métodos numéricos en ingeniería.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Modelización mediante ecuaciones diferenciales.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Análisis de datos en entornos Big Data.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Teoría de grafos y sus aplicaciones.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Optimización discreta.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Computación de altas prestaciones.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Reconocimiento de patrones.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Redes complejas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Sistemas dinámicos caóticos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Criptografía y Tecnología Blockchain.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Análisis multivariante de datos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Inteligencia artificial.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Introducción a la investigación.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Economía y Gestión de la Innovación",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Organización de Empresas y Dirección Estratégica",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "Mixta (OB:6 OP:6)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Emprendimiento",
+        "creditos_ects": "9",
+        "caracter": "OP",
+        "curso": "Mixta (OB:6 OP:3)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Finanzas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Comercialización e Investigación de Mercados",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Entorno Legal",
+        "creditos_ects": "15",
+        "caracter": "OP",
+        "curso": "Mixta (OB:12 OP:3)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Trabajo Fin de Máster",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      }
+    ]
+  },
+  "precio_credito_ects": 37.6,
+  "precio_estimado_anual": 2311.0,
+  "fuente_precio": "Oficial SIIU Ministerio / Decreto Comunidad Autónoma de Cataluña"
+}

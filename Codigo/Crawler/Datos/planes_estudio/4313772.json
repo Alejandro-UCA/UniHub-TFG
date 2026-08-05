@@ -1,0 +1,909 @@
+{
+  "codigo_estudio": "4313772",
+  "titulo": "Máster Universitario en Biotecnología Avanzada por la Universidad Autónoma de Barcelona",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T18:25:28.987870",
+  "boe_url": "http://www.boe.es/boe/dias/2025/08/09/pdfs/BOE-A-2025-16599.pdf",
+  "boe_fecha": "2025-08-09",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2025/08/09/pdfs/BOE-A-2025-16599.pdf",
+    "http://www.boe.es/boe/dias/2016/10/03/pdfs/BOE-A-2016-9063.pdf",
+    "http://www.boe.es/boe/dias/2014/12/29/pdfs/BOE-A-2014-13571.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/6736/1377925.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 98,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Obligatorios.",
+        "creditos_ects": "15.0",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Optativos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Trabajo de Fin de Máster.",
+        "creditos_ects": "9.0",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "9.0",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Neurobiología Molecular y Fisiológica.",
+        "creditos_ects": "9.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Bases Moleculares de la Transducción de Señal y el Cáncer.",
+        "creditos_ects": "9.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Transgénesis y Terapia Génica: del Animal a la Clínica.",
+        "creditos_ects": "9.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Competencias Básicas en Investigación en Bioquímica, Biología Molecular y Biomedicina.",
+        "creditos_ects": "9.0",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Competencias Básicas en Investigación Traslacional y Clínica.",
+        "creditos_ects": "9.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Proteómica Biomédica.",
+        "creditos_ects": "3.0",
+        "caracter": "OP",
+        "curso": "3.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Estructura de Biomoléculas.",
+        "creditos_ects": "9.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Función de Biomoléculas en Salud y Enfermedad.",
+        "creditos_ects": "9.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Avances en Bioquímica Clínica y Patología Molecular.",
+        "creditos_ects": "9.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Seminarios Avanzados en Bioquímica, Biología Molecular y Biomedicina.",
+        "creditos_ects": "6.0",
+        "caracter": "OB",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Genómica.",
+        "creditos_ects": "6.0",
+        "caracter": "OP",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "DNA Recombinante: Fundamentos y Aplicaciones Avanzadas.",
+        "creditos_ects": "9.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Biotecnología Microbiana.",
+        "creditos_ects": "9.0",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Biología Sintética, de Sistemas e Ingeniería Metabólica.",
+        "creditos_ects": "6.0",
+        "caracter": "OB",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Producción Industrial de Bioproductos.",
+        "creditos_ects": "9.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Biocatálisis Aplicada y Biotransformaciones.",
+        "creditos_ects": "9.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Políticas Públicas para el Crecimiento Sostenible y el Bienestar Social.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Finanzas Empresariales e Instituciones Financieras.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Políticas Públicas para la Investigación, Desarrollo e Innovación.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Fundamentos de Economía y Empresa II.",
+        "creditos_ects": "15.0",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Economía Financiera y Análisis de Mercados Financieros.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Fundamentos de Economía y Empresa I.",
+        "creditos_ects": "15.0",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Didáctica del Inglés.",
+        "creditos_ects": "15.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Didáctica de las Matemáticas.",
+        "creditos_ects": "15.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Innovación Docente e Iniciación a la Investigación en Didáctica de la Física y la Química.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Innovación Docente e Iniciación a la Investigación Educativa en Didáctica del Inglés.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Innovación Docente e Iniciación a la Investigación Educativa en Didáctica de la Lengua Extranjera.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Innovación Docente e Iniciación a la Investigación Educativa en Didáctica de las Ciencias Sociales.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Innovación Docente e Iniciación a la Investigación en Didáctica de la Biología y la Geología.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Didáctica de la Geografía e Historia.",
+        "creditos_ects": "15.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Formación Psicopedagógica y Social.",
+        "creditos_ects": "15.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Innovación Docente e Iniciación a la Investigación Educativa en Didáctica de la Música.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Acción Tutorial y Trabajo en Red.",
+        "creditos_ects": "15.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Innovación Docente e Iniciación a la Investigación Educativa en Didáctica de las Matemáticas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Orientación y Atención Educativa Inclusiva.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Innovación Docente e Iniciación a la Investigación Educativa en Didáctica de la Lengua y la Literatura.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Didáctica de las Lenguas Extranjeras.",
+        "creditos_ects": "15.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Prácticum.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Innovación Docente e Iniciación a la Investigación Educativa en Didáctica del Francés.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Didáctica de la Física y la Química.",
+        "creditos_ects": "15.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Didáctica de la Biología y la Geología.",
+        "creditos_ects": "15.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Didáctica del Francés.",
+        "creditos_ects": "15.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Didáctica de la Música.",
+        "creditos_ects": "15.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Didáctica de la Lengua y la Literatura.",
+        "creditos_ects": "15.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Datos Geoespaciales.",
+        "creditos_ects": "6.0",
+        "caracter": "OB",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Geoservicios.",
+        "creditos_ects": "6.0",
+        "caracter": "OB",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Desarrollo de Geoaplicaciones.",
+        "creditos_ects": "6.0",
+        "caracter": "OP",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Programación Orientada a Objetos en Entornos de Escritorio y Web.",
+        "creditos_ects": "6.0",
+        "caracter": "OP",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Innovación Urbana para Ciudades Inteligentes y Sostenibles.",
+        "creditos_ects": "6.0",
+        "caracter": "OP",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Bases de Datos.",
+        "creditos_ects": "6.0",
+        "caracter": "OB",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Proyectos 3D y Estrategias de Negocio en Geoinformación.",
+        "creditos_ects": "6.0",
+        "caracter": "OP",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Sistemas de Navegación y de Observación de la Tierra.",
+        "creditos_ects": "6.0",
+        "caracter": "OB",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Sistemas de Información Geográfica.",
+        "creditos_ects": "6.0",
+        "caracter": "OB",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Aspectos Jurídicos y Económicos en la Gestión de RRHH.",
+        "creditos_ects": "6.0",
+        "caracter": "OP",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Modelos de Gestión y de Bienestar de Personas.",
+        "creditos_ects": "6.0",
+        "caracter": "PE",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Procesos 2. Incorporación y Desvinculación.",
+        "creditos_ects": "6.0",
+        "caracter": "OB",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Métodos y Herramientas para Gestionar Personas.",
+        "creditos_ects": "6.0",
+        "caracter": "PE",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Procesos 1. Puestos, Retribución y Planificación.",
+        "creditos_ects": "6.0",
+        "caracter": "OB",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Prácticas Profesionales: el Rol de Técnico en RRHH.",
+        "creditos_ects": "6.0",
+        "caracter": "OP",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Procesos 3. Formación, Desarrollo y Rendimiento.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Procesos 4. Comunicación, Cultura y Clima Organizacional.",
+        "creditos_ects": "6.0",
+        "caracter": "OB",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Experiencias Profesionales: Áreas Consolidadas y Emergentes a través de Casos Reales.",
+        "creditos_ects": "6.0",
+        "caracter": "OP",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Aspectos Psicosociales Críticos en la Gestión de RRHH.",
+        "creditos_ects": "6.0",
+        "caracter": "OP",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Trabajar en RRHH: Caracterizar un Área Profesional.",
+        "creditos_ects": "6.0",
+        "caracter": "OB",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Investigación Avanzada.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Marketing Digital.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Marketing Basado en Datos y del Comportamiento.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Comportamiento del Consumidor.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Prácticas Profesionales.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Marketing Avanzado.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Marketing Sociopolítico.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Ecuaciones en derivadas parciales: Modelización, Análisis y Aproximación Numérica.",
+        "creditos_ects": "6.0",
+        "caracter": "OP",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Sistemas Distribuidos.",
+        "creditos_ects": "6.0",
+        "caracter": "OP",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Modelización y Simulación Aplicadas.",
+        "creditos_ects": "6.0",
+        "caracter": "OP",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "De la Modelización Microscópica a la Macroscópica.",
+        "creditos_ects": "6.0",
+        "caracter": "OP",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Matemáticas para Big Data.",
+        "creditos_ects": "6.0",
+        "caracter": "OP",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Visualización de Datos y Modelización.",
+        "creditos_ects": "6.0",
+        "caracter": "OP",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Taller de Modelización.",
+        "creditos_ects": "6.0",
+        "caracter": "OP",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Optimización.",
+        "creditos_ects": "6.0",
+        "caracter": "OP",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Prácticas en Empresas e Instituciones.",
+        "creditos_ects": "12.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Programación Paralela.",
+        "creditos_ects": "6.0",
+        "caracter": "OB",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Investigación e Innovación.",
+        "creditos_ects": "6.0",
+        "caracter": "OB",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Sistemas Dinámicos y Complejidad.",
+        "creditos_ects": "6.0",
+        "caracter": "OP",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Teoría y Tecnología Osteopática del Aparato Locomotor I.",
+        "creditos_ects": "12.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Teoría y Tecnología Osteopática Cervical, Craneal y Facial.",
+        "creditos_ects": "15.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Teoría y Tecnología Osteopática del Aparato Locomotor III.",
+        "creditos_ects": "9.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Metodología de la Investigación y Diseño de Estudios Clínicos.",
+        "creditos_ects": "9.0",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Teoría y Tecnología Osteopática del Aparato Locomotor IV.",
+        "creditos_ects": "6.0",
+        "caracter": "OP",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Teoría y Tecnología Osteopáticas del Dolor Crónico.",
+        "creditos_ects": "6.0",
+        "caracter": "OP",
+        "curso": "6.0",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Teoría y Tecnología Osteopática Especial.",
+        "creditos_ects": "9.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Teoría y Tecnología Osteopática del Aparato Locomotor V.",
+        "creditos_ects": "12.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Teoría y Tecnología Osteopática del Aparato Locomotor II.",
+        "creditos_ects": "12.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Teoría y Tecnología Osteopática Torácica, Abdominal y Pelviana.",
+        "creditos_ects": "15.0",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  },
+  "precio_credito_ects": 37.6,
+  "precio_estimado_anual": 2311.0,
+  "fuente_precio": "Oficial SIIU Ministerio / Decreto Comunidad Autónoma de Cataluña"
+}

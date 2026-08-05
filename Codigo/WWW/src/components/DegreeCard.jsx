@@ -49,13 +49,30 @@ export default function DegreeCard({ degree, onSelectDegree }) {
           {degree.titulo}
         </h4>
 
-        {/* Academic Level */}
+        {/* Academic Level & Pricing */}
         <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '1rem' }}>
           {degree.nivel_academico && (
             <div><strong style={{ color: 'var(--text-main)' }}>Nivel:</strong> {degree.nivel_academico}</div>
           )}
           {degree.universidad_nombre && (
             <div style={{ marginTop: '0.2rem', fontWeight: 600, color: 'var(--uca-cyan)' }}>{degree.universidad_nombre}</div>
+          )}
+          {degree.precio_estimado_anual && (
+            <div style={{ 
+              marginTop: '0.5rem', 
+              padding: '0.3rem 0.6rem', 
+              borderRadius: '6px', 
+              background: 'rgba(16, 185, 129, 0.08)', 
+              border: '1px solid rgba(16, 185, 129, 0.2)',
+              color: '#10B981', 
+              fontWeight: 600, 
+              fontSize: '0.8rem',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.4rem'
+            }}>
+              💶 Matrícula Pública Estimada: ~{degree.precio_estimado_anual} €/año ({degree.precio_credito_ects} €/ECTS)
+            </div>
           )}
         </div>
       </div>

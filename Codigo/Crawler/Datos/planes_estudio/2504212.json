@@ -1,0 +1,290 @@
+{
+  "codigo_estudio": "2504212",
+  "titulo": "Graduado o Graduada en Estudios Ingleses por la Universidad Autónoma de Barcelona",
+  "nivel_academico": "Grado - RD 1393/2007 (1)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T18:28:07.465510",
+  "boe_url": "http://www.boe.es/boe/dias/2022/11/16/pdfs/BOE-A-2022-18880.pdf",
+  "boe_fecha": "2022-11-16",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2022/11/16/pdfs/BOE-A-2022-18880.pdf",
+    "http://www.boe.es/boe/dias/2022/03/18/pdfs/BOE-A-2022-4299.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/8608/1891259.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica": "60",
+      "Obligatorias": "120",
+      "Optativas": "54",
+      "Créditos Totales": "240"
+    },
+    "total_elementos": 29,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Formación básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo de fin de grado.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Filosofía.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Historia.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Introducción a la Literatura Comparada.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Lingüística.",
+        "creditos_ects": "18",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Literatura.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Lingüística Inglesa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Literatura de los Estados Unidos.",
+        "creditos_ects": "18",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Literatura Inglesa I.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Aplicaciones Profesionales del Inglés.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Crítica Literaria.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Culturas y Sociedades de Habla Inglesa.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Lengua Moderna.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Lengua Moderna Alemana.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Lingüística General.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Lingüística Inglesa Avanzada.",
+        "creditos_ects": "24",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Literatura Comparada.",
+        "creditos_ects": "24",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Literatura y Cultura Alemanas.",
+        "creditos_ects": "24",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Prácticas Profesionales.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Teoría de la Literatura.",
+        "creditos_ects": "24",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Textos y Contextos de la Literatura Inglesa.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Adquisición y Enseñanza del Inglés.",
+        "creditos_ects": "24",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Habilidades Académicas del Inglés.",
+        "creditos_ects": "30",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Historia y Cultura de los Países de Habla Inglesa.",
+        "creditos_ects": "12",
+        "caracter": "FB",
+        "curso": "Formación básica 6 (Artes y Humanidades) / 6 Obligatoria.",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Inglés y Sociedad.",
+        "creditos_ects": "24",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Literatura Inglesa II.",
+        "creditos_ects": "30",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  },
+  "precio_credito_ects": 18.46,
+  "precio_estimado_anual": 1162.6,
+  "fuente_precio": "Oficial SIIU Ministerio / Decreto Comunidad Autónoma de Cataluña"
+}

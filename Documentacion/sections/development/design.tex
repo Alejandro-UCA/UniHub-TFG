@@ -5,11 +5,11 @@ Se adopta una arquitectura desacoplada basada en microservicios contenerizados y
 
 \subsection{Diseño de alto nivel}
 Siguiendo el modelo C4 (Contenedores y Componentes), el sistema se divide en cuatro capas principales:
-\begin1
+\begin{enumerate}
     \item \textbf{Capa de Presentación (Frontend):} Servidor Web Nginx entregando la SPA compilada en React con soporte para la ruta aislada \texttt{/admin} (Fase 3).
     \item \textbf{Capa de Servicio (API REST):} Framework FastAPI en Python que expone controladores RESTful, métricas cgroup de contenedores y endpoints CRUD (Fase 2).
     \item \textbf{Capa de Datos (Persistencia):} Motor de Base de Datos Relacional PostgreSQL 15 con el esquema DDL y almacenamiento de archivos JSON en disco (Fase 2 y 1).
-    \item \textbf{Capa de Ingesta (Crawler):} Módulo independiente en Python con servicio Cron para ejecuciones desatendidas mensuales (Fase 1).
+    \item \textbf{Capa de Ingesta (Crawler):} Módulo independiente en Python estructurado en 2 procesos paralelos y 2 partes (RUCT/BOE y webs oficiales de universidades) con servicio Cron para ejecuciones desatendidas mensuales (Fase 1).
 \end{enumerate}
 
 \subsection{Diseño detallado}
@@ -24,14 +24,14 @@ La API REST implementa controladores modulares mediante \texttt{APIRouter} en Fa
 Se configuró el servidor proxy inverso Nginx (\texttt{nginx.conf}) para redirigir las peticiones \texttt{/api/v1/} hacia la API REST en \texttt{http://api:8000/api/v1/} y servir la SPA React en la raíz \texttt{/}, soportando react-router para la URL \texttt{/admin}. En PostgreSQL, se parametrizó la creación del usuario restringido \texttt{rupt\_api\_user} con permisos \texttt{GRANT SELECT} exclusivo.
 
 \section{Diseño Físico de Datos}
-El diseño relacional en PostgreSQL (\texttt{schema.sql}) se compone de las siguientes tablas principales con claves primarias y foráneas con borrado en cascada:
+El diseño relacional en PostgreSQL (\texttt{schema.sql}) se compone de las siguientes tablas principales con claves primarias y foráneas con borrado en cascada, optimizadas mediante la extensión de trigramas \texttt{pg\_trgm}:
 \begin{itemize}
-    \item \texttt{universidades}: Clave primaria \texttt{codigo VARCHAR(10)}. Índices en \texttt{tipo}, \texttt{comunidad\_autonoma} y \texttt{nombre}.
-    \item \texttt{titulaciones}: Clave primaria \texttt{codigo\_estudio VARCHAR(20)}, clave foránea \texttt{universidad\_codigo REFERENCES universidades(codigo)}.
+    \item \texttt{universidades}: Clave primaria \texttt{codigo VARCHAR(10)}. Índices en \texttt{tipo}, \texttt{comunidad\_autonoma} e índice GIN trigrama \texttt{idx\_univ\_nombre\_trgm} sobre \texttt{nombre}.
+    \item \texttt{titulaciones}: Clave primaria \texttt{codigo\_estudio VARCHAR(20)}, clave foránea \texttt{universidad\_codigo REFERENCES universidades(codigo)}. Índice GIN trigrama \texttt{idx\_tit\_titulo\_trgm} sobre \texttt{titulo}.
     \item \texttt{planes\_estudio}: Clave foránea \texttt{codigo\_estudio REFERENCES titulaciones(codigo\_estudio)}.
     \item \texttt{resumen\_creditos}: Clave foránea a \texttt{planes\_estudio(id)}.
-    \item \texttt{elementos\_curriculares}: Clave foránea a \texttt{planes\_estudio(id)}. Tipos de datos en texto extenso (\texttt{TEXT}) para evitar trincamientos.
-    \item \texttt{errores\_crawler} y \texttt{estadisticas\_rendimiento}: Tablas relacionales de registro de auditoría.
+    \item \texttt{elementos\_curriculares}: Clave foránea a \texttt{planes\_estudio(id)}. Tipos de datos en texto extenso (\texttt{TEXT}) para evitar truncamientos.
+    \item \texttt{errores\_crawler} y \texttt{estadisticas\_rendimiento}: Tablas relacionales de registro de auditoría con desduplicación por timestamp.
 \end{itemize}
 
 \section{Diseño de la Interfaz de Usuario} 
@@ -41,5 +41,6 @@ El diseño visual se ha construido respetando la paleta de colores de la **Unive
     \item \textbf{Azul Mar de Cádiz (Acentos):} \texttt{\#0084C8} y \texttt{\#00A8E8}.
     \item \textbf{Dorado Sol de Cádiz (Highlights/Badges):} \texttt{\#F3A712} y \texttt{\#FFC72C}.
     \item \textbf{Rosa Magenta (Badge Doctorado):} \texttt{\#EC4899} (20\% opacidad).
+    \item \textbf{Panel de Administración:} Vista multisección con monitor de métricas en tiempo real, tabla de diagnóstico del Checkpoint de la Fase 1, visor de errores JSON y pestaña interactiva con documentación Swagger UI (\texttt{/docs}) y ReDoc (\texttt{/redoc}).
     \item \textbf{Estilos Visuales:} Formularios con efecto desenfocado *glassmorphism* (\texttt{backdrop-filter: blur(12px)}), componentes de paginación modular, distancia integrada en tarjeta y modo oscuro dinámico.
 \end{itemize}

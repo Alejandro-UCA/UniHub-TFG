@@ -1,0 +1,144 @@
+{
+  "codigo_estudio": "4316214",
+  "titulo": "Máster Universitario en Psicología del Deporte y de la Actividad Física por la Universidad Autónoma de Barcelona y la Universidad de Barcelona",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T18:21:35.099309",
+  "boe_url": "http://www.boe.es/boe/dias/2019/08/05/pdfs/BOE-A-2019-11520.pdf",
+  "boe_fecha": "2019-08-05",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2019/08/05/pdfs/BOE-A-2019-11520.pdf",
+    "http://www.boe.es/boe/dias/2018/09/07/pdfs/BOE-A-2018-12228.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/7657/1685064.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/7657/1685064.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Créditos Totales": "90"
+    },
+    "total_elementos": 13,
+    "elementos_curriculares": [
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Obligatorios.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "12",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Trabajo de fin de máster.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Actividad Física y Estilo de Vida Saludable.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Aplicación de Instrumentos de Evaluación y Técnicas de Intervención en Psicología del Deporte y de la Actividad Física.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Asesoramiento y Técnicas de Entrenamiento Psicológico para Deportistas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Bases Fisiológicas, Psicológicas, Pedagógicas y Sociales de la Actividad Física y el Deporte.",
+        "creditos_ects": "9",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Entrenamiento Psicológico en Deportes Específicos.",
+        "creditos_ects": "9",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Estrategias de Investigación en Psicología del Deporte y de la Actividad Física.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Experiencias Profesionales en Psicología del Deporte y de la Actividad Física.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Iniciación Deportiva: Asesoramiento a Familias y Entrenadores.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Metodología y Técnicas de Evaluación en Psicología del Deporte.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Prácticas Externas en Psicología del Deporte y de la Actividad Física.",
+        "creditos_ects": "12",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  },
+  "precio_credito_ects": 37.6,
+  "precio_estimado_anual": 2311.0,
+  "fuente_precio": "Oficial SIIU Ministerio / Decreto Comunidad Autónoma de Cataluña"
+}

@@ -10,14 +10,18 @@ La estrategia de pruebas abarcó desde la verificación unitaria de módulos ind
 
 \section{Pruebas Unitarias}
 \begin{itemize}
-    \item \textbf{Prueba de Clasificación de Doctorados y Filtro de Vigencia (\texttt{parsers.py}):} Se comprobó que el parser de XLS identifique correctamente los doctorados (RD 99/2011) y que descarte de forma estricta titulaciones extinguidas, no vigentes, derogadas o eliminadas.
-    \item \textbf{Prueba de Resiliencia de Conexión (\texttt{downloader.py}):} Se verificó que tras 10 fallos consecutivos de red se aplique una pausa de 5 minutos, y tras 15 minutos acumulados se lance la excepción \texttt{SkipUniversityException} registrando el log de error.
+    \item \textbf{Prueba de Clasificación de Doctorados y Filtro de Vigencia (\texttt{parsers.py}):} Se comprobó que el parser de XLS identifique correctamente los doctorados (RD 99/2011) y descarte de forma estricta titulaciones extinguidas, no vigentes o derogadas.
+    \item \textbf{Prueba de Resiliencia de Conexión y Fallback HTTPS (\texttt{downloader.py}):} Se verificó que tras un error de conexión en \texttt{HTTP} (puerto 80), el cargador reintente automáticamente en \texttt{HTTPS} (puerto 443) con desactivación de verificación SSL para portales regionales antiguos.
+    \item \textbf{Prueba de Sanitización de Protocolos Duplicados (\texttt{downloader.py} y \texttt{parsers.py}):} Se validó que URLs mal compuestas procedentes del RUCT con esquemas duplicados (ej. \texttt{http://https://}) se desinfecten limpiamente hacia \texttt{https://}.
+    \item \textbf{Prueba de Validación de Bytes Mágicos PDF (\texttt{downloader.py}):} Se comprobó que con el parámetro \texttt{is\_pdf=True}, los archivos descargados se verifiquen contra la firma \texttt{b"\%PDF-"}, rechazando respuestas HTML disfrazadas con código 200.
+    \item \textbf{Prueba de Caché por Fecha \texttt{mtime} en Checkpoint (\texttt{checkpoint.py}):} Se constató que si \texttt{checkpoint.json} no ha sido modificado en disco, el estado se sirva desde la memoria RAM en 0 milisegundos.
     \item \textbf{Prueba del Cálculo Haversine y Distancia Integrada (\texttt{distance.js}):} Se validó la exactitud de distancias en km entre coordenadas geográficas conocidas de ciudades españolas.
 \end{itemize}
 
 \section{Pruebas de Integración}
 \begin{itemize}
-    \item \textbf{Prueba de Ingesta ETL (\texttt{etl\_loader.py}):} Se comprobó la inserción automatizada de archivos JSON desde \texttt{Crawler/Datos/} hacia las tablas relacionales de PostgreSQL (109 universidades, 1.552 titulaciones, 1.166 planes BOE).
+    \item \textbf{Prueba de Ingesta ETL en Lote y Desduplicación (\texttt{etl\_loader.py}):} Se comprobó la inserción masiva acelerada mediante \texttt{bulk\_save\_objects} (reducida de 15s a 1.5s) y la verificación por \texttt{timestamp} para evitar filas duplicadas en \texttt{errores\_crawler} y \texttt{estadisticas\_rendimiento}.
+    \item \textbf{Prueba de Índices de Trigramas GIN (\texttt{schema.sql}):} Se validó la velocidad de respuesta en consultas de texto parcial con la extensión \texttt{pg\_trgm} sobre los nombres de universidad y títulos de grado/máster.
     \item \textbf{Prueba de Control de Acceso por Roles y Métricas cgroup:} Se verificó que la API REST operando con el rol \texttt{ruct\_api\_user} tenga permisos \texttt{SELECT} habilitados y que los endpoints muestren métricas físicas de contenedores en tiempo real.
 \end{itemize}
 

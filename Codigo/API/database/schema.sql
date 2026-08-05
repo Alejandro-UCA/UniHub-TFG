@@ -25,6 +25,9 @@ CREATE TABLE IF NOT EXISTS titulaciones (
     nivel_academico VARCHAR(200),
     estado VARCHAR(100),
     universidad_codigo VARCHAR(10) REFERENCES universidades(codigo) ON DELETE CASCADE,
+    precio_credito_ects NUMERIC(6, 2),
+    precio_estimado_anual NUMERIC(8, 2),
+    fuente_precio VARCHAR(255),
     creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -50,13 +53,13 @@ CREATE TABLE IF NOT EXISTS resumen_creditos (
 CREATE TABLE IF NOT EXISTS elementos_curriculares (
     id SERIAL PRIMARY KEY,
     plan_estudio_id INT REFERENCES planes_estudio(id) ON DELETE CASCADE,
-    modulo VARCHAR(500),
-    materia VARCHAR(500),
+    modulo TEXT,
+    materia TEXT,
     nombre_elemento TEXT NOT NULL,
-    creditos_ects VARCHAR(50),
-    caracter VARCHAR(100),
-    curso VARCHAR(50),
-    cuatrimestre VARCHAR(50)
+    creditos_ects TEXT,
+    caracter TEXT,
+    curso TEXT,
+    cuatrimestre TEXT
 );
 
 -- 6. Tabla de Registro de Errores del Crawler

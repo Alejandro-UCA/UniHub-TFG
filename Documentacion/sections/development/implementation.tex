@@ -10,7 +10,7 @@ El marco tecnológico de construcción incluye:
 \begin{itemize}
     \item \textbf{Entorno de Desarrollo (IDE):} Visual Studio Code / Antigravity Agent.
     \item \textbf{Lenguajes:} Python 3.12, JavaScript (ES6+ / JSX), SQL, HTML5, CSS3.
-    \item \textbf{Librerías Python:} FastAPI, Uvicorn, SQLAlchemy, Pydantic v2, \texttt{psycopg2-binary}, \texttt{xlrd}, \texttt{BeautifulSoup4}, \texttt{pdfplumber}, \texttt{pypdf}, \texttt{psutil}.
+    \item \textbf{Librerías y Módulos Python:} FastAPI, Uvicorn, SQLAlchemy, Pydantic v2, \texttt{psycopg2-binary}, \texttt{xlrd}, \texttt{BeautifulSoup4}, \texttt{pdfplumber}, \texttt{pypdf}, \texttt{psutil}, \texttt{multiprocessing}, \texttt{concurrent.futures}, \texttt{urllib.robotparser}.
     \item \textbf{Librerías JavaScript:} React 18, Vite 8, Lucide React (iconografía UCA).
     \item \textbf{Control de Versiones y Despliegue:} Git, Docker Engine, Docker Compose v2, Nginx 1.25-alpine.
 \end{itemize}
@@ -18,11 +18,19 @@ El marco tecnológico de construcción incluye:
 \section{Código Fuente}
 El código fuente del proyecto se organiza de forma modular bajo el directorio \texttt{d:\textbackslash Proyecto\textbackslash Codigo\textbackslash}:
 \begin{itemize}
-    \item \texttt{Codigo/Crawler/}: Módulo de la Fase 1. Contiene \texttt{downloader.py} (circuit breaker 5m/15m), \texttt{parsers.py} (clasificación Doctorado, filtro estricto de vigencia, multi-PDF BOE), \texttt{checkpoint.py}, \texttt{error\_logger.py}, \texttt{metrics.py} y \texttt{main.py}.
-    \item \texttt{Codigo/API/}: Módulo de la Fase 2. Contiene \texttt{database/schema.sql}, \texttt{connection.py}, \texttt{etl\_loader.py}, \texttt{models/models.py}, \texttt{schemas/schemas.py}, \texttt{metrics/container\_metrics.py}, \texttt{routes/} y \texttt{main.py}.
-    \item \texttt{Codigo/WWW/}: Módulo de la Fase 3. Contiene \texttt{index.html}, \texttt{src/index.css} (tokens UCA, \texttt{.badge-doctorado}), \texttt{src/App.jsx}, \texttt{src/components/} (\texttt{UnivCard}, \texttt{DegreeCard}, \texttt{Pagination}, \texttt{AboutUs}, \texttt{AdminLogin}, \texttt{AdminDashboard}), \texttt{src/analytics/usageTracker.js} y \texttt{src/services/api.js}.
+    \item \texttt{Codigo/Crawler/}: Módulo de la Fase 1. Contiene \texttt{downloader.py} (circuit breaker de resiliencia con exclusión de errores HTTP 404 del contador de sobrecarga y reintento automático de peticiones tras pausar 5 minutos, fallback automático HTTP $\rightarrow$ HTTPS, saneamiento de prefijos de protocolo duplicados \texttt{http://https://}, mapeo de dominios autonómicos obsoletos y validación de bytes mágicos \texttt{\%PDF-}), \texttt{parsers.py} (verificación directa de estado en tiempo real sobre la ficha HTML viva del RUCT en \texttt{listaestudios}, priorización de universidades públicas, ordenación inversa de titulaciones, clasificación de Doctorados, filtro estricto de 2 capas excluyendo titulaciones extinguidas pre-Bolonia o RD 56/2005 y selección del plan BOE más reciente), \texttt{checkpoint.py} (gestión atómica de JSON, caché por fecha de modificación \texttt{mtime}, registro persistente \texttt{extinct\_degrees} para omisión instantánea en 0ms en escaneos futuros, \texttt{non\_study\_plan\_pdfs} y \texttt{unreachable\_urls}), \texttt{error\_logger.py}, \texttt{metrics.py}, \texttt{univ\_web\_crawler.py} (Fase 1 - Parte 2: descompresión GZIP de sitemaps \texttt{.xml.gz}, comprobación de \texttt{robots.txt} y búsqueda por palabras clave) y \texttt{main.py} (arquitectura Productor-Consumidor en 2 procesos paralelos con descarga multihilo concurrente de PDFs candidatos).
+    \item \texttt{Codigo/API/}: Módulo de la Fase 2. Contiene \texttt{database/schema.sql} (extensión de trigramas \texttt{pg\_trgm} e índices GIN), \texttt{connection.py} (pool de conexiones SQLAlchemy configurado con \texttt{pool\_size=15}, \texttt{max\_overflow=25} y \texttt{pool\_pre\_ping=True}), \texttt{etl\_loader.py} (migración masiva con \texttt{bulk\_save\_objects} y desduplicación de errores y estadísticas), \texttt{models/models.py}, \texttt{schemas/schemas.py}, \texttt{metrics/container\_metrics.py}, \texttt{routes/} (rutas de universidades, titulaciones y estadísticas) y \texttt{main.py}.
+    \item \texttt{Codigo/WWW/}: Módulo de la Fase 3. Contiene \texttt{index.html}, \texttt{src/index.css} (tokens de diseño UCA y estilos responsive), \texttt{src/App.jsx}, \texttt{src/components/} (\texttt{UnivCard}, \texttt{DegreeCard}, \texttt{Pagination}, \texttt{AboutUs}, \texttt{AdminLogin}, \texttt{AdminDashboard} con visor de diagnóstico de checkpoint, tabla de errores en vivo y sección interactiva de documentación OpenAPI/Swagger), \texttt{src/analytics/usageTracker.js} y \texttt{src/services/api.js}.
     \item \texttt{Codigo/Docker/}: Módulo de la Fase 4. Contiene \texttt{docker-compose.yml}, \texttt{crawler/Dockerfile}, \texttt{api/Dockerfile}, \texttt{www/Dockerfile} y \texttt{www/nginx.conf}.
+    \item \texttt{Scripts de Arranque en Raíz:} \texttt{iniciar\_proyecto.bat} / \texttt{detener\_proyecto.bat} (Windows) e \texttt{iniciar\_proyecto.sh} / \texttt{detener\_proyecto.sh} (Linux/macOS) para el ciclo de vida completo de los contenedores Docker.
 \end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/unihub_crawler_architecture.jpg}
+    \caption{Diagrama de arquitectura paralela Productor-Consumidor y resiliencia de red de la Fase 1}
+    \label{fig:crawler_architecture}
+\end{figure}
 
 \section{Scripts de Base de datos}
 La base de datos relacional se crea mediante el script DDL \texttt{schema.sql}:

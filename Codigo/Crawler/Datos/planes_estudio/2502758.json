@@ -1,0 +1,34 @@
+{
+  "codigo_estudio": "2502758",
+  "titulo": "Graduado o Graduada en Humanidades por la Universidad Autónoma de Barcelona",
+  "nivel_academico": "Grado - RD 1393/2007 (1)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T18:27:43.851788",
+  "boe_url": "http://www.boe.es/boe/dias/2015/08/20/pdfs/BOE-A-2015-9361.pdf",
+  "boe_fecha": "2015-08-20",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2015/08/20/pdfs/BOE-A-2015-9361.pdf",
+    "http://www.boe.es/boe/dias/2013/11/20/pdfs/BOE-A-2013-12171.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/6423/1310866.pdf",
+    "http://www.boe.es/boe/dias/2013/02/21/pdfs/BOE-A-2013-1921.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {},
+    "total_elementos": 1,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "6 12 6 6 6 120 6 6 6 24 12 24 18 18 24 42 30",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6 12 6 6 6 120 6 6 6 24 12 24 18 18 24 42 30",
+        "cuatrimestre": ""
+      }
+    ]
+  },
+  "precio_credito_ects": 18.46,
+  "precio_estimado_anual": 1162.6,
+  "fuente_precio": "Oficial SIIU Ministerio / Decreto Comunidad Autónoma de Cataluña"
+}

@@ -2,13 +2,15 @@
   "codigo_estudio": "2504022",
   "titulo": "Graduado o Graduada en Ciencias por la Universidad Autónoma de Barcelona; la Universidad Autónoma de Madrid y la Universidad Carlos III de Madrid",
   "nivel_academico": "Grado - RD 1393/2007 (1)",
-  "universidad_codigo": "023",
-  "universidad_nombre": "Universidad Autónoma de Madrid",
-  "fecha_procesado": "2026-08-05T18:00:26.517129",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T18:29:10.075494",
   "boe_url": "http://www.boe.es/boe/dias/2021/03/01/pdfs/BOE-A-2021-3224.pdf",
   "boe_fecha": "2021-03-01",
   "all_boe_urls": [
     "http://www.boe.es/boe/dias/2021/03/01/pdfs/BOE-A-2021-3224.pdf",
+    "http://www.boe.es/boe/dias/2021/01/22/pdfs/BOE-A-2021-903.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/8265/1820815.pdf",
     "http://www.bocm.es/boletin/CM_Orden_BOCM/2020/08/06/BOCM-20200806-17.PDF",
     "http://www.bocm.es/boletin/CM_Orden_BOCM/2020/08/06/BOCM-20200806-17.PDF"
   ],
@@ -19,7 +21,7 @@
       "Optativas": "114",
       "Créditos Totales": "240"
     },
-    "total_elementos": 30,
+    "total_elementos": 11,
     "elementos_curriculares": [
       {
         "modulo": "",
@@ -118,177 +120,6 @@
         "creditos_ects": "6",
         "caracter": "OP",
         "curso": "6",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "TITULACIÓN",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Ciencias (título conjunto de la Universidad Autónoma de Madrid (coordinadora), Universidad Autónoma de Barcelona y Universidad Carlos III de Madrid)",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Ingeniería Biomédica",
-        "creditos_ects": "6",
-        "caracter": "PE",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Ingeniería y Sistemas de Datos",
-        "creditos_ects": "6",
-        "caracter": "PE",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Ciencia de Datos e Inteligencia Artificial",
-        "creditos_ects": "6",
-        "caracter": "PE",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Psicología",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Biotecnología",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Biomedicina",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Ingeniería Matemática",
-        "creditos_ects": "6",
-        "caracter": "PE",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Inteligencia de Negocios/Business Intelligence",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Emprendimiento y Gestión de Empresas",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Publicidad Creativa",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Pedagogía",
-        "creditos_ects": "6",
-        "caracter": "PE",
-        "curso": "Curso 2020-2021: 1º, 2º, 3º y 4º",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Maestro en Educación Primaria",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "-2020-2021: 1º y 2º - 2021-2022: 3º y 4º",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Maestro en Educación Infantil",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "-2020-2021: 1º y 2º - 2021-2022: 3º y 4º",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Diseño Gráfico y Multimedia",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "-2020-2021: 1º y 2º - 2021-2022: 3º y 4º",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Veterinaria",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Ingeniería en Industria Conectada",
-        "creditos_ects": "6",
-        "caracter": "PE",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Grado en Economía",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "2020-2021: 1º, 2º, 3ºy 4º",
         "cuatrimestre": ""
       }
     ]

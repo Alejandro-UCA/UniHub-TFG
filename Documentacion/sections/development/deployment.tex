@@ -2,7 +2,7 @@ Este capítulo recoge la arquitectura física planteada para el sistema **UniHub
 
 \section{Arquitectura Física}
 La arquitectura física del sistema se basa en la virtualización liviana mediante contenedores Docker sobre un servidor anfitrión con sistema operativo Linux o Windows con soporte para Docker Engine. La infraestructura se compone de 4 contenedores aislados que se comunican en una red puente virtualizada (\texttt{ruct\_network}):
-\begin1
+\begin{enumerate}
     \item \textbf{Servidor de Base de Datos (\texttt{ruct\_db}):} Contenedor PostgreSQL 15 escuchando en el puerto 5432 con volumen nominado \texttt{ruct\_postgres\_data}.
     \item \textbf{Servidor de API REST (\texttt{ruct\_api}):} Contenedor Python 3.12 / FastAPI escuchando en el puerto 8000.
     \item \textbf{Servidor Web Nginx (\texttt{ruct\_www}):} Contenedor Nginx escuchando en los puertos 80 y 5173.

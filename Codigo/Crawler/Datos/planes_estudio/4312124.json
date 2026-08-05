@@ -1,0 +1,192 @@
+{
+  "codigo_estudio": "4312124",
+  "titulo": "Máster Universitario en Análisis Económico Especializado por la Universidad Autónoma de Barcelona y la Universidad Pompeu Fabra",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T18:26:06.732571",
+  "boe_url": "http://www.boe.es/boe/dias/2024/02/21/pdfs/BOE-A-2024-3360.pdf",
+  "boe_fecha": "2024-02-21",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2024/02/21/pdfs/BOE-A-2024-3360.pdf",
+    "http://www.boe.es/boe/dias/2021/03/12/pdfs/BOE-A-2021-3928.pdf",
+    "http://www.boe.es/boe/dias/2012/07/30/pdfs/BOE-A-2012-10214.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/6190/1257666.pdf",
+    "http://portaldogc.gencat.cat/utilsEADOP/PDF/6190/1257666.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "30",
+      "Optativas": "24",
+      "Créditos Totales": "90"
+    },
+    "total_elementos": 18,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "30",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "24",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "30",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias profesionales.",
+        "nombre_elemento": "Derecho Civil.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias profesionales.",
+        "nombre_elemento": "Derecho Público y Regulatorio.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias profesionales.",
+        "nombre_elemento": "Derecho Laboral.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias profesionales.",
+        "nombre_elemento": "Derecho Penal.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "4",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Métodos Cuantitativos y del Análisis Económico.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Conocimientos Transversales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Penología.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Criminología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Metodología.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Iniciación a la Investigación.",
+        "creditos_ects": "15",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia 10.",
+        "nombre_elemento": "Complementos formativos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Teoría y práctica de la Seguridad Internacional.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Métodos de Investigación en Seguridad Internacional.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      }
+    ]
+  },
+  "precio_credito_ects": 37.6,
+  "precio_estimado_anual": 2311.0,
+  "fuente_precio": "Oficial SIIU Ministerio / Decreto Comunidad Autónoma de Cataluña"
+}

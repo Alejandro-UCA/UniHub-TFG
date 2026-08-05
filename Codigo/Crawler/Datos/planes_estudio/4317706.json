@@ -4,25 +4,11 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "086",
   "universidad_nombre": "Centros dependientes del Ministerio de Defensa",
-  "fecha_procesado": "2026-08-05T17:52:31.419318",
+  "fecha_procesado": "2026-08-05T18:09:53.891068",
   "boe_url": "http://www.boe.es/boe/dias/2021/06/17/pdfs/BOE-A-2021-10088.pdf",
   "boe_fecha": "2021-06-17",
-  "all_boe_urls": [
-    "http://www.boe.es/boe/dias/2016/10/21/pdfs/BOE-A-2016-9634.pdf"
-  ],
-  "plan_estudios": {
-    "resumen_creditos": {},
-    "total_elementos": 1,
-    "elementos_curriculares": [
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "6 16 6",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "6 16 6",
-        "cuatrimestre": ""
-      }
-    ]
-  }
+  "plan_estudios": null,
+  "precio_credito_ects": 24.24,
+  "precio_estimado_anual": 1504.4,
+  "fuente_precio": "Oficial SIIU Ministerio / Decreto Comunidad de Madrid"
 }

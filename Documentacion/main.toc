@@ -1,7 +1,7 @@
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {viii}}{chapter*.5}%
-\contentsline {chapter}{\'{I}ndice de tablas}{\es@scroman {ix}}{chapter*.6}%
+\contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {x}}{chapter*.5}%
+\contentsline {chapter}{\'{I}ndice de tablas}{\es@scroman {xi}}{chapter*.6}%
 \contentsline {part}{I\hspace {1em}Prolegómeno}{1}{part.1}%
 \contentsline {chapter}{\numberline {1}Introducción}{3}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Motivación}{3}{section.1.1}%
@@ -25,7 +25,7 @@
 \contentsline {section}{\numberline {4.1}Objetivos de Negocio}{14}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Objetivos del Sistema}{14}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Requisitos funcionales}{14}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Requisitos no funcionales}{15}{section.4.4}%
+\contentsline {section}{\numberline {4.4}Requisitos no funcionales}{16}{section.4.4}%
 \contentsline {section}{\numberline {4.5}Requisitos de información}{16}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Reglas de negocio}{16}{section.4.6}%
 \contentsline {section}{\numberline {4.7}Análisis GAP}{16}{section.4.7}%
@@ -48,11 +48,11 @@
 \contentsline {chapter}{\numberline {8}Pruebas del Sistema}{31}{chapter.8}%
 \contentsline {section}{\numberline {8.1}Estrategia}{31}{section.8.1}%
 \contentsline {section}{\numberline {8.2}Pruebas Unitarias}{31}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Pruebas de Integración}{31}{section.8.3}%
+\contentsline {section}{\numberline {8.3}Pruebas de Integración}{32}{section.8.3}%
 \contentsline {section}{\numberline {8.4}Pruebas de Sistema}{32}{section.8.4}%
 \contentsline {subsection}{\numberline {8.4.1}Pruebas Funcionales}{32}{subsection.8.4.1}%
 \contentsline {subsection}{\numberline {8.4.2}Pruebas No Funcionales}{32}{subsection.8.4.2}%
-\contentsline {section}{\numberline {8.5}Pruebas de Aceptación}{32}{section.8.5}%
+\contentsline {section}{\numberline {8.5}Pruebas de Aceptación}{33}{section.8.5}%
 \contentsline {chapter}{\numberline {9}Despliegue del Sistema}{35}{chapter.9}%
 \contentsline {section}{\numberline {9.1}Arquitectura Física}{35}{section.9.1}%
 \contentsline {section}{\numberline {9.2}Instrucciones de despliegue}{35}{section.9.2}%
@@ -66,7 +66,7 @@
 \contentsline {section}{\numberline {10.1}Objetivos alcanzados}{39}{section.10.1}%
 \contentsline {section}{\numberline {10.2}Lecciones aprendidas}{39}{section.10.2}%
 \contentsline {section}{\numberline {10.3}Trabajo futuro}{40}{section.10.3}%
-\contentsline {chapter}{Información sobre Licencia}{43}{section*.8}%
+\contentsline {chapter}{Información sobre Licencia}{43}{section*.9}%
 \contentsline {part}{IV\hspace {1em}Anexos}{47}{part.4}%
 \contentsline {chapter}{\numberline {A}Manual del desarrollador}{49}{appendix.A}%
 \contentsline {section}{\numberline {A.1}Introducción}{49}{appendix.A.1}%

@@ -1,0 +1,249 @@
+[
+  {
+    "timestamp": "2026-08-05T14:17:10.393655",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "8000061",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=8000061",
+    "motivo_fallo": "Error al procesar la titulación [8000061]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:17:11.371035",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "8000062",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=8000062",
+    "motivo_fallo": "Error al procesar la titulación [8000062]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:17:12.369865",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "8000060",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=8000060",
+    "motivo_fallo": "Error al procesar la titulación [8000060]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:17:22.385010",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "8000058",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=8000058",
+    "motivo_fallo": "Error al procesar la titulación [8000058]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:17:23.480866",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "8000059",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=8000059",
+    "motivo_fallo": "Error al procesar la titulación [8000059]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:17:24.363578",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "8000056",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=8000056",
+    "motivo_fallo": "Error al procesar la titulación [8000056]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:17:25.378949",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "8000057",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=8000057",
+    "motivo_fallo": "Error al procesar la titulación [8000057]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:18:16.385859",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "8000052",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=8000052",
+    "motivo_fallo": "Error al procesar la titulación [8000052]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:18:17.369488",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "8000050",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=8000050",
+    "motivo_fallo": "Error al procesar la titulación [8000050]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:18:18.366479",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "8000051",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=8000051",
+    "motivo_fallo": "Error al procesar la titulación [8000051]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:18:21.393972",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "8000049",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=8000049",
+    "motivo_fallo": "Error al procesar la titulación [8000049]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:18:48.653569",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "4312993",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=4312993",
+    "motivo_fallo": "Error al procesar la titulación [4312993]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:18:49.674855",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "4311353",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=4311353",
+    "motivo_fallo": "Error al procesar la titulación [4311353]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:18:51.647021",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "4317165",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=4317165",
+    "motivo_fallo": "Error al procesar la titulación [4317165]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:18:53.647626",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "4314979",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=4314979",
+    "motivo_fallo": "Error al procesar la titulación [4314979]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:18:54.642955",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "4310932",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=4310932",
+    "motivo_fallo": "Error al procesar la titulación [4310932]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:18:55.656154",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "4315683",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=4315683",
+    "motivo_fallo": "Error al procesar la titulación [4315683]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:18:58.636696",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "4312407",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=4312407",
+    "motivo_fallo": "Error al procesar la titulación [4312407]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:19:01.648567",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "4313261",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=4313261",
+    "motivo_fallo": "Error al procesar la titulación [4313261]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:19:02.654230",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "4311350",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=4311350",
+    "motivo_fallo": "Error al procesar la titulación [4311350]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:19:07.648314",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "4314099",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=4314099",
+    "motivo_fallo": "Error al procesar la titulación [4314099]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:19:09.657149",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "4313807",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=4313807",
+    "motivo_fallo": "Error al procesar la titulación [4313807]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:19:13.643115",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "4314918",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=4314918",
+    "motivo_fallo": "Error al procesar la titulación [4314918]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:19:15.661718",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "4310921",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=4310921",
+    "motivo_fallo": "Error al procesar la titulación [4310921]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:19:17.750233",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "4311331",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=4311331",
+    "motivo_fallo": "Error al procesar la titulación [4311331]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:19:18.684272",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "4312464",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=4312464",
+    "motivo_fallo": "Error al procesar la titulación [4312464]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:19:20.659480",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "4312898",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=4312898",
+    "motivo_fallo": "Error al procesar la titulación [4312898]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:19:22.642753",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "4311670",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=4311670",
+    "motivo_fallo": "Error al procesar la titulación [4311670]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:19:23.656871",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "4311330",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=4311330",
+    "motivo_fallo": "Error al procesar la titulación [4311330]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:19:25.649296",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "4310058",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=4310058",
+    "motivo_fallo": "Error al procesar la titulación [4310058]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },
+  {
+    "timestamp": "2026-08-05T14:19:26.644473",
+    "fase": "paso_3_boe_pdf",
+    "id_entidad": "4313410",
+    "url": "https://www.educacion.gob.es/ruct/listaestudios?actual=estudios&codigoEstudio=4313410",
+    "motivo_fallo": "Error al procesar la titulación [4313410]",
+    "detalles_excepcion": "Traceback (most recent call last):\n  File \"/app/main.py\", line 319, in run_crawler\n    checkpoint.mark_extinct_degree(d_code, st_text)\n  File \"/app/checkpoint.py\", line 202, in mark_extinct_degree\n    \"timestamp\": datetime.now().isoformat()\n                 ^^^^^^^^\nNameError: name 'datetime' is not defined. Did you forget to import 'datetime'\n"
+  },

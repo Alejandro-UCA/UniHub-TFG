@@ -1,1315 +1,724 @@
 {
   "universities_downloaded": false,
   "processed_universities": [
-    "101",
-    "086",
     "105",
-    "092",
-    "095"
+    "091",
+    "093",
+    "086",
+    "096",
+    "095",
+    "101",
+    "092"
   ],
   "processed_degrees": {
     "4317706": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:07.558407"
+      "last_updated": "2026-08-05T14:16:29.381545"
     },
     "4317708": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:08.401604"
+      "last_updated": "2026-08-05T14:16:30.388771"
     },
     "4317709": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:09.395541"
+      "last_updated": "2026-08-05T14:16:31.369161"
     },
     "5601528": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:10.411721"
+      "last_updated": "2026-08-05T14:16:32.370175"
     },
     "8000101": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:12.412867"
+      "last_updated": "2026-08-05T14:16:34.371929"
     },
     "8000081": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:13.420942"
+      "last_updated": "2026-08-05T14:16:35.368970"
     },
     "8000087": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:14.370971"
+      "last_updated": "2026-08-05T14:16:36.357237"
     },
     "8000088": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:15.378899"
+      "last_updated": "2026-08-05T14:16:37.382539"
     },
     "8000086": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:16.379651"
+      "last_updated": "2026-08-05T14:16:38.377007"
     },
     "8000080": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:17.374967"
+      "last_updated": "2026-08-05T14:16:39.379948"
     },
     "8000083": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:18.386020"
+      "last_updated": "2026-08-05T14:16:40.364375"
     },
     "8000082": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:19.379626"
+      "last_updated": "2026-08-05T14:16:41.371847"
     },
     "8000078": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:20.377914"
+      "last_updated": "2026-08-05T14:16:42.397520"
     },
     "8000085": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:21.393426"
+      "last_updated": "2026-08-05T14:16:43.392719"
     },
     "8000077": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:22.398820"
+      "last_updated": "2026-08-05T14:16:44.359264"
     },
     "8000084": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:23.392501"
+      "last_updated": "2026-08-05T14:16:45.364637"
     },
     "8000053": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:25.374138"
+      "last_updated": "2026-08-05T14:16:47.392557"
     },
     "8000055": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:26.386096"
+      "last_updated": "2026-08-05T14:16:48.357469"
     },
     "8000054": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:27.395886"
+      "last_updated": "2026-08-05T14:16:49.365088"
     },
     "8000113": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:29.394517"
+      "last_updated": "2026-08-05T14:16:51.383905"
     },
     "8000102": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:30.391810"
+      "last_updated": "2026-08-05T14:16:52.370081"
     },
     "8000112": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:31.395086"
+      "last_updated": "2026-08-05T14:16:53.369206"
     },
     "8000067": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:32.376485"
+      "last_updated": "2026-08-05T14:16:54.363270"
     },
     "8000103": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:33.395473"
+      "last_updated": "2026-08-05T14:16:55.384844"
     },
     "8000068": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:34.384481"
+      "last_updated": "2026-08-05T14:16:56.409159"
     },
     "8000066": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:35.388709"
+      "last_updated": "2026-08-05T14:16:57.369407"
     },
     "8000063": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:36.383191"
+      "last_updated": "2026-08-05T14:16:58.363442"
     },
     "8000075": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:38.400889"
+      "last_updated": "2026-08-05T14:17:00.383829"
     },
     "8000125": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:39.378845"
+      "last_updated": "2026-08-05T14:17:01.371638"
     },
     "8000124": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:40.386410"
+      "last_updated": "2026-08-05T14:17:02.372879"
     },
     "8000076": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:41.403295"
+      "last_updated": "2026-08-05T14:17:03.373457"
     },
     "8000100": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:43.396018"
+      "last_updated": "2026-08-05T14:17:05.383407"
     },
     "8000097": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:44.381198"
+      "last_updated": "2026-08-05T14:17:06.388679"
     },
     "8000121": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:45.371390"
+      "last_updated": "2026-08-05T14:17:07.392261"
     },
     "8000072": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:46.391206"
+      "last_updated": "2026-08-05T14:17:08.379509"
     },
     "8000098": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:47.392070"
+      "last_updated": "2026-08-05T14:17:09.395186"
     },
     "8000074": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:51.390057"
+      "last_updated": "2026-08-05T14:17:13.390362"
     },
     "8000073": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:52.383956"
+      "last_updated": "2026-08-05T14:17:14.397966"
     },
     "8000096": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:53.384646"
+      "last_updated": "2026-08-05T14:17:15.369067"
     },
     "8000039": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:54.398265"
+      "last_updated": "2026-08-05T14:17:16.363346"
     },
     "8000037": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:55.381310"
+      "last_updated": "2026-08-05T14:17:17.380218"
     },
     "8000089": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:56.378612"
+      "last_updated": "2026-08-05T14:17:18.377330"
     },
     "8000123": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:57.374212"
+      "last_updated": "2026-08-05T14:17:19.382622"
     },
     "8000109": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:58.377760"
+      "last_updated": "2026-08-05T14:17:20.371143"
     },
     "8000108": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:08:59.385021"
+      "last_updated": "2026-08-05T14:17:21.370499"
     },
     "8000038": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:04.393475"
+      "last_updated": "2026-08-05T14:17:26.399089"
     },
     "8000041": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:05.389675"
+      "last_updated": "2026-08-05T14:17:27.387967"
     },
     "8000040": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:06.406700"
+      "last_updated": "2026-08-05T14:17:28.374555"
     },
     "8000099": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:07.379317"
+      "last_updated": "2026-08-05T14:17:29.382396"
     },
     "8000094": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:08.381558"
+      "last_updated": "2026-08-05T14:17:30.364498"
     },
     "8000071": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:09.398581"
+      "last_updated": "2026-08-05T14:17:31.400251"
     },
     "8000095": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:10.384322"
+      "last_updated": "2026-08-05T14:17:32.395757"
     },
     "8000122": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:11.387777"
+      "last_updated": "2026-08-05T14:17:33.384447"
     },
     "8000110": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:12.390266"
+      "last_updated": "2026-08-05T14:17:34.386788"
     },
     "8000093": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:13.384273"
+      "last_updated": "2026-08-05T14:17:35.382857"
     },
     "8000092": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:14.393681"
+      "last_updated": "2026-08-05T14:17:36.404490"
     },
     "8000111": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:15.415689"
+      "last_updated": "2026-08-05T14:17:37.368649"
     },
     "8000090": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:16.396414"
+      "last_updated": "2026-08-05T14:17:38.366932"
     },
     "8000070": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:17.386760"
+      "last_updated": "2026-08-05T14:17:39.385757"
     },
     "8000091": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:18.404195"
+      "last_updated": "2026-08-05T14:17:40.395846"
     },
     "8000069": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:19.388746"
+      "last_updated": "2026-08-05T14:17:41.393893"
     },
     "8000042": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:20.405793"
+      "last_updated": "2026-08-05T14:17:42.414211"
     },
     "8000064": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:21.414700"
+      "last_updated": "2026-08-05T14:17:43.380865"
     },
     "8000044": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:22.386829"
+      "last_updated": "2026-08-05T14:17:44.378362"
     },
     "8000045": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:23.381749"
+      "last_updated": "2026-08-05T14:17:45.368747"
     },
     "8000048": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:24.387340"
+      "last_updated": "2026-08-05T14:17:46.390612"
     },
     "8000047": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:25.384996"
+      "last_updated": "2026-08-05T14:17:47.365235"
     },
     "8000043": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:26.394193"
+      "last_updated": "2026-08-05T14:17:48.373331"
     },
     "8000046": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:27.399603"
+      "last_updated": "2026-08-05T14:17:49.389544"
     },
     "8000032": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:29.405798"
+      "last_updated": "2026-08-05T14:17:51.378532"
     },
     "8000021": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:30.413297"
+      "last_updated": "2026-08-05T14:17:52.372764"
     },
     "8000023": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:31.402326"
+      "last_updated": "2026-08-05T14:17:53.384354"
     },
     "8000022": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:32.411296"
+      "last_updated": "2026-08-05T14:17:54.380547"
     },
     "8000065": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:33.407782"
+      "last_updated": "2026-08-05T14:17:55.444740"
     },
     "8000119": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:34.406290"
+      "last_updated": "2026-08-05T14:17:56.388722"
     },
     "8000117": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:35.413851"
+      "last_updated": "2026-08-05T14:17:57.411434"
     },
     "8000116": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:36.413045"
+      "last_updated": "2026-08-05T14:17:58.385405"
     },
     "8000118": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:37.401519"
+      "last_updated": "2026-08-05T14:17:59.382284"
     },
     "8000115": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:38.391515"
+      "last_updated": "2026-08-05T14:18:00.391585"
     },
     "8000014": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:39.392182"
+      "last_updated": "2026-08-05T14:18:01.384120"
     },
     "8000013": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:40.388629"
+      "last_updated": "2026-08-05T14:18:02.385228"
     },
     "8000031": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:41.392718"
+      "last_updated": "2026-08-05T14:18:03.417722"
     },
     "8000035": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:42.380848"
+      "last_updated": "2026-08-05T14:18:04.413873"
     },
     "8000036": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:43.411257"
+      "last_updated": "2026-08-05T14:18:05.411818"
     },
     "8000033": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:44.400266"
+      "last_updated": "2026-08-05T14:18:06.397914"
     },
     "8000034": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:45.407312"
+      "last_updated": "2026-08-05T14:18:07.418507"
     },
     "8000028": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:46.407574"
+      "last_updated": "2026-08-05T14:18:08.394783"
     },
     "8000017": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:47.428095"
+      "last_updated": "2026-08-05T14:18:09.431297"
     },
     "8000016": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:48.414279"
+      "last_updated": "2026-08-05T14:18:10.377135"
     },
     "8000015": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:49.563085"
+      "last_updated": "2026-08-05T14:18:11.396741"
     },
     "8000019": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:50.389412"
+      "last_updated": "2026-08-05T14:18:12.399952"
     },
     "8000027": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:51.393845"
+      "last_updated": "2026-08-05T14:18:13.382733"
     },
     "8000120": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:52.392200"
+      "last_updated": "2026-08-05T14:18:14.380807"
     },
     "8000114": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:53.417733"
+      "last_updated": "2026-08-05T14:18:15.511342"
     },
     "8000029": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:57.394138"
+      "last_updated": "2026-08-05T14:18:19.377560"
     },
     "8000018": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:09:58.390917"
+      "last_updated": "2026-08-05T14:18:20.375311"
     },
     "8000012": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:00.433030"
+      "last_updated": "2026-08-05T14:18:22.384270"
     },
     "8000011": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:01.408005"
+      "last_updated": "2026-08-05T14:18:23.379766"
     },
     "8000010": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:02.411260"
+      "last_updated": "2026-08-05T14:18:24.417130"
     },
     "8000009": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:03.428649"
+      "last_updated": "2026-08-05T14:18:25.408289"
     },
     "8000008": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:04.388028"
+      "last_updated": "2026-08-05T14:18:26.387341"
     },
     "8000030": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:05.400070"
+      "last_updated": "2026-08-05T14:18:27.407618"
     },
     "8000007": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:06.406469"
+      "last_updated": "2026-08-05T14:18:28.402332"
     },
     "8000006": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:07.403339"
+      "last_updated": "2026-08-05T14:18:29.405533"
     },
     "8000005": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:08.392580"
+      "last_updated": "2026-08-05T14:18:30.371808"
     },
     "8000004": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:09.409712"
+      "last_updated": "2026-08-05T14:18:31.381449"
     },
     "8000003": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:10.417474"
+      "last_updated": "2026-08-05T14:18:32.412303"
     },
     "8000002": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:11.413883"
+      "last_updated": "2026-08-05T14:18:33.416133"
     },
     "8000001": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:12.416629"
+      "last_updated": "2026-08-05T14:18:34.404828"
     },
     "8000000": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:13.421814"
+      "last_updated": "2026-08-05T14:18:35.404965"
     },
     "8000020": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:14.398295"
+      "last_updated": "2026-08-05T14:18:36.380158"
     },
     "8000024": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:15.391967"
+      "last_updated": "2026-08-05T14:18:37.374570"
     },
     "8000025": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:16.421599"
+      "last_updated": "2026-08-05T14:18:38.383066"
     },
     "8000026": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:17.400895"
+      "last_updated": "2026-08-05T14:18:39.376277"
     },
     "8000106": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:19.421615"
+      "last_updated": "2026-08-05T14:18:41.384366"
     },
     "8000107": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:20.408235"
+      "last_updated": "2026-08-05T14:18:42.383752"
     },
     "8000105": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:21.399410"
+      "last_updated": "2026-08-05T14:18:43.389894"
     },
     "8000104": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:22.394497"
+      "last_updated": "2026-08-05T14:18:44.401245"
     },
     "9000001": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:24.614562"
+      "last_updated": "2026-08-05T14:18:46.647667"
     },
     "4317926": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:25.621303"
+      "last_updated": "2026-08-05T14:18:47.653545"
     },
     "4313295": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:28.614237"
+      "last_updated": "2026-08-05T14:18:50.650541"
     },
     "4317092": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:30.608992"
+      "last_updated": "2026-08-05T14:18:52.665775"
     },
     "4317932": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:34.629108"
+      "last_updated": "2026-08-05T14:18:56.651259"
     },
     "4317155": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:35.668083"
+      "last_updated": "2026-08-05T14:18:57.653410"
     },
     "3500042": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:37.602002"
+      "last_updated": "2026-08-05T14:18:59.657969"
     },
     "4317205": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:38.612658"
+      "last_updated": "2026-08-05T14:19:00.647648"
     },
     "4317523": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:41.603793"
+      "last_updated": "2026-08-05T14:19:03.649179"
     },
     "3500482": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:42.613688"
+      "last_updated": "2026-08-05T14:19:04.674800"
     },
     "4316055": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:43.606080"
+      "last_updated": "2026-08-05T14:19:05.658660"
     },
     "4315915": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:44.605442"
+      "last_updated": "2026-08-05T14:19:06.675140"
     },
     "4313666": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:46.604878"
+      "last_updated": "2026-08-05T14:19:08.652356"
     },
     "4315497": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:48.606169"
+      "last_updated": "2026-08-05T14:19:10.655452"
     },
     "4315970": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:49.620910"
+      "last_updated": "2026-08-05T14:19:11.648343"
     },
     "4316560": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:50.627852"
+      "last_updated": "2026-08-05T14:19:12.651611"
     },
     "4315982": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:52.648550"
+      "last_updated": "2026-08-05T14:19:14.683061"
     },
     "4314828": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:54.637278"
+      "last_updated": "2026-08-05T14:19:16.818298"
     },
     "4313296": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:57.616745"
+      "last_updated": "2026-08-05T14:19:19.674541"
     },
     "4314752": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:10:59.607343"
+      "last_updated": "2026-08-05T14:19:21.654174"
     },
     "4311060": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:02.629044"
+      "last_updated": "2026-08-05T14:19:24.650914"
     },
     "4313778": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:05.635051"
+      "last_updated": "2026-08-05T14:19:27.658095"
     },
     "4318303": {
       "boe_url": null,
       "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:06.646636"
-    },
-    "4313800": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:07.616379"
-    },
-    "4312127": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:08.621288"
-    },
-    "4312329": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:09.631230"
-    },
-    "4313351": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:10.617225"
-    },
-    "3500115": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:12.650841"
-    },
-    "4313385": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:14.606683"
-    },
-    "4313754": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:16.624701"
-    },
-    "4317571": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:17.622795"
-    },
-    "4314949": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:18.636335"
-    },
-    "4316214": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:19.649674"
-    },
-    "4313352": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:20.627721"
-    },
-    "4313901": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:24.642288"
-    },
-    "4315658": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:25.641018"
-    },
-    "4318312": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:27.641733"
-    },
-    "4313228": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:28.633499"
-    },
-    "4314947": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:30.614290"
-    },
-    "4316493": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:31.633182"
-    },
-    "4318288": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:36.635690"
-    },
-    "4313858": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:38.628496"
-    },
-    "4316821": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:39.610172"
-    },
-    "4317093": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:40.616513"
-    },
-    "4313792": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:41.639506"
-    },
-    "4314939": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:44.626860"
-    },
-    "4312637": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:46.622897"
-    },
-    "4313136": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:47.616075"
-    },
-    "4313775": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:49.629715"
-    },
-    "4311610": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:50.634988"
-    },
-    "4315393": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:51.679445"
-    },
-    "4313227": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:52.648905"
-    },
-    "4317563": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:53.644935"
-    },
-    "4317933": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:55.646811"
-    },
-    "4313148": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:57.622140"
-    },
-    "4318306": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:58.667286"
-    },
-    "4313489": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:11:59.621638"
-    },
-    "4313178": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:00.625697"
-    },
-    "4313767": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:03.624146"
-    },
-    "4315178": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:04.646966"
-    },
-    "4312811": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:05.645870"
-    },
-    "4316222": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:12.637988"
-    },
-    "4316780": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:15.664497"
-    },
-    "4313815": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:16.643035"
-    },
-    "4313798": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:26.633686"
-    },
-    "4313402": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:27.659022"
-    },
-    "4314735": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:29.621153"
-    },
-    "4312326": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:30.632782"
-    },
-    "4314814": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:31.629545"
-    },
-    "4313384": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:33.630427"
-    },
-    "4316479": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:37.636157"
-    },
-    "4313791": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:40.648239"
-    },
-    "4317584": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:42.624046"
-    },
-    "4313348": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:43.656320"
-    },
-    "4313725": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:45.642206"
-    },
-    "4313797": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:50.651617"
-    },
-    "3500030": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:51.620733"
-    },
-    "4314579": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:52.632623"
-    },
-    "4314102": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:54.664730"
-    },
-    "4317127": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:55.659680"
-    },
-    "4317081": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:56.642474"
-    },
-    "4313223": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:57.651948"
-    },
-    "4318228": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:12:59.665635"
-    },
-    "3500161": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:01.698173"
-    },
-    "4316837": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:02.656709"
-    },
-    "4313500": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:03.674329"
-    },
-    "4311312": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:04.631211"
-    },
-    "4316022": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:06.631705"
-    },
-    "4313253": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:07.647424"
-    },
-    "4313788": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:09.657645"
-    },
-    "4314928": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:11.650471"
-    },
-    "4316628": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:12.656299"
-    },
-    "4313346": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:14.626888"
-    },
-    "4315985": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:16.672759"
-    },
-    "4313802": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:17.649079"
-    },
-    "4313974": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:21.649073"
-    },
-    "4316499": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:26.649061"
-    },
-    "4313787": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:27.646264"
-    },
-    "4313861": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:31.654837"
-    },
-    "3500086": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:34.633684"
-    },
-    "4316227": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:36.627308"
-    },
-    "4314179": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:37.647832"
-    },
-    "4317931": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:39.630904"
-    },
-    "4311309": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:40.654267"
-    },
-    "4317520": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:41.648933"
-    },
-    "4318300": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:43.650331"
-    },
-    "4313784": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:45.653273"
-    },
-    "4313157": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:47.635786"
-    },
-    "4317118": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:48.637614"
-    },
-    "4313988": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:49.651845"
-    },
-    "4313345": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:50.631869"
-    },
-    "4313382": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:52.640355"
-    },
-    "3500084": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:54.640446"
-    },
-    "4317522": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:55.648206"
-    },
-    "4317813": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:56.664379"
-    },
-    "4311241": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:57.658702"
-    },
-    "4315555": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:13:58.657770"
-    },
-    "4310025": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:14:00.659696"
-    },
-    "4313774": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:14:02.686516"
-    },
-    "4318289": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:14:04.634592"
-    },
-    "4313799": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:14:06.637971"
-    },
-    "4311084": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:14:07.641111"
-    },
-    "4317141": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:14:09.642993"
-    },
-    "4316481": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:14:10.635456"
-    },
-    "4315516": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:14:11.636917"
-    },
-    "4313301": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:14:12.641705"
-    },
-    "4313781": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:14:15.651561"
-    },
-    "4314863": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:14:17.663759"
-    },
-    "4313256": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:14:18.635580"
-    },
-    "4318299": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:14:21.636410"
-    },
-    "4313782": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:14:23.652927"
-    },
-    "4317458": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:14:28.631882"
-    },
-    "4313335": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:14:30.641652"
-    },
-    "4317483": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:14:32.636964"
-    },
-    "4317956": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:14:33.651824"
-    },
-    "4314177": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:14:34.655720"
-    },
-    "4313796": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:14:35.662206"
-    },
-    "4313772": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:14:36.659383"
-    },
-    "4313794": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:14:37.661551"
-    },
-    "4318297": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:14:40.684634"
-    },
-    "4313473": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:14:43.662465"
-    },
-    "4313816": {
-      "boe_url": null,
-      "boe_fecha": null,
-      "last_updated": "2026-08-05T14:14:44.636350"
+      "last_updated": "2026-08-05T14:19:28.672276"
     }
   },
   "non_study_plan_pdfs": [],
   "failed_pdf_downloads": {},
-  "unreachable_urls": []
+  "unreachable_urls": [],
+  "extinct_degrees": {}
 }

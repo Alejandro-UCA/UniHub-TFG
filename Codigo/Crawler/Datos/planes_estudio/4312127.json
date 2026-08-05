@@ -4,75 +4,7 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "022",
   "universidad_nombre": "Universidad Autónoma de Barcelona",
-  "fecha_procesado": "2026-08-05T14:03:49.371905",
-  "boe_url": "http://www.boe.es/boe/dias/2021/03/27/pdfs/BOE-A-2021-4837.pdf",
-  "boe_fecha": "2021-03-27",
-  "all_boe_urls": [
-    "http://www.boe.es/boe/dias/2021/03/27/pdfs/BOE-A-2021-4837.pdf"
-  ],
-  "plan_estudios": {
-    "resumen_creditos": {
-      "Obligatorias": "24",
-      "Optativas": "26",
-      "Trabajo Fin de Grado / Máster": "10",
-      "Créditos Totales": "60"
-    },
-    "total_elementos": 6,
-    "elementos_curriculares": [
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Obligatorias.",
-        "creditos_ects": "24",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Optativas.",
-        "creditos_ects": "6",
-        "caracter": "OP",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Trabajo Fin de Máster.",
-        "creditos_ects": "6",
-        "caracter": "TFG/TFM",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Total.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "Materia",
-        "nombre_elemento": "Teoría y práctica de las Relaciones Internacionales.",
-        "creditos_ects": "6",
-        "caracter": "PE",
-        "curso": "6",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "Materia",
-        "nombre_elemento": "Métodos de Investigación.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "4",
-        "cuatrimestre": ""
-      }
-    ]
-  }
+  "fecha_procesado": "2026-08-05T14:11:08.616705",
+  "boe_url": null,
+  "plan_estudios": null
 }

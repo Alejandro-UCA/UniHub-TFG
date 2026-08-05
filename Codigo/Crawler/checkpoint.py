@@ -68,6 +68,8 @@ class CheckpointManager:
                         data["failed_pdf_downloads"] = {}
                     if "unreachable_urls" not in data:
                         data["unreachable_urls"] = []
+                    if "extinct_degrees" not in data:
+                        data["extinct_degrees"] = {}
                     self._last_mtime = mtime
                     self._cached_state = data
                     return data
@@ -79,7 +81,8 @@ class CheckpointManager:
             "processed_degrees": {},  # Map: degree_code -> {"boe_url": ..., "boe_fecha": ..., "last_updated": ...}
             "non_study_plan_pdfs": [], # URLs de PDFs descartados por no ser de plan de estudios
             "failed_pdf_downloads": {}, # Mapa de URLs fallidas -> {degree_code, reason, timestamp}
-            "unreachable_urls": [] # Lista de URLs confirmadas inalcanzables (HTTP + HTTPS rechazada)
+            "unreachable_urls": [], # Lista de URLs confirmadas inalcanzables (HTTP + HTTPS rechazada)
+            "extinct_degrees": {} # Mapa de titulaciones confirmadas extinguidas/inactivas -> {motivo, timestamp}
         }
         self._cached_state = default_state
         return default_state
@@ -189,6 +192,27 @@ class CheckpointManager:
         }
         self._save()
 
+    def mark_extinct_degree(self, degree_code: str, reason: str = "Extinguida"):
+        if not is_valid_value(degree_code):
+            return
+        if "extinct_degrees" not in self.state or not isinstance(self.state.get("extinct_degrees"), dict):
+            self.state["extinct_degrees"] = {}
+        self.state["extinct_degrees"][degree_code] = {
+            "motivo": reason,
+            "timestamp": datetime.now().isoformat()
+        }
+        self._save()
+
+    def is_extinct_degree(self, degree_code: str) -> bool:
+        if not is_valid_value(degree_code):
+            return False
+        with CheckpointManager._lock:
+            disk_state = self._load_checkpoint()
+            extinct = disk_state.get("extinct_degrees", self.state.get("extinct_degrees", {}))
+            if isinstance(extinct, dict):
+                return degree_code in extinct
+            return False
+
     def _save(self):
         with CheckpointManager._lock:
             # Merge state with disk to prevent concurrent overwrites
@@ -210,6 +234,15 @@ class CheckpointManager:
                         for k, v in disk_degrees.items():
                             if k not in self.state["processed_degrees"]:
                                 self.state["processed_degrees"][k] = v
+
+                    # Merge extinct_degrees
+                    disk_extinct = disk_state.get("extinct_degrees", {})
+                    if isinstance(disk_extinct, dict):
+                        if not isinstance(self.state.get("extinct_degrees"), dict):
+                            self.state["extinct_degrees"] = {}
+                        for k, v in disk_extinct.items():
+                            if k not in self.state["extinct_degrees"]:
+                                self.state["extinct_degrees"][k] = v
 
                     # Merge non_study_plan_pdfs
                     disk_non_plans = set(disk_state.get("non_study_plan_pdfs", []))

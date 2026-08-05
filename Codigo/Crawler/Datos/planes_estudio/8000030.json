@@ -4,25 +4,7 @@
   "nivel_academico": "Título Extranjero",
   "universidad_codigo": "091",
   "universidad_nombre": "Centros extranjeros autorizados por la Comunidad de Madrid",
-  "fecha_procesado": "2026-08-05T14:00:02.387834",
-  "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2017/04/06/BOCM-20170406-20.PDF",
-  "boe_fecha": "2017-04-06",
-  "all_boe_urls": [
-    "http://www.bocm.es/boletin/CM_Orden_BOCM/2017/04/06/BOCM-20170406-20.PDF"
-  ],
-  "plan_estudios": {
-    "resumen_creditos": {},
-    "total_elementos": 1,
-    "elementos_curriculares": [
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      }
-    ]
-  }
+  "fecha_procesado": "2026-08-05T14:10:05.396143",
+  "boe_url": null,
+  "plan_estudios": null
 }

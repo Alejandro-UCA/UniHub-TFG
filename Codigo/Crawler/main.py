@@ -302,6 +302,10 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
             d_title = deg.get("titulo", "")
             print(f"   [{d_idx}/{len(degrees_to_process)}] Titulación [{d_code}]: {d_title[:65]}...")
             
+            if checkpoint.is_extinct_degree(d_code):
+                print(f"     -> [DESECHADO] Titulación [{d_code}] ya registrada como INACTIVA/EXTINGUIDA en checkpoint. Omitiendo en 0ms.")
+                continue
+
             plan_file = os.path.join(PLANES_DIR, f"{d_code}.json")
             detail_url = URL_DETALLE_ESTUDIO_TEMPLATE.format(codigo_estudio=d_code)
             
@@ -312,6 +316,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
                 if boe_info.get("is_extinct"):
                     st_text = boe_info.get("status_text", "Extinguida")
                     print(f"     -> [DESECHADO] Titulación [{d_code}] confirmada como INACTIVA/EXTINGUIDA en ficha HTML del RUCT ({st_text}). Omitiendo.")
+                    checkpoint.mark_extinct_degree(d_code, st_text)
                     continue
 
                 candidates = boe_info.get("all_boe_candidates", [])

@@ -1,15 +1,15 @@
 {
-  "timestamp_reporte": "2026-08-05T13:57:06.598509",
+  "timestamp_reporte": "2026-08-05T14:10:22.387312",
   "rendimiento_memoria": {
-    "uso_memoria_actual_mb": 70.34,
-    "pico_maximo_memoria_mb": 70.34,
-    "porcentaje_uso_memoria_sistema": 0.44
+    "uso_memoria_actual_mb": 62.54,
+    "pico_maximo_memoria_mb": 62.54,
+    "porcentaje_uso_memoria_sistema": 0.39
   },
   "rendimiento_tiempo": {
-    "tiempo_total_ejecucion_seg": 202.06,
-    "tiempo_procesamiento_cpu_seg": 4.93,
-    "tiempo_espera_io_red_seg": 197.13,
-    "tiempo_especifico_descargas_http_seg": 7.08,
+    "tiempo_total_ejecucion_seg": 137.11,
+    "tiempo_procesamiento_cpu_seg": 0.99,
+    "tiempo_espera_io_red_seg": 136.12,
+    "tiempo_especifico_descargas_http_seg": 8.35,
     "tiempo_especifico_parseo_pdf_seg": 0.0
   },
   "operaciones_crawler": {
@@ -21,7 +21,7 @@
     "errores_registrados": 0
   },
   "promedios_rendimiento": {
-    "promedio_tiempo_io_por_titulacion_seg": 0.055,
+    "promedio_tiempo_io_por_titulacion_seg": 0.065,
     "promedio_tiempo_parseo_por_pdf_seg": 0.0
   }
 }

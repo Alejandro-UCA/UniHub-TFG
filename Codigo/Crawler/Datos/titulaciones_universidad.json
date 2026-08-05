@@ -841,128 +841,8 @@
     "universidad_codigo": "022",
     "universidad_nombre": "Universidad Autónoma de Barcelona",
     "tipo": "Pública",
-    "total_titulaciones_vigentes": 566,
+    "total_titulaciones_vigentes": 533,
     "titulaciones_vigentes": [
-      {
-        "codigo_estudio": "4001663",
-        "titulo": "Doctor en Programa Oficial de Posgrado en Arte y Musicología",
-        "nivel_academico": "Doctor - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4000110",
-        "titulo": "Doctor en Programa Oficial de Posgrado en Biociencias",
-        "nivel_academico": "Doctor - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4000860",
-        "titulo": "Doctor en Programa Oficial de Posgrado en Ciencia Política",
-        "nivel_academico": "Doctor - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4000111",
-        "titulo": "Doctor en Programa Oficial de Posgrado en Ciencia y Tecnología Ambientales",
-        "nivel_academico": "Doctor - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4000112",
-        "titulo": "Doctor en Programa Oficial de Posgrado en Ciencias",
-        "nivel_academico": "Doctor - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4000861",
-        "titulo": "Doctor en Programa Oficial de Posgrado en Ciencias de la Educación",
-        "nivel_academico": "Doctor - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4001666",
-        "titulo": "Doctor en Programa Oficial de Posgrado en Derecho",
-        "nivel_academico": "Doctor - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4000113",
-        "titulo": "Doctor en Programa Oficial de Posgrado en Economía y Empresa",
-        "nivel_academico": "Doctor - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4000862",
-        "titulo": "Doctor en Programa Oficial de Posgrado en Estudios Europeos",
-        "nivel_academico": "Doctor - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4000115",
-        "titulo": "Doctor en Programa Oficial de Posgrado en Estudios Sociales y Culturales",
-        "nivel_academico": "Doctor - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4000863",
-        "titulo": "Doctor en Programa Oficial de Posgrado en Filosofía y Humanidades",
-        "nivel_academico": "Doctor - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4000116",
-        "titulo": "Doctor en Programa Oficial de Posgrado en Geografía, Demografía y Planificación Territorial",
-        "nivel_academico": "Doctor - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4000864",
-        "titulo": "Doctor en Programa Oficial de Posgrado en Historia",
-        "nivel_academico": "Doctor - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4000114",
-        "titulo": "Doctor en Programa Oficial de Posgrado en Ingeniería",
-        "nivel_academico": "Doctor - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4000865",
-        "titulo": "Doctor en Programa Oficial de Posgrado en Lengua y Literatura",
-        "nivel_academico": "Doctor - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4000552",
-        "titulo": "Doctor en Programa Oficial de Posgrado en Medicina y Salud",
-        "nivel_academico": "Doctor - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4000553",
-        "titulo": "Doctor en Programa Oficial de Posgrado en Psicología",
-        "nivel_academico": "Doctor - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4000554",
-        "titulo": "Doctor en Programa Oficial de Posgrado en Sociología",
-        "nivel_academico": "Doctor - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4000119",
-        "titulo": "Doctor en Programa Oficial de Posgrado en Traducción, Interpretación y sus Contextos Socioculturales",
-        "nivel_academico": "Doctor - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "4000120",
-        "titulo": "Doctor en Programa Oficial de Posgrado en Veterinaria y Ciencias Alimentarias",
-        "nivel_academico": "Doctor - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
       {
         "codigo_estudio": "5600106",
         "titulo": "Programa de Doctorado en Acuicultura por la Universidad Autónoma de Barcelona y la Universidad de Barcelona",
@@ -2548,12 +2428,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3002912",
-        "titulo": "Máster Universitario en Antropología Social y Cultural /Social and Cultural Anthropology",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4314950",
         "titulo": "Máster Universitario en Antropología Social y Cultural/Social and Cultural Anthropology por la Universidad Autónoma de Barcelona; National University of Ireland, Maynooth(Irlanda); Stockholms Universitet(Suecia); Universität Wien(Austria); Université Lumière Lyon 2(Francia) y Univerzi v Ljubljani-University of Ljubljana(Eslovenia)",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -2794,12 +2668,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3002977",
-        "titulo": "Máster Universitario en Derecho y Políticas de la Integración Europea: Derecho Constitucional Europeo y Constitucionalismo Multinivel / Droit et Politiques de l'Intégration Européenne: Droit Constitutionnel Européen et Multilevel Constitutionalism",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4313301",
         "titulo": "Máster Universitario en Derechos Sociolaborales por la Universidad Autónoma de Barcelona",
         "nivel_academico": "Máster - RD 822/2021 (3)",
@@ -2914,12 +2782,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3002937",
-        "titulo": "Máster Universitario en Erasmus Mundus en Procesamiento del Lenguaje Natural y Tecnologías Lingüísticas / Natural Language Processing and Human Language Technology",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4310918",
         "titulo": "Máster Universitario en Estudios Ambientales",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -2936,18 +2798,6 @@
         "titulo": "Máster Universitario en Estudios Avanzados y Aplicados en Lengua y Literatura Catalanas",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001788",
-        "titulo": "Máster Universitario en Estudios Catalanes: Lengua y Literatura y sus Aplicaciones",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "3001777",
-        "titulo": "Máster Universitario en Estudios Culturales: Gestión y Tecnología de la Cultura",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4313345",
@@ -2990,12 +2840,6 @@
         "titulo": "Máster Universitario en Estudios Latinoamericanos",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001761",
-        "titulo": "Máster Universitario en Estudios Medievales. Arte, Historia y Literatura",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4318300",
@@ -3580,12 +3424,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3000266",
-        "titulo": "Máster Universitario en Investigación en Veterinaria y Ciencias Alimentarias",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4311322",
         "titulo": "Máster Universitario en Investigación Etnográfica, Teoría Antropológica y Relaciones Interculturales",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -3790,12 +3628,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3001763",
-        "titulo": "Máster Universitario en Patrimonio Artístico en Cataluña",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4311327",
         "titulo": "Máster Universitario en Pensar y Gobernar las Sociedades Complejas",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -3976,22 +3808,10 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3002861",
-        "titulo": "Máster Universitario en Salud Pública (MSP)",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4311060",
         "titulo": "Máster Universitario en Salud Pública por la Universidad Autónoma de Barcelona y la Universidad Pompeu Fabra",
         "nivel_academico": "Máster - RD 822/2021 (3)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001262",
-        "titulo": "Máster Universitario en Salud y Bienestar Comunitario",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4311330",
@@ -4102,12 +3922,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "4311350",
-        "titulo": "Máster Universitario Erasmus Mundus en Estudios Ambientales /  Erasmus Mundus in Environmental Studies por la Universidad Autónoma de Barcelona; Aalborg Universitet(Dinamarca); Technische Universität Hamburg-Harburg(Alemania) y Universidade de Aveiro(Portugal)",
-        "nivel_academico": "Máster - RD 1393/2007 (1)",
-        "estado": "Publicado en B.O.E."
-      },
-      {
         "codigo_estudio": "4316055",
         "titulo": "Máster Universitario Erasmus Mundus en Educación Internacional en Vacunas / Erasmus Mundus in Leading International Vaccinology Education por la Universidad Autónoma de Barcelona; la Universidad de Barcelona; Universiteit Antwerpen(Bélgica); Université Claude Bernard (Lyon 1)(Francia) y Université Jean Monnet-Saint Etienne(Francia)",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -4122,6 +3936,12 @@
       {
         "codigo_estudio": "4317523",
         "titulo": "Máster Universitario Erasmus Mundus en Enfermedades Infecciosas y Una Sola Salud / Erasmus Mundus in Infectious Diseases and One Health por la Universidad Autónoma de Barcelona;  Medizinische Hochschule Hannover(Alemania) y Université de Tours(Francia)",
+        "nivel_academico": "Máster - RD 1393/2007 (1)",
+        "estado": "Publicado en B.O.E."
+      },
+      {
+        "codigo_estudio": "4311350",
+        "titulo": "Máster Universitario Erasmus Mundus en Estudios Ambientales /  Erasmus Mundus in Environmental Studies por la Universidad Autónoma de Barcelona; Aalborg Universitet(Dinamarca); Technische Universität Hamburg-Harburg(Alemania) y Universidade de Aveiro(Portugal)",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
       },
@@ -4174,12 +3994,6 @@
         "estado": "Publicado en B.O.E."
       },
       {
-        "codigo_estudio": "3002906",
-        "titulo": "Máster Universitario Erasmus Mundus en Modelización Matemática en Ingeniería: Teoría, Computación y Aplicaciones / Mathematical Modelling in Engineering: Theory, Numerics, Applications",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
         "codigo_estudio": "4314979",
         "titulo": "Máster Universitario Erasmus Mundus en Modelización Matemática en Ingeniería: Teoría, Computación y Aplicaciones/ Erasmus Mundus in Mathematical Modelling in Engineering: Theory, Numerics, Applications por la Universidad Autónoma de Barcelona; Politechnika Gdanska(Polonia); Università degli Studi di L'Aquila(Italia); Universität Hamburg(Alemania) y Université de Nice - Sophia Antipolis(Francia)",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
@@ -4190,18 +4004,6 @@
         "titulo": "Máster Universitario Erasmus Mundus en Modelos y Métodos de Economía Cuantitativa / Erasmus Mundus in Models and Methods of Quantitative Economics por la Universidad Autónoma de Barcelona; Szkola Glówna Handlowa w Warszawie(Polonia); Universitá Degli Studi \"Ca' Foscari\" di Venezia(Italia); Université Catholique de Louvain(Bélgica) y Université de Paris I - Panthéon-Sorbonne(Francia)",
         "nivel_academico": "Máster - RD 1393/2007 (1)",
         "estado": "Publicado en B.O.E."
-      },
-      {
-        "codigo_estudio": "3001034",
-        "titulo": "Máster Universitario Erasmus Mundus en Modelos y Métodos de Economía Cuantitativa / Models and Methods of Quantitative Economics",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
-      },
-      {
-        "codigo_estudio": "3002914",
-        "titulo": "Máster Universitario Erasmus Mundus en Phoenix EM Dynamics of Health and Welfare",
-        "nivel_academico": "Máster - RD 56/2005 (2)",
-        "estado": "Autorizado por Comunidad Aut&oacute;noma"
       },
       {
         "codigo_estudio": "4317165",

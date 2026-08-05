@@ -4,66 +4,7 @@
   "nivel_academico": "Máster - RD 822/2021 (3)",
   "universidad_codigo": "022",
   "universidad_nombre": "Universidad Autónoma de Barcelona",
-  "fecha_procesado": "2026-08-05T14:03:22.432749",
-  "boe_url": "http://www.boe.es/boe/dias/2021/03/27/pdfs/BOE-A-2021-4840.pdf",
-  "boe_fecha": "2021-03-27",
-  "all_boe_urls": [
-    "http://www.boe.es/boe/dias/2021/03/27/pdfs/BOE-A-2021-4840.pdf"
-  ],
-  "plan_estudios": {
-    "resumen_creditos": {
-      "Obligatorias": "40",
-      "Optativas": "47",
-      "Trabajo Fin de Grado / Máster": "30",
-      "Créditos Totales": "120"
-    },
-    "total_elementos": 5,
-    "elementos_curriculares": [
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Obligatorias.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Optativas.",
-        "creditos_ects": "6",
-        "caracter": "OP",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Practicas externas.",
-        "creditos_ects": "3",
-        "caracter": "OB",
-        "curso": "3",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Trabajo Fin de Máster.",
-        "creditos_ects": "30",
-        "caracter": "TFG/TFM",
-        "curso": "",
-        "cuatrimestre": ""
-      },
-      {
-        "modulo": "",
-        "materia": "",
-        "nombre_elemento": "Total.",
-        "creditos_ects": "6",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      }
-    ]
-  }
+  "fecha_procesado": "2026-08-05T14:10:28.609661",
+  "boe_url": null,
+  "plan_estudios": null
 }

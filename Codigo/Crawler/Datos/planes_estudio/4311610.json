@@ -4,25 +4,7 @@
   "nivel_academico": "Máster - RD 1393/2007 (1)",
   "universidad_codigo": "022",
   "universidad_nombre": "Universidad Autónoma de Barcelona",
-  "fecha_procesado": "2026-08-05T14:04:20.367232",
-  "boe_url": "http://www.boe.es/boe/dias/2016/07/06/pdfs/BOE-A-2016-6530.pdf",
-  "boe_fecha": "2016-07-06",
-  "all_boe_urls": [
-    "http://www.boe.es/boe/dias/2011/01/28/pdfs/BOE-A-2011-1616.pdf"
-  ],
-  "plan_estudios": {
-    "resumen_creditos": {},
-    "total_elementos": 1,
-    "elementos_curriculares": [
-      {
-        "modulo": "Módulo formativo.",
-        "materia": "",
-        "nombre_elemento": "Introducción a la Investigación.",
-        "creditos_ects": "30",
-        "caracter": "OB",
-        "curso": "",
-        "cuatrimestre": ""
-      }
-    ]
-  }
+  "fecha_procesado": "2026-08-05T14:11:50.630086",
+  "boe_url": null,
+  "plan_estudios": null
 }

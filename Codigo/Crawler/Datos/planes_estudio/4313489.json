@@ -1,0 +1,57 @@
+{
+  "codigo_estudio": "4313489",
+  "titulo": "Máster Universitario en Logística y Gestión de la Cadena de Suministro / Logistics and Supply Chain Management por la Universidad Autónoma de Barcelona; Montanuniversität Leoben(Austria); Rigas Tehniska Universitate(Letonia) y Technische Hochschule Wildau(Alemania)",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T14:04:25.965994",
+  "boe_url": "http://www.boe.es/boe/dias/2017/06/06/pdfs/BOE-A-2017-6410.pdf",
+  "boe_fecha": "2017-06-06",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2017/06/06/pdfs/BOE-A-2017-6410.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Créditos Totales": "120"
+    },
+    "total_elementos": 4,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "6 3 6 9 3 6 6 6 9 6 6 30 10 5 10 5",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 3 6 9 3 6 6 6 9 6 6 30 10 5 10 5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "6 30 10 10 10 10",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 30 10 10 10 10",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "6 3 6 9 3 6 6 6 9 6 6 30 5 5 5 9 6",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 3 6 9 3 6 6 6 9 6 6 30 5 5 5 9 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "9 6 6 30 13.5 16.5",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "9 6 6 30 13.5 16.5",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

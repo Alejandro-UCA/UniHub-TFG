@@ -1,0 +1,120 @@
+{
+  "codigo_estudio": "4317127",
+  "titulo": "Máster Universitario en Humanidades y Patrimonio Digitales por la Universidad Autónoma de Barcelona y la Universidad Pompeu Fabra",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T14:05:45.108724",
+  "boe_url": "http://www.boe.es/boe/dias/2022/04/01/pdfs/BOE-A-2022-5259.pdf",
+  "boe_fecha": "2022-04-01",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2022/04/01/pdfs/BOE-A-2022-5259.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 11,
+    "elementos_curriculares": [
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Obligatorios.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Optativos.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Tipo de módulo",
+        "materia": "",
+        "nombre_elemento": "Trabajo de fin de máster.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Comunicación y Aprendizaje: Experiencias de Usuario.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Creación y Gestión de Proyectos Digitales en Materia Cultural.",
+        "nombre_elemento": "Patrimonio, Tecnología y Humanidades Digitales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Creación y Gestión de Proyectos Digitales en Materia Cultural.",
+        "nombre_elemento": "Tecnologías Aplicadas I: de los Datos a la Información.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Creación y Gestión de Proyectos Digitales en Materia Cultural.",
+        "nombre_elemento": "Tecnologías Aplicadas II: del Píxel al Conocimiento, Digitalización y Visión por Computador.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Creación y Gestión de Proyectos Digitales en Materia Cultural.",
+        "nombre_elemento": "Tecnologías Aplicadas III: Interacción Persona-Ordenador.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Creación y Gestión de Proyectos Digitales en Materia Cultural.",
+        "nombre_elemento": "Aplicaciones de la Tecnología en Humanidades y Estudios del Patrimonio I: Digitalizando el Pasado. Realidades Virtuales, Aumentadas y Mixtas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Creación y Gestión de Proyectos Digitales en Materia Cultural.",
+        "nombre_elemento": "Aplicaciones de la Tecnología en Humanidades y Estudios del Patrimonio II: Tecnologías en el Tratamiento y el Análisis de la Palabra y el Sonido.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

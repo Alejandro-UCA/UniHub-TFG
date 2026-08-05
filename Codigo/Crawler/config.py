@@ -30,8 +30,8 @@ URL_ESTUDIOS_UNIV_TEMPLATE = (
 )
 
 URL_DETALLE_ESTUDIO_TEMPLATE = (
-    "https://www.educacion.gob.es/ruct/estudiouniversidad.action"
-    "?codigoCiclo=SC&codigoEstudio={codigo_estudio}&actual=universidad"
+    "https://www.educacion.gob.es/ruct/listaestudios"
+    "?actual=estudios&codigoEstudio={codigo_estudio}"
 )
 
 # Crawler Best Practices Configuration

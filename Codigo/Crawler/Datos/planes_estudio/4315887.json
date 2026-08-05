@@ -1,0 +1,28 @@
+{
+  "codigo_estudio": "4315887",
+  "titulo": "Máster Universitario en Investigación e Innovación en Cuidados de Enfermería por la Universidad Autónoma de Barcelona y la Universidad Pompeu Fabra",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T14:04:42.791281",
+  "boe_url": "http://portaldogc.gencat.cat/utilsEADOP/PDF/7830/1732511.pdf",
+  "boe_fecha": "2019-02-28",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2018/08/17/pdfs/BOE-A-2018-11687.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {},
+    "total_elementos": 1,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "15 12 15 12 6 6",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "15 12 15 12 6 6",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

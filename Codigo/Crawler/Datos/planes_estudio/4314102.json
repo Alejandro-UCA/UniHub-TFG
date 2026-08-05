@@ -1,0 +1,57 @@
+{
+  "codigo_estudio": "4314102",
+  "titulo": "Máster Universitario en Identidad Europea Medieval por la Universidad Autónoma de Barcelona; la Universidad de Girona; la Universidad de Lleida; la Universidad de Murcia y la Universidad Rovira i Virgili",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "022",
+  "universidad_nombre": "Universidad Autónoma de Barcelona",
+  "fecha_procesado": "2026-08-05T14:05:43.090418",
+  "boe_url": "http://www.boe.es/boe/dias/2023/04/29/pdfs/BOE-A-2023-10389.pdf",
+  "boe_fecha": "2023-04-29",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2023/04/29/pdfs/BOE-A-2023-10389.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 4,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias (OB).",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas (OP).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo de Fin de Máster (TFM).",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo de especialidad: Formación Teórica e Investigadora.",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo de Fin de Máster.",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

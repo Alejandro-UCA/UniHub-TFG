@@ -1,0 +1,78 @@
+{
+  "codigo_estudio": "3500192",
+  "titulo": "Máster Universitario en Investigación sobre Intervención Socioeducativa frente a la Violencia en la Infancia y en la Adolescencia por la Universidad Autónoma de Madrid",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "023",
+  "universidad_nombre": "Universidad Autónoma de Madrid",
+  "fecha_procesado": "2026-08-05T18:33:56.363503",
+  "boe_url": "http://www.boe.es/boe/dias/2024/10/11/pdfs/BOE-A-2024-20837.pdf",
+  "boe_fecha": "2024-10-11",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2024/10/11/pdfs/BOE-A-2024-20837.pdf",
+    "http://www.boe.es/boe/dias/2024/09/27/pdfs/BOE-A-2024-19393.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2024/08/23/BOCM-20240823-6.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "48",
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 6,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Semestre 1",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Semestre 2",
+        "cuatrimestre": "Semestre 2"
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "ECTS: 30",
+        "creditos_ects": "30",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "– Bases conceptuales y normativas sobre la violencia, la infancia y la adolescencia (Obligatoria) (6 ECTS). – La violencia de género en infancia y adolescencia (Obligatoria) (6 ECTS). – La violencia en el ámbito escolar (Obligatoria)(6 ECTS). – La violencia en el ámbito. deportivo y de ocio y tiempo libre (Obligatoria) (6 ECTS). – Metodología de investigación I (Obligatoria) (6 ECTS).",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "– La violencia entre iguales y en grupo en la infancia y la adolescencia (Obligatoria) (6 ECTS). – La violencia en el ámbito familiar y su entorno (Obligatoria) (6 ECTS). – Metodología de investigación II (Obligatoria) (6 ECTS). – Trabajo fin de Máster (12 ECTS).",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

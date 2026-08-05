@@ -1,0 +1,53 @@
+{
+  "codigo_estudio": "4317049",
+  "titulo": "Máster Universitario en Ciencia de Datos por la Universidad Autónoma de Madrid",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "023",
+  "universidad_nombre": "Universidad Autónoma de Madrid",
+  "fecha_procesado": "2026-08-05T18:35:57.481700",
+  "boe_url": "http://www.boe.es/boe/dias/2025/02/19/pdfs/BOE-A-2025-3297.pdf",
+  "boe_fecha": "2025-02-19",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2025/02/19/pdfs/BOE-A-2025-3297.pdf",
+    "http://www.boe.es/boe/dias/2021/03/26/pdfs/BOE-A-2021-4782.pdf",
+    "http://www.boe.es/boe/dias/2021/01/22/pdfs/BOE-A-2021-901.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2020/08/06/BOCM-20200806-17.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "6",
+      "Optativas": "6",
+      "Trabajo Fin de Grado / Máster": "9"
+    },
+    "total_elementos": 3,
+    "elementos_curriculares": [
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Fundamentos de la Ciencia de Datos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Introducción a la Metodología de la Investigación.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "9",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

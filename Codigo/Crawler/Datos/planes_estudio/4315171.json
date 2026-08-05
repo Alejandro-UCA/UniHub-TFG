@@ -1,0 +1,62 @@
+{
+  "codigo_estudio": "4315171",
+  "titulo": "Máster Universitario en Biomoléculas y Dinámica Celular por la Universidad Autónoma de Madrid",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "023",
+  "universidad_nombre": "Universidad Autónoma de Madrid",
+  "fecha_procesado": "2026-08-05T18:36:07.464320",
+  "boe_url": "http://www.boe.es/boe/dias/2021/07/02/pdfs/BOE-A-2021-11037.pdf",
+  "boe_fecha": "2021-07-02",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2021/07/02/pdfs/BOE-A-2021-11037.pdf",
+    "http://www.boe.es/boe/dias/2016/05/20/pdfs/BOE-A-2016-4840.pdf",
+    "http://www.boe.es/boe/dias/2015/12/24/pdfs/BOE-A-2015-14080.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2015/11/03/BOCM-20151103-13.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "18",
+      "Optativas": "12",
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 4,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "18",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "30",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

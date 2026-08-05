@@ -1,0 +1,71 @@
+{
+  "codigo_estudio": "4311877",
+  "titulo": "Máster Universitario en Calidad y Mejora de la Educación por la Universidad Autónoma de Madrid",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "023",
+  "universidad_nombre": "Universidad Autónoma de Madrid",
+  "fecha_procesado": "2026-08-05T18:35:59.371197",
+  "boe_url": "http://www.boe.es/boe/dias/2025/07/03/pdfs/BOE-A-2025-13655.pdf",
+  "boe_fecha": "2025-07-03",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2025/07/03/pdfs/BOE-A-2025-13655.pdf",
+    "http://www.boe.es/boe/dias/2018/08/02/pdfs/BOE-A-2018-11059.pdf",
+    "http://www.boe.es/boe/dias/2012/07/17/pdfs/BOE-A-2012-9554.pdf",
+    "http://www.boe.es/boe/dias/2010/12/16/pdfs/BOE-A-2010-19334.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2010/11/10/BOCM-20101110-17.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "48",
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 5,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo fin de máster.",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Semestre 1",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Semestre 2",
+        "cuatrimestre": "Semestre 2"
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "TFM (6 ECTS, anual).",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "TFM (6 ECTS, anual).",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

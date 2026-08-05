@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, MapPin, BookOpen, Sun, Moon, Info } from 'lucide-react';
+import { GraduationCap, MapPin, BookOpen, Sun, Moon, Info, Calculator } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab, isDark, toggleTheme }) {
   return (
@@ -64,6 +64,14 @@ export default function Navbar({ activeTab, setActiveTab, isDark, toggleTheme })
           >
             <MapPin size={16} />
             Por Cercanía
+          </button>
+          <button 
+            className={`btn ${activeTab === 'calculadora' ? 'btn-primary' : 'btn-outline'}`}
+            style={{ padding: '0.5rem 1rem', fontSize: '0.88rem', borderColor: 'rgba(16, 185, 129, 0.4)' }}
+            onClick={() => setActiveTab('calculadora')}
+          >
+            <Calculator size={16} style={{ color: '#10B981' }} />
+            Calcula tu Matrícula
           </button>
           <button 
             className={`btn ${activeTab === 'sobre-nosotros' ? 'btn-primary' : 'btn-outline'}`}

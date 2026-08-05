@@ -1,0 +1,115 @@
+{
+  "codigo_estudio": "4317140",
+  "titulo": "Máster Universitario en Aprendizaje Profundo para Inteligencia Artificial de Audio y Visual / Master in Deep Learning for Audio and Visual Artificial Intelligence por la Universidad Autónoma de Madrid",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "023",
+  "universidad_nombre": "Universidad Autónoma de Madrid",
+  "fecha_procesado": "2026-08-05T18:36:26.387882",
+  "boe_url": "http://www.boe.es/boe/dias/2025/10/23/pdfs/BOE-A-2025-21376.pdf",
+  "boe_fecha": "2025-10-23",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2025/10/23/pdfs/BOE-A-2025-21376.pdf",
+    "http://www.boe.es/boe/dias/2021/03/26/pdfs/BOE-A-2021-4780.pdf",
+    "http://www.boe.es/boe/dias/2021/01/22/pdfs/BOE-A-2021-901.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2020/08/06/BOCM-20200806-17.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "48",
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 10,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Semestre 1",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Semestre 2",
+        "cuatrimestre": "Semestre 2"
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "ECTS: 30",
+        "creditos_ects": "30",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Fundamentos y herramientas básicas para aprendizaje profundo/Deep Learning fundamentals and basic tools [8 ECTS].",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "Biometría e inteligencia aplicada/Biometrics & Applied Intelligence [6 ECTS].",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Revisión de Técnicas Asentadas de Tratamiento de Señal/Review of Established Signal Processing Techniques [4 ECTS].",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "Computación de altas prestaciones para aprendizaje profundo/High Performance Architetures for Deep learning [6 ECTS].",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Aprendizaje Profundo para procesamiento de señales de audio: arquitecturas y aplicaciones/ Deep Learning for Audio Signal Processing: Architectures and Applications [6 ECTS].",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Metodologías y seminarios de investigación/ Research methodologies and seminars [6 ECTS].",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Aprendizaje Profundo para procesamiento visual y multimodal: modelos e impacto socio- ambientales/Deep Learning for Visual and Multimodal Processing: Models and Socio- environmental Impacts [6 ECTS].",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "Aprendizaje Profundo para procesamiento visual y multimodal: modelos e impacto socio- ambientales/Deep Learning for Visual and Multimodal Processing: Models and Socio- environmental Impacts [6 ECTS].",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Aprendizaje Profundo para procesamiento de imagen y video: estrategias de aprendizaje y aplicaciones/Deep Learning for Image and Video Processing: Learning Strategies and Applications [6 ECTS].",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Aprendizaje Profundo para procesamiento de imagen y video: estrategias de aprendizaje y aplicaciones/Deep Learning for Image and Video Processing: Learning Strategies and Applications [6 ECTS].",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

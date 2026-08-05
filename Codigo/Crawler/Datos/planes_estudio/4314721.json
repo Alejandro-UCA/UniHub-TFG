@@ -1,0 +1,102 @@
+{
+  "codigo_estudio": "4314721",
+  "titulo": "Máster Universitario en Lengua y Literatura Españolas Actuales por la Universidad Carlos III de Madrid",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "036",
+  "universidad_nombre": "Universidad Carlos III de Madrid",
+  "fecha_procesado": "2026-08-05T18:41:30.111011",
+  "boe_url": "http://www.boe.es/boe/dias/2015/04/28/pdfs/BOE-A-2015-4666.pdf",
+  "boe_fecha": "2015-04-28",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2015/04/28/pdfs/BOE-A-2015-4666.pdf",
+    "http://www.boe.es/boe/dias/2015/03/18/pdfs/BOE-A-2015-2894.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2014/12/12/BOCM-20141212-20.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {},
+    "total_elementos": 9,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Estado de la cuestión en los estudios de lingüística española contemporánea.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Estado de la cuestión en los estudios de literatura española contemporánea.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "La heterogeneidad lingüística: del estándar a los textos marcados lingüísticamente.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "La especificidad de la expresión literaria como práctica comunicativa.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "El proceso de comunicación. Expresión verbal y no verbal. Escritura y oralidad.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Literatura e historia: memoria y representación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Utopías y distopías en la literatura española actual. Fronteras y migraciones.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Imágenes y representación: la representación del cuerpo. Imágenes de la sexualidad.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "codigo_estudio": "4311358",
+  "titulo": "Máster Universitario en Investigación Farmacológica/ Pharmacological Research por la Universidad Autónoma de Madrid",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "023",
+  "universidad_nombre": "Universidad Autónoma de Madrid",
+  "fecha_procesado": "2026-08-05T18:34:00.416418",
+  "boe_url": "http://www.boe.es/boe/dias/2018/11/16/pdfs/BOE-A-2018-15703.pdf",
+  "boe_fecha": "2018-11-16",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2018/11/16/pdfs/BOE-A-2018-15703.pdf",
+    "http://www.boe.es/boe/dias/2014/03/13/pdfs/BOE-A-2014-2703.pdf",
+    "http://www.boe.es/boe/dias/2012/07/17/pdfs/BOE-A-2012-9573.pdf",
+    "http://www.boe.es/boe/dias/2011/02/24/pdfs/BOE-A-2011-3633.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2010/11/10/BOCM-20101110-17.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {},
+    "total_elementos": 5,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Fundamentos de Fisiología y Farmacología/Fundamentals of physiology and pharmacology.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Fundamentos Metodológicos de la Investigación Farmacológica/ Methodological fundamentals of pharmacological research.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Fundamentos Experimentales de la Investigación Farmacológica/ Fundamentals of experimental design in pharmacological research.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Investigación en Farmacología Cardiovascular/Research in cardiovascular pharmacology.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Investigación en Psiconeuro- farmacología/Research in neuropsycopharmacology.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

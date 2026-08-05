@@ -1,0 +1,165 @@
+{
+  "codigo_estudio": "2500662",
+  "titulo": "Graduado o Graduada en Terapia Ocupacional por la Universidad Autónoma de Madrid",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "023",
+  "universidad_nombre": "Universidad Autónoma de Madrid",
+  "fecha_procesado": "2026-08-05T18:36:46.706052",
+  "boe_url": "http://www.boe.es/boe/dias/2025/09/25/pdfs/BOE-A-2025-19052.pdf",
+  "boe_fecha": "2025-09-25",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2025/09/25/pdfs/BOE-A-2025-19052.pdf",
+    "http://www.boe.es/boe/dias/2012/12/28/pdfs/BOE-A-2012-15697.pdf",
+    "http://www.boe.es/boe/dias/2010/03/18/pdfs/BOE-A-2010-4591.pdf",
+    "http://www.boe.es/boe/dias/2009/10/09/pdfs/BOE-A-2009-16104.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2009/08/26/2009-08-26_25082009_0031.pdf",
+    "http://www.boe.es/boe/dias/2009/03/26/pdfs/BOE-A-2009-5036.pdf",
+    "http://www.boe.es/boe/dias/2009/02/17/pdfs/BOE-A-2009-2643.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica": "60",
+      "Obligatorias": "114",
+      "Optativas": "6",
+      "Créditos Totales": "240"
+    },
+    "total_elementos": 15,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Formación básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo de fin de grado.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Formación Básica. Estudio de la Función, Estructura y Factores Ambientales del Ser Humano.",
+        "creditos_ects": "9",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Formación Básica. Idioma Moderno.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Fundamentos de la Terapia Ocupacional: Función y Disfunción Ocupacional.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Fundamentos de la Terapia Ocupacional y Disfunción Ocupacional.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Afecciones Médico-Quirúrgicas y Psicológicas en el Ser Humano.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Procesos de Intervención Ocupacional.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Tecnología de la Información y Comunicación Aplicada a Terapia Ocupacional.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optatividad.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Prácticas Académicas Externas y Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

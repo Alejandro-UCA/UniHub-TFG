@@ -1,0 +1,71 @@
+{
+  "codigo_estudio": "4311880",
+  "titulo": "Máster Universitario en Tecnologías de la Información y la Comunicación en Educación y Formación por la Universidad Autónoma de Madrid",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "023",
+  "universidad_nombre": "Universidad Autónoma de Madrid",
+  "fecha_procesado": "2026-08-05T18:32:40.508807",
+  "boe_url": "http://www.boe.es/boe/dias/2025/07/03/pdfs/BOE-A-2025-13656.pdf",
+  "boe_fecha": "2025-07-03",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2025/07/03/pdfs/BOE-A-2025-13656.pdf",
+    "http://www.boe.es/boe/dias/2022/09/20/pdfs/BOE-A-2022-15353.pdf",
+    "http://www.boe.es/boe/dias/2012/07/17/pdfs/BOE-A-2012-9581.pdf",
+    "http://www.boe.es/boe/dias/2010/12/16/pdfs/BOE-A-2010-19334.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "45",
+      "Optativas": "5",
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 5,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo fin de máster.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Semestre 1",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Semestre 2",
+        "cuatrimestre": "Semestre 2"
+      }
+    ]
+  }
+}

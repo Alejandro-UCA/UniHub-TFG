@@ -1,0 +1,113 @@
+{
+  "codigo_estudio": "2501211",
+  "titulo": "Graduado o Graduada en Maestro/a en Educación Primaria por la Universidad Autónoma de Madrid",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "023",
+  "universidad_nombre": "Universidad Autónoma de Madrid",
+  "fecha_procesado": "2026-08-05T18:37:01.117651",
+  "boe_url": "http://www.boe.es/boe/dias/2020/05/20/pdfs/BOE-A-2020-5189.pdf",
+  "boe_fecha": "2020-05-20",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2020/05/20/pdfs/BOE-A-2020-5189.pdf",
+    "http://www.boe.es/boe/dias/2016/07/07/pdfs/BOE-A-2016-6568.pdf",
+    "http://www.boe.es/boe/dias/2014/06/26/pdfs/BOE-A-2014-6724.pdf",
+    "http://www.boe.es/boe/dias/2012/12/29/pdfs/BOE-A-2012-15750.pdf",
+    "http://www.boe.es/boe/dias/2010/03/18/pdfs/BOE-A-2010-4590.pdf",
+    "http://www.boe.es/boe/dias/2009/10/09/pdfs/BOE-A-2009-16104.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2009/08/26/2009-08-26_25082009_0031.pdf",
+    "http://www.boe.es/boe/dias/2007/12/29/pdfs/A53747-53750.pdf",
+    "http://www.boe.es/boe/dias/2007/12/21/pdfs/A52846-52847.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica": "60",
+      "Obligatorias": "102",
+      "Optativas": "27",
+      "Créditos Totales": "240"
+    },
+    "total_elementos": 9,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Formación básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo de fin de grado.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Didáctico Disciplinar.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Prácticum y Trabajo de Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optatividad.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

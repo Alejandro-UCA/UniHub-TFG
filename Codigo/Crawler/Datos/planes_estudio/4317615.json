@@ -1,0 +1,62 @@
+{
+  "codigo_estudio": "4317615",
+  "titulo": "Máster Universitario en Historia del Arte de la Edad Moderna: Tradición Clásica y Mundo Globalizado por la Universidad Autónoma de Madrid",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "023",
+  "universidad_nombre": "Universidad Autónoma de Madrid",
+  "fecha_procesado": "2026-08-05T18:34:26.462009",
+  "boe_url": "http://www.boe.es/boe/dias/2021/11/09/pdfs/BOE-A-2021-18361.pdf",
+  "boe_fecha": "2021-11-09",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2021/11/09/pdfs/BOE-A-2021-18361.pdf",
+    "http://www.boe.es/boe/dias/2021/10/22/pdfs/BOE-A-2021-17170.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2021/07/21/BOCM-20210721-30.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "21",
+      "Optativas": "27",
+      "Trabajo Fin de Grado / Máster": "12",
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 4,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

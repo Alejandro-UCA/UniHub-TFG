@@ -8,6 +8,7 @@ import Geolocation from './components/Geolocation';
 import AdminLogin from './components/AdminLogin';
 import AdminDashboard from './components/AdminDashboard';
 import AboutUs from './components/AboutUs';
+import TuitionCalculator from './components/TuitionCalculator';
 import Pagination from './components/Pagination';
 import Footer from './components/Footer';
 
@@ -350,6 +351,10 @@ export default function App() {
             universities={universities}
             onViewDegrees={handleViewUniversityDegrees}
           />
+        )}
+
+        {activeTab === 'calculadora' && (
+          <TuitionCalculator />
         )}
 
         {activeTab === 'sobre-nosotros' && (

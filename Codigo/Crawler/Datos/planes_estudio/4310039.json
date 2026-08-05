@@ -1,0 +1,63 @@
+{
+  "codigo_estudio": "4310039",
+  "titulo": "Máster Universitario en Biología Molecular y Celular",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "023",
+  "universidad_nombre": "Universidad Autónoma de Madrid",
+  "fecha_procesado": "2026-08-05T18:36:11.420244",
+  "boe_url": "http://www.boe.es/boe/dias/2021/07/02/pdfs/BOE-A-2021-11036.pdf",
+  "boe_fecha": "2021-07-02",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2021/07/02/pdfs/BOE-A-2021-11036.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2015/11/03/BOCM-20151103-13.PDF",
+    "http://www.boe.es/boe/dias/2010/07/12/pdfs/BOE-A-2010-11063.pdf",
+    "http://www.boe.es/boe/dias/2009/10/09/pdfs/BOE-A-2009-16106.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2009/08/26/2009-08-26_25082009_0031.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "12",
+      "Optativas": "18",
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 4,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "30",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

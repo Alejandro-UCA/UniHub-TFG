@@ -1,0 +1,62 @@
+{
+  "codigo_estudio": "4318258",
+  "titulo": "Máster Universitario en Especialización en el Desarrollo Comunicativo y Lingüístico en la Etapa de 0 a 6 años por la Universidad Autónoma de Madrid y la Universidad Complutense de Madrid",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "023",
+  "universidad_nombre": "Universidad Autónoma de Madrid",
+  "fecha_procesado": "2026-08-05T18:35:13.371590",
+  "boe_url": "http://www.boe.es/boe/dias/2024/01/01/pdfs/BOE-A-2024-84.pdf",
+  "boe_fecha": "2024-01-01",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2024/01/01/pdfs/BOE-A-2024-84.pdf",
+    "http://www.boe.es/boe/dias/2023/07/27/pdfs/BOE-A-2023-17291.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2023/06/14/BOCM-20230614-25.PDF",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2023/06/14/BOCM-20230614-25.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "30",
+      "Optativas": "18",
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 4,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "30",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo de Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

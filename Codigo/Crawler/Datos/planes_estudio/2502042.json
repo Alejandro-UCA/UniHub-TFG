@@ -1,0 +1,104 @@
+{
+  "codigo_estudio": "2502042",
+  "titulo": "Graduado o Graduada en Enfermería por la Universidad Autónoma de Madrid",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "023",
+  "universidad_nombre": "Universidad Autónoma de Madrid",
+  "fecha_procesado": "2026-08-05T18:37:42.180733",
+  "boe_url": "http://www.boe.es/boe/dias/2024/09/26/pdfs/BOE-A-2024-19388.pdf",
+  "boe_fecha": "2024-09-26",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2024/09/26/pdfs/BOE-A-2024-19388.pdf",
+    "http://www.boe.es/boe/dias/2020/05/20/pdfs/BOE-A-2020-5185.pdf",
+    "http://www.boe.es/boe/dias/2018/03/03/pdfs/BOE-A-2018-3039.pdf",
+    "http://www.boe.es/boe/dias/2016/07/05/pdfs/BOE-A-2016-6505.pdf",
+    "http://www.boe.es/boe/dias/2010/12/11/pdfs/BOE-A-2010-19146.pdf",
+    "http://www.boe.es/boe/dias/2010/11/11/pdfs/BOE-A-2010-17372.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2010/07/30/BOCM-20100730-22.PDF",
+    "http://www.boe.es/boe/dias/2008/07/19/pdfs/A31680-31683.pdf",
+    "http://www.boe.es/boe/dias/2008/02/27/pdfs/A11605-11606.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica": "60",
+      "Obligatorias": "84",
+      "Optativas": "6",
+      "Créditos Totales": "240"
+    },
+    "total_elementos": 8,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Formación básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo de fin de grado.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Ciencias de la Enfermería.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Prácticas Tuteladas y Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

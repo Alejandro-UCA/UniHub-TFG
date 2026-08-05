@@ -1,0 +1,81 @@
+{
+  "codigo_estudio": "4310638",
+  "titulo": "Máster Universitario en Matemáticas y Aplicaciones por la Universidad Autónoma de Madrid",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "023",
+  "universidad_nombre": "Universidad Autónoma de Madrid",
+  "fecha_procesado": "2026-08-05T18:33:43.439924",
+  "boe_url": "http://www.boe.es/boe/dias/2025/10/10/pdfs/BOE-A-2025-20262.pdf",
+  "boe_fecha": "2025-10-10",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2025/10/10/pdfs/BOE-A-2025-20262.pdf",
+    "http://www.boe.es/boe/dias/2016/05/20/pdfs/BOE-A-2016-4844.pdf",
+    "http://www.boe.es/boe/dias/2010/07/12/pdfs/BOE-A-2010-11075.pdf",
+    "http://www.boe.es/boe/dias/2009/10/09/pdfs/BOE-A-2009-16106.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2009/08/26/2009-08-26_25082009_0031.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "24",
+      "Optativas": "18",
+      "Créditos Totales": "60"
+    },
+    "total_elementos": 6,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "24",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "18",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Semestre 1",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Semestre 2",
+        "cuatrimestre": "Semestre 2"
+      },
+      {
+        "modulo": "Curso 1.",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Denominación",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

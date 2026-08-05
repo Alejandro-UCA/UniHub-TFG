@@ -1,0 +1,99 @@
+{
+  "codigo_estudio": "4310745",
+  "titulo": "Máster Universitario en Metodología de las Ciencias del Comportamiento y de la Salud (Interuniversitario UNED - UCM - UAM) por la Universidad Autónoma de Madrid; la Universidad Complutense de Madrid y la Universidad Nacional de Educación a Distancia",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "023",
+  "universidad_nombre": "Universidad Autónoma de Madrid",
+  "fecha_procesado": "2026-08-05T18:33:35.444642",
+  "boe_url": "http://www.boe.es/boe/dias/2023/12/04/pdfs/BOE-A-2023-24779.pdf",
+  "boe_fecha": "2023-12-04",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2023/12/04/pdfs/BOE-A-2023-24779.pdf",
+    "http://www.boe.es/boe/dias/2012/07/17/pdfs/BOE-A-2012-9576.pdf",
+    "http://www.boe.es/boe/dias/2010/06/28/pdfs/BOE-A-2010-10278.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2009/11/23/2009-11-23_20112009_0265.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2009/11/23/2009-11-23_20112009_0265.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "30",
+      "Optativas": "42",
+      "Créditos Totales": "90"
+    },
+    "total_elementos": 8,
+    "elementos_curriculares": [
+      {
+        "modulo": "Módulo I (OB):",
+        "materia": "",
+        "nombre_elemento": "– Diseños de Investigación Avanzados.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo I (OB):",
+        "materia": "",
+        "nombre_elemento": "– Análisis de Datos y Modelos Estadísticos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo I (OB):",
+        "materia": "",
+        "nombre_elemento": "– Medición.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo I (OB):",
+        "materia": "",
+        "nombre_elemento": "– Modelos de Procesos Cognitivos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo I (OB):",
+        "materia": "",
+        "nombre_elemento": "– Métodos Informáticos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo II y III: Se compone de materias de 6 y 3 créditos.",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "18",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo II y III: Se compone de materias de 6 y 3 créditos.",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "30",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo II y III: Se compone de materias de 6 y 3 créditos.",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

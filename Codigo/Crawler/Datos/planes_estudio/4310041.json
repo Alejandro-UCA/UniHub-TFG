@@ -1,0 +1,30 @@
+{
+  "codigo_estudio": "4310041",
+  "titulo": "Máster Universitario en Fotónica",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "023",
+  "universidad_nombre": "Universidad Autónoma de Madrid",
+  "fecha_procesado": "2026-08-05T18:34:35.490494",
+  "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2011/10/25/BOCM-20111025-16.PDF",
+  "boe_fecha": "2011-09-27",
+  "all_boe_urls": [
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2011/10/25/BOCM-20111025-16.PDF",
+    "http://www.boe.es/boe/dias/2010/07/12/pdfs/BOE-A-2010-11073.pdf",
+    "http://www.boe.es/boe/dias/2009/10/09/pdfs/BOE-A-2009-16106.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {},
+    "total_elementos": 1,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

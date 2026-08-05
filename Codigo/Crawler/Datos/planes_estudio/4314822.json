@@ -1,0 +1,30 @@
+{
+  "codigo_estudio": "4314822",
+  "titulo": "Máster Universitario en Gestión y Desarrollo de Tecnologías Biomédicas por la Universidad Carlos III de Madrid",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "036",
+  "universidad_nombre": "Universidad Carlos III de Madrid",
+  "fecha_procesado": "2026-08-05T18:42:32.270062",
+  "boe_url": "http://www.boe.es/boe/dias/2016/02/22/pdfs/BOE-A-2016-1824.pdf",
+  "boe_fecha": "2016-02-22",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2016/02/22/pdfs/BOE-A-2016-1824.pdf",
+    "http://www.boe.es/boe/dias/2015/12/24/pdfs/BOE-A-2015-14080.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2015/11/03/BOCM-20151103-13.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {},
+    "total_elementos": 1,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Economía, Política y Gestión de la Investigación Biomédica............... Dirección y Gestión de las Organizaciones Innovadoras.................. Creación y desarrollo de Nuevas Empresas de Base Tecnológica (NEBTs) ... Trabajo fin de máster .............................................",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "5 5 5 12",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

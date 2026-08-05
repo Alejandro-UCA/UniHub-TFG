@@ -1,0 +1,71 @@
+{
+  "codigo_estudio": "4313103",
+  "titulo": "Máster Universitario en Intervención Psicosocial y Comunitaria por la Universidad Autónoma de Madrid",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "023",
+  "universidad_nombre": "Universidad Autónoma de Madrid",
+  "fecha_procesado": "2026-08-05T18:34:06.465310",
+  "boe_url": "http://www.boe.es/boe/dias/2024/06/20/pdfs/BOE-A-2024-12558.pdf",
+  "boe_fecha": "2024-06-20",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2024/06/20/pdfs/BOE-A-2024-12558.pdf",
+    "http://www.boe.es/boe/dias/2014/03/13/pdfs/BOE-A-2014-2701.pdf",
+    "http://www.boe.es/boe/dias/2013/04/23/pdfs/BOE-A-2013-4289.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2012/10/30/BOCM-20121030-1.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Obligatorias": "37",
+      "Optativas": "25",
+      "Créditos Totales": "90"
+    },
+    "total_elementos": 5,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Prácticas Externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

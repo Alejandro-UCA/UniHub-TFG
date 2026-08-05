@@ -1,0 +1,107 @@
+{
+  "codigo_estudio": "4310637",
+  "titulo": "Máster Universitario en Astrofísica",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "023",
+  "universidad_nombre": "Universidad Autónoma de Madrid",
+  "fecha_procesado": "2026-08-05T13:20:18.301053",
+  "boe_url": "http://www.boe.es/boe/dias/2015/03/26/pdfs/BOE-A-2015-3221.pdf",
+  "boe_fecha": "2015-03-26",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2010/07/12/pdfs/BOE-A-2010-11061.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2013/11/07/BOCM-20131107-7.PDF",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2013/11/07/BOCM-20131107-7.PDF",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2009/11/23/2009-11-23_20112009_0265.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2009/11/23/2009-11-23_20112009_0265.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Optativas": "12",
+      "Créditos Totales": "7"
+    },
+    "total_elementos": 9,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "6 6 6 6 6 3 6 4.5 6 4.5 4.5 4.5 6 6 3 3 6 6 3 6 6 6 4.5 3 3 3 3 6 4.5 3 18 12 6 6",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 6 6 6 6 3 6 4.5 6 4.5 4.5 4.5 6 6 3 3 6 6 3 6 6 6 4.5 3 3 3 3 6 4.5 3 18 12 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "DAT Madrid-Oeste",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Denominación centro",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "IES“Jaime Ferrán”(Co- llado Villalba)",
+        "creditos_ects": "4.500",
+        "caracter": "OB",
+        "curso": "4.500",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Total",
+        "creditos_ects": "4.500",
+        "caracter": "OB",
+        "curso": "4.500",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "DAT Madrid-Sur",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "IES“Vicente Aleixandre” (Pinto)",
+        "creditos_ects": "3.000",
+        "caracter": "OB",
+        "curso": "3.000",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "IES“Laguna de Joatzel” (Getafe)",
+        "creditos_ects": "4.500",
+        "caracter": "OB",
+        "curso": "4.500",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

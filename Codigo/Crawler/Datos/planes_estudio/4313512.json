@@ -1,0 +1,31 @@
+{
+  "codigo_estudio": "4313512",
+  "titulo": "Máster Universitario en Ingeniería de Máquinas y Transportes por la Universidad Carlos III de Madrid",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "036",
+  "universidad_nombre": "Universidad Carlos III de Madrid",
+  "fecha_procesado": "2026-08-05T13:30:07.607207",
+  "boe_url": "http://www.boe.es/boe/dias/2013/07/25/pdfs/BOE-A-2013-8132.pdf",
+  "boe_fecha": "2013-07-25",
+  "all_boe_urls": [
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2012/10/30/BOCM-20121030-1.PDF",
+    "http://www.boe.es/boe/dias/2013/07/25/pdfs/BOE-A-2013-8132.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Trabajo Fin de Grado / Máster": "12"
+    },
+    "total_elementos": 1,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

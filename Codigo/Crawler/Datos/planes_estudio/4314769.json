@@ -1,0 +1,574 @@
+{
+  "codigo_estudio": "4314769",
+  "titulo": "Máster Universitario en Administración de Empresas / Master in Business Administration-MBA por la Universidad Carlos III de Madrid",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "036",
+  "universidad_nombre": "Universidad Carlos III de Madrid",
+  "fecha_procesado": "2026-08-05T13:32:32.735743",
+  "boe_url": "http://www.boe.es/boe/dias/2023/11/28/pdfs/BOE-A-2023-24195.pdf",
+  "boe_fecha": "2023-11-28",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2015/02/05/pdfs/BOE-A-2015-1106.pdf",
+    "http://www.boe.es/boe/dias/2023/11/28/pdfs/BOE-A-2023-24195.pdf",
+    "http://www.boe.es/boe/dias/2021/04/17/pdfs/BOE-A-2021-6150.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2014/08/12/BOCM-20140812-4.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Trabajo Fin de Grado / Máster": "1",
+      "Créditos Totales": "90"
+    },
+    "total_elementos": 61,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "ECTS",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Tipo",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Obligatorias (O).",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Optativas (OP).",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Prácticas Externas (PE).",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Trabajo Fin de Máster (TFM).",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Total.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "INTRODUCCIÓN A LA GEOPOLÍTICA GLOBAL/INTRODUCTION TO GLOBAL GEOPOLITICS.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "MÉTODOS Y TÉCNICAS DEL ANÁLISIS GEOPOLÍTICO Y ESTRATÉGICO/METHODS AND TECHNIQUES OF GEOPOLITICAL AND STRATEGIC ANÁLISIS.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "CONFLICTOS, PROBLEMAS Y RETOS GEOPOLÍTICOS DEL MUNDO ACTUAL/CONFLICTS, PROBLEMS AND GEOPOLITICAL CHALLENGES OF TODAY'S WORLD.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "GEOPOLÍTICA REGIONAL DEL MUNDO/WORLD REGIONAL GEOPOLITICS.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "PRÁCTICAS EXTERNAS/INTERNSHIPS.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "TRABAJO FIN DE MÁSTER (TFM)/MASTER’S THESIS.",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "MÉTODOS CUANTITATIVOS/QUANTITATIVE METHODS.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "ORGANIZACIÓN/MANAGEMENT.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "FINANZAS Y CONTABILIDAD/FINANCE AND ACCOUNTING.",
+        "creditos_ects": "18",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "MARKETING/MARKETING.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "LOGISTICA Y OPERACIONES/LOGISTICS AND OPERATIONS.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "TRABAJO FIN DE MÁSTER/MASTER THESIS.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "SYSTEM ENGINEERING/INGENIERÍA DE SISTEMAS.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "APPLIED TECHNOLOGIES/TECNOLOGÍAS APLICADAS.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "SPACECRAFT AND DYNAMICS/VEHÍCULOS ESPACIALES Y DINÁMICA.",
+        "creditos_ects": "18",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "SPACE COMMUNICATION, SOFTWARE AND ELECTRONICS/ELECTRÓNICA, SOFTWARE Y COMUNICACIONES ESPECIALES.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "FORMACIÓN BÁSICA/CORE COURSES.",
+        "creditos_ects": "18",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "MÉTODOS Y HERRAMIENTAS PARA INTELIGENCIA COMPUTACIONAL/METHODS AND TOOLS FOR COMPUTATIONAL INTELLIGENCE.",
+        "creditos_ects": "30",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "IMÁGENES MÉDICAS Y VISIÓN POR ORDENADOR/MEDICAL IMAGING AND COMPUTER VISION.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "APRENDIZAJE AUTOMÁTICO EN SALUD/MACHINE LEARNING FOR HEALTH.",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "METODOLOGÍAS DE INVESTIGACIÓN.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Práctica Jurídica, Civil y Mercantil.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Práctica Jurídica Penal.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Práctica Jurídico-Pública.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Práctica Jurídico-Laboral.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Actividad Profesional de Abogado.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Área de Derecho Privado.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Área de Derecho Público y Fiscalidad.",
+        "creditos_ects": "9",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Área de Derecho Social.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Área de Derecho Penal y Penitenciario.",
+        "creditos_ects": "9",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Área Jurídico-Internacional.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Prácticas de la Abogacía y la Procura.",
+        "creditos_ects": "30",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Trabajo Fin de Máster.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO DE ESPECIALIZACIÓN.",
+        "materia": "Materia",
+        "nombre_elemento": "INTRODUCCIÓN A LA RESOLUCIÓN DE CONFLICTOS.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO DE ESPECIALIZACIÓN.",
+        "materia": "Materia",
+        "nombre_elemento": "NEGOCIACIÓN.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO DE ESPECIALIZACIÓN.",
+        "materia": "Materia",
+        "nombre_elemento": "MEDIACIÓN.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO DE ESPECIALIZACIÓN.",
+        "materia": "Materia",
+        "nombre_elemento": "OTROS MÉTODOS DE RESOLUCIÓN DE CONFLICTOS.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO DE ESPECIALIZACIÓN.",
+        "materia": "Materia",
+        "nombre_elemento": "MÉTODOS DE ESTUDIO Y ANÁLISIS.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO DE ESPECIALIZACIÓN.",
+        "materia": "Materia",
+        "nombre_elemento": "BIBLIOTECAS Y ARCHIVOS EN EL ENTORNO DIGITAL.",
+        "creditos_ects": "24",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO DE ESPECIALIZACIÓN.",
+        "materia": "Materia",
+        "nombre_elemento": "GÉNESIS, DESCRIPCIÓN Y EXPLOTACIÓN DE DOCUMENTOS EN EL ENTORNO DIGITAL.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO DE ESPECIALIZACIÓN.",
+        "materia": "Materia",
+        "nombre_elemento": "DIRECCIÓN Y GESTIÓN DE ARCHIVOS Y BIBLIOTECAS.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO DE ESPECIALIZACIÓN.",
+        "materia": "Materia",
+        "nombre_elemento": "MÉTODOS DE INVESTIGACIÓN: INFORMETRÍA.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO DE ESPECIALIZACIÓN.",
+        "materia": "Materia",
+        "nombre_elemento": "ORGANIZACIÓN Y RECUPERACIÓN DE INFORMACIÓN.",
+        "creditos_ects": "12",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO DE ESPECIALIZACIÓN.",
+        "materia": "Materia",
+        "nombre_elemento": "TECNOLOGÍAS DE ENERGÍAS RENOVABLES.",
+        "creditos_ects": "18",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO DE ESPECIALIZACIÓN.",
+        "materia": "Materia",
+        "nombre_elemento": "SISTEMAS ELÉCTRICOS.",
+        "creditos_ects": "18",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO DE ESPECIALIZACIÓN.",
+        "materia": "Materia",
+        "nombre_elemento": "INTEGRACIÓN DE ENERGÍAS RENOVABLES.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO DE ESPECIALIZACIÓN.",
+        "materia": "Materia",
+        "nombre_elemento": "PROYECTOS DE ENERGÍAS RENOVABLES.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO DE ESPECIALIZACIÓN.",
+        "materia": "Materia",
+        "nombre_elemento": "Gestión Tecnológica de Proyectos de Telecomunicación.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO DE ESPECIALIZACIÓN.",
+        "materia": "Materia",
+        "nombre_elemento": "Diseño, Planificación y Gestión de Sistemas Telemáticos Avanzados.",
+        "creditos_ects": "18",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO DE ESPECIALIZACIÓN.",
+        "materia": "Materia",
+        "nombre_elemento": "Tecnología Electrónica y Optoelectrónica.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO DE ESPECIALIZACIÓN.",
+        "materia": "Materia",
+        "nombre_elemento": "Subsistemas y Sistemas de Comunicaciones.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO DE ESPECIALIZACIÓN.",
+        "materia": "Materia",
+        "nombre_elemento": "Métodos Avanzados de Tratamiento de la Información.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO DE ESPECIALIZACIÓN.",
+        "materia": "Materia",
+        "nombre_elemento": "Técnicas Avanzadas en Telecomunicación.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

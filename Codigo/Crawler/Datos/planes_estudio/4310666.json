@@ -1,0 +1,47 @@
+{
+  "codigo_estudio": "4310666",
+  "titulo": "Máster Universitario en Investigación en Documentación",
+  "nivel_academico": "Máster - RD 1393/2007 (1)",
+  "universidad_codigo": "036",
+  "universidad_nombre": "Universidad Carlos III de Madrid",
+  "fecha_procesado": "2026-08-05T13:29:13.922160",
+  "boe_url": "http://www.boe.es/boe/dias/2015/03/26/pdfs/BOE-A-2015-3221.pdf",
+  "boe_fecha": "2015-03-26",
+  "all_boe_urls": [
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2013/11/07/BOCM-20131107-7.PDF",
+    "http://www.boe.es/boe/dias/2010/09/17/pdfs/BOE-A-2010-14297.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {},
+    "total_elementos": 3,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "ECTS ofertados",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 9 7,5 7,5 7,5 7,5 30",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 9 7,5 7,5 7,5 7,5 30",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

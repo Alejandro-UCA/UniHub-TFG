@@ -1,0 +1,158 @@
+{
+  "codigo_estudio": "2503333",
+  "titulo": "Graduado o Graduada en Gestión de Seguridad Pública por la Universidad Carlos III de Madrid",
+  "nivel_academico": "Grado - RD 1393/2007 (1)",
+  "universidad_codigo": "036",
+  "universidad_nombre": "Universidad Carlos III de Madrid",
+  "fecha_procesado": "2026-08-05T13:40:29.281225",
+  "boe_url": "http://www.boe.es/boe/dias/2018/02/10/pdfs/BOE-A-2018-1856.pdf",
+  "boe_fecha": "2018-02-10",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2018/02/10/pdfs/BOE-A-2018-1856.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2017/02/17/BOCM-20170217-13.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica": "12",
+      "Trabajo Fin de Grado / Máster": "12"
+    },
+    "total_elementos": 15,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Idiomas.",
+        "creditos_ects": "12",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Fundamentos de Criminología.",
+        "creditos_ects": "30",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Derecho Penal y Procesal Penal.",
+        "creditos_ects": "18",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Derecho Administrativo.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Derecho de la Seguridad.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Servicios de Seguridad.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Prevención y metodología de actuación policial.",
+        "creditos_ects": "30",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Investigación y ciencias forenses.",
+        "creditos_ects": "24",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Tecnologías aplicadas a la investigación.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Prácticas de simulación de gabinete.",
+        "creditos_ects": "18",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Instrucción práctica.",
+        "creditos_ects": "12",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "1,2,3,5,6,7,8 5,6,7 2,3,5,7,8 1,2,3,5,6,7,8 4 8",
+        "materia": "1,6,8 1,2 5,6,7 5,6 5,7 2,3,7 3,5,6,8 2,3,6,7 1,5,6,7,8 4 4 8",
+        "nombre_elemento": "Cuat.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "1,2,3,5,6,7,8 5,6,7 2,3,5,7,8 1,2,3,5,6,7,8 4 8",
+        "materia": "1,6,8 1,2 5,6,7 5,6 5,7 2,3,7 3,5,6,8 2,3,6,7 1,5,6,7,8 4 4 8",
+        "nombre_elemento": "1 1 1 1 1 1",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2 2 2 2 2 2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

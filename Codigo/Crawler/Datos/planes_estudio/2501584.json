@@ -1,0 +1,747 @@
+{
+  "codigo_estudio": "2501584",
+  "titulo": "Graduado o Graduada en Ingeniería Aeroespacial por la Universidad Carlos III de Madrid",
+  "nivel_academico": "Grado - RD 1393/2007 (1)",
+  "universidad_codigo": "036",
+  "universidad_nombre": "Universidad Carlos III de Madrid",
+  "fecha_procesado": "2026-08-05T13:39:23.729688",
+  "boe_url": "http://www.boe.es/boe/dias/2019/03/08/pdfs/BOE-A-2019-3397.pdf",
+  "boe_fecha": "2019-03-08",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2009/02/18/pdfs/BOE-A-2009-2737.pdf",
+    "http://www.boe.es/boe/dias/2011/02/10/pdfs/BOE-A-2011-2602.pdf",
+    "http://www.boe.es/boe/dias/2019/03/08/pdfs/BOE-A-2019-3397.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica": "60",
+      "Obligatorias": "90",
+      "Optativas": "12",
+      "Créditos Totales": "66",
+      "Trabajo Fin de Grado / Máster": "8"
+    },
+    "total_elementos": 80,
+    "elementos_curriculares": [
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "III. Formación en Tecnologías Específicas",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "IV. Formación Transversal",
+        "creditos_ects": "18",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "Total cursados",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "osruC",
+        "materia": "2",
+        "nombre_elemento": "osruC",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Formación básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas de la Especialidad.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "9",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Matemáticas / Mathematics",
+        "creditos_ects": "24",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Cálculo I / Calculus I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Cálculo II / Calculus II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Álgebra Lineal / Linear Algebra.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Ampliación de Matemáticas / Advanced Mathematics.",
+        "creditos_ects": "3",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Física / Physics",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Física I / Physics I.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Física II / Physics II.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Química / Chemistry",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Fundamentos Químicos de la Ingeniería / Chemical Basis of Engineering.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Estadística /Statistics",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Estadística / Statistics.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Informática / Computer Science",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Programación / Programming.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Expresión Gráfica / Engineering Graphics",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Expresión Gráfica / Engineering Graphics.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Gestión Empresarial / Business Management",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Fundamentos de Gestión Empresarial / Introduction to Business Management.",
+        "creditos_ects": "3",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "TOTAL.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Mecánica de Fluidos / Fluid Mechanics",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Mecánica de Fluidos I / Fluid Mechanics I.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Mecánica de Vuelo / Flight Mechanics.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Mecánica Aplicada a la Ing. Aeroespacial / Mechanics applied to Aerospace Eng.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Mecánica de Vuelo I / Flight Mechanics I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Estructuras Aeroespaciales / Aerospace Structures",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y Resistencia de Materiales / Introduction to Structural Analysis.",
+        "nombre_elemento": "Estructuras aeroespaciales / Aerospace Structures.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y Resistencia de Materiales / Introduction to Structural Analysis.",
+        "nombre_elemento": "Ingeniería Térmica / Thermal Engineering",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Elasticidad y Resistencia de Materiales / Introduction to Structural Analysis.",
+        "nombre_elemento": "Ingeniería Térmica / Thermal Engineering.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales Aeroespaciales II /Aerospace Materials II.",
+        "nombre_elemento": "Aerodinámica / Aerodynamics.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materiales Aeroespaciales II /Aerospace Materials II.",
+        "nombre_elemento": "Aerodinámica I / Aerodynamics.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Navegación, Transporte Aéreo y Aeropuertos / Aerial Navigation, Air Transport and Airports.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Diseño Aeroespacial / Aerospace Design",
+        "creditos_ects": "24",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Modelización en Ing. Aeroespacial / Modelling in Aerospace Eng.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Diseño Aeroespacial I / Aerospace Design I.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Diseño Aeroespacial II / Aerospace Design II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Vehículos Espaciales y Dinámica Orbital / Space Vehicles and Orbital Dynamics.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Sistemas Aeroespaciales / Aerospace Systems",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Sistemas e Instalaciones del Avión / Aircraft Systems.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Electrónica y Control / Electronics and Control",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Fundamentos de Ingeniería Electrónica / Electronics Engineering Fundamentals.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Mecánica de Fluidos II / Fluid Mechanics II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Control de Sistemas Aeroespaciales / Control of Aerospace Systems.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Propulsión / Propulsion",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Propulsión Aeroespacial I / Aerospace Propulsion I.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Estabilidad e Integridad de Estructuras Aeroespaciales / Stability and Integrity of Aerospace Structures.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Helicopteros y Aeronaves Diversas / Helicopters and other Aircrafts.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Diseño y Cálculo de Aeronaves / Aircraft Design.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Aerodinámica / Aerodynamics",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Aerodinámica II / Aerodynamics II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Aeroelasticidad / Aeroelasticity.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Mecánica de Vuelo / Flight Mechanics",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Mecánica de Vuelo II / Flight Mechanics II.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Integración de Sistemas Embarcados / Onboard Systems Design.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Mecánica de Fluidos II / Fluid Mechanics.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Motores Cohete / Rocket Motors.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Combustión / Combustion.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Propulsión Aeroespacial II / Aerospace Propulsion II.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Diseño de Turbohélices / Turboprop Design.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Diseño de Turbomáquinas / Turbomachinery Design.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Habilidades Transversales / Transversal Skills",
+        "creditos_ects": "15",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Técnicas de Expresión Oral y Escrita / Writing and Communication Skills.",
+        "creditos_ects": "3",
+        "caracter": "FB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Técnicas de Búsqueda y Uso de la Información / Information Skills.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Humanidades I / Humanities I.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Humanidades II / Humanities II.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Hojas de Cálculo, Nivel Avanzado / Advanced Knowledge of Spreadsheets.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1,5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Habilidades Profesionales Interpersonales / Interpersonal Abilities.",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Formación Complementaria de Tecnología Aeroespacial / Complementary Training in Aerospace Technologies.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Prácticas Externas / Professional Internships.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Practicas Externas I / Professional Internships I.",
+        "creditos_ects": "9",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Practicas Externas II / Professional Internships II.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materias",
+        "nombre_elemento": "Trabajo Fin de Grado / Bachelor Thesis",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

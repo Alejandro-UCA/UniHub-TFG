@@ -109,6 +109,8 @@ def parse_degrees_xls(filepath: str) -> list:
             return t
 
         estado_norm = normalize_text(estado)
+        nivel_norm = normalize_text(nivel)
+        title_norm = normalize_text(title)
 
         # 1. LISTA NEGRA AMPLIADA (Términos que denotan inactividad, extinción o desestimación)
         blacklist = [
@@ -135,8 +137,17 @@ def parse_degrees_xls(filepath: str) -> list:
         ]
         has_whitelist = any(term in estado_norm for term in whitelist)
 
-        # La titulación debe pertenecer a la Lista Blanca Y NO contener ningún término de la Lista Negra
-        if code and title and has_whitelist and not has_blacklist:
+        # 3. RECHAZO DE NIVELES ACADÉMICOS Y TÍTULOS PRE-BOLONIA EXTEXTOS (LRU)
+        legacy_levels = ["solo segundo ciclo", "ciclo largo", "primer ciclo", "primer y segundo ciclo", "pre-bolonia"]
+        is_legacy_level = any(leg in nivel_norm for leg in legacy_levels)
+
+        valid_eees_level = any(eees in nivel_norm for eees in ["grado", "master", "doctorado"])
+
+        legacy_title_prefixes = ["licenciado", "licenciada", "diplomado", "diplomada", "ingeniero tecnico", "ingeniera tecnica", "arquitecto tecnico", "arquitecta tecnica"]
+        is_legacy_title = any(title_norm.startswith(prefix) for prefix in legacy_title_prefixes)
+
+        # La titulación debe pertenecer a la Lista Blanca, NO estar en Lista Negra y NO ser un plan antiguo Pre-Bolonia
+        if code and title and has_whitelist and not has_blacklist and not is_legacy_level and not is_legacy_title and (valid_eees_level or not nivel):
             raw_active_degrees.append({
                 "codigo_estudio": code,
                 "titulo": title,
@@ -170,9 +181,22 @@ def parse_degrees_xls(filepath: str) -> list:
 def parse_degree_detail_html(html_content: str) -> dict:
     """
     Parses the HTML of the degree detail page to find all BOE PDF links,
-    and returns all candidate links sorted by date (newest first).
+    checks if degree is extinct on HTML detail page, and returns candidate links.
     """
     soup = BeautifulSoup(html_content, "html.parser")
+    full_text_lower = soup.get_text().lower()
+
+    # CAPA 2: Inspeccionar si la ficha HTML oficial indica extinción explícita
+    extinction_markers = ["titulacion extinguida", "titulación extinguida", "estudio extinguido", "enseñanza extinguida", "sin docencia"]
+    if any(marker in full_text_lower for marker in extinction_markers):
+        return {
+            "is_extinct": True,
+            "latest_boe_url": None,
+            "boe_date": None,
+            "all_boe_links": [],
+            "all_boe_candidates": []
+        }
+
     boe_candidates = []
     
     for a in soup.find_all("a", href=True):

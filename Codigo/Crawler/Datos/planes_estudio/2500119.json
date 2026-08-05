@@ -1,0 +1,2018 @@
+{
+  "codigo_estudio": "2500119",
+  "titulo": "Graduado o Graduada en Economía / Bachelor in Economics por la Universidad Carlos III de Madrid",
+  "nivel_academico": "Grado - RD 822/2021 (2)",
+  "universidad_codigo": "036",
+  "universidad_nombre": "Universidad Carlos III de Madrid",
+  "fecha_procesado": "2026-08-05T13:42:11.467613",
+  "boe_url": "http://www.boe.es/boe/dias/2026/02/02/pdfs/BOE-A-2026-2471.pdf",
+  "boe_fecha": "2026-02-02",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2018/07/09/pdfs/BOE-A-2018-9578.pdf",
+    "http://www.boe.es/boe/dias/2026/02/02/pdfs/BOE-A-2026-2471.pdf",
+    "http://www.boe.es/boe/dias/2009/03/24/pdfs/BOE-A-2009-4950.pdf",
+    "http://www.bocm.es/boletin/CM_Boletin_BOCM/20080811_B/19000.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Trabajo Fin de Grado / Máster": "6",
+      "Formación Básica": "60",
+      "Obligatorias": "96",
+      "Optativas": "78",
+      "Créditos Totales": "240",
+      "Prácticas Externas": "7"
+    },
+    "total_elementos": 221,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "INTRODUCCIÓN A LA ECONOMÍA / INTRODUCTION TO ECONOMICS.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "HISTORIA ECONÓMICA / ECONOMIC HISTORY.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "ESTADÍSTICA / STATISTICS.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "INTRODUCCIÓN A LA EMPRESA / INTRODUCTION TO BUSINESS.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "INTRODUCCIÓN AL DERECHO / INTRODUCTION TO LAW.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "HABILIDADES TRANSVERSALES/ TRANSVERSAMacroL SKILLS.",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "3 3 6 3 3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "MATEMÁTICAS PARA LA ECONOMÍA / MATHEMATICS FOR ECONOMICS.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3 3 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "ECONOMÍA / ECONOMICS.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "ECONOMÍA FINANCIERA / FINANCIAL ECONOMICS.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "METODOS CUANTITATIVOS PARA LA ECONOMÍA / QUANTITATIVE METHODS FOR ECONOMICS.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "MICROECONOMÍA / MICROECONOMICS.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6 6 6 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "MACROECONOMÍA / MACROECONOMICS.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "ECONOMETRÍA / ECONOMETRICS.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6 6 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "ORGANIZACIÓN INDUSTRIAL / INDUSTRIAL ORGANIZATION.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6 6 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "ECONOMÍA PÚBLICA / PUBLIC ECONOMICS.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "ECONOMÍA INTERNACIONAL / INTERNATIONAL ECONOMICS.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6 6 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "ECONOMIA APLICADA / APPLIED ECONOMICS.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6 6 6 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "LOS MERCADOS EN ACCIÓN / MARKETS IN ACTION.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 6 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "FORMACIÓN COMPLEMENTARIA EN ECONOMÍA DE LA EMPRESA / COMPLEMENTARY TRAINING IN BUSINESS.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "FORMACION COMPLEMENTARIA EN HISTORIA ECONÓMICA / COMPLEMENTARY TRAINING IN ECONOMIC HISTORY.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "DERECHO / LAW.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6 6 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "SOCIOLOGÍA, POLÍTICA Y ETICA / SOCIOLOGY, POLITICS, AND ETHICS.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6 6 6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "PRÁCTICAS EN EMPRESAS / PROFESSIONAL INTERSHIPS.",
+        "creditos_ects": "18",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "TRABAJO DE FIN DE GRADO / BACHELOR THESIS.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Cuat.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Cuat",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "1 1 1 1 1 1 1 1 1",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "1 1 1 1 1 1 1 1 1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "2 2 2 2 2 2 2 2",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "2 2 2 2 2 2 2 2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Introducción al derecho.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Introducción a la economía.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Introducción a la administración de empresas.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Formación transversal.",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Matemáticas.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Introducción a la estadística.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Historia económica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Economía teórica y aplicada.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Estadística.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Contabilidad y auditoría.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Organización y dirección.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Econometría.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Derecho mercantil.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Finanzas empresariales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Marketing.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Trabajo Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Materia",
+        "nombre_elemento": "Prácticas académicas externas.",
+        "creditos_ects": "18",
+        "caracter": "PE",
+        "curso": "1/2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Formación Básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Estadística en Economía y finanzas.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Computación y Estadística.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Técnicas Estadísticas.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Estadística en Marketing.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Estadística en Gestión de Operaciones.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Complementos de formación.",
+        "creditos_ects": "12",
+        "caracter": "PE",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Visión y proyectos integrados.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Técnicas informáticas.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Técnicas estadísticas y de tratamiento de señales.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Técnicas de aprendizaje automático.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Técnicas de optimización.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Telemática.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Formación multidisciplinar.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Formación Disciplinar Básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Formación Multidisciplinar Básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Métodos De Investigación.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Actores y Comportamiento.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Teoría e Historia Política.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Política Internacional y Política Comparada.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Gestión y Políticas Públicas.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Formación Multidisciplinar Complementaria.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Trabajo de Fin de Grado.",
+        "creditos_ects": "6",
+        "caracter": "TFG/TFM",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Comunicación, cultura e industria.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Formación trasversal.",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Tecnologías y técnicas de la producción y la realización audiovisual.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Teoría, historia y análisis del cine y la televisión.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Complemento de formación Periodismo.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Derecho Privado.",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Derecho Público.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Fundamentos Históricos y Filosóficos del Derecho.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Formación Complementaria.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Prácticas en Empresas.",
+        "creditos_ects": "9",
+        "caracter": "PE",
+        "curso": "1/2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Formación Básica en Ciencias Sociales.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Formación Obligatoria en Ciencias Económicas.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Economía Cuantitativa.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Agentes Económicos e Instituciones.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Modelos, Datos y Aplicaciones.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "(A) Microeconomía (30 ECTS): Optativas que deben cursarse necesariamente en el itinerario",
+        "creditos_ects": "30",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Complementos Optativos en Formación en Economía.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Complementos Optativos de Formación en Economía.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "(B) Macroeconomía (30 ECTS): Optativas que deben cursarse necesariamente en el itinerario",
+        "creditos_ects": "30",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "(C) Tcas. Cuantitativas y Ec. Aplicada (30 ECTS): Optativas que deben cursarse necesariamente en el itinerario",
+        "creditos_ects": "30",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas no asignadas a itinerarios",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Complementos Optativos de Formación dn Economía.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Formación Específica.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Practicas Académicas Externas.",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Fundamentos Metodológicos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Contextos Históricos.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Instituciones y Procesos Políticos.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Historia y Política Internacional.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Sociedad, Economía y Cultura.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Ideas Políticas.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Estudios de Área.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Formación Común a la Rama de Telecomunicación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Formación Complementaria en Habilidades.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Formación en Tecnología Específica.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Formación Optativa Complementaria.",
+        "creditos_ects": "3",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Contenidos Comunes de la rama de informática.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Tecnologías específicas.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optatividad.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Álgebra, Geometría y Matemática Discreta.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Análisis Matemático.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Algoritmos y Programación.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Matemática Aplicada.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Arquitectura y Tecnología de Computadores.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Lenguajes y Computación.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Probabilidad y Estadística.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Sistemas Inteligentes.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "TFG.",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "2",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Géneros Periodísticos.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Formación Específica Conceptual.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Formación Específica Aplicada a los Medios.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Formación Especifica Aplicada a los Medios.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Periodismos Especializados.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Optativas Específicas de la Titulación.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Formación Complementaria en Periodismo.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Historia.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Estructura social.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Teoría sociológica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Técnicas de investigación social.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Antropología social.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Estadística aplicada a las Ciencias Sociales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Ciencia Política.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Demografía y Sociología de la Población.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Sociedad y territorio.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Procesos sociales.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Sociología del mercado.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Metodología y modelos de evaluación.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Políticas sociales.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Sistema político.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Psicología social.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Introducción a la teoría de la cultura.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Análisis Cultural.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Espacios, tiempos y prácticas.",
+        "nombre_elemento": "Espacios, tiempos y prácticas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Espacios, tiempos y prácticas.",
+        "nombre_elemento": "Movimientos socioculturales contemporáneos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Espacios, tiempos y prácticas.",
+        "nombre_elemento": "El sistema cultural.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Formación Obligatoria.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Formación Optativa.",
+        "creditos_ects": "3",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Formación Básica Matemática.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Aplicaciones de la Matemáticas.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Practicas Academicas Externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Programación.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Principios de Inteligencia Artificial.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Representación y Resolución de Problemas.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Proyectos de IA.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Tecnologías de la Información y las Comunicaciones.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Aprendizaje Automático.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "Computación de Altas Prestaciones.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "IA en su Entorno.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Materia",
+        "nombre_elemento": "IA en la Sociedad.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Sociología Comparada.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Principios de Economía.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Principios Básicos de la Ciencia para el Cambio Climático I.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Principios Básicos de la Ciencia para el Cambio Climático II.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Desarrollos Urbanos Contemporáneos.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Introducción a los Estudios de Medios de Comunicación.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Género y cultura audiovisual (1).",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Ética y cultura (1).",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Estrategias de Expresión.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Tecnología Ambiental Sostenible.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Fundamentos de los Sistemas Complejos para la Sostenibilidad y la Gobernanza.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Geografía Cultural.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "6",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Seminario Interdisciplinar sobre la Ciudad.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Alfabetización Digital.",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Localización",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM Nº 87 de 12-4-06 pg.36",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM nº 87 de 12-4-06 pg. 37",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM Nº 149 de 24-06-08. pg. 14",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM Nº 39 de 15-2-07 Pg.5",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "BOCM Nº 39 de 15-2-07 Pg.5",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM Nº 87 de 12-4-06 pg. 57",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "BOCM Nº 87 de 12-4-06 pg. 57",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM nº 87 de 12-4-06 pg. 38",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "BOCM nº 87 de 12-4-06 pg. 38",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM nº 87 de 12-4-06 pg. 39",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "BOCM nº 87 de 12-4-06 pg. 39",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM nº 87 de 12-4-06 pg. 41",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "BOCM nº 87 de 12-4-06 pg. 41",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM nº 87 de 12-4-06 pg. 43",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "BOCM nº 87 de 12-4-06 pg. 43",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Plazas ligadas a la amortización de otras",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "ANEXO CUERPO DE TÉCNICOS SUPERIORES ESPECIALISTAS, ESPECIALIDAD DE CIENCIAS HUMANÍSTICAS Y SOCIALES, DE ADMINISTRACIÓN ESPECIAL, GRUPO A, DE LA COMUNIDAD DE MADRID Turno libre",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "N.ode orden",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(03/22.929/08)",
+        "creditos_ects": "03",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "APELLIDOS Y NOMBRE",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "TRINIDAD SEPÚLVEDA FÁTIMA",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.226.663",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "PRIETO MARTÍNEZ, LAURA BEATRIZ",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "VARELA GARCÍA, Mª CONCEPCIÓN",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "TOBÍAS BORREGA, ENCARNACIÓN",
+        "creditos_ects": "24",
+        "caracter": "OB",
+        "curso": "2.527.684",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "GONZÁLEZ ÁLVAREZ, LAURA",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "GARCÍA MARTÍN, VIRGINIA",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "RODRÍGUEZ BRAVO, ANA Mª",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.900.784",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "PÉREZ DE ALBÉNIZ GARCÍA, CARMEN",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5.252.383",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "PÉREZ JAIME, Mª ANTONIA",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "LÓPEZ ORTEGO, Mª CRISTINA",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "MAROTO ALONSO, VIRGINIA",
+        "creditos_ects": "24",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "GARCÍA TÉLLEZ, RAQUEL",
+        "creditos_ects": "24",
+        "caracter": "OB",
+        "curso": "2.257.370",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "SÁNCHEZ BLÁZQUEZ, ROSA Mª",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.200.030",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BARRIO LUCÍA, VICENTE",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.492.872",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BRAVO BARAHONA, PILAR",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "2.610.973",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "DEL OLMO PÉREZ, MONTSERRAT",
+        "creditos_ects": "18",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "CARPINTERO DELGADO, ERIKA Mª",
+        "creditos_ects": "24",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "ANEXO ESCALA TÉCNICA SUPERIOR DE ADMINISTRACIÓN DE LA UNIVERSIDAD AUTÓNOMA DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "N.oorden",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "(03/22.008/08)",
+        "creditos_ects": "03",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Adjudicataria",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "María Cuesta Acosta",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "B.O.C.M.Núm.190 LUNES11DEAGOSTODE2008 Pág.85 Losdatospersonalesrecogidoshansidoincorporadosytratadosenelfichero“SistemaIntegraldeGestiónySeguimientoAdmi- nistrativo”(SIGSA),cuyafinalidadeslaidentificacióndelosinteresadosenlosexpedientesquesegestionan,ypodránsercedidosdecon- formidadconlalegislaciónvigenteenmateriadeproteccióndedatosdecarácterpersonal. ElórganoresponsabledelficheroeslaDirecciónGeneraldeGestiónAmbientalUrbanadelÁreadeGobiernodeMedioAmbien- te,antelaqueelinteresadopodráejercerlosderechosdeacceso,rectificación,cancelaciónyoposición,enlacalleBustamante,número16, plantacuarta,todolocualseinformaencumplimientodelartículo5delaLeyOrgánica15/1999,de13dediciembre,deProteccióndeDa- tosdeCarácterPersonal. Madrid,a27dejuniode2008.—Lasecretariageneraltécnica,AdoraciónMuñozMerchante. (02/9.371/08) MADRID OTROSANUNCIOS ÁreadeGobiernodeMedioAmbiente DirecciónGeneraldeGestiónAmbientalUrbana DepartamentodeGestiónAdministrativa UnidadTécnicaAdministrativaII EDICTO Deacuerdoconlodispuestoenlosartículos59.5y61delaLey30/1992,deRégimenJurídicodelasAdministracionesPúblicasy delProcedimientoAdministrativoComún,yhabiendosidointentadanotificaciónindividualsinquehayasidoposiblepracticarla,sehace públicolosiguiente: “ElAyuntamientodeMadridhacomenzadolaincoacióndeexpedientesobreabandonodevehículo,fundamentándoseeneltiem- podepermanenciaestacionadoenlavíapúblicayenelestadodeconservacióndelmismo,deacuerdoconloestablecidoenelartículo71.1 delRealDecretoLegislativo339/1990,de2demarzo,porelqueseapruebaeltextoarticuladodelaLeydeTráfico,CirculacióndeVe- hículosaMotorySeguridadVial,yhabiendointentadosunotificaciónalosquefigurancomopropietariosenlabasededatosdelaJefa- turaProvincialdeTráficoyqueserelacionanacontinuación,seprocedeanotificarmedianteedictolasiguienterelación. Paraquenosecontinúeconlatramitacióndelexpediente,deberáaportarenelplazodediezdíasdesdesupublicaciónenelBOLE- TÍNOFICIALDELACOMUNIDADDEMADRID,fotocopiadelossiguientesdocumentos:permisodecirculación,tarjetadeinspeccióntécnica",
+        "nombre_elemento": "conITVpasada,seguroobligatorioalcorrientedepagoyúltimorecibopagadodelimpuestodevehículosdetracciónmecánica. Encasodenoaportarladocumentaciónrequeridaenelplazoseñalado,secontinuarálatramitacióndelexpedientesobreabando- nodevehículo,informandoqueelabandonodevehículosseconsideracomoabandonoderesiduosnopeligrososenvíapúblicaquepodría",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "públicolosiguiente: “ElAyuntamientodeMadridhacomenzadolaincoacióndeexpedientesobreabandonodevehículo,fundamentándoseeneltiem- podepermanenciaestacionadoenlavíapúblicayenelestadodeconservacióndelmismo,deacuerdoconloestablecidoenelartículo71.1 delRealDecretoLegislativo339/1990,de2demarzo,porelqueseapruebaeltextoarticuladodelaLeydeTráfico,CirculacióndeVe- hículosaMotorySeguridadVial,yhabiendointentadosunotificaciónalosquefigurancomopropietariosenlabasededatosdelaJefa- turaProvincialdeTráficoyqueserelacionanacontinuación,seprocedeanotificarmedianteedictolasiguienterelación. Paraquenosecontinúeconlatramitacióndelexpediente,deberáaportarenelplazodediezdíasdesdesupublicaciónenelBOLE- TÍNOFICIALDELACOMUNIDADDEMADRID,fotocopiadelossiguientesdocumentos:permisodecirculación,tarjetadeinspeccióntécnica conITVpasada,seguroobligatorioalcorrientedepagoyúltimorecibopagadodelimpuestodevehículosdetracciónmecánica. Encasodenoaportarladocumentaciónrequeridaenelplazoseñalado,secontinuarálatramitacióndelexpedientesobreabando- nodevehículo,informandoqueelabandonodevehículosseconsideracomoabandonoderesiduosnopeligrososenvíapúblicaquepodría sersancionadoconmultade600a30.000euros,deconformidadconelartículo35.1.b)delaLey10/1998,de21deabril,deResiduos. Sehacepúblicoparaconocimientodelosinteresados,advirtiéndolesdequelosexpedientesobranenlasdependenciasmunicipa- lesdelÁreadeGobiernodeMedioAmbiente(calleBustamante,número16).” EDICTONÚMERO91/2008SOBREVEHÍCULOSABANDONADOS",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "públicolosiguiente: “ElAyuntamientodeMadridhacomenzadolaincoacióndeexpedientesobreabandonodevehículo,fundamentándoseeneltiem- podepermanenciaestacionadoenlavíapúblicayenelestadodeconservacióndelmismo,deacuerdoconloestablecidoenelartículo71.1 delRealDecretoLegislativo339/1990,de2demarzo,porelqueseapruebaeltextoarticuladodelaLeydeTráfico,CirculacióndeVe- hículosaMotorySeguridadVial,yhabiendointentadosunotificaciónalosquefigurancomopropietariosenlabasededatosdelaJefa- turaProvincialdeTráficoyqueserelacionanacontinuación,seprocedeanotificarmedianteedictolasiguienterelación. Paraquenosecontinúeconlatramitacióndelexpediente,deberáaportarenelplazodediezdíasdesdesupublicaciónenelBOLE- TÍNOFICIALDELACOMUNIDADDEMADRID,fotocopiadelossiguientesdocumentos:permisodecirculación,tarjetadeinspeccióntécnica conITVpasada,seguroobligatorioalcorrientedepagoyúltimorecibopagadodelimpuestodevehículosdetracciónmecánica. Encasodenoaportarladocumentaciónrequeridaenelplazoseñalado,secontinuarálatramitacióndelexpedientesobreabando- nodevehículo,informandoqueelabandonodevehículosseconsideracomoabandonoderesiduosnopeligrososenvíapúblicaquepodría sersancionadoconmultade600a30.000euros,deconformidadconelartículo35.1.b)delaLey10/1998,de21deabril,deResiduos. Sehacepúblicoparaconocimientodelosinteresados,advirtiéndolesdequelosexpedientesobranenlasdependenciasmunicipa- lesdelÁreadeGobiernodeMedioAmbiente(calleBustamante,número16).” EDICTONÚMERO91/2008SOBREVEHÍCULOSABANDONADOS",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Pág.88 LUNES11DEAGOSTODE2008 B.O.C.M.Núm.190 Losdatospersonalesrecogidoshansidoincorporadosytratadosenelfichero“SistemaIntegraldeGestiónySeguimientoAdmi- nistrativo”(SIGSA),cuyafinalidadeslaidentificacióndelosinteresadosenlosexpedientesquesegestionan,ypodránsercedidosdecon- formidadconlalegislaciónvigenteenmateriadeproteccióndedatosdecarácterpersonal. ElórganoresponsabledelficheroeslaDirecciónGeneraldeGestiónAmbientalUrbanadelÁreadeGobiernodeMedioAmbien- te,antelaqueelinteresadopodráejercerlosderechosdeacceso,rectificación,cancelaciónyoposición,enlacalleBustamante,número16, plantacuarta,todolocualseinformaencumplimientodelartículo5delaLeyOrgánica15/1999,de13dediciembre,deProteccióndeDa- tosdeCarácterPersonal. Madrid,a30dejuniode2008.—Lasecretariageneraltécnica,AdoraciónMuñozMerchante. (02/9.463/08) ALCOBENDAS (cid:2) Losinteresadospodránsolicitarlasadaptacionesespecífi- cas para la realización de las pruebas del proceso de se- OFERTASDEEMPLEO lección. (cid:2) Atalefecto,juntoconlainstanciadeberánindicarlo,soli- Se convoca una plaza de subalterno, escala de Administración citandolasadaptacionesdetiempoymediosparalareali- General,grupoE(concurso-oposición,funcionariodecarrera,turno zacióndelaspruebasconcretas,asícomolasnecesidades discapacitado), de conformidad con la Oferta de Empleo Público específicas. de2008, publicada en el BOLETÍN OFICIAL DE LA COMUNIDAD DE (cid:2) Elcandidatoadjuntaráeldictamentécnicofacultativoemi- MADRIDde10dejuliode2008. tidoporelórganotécnicodecalificacióndelgradodemi- Las bases que rigen la citada convocatoria se ajustarán a las nusvalíacompetente,acreditandodeformafehacientelas",
+        "nombre_elemento": "publicadas en el BOLETÍN OFICIAL DE LA COMUNIDAD DE MA- DRIDdefecha23demayo,incluyendolassiguientesespecifica- ciones: — Enlabaseprimera,correspondientea“Objetodelaconvoca- toria”,seañadeelsiguientepárrafo: (cid:2) Encasodenocompareceraspirantesqueoptenalaplazao concurriendonosuperaranlaspruebasselectivasninguno deellos,seacumularándichasplazasalasdelturnolibre parasuprovisiónreglamentaria. — Enlabasesegunda,correspondientea“Requisitosdelosas- pirantes”,seañadeelsiguienterequisito: (cid:2) Tener una discapacidad reconocida con un grado de mi- nusvalíaigualosuperioral33por100.",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "deficiencias/pertinentes que han dado origen al grado de minusvalía reconocido, todo ello de conformidad con el apartado cuarto de la Orden del Ministerio de Presiden- cia1822/2006(“BoletínOficialdelEstado”de13dejunio de2006). (cid:2) Los aspirantes que opten a esta convocatoria quedarán exentosdelpagodelastasasenconceptodederechosde examen. — Enlabasedécima,correspondientea“Presentacióndedocu- mentos”,seañadeelsiguientepunto: (cid:2) Certificadoqueacrediteelgradodeminusvalíareconoci- do, expedido por la Comunidad de Madrid o por el IMSERSO,enelcasodecertificacionesanterioresa1999. Alcobendas,a6deagostode2008.—Laalcaldesaenfunciones, MaríaConcepciónVillalónBlesa.",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Pág.88 LUNES11DEAGOSTODE2008 B.O.C.M.Núm.190 Losdatospersonalesrecogidoshansidoincorporadosytratadosenelfichero“SistemaIntegraldeGestiónySeguimientoAdmi- nistrativo”(SIGSA),cuyafinalidadeslaidentificacióndelosinteresadosenlosexpedientesquesegestionan,ypodránsercedidosdecon- formidadconlalegislaciónvigenteenmateriadeproteccióndedatosdecarácterpersonal. ElórganoresponsabledelficheroeslaDirecciónGeneraldeGestiónAmbientalUrbanadelÁreadeGobiernodeMedioAmbien- te,antelaqueelinteresadopodráejercerlosderechosdeacceso,rectificación,cancelaciónyoposición,enlacalleBustamante,número16, plantacuarta,todolocualseinformaencumplimientodelartículo5delaLeyOrgánica15/1999,de13dediciembre,deProteccióndeDa- tosdeCarácterPersonal. Madrid,a30dejuniode2008.—Lasecretariageneraltécnica,AdoraciónMuñozMerchante. (02/9.463/08) ALCOBENDAS (cid:2) Losinteresadospodránsolicitarlasadaptacionesespecífi- cas para la realización de las pruebas del proceso de se- OFERTASDEEMPLEO lección. (cid:2) Atalefecto,juntoconlainstanciadeberánindicarlo,soli- Se convoca una plaza de subalterno, escala de Administración citandolasadaptacionesdetiempoymediosparalareali- General,grupoE(concurso-oposición,funcionariodecarrera,turno zacióndelaspruebasconcretas,asícomolasnecesidades discapacitado), de conformidad con la Oferta de Empleo Público específicas. de2008, publicada en el BOLETÍN OFICIAL DE LA COMUNIDAD DE (cid:2) Elcandidatoadjuntaráeldictamentécnicofacultativoemi- MADRIDde10dejuliode2008. tidoporelórganotécnicodecalificacióndelgradodemi- Las bases que rigen la citada convocatoria se ajustarán a las nusvalíacompetente,acreditandodeformafehacientelas",
+        "nombre_elemento": "rasdeade- Meco,a10dejuliode2008.—Elalcalde-presidente,PedroLuis SanzCarlavilla. (03/21.718/08) MECO RÉGIMENECONÓMICO 332.344,57 Aprobado inicialmente por el Pleno de este Ayuntamiento, con obreelva- fecha 29 de mayo de 2008, el expediente de modificación presu- puestaria4/2008,decréditoextraordinario,unaveztranscurridoel plazodereclamaciónsinquesehayapresentadoninguna,seelevaa definitivadichamodificación,cuyoresumeneselsiguiente: Modificacióndecrédito4/2008:créditoextraordinarioparacum- plimiento de sentencia 243, sobre liquidación obra centro cultural Real. EscueladeMúsica. mación:un ndepropo- nicaypro-",
+        "creditos_ects": "03",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Pág.88 LUNES11DEAGOSTODE2008 B.O.C.M.Núm.190 Losdatospersonalesrecogidoshansidoincorporadosytratadosenelfichero“SistemaIntegraldeGestiónySeguimientoAdmi- nistrativo”(SIGSA),cuyafinalidadeslaidentificacióndelosinteresadosenlosexpedientesquesegestionan,ypodránsercedidosdecon- formidadconlalegislaciónvigenteenmateriadeproteccióndedatosdecarácterpersonal. ElórganoresponsabledelficheroeslaDirecciónGeneraldeGestiónAmbientalUrbanadelÁreadeGobiernodeMedioAmbien- te,antelaqueelinteresadopodráejercerlosderechosdeacceso,rectificación,cancelaciónyoposición,enlacalleBustamante,número16, plantacuarta,todolocualseinformaencumplimientodelartículo5delaLeyOrgánica15/1999,de13dediciembre,deProteccióndeDa- tosdeCarácterPersonal. Madrid,a30dejuniode2008.—Lasecretariageneraltécnica,AdoraciónMuñozMerchante. (02/9.463/08) ALCOBENDAS (cid:2) Losinteresadospodránsolicitarlasadaptacionesespecífi- cas para la realización de las pruebas del proceso de se- OFERTASDEEMPLEO lección. (cid:2) Atalefecto,juntoconlainstanciadeberánindicarlo,soli- Se convoca una plaza de subalterno, escala de Administración citandolasadaptacionesdetiempoymediosparalareali- General,grupoE(concurso-oposición,funcionariodecarrera,turno zacióndelaspruebasconcretas,asícomolasnecesidades discapacitado), de conformidad con la Oferta de Empleo Público específicas. de2008, publicada en el BOLETÍN OFICIAL DE LA COMUNIDAD DE (cid:2) Elcandidatoadjuntaráeldictamentécnicofacultativoemi- MADRIDde10dejuliode2008. tidoporelórganotécnicodecalificacióndelgradodemi- Las bases que rigen la citada convocatoria se ajustarán a las nusvalíacompetente,acreditandodeformafehacientelas",
+        "nombre_elemento": "ÁREAS DE SENSIBILIDAD ACÚSTICA",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Pág.88 LUNES11DEAGOSTODE2008 B.O.C.M.Núm.190 Losdatospersonalesrecogidoshansidoincorporadosytratadosenelfichero“SistemaIntegraldeGestiónySeguimientoAdmi- nistrativo”(SIGSA),cuyafinalidadeslaidentificacióndelosinteresadosenlosexpedientesquesegestionan,ypodránsercedidosdecon- formidadconlalegislaciónvigenteenmateriadeproteccióndedatosdecarácterpersonal. ElórganoresponsabledelficheroeslaDirecciónGeneraldeGestiónAmbientalUrbanadelÁreadeGobiernodeMedioAmbien- te,antelaqueelinteresadopodráejercerlosderechosdeacceso,rectificación,cancelaciónyoposición,enlacalleBustamante,número16, plantacuarta,todolocualseinformaencumplimientodelartículo5delaLeyOrgánica15/1999,de13dediciembre,deProteccióndeDa- tosdeCarácterPersonal. Madrid,a30dejuniode2008.—Lasecretariageneraltécnica,AdoraciónMuñozMerchante. (02/9.463/08) ALCOBENDAS (cid:2) Losinteresadospodránsolicitarlasadaptacionesespecífi- cas para la realización de las pruebas del proceso de se- OFERTASDEEMPLEO lección. (cid:2) Atalefecto,juntoconlainstanciadeberánindicarlo,soli- Se convoca una plaza de subalterno, escala de Administración citandolasadaptacionesdetiempoymediosparalareali- General,grupoE(concurso-oposición,funcionariodecarrera,turno zacióndelaspruebasconcretas,asícomolasnecesidades discapacitado), de conformidad con la Oferta de Empleo Público específicas. de2008, publicada en el BOLETÍN OFICIAL DE LA COMUNIDAD DE (cid:2) Elcandidatoadjuntaráeldictamentécnicofacultativoemi- MADRIDde10dejuliode2008. tidoporelórganotécnicodecalificacióndelgradodemi- Las bases que rigen la citada convocatoria se ajustarán a las nusvalíacompetente,acreditandodeformafehacientelas",
+        "nombre_elemento": "TIPO I",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Pág.88 LUNES11DEAGOSTODE2008 B.O.C.M.Núm.190 Losdatospersonalesrecogidoshansidoincorporadosytratadosenelfichero“SistemaIntegraldeGestiónySeguimientoAdmi- nistrativo”(SIGSA),cuyafinalidadeslaidentificacióndelosinteresadosenlosexpedientesquesegestionan,ypodránsercedidosdecon- formidadconlalegislaciónvigenteenmateriadeproteccióndedatosdecarácterpersonal. ElórganoresponsabledelficheroeslaDirecciónGeneraldeGestiónAmbientalUrbanadelÁreadeGobiernodeMedioAmbien- te,antelaqueelinteresadopodráejercerlosderechosdeacceso,rectificación,cancelaciónyoposición,enlacalleBustamante,número16, plantacuarta,todolocualseinformaencumplimientodelartículo5delaLeyOrgánica15/1999,de13dediciembre,deProteccióndeDa- tosdeCarácterPersonal. Madrid,a30dejuniode2008.—Lasecretariageneraltécnica,AdoraciónMuñozMerchante. (02/9.463/08) ALCOBENDAS (cid:2) Losinteresadospodránsolicitarlasadaptacionesespecífi- cas para la realización de las pruebas del proceso de se- OFERTASDEEMPLEO lección. (cid:2) Atalefecto,juntoconlainstanciadeberánindicarlo,soli- Se convoca una plaza de subalterno, escala de Administración citandolasadaptacionesdetiempoymediosparalareali- General,grupoE(concurso-oposición,funcionariodecarrera,turno zacióndelaspruebasconcretas,asícomolasnecesidades discapacitado), de conformidad con la Oferta de Empleo Público específicas. de2008, publicada en el BOLETÍN OFICIAL DE LA COMUNIDAD DE (cid:2) Elcandidatoadjuntaráeldictamentécnicofacultativoemi- MADRIDde10dejuliode2008. tidoporelórganotécnicodecalificacióndelgradodemi- Las bases que rigen la citada convocatoria se ajustarán a las nusvalíacompetente,acreditandodeformafehacientelas",
+        "nombre_elemento": "TIPO II",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Pág.88 LUNES11DEAGOSTODE2008 B.O.C.M.Núm.190 Losdatospersonalesrecogidoshansidoincorporadosytratadosenelfichero“SistemaIntegraldeGestiónySeguimientoAdmi- nistrativo”(SIGSA),cuyafinalidadeslaidentificacióndelosinteresadosenlosexpedientesquesegestionan,ypodránsercedidosdecon- formidadconlalegislaciónvigenteenmateriadeproteccióndedatosdecarácterpersonal. ElórganoresponsabledelficheroeslaDirecciónGeneraldeGestiónAmbientalUrbanadelÁreadeGobiernodeMedioAmbien- te,antelaqueelinteresadopodráejercerlosderechosdeacceso,rectificación,cancelaciónyoposición,enlacalleBustamante,número16, plantacuarta,todolocualseinformaencumplimientodelartículo5delaLeyOrgánica15/1999,de13dediciembre,deProteccióndeDa- tosdeCarácterPersonal. Madrid,a30dejuniode2008.—Lasecretariageneraltécnica,AdoraciónMuñozMerchante. (02/9.463/08) ALCOBENDAS (cid:2) Losinteresadospodránsolicitarlasadaptacionesespecífi- cas para la realización de las pruebas del proceso de se- OFERTASDEEMPLEO lección. (cid:2) Atalefecto,juntoconlainstanciadeberánindicarlo,soli- Se convoca una plaza de subalterno, escala de Administración citandolasadaptacionesdetiempoymediosparalareali- General,grupoE(concurso-oposición,funcionariodecarrera,turno zacióndelaspruebasconcretas,asícomolasnecesidades discapacitado), de conformidad con la Oferta de Empleo Público específicas. de2008, publicada en el BOLETÍN OFICIAL DE LA COMUNIDAD DE (cid:2) Elcandidatoadjuntaráeldictamentécnicofacultativoemi- MADRIDde10dejuliode2008. tidoporelórganotécnicodecalificacióndelgradodemi- Las bases que rigen la citada convocatoria se ajustarán a las nusvalíacompetente,acreditandodeformafehacientelas",
+        "nombre_elemento": "TIPO III",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Pág.88 LUNES11DEAGOSTODE2008 B.O.C.M.Núm.190 Losdatospersonalesrecogidoshansidoincorporadosytratadosenelfichero“SistemaIntegraldeGestiónySeguimientoAdmi- nistrativo”(SIGSA),cuyafinalidadeslaidentificacióndelosinteresadosenlosexpedientesquesegestionan,ypodránsercedidosdecon- formidadconlalegislaciónvigenteenmateriadeproteccióndedatosdecarácterpersonal. ElórganoresponsabledelficheroeslaDirecciónGeneraldeGestiónAmbientalUrbanadelÁreadeGobiernodeMedioAmbien- te,antelaqueelinteresadopodráejercerlosderechosdeacceso,rectificación,cancelaciónyoposición,enlacalleBustamante,número16, plantacuarta,todolocualseinformaencumplimientodelartículo5delaLeyOrgánica15/1999,de13dediciembre,deProteccióndeDa- tosdeCarácterPersonal. Madrid,a30dejuniode2008.—Lasecretariageneraltécnica,AdoraciónMuñozMerchante. (02/9.463/08) ALCOBENDAS (cid:2) Losinteresadospodránsolicitarlasadaptacionesespecífi- cas para la realización de las pruebas del proceso de se- OFERTASDEEMPLEO lección. (cid:2) Atalefecto,juntoconlainstanciadeberánindicarlo,soli- Se convoca una plaza de subalterno, escala de Administración citandolasadaptacionesdetiempoymediosparalareali- General,grupoE(concurso-oposición,funcionariodecarrera,turno zacióndelaspruebasconcretas,asícomolasnecesidades discapacitado), de conformidad con la Oferta de Empleo Público específicas. de2008, publicada en el BOLETÍN OFICIAL DE LA COMUNIDAD DE (cid:2) Elcandidatoadjuntaráeldictamentécnicofacultativoemi- MADRIDde10dejuliode2008. tidoporelórganotécnicodecalificacióndelgradodemi- Las bases que rigen la citada convocatoria se ajustarán a las nusvalíacompetente,acreditandodeformafehacientelas",
+        "nombre_elemento": "TIPO IV",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Pág.88 LUNES11DEAGOSTODE2008 B.O.C.M.Núm.190 Losdatospersonalesrecogidoshansidoincorporadosytratadosenelfichero“SistemaIntegraldeGestiónySeguimientoAdmi- nistrativo”(SIGSA),cuyafinalidadeslaidentificacióndelosinteresadosenlosexpedientesquesegestionan,ypodránsercedidosdecon- formidadconlalegislaciónvigenteenmateriadeproteccióndedatosdecarácterpersonal. ElórganoresponsabledelficheroeslaDirecciónGeneraldeGestiónAmbientalUrbanadelÁreadeGobiernodeMedioAmbien- te,antelaqueelinteresadopodráejercerlosderechosdeacceso,rectificación,cancelaciónyoposición,enlacalleBustamante,número16, plantacuarta,todolocualseinformaencumplimientodelartículo5delaLeyOrgánica15/1999,de13dediciembre,deProteccióndeDa- tosdeCarácterPersonal. Madrid,a30dejuniode2008.—Lasecretariageneraltécnica,AdoraciónMuñozMerchante. (02/9.463/08) ALCOBENDAS (cid:2) Losinteresadospodránsolicitarlasadaptacionesespecífi- cas para la realización de las pruebas del proceso de se- OFERTASDEEMPLEO lección. (cid:2) Atalefecto,juntoconlainstanciadeberánindicarlo,soli- Se convoca una plaza de subalterno, escala de Administración citandolasadaptacionesdetiempoymediosparalareali- General,grupoE(concurso-oposición,funcionariodecarrera,turno zacióndelaspruebasconcretas,asícomolasnecesidades discapacitado), de conformidad con la Oferta de Empleo Público específicas. de2008, publicada en el BOLETÍN OFICIAL DE LA COMUNIDAD DE (cid:2) Elcandidatoadjuntaráeldictamentécnicofacultativoemi- MADRIDde10dejuliode2008. tidoporelórganotécnicodecalificacióndelgradodemi- Las bases que rigen la citada convocatoria se ajustarán a las nusvalíacompetente,acreditandodeformafehacientelas",
+        "nombre_elemento": "TIPO V",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Pág.88 LUNES11DEAGOSTODE2008 B.O.C.M.Núm.190 Losdatospersonalesrecogidoshansidoincorporadosytratadosenelfichero“SistemaIntegraldeGestiónySeguimientoAdmi- nistrativo”(SIGSA),cuyafinalidadeslaidentificacióndelosinteresadosenlosexpedientesquesegestionan,ypodránsercedidosdecon- formidadconlalegislaciónvigenteenmateriadeproteccióndedatosdecarácterpersonal. ElórganoresponsabledelficheroeslaDirecciónGeneraldeGestiónAmbientalUrbanadelÁreadeGobiernodeMedioAmbien- te,antelaqueelinteresadopodráejercerlosderechosdeacceso,rectificación,cancelaciónyoposición,enlacalleBustamante,número16, plantacuarta,todolocualseinformaencumplimientodelartículo5delaLeyOrgánica15/1999,de13dediciembre,deProteccióndeDa- tosdeCarácterPersonal. Madrid,a30dejuniode2008.—Lasecretariageneraltécnica,AdoraciónMuñozMerchante. (02/9.463/08) ALCOBENDAS (cid:2) Losinteresadospodránsolicitarlasadaptacionesespecífi- cas para la realización de las pruebas del proceso de se- OFERTASDEEMPLEO lección. (cid:2) Atalefecto,juntoconlainstanciadeberánindicarlo,soli- Se convoca una plaza de subalterno, escala de Administración citandolasadaptacionesdetiempoymediosparalareali- General,grupoE(concurso-oposición,funcionariodecarrera,turno zacióndelaspruebasconcretas,asícomolasnecesidades discapacitado), de conformidad con la Oferta de Empleo Público específicas. de2008, publicada en el BOLETÍN OFICIAL DE LA COMUNIDAD DE (cid:2) Elcandidatoadjuntaráeldictamentécnicofacultativoemi- MADRIDde10dejuliode2008. tidoporelórganotécnicodecalificacióndelgradodemi- Las bases que rigen la citada convocatoria se ajustarán a las nusvalíacompetente,acreditandodeformafehacientelas",
+        "nombre_elemento": "USO DEL LOCAL RECEPTOR",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Pág.88 LUNES11DEAGOSTODE2008 B.O.C.M.Núm.190 Losdatospersonalesrecogidoshansidoincorporadosytratadosenelfichero“SistemaIntegraldeGestiónySeguimientoAdmi- nistrativo”(SIGSA),cuyafinalidadeslaidentificacióndelosinteresadosenlosexpedientesquesegestionan,ypodránsercedidosdecon- formidadconlalegislaciónvigenteenmateriadeproteccióndedatosdecarácterpersonal. ElórganoresponsabledelficheroeslaDirecciónGeneraldeGestiónAmbientalUrbanadelÁreadeGobiernodeMedioAmbien- te,antelaqueelinteresadopodráejercerlosderechosdeacceso,rectificación,cancelaciónyoposición,enlacalleBustamante,número16, plantacuarta,todolocualseinformaencumplimientodelartículo5delaLeyOrgánica15/1999,de13dediciembre,deProteccióndeDa- tosdeCarácterPersonal. Madrid,a30dejuniode2008.—Lasecretariageneraltécnica,AdoraciónMuñozMerchante. (02/9.463/08) ALCOBENDAS (cid:2) Losinteresadospodránsolicitarlasadaptacionesespecífi- cas para la realización de las pruebas del proceso de se- OFERTASDEEMPLEO lección. (cid:2) Atalefecto,juntoconlainstanciadeberánindicarlo,soli- Se convoca una plaza de subalterno, escala de Administración citandolasadaptacionesdetiempoymediosparalareali- General,grupoE(concurso-oposición,funcionariodecarrera,turno zacióndelaspruebasconcretas,asícomolasnecesidades discapacitado), de conformidad con la Oferta de Empleo Público específicas. de2008, publicada en el BOLETÍN OFICIAL DE LA COMUNIDAD DE (cid:2) Elcandidatoadjuntaráeldictamentécnicofacultativoemi- MADRIDde10dejuliode2008. tidoporelórganotécnicodecalificacióndelgradodemi- Las bases que rigen la citada convocatoria se ajustarán a las nusvalíacompetente,acreditandodeformafehacientelas",
+        "nombre_elemento": "TIPO VI Área de trabajo",
+        "creditos_ects": "30",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Pág.88 LUNES11DEAGOSTODE2008 B.O.C.M.Núm.190 Losdatospersonalesrecogidoshansidoincorporadosytratadosenelfichero“SistemaIntegraldeGestiónySeguimientoAdmi- nistrativo”(SIGSA),cuyafinalidadeslaidentificacióndelosinteresadosenlosexpedientesquesegestionan,ypodránsercedidosdecon- formidadconlalegislaciónvigenteenmateriadeproteccióndedatosdecarácterpersonal. ElórganoresponsabledelficheroeslaDirecciónGeneraldeGestiónAmbientalUrbanadelÁreadeGobiernodeMedioAmbien- te,antelaqueelinteresadopodráejercerlosderechosdeacceso,rectificación,cancelaciónyoposición,enlacalleBustamante,número16, plantacuarta,todolocualseinformaencumplimientodelartículo5delaLeyOrgánica15/1999,de13dediciembre,deProteccióndeDa- tosdeCarácterPersonal. Madrid,a30dejuniode2008.—Lasecretariageneraltécnica,AdoraciónMuñozMerchante. (02/9.463/08) ALCOBENDAS (cid:2) Losinteresadospodránsolicitarlasadaptacionesespecífi- cas para la realización de las pruebas del proceso de se- OFERTASDEEMPLEO lección. (cid:2) Atalefecto,juntoconlainstanciadeberánindicarlo,soli- Se convoca una plaza de subalterno, escala de Administración citandolasadaptacionesdetiempoymediosparalareali- General,grupoE(concurso-oposición,funcionariodecarrera,turno zacióndelaspruebasconcretas,asícomolasnecesidades discapacitado), de conformidad con la Oferta de Empleo Público específicas. de2008, publicada en el BOLETÍN OFICIAL DE LA COMUNIDAD DE (cid:2) Elcandidatoadjuntaráeldictamentécnicofacultativoemi- MADRIDde10dejuliode2008. tidoporelórganotécnicodecalificacióndelgradodemi- Las bases que rigen la citada convocatoria se ajustarán a las nusvalíacompetente,acreditandodeformafehacientelas",
+        "nombre_elemento": "TIPO VII Área de vivienda",
+        "creditos_ects": "30",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

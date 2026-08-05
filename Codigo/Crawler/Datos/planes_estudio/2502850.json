@@ -1,0 +1,369 @@
+{
+  "codigo_estudio": "2502850",
+  "titulo": "Graduado o Graduada en Energy Engineering/Ingeniería de la Energía por la Universidad Carlos III de Madrid",
+  "nivel_academico": "Grado - RD 1393/2007 (1)",
+  "universidad_codigo": "036",
+  "universidad_nombre": "Universidad Carlos III de Madrid",
+  "fecha_procesado": "2026-08-05T13:41:35.334612",
+  "boe_url": "http://www.boe.es/boe/dias/2020/06/01/pdfs/BOE-A-2020-5551.pdf",
+  "boe_fecha": "2020-06-01",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2014/06/24/pdfs/BOE-A-2014-6650.pdf",
+    "http://www.boe.es/boe/dias/2020/06/01/pdfs/BOE-A-2020-5551.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2013/11/07/BOCM-20131107-8.PDF"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {
+      "Formación Básica": "66",
+      "Obligatorias": "144",
+      "Optativas": "18",
+      "Trabajo Fin de Grado / Máster": "12",
+      "Créditos Totales": "240"
+    },
+    "total_elementos": 38,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "Tipo de Materia",
+        "nombre_elemento": "Formación Básica",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de Materia",
+        "nombre_elemento": "Obligatorias",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de Materia",
+        "nombre_elemento": "Optativas",
+        "creditos_ects": "18",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de Materia",
+        "nombre_elemento": "Prácticas externas",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de Materia",
+        "nombre_elemento": "Trabajo de fin de grado",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO",
+        "materia": "Tipo de Materia",
+        "nombre_elemento": "FORMACIÓN BÁSICA EN INGENIERÍA",
+        "creditos_ects": "18",
+        "caracter": "FB",
+        "curso": "Álgebra Lineal (6) Cálculo I (6) Cálculo II (6)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO",
+        "materia": "Tipo de Materia",
+        "nombre_elemento": "FORMACIÓN COMÚN A LA RAMA INDUSTRIAL",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Mecánica de Máquinas (6)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO",
+        "materia": "",
+        "nombre_elemento": "FORMACIÓN EN TECNOLOGÍA ESPECÍFICA EN ENERGÍA",
+        "creditos_ects": "18",
+        "caracter": "PE",
+        "curso": "Aero-termoquímica de Sistemas Energéticos (6) Centrales Térmicas (6) Transporte de Fluidos y Máquinas Hidráulicas (6)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO",
+        "materia": "",
+        "nombre_elemento": "FORMACIÓN COMPLEMENTARIA",
+        "creditos_ects": "18",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO",
+        "materia": "",
+        "nombre_elemento": "FORMACIÓN TRANSVERSAL",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "Técnicas de Búsqueda y Uso de la Información (3) Técnicas de Expresión Oral y Escrita (3)",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "MÓDULO",
+        "materia": "",
+        "nombre_elemento": "TRABAJO FIN DE GRADO",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "osruC",
+        "materia": "2",
+        "nombre_elemento": "osruC",
+        "creditos_ects": "6",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Formación Básica.",
+        "creditos_ects": "6",
+        "caracter": "FB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Obligatorias.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Optativas.",
+        "creditos_ects": "12",
+        "caracter": "OP",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Prácticas externas.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "Trabajo de Fin de Grado.",
+        "creditos_ects": "12",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "FORMACIÓN BÁSICA EN INGENIERÍA/ BASIC CORE TRAINING.",
+        "creditos_ects": "18",
+        "caracter": "FB",
+        "curso": "Álgebra Lineal /Linear Algebra (6).",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "Tipo de materia",
+        "nombre_elemento": "FORMACIÓN COMÚN A LA RAMA INDUSTRIAL/ COMMON TRAINING TO INDUSTRIAL STUDIES.",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "Mecánica de Máquinas / Machine Mechanics (6).",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "FORMACIÓN EN TECNOLOGÍA ESPECÍFICA EN ENERGÍA/ SPECIFIC TRAINING IN ENERGY TECHNOLOGY.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "Aero-termoquímica de Sistemas Energéticos / Aero- thermochemical Energetic Systems (6). Centrales Térmicas / Heat Power Plants (3). Transporte de Fluidos y Máquinas Hidráulicas / Fluid transport and hydraulic machinery (6). Transmisión de Calor / Heat Transfer (6).",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "FORMACIÓN COMPLEMENTARIA/ SUPPLEMENTARY TRAINING.",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "Prácticas Externas / Professional Internship (6).",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "FORMACIÓN TRANSVERSAL / TRAINING IN TRANSVERSAL SKILLS.",
+        "creditos_ects": "12",
+        "caracter": "PE",
+        "curso": "Técnicas de Búsqueda y Uso de la Información / Information Skills (1.5). Técnicas de Expresión Oral y Escrita / Writing and Communication Skills (3). Hojas de Cálculo. Nivel Avanzado / Advanced Knowledge of Spreadsheets (1.5). Habilidades Profesionales Interpersonales / Soft Skills (3). Humanidades / Humanities (6).",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "Módulo",
+        "materia": "",
+        "nombre_elemento": "TRABAJO FIN DE GRADO / BACHELOR THESIS.",
+        "creditos_ects": "12",
+        "caracter": "TFG/TFM",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "BOCM BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "TITULACIÓN",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Fundamentos de Arquitectura y Urbanismo",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "5º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Interpretación Musical",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Publicidad y Relaciones Públicas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Periodismo",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Filosofía, Política y Economía (título conjunto de la Universidad Pompeu Fabra, Universidad Autónoma de Madrid y Universidad Carlos III de Madrid. Coordina la Universidad Pompeu Fabra)",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Ingeniería de la Energía",
+        "creditos_ects": "6",
+        "caracter": "PE",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Finanzas, Banca y Seguros",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Psicología",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Ingeniería Eléctrica",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Protocolo y Organización de Eventos",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "curso a curso 1º, 2º, 3º y 4º *",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Economía",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Administración y Dirección de Empresas",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1º, 2º, 3º y 4º",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "Grado en Historia",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "1º, 2º, 3º y 4º",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

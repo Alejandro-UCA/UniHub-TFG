@@ -1,0 +1,47 @@
+{
+  "codigo_estudio": "4310065",
+  "titulo": "Máster Universitario en Ciencias Actuariales y Financieras por la Universidad Carlos III de Madrid",
+  "nivel_academico": "Máster - RD 822/2021 (3)",
+  "universidad_codigo": "036",
+  "universidad_nombre": "Universidad Carlos III de Madrid",
+  "fecha_procesado": "2026-08-05T13:31:57.837720",
+  "boe_url": "http://www.boe.es/boe/dias/2010/09/17/pdfs/BOE-A-2010-14285.pdf",
+  "boe_fecha": "2010-09-17",
+  "all_boe_urls": [
+    "http://www.boe.es/boe/dias/2010/09/17/pdfs/BOE-A-2010-14285.pdf",
+    "http://www.bocm.es/boletin/CM_Orden_BOCM/2009/08/27/2009-08-27_25082009_0018.pdf"
+  ],
+  "plan_estudios": {
+    "resumen_creditos": {},
+    "total_elementos": 3,
+    "elementos_curriculares": [
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "ECTS ofertados",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "3 36 6 18 21 6 12 18",
+        "creditos_ects": "3",
+        "caracter": "OB",
+        "curso": "3 36 6 18 21 6 12 18",
+        "cuatrimestre": ""
+      },
+      {
+        "modulo": "",
+        "materia": "",
+        "nombre_elemento": "aprobó las Resoluciones de 28 de octubre y de 29 de diciembre de2008,porlasqueseestableceuncauceprocedimentalabreviado",
+        "creditos_ects": "6",
+        "caracter": "OB",
+        "curso": "",
+        "cuatrimestre": ""
+      }
+    ]
+  }
+}

@@ -16,6 +16,15 @@ scratch/
 *.tmp
 *.log
 
+# Project Generated Data (Crawler & API Data)
+Codigo/Crawler/Datos/*.json
+!Codigo/Crawler/Datos/precios_ccaa.json
+Codigo/Crawler/Datos/planes_estudio/
+Codigo/Crawler/Datos/Planes/
+Codigo/Crawler/Datos/Temp/
+Codigo/Crawler/temp_pdfs/
+Codigo/API/Datos/
+
 # IDE
 .idea/
 .vscode/

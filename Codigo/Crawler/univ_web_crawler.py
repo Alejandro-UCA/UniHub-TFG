@@ -344,7 +344,12 @@ class UniversityWebCrawler:
                 except Exception as e:
                     print(f"     -> Falló lectura de URL directa previa: {e}")
 
-            title_keywords = [w for w in d_title.split() if len(w) > 4 and w.lower() not in ["grado", "máster", "master", "universitario", "oficial", "sobre", "entre", "doctorado"]]
+            TITLE_STOPWORDS = {
+                "grado", "grados", "máster", "másteres", "master", "masteres", "doctorado", "doctorados",
+                "universitario", "oficial", "sobre", "entre", "para", "como", "esta", "este", "estos", "estas",
+                "del", "los", "las", "por", "con", "una", "uno", "que", "sus", "mas", "más"
+            }
+            title_keywords = [w for w in d_title.split() if len(w) >= 3 and w.lower() not in TITLE_STOPWORDS]
 
             # ESTRATEGIA 1: Escaneo priorizado de URLs obtenidas del Sitemap XML
             if not found_curriculum and sitemap_urls:
@@ -359,16 +364,19 @@ class UniversityWebCrawler:
                             try:
                                 downloader.download_file(sm_candidate_url, temp_pdf)
                                 parsed = parse_boe_pdf(temp_pdf)
-                                if os.path.exists(temp_pdf):
-                                    os.remove(temp_pdf)
                                 if parsed.get("total_elementos", 0) > 0 or len(parsed.get("resumen_creditos", {})) > 0:
                                     found_curriculum = parsed
                                     direct_source_url = sm_candidate_url
                                     print(f"     -> Encontrado plan de estudios desde Sitemap XML: {sm_candidate_url}")
                                     break
                             except Exception:
+                                pass
+                            finally:
                                 if os.path.exists(temp_pdf):
-                                    os.remove(temp_pdf)
+                                    try:
+                                        os.remove(temp_pdf)
+                                    except Exception:
+                                        pass
                         else:
                             sub_html = downloader.fetch_text(sm_candidate_url)
                             sub_soup = BeautifulSoup(sub_html, "html.parser")
@@ -435,27 +443,35 @@ class UniversityWebCrawler:
                                         try:
                                             downloader.download_file(target_link, temp_pdf)
                                             parsed = parse_boe_pdf(temp_pdf)
-                                            if os.path.exists(temp_pdf):
-                                                os.remove(temp_pdf)
-                                            
                                             if parsed.get("total_elementos", 0) > 0 or len(parsed.get("resumen_creditos", {})) > 0:
                                                 found_curriculum = parsed
                                                 direct_source_url = target_link
                                                 break
                                         except Exception:
+                                            pass
+                                        finally:
                                             if os.path.exists(temp_pdf):
-                                                os.remove(temp_pdf)
+                                                try:
+                                                    os.remove(temp_pdf)
+                                                except Exception:
+                                                    pass
                                     else:
-                                        # Extraer tabla de asignaturas HTML limpia
-                                        elementos_html = extract_html_subjects(sub_soup)
-                                        if len(elementos_html) >= 3:
-                                            found_curriculum = {
-                                                "resumen_creditos": {"Créditos Totales": "240" if "grado" in d_title.lower() else "60"},
-                                                "total_elementos": len(elementos_html),
-                                                "elementos_curriculares": elementos_html
-                                            }
-                                            direct_source_url = target_link
-                                            break
+                                        # Descargar e inspeccionar el HTML específico de la subpágina de la titulación target_link
+                                        try:
+                                            target_html = downloader.fetch_text(target_link)
+                                            target_soup = BeautifulSoup(target_html, "html.parser")
+                                            elementos_html = extract_html_subjects(target_soup)
+                                            if len(elementos_html) >= 3:
+                                                found_curriculum = {
+                                                    "resumen_creditos": {"Créditos Totales": "240" if "grado" in d_title.lower() else "60"},
+                                                    "total_elementos": len(elementos_html),
+                                                    "elementos_curriculares": elementos_html
+                                                }
+                                                direct_source_url = target_link
+                                                print(f"     -> Encontradas asignaturas HTML válidas en subpágina de titulación: {target_link}")
+                                                break
+                                        except Exception as t_err:
+                                            print(f"     -> Error al examinar subpágina de titulación '{target_link}': {t_err}")
                         except Exception as sub_err:
                             print(f"     -> Excepción al escanear sub-página '{candidate_page_url}': {sub_err}")
 
@@ -530,6 +546,7 @@ def run_phase1_part2(max_workers: int = 4):
                     denied_by_robots += 1
             except Exception as exc:
                 print(f" [ERROR PARTE 2] Excepción inesperada en universidad {univ.get('codigo')}: {exc}")
+                crawler.logger.log_error("fase1_parte2_univ_web", univ.get("codigo", "ALL"), univ.get("web", ""), "Excepcion no controlada en escaneo web de universidad", str(exc))
 
     print("\n" + "=" * 70)
     print("      FASE 1 - PARTE 2 FINALIZADA DE FORMA METICULOSA Y RESPETUOSA")

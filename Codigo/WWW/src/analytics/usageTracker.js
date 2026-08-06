@@ -114,10 +114,15 @@ class UsageTracker {
       .sort((a, b) => b[1] - a[1])
       .slice(0, 10);
 
+    const calculatorViews = this.events.recentEvents.filter(e => e.type === 'PAGE_VIEW' && e.details?.page === 'calculadora').length;
+    const totalSearchCount = this.events.searches.length;
+    const conversionRatioPct = totalSearchCount > 0 ? roundToTwo((calculatorViews / totalSearchCount) * 100) : 0;
+
     return {
       totalPageViews: this.events.pageViews,
-      totalSearches: this.events.searches.length,
+      totalSearches: totalSearchCount,
       totalNearbySearches: this.events.nearbySearches,
+      conversionRatioSearchToCalculatorPct: conversionRatioPct,
       topSearches,
       topUniversities,
       topDegrees,

@@ -42,7 +42,7 @@ export const apiService = {
   async getUniversities(params = {}) {
     const query = new URLSearchParams();
     if (params.tipo) query.append('tipo', params.tipo);
-    if (params.ccaa) query.append('cccaa', params.ccaa);
+    if (params.ccaa) query.append('ccaa', params.ccaa);
     if (params.nombre) query.append('nombre', params.nombre);
     if (params.skip) query.append('skip', params.skip);
     if (params.limit) query.append('limit', params.limit || 100);

@@ -189,18 +189,23 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue):
 
 
 def trigger_api_etl_sync():
-    """Notifies Phase 2 (FastAPI REST API) to run ETL synchronization automatically only when Phase 1 finishes completely."""
-    try:
-        import requests
-        api_sync_url = os.getenv("API_SYNC_URL", "http://api:8000/api/v1/etl/sync")
-        print(f"\n[Fase 1 Completa -> Fase 2] Notificando a la API REST para sincronización en PostgreSQL ({api_sync_url})...")
-        resp = requests.post(api_sync_url, timeout=5)
-        if resp.ok:
-            print(" -> Sincronización ETL iniciada con éxito en PostgreSQL (Fase 2).")
-        else:
-            print(f" -> Respuesta de la API REST: Código HTTP {resp.status_code}")
-    except Exception:
-        print(" -> Nota: La Fase 1 ha finalizado. La Fase 2 se sincronizará cuando el servicio API esté disponible o se ejecute manualmente el ETL.")
+    """Notifica a la API REST de la Fase 2 para iniciar la sincronización ETL relacional automáticamente."""
+    import requests
+    target_urls = [
+        os.getenv("API_SYNC_URL", "http://api:8000/api/v1/admin/sync-etl"),
+        "http://unihub_api:8000/api/v1/admin/sync-etl",
+        "http://localhost:8000/api/v1/admin/sync-etl"
+    ]
+    print("\n[Fase 1 Completa -> Fase 2] Notificando a la API REST para sincronización ETL en PostgreSQL...")
+    for sync_url in target_urls:
+        try:
+            resp = requests.post(sync_url, timeout=5)
+            if resp.ok:
+                print(f" -> Sincronización ETL iniciada con éxito en la API REST ({sync_url}).")
+                return
+        except Exception:
+            continue
+    print(" -> Nota: La Fase 1 ha finalizado. La Fase 2 se sincronizará cuando el servicio API esté disponible o se ejecute el ETL.")
 
 
 def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: list = None):
@@ -263,6 +268,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
         u_name = univ["nombre"]
         u_tipo = univ.get("tipo", "Desconocido")
 
+        downloader.reset_university_context(u_code)
         print(f"({u_idx}/{len(universities)}) Procesando Universidad [{u_code}] ({u_tipo}): {u_name}")
 
         univ_degrees_file = os.path.join(TEMP_PDF_DIR, f"degrees_{u_code}.xls")
@@ -447,27 +453,27 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
         metrics.save()
         checkpoint.mark_university_processed(u_code)
 
-        # Finalización de Proceso 2 (Parser CPU) si se ejecutó la Parte 1
-        print("\n[Finalizando Red] Enviando señal de parada al Proceso 2 (Parser CPU)...")
-        task_queue.put({"type": "STOP"})
-        
-        # Receive metrics summary from Process 2
-        consumer_results = result_queue.get()
-        parser_process.join()
+    # Finalización de Proceso 2 (Parser CPU) si se ejecutó la Parte 1
+    print("\n[Finalizando Red] Enviando señal de parada al Proceso 2 (Parser CPU)...")
+    task_queue.put({"type": "STOP"})
+    
+    # Receive metrics summary from Process 2
+    consumer_results = result_queue.get()
+    parser_process.join()
 
-        metrics.pdfs_parseados = consumer_results.get("parsed_count", 0)
-        metrics.titulaciones_descargadas_actualizadas = consumer_results.get("updated_degrees_count", 0)
-        metrics.save()
+    metrics.pdfs_parseados = consumer_results.get("parsed_count", 0)
+    metrics.titulaciones_descargadas_actualizadas = consumer_results.get("updated_degrees_count", 0)
+    metrics.save()
 
-        print("\n" + "=" * 70)
-        print("      CRAWLER UNIHUB PARTE 1 FINALIZADO CON ÉXITO")
-        print("======================================================================")
-        print(f" -> Universidades inspeccionadas: {metrics.universidades_inspeccionadas}")
-        print(f" -> Titulaciones inspeccionadas:  {metrics.titulaciones_inspeccionadas}")
-        print(f" -> Titulaciones al día:          {metrics.titulaciones_al_dia}")
-        print(f" -> Titulaciones actualizadas:    {metrics.titulaciones_descargadas_actualizadas}")
-        print(f" -> PDFs parseados del BOE:       {metrics.pdfs_parseados}")
-        print(f" -> Errores (registrados en log): {metrics.errores_detectados}")
+    print("\n" + "=" * 70)
+    print("      CRAWLER UNIHUB PARTE 1 FINALIZADO CON ÉXITO")
+    print("======================================================================")
+    print(f" -> Universidades inspeccionadas: {metrics.universidades_inspeccionadas}")
+    print(f" -> Titulaciones inspeccionadas:  {metrics.titulaciones_inspeccionadas}")
+    print(f" -> Titulaciones al día:          {metrics.titulaciones_al_dia}")
+    print(f" -> Titulaciones actualizadas:    {metrics.titulaciones_descargadas_actualizadas}")
+    print(f" -> PDFs parseados del BOE:       {metrics.pdfs_parseados}")
+    print(f" -> Errores (registrados en log): {metrics.errores_detectados}")
 
     # -------------------------------------------------------------------------
     # PARTE 2 DE LA FASE 1: ESCANEO PARALELO DE LAS WEBS OFICIALES DE UNIVERSIDADES

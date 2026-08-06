@@ -47,9 +47,8 @@ export default function Geolocation({ universities, onViewDegrees }) {
   };
 
   useEffect(() => {
-    if (!userLocation) {
-      setUserLocation(SPANISH_CITIES_COORDS[selectedCity]);
-    }
+    setUserLocation(SPANISH_CITIES_COORDS[selectedCity]);
+    setCurrentPage(1);
   }, [selectedCity]);
 
   // Calculate distance for each university and sort

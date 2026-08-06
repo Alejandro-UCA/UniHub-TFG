@@ -10,17 +10,29 @@ export default React.memo(function UnivCard({ univ, onViewDegrees, distanceKm })
     onViewDegrees(univ);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleClick();
+    }
+  };
+
   return (
-    <div className="glass-panel" style={{
-      padding: '1.5rem',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-between',
-      height: '100%',
-      transition: 'transform 0.25s ease, box-shadow 0.25s ease',
-      cursor: 'pointer'
-    }}
-    onClick={handleClick}
+    <div 
+      className="glass-panel" 
+      tabIndex={0}
+      role="article"
+      onKeyDown={handleKeyDown}
+      style={{
+        padding: '1.5rem',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        height: '100%',
+        transition: 'transform 0.25s ease, box-shadow 0.25s ease',
+        cursor: 'pointer'
+      }}
+      onClick={handleClick}
     onMouseEnter={(e) => {
       e.currentTarget.style.transform = 'translateY(-4px)';
       e.currentTarget.style.boxShadow = 'var(--shadow-lg)';

@@ -13,15 +13,28 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
     onSelectDegree(degree);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleClick();
+    }
+  };
+
   return (
-    <div className="glass-panel" style={{
-      padding: '1.35rem',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-between',
-      height: '100%',
-      position: 'relative'
-    }}>
+    <div 
+      className="glass-panel" 
+      tabIndex={0}
+      role="article"
+      onKeyDown={handleKeyDown}
+      style={{
+        padding: '1.35rem',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        height: '100%',
+        position: 'relative'
+      }}
+    >
       <div>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
           <span className={`badge ${isDoctor ? 'badge-doctor' : isMaster ? 'badge-master' : 'badge-grado'}`}>

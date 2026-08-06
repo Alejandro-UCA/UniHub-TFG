@@ -47,15 +47,17 @@ class UniversityWebCrawler:
         self.logger = ErrorLogger()
         self.checkpoint = CheckpointManager()
 
-    def check_robots_allowed(self, target_url: str) -> bool:
+    def check_robots_allowed(self, target_url: str) -> tuple[bool, float | None]:
         """
         Verifica el archivo robots.txt de la web oficial de la universidad.
-        Devuelve True si el rastreo está permitido para nuestro User-Agent, False en caso contrario.
+        Devuelve tupla (can_fetch, crawl_delay):
+        - can_fetch: True si el rastreo está permitido para nuestro User-Agent / *, False en caso contrario.
+        - crawl_delay: Tiempo de espera en segundos declarado en robots.txt (o None si no existe).
         """
         try:
             parsed = urllib.parse.urlparse(target_url)
             if not parsed.scheme or not parsed.netloc:
-                return False
+                return False, None
 
             robots_url = f"{parsed.scheme}://{parsed.netloc}/robots.txt"
             rp = RobotFileParser()
@@ -67,13 +69,23 @@ class UniversityWebCrawler:
                 rp.parse(robots_txt_content.splitlines())
             except Exception:
                 # Si robots.txt no existe (404) o da error, el estándar web considera el acceso permitido
-                return True
+                return True, None
 
             can_fetch = rp.can_fetch(self.user_agent, target_url) or rp.can_fetch("*", target_url)
-            return can_fetch
+            
+            # Extraer Crawl-delay si está declarado en el robots.txt de la universidad
+            crawl_delay = None
+            try:
+                raw_delay = rp.crawl_delay(self.user_agent) or rp.crawl_delay("*")
+                if raw_delay:
+                    crawl_delay = float(raw_delay)
+            except Exception:
+                pass
+
+            return can_fetch, crawl_delay
         except Exception as e:
             print(f"   [robots.txt] No se pudo comprobar robots.txt para {target_url}: {e}. Se asume permitido.")
-            return True
+            return True, None
 
     def fetch_sitemap_urls(self, base_url: str) -> set:
         """
@@ -146,13 +158,21 @@ class UniversityWebCrawler:
             "resolved_degrees_count": 0
         }
 
-        # 1. Comprobar si existe enlace a su página web oficial
+        # 1. Comprobar si existe enlace a su página web oficial y forzar protocolo HTTPS
         if not web_url:
             print(f" [Parte 2] Universidad [{u_code}] {u_name}: Sin web oficial registrada. Finalizado.")
             return stats
 
-        if not web_url.startswith("http://") and not web_url.startswith("https://"):
-            web_url = "http://" + web_url
+        if web_url.startswith("http://"):
+            web_url = "https://" + web_url[7:]
+        elif not web_url.startswith("https://"):
+            web_url = "https://" + web_url
+
+        # Comprobar si la universidad fue previamente registrada en checkpoint como denegada por robots.txt
+        if self.checkpoint.is_robots_denied_university(u_code):
+            print(f" 🛑 [Parte 2] Universidad [{u_code}] {u_name}: Previamente registrada en checkpoint como DENEGADA por robots.txt. Omitiendo.")
+            stats["robots_allowed"] = False
+            return stats
 
         # 2. Identificar titulaciones sin información del plan de estudios
         univ_data = titulaciones_por_univ.get(u_code, {})
@@ -185,16 +205,20 @@ class UniversityWebCrawler:
 
         print(f" [Parte 2] Universidad [{u_code}] {u_name}: {len(missing_degrees)} titulaciones sin plan de estudios. Verificando robots.txt en '{web_url}'...")
 
-        # 3. Conectarse a la web oficial y comprobar robots.txt
-        if not self.check_robots_allowed(web_url):
-            print(f" 🛑 [Parte 2] Universidad [{u_code}] {u_name}: Crawling DENEGADO por robots.txt en {web_url}. Operación cancelada para esta universidad.")
+        # 3. Conectarse a la web oficial (HTTPS) y comprobar robots.txt y Crawl-delay
+        can_fetch, crawl_delay = self.check_robots_allowed(web_url)
+        if not can_fetch:
+            print(f" 🛑 [Parte 2] Universidad [{u_code}] {u_name}: Crawling DENEGADO por robots.txt en {web_url}. Registrando en checkpoint y cancelando operación.")
+            self.checkpoint.mark_robots_denied_university(u_code, web_url, "Crawling denegado por robots.txt")
             stats["robots_allowed"] = False
             return stats
 
-        print(f" 🟢 [Parte 2] Universidad [{u_code}] {u_name}: Crawling PERMITIDO por robots.txt. Iniciando escaneo web...")
+        effective_delay = max(crawl_delay, 0.5) if crawl_delay and crawl_delay > 0 else 0.5
+        delay_msg = f" (Crawl-delay declarado en robots.txt: {crawl_delay:.1f}s)" if crawl_delay else ""
+        print(f" 🟢 [Parte 2] Universidad [{u_code}] {u_name}: Crawling PERMITIDO por robots.txt{delay_msg}. Iniciando escaneo web...")
 
-        # 4. Acceso previo al Sitemap XML del portal académico
-        downloader = RUCTDownloader(delay=0.5, timeout=15)
+        # 4. Acceso previo al Sitemap XML del portal académico (respetando retardo oficial)
+        downloader = RUCTDownloader(delay=effective_delay, timeout=15)
         sitemap_urls = self.fetch_sitemap_urls(web_url)
         if sitemap_urls:
             print(f"     -> {len(sitemap_urls)} URLs académicas indexadas extraídas del Sitemap XML de la universidad.")
@@ -443,3 +467,6 @@ def run_phase1_part2(max_workers: int = 4):
     print(f" -> Titulaciones sin plan iniciales:       {total_missing}")
     print(f" -> Titulaciones completadas desde web:    {total_resolved}")
     print(f" -> Cancelaciones por robots.txt:         {denied_by_robots}")
+
+if __name__ == "__main__":
+    run_phase1_part2()

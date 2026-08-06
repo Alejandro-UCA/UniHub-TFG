@@ -71,6 +71,8 @@ class CheckpointManager:
                         data["unreachable_urls"] = []
                     if "extinct_degrees" not in data:
                         data["extinct_degrees"] = {}
+                    if "robots_denied_universities" not in data:
+                        data["robots_denied_universities"] = {}
                     self._last_mtime = mtime
                     self._cached_state = data
                     return data
@@ -83,7 +85,8 @@ class CheckpointManager:
             "non_study_plan_pdfs": [], # URLs de PDFs descartados por no ser de plan de estudios
             "failed_pdf_downloads": {}, # Mapa de URLs fallidas -> {degree_code, reason, timestamp}
             "unreachable_urls": [], # Lista de URLs confirmadas inalcanzables (HTTP + HTTPS rechazada)
-            "extinct_degrees": {} # Mapa de titulaciones confirmadas extinguidas/inactivas -> {motivo, timestamp}
+            "extinct_degrees": {}, # Mapa de titulaciones confirmadas extinguidas/inactivas -> {motivo, timestamp}
+            "robots_denied_universities": {} # Mapa de universidades denegadas por robots.txt -> {url, motivo, timestamp}
         }
         self._cached_state = default_state
         return default_state
@@ -202,16 +205,26 @@ class CheckpointManager:
             "motivo": reason,
             "timestamp": datetime.now().isoformat()
         }
+    def mark_robots_denied_university(self, univ_code: str, web_url: str, reason: str = "Crawling denegado por robots.txt"):
+        if not is_valid_value(univ_code):
+            return
+        if "robots_denied_universities" not in self.state or not isinstance(self.state.get("robots_denied_universities"), dict):
+            self.state["robots_denied_universities"] = {}
+        self.state["robots_denied_universities"][univ_code] = {
+            "web_url": web_url,
+            "motivo": reason,
+            "timestamp": datetime.now().isoformat()
+        }
         self._save()
 
-    def is_extinct_degree(self, degree_code: str) -> bool:
-        if not is_valid_value(degree_code):
+    def is_robots_denied_university(self, univ_code: str) -> bool:
+        if not is_valid_value(univ_code):
             return False
         with CheckpointManager._lock:
             disk_state = self._load_checkpoint()
-            extinct = disk_state.get("extinct_degrees", self.state.get("extinct_degrees", {}))
-            if isinstance(extinct, dict):
-                return degree_code in extinct
+            denied = disk_state.get("robots_denied_universities", self.state.get("robots_denied_universities", {}))
+            if isinstance(denied, dict):
+                return univ_code in denied
             return False
 
     def _save(self):
@@ -244,6 +257,15 @@ class CheckpointManager:
                         for k, v in disk_extinct.items():
                             if k not in self.state["extinct_degrees"]:
                                 self.state["extinct_degrees"][k] = v
+
+                    # Merge robots_denied_universities
+                    disk_robots = disk_state.get("robots_denied_universities", {})
+                    if isinstance(disk_robots, dict):
+                        if not isinstance(self.state.get("robots_denied_universities"), dict):
+                            self.state["robots_denied_universities"] = {}
+                        for k, v in disk_robots.items():
+                            if k not in self.state["robots_denied_universities"]:
+                                self.state["robots_denied_universities"][k] = v
 
                     # Merge non_study_plan_pdfs
                     disk_non_plans = set(disk_state.get("non_study_plan_pdfs", []))

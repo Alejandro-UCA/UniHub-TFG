@@ -75,11 +75,11 @@ export default function TuitionCalculator() {
         if (data) {
           usageTracker.trackDegreeView(data.codigo_estudio, data.titulo);
 
-          // Pre-select 1st year subjects by default
+          // Pre-select 1st year subjects by default if explicit curso tag exists
           const elems = data.plan_estudios?.elementos_curriculares || [];
           const initialMap = {};
           elems.forEach((elem, idx) => {
-            const isFirstYear = (elem.curso || '').includes('1') || idx < 6;
+            const isFirstYear = (elem.curso || '').includes('1');
             initialMap[idx] = {
               selected: isFirstYear,
               tier: 1 // 1ª matrícula
@@ -157,6 +157,21 @@ export default function TuitionCalculator() {
       };
     });
     setSubjectSelections(updated);
+  };
+
+  // Select / Deselect Course
+  const selectCourseAll = (courseName, selectState) => {
+    const courseItems = groupedByCourse[courseName] || [];
+    setSubjectSelections(prev => {
+      const updated = { ...prev };
+      courseItems.forEach(item => {
+        updated[item.originalIndex] = {
+          selected: selectState,
+          tier: prev[item.originalIndex]?.tier || 1
+        };
+      });
+      return updated;
+    });
   };
 
   // Calculate Breakdown Costs
@@ -346,9 +361,43 @@ export default function TuitionCalculator() {
             {/* Subjects List Grouped by Course */}
             {Object.keys(groupedByCourse).map(courseName => (
               <div key={courseName} className="glass-panel" style={{ marginBottom: '1.5rem', padding: '1.25rem', borderRadius: '12px' }}>
-                <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--uca-cyan)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <Layers size={18} /> {courseName}
-                </h4>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
+                  <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--uca-cyan)', margin: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <Layers size={18} /> {courseName}
+                  </h4>
+                  <div style={{ display: 'flex', gap: '0.35rem' }}>
+                    <button
+                      onClick={() => selectCourseAll(courseName, true)}
+                      style={{
+                        padding: '0.25rem 0.6rem',
+                        borderRadius: '4px',
+                        background: 'rgba(0, 168, 204, 0.12)',
+                        color: 'var(--uca-cyan)',
+                        border: '1px solid rgba(0, 168, 204, 0.25)',
+                        cursor: 'pointer',
+                        fontSize: '0.75rem',
+                        fontWeight: 600
+                      }}
+                    >
+                      + Marcar {courseName}
+                    </button>
+                    <button
+                      onClick={() => selectCourseAll(courseName, false)}
+                      style={{
+                        padding: '0.25rem 0.6rem',
+                        borderRadius: '4px',
+                        background: 'rgba(255, 255, 255, 0.05)',
+                        color: 'var(--text-muted)',
+                        border: '1px solid var(--border-light)',
+                        cursor: 'pointer',
+                        fontSize: '0.75rem',
+                        fontWeight: 600
+                      }}
+                    >
+                      - Desmarcar
+                    </button>
+                  </div>
+                </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                   {groupedByCourse[courseName].map(subject => {
@@ -426,7 +475,7 @@ export default function TuitionCalculator() {
 
           {/* Right Column: Receipt Breakdown Panel */}
           <div>
-            <div className="glass-panel" style={{ padding: '1.5rem', borderRadius: '12px', sticky: 'top', top: '2rem' }}>
+            <div className="glass-panel" style={{ padding: '1.5rem', borderRadius: '12px', position: 'sticky', top: '2rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.25rem', paddingBottom: '0.75rem', borderBottom: '1px solid var(--border-light)' }}>
                 <Receipt size={22} style={{ color: 'var(--uca-cyan)' }} />
                 <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-main)', margin: 0 }}>
@@ -491,7 +540,8 @@ export default function TuitionCalculator() {
                 borderRadius: '10px',
                 background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.05) 100%)',
                 border: '1px solid rgba(16, 185, 129, 0.3)',
-                textAlign: 'center'
+                textAlign: 'center',
+                marginBottom: '1rem'
               }}>
                 <div style={{ fontSize: '0.85rem', color: '#10B981', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                   Importe Total Estimado de Matrícula
@@ -503,6 +553,15 @@ export default function TuitionCalculator() {
                   (Valores oficiales calculados según tarifa ECTS pública)
                 </div>
               </div>
+
+              {/* Print Simulation Button */}
+              <button
+                onClick={() => window.print()}
+                className="btn btn-secondary"
+                style={{ width: '100%', padding: '0.65rem', fontSize: '0.85rem', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}
+              >
+                <Receipt size={16} /> Imprimir / Guardar Simulación
+              </button>
 
             </div>
           </div>

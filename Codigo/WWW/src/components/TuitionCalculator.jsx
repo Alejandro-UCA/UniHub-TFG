@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Calculator, Building2, GraduationCap, BookOpen, CheckSquare, Square, RefreshCw, AlertCircle, Sparkles, Receipt, Layers } from 'lucide-react';
+import { apiService } from '../services/api';
 import usageTracker from '../analytics/usageTracker';
 
 export default function TuitionCalculator() {
@@ -12,29 +13,32 @@ export default function TuitionCalculator() {
   const [loadingUnivs, setLoadingUnivs] = useState(true);
   const [loadingDegrees, setLoadingDegrees] = useState(false);
   const [loadingDetail, setLoadingDetail] = useState(false);
+  const [apiError, setApiError] = useState(null);
 
   // Map of subject selections: { [subjectIdOrIndex]: { selected: boolean, tier: 1 | 2 | 3 | 4 } }
   const [subjectSelections, setSubjectSelections] = useState({});
 
-  const API_BASE = 'http://localhost:8000/api/v1';
-
   // 1. Fetch Public Universities
+  const fetchPublicUnivs = async () => {
+    setLoadingUnivs(true);
+    setApiError(null);
+    try {
+      const data = await apiService.getUniversities({ limit: 200 });
+      const publics = (data || []).filter(u => (u.tipo || '').toLowerCase().includes('públ') || (u.tipo || '').toLowerCase().includes('publ'));
+      setUniversities(publics);
+      if (publics.length > 0) {
+        setSelectedUnivCode(publics[0].codigo);
+      }
+    } catch (err) {
+      console.error('Error cargando universidades en calculadora:', err);
+      setApiError('No se pudo conectar con el servidor API para obtener las universidades públicas.');
+    } finally {
+      setLoadingUnivs(false);
+    }
+  };
+
   useEffect(() => {
-    fetch(`${API_BASE}/universidades?limit=200`)
-      .then(res => res.json())
-      .then(data => {
-        // Filter public universities
-        const publics = data.filter(u => (u.tipo || '').toLowerCase().includes('públ') || (u.tipo || '').toLowerCase().includes('publ'));
-        setUniversities(publics);
-        if (publics.length > 0) {
-          setSelectedUnivCode(publics[0].codigo);
-        }
-        setLoadingUnivs(false);
-      })
-      .catch(err => {
-        console.error('Error cargando universidades:', err);
-        setLoadingUnivs(false);
-      });
+    fetchPublicUnivs();
   }, []);
 
   // 2. Fetch Degrees when University Changes
@@ -46,11 +50,10 @@ export default function TuitionCalculator() {
     setDegreeDetail(null);
     setSubjectSelections({});
 
-    fetch(`${API_BASE}/titulaciones?universidad_codigo=${selectedUnivCode}&limit=300`)
-      .then(res => res.json())
+    apiService.getDegrees({ universidad_codigo: selectedUnivCode, limit: 300 })
       .then(data => {
-        setDegrees(data);
-        if (data.length > 0) {
+        setDegrees(data || []);
+        if (data && data.length > 0) {
           setSelectedDegreeCode(data[0].codigo_estudio);
         }
         setLoadingDegrees(false);
@@ -65,24 +68,25 @@ export default function TuitionCalculator() {
   useEffect(() => {
     if (!selectedDegreeCode) return;
     setLoadingDetail(true);
-    fetch(`${API_BASE}/titulaciones/${selectedDegreeCode}`)
-      .then(res => res.json())
+    apiService.getDegreeByCode(selectedDegreeCode)
       .then(data => {
         setDegreeDetail(data);
         setLoadingDetail(false);
-        usageTracker.trackDegreeView(data.codigo_estudio, data.titulo);
+        if (data) {
+          usageTracker.trackDegreeView(data.codigo_estudio, data.titulo);
 
-        // Pre-select 1st year subjects by default
-        const elems = data.plan_estudios?.elementos_curriculares || [];
-        const initialMap = {};
-        elems.forEach((elem, idx) => {
-          const isFirstYear = (elem.curso || '').includes('1') || idx < 6;
-          initialMap[idx] = {
-            selected: isFirstYear,
-            tier: 1 // 1ª matrícula
-          };
-        });
-        setSubjectSelections(initialMap);
+          // Pre-select 1st year subjects by default
+          const elems = data.plan_estudios?.elementos_curriculares || [];
+          const initialMap = {};
+          elems.forEach((elem, idx) => {
+            const isFirstYear = (elem.curso || '').includes('1') || idx < 6;
+            initialMap[idx] = {
+              selected: isFirstYear,
+              tier: 1 // 1ª matrícula
+            };
+          });
+          setSubjectSelections(initialMap);
+        }
       })
       .catch(err => {
         console.error('Error cargando detalle de titulación:', err);

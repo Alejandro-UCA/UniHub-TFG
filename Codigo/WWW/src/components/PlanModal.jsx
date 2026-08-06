@@ -7,6 +7,15 @@ export default function PlanModal({ degree, onClose }) {
   const [planData, setPlanData] = useState(null);
   const [error, setError] = useState(null);
 
+  // Escape key handler for A11y
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
+
   useEffect(() => {
     async function loadCurriculum() {
       if (!degree || !degree.codigo_estudio) return;
@@ -36,7 +45,7 @@ export default function PlanModal({ degree, onClose }) {
   const boeFecha = planData?.boe_fecha || degree.boe_fecha;
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
+    <div className="modal-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         {/* Modal Header */}
         <div style={{

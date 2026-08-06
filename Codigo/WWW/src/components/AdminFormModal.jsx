@@ -6,6 +6,14 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
   const [error, setError] = useState('');
 
   useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && isOpen) onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
+  useEffect(() => {
     if (initialData) {
       setFormData(initialData);
     } else {

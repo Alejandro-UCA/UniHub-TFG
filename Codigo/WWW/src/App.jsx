@@ -118,7 +118,16 @@ export default function App() {
     return (a.nombre || '').localeCompare(b.nombre || '');
   });
 
-  // Filtered & Sorted degrees (including Doctorados)
+  // Map of universities by code for fast CCAA lookup
+  const univCodeMap = React.useMemo(() => {
+    const map = {};
+    universities.forEach(u => {
+      if (u.codigo) map[u.codigo] = u;
+    });
+    return map;
+  }, [universities]);
+
+  // Filtered & Sorted degrees (including Doctorados and CCAA filter)
   const filteredDegrees = degrees.filter(d => {
     const matchesQuery = !searchQuery || `${d.titulo} ${d.codigo_estudio}`.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesTipo = selectedTipo === 'todos' || (
@@ -127,7 +136,17 @@ export default function App() {
       selectedTipo === 'doctorado' ? ((d.nivel_academico || '').toLowerCase().includes('doctor') || (d.nivel_academico || '').toLowerCase().includes('99/2011') || (d.titulo || '').toLowerCase().includes('doctor')) :
       true
     );
-    return matchesQuery && matchesTipo;
+    
+    // CCAA filter matching
+    let matchesCCAA = selectedCCAA === 'todas';
+    if (!matchesCCAA && d.universidad_codigo) {
+      const parentUniv = univCodeMap[d.universidad_codigo];
+      if (parentUniv && parentUniv.comunidad_autonoma) {
+        matchesCCAA = parentUniv.comunidad_autonoma.toLowerCase().includes(selectedCCAA.toLowerCase());
+      }
+    }
+
+    return matchesQuery && matchesTipo && matchesCCAA;
   });
 
   // Top 6 Most Visited Universities for Featured Section

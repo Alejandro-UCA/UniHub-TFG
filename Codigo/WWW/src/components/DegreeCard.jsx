@@ -2,7 +2,7 @@ import React from 'react';
 import { BookOpen, FileText, CheckCircle2, ChevronRight } from 'lucide-react';
 import usageTracker from '../analytics/usageTracker';
 
-export default function DegreeCard({ degree, onSelectDegree }) {
+export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
   const isMaster = (degree.nivel_academico || '').toLowerCase().includes('máster') || (degree.nivel_academico || '').toLowerCase().includes('master');
   const isDoctor = (degree.nivel_academico || '').toLowerCase().includes('doctor') || 
                    (degree.nivel_academico || '').toLowerCase().includes('99/2011') ||
@@ -20,79 +20,74 @@ export default function DegreeCard({ degree, onSelectDegree }) {
       flexDirection: 'column',
       justifyContent: 'space-between',
       height: '100%',
-      transition: 'transform 0.25s ease, box-shadow 0.25s ease',
-      cursor: 'pointer'
-    }}
-    onClick={handleClick}
-    onMouseEnter={(e) => {
-      e.currentTarget.style.transform = 'translateY(-3px)';
-      e.currentTarget.style.boxShadow = 'var(--shadow-md)';
-    }}
-    onMouseLeave={(e) => {
-      e.currentTarget.style.transform = 'translateY(0)';
-      e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
-    }}
-    >
+      position: 'relative'
+    }}>
       <div>
-        {/* Header Badges */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.75rem', gap: '0.5rem' }}>
-          <span className={`badge ${isMaster ? 'badge-master' : isDoctor ? 'badge-doctorado' : 'badge-grado'}`}>
-            {isMaster ? 'Máster' : isDoctor ? 'Doctorado' : 'Grado'}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
+          <span className={`badge ${isDoctor ? 'badge-doctor' : isMaster ? 'badge-master' : 'badge-grado'}`}>
+            {isDoctor ? 'Doctorado' : isMaster ? 'Máster' : 'Grado Oficial'}
           </span>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#10B981', fontWeight: 600, fontSize: '0.8rem' }}>
-            <CheckCircle2 size={14} /> Vigente en B.O.E.
-          </div>
+          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 600 }}>
+            {degree.codigo_estudio}
+          </span>
         </div>
 
-        {/* Degree Title */}
-        <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '0.6rem', lineHeight: 1.35 }}>
+        <h3 style={{ fontSize: '1.05rem', fontWeight: 700, lineHeight: 1.35, marginBottom: '0.5rem' }}>
           {degree.titulo}
-        </h4>
+        </h3>
 
-        {/* Academic Level & Pricing */}
-        <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '1rem' }}>
-          {degree.nivel_academico && (
-            <div><strong style={{ color: 'var(--text-main)' }}>Nivel:</strong> {degree.nivel_academico}</div>
-          )}
-          {degree.universidad_nombre && (
-            <div style={{ marginTop: '0.2rem', fontWeight: 600, color: 'var(--uca-cyan)' }}>{degree.universidad_nombre}</div>
-          )}
-          {degree.precio_estimado_anual && (
-            <div style={{ 
-              marginTop: '0.5rem', 
-              padding: '0.3rem 0.6rem', 
-              borderRadius: '6px', 
-              background: 'rgba(16, 185, 129, 0.08)', 
-              border: '1px solid rgba(16, 185, 129, 0.2)',
-              color: '#10B981', 
-              fontWeight: 600, 
-              fontSize: '0.8rem',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem'
-            }}>
-              💶 Matrícula Pública Estimada: ~{degree.precio_estimado_anual} €/año ({degree.precio_credito_ects} €/ECTS)
-            </div>
-          )}
-        </div>
+        {degree.universidad_nombre && (
+          <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.75rem', fontWeight: 500 }}>
+            {degree.universidad_nombre}
+          </p>
+        )}
+
+        {/* ECTS Credit Price & Estimated Annual Tuition Badge (Phase 1 Part 3) */}
+        {degree.precio_credito_ects && (
+          <div style={{
+            background: 'rgba(16, 185, 129, 0.08)',
+            border: '1px solid rgba(16, 185, 129, 0.25)',
+            borderRadius: 'var(--radius-sm)',
+            padding: '0.45rem 0.65rem',
+            marginBottom: '0.85rem',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            fontSize: '0.78rem'
+          }}>
+            <span style={{ color: 'var(--success)', fontWeight: 700 }}>💶 Matrícula Pública Estimada:</span>
+            <span style={{ fontWeight: 800, color: 'var(--text-main)' }}>
+              ~{Math.round(degree.precio_estimado_anual || (degree.precio_credito_ects * 60 + 45))} €/año
+              <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontWeight: 400, marginLeft: '0.35rem' }}>
+                ({degree.precio_credito_ects} €/ECTS)
+              </span>
+            </span>
+          </div>
+        )}
       </div>
 
-      {/* Action Link */}
       <div style={{
+        marginTop: '1.25rem',
         paddingTop: '0.75rem',
         borderTop: '1px solid var(--border-light)',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        color: 'var(--uca-cyan)',
-        fontWeight: 600,
-        fontSize: '0.85rem'
+        justifyContent: 'space-between'
       }}>
-        <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-          <FileText size={15} /> Ver Plan de Estudios (BOE)
-        </span>
-        <ChevronRight size={16} />
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.78rem', color: 'var(--success)' }}>
+          <CheckCircle2 size={14} />
+          <span>Verificado BOE</span>
+        </div>
+
+        <button 
+          onClick={handleClick}
+          className="btn btn-secondary" 
+          style={{ padding: '0.4rem 0.85rem', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '0.25rem' }}
+        >
+          <span>Plan de Estudios</span>
+          <ChevronRight size={14} />
+        </button>
       </div>
     </div>
   );
-}
+});

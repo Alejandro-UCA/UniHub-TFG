@@ -2,7 +2,7 @@ import React from 'react';
 import { MapPin, Globe, Mail, BookOpen, ExternalLink } from 'lucide-react';
 import usageTracker from '../analytics/usageTracker';
 
-export default function UnivCard({ univ, onViewDegrees, distanceKm }) {
+export default React.memo(function UnivCard({ univ, onViewDegrees, distanceKm }) {
   const isPrivada = (univ.tipo || '').toLowerCase().includes('privada');
 
   const handleClick = () => {
@@ -96,4 +96,4 @@ export default function UnivCard({ univ, onViewDegrees, distanceKm }) {
       </div>
     </div>
   );
-}
+});

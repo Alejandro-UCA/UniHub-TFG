@@ -203,9 +203,12 @@ def trigger_api_etl_sync():
         print(" -> Nota: La Fase 1 ha finalizado. La Fase 2 se sincronizará cuando el servicio API esté disponible o se ejecute manualmente el ETL.")
 
 
-def run_crawler(limit_univ: int = None, limit_degrees: int = None):
+def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: list = None):
+    if run_parts is None:
+        run_parts = [1, 2, 3]
+
     print("=" * 70)
-    print("      INICIANDO CRAWLER UNIHUB (COMPUTACIÓN PARALELA: RED + PARSER)")
+    print("      INICIANDO FASE 1 UNIHUB (PARTES SELECCIONADAS: " + ", ".join(f"Parte {p}" for p in run_parts) + ")")
     print("======================================================================")
 
     downloader = RUCTDownloader()
@@ -213,17 +216,21 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
     checkpoint = CheckpointManager()
     metrics = PerformanceTracker()
 
-    # Lanzar Proceso 2 (Consumidor / Parser CPU & Escritura en disco)
-    task_queue = mp.Queue(maxsize=100)
-    result_queue = mp.Queue()
-    parser_process = mp.Process(target=pdf_parser_consumer, args=(task_queue, result_queue), daemon=True)
-    parser_process.start()
-    print(" -> Proceso 2 (Parser CPU & Escritura en Disco) arrancado y listo en segundo plano.\n")
+    # -------------------------------------------------------------------------
+    # PARTE 1 DE LA FASE 1: SCRAPING RUCT Y PARSER DE BOE
+    # -------------------------------------------------------------------------
+    if 1 in run_parts:
+        # Lanzar Proceso 2 (Consumidor / Parser CPU & Escritura en disco)
+        task_queue = mp.Queue(maxsize=100)
+        result_queue = mp.Queue()
+        parser_process = mp.Process(target=pdf_parser_consumer, args=(task_queue, result_queue), daemon=True)
+        parser_process.start()
+        print(" -> Proceso 2 (Parser CPU & Escritura en Disco) arrancado y listo en segundo plano.\n")
 
-    # -------------------------------------------------------------------------
-    # PASO 1: Descargar / Inspeccionar listado de universidades (Públicas prioritarias)
-    # -------------------------------------------------------------------------
-    print("[Paso 1] Obteniendo listado oficial de universidades (Públicas prioritarias)...")
+        # -------------------------------------------------------------------------
+        # PASO 1: Descargar / Inspeccionar listado de universidades (Públicas prioritarias)
+        # -------------------------------------------------------------------------
+        print("[Paso 1] Obteniendo listado oficial de universidades (Públicas prioritarias)...")
     univ_file = os.path.join(TEMP_PDF_DIR, "universidades_list.xls")
     
     try:
@@ -440,45 +447,45 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None):
         metrics.save()
         checkpoint.mark_university_processed(u_code)
 
-    # -------------------------------------------------------------------------
-    # FINALIZACIÓN DE PROCESOS PARALELOS
-    # -------------------------------------------------------------------------
-    print("\n[Finalizando Red] Enviando señal de parada al Proceso 2 (Parser CPU)...")
-    task_queue.put({"type": "STOP"})
-    
-    # Receive metrics summary from Process 2
-    consumer_results = result_queue.get()
-    parser_process.join()
+        # Finalización de Proceso 2 (Parser CPU) si se ejecutó la Parte 1
+        print("\n[Finalizando Red] Enviando señal de parada al Proceso 2 (Parser CPU)...")
+        task_queue.put({"type": "STOP"})
+        
+        # Receive metrics summary from Process 2
+        consumer_results = result_queue.get()
+        parser_process.join()
 
-    metrics.pdfs_parseados = consumer_results.get("parsed_count", 0)
-    metrics.titulaciones_descargadas_actualizadas = consumer_results.get("updated_degrees_count", 0)
-    metrics.save()
+        metrics.pdfs_parseados = consumer_results.get("parsed_count", 0)
+        metrics.titulaciones_descargadas_actualizadas = consumer_results.get("updated_degrees_count", 0)
+        metrics.save()
 
-    print("\n" + "=" * 70)
-    print("      CRAWLER UNIHUB PARALELO FINALIZADO CON ÉXITO Y DE FORMA RESILIENTE")
-    print("======================================================================")
-    print(f" -> Universidades inspeccionadas: {metrics.universidades_inspeccionadas}")
-    print(f" -> Titulaciones inspeccionadas:  {metrics.titulaciones_inspeccionadas}")
-    print(f" -> Titulaciones al día:          {metrics.titulaciones_al_dia}")
-    print(f" -> Titulaciones actualizadas:    {metrics.titulaciones_descargadas_actualizadas}")
-    print(f" -> PDFs parseados del BOE:       {metrics.pdfs_parseados}")
-    print(f" -> Errores (registrados en log): {metrics.errores_detectados}")
+        print("\n" + "=" * 70)
+        print("      CRAWLER UNIHUB PARTE 1 FINALIZADO CON ÉXITO")
+        print("======================================================================")
+        print(f" -> Universidades inspeccionadas: {metrics.universidades_inspeccionadas}")
+        print(f" -> Titulaciones inspeccionadas:  {metrics.titulaciones_inspeccionadas}")
+        print(f" -> Titulaciones al día:          {metrics.titulaciones_al_dia}")
+        print(f" -> Titulaciones actualizadas:    {metrics.titulaciones_descargadas_actualizadas}")
+        print(f" -> PDFs parseados del BOE:       {metrics.pdfs_parseados}")
+        print(f" -> Errores (registrados en log): {metrics.errores_detectados}")
 
     # -------------------------------------------------------------------------
     # PARTE 2 DE LA FASE 1: ESCANEO PARALELO DE LAS WEBS OFICIALES DE UNIVERSIDADES
     # -------------------------------------------------------------------------
-    from univ_web_crawler import run_phase1_part2
-    print("\n -> Inicializando Fase 1 - Parte 2 (Rastreo paralelo de webs oficiales de universidades)...")
-    run_phase1_part2(max_workers=4)
+    if 2 in run_parts:
+        from univ_web_crawler import run_phase1_part2
+        print("\n -> Inicializando Fase 1 - Parte 2 (Rastreo paralelo de webs oficiales de universidades)...")
+        run_phase1_part2(max_workers=4)
 
     # -------------------------------------------------------------------------
     # PARTE 3 DE LA FASE 1: CÁLCULO DE PRECIOS ECTS Y MATRÍCULAS DE UNIVERSIDADES PÚBLICAS
     # -------------------------------------------------------------------------
-    from precios_crawler import run_phase1_part3
-    run_phase1_part3()
+    if 3 in run_parts:
+        from precios_crawler import run_phase1_part3
+        run_phase1_part3()
 
     # -------------------------------------------------------------------------
-    # NOTIFICACIÓN A FASE 2: SÓLO AL FINALIZAR LA FASE 1 AL COMPLETO
+    # NOTIFICACIÓN A FASE 2: AL FINALIZAR LAS PARTES SOLICITADAS
     # -------------------------------------------------------------------------
     trigger_api_etl_sync()
     print(f" -> Métricas guardadas en:        '{ESTADISTICAS_JSON}'")
@@ -489,6 +496,16 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Crawler UniHub para scraping de RUCT, BOE y webs oficiales de universidades.")
     parser.add_argument("--limit-univ", type=int, default=None, help="Limitar número de universidades a procesar.")
     parser.add_argument("--limit-degrees", type=int, default=None, help="Limitar número de titulaciones por universidad.")
+    parser.add_argument("--only-part", type=int, choices=[1, 2, 3], default=None, help="Ejecutar únicamente la parte seleccionada de la Fase 1 (1: RUCT/BOE, 2: Web Crawler, 3: Precios ECTS).")
+    parser.add_argument("--parts", type=int, nargs="+", choices=[1, 2, 3], default=None, help="Seleccionar partes específicas a ejecutar (ej. --parts 1 2). Por defecto ejecuta 1, 2 y 3 juntas.")
     args = parser.parse_args()
 
-    run_crawler(limit_univ=args.limit_univ, limit_degrees=args.limit_degrees)
+    # Determinar partes a ejecutar
+    if args.only_part:
+        selected_parts = [args.only_part]
+    elif args.parts:
+        selected_parts = args.parts
+    else:
+        selected_parts = [1, 2, 3] # Comportamiento normal por defecto: las 3 partes juntas
+
+    run_crawler(limit_univ=args.limit_univ, limit_degrees=args.limit_degrees, run_parts=selected_parts)

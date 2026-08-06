@@ -18,27 +18,27 @@ export default function TuitionCalculator() {
   // Map of subject selections: { [subjectIdOrIndex]: { selected: boolean, tier: 1 | 2 | 3 | 4 } }
   const [subjectSelections, setSubjectSelections] = useState({});
 
-  // 1. Fetch Public Universities
-  const fetchPublicUnivs = async () => {
+  // 1. Fetch All Universities (Public & Private)
+  const fetchAllUnivs = async () => {
     setLoadingUnivs(true);
     setApiError(null);
     try {
-      const data = await apiService.getUniversities({ limit: 200 });
-      const publics = (data || []).filter(u => (u.tipo || '').toLowerCase().includes('públ') || (u.tipo || '').toLowerCase().includes('publ'));
-      setUniversities(publics);
-      if (publics.length > 0) {
-        setSelectedUnivCode(publics[0].codigo);
+      const data = await apiService.getUniversities({ limit: 300 });
+      const allUnivs = data || [];
+      setUniversities(allUnivs);
+      if (allUnivs.length > 0) {
+        setSelectedUnivCode(allUnivs[0].codigo);
       }
     } catch (err) {
       console.error('Error cargando universidades en calculadora:', err);
-      setApiError('No se pudo conectar con el servidor API para obtener las universidades públicas.');
+      setApiError('No se pudo conectar con el servidor API para obtener el listado de universidades.');
     } finally {
       setLoadingUnivs(false);
     }
   };
 
   useEffect(() => {
-    fetchPublicUnivs();
+    fetchAllUnivs();
   }, []);
 
   // 2. Fetch Degrees when University Changes
@@ -275,13 +275,13 @@ export default function TuitionCalculator() {
       <div className="glass-panel" style={{ padding: '1.5rem', marginBottom: '2rem', borderRadius: '12px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
           
-          {/* Public University Selector */}
+          {/* Public & Private University Selector */}
           <div>
             <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 700, fontSize: '0.9rem', color: 'var(--uca-cyan)', marginBottom: '0.5rem' }}>
-              <Building2 size={18} /> 1. Selecciona Universidad Pública
+              <Building2 size={18} /> 1. Selecciona Universidad (Pública / Privada)
             </label>
             {loadingUnivs ? (
-              <div style={{ padding: '0.75rem', color: 'var(--text-muted)', fontSize: '0.9rem' }}>Cargando universidades públicas...</div>
+              <div style={{ padding: '0.75rem', color: 'var(--text-muted)', fontSize: '0.9rem' }}>Cargando universidades...</div>
             ) : (
               <select
                 value={selectedUnivCode}
@@ -300,7 +300,7 @@ export default function TuitionCalculator() {
               >
                 {universities.map(u => (
                   <option key={u.codigo} value={u.codigo}>
-                    {u.nombre} ({u.comunidad_autonoma})
+                    [{(u.tipo || '').toLowerCase().includes('privad') ? 'Privada' : 'Pública'}] {u.nombre} ({u.comunidad_autonoma})
                   </option>
                 ))}
               </select>

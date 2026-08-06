@@ -120,6 +120,57 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
     return elementos
 
 
+def extract_private_university_pricing(soup: BeautifulSoup, page_text: str) -> dict:
+    """
+    Rastrea e identifica la información de precios de matrícula (precio por crédito ECTS y coste anual)
+    en las páginas y subpáginas de universidades privadas.
+    """
+    pricing_data = {}
+    text_lower = page_text.lower()
+    
+    # 1. Patrones para precio por crédito ECTS
+    ects_patterns = [
+        r'(?:precio|coste|importe|valor)\s*(?:del)?\s*crédito\s*(?:ects)?\D*?(\d{2,4}(?:[.,]\d{1,2})?)\s*€',
+        r'(\d{2,4}(?:[.,]\d{1,2})?)\s*€\s*/\s*(?:crédito|ects|cr)',
+        r'(\d{2,4}(?:[.,]\d{1,2})?)\s*€\s*por\s*crédito'
+    ]
+    for pat in ects_patterns:
+        m = re.search(pat, text_lower)
+        if m:
+            val_str = m.group(1).replace(".", "").replace(",", ".")
+            try:
+                val_num = float(val_str)
+                if 15.0 <= val_num <= 400.0:
+                    pricing_data["precio_credito_ects"] = round(val_num, 2)
+                    break
+            except ValueError:
+                pass
+                
+    # 2. Patrones para precio/importe anual total
+    annual_patterns = [
+        r'(?:precio|importe|coste|tuition|cuota|mensualidad|reserva)\s*(?:total|anual|por\s*curso)?\D*?(\d{1,2}[.,]\d{3}|\d{4,5})\s*€',
+        r'(\d{1,2}[.,]\d{3}|\d{4,5})\s*€\s*/\s*(?:año|curso|anual)'
+    ]
+    for pat in annual_patterns:
+        m = re.search(pat, text_lower)
+        if m:
+            val_str = m.group(1).replace(".", "").replace(",", ".")
+            try:
+                val_num = float(val_str)
+                if 1000.0 <= val_num <= 35000.0:
+                    pricing_data["precio_estimado_anual"] = round(val_num, 2)
+                    break
+            except ValueError:
+                pass
+                
+    if "precio_credito_ects" in pricing_data and "precio_estimado_anual" not in pricing_data:
+        pricing_data["precio_estimado_anual"] = round(pricing_data["precio_credito_ects"] * 60, 2)
+    elif "precio_estimado_anual" in pricing_data and "precio_credito_ects" not in pricing_data:
+        pricing_data["precio_credito_ects"] = round(pricing_data["precio_estimado_anual"] / 60, 2)
+        
+    return pricing_data
+
+
 class UniversityWebCrawler:
     """
     Fase 1 - Parte 2: Crawling paralelo de las webs oficiales de las universidades
@@ -255,7 +306,7 @@ class UniversityWebCrawler:
 
         # Comprobar si la universidad fue previamente registrada en checkpoint como denegada por robots.txt
         if self.checkpoint.is_robots_denied_university(u_code):
-            print(f" 🛑 [Parte 2] Universidad [{u_code}] {u_name}: Previamente registrada en checkpoint como DENEGADA por robots.txt. Omitiendo.")
+            print(f" [BLOQUEO ROBOTS] Universidad [{u_code}] {u_name}: Previamente registrada en checkpoint como DENEGADA por robots.txt. Omitiendo.")
             stats["robots_allowed"] = False
             return stats
 
@@ -293,14 +344,14 @@ class UniversityWebCrawler:
         # 3. Conectarse a la web oficial (HTTPS) y comprobar robots.txt y Crawl-delay
         can_fetch, crawl_delay = self.check_robots_allowed(web_url)
         if not can_fetch:
-            print(f" 🛑 [Parte 2] Universidad [{u_code}] {u_name}: Crawling DENEGADO por robots.txt en {web_url}. Registrando en checkpoint y cancelando operación.")
+            print(f" [BLOQUEO ROBOTS] Universidad [{u_code}] {u_name}: Crawling DENEGADO por robots.txt en {web_url}. Registrando en checkpoint y cancelando operación.")
             self.checkpoint.mark_robots_denied_university(u_code, web_url, "Crawling denegado por robots.txt")
             stats["robots_allowed"] = False
             return stats
 
         effective_delay = max(crawl_delay, 0.5) if crawl_delay and crawl_delay > 0 else 0.5
         delay_msg = f" (Crawl-delay declarado en robots.txt: {crawl_delay:.1f}s)" if crawl_delay else ""
-        print(f" 🟢 [Parte 2] Universidad [{u_code}] {u_name}: Crawling PERMITIDO por robots.txt{delay_msg}. Iniciando escaneo web...")
+        print(f" [PERMITIDO ROBOTS] Universidad [{u_code}] {u_name}: Crawling PERMITIDO por robots.txt{delay_msg}. Iniciando escaneo web...")
 
         # 4. Acceso previo al Sitemap XML del portal académico (respetando retardo oficial)
         downloader = RUCTDownloader(delay=effective_delay, timeout=15)
@@ -461,14 +512,25 @@ class UniversityWebCrawler:
                                             target_html = downloader.fetch_text(target_link)
                                             target_soup = BeautifulSoup(target_html, "html.parser")
                                             elementos_html = extract_html_subjects(target_soup)
-                                            if len(elementos_html) >= 3:
+                                            
+                                            # Extraer precios de matrículas en universidades privadas
+                                            extracted_pricing = {}
+                                            if "privad" in u_type.lower():
+                                                extracted_pricing = extract_private_university_pricing(target_soup, target_html)
+
+                                            if len(elementos_html) >= 3 or extracted_pricing:
                                                 found_curriculum = {
                                                     "resumen_creditos": {"Créditos Totales": "240" if "grado" in d_title.lower() else "60"},
                                                     "total_elementos": len(elementos_html),
                                                     "elementos_curriculares": elementos_html
                                                 }
+                                                if extracted_pricing.get("precio_credito_ects"):
+                                                    found_curriculum["precio_credito_ects"] = extracted_pricing["precio_credito_ects"]
+                                                    found_curriculum["precio_estimado_anual"] = extracted_pricing["precio_estimado_anual"]
+                                                    found_curriculum["fuente_precio"] = "Web Oficial Universidad Privada"
+
                                                 direct_source_url = target_link
-                                                print(f"     -> Encontradas asignaturas HTML válidas en subpágina de titulación: {target_link}")
+                                                print(f"     -> Encontrados datos e información en subpágina de titulación: {target_link}")
                                                 break
                                         except Exception as t_err:
                                             print(f"     -> Error al examinar subpágina de titulación '{target_link}': {t_err}")
@@ -480,7 +542,7 @@ class UniversityWebCrawler:
 
             # Guardar el plan y la URL directa donde se ha encontrado
             if found_curriculum and direct_source_url:
-                print(f"     🎉 [ÉXITO PARTE 2] Encontrado plan de estudios en la web oficial: '{direct_source_url}'")
+                print(f"     [ÉXITO PARTE 2] Encontrado plan de estudios en la web oficial: '{direct_source_url}'")
                 stats["resolved_degrees_count"] += 1
                 
                 degree_data = {
@@ -492,6 +554,9 @@ class UniversityWebCrawler:
                     "fecha_procesado": datetime.now().isoformat(),
                     "web_fuente_directa_url": direct_source_url,
                     "origen_fuente": "web_oficial_universidad",
+                    "precio_credito_ects": found_curriculum.get("precio_credito_ects") or deg.get("precio_credito_ects"),
+                    "precio_estimado_anual": found_curriculum.get("precio_estimado_anual") or deg.get("precio_estimado_anual"),
+                    "fuente_precio": found_curriculum.get("fuente_precio") or deg.get("fuente_precio"),
                     "plan_estudios": found_curriculum
                 }
                 

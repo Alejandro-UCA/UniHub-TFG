@@ -205,6 +205,17 @@ class CheckpointManager:
             "motivo": reason,
             "timestamp": datetime.now().isoformat()
         }
+        self._save()
+
+    def is_extinct_degree(self, degree_code: str) -> bool:
+        if not is_valid_value(degree_code):
+            return False
+        with CheckpointManager._lock:
+            disk_state = self._load_checkpoint()
+            extinct = disk_state.get("extinct_degrees", self.state.get("extinct_degrees", {}))
+            if isinstance(extinct, dict):
+                return degree_code in extinct
+            return False
     def mark_robots_denied_university(self, univ_code: str, web_url: str, reason: str = "Crawling denegado por robots.txt"):
         if not is_valid_value(univ_code):
             return

@@ -174,6 +174,21 @@ export default function TuitionCalculator() {
     });
   };
 
+  // Discount / Exemption type state
+  const [discountType, setDiscountType] = useState('ninguno');
+
+  // Discount Info Explanatory Dictionary
+  const DISCOUNT_INFO = {
+    ninguno: null,
+    fn_general: 'Disponible acreditando el Título de Familia Numerosa de Categoría General vigente antes del inicio del curso académico. Aplica un 50% de descuento en el importe de créditos ECTS y en las tasas administrativas de secretaría.',
+    fn_especial: 'Disponible acreditando el Título de Familia Numerosa de Categoría Especial vigente. Otorga exención del 100% (gratuidad total) en asignaturas y apertura/tasas de secretaría.',
+    discapacidad: 'Disponible presentando el Dictamen Oficial de Discapacidad igual o superior al 33% emitido por el IMSERSO o la Comunidad Autónoma. Otorga exención completa del 100%.',
+    beca_mec: 'Exención provisional del 100% en créditos matriculados en 1ª matrícula. Requiere haber formalizado la solicitud de Beca MEC antes del plazo oficial. Si la beca fuera denegada, la universidad reclamará el abono en el primer cuatrimestre. Las tasas administrativas (45 €) deben abonarse salvo exención paralela.',
+    mh_bachillerato: 'Disponible exclusivamente para alumnos matriculados en 1º curso con Matrícula de Honor o Premio Extraordinario en Bachillerato o CFGS. Exime del pago del 100% de los créditos del primer curso (60 ECTS).',
+    bonif_99: 'Disponible para estudiantes de universidades públicas andaluzas que aprobaron créditos en 1ª matrícula en el curso inmediatamente anterior y no son becarios del Ministerio (Decreto 99% CCAA). Bonifica el 99% de los créditos aprobados.',
+    victima_violencia: 'Exención completa (100%) acreditando condición oficial de Víctima de Violencia de Género, Víctima del Terrorismo o Beneficiario del Ingreso Mínimo Vital mediante resolución judicial o administrativa.'
+  };
+
   // Calculate Breakdown Costs
   const calculation = useMemo(() => {
     let totalEcts = 0;
@@ -198,7 +213,30 @@ export default function TuitionCalculator() {
       }
     });
 
-    const grandTotal = totalSubjectCost + (selectedSubjectsCount > 0 ? adminFees : 0);
+    let discountAmount = 0;
+    let finalAdminFees = selectedSubjectsCount > 0 ? adminFees : 0;
+    let discountLabel = '';
+
+    if (discountType === 'fn_general') {
+      discountAmount = totalSubjectCost * 0.5;
+      finalAdminFees = finalAdminFees * 0.5;
+      discountLabel = 'Exención 50% Familia Numerosa General';
+    } else if (discountType === 'fn_especial' || discountType === 'discapacidad' || discountType === 'victima_violencia') {
+      discountAmount = totalSubjectCost;
+      finalAdminFees = 0;
+      discountLabel = 'Exención 100% Gratuidad Total';
+    } else if (discountType === 'beca_mec') {
+      discountAmount = tierCosts[1] || 0;
+      discountLabel = 'Exención Beca MEC (1ª Matrícula)';
+    } else if (discountType === 'mh_bachillerato') {
+      discountAmount = Math.min(totalSubjectCost, 60 * baseEctsPrice);
+      discountLabel = 'Exención M.H. Bachillerato/CFGS (60 ECTS)';
+    } else if (discountType === 'bonif_99') {
+      discountAmount = (tierCosts[1] || 0) * 0.99;
+      discountLabel = 'Bonificación 99% CCAA Rendimiento';
+    }
+
+    const grandTotal = Math.max(0, totalSubjectCost - discountAmount + finalAdminFees);
 
     return {
       selectedSubjectsCount,
@@ -206,10 +244,12 @@ export default function TuitionCalculator() {
       tierCounts,
       tierCosts,
       totalSubjectCost,
-      adminFees: selectedSubjectsCount > 0 ? adminFees : 0,
+      discountAmount,
+      discountLabel,
+      adminFees: finalAdminFees,
       grandTotal
     };
-  }, [elements, subjectSelections, baseEctsPrice]);
+  }, [elements, subjectSelections, baseEctsPrice, discountType]);
 
   return (
     <div style={{ padding: '2rem 0', maxWidth: '1280px', margin: '0 auto' }}>
@@ -490,6 +530,61 @@ export default function TuitionCalculator() {
                 <div style={{ marginTop: '0.2rem' }}><strong>Fuente:</strong> {degreeDetail.fuente_precio || 'Decreto CCAA Oficial'}</div>
               </div>
 
+              {/* Discount / Exemption Selector */}
+              <div style={{ marginBottom: '1.25rem' }}>
+                <label style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontWeight: 700, fontSize: '0.82rem', color: 'var(--uca-cyan)', marginBottom: '0.4rem' }}>
+                  <Sparkles size={16} /> Exención o Bonificación Aplicable
+                </label>
+                <select
+                  value={discountType}
+                  onChange={(e) => setDiscountType(e.target.value)}
+                  style={{
+                    width: '100%',
+                    padding: '0.55rem 0.75rem',
+                    borderRadius: '8px',
+                    background: 'var(--bg-card)',
+                    color: 'var(--text-main)',
+                    border: '1px solid var(--border-light)',
+                    fontWeight: 600,
+                    fontSize: '0.85rem',
+                    outline: 'none',
+                    cursor: 'pointer'
+                  }}
+                >
+                  <option value="ninguno">Ordinaria / Sin Descuento (0%)</option>
+                  <option value="fn_general">Familia Numerosa General (50% Exención)</option>
+                  <option value="fn_especial">Familia Numerosa Especial (100% Exención Total)</option>
+                  <option value="discapacidad">Discapacidad ≥ 33% (100% Exención Total)</option>
+                  <option value="beca_mec">Solicitante Beca Ministerio MEC (100% 1ª Matrícula)</option>
+                  <option value="mh_bachillerato">Matrícula de Honor Bachillerato/CFGS (100% 1º Año)</option>
+                  <option value="bonif_99">Bonificación 99% CCAA Rendimiento Académico</option>
+                  <option value="victima_violencia">Víctima Violencia Género / Terrorismo / IMV (100%)</option>
+                </select>
+
+                {/* Explanatory Info Box for Selected Discount */}
+                {DISCOUNT_INFO[discountType] && (
+                  <div style={{
+                    marginTop: '0.65rem',
+                    padding: '0.65rem 0.85rem',
+                    borderRadius: '8px',
+                    background: 'rgba(0, 168, 204, 0.08)',
+                    border: '1px solid rgba(0, 168, 204, 0.25)',
+                    fontSize: '0.78rem',
+                    color: 'var(--text-main)',
+                    lineHeight: 1.45,
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: '0.5rem'
+                  }}>
+                    <AlertCircle size={16} style={{ color: 'var(--uca-cyan)', flexShrink: 0, marginTop: '0.1rem' }} />
+                    <div>
+                      <strong>Condiciones de Disponibilidad:</strong>
+                      <div style={{ marginTop: '0.2rem', color: 'var(--text-muted)' }}>{DISCOUNT_INFO[discountType]}</div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
               {/* Summary Metrics */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--text-main)' }}>
@@ -532,6 +627,14 @@ export default function TuitionCalculator() {
                   <span>Tasas Administración/Secretaría:</span>
                   <span>{calculation.adminFees.toFixed(2)} €</span>
                 </div>
+
+                {/* Applied Discount Line */}
+                {calculation.discountAmount > 0 && (
+                  <div style={{ display: 'flex', justifyContent: 'space-between', color: '#10B981', fontWeight: 700, fontSize: '0.85rem' }}>
+                    <span>🏷️ {calculation.discountLabel}:</span>
+                    <span>-{calculation.discountAmount.toFixed(2)} €</span>
+                  </div>
+                )}
               </div>
 
               {/* Total Final Price */}

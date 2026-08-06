@@ -39,7 +39,7 @@ export default function App() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [selectedDegree, setSelectedDegree] = useState(null);
 
-  // Check URL route for manual /admin access
+  // Comprobar ruta de la URL para acceso manual a la vista de administración (/admin)
   useEffect(() => {
     const path = window.location.pathname;
     if (path === '/admin' || path === '/admin/' || path === '/admin/login') {
@@ -47,36 +47,36 @@ export default function App() {
     }
   }, []);
 
-  // Data states
+  // Estados de datos
   const [universities, setUniversities] = useState(MOCK_UNIVERSITIES);
   const [degrees, setDegrees] = useState(MOCK_DEGREES);
   const [loading, setLoading] = useState(false);
 
-  // Search & Filter states
+  // Estados de búsqueda y filtros
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTipo, setSelectedTipo] = useState('todos');
   const [selectedCCAA, setSelectedCCAA] = useState('todas');
 
-  // Pagination states
+  // Estados de paginación
   const [univCurrentPage, setUnivCurrentPage] = useState(1);
   const [univItemsPerPage, setUnivItemsPerPage] = useState(20);
 
   const [degreeCurrentPage, setDegreeCurrentPage] = useState(1);
   const [degreeItemsPerPage, setDegreeItemsPerPage] = useState(20);
 
-  // Track initial page view & load data
+  // Registrar vista inicial de página y cargar datos
   useEffect(() => {
     usageTracker.trackPageView('home');
     loadInitialData();
   }, []);
 
-  // Reset pagination on filter change
+  // Reiniciar paginación al cambiar filtros
   useEffect(() => {
     setUnivCurrentPage(1);
     setDegreeCurrentPage(1);
   }, [searchQuery, selectedTipo, selectedCCAA]);
 
-  // Theme toggle
+  // Alternador de tema visual (Modo Claro / Oscuro)
   const toggleTheme = () => {
     setIsDark(!isDark);
     document.documentElement.setAttribute('data-theme', !isDark ? 'dark' : 'light');

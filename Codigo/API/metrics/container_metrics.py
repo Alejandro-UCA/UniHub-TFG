@@ -5,7 +5,7 @@ import shutil
 from datetime import datetime
 
 def get_dir_size_bytes(path: str) -> int:
-    """Calculates total disk space used by a directory in bytes."""
+    """Calcula el espacio total en disco utilizado por un directorio en bytes."""
     total = 0
     if not os.path.exists(path):
         return 0
@@ -21,7 +21,7 @@ def get_dir_size_bytes(path: str) -> int:
 
 def get_crawler_status_and_metrics(datos_dir: str) -> dict:
     """
-    Reads checkpoint.json and estadisticas_rendimiento.json to extract Phase 1 status and progress.
+    Lee checkpoint.json y estadisticas_rendimiento.json para extraer el estado y progreso de la Fase 1.
     """
     checkpoint_file = os.path.join(datos_dir, "checkpoint.json")
     stats_file = os.path.join(datos_dir, "estadisticas_rendimiento.json")

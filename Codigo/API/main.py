@@ -3,13 +3,13 @@ import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-# Ensure parent directory is in path
+# Asegurar que el directorio padre esté en la ruta del sistema
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from config import settings
 from routes import universidades, titulaciones, estadisticas
 
-# Initialize FastAPI Application
+# Inicializar la aplicación FastAPI
 app = FastAPI(
     title=settings.API_TITLE,
     version=settings.API_VERSION,
@@ -18,7 +18,7 @@ app = FastAPI(
     redoc_url="/redoc"
 )
 
-# Configure CORS
+# Configurar middleware CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -27,7 +27,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Include API Routers
+# Incluir ruteadores de la API REST
 app.include_router(universidades.router)
 app.include_router(titulaciones.router)
 app.include_router(estadisticas.router)

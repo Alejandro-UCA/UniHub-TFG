@@ -7,7 +7,7 @@ export default function PlanModal({ degree, onClose }) {
   const [planData, setPlanData] = useState(null);
   const [error, setError] = useState(null);
 
-  // Escape key handler for A11y
+  // Manejador de la tecla Escape para accesibilidad (A11y)
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();

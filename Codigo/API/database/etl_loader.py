@@ -5,7 +5,7 @@ from datetime import datetime
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-# Add API parent directory to import path
+# Añadir el directorio padre de la API a la ruta de importación
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from config import settings
@@ -25,7 +25,7 @@ def run_etl():
     print("     INICIANDO PROCESO ETL: MIGRACIÓN DE JSON (FASE 1) A POSTGRESQL")
     print("======================================================================")
     
-    # Path to Phase 1 data directory (Check Docker path /app/Datos first, fallback to local path)
+    # Ruta al directorio de datos de la Fase 1 (Comprobar primero la ruta Docker /app/Datos, fallback a ruta local)
     base_api_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     crawler_datos_dir = "/app/Datos"
     if not os.path.exists(crawler_datos_dir):
@@ -37,7 +37,7 @@ def run_etl():
 
     print(f"Directorio de datos localizado en: '{crawler_datos_dir}'")
 
-    # Database engine and tables setup
+    # Configuración del motor de base de datos y creación de tablas
     print("Conectando a la base de datos PostgreSQL...")
     try:
         engine = create_engine(settings.DATABASE_URL)

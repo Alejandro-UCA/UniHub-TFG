@@ -9,13 +9,13 @@ export default function Geolocation({ universities, onViewDegrees }) {
   const [userLocation, setUserLocation] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [selectedCity, setSelectedCity] = useState('cadiz'); // Default to Cádiz (UCA)
+  const [selectedCity, setSelectedCity] = useState('cadiz'); // Por defecto Cádiz (UCA)
 
-  // Pagination states
+  // Estados de paginación
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(20);
 
-  // Request browser geolocation
+  // Solicitar geolocalización al navegador
   const handleGetLocation = () => {
     if (!navigator.geolocation) {
       setError('La geolocalización no está soportada por tu navegador. Puedes seleccionar una ciudad manualmente.');

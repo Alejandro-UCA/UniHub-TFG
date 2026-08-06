@@ -1,17 +1,17 @@
 import os
 
-# Base Directories
+# Directorios Base
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "Datos")
 PLANES_DIR = os.path.join(DATA_DIR, "planes_estudio")
 TEMP_PDF_DIR = os.path.join(BASE_DIR, "temp_pdfs")
 
-# Ensure required directories exist
+# Asegurar que los directorios requeridos existan
 os.makedirs(DATA_DIR, exist_ok=True)
 os.makedirs(PLANES_DIR, exist_ok=True)
 os.makedirs(TEMP_PDF_DIR, exist_ok=True)
 
-# File Paths (ALL DATA FILES ARE .json AS REQUIRED)
+# Rutas de archivos JSON de persistencia
 UNIVERSIDADES_JSON = os.path.join(DATA_DIR, "universidades.json")
 TITULACIONES_JSON = os.path.join(DATA_DIR, "titulaciones_universidad.json")
 ERRORES_JSON = os.path.join(DATA_DIR, "errores_crawler.json")

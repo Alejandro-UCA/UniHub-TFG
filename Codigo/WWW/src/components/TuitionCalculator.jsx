@@ -174,12 +174,12 @@ export default function TuitionCalculator() {
     });
   };
 
-  // Discount / Exemption type state
+  // Estado del tipo de exención / bonificación de matrícula
   const [discountType, setDiscountType] = useState('ninguno');
 
   const isPrivada = (currentUniv?.tipo || '').toLowerCase().includes('privad');
 
-  // Discount Info Explanatory Dictionary
+  // Diccionario explicativo de condiciones de bonificación / exención
   const DISCOUNT_INFO = {
     ninguno: null,
     fn_general: isPrivada ? 'Exención autonómica NO aplicable en universidades privadas. La matrícula se calculará con la tarifa de honorarios privados ordinarios.' : 'Disponible acreditando el Título de Familia Numerosa de Categoría General vigente antes del inicio del curso académico. Aplica un 50% de descuento en el importe de créditos ECTS y en las tasas administrativas de secretaría.',
@@ -191,7 +191,7 @@ export default function TuitionCalculator() {
     victima_violencia: isPrivada ? 'Exención autonómica NO aplicable en universidades privadas.' : 'Exención completa (100%) acreditando condición oficial de Víctima de Violencia de Género, Víctima del Terrorismo o Beneficiario del Ingreso Mínimo Vital mediante resolución judicial o administrativa.'
   };
 
-  // Calculate Breakdown Costs
+  // Calcular desglose de costes e importes finales
   const calculation = useMemo(() => {
     let totalEcts = 0;
     let totalSubjectCost = 0;

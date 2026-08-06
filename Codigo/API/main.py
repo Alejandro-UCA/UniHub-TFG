@@ -32,6 +32,9 @@ app.include_router(universidades.router)
 app.include_router(titulaciones.router)
 app.include_router(estadisticas.router)
 
+from fastapi import FastAPI, BackgroundTasks
+from database.etl_loader import run_etl
+
 @app.get("/", tags=["General"])
 def root():
     return {
@@ -40,6 +43,18 @@ def root():
         "documentacion_swagger": "/docs",
         "documentacion_redoc": "/redoc",
         "fase": "Fase 2 - API REST & Base de Datos PostgreSQL"
+    }
+
+@app.post("/api/v1/admin/sync-etl", tags=["Administración"])
+def trigger_etl_sync(background_tasks: BackgroundTasks):
+    """
+    Sincronización reactiva en caliente: desencadena la migración ETL desde JSONs de la Fase 1
+    hacia PostgreSQL en segundo plano sin reiniciar servicios.
+    """
+    background_tasks.add_task(run_etl)
+    return {
+        "status": "SUCCESS",
+        "mensaje": "Migración ETL desencadenada con éxito en segundo plano."
     }
 
 if __name__ == "__main__":

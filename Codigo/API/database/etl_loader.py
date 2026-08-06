@@ -111,13 +111,15 @@ def run_etl():
         print(f" -> {total_tits} titulaciones vigentes migradas con éxito.")
 
     # 3. Migrar Planes de Estudio y Elementos Curriculares (Optimizado con Bulk Save)
-    planes_dir = os.path.join(crawler_datos_dir, "Planes")
+    planes_dir = os.path.join(os.path.dirname(crawler_datos_dir), "planes_estudio")
     if not os.path.exists(planes_dir):
         planes_dir = os.path.join(crawler_datos_dir, "planes_estudio")
+    if not os.path.exists(planes_dir):
+        planes_dir = os.path.join(crawler_datos_dir, "Planes")
 
     if os.path.exists(planes_dir):
         plan_files = [f for f in os.listdir(planes_dir) if f.endswith(".json")]
-        print(f"Migrando {len(plan_files)} planes de estudio en PDF...")
+        print(f"Migrando {len(plan_files)} planes de estudio desde '{planes_dir}'...")
         
         resumenes_bulk = []
         elementos_bulk = []

@@ -8,10 +8,10 @@ Este directorio contiene la arquitectura física de contenerización y la orques
 
 | Servicio | Contenedor | Fase | Puerto Host | Descripción |
 | :--- | :--- | :--- | :--- | :--- |
-| **Base de Datos** | `ruct_db` | Fase 2 | `5432` | PostgreSQL 15 con esquema DDL y usuario de solo lectura `ruct_api_user`. |
-| **Rastreador** | `ruct_crawler` | Fase 1 | - | Python 3.10 con **demonio Cron (`0 2 1 * *`)** y escritura atómica. |
-| **API REST** | `ruct_api` | Fase 2 | `8000` | FastAPI + SQLAlchemy exponiendo endpoints de consulta, CRUD y métricas. |
-| **Portal Web** | `ruct_www` | Fase 3 | `80`, `5173` | Nginx + React (Vite) con diseño UCA, geolocalización y panel admin. |
+| **Base de Datos** | `unihub_db` | Fase 2 | `5432` | PostgreSQL 15 con esquema DDL y usuario de solo lectura `unihub_api_user`. |
+| **Rastreador** | `unihub_crawler` | Fase 1 | - | Python 3.12 con **demonio Cron (`0 2 1 * *`)** y escritura atómica. |
+| **API REST** | `unihub_api` | Fase 2 | `8000` | FastAPI + SQLAlchemy exponiendo endpoints de consulta, CRUD y métricas. |
+| **Portal Web** | `unihub_www` | Fase 3 | `80`, `5173` | Nginx + React (Vite) con diseño responsive, geolocalización y panel admin. |
 
 ---
 

@@ -104,18 +104,18 @@ CREATE INDEX IF NOT EXISTS idx_elem_plan ON elementos_curriculares(plan_estudio_
 CREATE INDEX IF NOT EXISTS idx_elem_caracter ON elementos_curriculares(caracter);
 
 -- =====================================================================
--- SEGURIDAD: ROL DE SOLO LECTURA PARA LA API REST ('ruct_api_user')
+-- SEGURIDAD: ROL DE SOLO LECTURA PARA LA API REST ('unihub_api_user')
 -- =====================================================================
 DO $$
 BEGIN
-    IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'ruct_api_user') THEN
-        CREATE ROLE ruct_api_user WITH LOGIN PASSWORD 'ruct_api_password_sec2026';
+    IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'unihub_api_user') THEN
+        CREATE ROLE unihub_api_user WITH LOGIN PASSWORD 'unihub_api_password_sec2026';
     END IF;
 END
 $$;
 
 -- Otorgar únicamente acceso SELECT al rol de la API
-GRANT CONNECT ON DATABASE ruct_db TO ruct_api_user;
-GRANT USAGE ON SCHEMA public TO ruct_api_user;
-GRANT SELECT ON ALL TABLES IN SCHEMA public TO ruct_api_user;
-ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO ruct_api_user;
+GRANT CONNECT ON DATABASE unihub_db TO unihub_api_user;
+GRANT USAGE ON SCHEMA public TO unihub_api_user;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO unihub_api_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO unihub_api_user;

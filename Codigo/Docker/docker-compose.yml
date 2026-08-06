@@ -1,18 +1,18 @@
 version: '3.8'
 
 # ==============================================================================
-# Orquestador Docker Compose: Proyecto RUCT Universidades y Titulaciones
+# Orquestador Docker Compose: Proyecto UniHub Universidades y Titulaciones
 # (Arranque conjunto automático de Fases 1, 2, 3 y 4)
 # ==============================================================================
 
 networks:
-  ruct_network:
+  unihub_network:
     driver: bridge
-    name: ruct_network
+    name: unihub_network
 
 volumes:
   postgres_data:
-    name: ruct_postgres_data
+    name: unihub_postgres_data
 
 services:
   # ----------------------------------------------------------------------------
@@ -20,10 +20,10 @@ services:
   # ----------------------------------------------------------------------------
   db:
     image: postgres:15-alpine
-    container_name: ruct_db
+    container_name: unihub_db
     restart: always
     environment:
-      POSTGRES_DB: ${POSTGRES_DB:-ruct_db}
+      POSTGRES_DB: ${POSTGRES_DB:-unihub_db}
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-admin}
     volumes:
@@ -32,28 +32,28 @@ services:
     ports:
       - "5432:5432"
     networks:
-      - ruct_network
+      - unihub_network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-ruct_db}"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-unihub_db}"]
       interval: 5s
       timeout: 5s
       retries: 5
 
   # ----------------------------------------------------------------------------
-  # CONTENEDOR 2: Rastreador / Crawler RUCT (Fase 1) - Programación Cron 0 2 1 * *
+  # CONTENEDOR 2: Rastreador / Crawler UniHub (Fase 1) - Programación Cron 0 2 1 * *
   # ----------------------------------------------------------------------------
   crawler:
     build:
       context: ../..
       dockerfile: Codigo/Docker/crawler/Dockerfile
-    container_name: ruct_crawler
+    container_name: unihub_crawler
     restart: always
     environment:
       - PYTHONUNBUFFERED=1
     volumes:
       - ../Crawler/Datos:/app/Datos
     networks:
-      - ruct_network
+      - unihub_network
 
   # ----------------------------------------------------------------------------
   # CONTENEDOR 3: API REST Python / FastAPI (Fase 2)
@@ -62,12 +62,12 @@ services:
     build:
       context: ../..
       dockerfile: Codigo/Docker/api/Dockerfile
-    container_name: ruct_api
+    container_name: unihub_api
     restart: always
     environment:
       POSTGRES_HOST: db
       POSTGRES_PORT: 5432
-      POSTGRES_DB: ${POSTGRES_DB:-ruct_db}
+      POSTGRES_DB: ${POSTGRES_DB:-unihub_db}
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-admin}
     volumes:
@@ -75,7 +75,7 @@ services:
     ports:
       - "${API_PORT:-8000}:8000"
     networks:
-      - ruct_network
+      - unihub_network
     depends_on:
       db:
         condition: service_healthy
@@ -87,12 +87,12 @@ services:
     build:
       context: ../..
       dockerfile: Codigo/Docker/www/Dockerfile
-    container_name: ruct_www
+    container_name: unihub_www
     restart: always
     ports:
       - "${WEB_PORT:-80}:80"
       - "${WEB_ALT_PORT:-5173}:80"
     networks:
-      - ruct_network
+      - unihub_network
     depends_on:
       - api

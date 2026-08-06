@@ -177,16 +177,18 @@ export default function TuitionCalculator() {
   // Discount / Exemption type state
   const [discountType, setDiscountType] = useState('ninguno');
 
+  const isPrivada = (currentUniv?.tipo || '').toLowerCase().includes('privad');
+
   // Discount Info Explanatory Dictionary
   const DISCOUNT_INFO = {
     ninguno: null,
-    fn_general: 'Disponible acreditando el Título de Familia Numerosa de Categoría General vigente antes del inicio del curso académico. Aplica un 50% de descuento en el importe de créditos ECTS y en las tasas administrativas de secretaría.',
-    fn_especial: 'Disponible acreditando el Título de Familia Numerosa de Categoría Especial vigente. Otorga exención del 100% (gratuidad total) en asignaturas y apertura/tasas de secretaría.',
-    discapacidad: 'Disponible presentando el Dictamen Oficial de Discapacidad igual o superior al 33% emitido por el IMSERSO o la Comunidad Autónoma. Otorga exención completa del 100%.',
-    beca_mec: 'Exención provisional del 100% en créditos matriculados en 1ª matrícula. Requiere haber formalizado la solicitud de Beca MEC antes del plazo oficial. Si la beca fuera denegada, la universidad reclamará el abono en el primer cuatrimestre. Las tasas administrativas (45 €) deben abonarse salvo exención paralela.',
-    mh_bachillerato: 'Disponible exclusivamente para alumnos matriculados en 1º curso con Matrícula de Honor o Premio Extraordinario en Bachillerato o CFGS. Exime del pago del 100% de los créditos del primer curso (60 ECTS).',
-    bonif_99: 'Disponible para estudiantes de universidades públicas andaluzas que aprobaron créditos en 1ª matrícula en el curso inmediatamente anterior y no son becarios del Ministerio (Decreto 99% CCAA). Bonifica el 99% de los créditos aprobados.',
-    victima_violencia: 'Exención completa (100%) acreditando condición oficial de Víctima de Violencia de Género, Víctima del Terrorismo o Beneficiario del Ingreso Mínimo Vital mediante resolución judicial o administrativa.'
+    fn_general: isPrivada ? 'Exención autonómica NO aplicable en universidades privadas. La matrícula se calculará con la tarifa de honorarios privados ordinarios.' : 'Disponible acreditando el Título de Familia Numerosa de Categoría General vigente antes del inicio del curso académico. Aplica un 50% de descuento en el importe de créditos ECTS y en las tasas administrativas de secretaría.',
+    fn_especial: isPrivada ? 'Exención autonómica NO aplicable en universidades privadas. La matrícula se calculará con la tarifa de honorarios privados ordinarios.' : 'Disponible acreditando el Título de Familia Numerosa de Categoría Especial vigente. Otorga exención del 100% (gratuidad total) en asignaturas y apertura/tasas de secretaría.',
+    discapacidad: isPrivada ? 'Exención autonómica NO aplicable en universidades privadas. Se abonará la tarifa privada fijada por el centro.' : 'Disponible presentando el Dictamen Oficial de Discapacidad igual o superior al 33% emitido por el IMSERSO o la Comunidad Autónoma. Otorga exención completa del 100%.',
+    beca_mec: isPrivada ? 'Beca MEC en Universidad Privada: El Ministerio exime ÚNICAMENTE la cuantía del precio público oficial equivalente (~1.008 €/año para 60 ECTS). El estudiante deberá abonar la diferencia hasta cubrir los honorarios privados.' : 'Exención provisional del 100% en créditos matriculados en 1ª matrícula. Requiere haber formalizado la solicitud de Beca MEC antes del plazo oficial. Si la beca fuera denegada, la universidad reclamará el abono en el primer cuatrimestre. Las tasas administrativas (45 €) deben abonarse salvo exención paralela.',
+    mh_bachillerato: isPrivada ? 'Matrícula de Honor en Privada: Exime la cuantía equivalente al precio público oficial en 1º curso (60 ECTS x tarifa pública), debiendo abonarse la diferencia privada.' : 'Disponible exclusivamente para alumnos matriculados en 1º curso con Matrícula de Honor o Premio Extraordinario en Bachillerato o CFGS. Exime del pago del 100% de los créditos del primer curso (60 ECTS).',
+    bonif_99: isPrivada ? 'La Bonificación del 99% por Rendimiento Académico de la CCAA NO aplica a universidades privadas.' : 'Disponible para estudiantes de universidades públicas andaluzas que aprobaron créditos en 1ª matrícula en el curso inmediatamente anterior y no son becarios del Ministerio (Decreto 99% CCAA). Bonifica el 99% de los créditos aprobados.',
+    victima_violencia: isPrivada ? 'Exención autonómica NO aplicable en universidades privadas.' : 'Exención completa (100%) acreditando condición oficial de Víctima de Violencia de Género, Víctima del Terrorismo o Beneficiario del Ingreso Mínimo Vital mediante resolución judicial o administrativa.'
   };
 
   // Calculate Breakdown Costs
@@ -217,23 +219,36 @@ export default function TuitionCalculator() {
     let finalAdminFees = selectedSubjectsCount > 0 ? adminFees : 0;
     let discountLabel = '';
 
-    if (discountType === 'fn_general') {
-      discountAmount = totalSubjectCost * 0.5;
-      finalAdminFees = finalAdminFees * 0.5;
-      discountLabel = 'Exención 50% Familia Numerosa General';
-    } else if (discountType === 'fn_especial' || discountType === 'discapacidad' || discountType === 'victima_violencia') {
-      discountAmount = totalSubjectCost;
-      finalAdminFees = 0;
-      discountLabel = 'Exención 100% Gratuidad Total';
-    } else if (discountType === 'beca_mec') {
-      discountAmount = tierCosts[1] || 0;
-      discountLabel = 'Exención Beca MEC (1ª Matrícula)';
-    } else if (discountType === 'mh_bachillerato') {
-      discountAmount = Math.min(totalSubjectCost, 60 * baseEctsPrice);
-      discountLabel = 'Exención M.H. Bachillerato/CFGS (60 ECTS)';
-    } else if (discountType === 'bonif_99') {
-      discountAmount = (tierCosts[1] || 0) * 0.99;
-      discountLabel = 'Bonificación 99% CCAA Rendimiento';
+    if (!isPrivada) {
+      if (discountType === 'fn_general') {
+        discountAmount = totalSubjectCost * 0.5;
+        finalAdminFees = finalAdminFees * 0.5;
+        discountLabel = 'Exención 50% Familia Numerosa General';
+      } else if (discountType === 'fn_especial' || discountType === 'discapacidad' || discountType === 'victima_violencia') {
+        discountAmount = totalSubjectCost;
+        finalAdminFees = 0;
+        discountLabel = 'Exención 100% Gratuidad Total';
+      } else if (discountType === 'beca_mec') {
+        discountAmount = tierCosts[1] || 0;
+        discountLabel = 'Exención Beca MEC (1ª Matrícula)';
+      } else if (discountType === 'mh_bachillerato') {
+        discountAmount = Math.min(totalSubjectCost, 60 * baseEctsPrice);
+        discountLabel = 'Exención M.H. Bachillerato/CFGS (60 ECTS)';
+      } else if (discountType === 'bonif_99') {
+        discountAmount = (tierCosts[1] || 0) * 0.99;
+        discountLabel = 'Bonificación 99% CCAA Rendimiento';
+      }
+    } else {
+      // Logic for Private Universities: Only MEC / MH cover equivalent public pricing cap (~16.80 €/ECTS)
+      const publicEctsEquivPrice = 16.80;
+      if (discountType === 'beca_mec') {
+        const firstTierEcts = (tierCounts[1] || 0) * 6;
+        discountAmount = firstTierEcts * publicEctsEquivPrice;
+        discountLabel = 'Cobertura Beca MEC (Equivalente Precio Público)';
+      } else if (discountType === 'mh_bachillerato') {
+        discountAmount = Math.min(totalEcts, 60) * publicEctsEquivPrice;
+        discountLabel = 'Cobertura M.H. Bachillerato (Equivalente Precio Público)';
+      }
     }
 
     const grandTotal = Math.max(0, totalSubjectCost - discountAmount + finalAdminFees);
@@ -249,7 +264,7 @@ export default function TuitionCalculator() {
       adminFees: finalAdminFees,
       grandTotal
     };
-  }, [elements, subjectSelections, baseEctsPrice, discountType]);
+  }, [elements, subjectSelections, baseEctsPrice, discountType, isPrivada]);
 
   return (
     <div style={{ padding: '2rem 0', maxWidth: '1280px', margin: '0 auto' }}>
@@ -647,7 +662,7 @@ export default function TuitionCalculator() {
                 marginBottom: '1rem'
               }}>
                 <div style={{ fontSize: '0.85rem', color: '#10B981', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                  Importe Total Estimado de Matrícula
+                  {isPrivada ? '💎 Honorarios Privados Estimados' : '💶 Importe Matrícula Pública Estimada'}
                 </div>
                 <div style={{ fontSize: '2.2rem', fontWeight: 900, color: '#10B981', margin: '0.3rem 0' }}>
                   {calculation.grandTotal.toFixed(2)} €

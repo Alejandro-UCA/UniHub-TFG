@@ -35,6 +35,90 @@ ACADEMIC_KEYWORDS = [
     "currículo", "pensum", "malla-curricular", "titulos-oficiales", "estudios-oficiales"
 ]
 
+HEADER_KEYWORDS = [
+    "asignatura", "materia", "nombre", "crédito", "credito", "ects",
+    "curso", "carácter", "caracter", "tipo", "código", "codigo", "guía", "guia"
+]
+
+INVALID_SUBJECT_KEYWORDS = [
+    "lunes", "martes", "miércoles", "miercoles", "jueves", "viernes", "sábado", "sabado",
+    "aula", "edificio", "horario", "calendario", "examen", "convocatoria"
+]
+
+
+def is_valid_web_url(href: str) -> bool:
+    """Valida que un enlace sea HTTP/HTTPS y no un esquema especial (mailto, javascript, tel, ancla)."""
+    if not href:
+        return False
+    h = href.strip().lower()
+    if h.startswith(("#", "javascript:", "mailto:", "tel:", "whatsapp:", "ftp:", "data:")):
+        return False
+    return True
+
+
+def is_same_or_subdomain(target_url: str, base_url: str) -> bool:
+    """Verifica si target_url pertenece al mismo dominio o a un subdominio oficial de la universidad."""
+    try:
+        t_netloc = urllib.parse.urlparse(target_url).netloc.lower().replace("www.", "")
+        b_netloc = urllib.parse.urlparse(base_url).netloc.lower().replace("www.", "")
+        if not t_netloc or not b_netloc:
+            return False
+        return t_netloc == b_netloc or t_netloc.endswith("." + b_netloc) or b_netloc.endswith("." + t_netloc)
+    except Exception:
+        return False
+
+
+def extract_html_subjects(soup: BeautifulSoup) -> list:
+    """
+    Extrae elementos curriculares de tablas HTML evitando filas de cabecera (<th>),
+    palabras clave no curriculares (horarios, días) y validando créditos ECTS.
+    """
+    elementos = []
+    tables = soup.find_all("table")
+    for t in tables:
+        rows = t.find_all("tr")
+        for row in rows:
+            # Descartar filas compuestas únicamente por cabeceras <th>
+            tds = row.find_all("td")
+            if not tds:
+                continue
+
+            cols = [td.get_text(strip=True) for td in tds]
+            if len(cols) < 2:
+                continue
+
+            nombre_candidato = cols[0]
+            nombre_lower = nombre_candidato.lower()
+
+            # Descartar cabeceras o términos de horario/calendario
+            if len(nombre_candidato) < 4 or any(hk in nombre_lower for hk in HEADER_KEYWORDS) or any(sk in nombre_lower for sk in INVALID_SUBJECT_KEYWORDS):
+                continue
+
+            # Buscar créditos ECTS numéricos
+            creditos = "6"
+            found_ects = False
+            for col in cols[1:]:
+                # Extraer números (enteros o decimales ej. 6, 4.5)
+                m = re.search(r"\b(\d+(?:[.,]\d+)?)\b", col)
+                if m:
+                    val_str = m.group(1).replace(",", ".")
+                    try:
+                        val_num = float(val_str)
+                        if 1.0 <= val_num <= 60.0:
+                            creditos = str(int(val_num)) if val_num.is_integer() else str(val_num)
+                            found_ects = True
+                            break
+                    except ValueError:
+                        pass
+
+            elementos.append({
+                "nombre_elemento": nombre_candidato,
+                "creditos_ects": creditos,
+                "caracter": "OB",
+                "curso": cols[2] if len(cols) > 2 and len(cols[2]) <= 10 else ""
+            })
+    return elementos
+
 
 class UniversityWebCrawler:
     """
@@ -91,6 +175,7 @@ class UniversityWebCrawler:
         """
         Previamente accede al Sitemap (sitemap.xml / sitemap_index.xml) del portal académico
         para detectar directamente las URLs disponibles en el sitio web de la universidad.
+        Optimización 1: Timeout ajustado a 4s por sitemap candidato para evitar cuellos de botella.
         """
         sitemap_candidate_urls = set()
         parsed = urllib.parse.urlparse(base_url)
@@ -107,7 +192,7 @@ class UniversityWebCrawler:
             f"{domain_base}/sitemap-estudios.xml"
         ]
 
-        downloader = RUCTDownloader(delay=0.2, timeout=10)
+        downloader = RUCTDownloader(delay=0.1, timeout=4)
 
         for sm_url in sitemap_targets:
             try:
@@ -287,26 +372,15 @@ class UniversityWebCrawler:
                         else:
                             sub_html = downloader.fetch_text(sm_candidate_url)
                             sub_soup = BeautifulSoup(sub_html, "html.parser")
-                            tables = sub_soup.find_all("table")
-                            elementos_html = []
-                            for t in tables:
-                                for row in t.find_all("tr"):
-                                    cols = [td.get_text(strip=True) for td in row.find_all(["td", "th"])]
-                                    if len(cols) >= 2 and len(cols[0]) > 3:
-                                        elementos_html.append({
-                                            "nombre_elemento": cols[0],
-                                            "creditos_ects": cols[1] if len(cols) > 1 else "6",
-                                            "caracter": "OB",
-                                            "curso": cols[2] if len(cols) > 2 else ""
-                                        })
-                            if len(elementos_html) > 3:
+                            elementos_html = extract_html_subjects(sub_soup)
+                            if len(elementos_html) >= 3:
                                 found_curriculum = {
                                     "resumen_creditos": {"Créditos Totales": "240" if "grado" in d_title.lower() else "60"},
                                     "total_elementos": len(elementos_html),
                                     "elementos_curriculares": elementos_html
                                 }
                                 direct_source_url = sm_candidate_url
-                                print(f"     -> Encontradas asignaturas HTML desde Sitemap XML: {sm_candidate_url}")
+                                print(f"     -> Encontradas asignaturas HTML válidas desde Sitemap XML: {sm_candidate_url}")
                                 break
                     except Exception as sm_err:
                         print(f"     -> Error al probar URL del Sitemap '{sm_candidate_url}': {sm_err}")
@@ -321,11 +395,14 @@ class UniversityWebCrawler:
 
                     for a in soup.find_all("a", href=True):
                         href = a["href"].strip()
+                        if not is_valid_web_url(href):
+                            continue
+
                         text = a.get_text(strip=True).lower()
 
                         if any(kw in text for kw in ACADEMIC_KEYWORDS) or any(kw in href.lower() for kw in ACADEMIC_KEYWORDS):
                             full_url = urllib.parse.urljoin(web_url, href)
-                            if urllib.parse.urlparse(full_url).netloc == urllib.parse.urlparse(web_url).netloc:
+                            if is_same_or_subdomain(full_url, web_url):
                                 candidate_urls.add(full_url)
 
                     scanned_urls = list(candidate_urls)[:8]
@@ -341,12 +418,17 @@ class UniversityWebCrawler:
 
                             for a in sub_soup.find_all("a", href=True):
                                 href = a["href"].strip()
+                                if not is_valid_web_url(href):
+                                    continue
+
                                 text = a.get_text(strip=True)
                                 text_lower = text.lower()
 
                                 matches_title = any(kw.lower() in text_lower or kw.lower() in href.lower() for kw in title_keywords)
                                 if matches_title:
                                     target_link = urllib.parse.urljoin(candidate_page_url, href)
+                                    if not is_same_or_subdomain(target_link, web_url):
+                                        continue
                                     
                                     if target_link.lower().endswith(".pdf"):
                                         temp_pdf = os.path.join(TEMP_PDF_DIR, f"web_{d_code}.pdf")
@@ -364,20 +446,9 @@ class UniversityWebCrawler:
                                             if os.path.exists(temp_pdf):
                                                 os.remove(temp_pdf)
                                     else:
-                                        # Extraer tabla de asignaturas HTML si está presente
-                                        tables = sub_soup.find_all("table")
-                                        elementos_html = []
-                                        for t in tables:
-                                            for row in t.find_all("tr"):
-                                                cols = [td.get_text(strip=True) for td in row.find_all(["td", "th"])]
-                                                if len(cols) >= 2 and len(cols[0]) > 3:
-                                                    elementos_html.append({
-                                                        "nombre_elemento": cols[0],
-                                                        "creditos_ects": cols[1] if len(cols) > 1 else "6",
-                                                        "caracter": "OB",
-                                                        "curso": cols[2] if len(cols) > 2 else ""
-                                                    })
-                                        if len(elementos_html) > 3:
+                                        # Extraer tabla de asignaturas HTML limpia
+                                        elementos_html = extract_html_subjects(sub_soup)
+                                        if len(elementos_html) >= 3:
                                             found_curriculum = {
                                                 "resumen_creditos": {"Créditos Totales": "240" if "grado" in d_title.lower() else "60"},
                                                 "total_elementos": len(elementos_html),

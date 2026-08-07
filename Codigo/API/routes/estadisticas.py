@@ -7,6 +7,7 @@ from models.models import EstadisticaRendimiento, ErrorCrawler
 from schemas.schemas import EstadisticaRendimientoOut, ErrorCrawlerOut
 from metrics.container_metrics import collect_container_physical_stats
 from database.etl_loader import run_etl
+from security import verify_api_key
 
 router = APIRouter(prefix="/api/v1", tags=["Métricas y Salud del Crawler"])
 
@@ -189,6 +190,6 @@ def get_api_docs_info():
     }
 
 @router.post("/etl/sync", summary="Ejecutar la sincronización ETL de datos de la Fase 1 a PostgreSQL (Fase 2)")
-def sync_etl_data(background_tasks: BackgroundTasks):
+def sync_etl_data(background_tasks: BackgroundTasks, api_key: str = Depends(verify_api_key)):
     background_tasks.add_task(run_etl)
     return {"status": "ok", "mensaje": "Proceso de sincronización ETL iniciado en segundo plano."}

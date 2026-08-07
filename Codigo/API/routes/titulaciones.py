@@ -3,9 +3,10 @@ from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.orm import Session
 from sqlalchemy import case
 
-from database.connection import get_db
+from database.connection import get_db, get_admin_db
 from models.models import Titulacion, PlanEstudios, Universidad
 from schemas.schemas import TitulacionOut, TitulacionDetalleOut, PlanEstudiosOut, TitulacionCreate, TitulacionUpdate
+from security import verify_api_key
 
 router = APIRouter(prefix="/api/v1/titulaciones", tags=["Titulaciones y Planes de Estudio"])
 
@@ -50,7 +51,7 @@ def get_plan_estudios(codigo_estudio: str, db: Session = Depends(get_db)):
     return plan
 
 @router.post("", response_model=TitulacionOut, status_code=status.HTTP_201_CREATED, summary="Crear nueva titulación (Admin)")
-def create_titulacion(data: TitulacionCreate, db: Session = Depends(get_db)):
+def create_titulacion(data: TitulacionCreate, db: Session = Depends(get_admin_db), api_key: str = Depends(verify_api_key)):
     existing = db.query(Titulacion).filter(Titulacion.codigo_estudio == data.codigo_estudio).first()
     if existing:
         raise HTTPException(status_code=400, detail=f"La titulación con código '{data.codigo_estudio}' ya existe.")
@@ -78,7 +79,7 @@ def create_titulacion(data: TitulacionCreate, db: Session = Depends(get_db)):
     return new_degree
 
 @router.put("/{codigo_estudio}", response_model=TitulacionOut, summary="Actualizar titulación existente (Admin)")
-def update_titulacion(codigo_estudio: str, data: TitulacionUpdate, db: Session = Depends(get_db)):
+def update_titulacion(codigo_estudio: str, data: TitulacionUpdate, db: Session = Depends(get_admin_db), api_key: str = Depends(verify_api_key)):
     tit = db.query(Titulacion).filter(Titulacion.codigo_estudio == codigo_estudio).first()
     if not tit:
         raise HTTPException(status_code=404, detail=f"Titulación con código '{codigo_estudio}' no encontrada.")
@@ -99,7 +100,7 @@ def update_titulacion(codigo_estudio: str, data: TitulacionUpdate, db: Session =
     return tit
 
 @router.delete("/{codigo_estudio}", status_code=status.HTTP_204_NO_CONTENT, summary="Eliminar titulación (Admin)")
-def delete_titulacion(codigo_estudio: str, db: Session = Depends(get_db)):
+def delete_titulacion(codigo_estudio: str, db: Session = Depends(get_admin_db), api_key: str = Depends(verify_api_key)):
     tit = db.query(Titulacion).filter(Titulacion.codigo_estudio == codigo_estudio).first()
     if not tit:
         raise HTTPException(status_code=404, detail=f"Titulación con código '{codigo_estudio}' no encontrada.")

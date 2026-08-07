@@ -20,6 +20,9 @@ class Settings:
     API_DB_USER: str = os.getenv("API_DB_USER", "unihub_api_user")
     API_DB_PASSWORD: str = os.getenv("API_DB_PASSWORD", "unihub_api_password_sec2026")
 
+    # Clave de Administración para Operaciones CRUD y Sincronización ETL
+    ADMIN_API_KEY: str = os.getenv("ADMIN_API_KEY", "unihub_super_secret_admin_key_2026")
+
     @property
     def DATABASE_URL(self) -> str:
         """Constructs PostgreSQL SQLAlchemy connection string."""

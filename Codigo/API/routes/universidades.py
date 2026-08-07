@@ -3,9 +3,10 @@ from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.orm import Session
 from sqlalchemy import case
 
-from database.connection import get_db
+from database.connection import get_db, get_admin_db
 from models.models import Universidad, Titulacion
 from schemas.schemas import UniversidadOut, UniversidadCreate, UniversidadUpdate, TitulacionOut
+from security import verify_api_key
 
 router = APIRouter(prefix="/api/v1/universidades", tags=["Universidades"])
 
@@ -53,7 +54,7 @@ def get_titulaciones_universidad(codigo: str, db: Session = Depends(get_db)):
     return db.query(Titulacion).filter(Titulacion.universidad_codigo == univ.codigo).all()
 
 @router.post("", response_model=UniversidadOut, status_code=status.HTTP_201_CREATED, summary="Crear nueva universidad (Admin)")
-def create_universidad(data: UniversidadCreate, db: Session = Depends(get_db)):
+def create_universidad(data: UniversidadCreate, db: Session = Depends(get_admin_db), api_key: str = Depends(verify_api_key)):
     code_formatted = data.codigo.zfill(3)
     existing = db.query(Universidad).filter(Universidad.codigo == code_formatted).first()
     if existing:
@@ -76,7 +77,7 @@ def create_universidad(data: UniversidadCreate, db: Session = Depends(get_db)):
     return new_univ
 
 @router.put("/{codigo}", response_model=UniversidadOut, summary="Actualizar universidad existente (Admin)")
-def update_universidad(codigo: str, data: UniversidadUpdate, db: Session = Depends(get_db)):
+def update_universidad(codigo: str, data: UniversidadUpdate, db: Session = Depends(get_admin_db), api_key: str = Depends(verify_api_key)):
     univ_code = codigo.zfill(3)
     univ = db.query(Universidad).filter(Universidad.codigo == univ_code).first()
     if not univ:
@@ -93,7 +94,7 @@ def update_universidad(codigo: str, data: UniversidadUpdate, db: Session = Depen
     return univ
 
 @router.delete("/{codigo}", status_code=status.HTTP_204_NO_CONTENT, summary="Eliminar universidad (Admin)")
-def delete_universidad(codigo: str, db: Session = Depends(get_db)):
+def delete_universidad(codigo: str, db: Session = Depends(get_admin_db), api_key: str = Depends(verify_api_key)):
     univ_code = codigo.zfill(3)
     univ = db.query(Universidad).filter(Universidad.codigo == univ_code).first()
     if not univ:

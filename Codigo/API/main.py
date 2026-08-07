@@ -32,8 +32,9 @@ app.include_router(universidades.router)
 app.include_router(titulaciones.router)
 app.include_router(estadisticas.router)
 
-from fastapi import BackgroundTasks
+from fastapi import BackgroundTasks, Depends
 from database.etl_loader import run_etl
+from security import verify_api_key
 
 @app.get("/", tags=["General"])
 def root():
@@ -46,7 +47,7 @@ def root():
     }
 
 @app.post("/api/v1/admin/sync-etl", tags=["Administración"])
-def trigger_etl_sync(background_tasks: BackgroundTasks):
+def trigger_etl_sync(background_tasks: BackgroundTasks, api_key: str = Depends(verify_api_key)):
     """
     Sincronización reactiva en caliente: desencadena la migración ETL desde JSONs de la Fase 1
     hacia PostgreSQL en segundo plano sin reiniciar servicios.

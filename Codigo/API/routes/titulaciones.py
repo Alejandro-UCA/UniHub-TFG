@@ -85,7 +85,11 @@ def update_titulacion(codigo_estudio: str, data: TitulacionUpdate, db: Session =
 
     update_dict = data.model_dump(exclude_unset=True)
     if "universidad_codigo" in update_dict and update_dict["universidad_codigo"]:
-        update_dict["universidad_codigo"] = update_dict["universidad_codigo"].zfill(3)
+        u_code = update_dict["universidad_codigo"].zfill(3)
+        univ = db.query(Universidad).filter(Universidad.codigo == u_code).first()
+        if not univ:
+            raise HTTPException(status_code=400, detail=f"Universidad asociada '{u_code}' no existe.")
+        update_dict["universidad_codigo"] = univ.codigo
 
     for field, value in update_dict.items():
         setattr(tit, field, value)

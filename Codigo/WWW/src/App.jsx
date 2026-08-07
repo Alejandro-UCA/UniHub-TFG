@@ -393,6 +393,7 @@ export default function App() {
         {activeTab === 'admin' && isAdmin && (
           <AdminDashboard 
             onLogout={() => {
+              sessionStorage.removeItem('adminApiKey');
               setIsAdmin(false);
               setActiveTab('inicio');
             }}

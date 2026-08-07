@@ -10,11 +10,13 @@ export default function AdminLogin({ onLoginSuccess }) {
     e.preventDefault();
     setError('');
 
-    // Single Admin User Authorization check
-    if (username.trim() === 'admin' && (password === 'admin_pass_2026' || password === 'admin')) {
+    if (username.trim() === 'admin' && password.trim() !== '') {
+      // Almacenamos la contraseña como API Key para las peticiones CRUD y ETL.
+      // La validación real la hará el backend al enviar la cabecera X-API-Key.
+      sessionStorage.setItem('adminApiKey', password.trim());
       onLoginSuccess();
     } else {
-      setError('Credenciales de administrador incorrectas. Acceso restringido únicamente al Administrador de la Web.');
+      setError('Credenciales de administrador incorrectas o API Key vacía. Acceso restringido únicamente al Administrador.');
     }
   };
 

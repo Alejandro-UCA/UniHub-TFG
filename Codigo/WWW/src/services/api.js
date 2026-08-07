@@ -1,18 +1,25 @@
 import perfTracker from '../analytics/perfTracker';
 
-const API_BASE_URL = 'http://localhost:8000/api/v1';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1';
 
 async function fetchAPI(endpoint, options = {}) {
   const url = `${API_BASE_URL}${endpoint}`;
   const startTime = performance.now();
   
   try {
+    const adminApiKey = sessionStorage.getItem('adminApiKey');
+    const headers = {
+      'Content-Type': 'application/json',
+      ...options.headers,
+    };
+    
+    if (adminApiKey) {
+      headers['X-API-Key'] = adminApiKey;
+    }
+
     const response = await fetch(url, {
-      headers: {
-        'Content-Type': 'application/json',
-        ...options.headers,
-      },
       ...options,
+      headers,
     });
 
     const elapsed = performance.now() - startTime;

@@ -84,12 +84,16 @@ def run_etl():
         with open(tit_json_path, "r", encoding="utf-8") as f:
             tit_data = json.load(f)
             
+        active_titulaciones_codes = set()
         total_tits = 0
         for u_code, u_info in tit_data.items():
             vigentes = u_info.get("titulaciones_vigentes", [])
             total_tits += len(vigentes)
             for t in vigentes:
                 d_code = t.get("codigo_estudio")
+                if not d_code:
+                    continue
+                active_titulaciones_codes.add(d_code)
                 existing = db.query(Titulacion).filter(Titulacion.codigo_estudio == d_code).first()
                 if not existing:
                     tit_obj = Titulacion(
@@ -99,19 +103,31 @@ def run_etl():
                         estado=t.get("estado", ""),
                         universidad_codigo=u_code,
                         precio_credito_ects=t.get("precio_credito_ects"),
+                        precio_credito_2=t.get("precio_credito_2"),
+                        precio_credito_3=t.get("precio_credito_3"),
+                        precio_credito_4=t.get("precio_credito_4"),
                         precio_estimado_anual=t.get("precio_estimado_anual"),
                         fuente_precio=t.get("fuente_precio")
                     )
                     db.add(tit_obj)
                 else:
                     existing.titulo = t.get("titulo") or existing.titulo
-                    existing.nivel_academico = t.get("nivel_academico") or existing.nivel_academico
-                    existing.estado = t.get("estado") or existing.estado
+                    existing.nivel_academico = t.get("nivel_academico")
+                    existing.estado = t.get("estado")
                     existing.precio_credito_ects = t.get("precio_credito_ects") or existing.precio_credito_ects
+                    existing.precio_credito_2 = t.get("precio_credito_2") or existing.precio_credito_2
+                    existing.precio_credito_3 = t.get("precio_credito_3") or existing.precio_credito_3
+                    existing.precio_credito_4 = t.get("precio_credito_4") or existing.precio_credito_4
                     existing.precio_estimado_anual = t.get("precio_estimado_anual") or existing.precio_estimado_anual
                     existing.fuente_precio = t.get("fuente_precio") or existing.fuente_precio
+        
+        # Eliminar las titulaciones en BD que ya no están vigentes en el JSON
+        deleted_count = 0
+        if active_titulaciones_codes:
+            deleted_count = db.query(Titulacion).filter(~Titulacion.codigo_estudio.in_(active_titulaciones_codes)).delete(synchronize_session=False)
+
         db.commit()
-        print(f" -> {total_tits} titulaciones vigentes migradas con éxito.")
+        print(f" -> {total_tits} titulaciones vigentes migradas con éxito. {deleted_count} titulaciones extintas borradas.")
 
     # 3. Migrar Planes de Estudio y Elementos Curriculares (Optimizado con Bulk Save)
     planes_dir = os.path.join(os.path.dirname(crawler_datos_dir), "planes_estudio")
@@ -154,16 +170,23 @@ def run_etl():
                     codigo_estudio=d_code,
                     titulo=p_data.get("titulo", f"Estudio {d_code}"),
                     nivel_academico=p_data.get("nivel_academico", ""),
-                    estado="Publicado en B.O.E.",
-                    universidad_codigo=univ_obj.codigo,
+                    estado=p_data.get("estado"),
+                    universidad_codigo=p_data.get("universidad_codigo"),
                     precio_credito_ects=p_data.get("precio_credito_ects"),
+                    precio_credito_2=p_data.get("precio_credito_2"),
+                    precio_credito_3=p_data.get("precio_credito_3"),
+                    precio_credito_4=p_data.get("precio_credito_4"),
                     precio_estimado_anual=p_data.get("precio_estimado_anual"),
                     fuente_precio=p_data.get("fuente_precio")
                 )
                 db.add(tit_obj)
                 db.flush()
             else:
+                # Update existing titulacion if it was created during RUCT phase without prices
                 tit_obj.precio_credito_ects = p_data.get("precio_credito_ects") or tit_obj.precio_credito_ects
+                tit_obj.precio_credito_2 = p_data.get("precio_credito_2") or tit_obj.precio_credito_2
+                tit_obj.precio_credito_3 = p_data.get("precio_credito_3") or tit_obj.precio_credito_3
+                tit_obj.precio_credito_4 = p_data.get("precio_credito_4") or tit_obj.precio_credito_4
                 tit_obj.precio_estimado_anual = p_data.get("precio_estimado_anual") or tit_obj.precio_estimado_anual
                 tit_obj.fuente_precio = p_data.get("fuente_precio") or tit_obj.fuente_precio
                 

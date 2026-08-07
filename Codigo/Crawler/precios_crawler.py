@@ -37,6 +37,9 @@ def compute_degree_price(ccaa: str, tipo_univ: str, nivel_academico: str, titulo
     if "pública" not in tipo_univ.lower() and "publica" not in tipo_univ.lower():
         return {
             "precio_credito_ects": None,
+            "precio_credito_2": None,
+            "precio_credito_3": None,
+            "precio_credito_4": None,
             "precio_estimado_anual": None,
             "fuente_precio": "Universidad Privada (Tarifas fijadas por la institución)"
         }
@@ -72,11 +75,17 @@ def compute_degree_price(ccaa: str, tipo_univ: str, nivel_academico: str, titulo
         
     cat_prices = ccaa_data.get(cat, {})
     if isinstance(cat_prices, dict):
-        precio_ects = cat_prices.get("defecto") or cat_prices.get("1") or 15.00
+        precio_ects = float(cat_prices.get("defecto") or cat_prices.get("1") or 15.00)
+        precio_2 = float(cat_prices.get("2") or precio_ects * 1.5)
+        precio_3 = float(cat_prices.get("3") or precio_ects * 3.0)
+        precio_4 = float(cat_prices.get("4") or precio_ects * 4.5)
     else:
         precio_ects = float(cat_prices) if cat_prices else 15.00
+        precio_2 = precio_ects * 1.5
+        precio_3 = precio_ects * 3.0
+        precio_4 = precio_ects * 4.5
         
-    tasas_admin = ccaa_data.get("tasas_admin", 45.00)
+    tasas_admin = float(ccaa_data.get("tasas_admin", 45.00))
     
     # Para Doctorado la matrícula anual es la tutela académica (precio fijo de tutela ~250-350€)
     if cat == "Doctorado":
@@ -85,8 +94,11 @@ def compute_degree_price(ccaa: str, tipo_univ: str, nivel_academico: str, titulo
         precio_anual = round(60 * precio_ects + tasas_admin, 2)
         
     return {
-        "precio_credito_ects": round(float(precio_ects), 2),
-        "precio_estimado_anual": round(float(precio_anual), 2),
+        "precio_credito_ects": round(precio_ects, 2),
+        "precio_credito_2": round(precio_2, 2),
+        "precio_credito_3": round(precio_3, 2),
+        "precio_credito_4": round(precio_4, 2),
+        "precio_estimado_anual": round(precio_anual, 2),
         "fuente_precio": f"Oficial SIIU Ministerio / Decreto {ccaa}"
     }
 
@@ -122,6 +134,9 @@ def run_phase1_part3():
             price_info = compute_degree_price(ccaa, tipo_univ, nivel, titulo, precios_catalogo=precios_catalogo)
             
             degree["precio_credito_ects"] = price_info["precio_credito_ects"]
+            degree["precio_credito_2"] = price_info["precio_credito_2"]
+            degree["precio_credito_3"] = price_info["precio_credito_3"]
+            degree["precio_credito_4"] = price_info["precio_credito_4"]
             degree["precio_estimado_anual"] = price_info["precio_estimado_anual"]
             degree["fuente_precio"] = price_info["fuente_precio"]
             
@@ -148,6 +163,9 @@ def run_phase1_part3():
                 for t in u_info.get("titulaciones_vigentes", []):
                     price_info = compute_degree_price(ccaa, tipo_univ, t.get("nivel_academico", ""), t.get("titulo", ""), precios_catalogo=precios_catalogo)
                     t["precio_credito_ects"] = price_info["precio_credito_ects"]
+                    t["precio_credito_2"] = price_info["precio_credito_2"]
+                    t["precio_credito_3"] = price_info["precio_credito_3"]
+                    t["precio_credito_4"] = price_info["precio_credito_4"]
                     t["precio_estimado_anual"] = price_info["precio_estimado_anual"]
                     t["fuente_precio"] = price_info["fuente_precio"]
                     

@@ -33,3 +33,13 @@ Codigo/API/Datos/
 # OS
 Thumbs.db
 Desktop.ini
+
+# Documentation
+*.tex
+*.pdf
+*.aux
+*.lof
+*.lot
+*.out
+*.toc
+*.log

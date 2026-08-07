@@ -155,6 +155,31 @@ def extract_private_university_pricing(soup: BeautifulSoup, page_text: str) -> d
             except ValueError:
                 pass
                 
+    # 1.5 Patrones para segunda/tercera/cuarta matrícula
+    tier_patterns = {
+        "precio_credito_2": [r'(?:segunda|2ª|2a)\s*matrícula\D*?(\d{2,4}(?:[.,]\d{1,2})?)\s*€?', r'crédito\s*repetidor\D*?(\d{2,4}(?:[.,]\d{1,2})?)\s*€?'],
+        "precio_credito_3": [r'(?:tercera|3ª|3a)\s*matrícula\D*?(\d{2,4}(?:[.,]\d{1,2})?)\s*€?'],
+        "precio_credito_4": [r'(?:cuarta|4ª|4a)\s*matrícula\D*?(\d{2,4}(?:[.,]\d{1,2})?)\s*€?']
+    }
+    for key, patterns in tier_patterns.items():
+        for pat in patterns:
+            m = re.search(pat, text_lower)
+            if m:
+                val_str = m.group(1).replace(".", "").replace(",", ".")
+                try:
+                    val_num = float(val_str)
+                    if 15.0 <= val_num <= 500.0:
+                        pricing_data[key] = round(val_num, 2)
+                        break
+                except ValueError:
+                    pass
+                    
+    # Clonar precios base si faltan recargos de matrícula en privadas
+    if "precio_credito_ects" in pricing_data:
+        pricing_data["precio_credito_2"] = pricing_data.get("precio_credito_2", pricing_data["precio_credito_ects"])
+        pricing_data["precio_credito_3"] = pricing_data.get("precio_credito_3", pricing_data["precio_credito_ects"])
+        pricing_data["precio_credito_4"] = pricing_data.get("precio_credito_4", pricing_data["precio_credito_ects"])
+                
     # 2. Patrones para precio/importe anual total
     annual_patterns = [
         r'(?:precio|importe|coste|tuition|cuota|honorarios)\s*(?:total|anual|por\s*curso)?\D*?(\d{1,2}[.,]\d{3}|\d{4,5})\s*€?',
@@ -556,6 +581,9 @@ class UniversityWebCrawler:
                                                 }
                                                 if extracted_pricing.get("precio_credito_ects"):
                                                     found_curriculum["precio_credito_ects"] = extracted_pricing["precio_credito_ects"]
+                                                    found_curriculum["precio_credito_2"] = extracted_pricing.get("precio_credito_2")
+                                                    found_curriculum["precio_credito_3"] = extracted_pricing.get("precio_credito_3")
+                                                    found_curriculum["precio_credito_4"] = extracted_pricing.get("precio_credito_4")
                                                     found_curriculum["precio_estimado_anual"] = extracted_pricing["precio_estimado_anual"]
                                                     found_curriculum["fuente_precio"] = "Web Oficial Universidad Privada"
 
@@ -585,6 +613,9 @@ class UniversityWebCrawler:
                     "web_fuente_directa_url": direct_source_url,
                     "origen_fuente": "web_oficial_universidad",
                     "precio_credito_ects": found_curriculum.get("precio_credito_ects") or deg.get("precio_credito_ects"),
+                    "precio_credito_2": found_curriculum.get("precio_credito_2") or deg.get("precio_credito_2"),
+                    "precio_credito_3": found_curriculum.get("precio_credito_3") or deg.get("precio_credito_3"),
+                    "precio_credito_4": found_curriculum.get("precio_credito_4") or deg.get("precio_credito_4"),
                     "precio_estimado_anual": found_curriculum.get("precio_estimado_anual") or deg.get("precio_estimado_anual"),
                     "fuente_precio": found_curriculum.get("fuente_precio") or deg.get("fuente_precio"),
                     "plan_estudios": found_curriculum

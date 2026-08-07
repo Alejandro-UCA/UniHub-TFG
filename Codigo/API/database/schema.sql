@@ -26,6 +26,9 @@ CREATE TABLE IF NOT EXISTS titulaciones (
     estado VARCHAR(100),
     universidad_codigo VARCHAR(10) REFERENCES universidades(codigo) ON DELETE CASCADE,
     precio_credito_ects NUMERIC(6, 2),
+    precio_credito_2 NUMERIC(6, 2),
+    precio_credito_3 NUMERIC(6, 2),
+    precio_credito_4 NUMERIC(6, 2),
     precio_estimado_anual NUMERIC(8, 2),
     fuente_precio VARCHAR(255),
     creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP

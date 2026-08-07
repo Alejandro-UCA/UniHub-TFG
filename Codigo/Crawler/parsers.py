@@ -324,6 +324,10 @@ def parse_boe_pdf(pdf_filepath: str) -> dict:
             for page in pdf.pages:
                 tables = page.extract_tables()
                 for table in tables:
+                    subject_col_idx = 0
+                    materia_col_idx = -1
+                    is_first_row = True
+                    
                     for row in table:
                         if not row or all(cell is None or str(cell).strip() == "" for cell in row):
                             continue
@@ -331,10 +335,22 @@ def parse_boe_pdf(pdf_filepath: str) -> dict:
                         clean_row = [re.sub(r"\s+", " ", str(cell).strip()) if cell else "" for cell in row]
                         row_str = " ".join(clean_row).lower()
 
+                        if is_first_row:
+                            is_first_row = False
+                            if "asignatura" in row_str or "materia" in row_str:
+                                # Determine columns from headers
+                                for idx, cell_str in enumerate(clean_row):
+                                    c_lower = cell_str.lower()
+                                    if "asignatura" in c_lower:
+                                        subject_col_idx = idx
+                                    elif "materia" in c_lower and "asignatura" not in c_lower:
+                                        materia_col_idx = idx
+                                continue
+
                         if "módulo" in row_str or "modulo" in row_str:
                             current_modulo = clean_row[0] if clean_row else ""
                             continue
-                        if "materia" in row_str:
+                        if "materia" in row_str and len(clean_row) == 1:
                             current_materia = clean_row[0] if clean_row else ""
                             continue
 
@@ -365,11 +381,23 @@ def parse_boe_pdf(pdf_filepath: str) -> dict:
                             if "cuatrimestre" in cell_lower or "semestre" in cell_lower:
                                 cuatrimestre = cell
 
-                        if clean_row and len(clean_row[0]) > 3 and not any(k in clean_row[0].lower() for k in ["asignatura", "carácter", "créditos", "curso"]):
+                        # If materia is in column 0 and subject is in column 1
+                        if materia_col_idx != -1 and materia_col_idx < len(clean_row):
+                            current_materia = clean_row[materia_col_idx]
+
+                        final_subject_name = ""
+                        if subject_col_idx < len(clean_row):
+                            final_subject_name = clean_row[subject_col_idx]
+                        
+                        # Fallback heuristic: if subject column is 0, but column 0 equals the current materia, and column 1 exists, use column 1
+                        if subject_col_idx == 0 and len(clean_row) > 1 and final_subject_name.lower() == current_materia.lower():
+                            final_subject_name = clean_row[1]
+
+                        if final_subject_name and len(final_subject_name) > 3 and not any(k in final_subject_name.lower() for k in ["asignatura", "carácter", "créditos", "curso"]):
                             elementos_curriculares.append({
                                 "modulo": current_modulo,
                                 "materia": current_materia,
-                                "nombre_elemento": clean_row[0],
+                                "nombre_elemento": final_subject_name,
                                 "creditos_ects": ects_match or "6",
                                 "caracter": caracter,
                                 "curso": curso,

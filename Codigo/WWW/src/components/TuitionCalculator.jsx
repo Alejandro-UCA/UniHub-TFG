@@ -99,16 +99,18 @@ export default function TuitionCalculator() {
     return universities.find(u => u.codigo === selectedUnivCode);
   }, [universities, selectedUnivCode]);
 
-  // Multipliers by enrolment tier
-  const TIER_MULTIPLIERS = {
-    1: 1.0,  // 1ª Matrícula: 100%
-    2: 1.5,  // 2ª Matrícula: +50% (150%)
-    3: 3.0,  // 3ª Matrícula: +200% (300%)
-    4: 4.5   // 4ª Matrícula o superior: +350% (450%)
+  // Get real ECTS price by tier from database
+  const getEctsPrice = (tier) => {
+    if (!degreeDetail) return 16.80;
+    const base = parseFloat(degreeDetail.precio_credito_ects) || 16.80;
+    if (tier === 1) return base;
+    if (tier === 2) return parseFloat(degreeDetail.precio_credito_2) || (base * 1.5);
+    if (tier === 3) return parseFloat(degreeDetail.precio_credito_3) || (base * 3.0);
+    if (tier >= 4) return parseFloat(degreeDetail.precio_credito_4) || (base * 4.5);
+    return base;
   };
-
-  // Base ECTS price
-  const baseEctsPrice = degreeDetail?.precio_credito_ects || 16.80;
+  
+  const baseEctsPrice = getEctsPrice(1);
   const adminFees = 45.00; // Tasas administrativas de secretaría y carné
 
   // Elements list
@@ -206,8 +208,8 @@ export default function TuitionCalculator() {
         const ects = parseFloat(elem.creditos_ects) || 6;
         totalEcts += ects;
         
-        const mult = TIER_MULTIPLIERS[state.tier] || 1.0;
-        const subjectPrice = ects * baseEctsPrice * mult;
+        const ectsPriceForTier = getEctsPrice(state.tier);
+        const subjectPrice = ects * ectsPriceForTier;
         
         totalSubjectCost += subjectPrice;
         tierCounts[state.tier] = (tierCounts[state.tier] || 0) + 1;
@@ -465,8 +467,8 @@ export default function TuitionCalculator() {
                     const idx = subject.originalIndex;
                     const state = subjectSelections[idx] || { selected: false, tier: 1 };
                     const ects = parseFloat(subject.creditos_ects) || 6;
-                    const mult = TIER_MULTIPLIERS[state.tier] || 1.0;
-                    const itemCost = ects * baseEctsPrice * mult;
+                    const ectsPriceForTier = getEctsPrice(state.tier);
+                    const itemCost = ects * ectsPriceForTier;
 
                     return (
                       <div
@@ -515,10 +517,10 @@ export default function TuitionCalculator() {
                               cursor: 'pointer'
                             }}
                           >
-                            <option value={1}>1ª Matrícula (x1.0)</option>
-                            <option value={2}>2ª Matrícula (x1.5)</option>
-                            <option value={3}>3ª Matrícula (x3.0)</option>
-                            <option value={4}>4ª+ Matrícula (x4.5)</option>
+                            <option value={1}>1ª Matrícula ({getEctsPrice(1).toFixed(2)}€/cr)</option>
+                            <option value={2}>2ª Matrícula ({getEctsPrice(2).toFixed(2)}€/cr)</option>
+                            <option value={3}>3ª Matrícula ({getEctsPrice(3).toFixed(2)}€/cr)</option>
+                            <option value={4}>4ª+ Matrícula ({getEctsPrice(4).toFixed(2)}€/cr)</option>
                           </select>
                         </div>
 
@@ -621,25 +623,25 @@ export default function TuitionCalculator() {
                 {/* Subtotals by Tier */}
                 {calculation.tierCounts[1] > 0 && (
                   <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-                    <span>• {calculation.tierCounts[1]} asig. en 1ª Matrícula (x1.0):</span>
+                    <span>• {calculation.tierCounts[1]} asig. en 1ª Matrícula:</span>
                     <span>{calculation.tierCosts[1].toFixed(2)} €</span>
                   </div>
                 )}
                 {calculation.tierCounts[2] > 0 && (
                   <div style={{ display: 'flex', justifyContent: 'space-between', color: '#F59E0B', fontSize: '0.85rem' }}>
-                    <span>• {calculation.tierCounts[2]} asig. en 2ª Matrícula (x1.5):</span>
+                    <span>• {calculation.tierCounts[2]} asig. en 2ª Matrícula:</span>
                     <span>{calculation.tierCosts[2].toFixed(2)} €</span>
                   </div>
                 )}
                 {calculation.tierCounts[3] > 0 && (
                   <div style={{ display: 'flex', justifyContent: 'space-between', color: '#EF4444', fontSize: '0.85rem' }}>
-                    <span>• {calculation.tierCounts[3]} asig. en 3ª Matrícula (x3.0):</span>
+                    <span>• {calculation.tierCounts[3]} asig. en 3ª Matrícula:</span>
                     <span>{calculation.tierCosts[3].toFixed(2)} €</span>
                   </div>
                 )}
                 {calculation.tierCounts[4] > 0 && (
                   <div style={{ display: 'flex', justifyContent: 'space-between', color: '#DC2626', fontSize: '0.85rem' }}>
-                    <span>• {calculation.tierCounts[4]} asig. en 4ª+ Matrícula (x4.5):</span>
+                    <span>• {calculation.tierCounts[4]} asig. en 4ª+ Matrícula:</span>
                     <span>{calculation.tierCosts[4].toFixed(2)} €</span>
                   </div>
                 )}

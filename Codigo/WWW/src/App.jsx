@@ -86,11 +86,11 @@ export default function App() {
   const loadInitialData = async () => {
     setLoading(true);
     try {
-      const univData = await apiService.getUniversities();
+      const univData = await apiService.getUniversities({ limit: 500 });
       if (univData && univData.length > 0) {
         setUniversities(univData);
       }
-      const degData = await apiService.getDegrees();
+      const degData = await apiService.getDegrees({ limit: 20000 });
       if (degData && degData.length > 0) {
         setDegrees(degData);
       }

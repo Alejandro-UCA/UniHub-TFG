@@ -319,136 +319,136 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
                 print(f"   [{d_idx}/{len(degrees_to_process)}] Titulación [{d_code}]: {d_title[:65]}...")
                 
                 if checkpoint.is_extinct_degree(d_code):
-                print(f"     -> [DESECHADO] Titulación [{d_code}] ya registrada como INACTIVA/EXTINGUIDA en checkpoint. Omitiendo en 0ms.")
-                continue
+                    print(f"     -> [DESECHADO] Titulación [{d_code}] ya registrada como INACTIVA/EXTINGUIDA en checkpoint. Omitiendo en 0ms.")
+                    continue
 
-            plan_file = os.path.join(PLANES_DIR, f"{d_code}.json")
-            detail_url = URL_DETALLE_ESTUDIO_TEMPLATE.format(codigo_estudio=d_code)
+                plan_file = os.path.join(PLANES_DIR, f"{d_code}.json")
+                detail_url = URL_DETALLE_ESTUDIO_TEMPLATE.format(codigo_estudio=d_code)
             
-            try:
-                html_content = downloader.fetch_text(detail_url)
-                boe_info = parse_degree_detail_html(html_content)
+                try:
+                    html_content = downloader.fetch_text(detail_url)
+                    boe_info = parse_degree_detail_html(html_content)
 
-                is_extinct = boe_info.get("is_extinct", False)
-                st_text = boe_info.get("status_text", "")
-                candidates = boe_info.get("all_boe_candidates", [])
+                    is_extinct = boe_info.get("is_extinct", False)
+                    st_text = boe_info.get("status_text", "")
+                    candidates = boe_info.get("all_boe_candidates", [])
 
-                # Si no hay candidatos BOE y no se detectó extinción en la ficha de detalle, consultar listaestudios
-                if not candidates and not is_extinct:
-                    status_url = URL_VERIFICACION_ESTADO_TEMPLATE.format(codigo_estudio=d_code)
-                    try:
-                        st_html = downloader.fetch_text(status_url)
-                        st_soup = BeautifulSoup(st_html, "html.parser")
-                        full_st_text = st_soup.get_text()
-                        if "(TITULACIÓN EXTINGUIDA)" in full_st_text or "EXTINGUID" in full_st_text.upper() or "SIN DOCENCIA" in full_st_text.upper():
-                            is_extinct = True
-                            st_text = "TITULACIÓN EXTINGUIDA"
-                    except Exception:
-                        pass
+                    # Si no hay candidatos BOE y no se detectó extinción en la ficha de detalle, consultar listaestudios
+                    if not candidates and not is_extinct:
+                        status_url = URL_VERIFICACION_ESTADO_TEMPLATE.format(codigo_estudio=d_code)
+                        try:
+                            st_html = downloader.fetch_text(status_url)
+                            st_soup = BeautifulSoup(st_html, "html.parser")
+                            full_st_text = st_soup.get_text()
+                            if "(TITULACIÓN EXTINGUIDA)" in full_st_text or "EXTINGUID" in full_st_text.upper() or "SIN DOCENCIA" in full_st_text.upper():
+                                is_extinct = True
+                                st_text = "TITULACIÓN EXTINGUIDA"
+                        except Exception:
+                            pass
 
-                if is_extinct:
-                    print(f"     -> [DESECHADO] Titulación [{d_code}] confirmada como INACTIVA/EXTINGUIDA en RUCT ({st_text or 'Extinguida'}). Omitiendo.")
-                    checkpoint.mark_extinct_degree(d_code, st_text or "Extinguida")
-                    continue
+                    if is_extinct:
+                        print(f"     -> [DESECHADO] Titulación [{d_code}] confirmada como INACTIVA/EXTINGUIDA en RUCT ({st_text or 'Extinguida'}). Omitiendo.")
+                        checkpoint.mark_extinct_degree(d_code, st_text or "Extinguida")
+                        continue
                 
-                latest_boe_url = boe_info.get("latest_boe_url")
-                latest_boe_fecha = boe_info.get("boe_date")
+                    latest_boe_url = boe_info.get("latest_boe_url")
+                    latest_boe_fecha = boe_info.get("boe_date")
                 
-                # Check if degree is already up to date
-                if os.path.exists(plan_file) and checkpoint.is_degree_up_to_date(d_code, latest_boe_url, latest_boe_fecha):
-                    metrics.titulaciones_al_dia += 1
-                    print(f"     -> Información al día (BOE {latest_boe_fecha or 'coincide'}). Sin cambios necesarios.")
-                    continue
+                    # Check if degree is already up to date
+                    if os.path.exists(plan_file) and checkpoint.is_degree_up_to_date(d_code, latest_boe_url, latest_boe_fecha):
+                        metrics.titulaciones_al_dia += 1
+                        print(f"     -> Información al día (BOE {latest_boe_fecha or 'coincide'}). Sin cambios necesarios.")
+                        continue
 
-                if not candidates:
+                    if not candidates:
+                        task_queue.put({
+                            "type": "DEGREE_NO_BOE",
+                            "d_code": d_code,
+                            "d_title": d_title,
+                            "u_code": u_code,
+                            "u_name": u_name,
+                            "nivel_academico": deg.get("nivel_academico", "")
+                        })
+                        continue
+
+                    # Seleccionar ÚNICAMENTE el candidato BOE MÁS RECIENTE (candidates[0]) y descartar los anteriores
+                    most_recent_candidate = candidates[:1]
+                    discarded_older_boes = [c["url"] for c in candidates[1:]]
+
+                    if len(candidates) > 1:
+                        print(f"     -> {len(discarded_older_boes)} BOEs históricos anteriores descartados (procesando únicamente el BOE más reciente).")
+
+                    # Download ONLY the single most recent PDF candidate in Process 1 and queue it for Process 2
+                    downloaded_pdf_items = []
+
+                    def fetch_single_candidate(cand_tuple):
+                        cand_idx, cand = cand_tuple
+                        cand_url = cand["url"]
+                        cand_date = cand.get("boe_date")
+
+                        if checkpoint.is_non_study_plan_pdf(cand_url):
+                            print(f"     [Proceso Red] -> PDF más reciente previamente descartado (NO es plan de estudios). Omitiendo descarga.")
+                            return None
+
+                        if checkpoint.is_unreachable_url(cand_url):
+                            print(f"     [Proceso Red] -> PDF más reciente previamente registrado como inalcanzable (servidor inactivo). Omitiendo descarga.")
+                            return None
+
+                        pdf_path = os.path.join(TEMP_PDF_DIR, f"{d_code}_candidate_{cand_idx}.pdf")
+
+                        try:
+                            print(f"     [Proceso Red] -> Descargando PDF más reciente del BOE ({cand_date or 'fecha n/a'})...")
+                            downloader.download_file(cand_url, pdf_path, is_pdf=True)
+                            return {
+                                "cand_url": cand_url,
+                                "cand_date": cand_date,
+                                "pdf_path": pdf_path
+                            }
+                        except SkipUniversityException:
+                            raise
+                        except Exception as download_err:
+                            print(f"     [Proceso Red] -> Error al descargar PDF del BOE: {download_err}")
+                            checkpoint.record_pdf_download_failure(cand_url, d_code, str(download_err))
+                            return None
+
+                    with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
+                        futures = [executor.submit(fetch_single_candidate, (c_idx, c)) for c_idx, c in enumerate(most_recent_candidate, 1)]
+                        for future in concurrent.futures.as_completed(futures):
+                            try:
+                                item_res = future.result()
+                                if item_res:
+                                    downloaded_pdf_items.append(item_res)
+                            except SkipUniversityException:
+                                raise
+                            except Exception:
+                                pass
+
+                    # Send task item to Producer-Consumer queue for Process 2 parsing
                     task_queue.put({
-                        "type": "DEGREE_NO_BOE",
+                        "type": "PARSE_DEGREE_PDFS",
                         "d_code": d_code,
                         "d_title": d_title,
                         "u_code": u_code,
                         "u_name": u_name,
-                        "nivel_academico": deg.get("nivel_academico", "")
+                        "nivel_academico": deg.get("nivel_academico", ""),
+                        "latest_boe_url": latest_boe_url,
+                        "latest_boe_fecha": latest_boe_fecha,
+                        "all_boe_urls": [c["url"] for c in candidates],
+                        "pdf_items": downloaded_pdf_items
                     })
+
+                except SkipUniversityException as conn_exc:
+                    err_msg = f"Problemas de conexion continuados en la universidad [{u_code}] {u_name}"
+                    print(f"     -> [CORTOCIRCUITO] {err_msg}")
+                    logger.log_error("paso_3_conexion_fallida", u_code, detail_url, "Problemas de conexion continuados", str(conn_exc))
+                    metrics.errores_detectados += 1
+                    break
+                except Exception as e:
+                    err_msg = f"Error al procesar la titulación [{d_code}]"
+                    print(f"     -> [ERROR NO BLOQUEANTE] {err_msg}: {e}")
+                    logger.log_error("paso_3_boe_pdf", d_code, detail_url, err_msg, traceback.format_exc())
+                    metrics.errores_detectados += 1
                     continue
-
-                # Seleccionar ÚNICAMENTE el candidato BOE MÁS RECIENTE (candidates[0]) y descartar los anteriores
-                most_recent_candidate = candidates[:1]
-                discarded_older_boes = [c["url"] for c in candidates[1:]]
-
-                if len(candidates) > 1:
-                    print(f"     -> {len(discarded_older_boes)} BOEs históricos anteriores descartados (procesando únicamente el BOE más reciente).")
-
-                # Download ONLY the single most recent PDF candidate in Process 1 and queue it for Process 2
-                downloaded_pdf_items = []
-
-                def fetch_single_candidate(cand_tuple):
-                    cand_idx, cand = cand_tuple
-                    cand_url = cand["url"]
-                    cand_date = cand.get("boe_date")
-
-                    if checkpoint.is_non_study_plan_pdf(cand_url):
-                        print(f"     [Proceso Red] -> PDF más reciente previamente descartado (NO es plan de estudios). Omitiendo descarga.")
-                        return None
-
-                    if checkpoint.is_unreachable_url(cand_url):
-                        print(f"     [Proceso Red] -> PDF más reciente previamente registrado como inalcanzable (servidor inactivo). Omitiendo descarga.")
-                        return None
-
-                    pdf_path = os.path.join(TEMP_PDF_DIR, f"{d_code}_candidate_{cand_idx}.pdf")
-
-                    try:
-                        print(f"     [Proceso Red] -> Descargando PDF más reciente del BOE ({cand_date or 'fecha n/a'})...")
-                        downloader.download_file(cand_url, pdf_path, is_pdf=True)
-                        return {
-                            "cand_url": cand_url,
-                            "cand_date": cand_date,
-                            "pdf_path": pdf_path
-                        }
-                    except SkipUniversityException:
-                        raise
-                    except Exception as download_err:
-                        print(f"     [Proceso Red] -> Error al descargar PDF del BOE: {download_err}")
-                        checkpoint.record_pdf_download_failure(cand_url, d_code, str(download_err))
-                        return None
-
-                with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
-                    futures = [executor.submit(fetch_single_candidate, (c_idx, c)) for c_idx, c in enumerate(most_recent_candidate, 1)]
-                    for future in concurrent.futures.as_completed(futures):
-                        try:
-                            item_res = future.result()
-                            if item_res:
-                                downloaded_pdf_items.append(item_res)
-                        except SkipUniversityException:
-                            raise
-                        except Exception:
-                            pass
-
-                # Send task item to Producer-Consumer queue for Process 2 parsing
-                task_queue.put({
-                    "type": "PARSE_DEGREE_PDFS",
-                    "d_code": d_code,
-                    "d_title": d_title,
-                    "u_code": u_code,
-                    "u_name": u_name,
-                    "nivel_academico": deg.get("nivel_academico", ""),
-                    "latest_boe_url": latest_boe_url,
-                    "latest_boe_fecha": latest_boe_fecha,
-                    "all_boe_urls": [c["url"] for c in candidates],
-                    "pdf_items": downloaded_pdf_items
-                })
-
-            except SkipUniversityException as conn_exc:
-                err_msg = f"Problemas de conexion continuados en la universidad [{u_code}] {u_name}"
-                print(f"     -> [CORTOCIRCUITO] {err_msg}")
-                logger.log_error("paso_3_conexion_fallida", u_code, detail_url, "Problemas de conexion continuados", str(conn_exc))
-                metrics.errores_detectados += 1
-                break
-            except Exception as e:
-                err_msg = f"Error al procesar la titulación [{d_code}]"
-                print(f"     -> [ERROR NO BLOQUEANTE] {err_msg}: {e}")
-                logger.log_error("paso_3_boe_pdf", d_code, detail_url, err_msg, traceback.format_exc())
-                metrics.errores_detectados += 1
-                continue
 
         metrics.save()
         checkpoint.mark_university_processed(u_code)

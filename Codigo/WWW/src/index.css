@@ -284,7 +284,7 @@ body {
   }
 
   .hero-search-box {
-    flex-direction: column !alignment;
+    flex-direction: column !important;
   }
 
   .calculator-layout {

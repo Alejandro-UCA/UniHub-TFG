@@ -104,9 +104,12 @@ def run_etl():
                     )
                     db.add(tit_obj)
                 else:
-                    existing.precio_credito_ects = t.get("precio_credito_ects")
-                    existing.precio_estimado_anual = t.get("precio_estimado_anual")
-                    existing.fuente_precio = t.get("fuente_precio")
+                    existing.titulo = t.get("titulo") or existing.titulo
+                    existing.nivel_academico = t.get("nivel_academico") or existing.nivel_academico
+                    existing.estado = t.get("estado") or existing.estado
+                    existing.precio_credito_ects = t.get("precio_credito_ects") or existing.precio_credito_ects
+                    existing.precio_estimado_anual = t.get("precio_estimado_anual") or existing.precio_estimado_anual
+                    existing.fuente_precio = t.get("fuente_precio") or existing.fuente_precio
         db.commit()
         print(f" -> {total_tits} titulaciones vigentes migradas con éxito.")
 
@@ -133,14 +136,36 @@ def run_etl():
             if not d_code:
                 continue
                 
-            # Verify degree exists and update price fields
+            # Verify degree exists or auto-create if missing
             tit_obj = db.query(Titulacion).filter(Titulacion.codigo_estudio == d_code).first()
             if not tit_obj:
-                continue
+                univ_code = str(p_data.get("universidad_codigo", "000")).zfill(3)
+                univ_obj = db.query(Universidad).filter(Universidad.codigo == univ_code).first()
+                if not univ_obj:
+                    univ_obj = Universidad(
+                        codigo=univ_code,
+                        nombre=p_data.get("universidad_nombre", f"Universidad {univ_code}"),
+                        tipo=p_data.get("tipo", "Desconocido")
+                    )
+                    db.add(univ_obj)
+                    db.flush()
 
-            tit_obj.precio_credito_ects = p_data.get("precio_credito_ects")
-            tit_obj.precio_estimado_anual = p_data.get("precio_estimado_anual")
-            tit_obj.fuente_precio = p_data.get("fuente_precio")
+                tit_obj = Titulacion(
+                    codigo_estudio=d_code,
+                    titulo=p_data.get("titulo", f"Estudio {d_code}"),
+                    nivel_academico=p_data.get("nivel_academico", ""),
+                    estado="Publicado en B.O.E.",
+                    universidad_codigo=univ_obj.codigo,
+                    precio_credito_ects=p_data.get("precio_credito_ects"),
+                    precio_estimado_anual=p_data.get("precio_estimado_anual"),
+                    fuente_precio=p_data.get("fuente_precio")
+                )
+                db.add(tit_obj)
+                db.flush()
+            else:
+                tit_obj.precio_credito_ects = p_data.get("precio_credito_ects") or tit_obj.precio_credito_ects
+                tit_obj.precio_estimado_anual = p_data.get("precio_estimado_anual") or tit_obj.precio_estimado_anual
+                tit_obj.fuente_precio = p_data.get("fuente_precio") or tit_obj.fuente_precio
                 
             boe_date_val = None
             if p_data.get("boe_fecha"):

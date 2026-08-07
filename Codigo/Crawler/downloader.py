@@ -186,8 +186,18 @@ class RUCTDownloader:
                 self._handle_connection_success()
                 return
             except SkipUniversityException:
+                if os.path.exists(destination_path):
+                    try:
+                        os.remove(destination_path)
+                    except Exception:
+                        pass
                 raise
             except Exception as e:
+                if os.path.exists(destination_path):
+                    try:
+                        os.remove(destination_path)
+                    except Exception:
+                        pass
                 last_error = e
                 if attempt_idx < len(urls_to_try):
                     print(f"     [Proceso Red] -> Falló conexión HTTP a '{target_url}'. Reintentando con HTTPS...")

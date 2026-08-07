@@ -236,89 +236,89 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
         # PASO 1: Descargar / Inspeccionar listado de universidades (Públicas prioritarias)
         # -------------------------------------------------------------------------
         print("[Paso 1] Obteniendo listado oficial de universidades (Públicas prioritarias)...")
-    univ_file = os.path.join(TEMP_PDF_DIR, "universidades_list.xls")
-    
-    try:
-        t0 = time.perf_counter()
-        downloader.download_file(URL_UNIVERSIDADES_LIST, univ_file)
-        metrics.record_io_time(time.perf_counter() - t0)
-        universities = parse_universities_xls(univ_file)
-        atomic_json_dump(universities, UNIVERSIDADES_JSON)
-        checkpoint.mark_universities_downloaded()
-        print(f" -> {len(universities)} universidades comprobadas y actualizadas en '{UNIVERSIDADES_JSON}'.")
-    except Exception as e:
-        err_msg = "Error crítico al descargar el catálogo general de universidades"
-        print(f" [ERROR CRÍTICO] {err_msg}: {e}")
-        logger.log_error("paso_1_universidades", "ALL", URL_UNIVERSIDADES_LIST, err_msg, str(e))
-        metrics.errores_detectados += 1
-        return
-
-    if limit_univ:
-        universities = universities[:limit_univ]
-
-    # -------------------------------------------------------------------------
-    # PASOS 2 Y 3: Inspeccionar titulaciones por universidad y descargar PDFs candidatos
-    # -------------------------------------------------------------------------
-    print("\n[Paso 2 y 3] Inspeccionando titulaciones vigentes y descargando PDFs candidatos...\n")
-    titulaciones_por_universidad = {}
-
-    for u_idx, univ in enumerate(universities, 1):
-        metrics.universidades_inspeccionadas += 1
-        u_code = univ["codigo"]
-        u_name = univ["nombre"]
-        u_tipo = univ.get("tipo", "Desconocido")
-
-        downloader.reset_university_context(u_code)
-        print(f"({u_idx}/{len(universities)}) Procesando Universidad [{u_code}] ({u_tipo}): {u_name}")
-
-        univ_degrees_file = os.path.join(TEMP_PDF_DIR, f"degrees_{u_code}.xls")
-        try:
-            degrees_url = URL_ESTUDIOS_UNIV_TEMPLATE.format(codigo_universidad=u_code, codigo=u_code)
-        except KeyError:
-            degrees_url = URL_ESTUDIOS_UNIV_TEMPLATE.format(codigo=u_code)
-
+        univ_file = os.path.join(TEMP_PDF_DIR, "universidades_list.xls")
+        
         try:
             t0 = time.perf_counter()
-            downloader.download_file(degrees_url, univ_degrees_file)
+            downloader.download_file(URL_UNIVERSIDADES_LIST, univ_file)
             metrics.record_io_time(time.perf_counter() - t0)
-            active_degrees = parse_degrees_xls(univ_degrees_file)
-        except SkipUniversityException as conn_exc:
-            err_msg = f"Problemas de conexion continuados en la universidad [{u_code}] {u_name}"
-            print(f"     -> [CORTOCIRCUITO] {err_msg}")
-            logger.log_error("paso_2_titulaciones_univ", u_code, degrees_url, "Problemas de conexion continuados", str(conn_exc))
-            metrics.errores_detectados += 1
-            continue
+            universities = parse_universities_xls(univ_file)
+            atomic_json_dump(universities, UNIVERSIDADES_JSON)
+            checkpoint.mark_universities_downloaded()
+            print(f" -> {len(universities)} universidades comprobadas y actualizadas en '{UNIVERSIDADES_JSON}'.")
         except Exception as e:
-            err_msg = f"Error al procesar la lista de titulaciones de la universidad [{u_code}]"
-            print(f"     -> [ERROR NO BLOQUEANTE] {err_msg}: {e}")
-            logger.log_error("paso_2_titulaciones_univ", u_code, degrees_url, err_msg, str(e))
+            err_msg = "Error crítico al descargar el catálogo general de universidades"
+            print(f" [ERROR CRÍTICO] {err_msg}: {e}")
+            logger.log_error("paso_1_universidades", "ALL", URL_UNIVERSIDADES_LIST, err_msg, str(e))
             metrics.errores_detectados += 1
-            continue
+            return
 
-        print(f"     -> {len(active_degrees)} titulaciones VIGENTES/RENOVADAS identificadas.")
+        if limit_univ:
+            universities = universities[:limit_univ]
 
-        titulaciones_por_universidad[u_code] = {
-            "universidad_codigo": u_code,
-            "universidad_nombre": u_name,
-            "tipo": u_tipo,
-            "total_titulaciones_vigentes": len(active_degrees),
-            "titulaciones_vigentes": active_degrees
-        }
-        atomic_json_dump(titulaciones_por_universidad, TITULACIONES_JSON)
+        # -------------------------------------------------------------------------
+        # PASOS 2 Y 3: Inspeccionar titulaciones por universidad y descargar PDFs candidatos
+        # -------------------------------------------------------------------------
+        print("\n[Paso 2 y 3] Inspeccionando titulaciones vigentes y descargando PDFs candidatos...\n")
+        titulaciones_por_universidad = {}
 
-        # REQUERIMIENTO: Procesar titulaciones en orden inverso (última primero)
-        degrees_to_process = active_degrees[::-1]
-        if limit_degrees:
-            degrees_to_process = degrees_to_process[:limit_degrees]
+        for u_idx, univ in enumerate(universities, 1):
+            metrics.universidades_inspeccionadas += 1
+            u_code = univ["codigo"]
+            u_name = univ["nombre"]
+            u_tipo = univ.get("tipo", "Desconocido")
 
-        # Inspect each degree for latest BOE and download PDF candidates in Process 1
-        for d_idx, deg in enumerate(degrees_to_process, 1):
-            metrics.titulaciones_inspeccionadas += 1
-            d_code = deg.get("codigo_estudio", "")
-            d_title = deg.get("titulo", "")
-            print(f"   [{d_idx}/{len(degrees_to_process)}] Titulación [{d_code}]: {d_title[:65]}...")
-            
-            if checkpoint.is_extinct_degree(d_code):
+            downloader.reset_university_context(u_code)
+            print(f"({u_idx}/{len(universities)}) Procesando Universidad [{u_code}] ({u_tipo}): {u_name}")
+
+            univ_degrees_file = os.path.join(TEMP_PDF_DIR, f"degrees_{u_code}.xls")
+            try:
+                degrees_url = URL_ESTUDIOS_UNIV_TEMPLATE.format(codigo_universidad=u_code, codigo=u_code)
+            except KeyError:
+                degrees_url = URL_ESTUDIOS_UNIV_TEMPLATE.format(codigo=u_code)
+
+            try:
+                t0 = time.perf_counter()
+                downloader.download_file(degrees_url, univ_degrees_file)
+                metrics.record_io_time(time.perf_counter() - t0)
+                active_degrees = parse_degrees_xls(univ_degrees_file)
+            except SkipUniversityException as conn_exc:
+                err_msg = f"Problemas de conexion continuados en la universidad [{u_code}] {u_name}"
+                print(f"     -> [CORTOCIRCUITO] {err_msg}")
+                logger.log_error("paso_2_titulaciones_univ", u_code, degrees_url, "Problemas de conexion continuados", str(conn_exc))
+                metrics.errores_detectados += 1
+                continue
+            except Exception as e:
+                err_msg = f"Error al procesar la lista de titulaciones de la universidad [{u_code}]"
+                print(f"     -> [ERROR NO BLOQUEANTE] {err_msg}: {e}")
+                logger.log_error("paso_2_titulaciones_univ", u_code, degrees_url, err_msg, str(e))
+                metrics.errores_detectados += 1
+                continue
+
+            print(f"     -> {len(active_degrees)} titulaciones VIGENTES/RENOVADAS identificadas.")
+
+            titulaciones_por_universidad[u_code] = {
+                "universidad_codigo": u_code,
+                "universidad_nombre": u_name,
+                "tipo": u_tipo,
+                "total_titulaciones_vigentes": len(active_degrees),
+                "titulaciones_vigentes": active_degrees
+            }
+            atomic_json_dump(titulaciones_por_universidad, TITULACIONES_JSON)
+
+            # REQUERIMIENTO: Procesar titulaciones en orden inverso (última primero)
+            degrees_to_process = active_degrees[::-1]
+            if limit_degrees:
+                degrees_to_process = degrees_to_process[:limit_degrees]
+
+            # Inspect each degree for latest BOE and download PDF candidates in Process 1
+            for d_idx, deg in enumerate(degrees_to_process, 1):
+                metrics.titulaciones_inspeccionadas += 1
+                d_code = deg.get("codigo_estudio", "")
+                d_title = deg.get("titulo", "")
+                print(f"   [{d_idx}/{len(degrees_to_process)}] Titulación [{d_code}]: {d_title[:65]}...")
+                
+                if checkpoint.is_extinct_degree(d_code):
                 print(f"     -> [DESECHADO] Titulación [{d_code}] ya registrada como INACTIVA/EXTINGUIDA en checkpoint. Omitiendo en 0ms.")
                 continue
 
@@ -453,27 +453,27 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
         metrics.save()
         checkpoint.mark_university_processed(u_code)
 
-    # Finalización de Proceso 2 (Parser CPU) si se ejecutó la Parte 1
-    print("\n[Finalizando Red] Enviando señal de parada al Proceso 2 (Parser CPU)...")
-    task_queue.put({"type": "STOP"})
-    
-    # Receive metrics summary from Process 2
-    consumer_results = result_queue.get()
-    parser_process.join()
+        # Finalización de Proceso 2 (Parser CPU) si se ejecutó la Parte 1
+        print("\n[Finalizando Red] Enviando señal de parada al Proceso 2 (Parser CPU)...")
+        task_queue.put({"type": "STOP"})
+        
+        # Receive metrics summary from Process 2
+        consumer_results = result_queue.get()
+        parser_process.join()
 
-    metrics.pdfs_parseados = consumer_results.get("parsed_count", 0)
-    metrics.titulaciones_descargadas_actualizadas = consumer_results.get("updated_degrees_count", 0)
-    metrics.save()
+        metrics.pdfs_parseados = consumer_results.get("parsed_count", 0)
+        metrics.titulaciones_descargadas_actualizadas = consumer_results.get("updated_degrees_count", 0)
+        metrics.save()
 
-    print("\n" + "=" * 70)
-    print("      CRAWLER UNIHUB PARTE 1 FINALIZADO CON ÉXITO")
-    print("======================================================================")
-    print(f" -> Universidades inspeccionadas: {metrics.universidades_inspeccionadas}")
-    print(f" -> Titulaciones inspeccionadas:  {metrics.titulaciones_inspeccionadas}")
-    print(f" -> Titulaciones al día:          {metrics.titulaciones_al_dia}")
-    print(f" -> Titulaciones actualizadas:    {metrics.titulaciones_descargadas_actualizadas}")
-    print(f" -> PDFs parseados del BOE:       {metrics.pdfs_parseados}")
-    print(f" -> Errores (registrados en log): {metrics.errores_detectados}")
+        print("\n" + "=" * 70)
+        print("      CRAWLER UNIHUB PARTE 1 FINALIZADO CON ÉXITO")
+        print("======================================================================")
+        print(f" -> Universidades inspeccionadas: {metrics.universidades_inspeccionadas}")
+        print(f" -> Titulaciones inspeccionadas:  {metrics.titulaciones_inspeccionadas}")
+        print(f" -> Titulaciones al día:          {metrics.titulaciones_al_dia}")
+        print(f" -> Titulaciones actualizadas:    {metrics.titulaciones_descargadas_actualizadas}")
+        print(f" -> PDFs parseados del BOE:       {metrics.pdfs_parseados}")
+        print(f" -> Errores (registrados en log): {metrics.errores_detectados}")
 
     # -------------------------------------------------------------------------
     # PARTE 2 DE LA FASE 1: ESCANEO PARALELO DE LAS WEBS OFICIALES DE UNIVERSIDADES

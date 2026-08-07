@@ -51,6 +51,9 @@ class TitulacionUpdate(BaseModel):
     nivel_academico: Optional[str] = None
     estado: Optional[str] = None
     universidad_codigo: Optional[str] = None
+    precio_credito_ects: Optional[float] = None
+    precio_estimado_anual: Optional[float] = None
+    fuente_precio: Optional[str] = None
 
 class TitulacionOut(TitulacionBase):
     id: int

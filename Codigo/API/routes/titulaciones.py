@@ -18,7 +18,7 @@ def list_titulaciones(
     limit: int = Query(100, ge=1, le=500),
     db: Session = Depends(get_db)
 ):
-    query = db.query(Titulacion).join(Universidad)
+    query = db.query(Titulacion).outerjoin(Universidad)
     if titulo:
         query = query.filter(Titulacion.titulo.ilike(f"%{titulo}%"))
     if nivel_academico:
@@ -67,7 +67,10 @@ def create_titulacion(data: TitulacionCreate, db: Session = Depends(get_db)):
         titulo=data.titulo,
         nivel_academico=data.nivel_academico,
         estado=data.estado or "Publicado en B.O.E.",
-        universidad_codigo=univ.codigo
+        universidad_codigo=univ.codigo,
+        precio_credito_ects=data.precio_credito_ects,
+        precio_estimado_anual=data.precio_estimado_anual,
+        fuente_precio=data.fuente_precio
     )
     db.add(new_degree)
     db.commit()

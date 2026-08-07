@@ -1,12 +1,12 @@
-Este capítulo recoge la arquitectura física planteada para el sistema **UniHub**, las instrucciones para su despliegue y las instrucciones para la operación y mantenimiento del nivel de servicio.
+Este capítulo recoge la arquitectura física planteada para el sistema \textbf{UniHub}, las instrucciones para su despliegue y las instrucciones para la operación y mantenimiento del nivel de servicio.
 
 \section{Arquitectura Física}
-La arquitectura física del sistema se basa en la virtualización liviana mediante contenedores Docker sobre un servidor anfitrión con sistema operativo Linux o Windows con soporte para Docker Engine. La infraestructura se compone de 4 contenedores aislados que se comunican en una red puente virtualizada (\texttt{ruct\_network}):
+La arquitectura física del sistema se basa en la virtualización liviana mediante contenedores Docker sobre un servidor anfitrión con sistema operativo Linux o Windows con soporte para Docker Engine. La infraestructura se compone de 4 contenedores aislados que se comunican en una red puente virtualizada (\texttt{unihub\_network}):
 \begin{enumerate}
-    \item \textbf{Servidor de Base de Datos (\texttt{ruct\_db}):} Contenedor PostgreSQL 15 escuchando en el puerto 5432 con volumen nominado \texttt{ruct\_postgres\_data}.
-    \item \textbf{Servidor de API REST (\texttt{ruct\_api}):} Contenedor Python 3.12 / FastAPI escuchando en el puerto 8000.
-    \item \textbf{Servidor Web Nginx (\texttt{ruct\_www}):} Contenedor Nginx escuchando en los puertos 80 y 5173.
-    \item \textbf{Contenedor de Ingesta (\texttt{ruct\_crawler}):} Contenedor Python para ejecuciones del rastreador con montaje directo en la carpeta del host \texttt{Codigo/Crawler/Datos}.
+    \item \textbf{Servidor de Base de Datos (\texttt{unihub\_db}):} Contenedor PostgreSQL 15 escuchando en el puerto 5432 con volumen nominado \texttt{unihub\_postgres_data} y prueba de salud (\emph{healthcheck}) configurada con \texttt{start\_period: 20s} y 10 reintentos para tolerar la carga DDL inicial en instalaciones limpias.
+    \item \textbf{Servidor de API REST (\texttt{unihub\_api}):} Contenedor Python 3.12 / FastAPI escuchando en el puerto 8000 con soporte para sincronización ETL reactiva (\texttt{/api/v1/admin/sync-etl}).
+    \item \textbf{Servidor Web Nginx (\texttt{unihub\_www}):} Contenedor Nginx escuchando en los puertos 80 y 5173 sirviendo la SPA compilada en React.
+    \item \textbf{Contenedor de Ingesta (\texttt{unihub\_crawler}):} Contenedor Python para ejecuciones del rastreador con demonio Cron (\texttt{0 2 1 * *}) y montaje directo en la carpeta del host \texttt{Codigo/Crawler/Datos}.
 \end{enumerate}
 
 \section{Instrucciones de despliegue}
@@ -24,22 +24,32 @@ Los artefactos del despliegue se ubican en \texttt{Codigo/Docker/}:
     \item \texttt{crawler/Dockerfile} y \texttt{crawler/entrypoint.sh}
     \item \texttt{api/Dockerfile} y \texttt{api/entrypoint.sh}
     \item \texttt{www/Dockerfile} y \texttt{www/nginx.conf}
+    \item Scripts de puesta en marcha en la raíz: \texttt{iniciar\_proyecto.bat} y \texttt{detener\_proyecto.bat} (Windows).
 \end{itemize}
 
 \subsection{Procedimientos de instalación}
-Para desplegar todo el sistema contenerizado:
+Para desplegar el sistema contenerizado se dispone de dos modalidades:
+
+\subsubsection{Modalidad A: Mediante Script Automatizado (Recomendado)}
+Ejecutar desde la raíz del proyecto el script de conveniencia:
+\begin{lstlisting}[language=bash]
+iniciar_proyecto.bat
+\end{lstlisting}
+Dicho script verifica los puertos del sistema, compila las imágenes Docker y levanta los 4 contenedores automáticamente.
+
+\subsubsection{Modalidad B: Despliegue General con Docker Compose}
 \begin{enumerate}
     \item Navegar a la carpeta del entorno Docker:
         \begin{lstlisting}[language=bash]
 cd d:\Proyecto\Codigo\Docker
         \end{lstlisting}
-    \item Construir y levantar los servicios en segundo plano:
+    \item Construir y levantar todos los servicios en segundo plano:
         \begin{lstlisting}[language=bash]
 docker compose up --build -d
         \end{lstlisting}
-    \item Poblar la base de datos PostgreSQL desde los archivos JSON:
+    \item Alternativamente, para un despliegue selectivo (sin el crawler de la Fase 1):
         \begin{lstlisting}[language=bash]
-docker compose exec api python database/etl_loader.py
+docker compose up -d db api www
         \end{lstlisting}
 \end{enumerate}
 
@@ -48,6 +58,7 @@ Acceder desde el navegador web a las siguientes direcciones de verificación:
 \begin{itemize}
     \item Portal Web Frontend UniHub: \url{http://localhost} o \url{http://localhost:5173}
     \item Documentación API Swagger: \url{http://localhost:8000/docs}
+    \item Documentación ReDoc: \url{http://localhost:8000/redoc}
     \item Panel de Administración (Acceso Aislado): \url{http://localhost/admin}
 \end{itemize}
 
@@ -55,6 +66,7 @@ Acceder desde el navegador web a las siguientes direcciones de verificación:
 Para garantizar la continuidad de servicio y la persistencia de los datos:
 \begin{itemize}
     \item \textbf{Chequeo de Logs:} Monitorear la salud de los servicios con \texttt{docker compose logs -f}.
-    \item \textbf{Copia de Seguridad de la BD:} Exportar backup mediante \texttt{docker compose exec db pg\_dump -U postgres ruct\_db > backup.sql}.
-    \item \textbf{Copia de Seguridad de Archivos JSON:} La carpeta \texttt{Codigo/Crawler/Datos} en el host mantiene los archivos descargados e insustituibles físicamente en disco.
+    \item \textbf{Telemetría cgroup y Green IT:} La API expone en \texttt{/api/v1/estadisticas/contenedores} la monitorización de RAM RSS/Peak, uso de CPU \%, espacio en disco y estimación de Huella de Carbono ($gCO_2$).
+    \item \textbf{Copia de Seguridad de la BD:} Exportar backup mediante \texttt{docker compose exec db pg\_dump -U postgres unihub\_db > backup.sql}.
+    \item \textbf{Copia de Seguridad de Archivos JSON:} La carpeta \texttt{Codigo/Crawler/Datos} en el host mantiene los 13.653 archivos JSON estructurados a salvo en disco.
 \end{itemize}

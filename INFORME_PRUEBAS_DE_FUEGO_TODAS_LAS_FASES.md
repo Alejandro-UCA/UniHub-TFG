@@ -1,6 +1,6 @@
 # 📊 INFORME METICULOSO DE PRUEBAS DE FUEGO INTEGRALES - PROYECTO UNIHUB
 
-**Fecha y Hora de Auditoría**: 2026-08-06 14:12:00  
+**Fecha y Hora de Auditoría**: 2026-08-07 12:00:00  
 **Entorno de Ejecución**: Windows 11 / Python 3.12 / FastAPI 0.110 / React 18 / PostgreSQL 15 / Docker Compose v2  
 **Repositorio GitHub**: `https://github.com/Alejandro-UCA/UniHub-TFG.git`
 
@@ -12,6 +12,7 @@
 - **Directorio de Persistencia**: `Codigo/Crawler/planes_estudio/` e `titulaciones_universidad.json`.
 - **Volumen de Planes Estructurados**: **13.653 archivos JSON atómicos** de titulaciones.
 - **Gestión de Checkpoint**: `checkpoint.json` opera con caché por fecha de modificación (`mtime`) en memoria RAM y registros atómicos de omisión (`extinct_degrees`, `non_study_plan_pdfs`, `unreachable_urls`) permitiendo escaneos en 0 milisegundos para titulaciones ya procesadas.
+- **Soporte de Ejecución Modular por Partes**: `python main.py --parts 1 2 3` o ejecuciones independientes (`--parts 2 3` o `--parts 3`) con aislamiento de variables multihilo y gestión independiente de tareas.
 
 ### 1.2 Prueba de Fuego Parte 1 (Ingesta RUCT & Parser BOE PDF)
 - **Resiliencia de Red (`downloader.py`)**: Tolerancia a fallos con exclusión de errores HTTP 404 del contador de cortocircuito. Reintento automático tras 5 minutos ante cuellos de botella HTTP 429/50x.
@@ -29,9 +30,10 @@
   - **Tasa de Éxito**: **3 de 3 titulaciones resueltas (100% de éxito)**.
   - **Recolección de Precios Privados**: Extracción y almacenamiento en JSON de honorarios docentes privados (**145.00 €/ECTS** y **8.700.00 €/año**).
 
-### 1.4 Prueba de Fuego Parte 3 (Consolidación Curricular ECTS)
+### 1.4 Prueba de Fuego Parte 3 (Consolidación Curricular ECTS & Tarifas SIIU)
 - **Normalización de Asignaturas**: Asignación atómica de nombre, créditos ECTS, módulo, carácter y curso académico.
 - **Muestreo Evaluado**: 89 asignaturas normalizadas en muestra con **711.0 ECTS** acumulados.
+- **Asignación de Precios ECTS Oficiales**: Integración de Decretos de precios de las 17 CCAA para 9.783 titulaciones de universidades públicas.
 
 ---
 
@@ -49,7 +51,7 @@
 
 ### 2.3 Endpoints API REST Evaluados
 - `GET /`: Mensaje de bienvenida y enlaces a Swagger/ReDoc.
-- `GET /api/v1/universidades`: Lista ordenada prioritariamente (Públicas primero, Privadas después).
+- `GET /api/v1/universidades`: Lista ordenada prioritariamente (Públicas primero, Privadas después) con filtro corregido `ccaa`.
 - `GET /api/v1/titulaciones/{codigo}`: Detalle de titulación con precios ECTS y fuente.
 - `POST /api/v1/admin/sync-etl`: Endpoint de sincronización en caliente en segundo plano (`BackgroundTasks`).
 
@@ -94,15 +96,17 @@ Se ejecutaron 4 escenarios financieros reales:
 
 ### 4.1 Comprobación del Orquestador Docker Compose (`docker-compose.yml`)
 - **Contenedores Orquestados**:
-  1. `unihub_db` (PostgreSQL 15 Alpine, puerto `5432`).
+  1. `unihub_db` (PostgreSQL 15 Alpine, puerto `5432`, `start_period: 20s`, `retries: 10`).
   2. `unihub_api` (FastAPI + Uvicorn, puerto `8000`).
   3. `unihub_www` (Nginx + React SPA, puertos `80` y `5173`).
   4. `unihub_crawler` (Python 3.12 Crawler Daemon).
-- **Scripts de Arranque/Parada**: `iniciar_proyecto.bat` / `detener_proyecto.bat` (Windows) e `iniciar_proyecto.sh` / `detener_proyecto.sh` (Linux/macOS).
+- **Scripts de Arranque/Parada**: `iniciar_proyecto.bat` / `detener_proyecto.bat` (Windows).
+- **Despliegue Selectivo**: Admite despliegue `docker compose up -d db api www` para operar la interfaz y API REST sin el crawler activo.
 
-### 4.2 Verificación de Persistencia
+### 4.2 Verificación de Persistencia y Telemetría Green IT
 - **Volumen Nombrado (`unihub_postgres_data`)**: Al ejecutar `docker compose down` o detener los dockers, los datos relacionales de PostgreSQL **se conservan al 100%**.
 - **Montajes de Disco Host (`planes_estudio/`)**: Los 13.653 archivos JSON atómicos permanecen salvaguardados en el sistema de archivos del host.
+- **Métricas Físicas y Ambientales**: Integración en el panel admin del consumo de memoria RAM RSS/Peak, CPU %, espacio en disco, ratio de conversión de búsquedas a calculadora y estimación de **Huella de Carbono Green IT ($gCO_2$)**.
 
 ---
 

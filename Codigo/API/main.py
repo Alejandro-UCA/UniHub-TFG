@@ -32,7 +32,7 @@ app.include_router(universidades.router)
 app.include_router(titulaciones.router)
 app.include_router(estadisticas.router)
 
-from fastapi import FastAPI, BackgroundTasks
+from fastapi import BackgroundTasks
 from database.etl_loader import run_etl
 
 @app.get("/", tags=["General"])

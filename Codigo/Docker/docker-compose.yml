@@ -35,9 +35,10 @@ services:
       - unihub_network
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-unihub_db}"]
-      interval: 5s
+      interval: 3s
       timeout: 5s
-      retries: 5
+      retries: 10
+      start_period: 20s
 
   # ----------------------------------------------------------------------------
   # CONTENEDOR 2: Rastreador / Crawler UniHub (Fase 1) - Programación Cron 0 2 1 * *

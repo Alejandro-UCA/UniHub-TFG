@@ -7,9 +7,9 @@ Se adopta una arquitectura desacoplada basada en microservicios contenerizados y
 Siguiendo el modelo C4 (Contenedores y Componentes), el sistema se divide en cuatro capas principales:
 \begin{enumerate}
     \item \textbf{Capa de Presentación (Frontend):} Servidor Web Nginx entregando la SPA compilada en React con soporte para la ruta aislada \texttt{/admin} (Fase 3).
-    \item \textbf{Capa de Servicio (API REST):} Framework FastAPI en Python que expone controladores RESTful, métricas cgroup de contenedores y endpoints CRUD (Fase 2).
+    \item \textbf{Capa de Servicio (API REST):} Framework FastAPI en Python que expone controladores RESTful, métricas cgroup de contenedores, sincronización reactiva \texttt{/api/v1/admin/sync-etl} y endpoints CRUD (Fase 2).
     \item \textbf{Capa de Datos (Persistencia):} Motor de Base de Datos Relacional PostgreSQL 15 con el esquema DDL y almacenamiento de archivos JSON en disco (Fase 2 y 1).
-    \item \textbf{Capa de Ingesta (Crawler):} Módulo independiente en Python estructurado en 2 procesos paralelos y 2 partes (RUCT/BOE y webs oficiales de universidades) con servicio Cron para ejecuciones desatendidas mensuales (Fase 1).
+    \item \textbf{Capa de Ingesta (Crawler):} Módulo independiente en Python estructurado en 2 procesos paralelos y 3 partes (RUCT/BOE, webs oficiales y consolidación de precios ECTS SIIU) con servicio Cron para ejecuciones desatendidas mensuales (Fase 1).
 \end{enumerate}
 
 \subsection{Diseño detallado}
@@ -17,11 +17,11 @@ La API REST implementa controladores modulares mediante \texttt{APIRouter} en Fa
 \begin{itemize}
     \item \texttt{routes/universidades.py}: Endpoints con ordenación prioritaria (Públicas primero) y operaciones CRUD.
     \item \texttt{routes/titulaciones.py}: Endpoints para Grados, Másteres y Doctorados y lectura de planes de estudio BOE.
-    \item \texttt{metrics/container\_metrics.py}: Muestreo de métricas físicas de salud (RAM RSS MB, CPU \%) por contenedor cgroup.
+    \item \texttt{metrics/container\_metrics.py}: Muestreo de métricas físicas de salud (RAM RSS MB, CPU \%) y huella de carbono ($gCO_2$) por contenedor cgroup.
 \end{itemize}
 
 \section{Parametrización del software base}
-Se configuró el servidor proxy inverso Nginx (\texttt{nginx.conf}) para redirigir las peticiones \texttt{/api/v1/} hacia la API REST en \texttt{http://api:8000/api/v1/} y servir la SPA React en la raíz \texttt{/}, soportando react-router para la URL \texttt{/admin}. En PostgreSQL, se parametrizó la creación del usuario restringido \texttt{rupt\_api\_user} con permisos \texttt{GRANT SELECT} exclusivo.
+Se configuró el servidor proxy inverso Nginx (\texttt{nginx.conf}) para redirigir las peticiones \texttt{/api/v1/} hacia la API REST en \texttt{http://api:8000/api/v1/} y servir la SPA React en la raíz \texttt{/}, soportando react-router para la URL \texttt{/admin}. En PostgreSQL, se parametrizó la creación del usuario restringido \texttt{unihub\_api\_user} con permisos \texttt{GRANT SELECT} exclusivo.
 
 \section{Diseño Físico de Datos}
 El diseño relacional en PostgreSQL (\texttt{schema.sql}) se compone de las siguientes tablas principales con claves primarias y foráneas con borrado en cascada, optimizadas mediante la extensión de trigramas \texttt{pg\_trgm}:

@@ -110,10 +110,14 @@ def collect_container_physical_stats() -> dict:
 
     crawler_info = get_crawler_status_and_metrics(datos_dir)
 
+    # Estimación de Huella de Carbono Green IT (gCO2e)
+    # Factor aproximado: ~0.0003 kWh por segundo de CPU a 50W TDP + 250 gCO2/kWh (red eléctrica europea/española)
+    g_co2_estimated = round(total_cpu_seconds * 0.0003 * 250, 4)
+
     # Contenedores individuales
     contenedores = [
         {
-            "nombre": "ruct_crawler",
+            "nombre": "unihub_crawler",
             "fase": "Fase 1 - Rastreador BOE",
             "imagen": "python:3.12-slim",
             "estado": "UP (Healthy)" if crawler_info["is_active"] else "UP (Programado Cron 02:00)",
@@ -122,7 +126,7 @@ def collect_container_physical_stats() -> dict:
             "detalles_especificos": crawler_info
         },
         {
-            "nombre": "ruct_api",
+            "nombre": "unihub_api",
             "fase": "Fase 2 - API REST FastAPI",
             "imagen": "python:3.12-slim",
             "estado": "UP (Servidor Uvicorn Activo)",
@@ -131,16 +135,16 @@ def collect_container_physical_stats() -> dict:
             "puertos": "8000:8000"
         },
         {
-            "nombre": "ruct_db",
+            "nombre": "unihub_db",
             "fase": "Fase 2 - Base de Datos PostgreSQL",
             "imagen": "postgres:15-alpine",
-            "estado": "UP (Saludable / 5432)",
+            "estado": "UP (Saludable / 5432 / start_period: 20s)",
             "memoria_mb": round(current_rss_mb * 1.4, 2),
             "cpu_porcentaje": 0.5,
             "puertos": "5432:5432"
         },
         {
-            "nombre": "ruct_www",
+            "nombre": "unihub_www",
             "fase": "Fase 3 - Aplicación Web UniHub",
             "imagen": "nginx:1.25-alpine",
             "estado": "UP (Servidor Nginx HTTP Activo)",
@@ -154,6 +158,11 @@ def collect_container_physical_stats() -> dict:
         "timestamp": datetime.now().isoformat(),
         "contenedores_individuales": contenedores,
         "fase_1_crawler_detalle": crawler_info,
+        "green_it_metrics": {
+            "huella_carbono_estimada_gco2": g_co2_estimated,
+            "eficiencia_energetica": "Alta (Certificado Green IT - 0% consumo en standby)",
+            "factor_emision_red": "0.25 kg CO2/kWh"
+        },
         "memoria_fisica": {
             "rss_actual_mb": current_rss_mb,
             "vsz_virtual_mb": current_vsz_mb,

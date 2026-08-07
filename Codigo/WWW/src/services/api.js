@@ -145,5 +145,11 @@ export const apiService = {
 
   async getApiDocsInfo() {
     return fetchAPI('/api_docs_info');
+  },
+
+  async triggerEtlSync() {
+    return fetchAPI('/admin/sync-etl', {
+      method: 'POST'
+    });
   }
 };

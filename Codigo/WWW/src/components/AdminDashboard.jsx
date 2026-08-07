@@ -74,6 +74,19 @@ export default function AdminDashboard({ onLogout }) {
     setTimeout(() => setFeedbackMsg(null), 4000);
   };
 
+  const handleTriggerEtlSync = async () => {
+    try {
+      setLoading(true);
+      await apiService.triggerEtlSync();
+      showFeedback('Sincronización ETL relacional iniciada en segundo plano en PostgreSQL.');
+      setTimeout(refreshData, 2000);
+    } catch (err) {
+      showFeedback(`Error al desencadenar sincronización ETL: ${err.message}`, true);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   // CRUD Actions - Universities
   const handleOpenCreateUniv = () => {
     setSelectedItem(null);
@@ -195,6 +208,9 @@ export default function AdminDashboard({ onLogout }) {
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <button className="btn btn-outline" onClick={handleTriggerEtlSync} disabled={loading} style={{ color: 'var(--uca-sun)', borderColor: 'var(--uca-sun)' }}>
+            <Database size={16} /> Sincronizar Datos ETL
+          </button>
           <button className="btn btn-outline" onClick={refreshData} disabled={loading} style={{ color: '#FFFFFF', borderColor: 'rgba(255, 255, 255, 0.3)' }}>
             <RefreshCw size={16} className={loading ? 'spin' : ''} />
             Actualizar Datos

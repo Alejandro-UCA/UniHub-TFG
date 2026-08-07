@@ -43,47 +43,54 @@
 \contentsline {section}{\numberline {6.4}Diseño de la Interfaz de Usuario}{24}{section.6.4}%
 \contentsline {chapter}{\numberline {7}Construcción del Sistema}{27}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Entorno de Construcción}{27}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Código Fuente}{27}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Scripts de Base de datos}{28}{section.7.3}%
-\contentsline {chapter}{\numberline {8}Pruebas del Sistema}{31}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Estrategia}{31}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Pruebas Unitarias}{31}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Pruebas de Integración}{32}{section.8.3}%
-\contentsline {section}{\numberline {8.4}Pruebas de Sistema}{32}{section.8.4}%
-\contentsline {subsection}{\numberline {8.4.1}Pruebas Funcionales}{32}{subsection.8.4.1}%
-\contentsline {subsection}{\numberline {8.4.2}Pruebas No Funcionales}{32}{subsection.8.4.2}%
-\contentsline {section}{\numberline {8.5}Pruebas de Aceptación}{33}{section.8.5}%
-\contentsline {chapter}{\numberline {9}Despliegue del Sistema}{35}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Arquitectura Física}{35}{section.9.1}%
-\contentsline {section}{\numberline {9.2}Instrucciones de despliegue}{35}{section.9.2}%
-\contentsline {subsection}{\numberline {9.2.1}Requisitos previos}{35}{subsection.9.2.1}%
-\contentsline {subsection}{\numberline {9.2.2}Inventario de componentes}{35}{subsection.9.2.2}%
-\contentsline {subsection}{\numberline {9.2.3}Procedimientos de instalación}{36}{subsection.9.2.3}%
-\contentsline {subsection}{\numberline {9.2.4}Pruebas de implantación}{36}{subsection.9.2.4}%
-\contentsline {section}{\numberline {9.3}Instrucciones para la operación del sistema y mantenimiento del nivel de servicio}{36}{section.9.3}%
-\contentsline {part}{III\hspace {1em}Epílogo}{37}{part.3}%
-\contentsline {chapter}{\numberline {10}Conclusiones}{39}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Objetivos alcanzados}{39}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Lecciones aprendidas}{39}{section.10.2}%
-\contentsline {section}{\numberline {10.3}Trabajo futuro}{40}{section.10.3}%
-\contentsline {chapter}{Información sobre Licencia}{43}{section*.9}%
-\contentsline {part}{IV\hspace {1em}Anexos}{47}{part.4}%
-\contentsline {chapter}{\numberline {A}Manual del desarrollador}{49}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Introducción}{49}{appendix.A.1}%
-\contentsline {section}{\numberline {A.2}Preparación del entorno de trabajo}{49}{appendix.A.2}%
-\contentsline {section}{\numberline {A.3}Consideraciones generales sobre el desarrollo}{49}{appendix.A.3}%
-\contentsline {section}{\numberline {A.4}Instrucciones para construcción}{50}{appendix.A.4}%
-\contentsline {chapter}{\numberline {B}Manual de usuario}{53}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Introducción}{53}{appendix.B.1}%
-\contentsline {section}{\numberline {B.2}Instalación}{53}{appendix.B.2}%
-\contentsline {section}{\numberline {B.3}Uso del sistema}{53}{appendix.B.3}%
-\contentsline {chapter}{\numberline {C}Comandos útiles de latex}{57}{appendix.C}%
-\contentsline {section}{\numberline {C.1}Tipos de tablas}{57}{appendix.C.1}%
-\contentsline {section}{\numberline {C.2}Una imagen}{57}{appendix.C.2}%
-\contentsline {section}{\numberline {C.3}Dos imágenes}{58}{appendix.C.3}%
-\contentsline {section}{\numberline {C.4}Para referenciar archivos del documento}{58}{appendix.C.4}%
-\contentsline {section}{\numberline {C.5}Referenciar citas bibliográficas}{59}{appendix.C.5}%
-\contentsline {section}{\numberline {C.6}Listas}{59}{appendix.C.6}%
-\contentsline {section}{\numberline {C.7}URL}{59}{appendix.C.7}%
-\contentsline {section}{\numberline {C.8}Notas pie de página}{60}{appendix.C.8}%
-\contentsline {section}{\numberline {C.9}Estilos}{60}{appendix.C.9}%
+\contentsline {section}{\numberline {7.2}Código Fuente y Estructura Modular}{27}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Fase 1: Módulo de Ingesta y Crawler (\texttt {Codigo/Crawler/})}{27}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Fase 2: Módulo de API REST y Persistencia (\texttt {Codigo/API/})}{28}{subsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.2.3}Fase 3: Módulo de Interfaz Web y Calculadora (\texttt {Codigo/WWW/})}{28}{subsection.7.2.3}%
+\contentsline {section}{\numberline {7.3}Código DDL de Base de datos}{29}{section.7.3}%
+\contentsline {chapter}{\numberline {8}Pruebas del Sistema}{33}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Estrategia de Pruebas}{33}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Pruebas Unitarias}{33}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Pruebas de Integración}{34}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Pruebas de Fuego (Fire Tests) en Entorno Real}{34}{section.8.4}%
+\contentsline {subsection}{\numberline {8.4.1}Prueba de Fuego 1: Universidad Pública (Universidad de Cádiz - Código 005)}{34}{subsection.8.4.1}%
+\contentsline {subsection}{\numberline {8.4.2}Prueba de Fuego 2: Universidad Privada (CUNEF Universidad - Código 089)}{34}{subsection.8.4.2}%
+\contentsline {subsection}{\numberline {8.4.3}Prueba de Fuego 3: Motor "Calcula tu Matrícula" (Fase 3)}{35}{subsection.8.4.3}%
+\contentsline {subsection}{\numberline {8.4.4}Prueba de Fuego 4: Adaptabilidad Responsive PC vs. Móvil}{35}{subsection.8.4.4}%
+\contentsline {section}{\numberline {8.5}Pruebas No Funcionales}{35}{section.8.5}%
+\contentsline {section}{\numberline {8.6}Pruebas de Aceptación}{35}{section.8.6}%
+\contentsline {chapter}{\numberline {9}Despliegue del Sistema}{39}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Arquitectura Física}{39}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Instrucciones de despliegue}{39}{section.9.2}%
+\contentsline {subsection}{\numberline {9.2.1}Requisitos previos}{39}{subsection.9.2.1}%
+\contentsline {subsection}{\numberline {9.2.2}Inventario de componentes}{39}{subsection.9.2.2}%
+\contentsline {subsection}{\numberline {9.2.3}Procedimientos de instalación}{40}{subsection.9.2.3}%
+\contentsline {subsection}{\numberline {9.2.4}Pruebas de implantación}{40}{subsection.9.2.4}%
+\contentsline {section}{\numberline {9.3}Instrucciones para la operación del sistema y mantenimiento del nivel de servicio}{40}{section.9.3}%
+\contentsline {part}{III\hspace {1em}Epílogo}{41}{part.3}%
+\contentsline {chapter}{\numberline {10}Conclusiones}{43}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Objetivos alcanzados}{43}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Lecciones aprendidas}{43}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Trabajo futuro}{44}{section.10.3}%
+\contentsline {chapter}{Información sobre Licencia}{47}{section*.9}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{49}{chapter*.10}%
+\contentsline {part}{IV\hspace {1em}Anexos}{51}{part.4}%
+\contentsline {chapter}{\numberline {A}Manual del desarrollador}{53}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Introducción}{53}{appendix.A.1}%
+\contentsline {section}{\numberline {A.2}Preparación del entorno de trabajo}{53}{appendix.A.2}%
+\contentsline {section}{\numberline {A.3}Consideraciones generales sobre el desarrollo}{53}{appendix.A.3}%
+\contentsline {section}{\numberline {A.4}Instrucciones para construcción}{54}{appendix.A.4}%
+\contentsline {chapter}{\numberline {B}Manual de usuario}{57}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Introducción}{57}{appendix.B.1}%
+\contentsline {section}{\numberline {B.2}Instalación}{57}{appendix.B.2}%
+\contentsline {section}{\numberline {B.3}Uso del sistema}{57}{appendix.B.3}%
+\contentsline {chapter}{\numberline {C}Comandos útiles de latex}{61}{appendix.C}%
+\contentsline {section}{\numberline {C.1}Tipos de tablas}{61}{appendix.C.1}%
+\contentsline {section}{\numberline {C.2}Una imagen}{61}{appendix.C.2}%
+\contentsline {section}{\numberline {C.3}Dos imágenes}{62}{appendix.C.3}%
+\contentsline {section}{\numberline {C.4}Para referenciar archivos del documento}{62}{appendix.C.4}%
+\contentsline {section}{\numberline {C.5}Referenciar citas bibliográficas}{63}{appendix.C.5}%
+\contentsline {section}{\numberline {C.6}Listas}{63}{appendix.C.6}%
+\contentsline {section}{\numberline {C.7}URL}{63}{appendix.C.7}%
+\contentsline {section}{\numberline {C.8}Notas pie de página}{64}{appendix.C.8}%
+\contentsline {section}{\numberline {C.9}Estilos}{64}{appendix.C.9}%

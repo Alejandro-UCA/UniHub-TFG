@@ -13,8 +13,14 @@ WORKDIR /app
 COPY Codigo/WWW/package*.json ./
 RUN npm ci
 
-# Copy web source code and build production bundle
+# Copy web source code
 COPY Codigo/WWW ./
+
+# Inject Dynamic API URL via ARG & ENV
+ARG VITE_API_URL
+ENV VITE_API_URL=$VITE_API_URL
+
+# Build production bundle
 RUN npm run build
 
 # ------------------------------------------------------------------------------

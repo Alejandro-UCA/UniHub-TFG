@@ -71,6 +71,9 @@ services:
       POSTGRES_DB: ${POSTGRES_DB:-unihub_db}
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-admin}
+      API_DB_USER: ${POSTGRES_API_USER:-unihub_api_user}
+      API_DB_PASSWORD: ${POSTGRES_API_PASSWORD:-unihub_api_password_sec2026}
+      ADMIN_API_KEY: ${ADMIN_API_KEY:-unihub_super_secret_admin_key_2026}
     volumes:
       - ../Crawler/Datos:/app/Datos
     ports:
@@ -88,6 +91,8 @@ services:
     build:
       context: ../..
       dockerfile: Codigo/Docker/www/Dockerfile
+      args:
+        VITE_API_URL: ${VITE_API_URL:-http://localhost:8000/api/v1}
     container_name: unihub_www
     restart: always
     ports:

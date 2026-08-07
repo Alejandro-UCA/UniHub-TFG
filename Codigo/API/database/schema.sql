@@ -111,11 +111,13 @@ BEGIN
     IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'unihub_api_user') THEN
         CREATE ROLE unihub_api_user WITH LOGIN PASSWORD 'unihub_api_password_sec2026';
     END IF;
+    
+    -- Otorgar conexión usando la base de datos actual (evita fallos si se renombra en Docker)
+    EXECUTE 'GRANT CONNECT ON DATABASE ' || quote_ident(current_database()) || ' TO unihub_api_user';
 END
 $$;
 
 -- Otorgar únicamente acceso SELECT al rol de la API
-GRANT CONNECT ON DATABASE unihub_db TO unihub_api_user;
 GRANT USAGE ON SCHEMA public TO unihub_api_user;
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO unihub_api_user;
 ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO unihub_api_user;

@@ -79,7 +79,7 @@ export default function AdminDashboard({ onLogout }) {
       setLoading(true);
       await apiService.triggerEtlSync();
       showFeedback('Sincronización ETL relacional iniciada en segundo plano en PostgreSQL.');
-      setTimeout(refreshData, 2000);
+      setTimeout(refreshData, 10000); // 10 segundos para dar tiempo a procesar 13,000 JSONs
     } catch (err) {
       showFeedback(`Error al desencadenar sincronización ETL: ${err.message}`, true);
     } finally {

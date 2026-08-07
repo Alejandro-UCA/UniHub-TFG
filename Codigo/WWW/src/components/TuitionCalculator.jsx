@@ -242,8 +242,14 @@ export default function TuitionCalculator() {
       // Logic for Private Universities: Only MEC / MH cover equivalent public pricing cap (~16.80 €/ECTS)
       const publicEctsEquivPrice = 16.80;
       if (discountType === 'beca_mec') {
-        const firstTierEcts = (tierCounts[1] || 0) * 6;
-        discountAmount = firstTierEcts * publicEctsEquivPrice;
+        let firstTierEctsSum = 0;
+        elements.forEach((elem, idx) => {
+          const state = subjectSelections[idx];
+          if (state?.selected && state?.tier === 1) {
+            firstTierEctsSum += parseFloat(elem.creditos_ects) || 6;
+          }
+        });
+        discountAmount = firstTierEctsSum * publicEctsEquivPrice;
         discountLabel = 'Cobertura Beca MEC (Equivalente Precio Público)';
       } else if (discountType === 'mh_bachillerato') {
         discountAmount = Math.min(totalEcts, 60) * publicEctsEquivPrice;

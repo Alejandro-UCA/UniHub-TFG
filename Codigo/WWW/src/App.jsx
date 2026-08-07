@@ -54,7 +54,8 @@ export default function App() {
 
   // Estados de búsqueda y filtros
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedTipo, setSelectedTipo] = useState('todos');
+  const [selectedUnivTipo, setSelectedUnivTipo] = useState('todos');
+  const [selectedDegreeTipo, setSelectedDegreeTipo] = useState('todos');
   const [selectedCCAA, setSelectedCCAA] = useState('todas');
 
   // Estados de paginación
@@ -74,7 +75,7 @@ export default function App() {
   useEffect(() => {
     setUnivCurrentPage(1);
     setDegreeCurrentPage(1);
-  }, [searchQuery, selectedTipo, selectedCCAA]);
+  }, [searchQuery, selectedUnivTipo, selectedDegreeTipo, selectedCCAA]);
 
   // Alternador de tema visual (Modo Claro / Oscuro)
   const toggleTheme = () => {
@@ -107,7 +108,7 @@ export default function App() {
   // Filtered & Sorted universities (Publics first, then Privates)
   const filteredUniversities = universities.filter(u => {
     const matchesQuery = !searchQuery || `${u.nombre} ${u.municipio} ${u.provincia}`.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesTipo = selectedTipo === 'todos' || (u.tipo || '').toLowerCase().includes(selectedTipo);
+    const matchesTipo = selectedUnivTipo === 'todos' || (u.tipo || '').toLowerCase().includes(selectedUnivTipo);
     const matchesCCAA = selectedCCAA === 'todas' || (u.comunidad_autonoma || '').toLowerCase().includes(selectedCCAA.toLowerCase());
     return matchesQuery && matchesTipo && matchesCCAA;
   }).sort((a, b) => {
@@ -130,10 +131,10 @@ export default function App() {
   // Filtered & Sorted degrees (including Doctorados and CCAA filter)
   const filteredDegrees = degrees.filter(d => {
     const matchesQuery = !searchQuery || `${d.titulo} ${d.codigo_estudio}`.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesTipo = selectedTipo === 'todos' || (
-      selectedTipo === 'grado' ? ((d.nivel_academico || '').toLowerCase().includes('grado') && !(d.nivel_academico || '').toLowerCase().includes('doctor')) :
-      selectedTipo === 'master' ? ((d.nivel_academico || '').toLowerCase().includes('máster') || (d.nivel_academico || '').toLowerCase().includes('master')) :
-      selectedTipo === 'doctorado' ? ((d.nivel_academico || '').toLowerCase().includes('doctor') || (d.nivel_academico || '').toLowerCase().includes('99/2011') || (d.titulo || '').toLowerCase().includes('doctor')) :
+    const matchesTipo = selectedDegreeTipo === 'todos' || (
+      selectedDegreeTipo === 'grado' ? ((d.nivel_academico || '').toLowerCase().includes('grado') && !(d.nivel_academico || '').toLowerCase().includes('doctor')) :
+      selectedDegreeTipo === 'master' ? ((d.nivel_academico || '').toLowerCase().includes('máster') || (d.nivel_academico || '').toLowerCase().includes('master')) :
+      selectedDegreeTipo === 'doctorado' ? ((d.nivel_academico || '').toLowerCase().includes('doctor') || (d.nivel_academico || '').toLowerCase().includes('99/2011') || (d.titulo || '').toLowerCase().includes('doctor')) :
       true
     );
     
@@ -252,8 +253,8 @@ export default function App() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <Filter size={16} color="var(--uca-cyan)" />
                 <select 
-                  value={selectedTipo}
-                  onChange={(e) => setSelectedTipo(e.target.value)}
+                  value={selectedUnivTipo}
+                  onChange={(e) => setSelectedUnivTipo(e.target.value)}
                   style={{
                     padding: '0.65rem 1rem',
                     borderRadius: 'var(--radius-sm)',
@@ -325,8 +326,8 @@ export default function App() {
               </div>
 
               <select 
-                value={selectedTipo}
-                onChange={(e) => setSelectedTipo(e.target.value)}
+                value={selectedDegreeTipo}
+                onChange={(e) => setSelectedDegreeTipo(e.target.value)}
                 style={{
                   padding: '0.65rem 1rem',
                   borderRadius: 'var(--radius-sm)',

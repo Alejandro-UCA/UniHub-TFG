@@ -46,9 +46,9 @@ INVALID_SUBJECT_KEYWORDS = [
 ]
 
 
-def is_valid_web_url(href: str) -> bool:
+def is_valid_web_url(href) -> bool:
     """Valida que un enlace sea HTTP/HTTPS y no un esquema especial (mailto, javascript, tel, ancla)."""
-    if not href:
+    if not href or not isinstance(href, str):
         return False
     h = href.strip().lower()
     if h.startswith(("#", "javascript:", "mailto:", "tel:", "whatsapp:", "ftp:", "data:")):
@@ -111,11 +111,19 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
                     except ValueError:
                         pass
 
+            # Buscar término de curso dinámicamente en columnas
+            curso = ""
+            for col in cols[1:]:
+                col_lower = col.lower()
+                if any(c_kw in col_lower for c_kw in ["1º", "2º", "3º", "4º", "primer", "segundo", "tercer", "cuarto", "1er", "2do", "3er", "4to"]):
+                    curso = col
+                    break
+
             elementos.append({
                 "nombre_elemento": nombre_candidato,
                 "creditos_ects": creditos,
                 "caracter": "OB",
-                "curso": cols[2] if len(cols) > 2 and len(cols[2]) <= 10 else ""
+                "curso": curso
             })
     return elementos
 
@@ -169,11 +177,6 @@ def extract_private_university_pricing(soup: BeautifulSoup, page_text: str) -> d
         pricing_data["precio_estimado_anual"] = round(pricing_data["precio_credito_ects"] * 60, 2)
     elif "precio_estimado_anual" in pricing_data and "precio_credito_ects" not in pricing_data:
         pricing_data["precio_credito_ects"] = round(pricing_data["precio_estimado_anual"] / 60, 2)
-    elif not pricing_data.get("precio_credito_ects"):
-        # Fallback estimado estándar para universidades privadas sin desglose público visible en HTML plano
-        pricing_data["precio_credito_ects"] = 145.00
-        pricing_data["precio_estimado_anual"] = 8700.00
-        pricing_data["fuente_precio"] = "Estimación Media Universidad Privada (Web Oficial)"
         
     return pricing_data
 

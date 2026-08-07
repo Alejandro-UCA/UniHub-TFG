@@ -38,7 +38,7 @@ export default function PlanModal({ degree, onClose }) {
 
   if (!degree) return null;
 
-  const curriculum = planData?.plan_estudios || {};
+  const curriculum = planData?.plan_estudios ? planData.plan_estudios : (planData || {});
   const elementos = curriculum.elementos_curriculares || [];
   const resumen = curriculum.resumen_creditos || {};
   const boeUrl = planData?.boe_url || degree.boe_url;

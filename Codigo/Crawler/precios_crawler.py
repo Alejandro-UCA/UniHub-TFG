@@ -2,6 +2,7 @@ import os
 import json
 import glob
 from config import DATA_DIR, PLANES_DIR, UNIVERSIDADES_JSON
+from checkpoint import atomic_json_dump
 
 PRECIOS_CCAA_JSON = os.path.join(DATA_DIR, "precios_ccaa.json")
 
@@ -28,7 +29,7 @@ def load_universidades_map() -> dict:
             pass
     return univ_map
 
-def compute_degree_price(ccaa: str, tipo_univ: str, nivel_academico: str, titulo: str) -> dict:
+def compute_degree_price(ccaa: str, tipo_univ: str, nivel_academico: str, titulo: str, precios_catalogo: dict = None) -> dict:
     """
     Computes official ECTS credit price and estimated 1st year tuition fee (60 ECTS + admin fees)
     for public universities in Spain using official SIIU Ministry data.
@@ -40,7 +41,9 @@ def compute_degree_price(ccaa: str, tipo_univ: str, nivel_academico: str, titulo
             "fuente_precio": "Universidad Privada (Tarifas fijadas por la institución)"
         }
         
-    precios_catalogo = load_precios_ccaa()
+    if precios_catalogo is None:
+        precios_catalogo = load_precios_ccaa()
+
     ccaa_data = precios_catalogo.get(ccaa)
     
     if not ccaa_data:
@@ -96,6 +99,7 @@ def run_phase1_part3():
     print("      FASE 1 - PARTE 3: CÁLCULO DE PRECIOS ECTS DE MATRÍCULA PÚBLICA")
     print("======================================================================")
     
+    precios_catalogo = load_precios_ccaa()
     univ_map = load_universidades_map()
     json_files = glob.glob(os.path.join(PLANES_DIR, "*.json"))
     
@@ -115,14 +119,13 @@ def run_phase1_part3():
             nivel = degree.get("nivel_academico", "")
             titulo = degree.get("titulo", "")
             
-            price_info = compute_degree_price(ccaa, tipo_univ, nivel, titulo)
+            price_info = compute_degree_price(ccaa, tipo_univ, nivel, titulo, precios_catalogo=precios_catalogo)
             
             degree["precio_credito_ects"] = price_info["precio_credito_ects"]
             degree["precio_estimado_anual"] = price_info["precio_estimado_anual"]
             degree["fuente_precio"] = price_info["fuente_precio"]
             
-            with open(filepath, "w", encoding="utf-8") as f:
-                json.dump(degree, f, ensure_ascii=False, indent=2)
+            atomic_json_dump(degree, filepath)
                 
             updated_count += 1
             if price_info["precio_credito_ects"] is not None:
@@ -143,13 +146,12 @@ def run_phase1_part3():
                 tipo_univ = univ.get("tipo", "Pública")
                 
                 for t in u_info.get("titulaciones_vigentes", []):
-                    price_info = compute_degree_price(ccaa, tipo_univ, t.get("nivel_academico", ""), t.get("titulo", ""))
+                    price_info = compute_degree_price(ccaa, tipo_univ, t.get("nivel_academico", ""), t.get("titulo", ""), precios_catalogo=precios_catalogo)
                     t["precio_credito_ects"] = price_info["precio_credito_ects"]
                     t["precio_estimado_anual"] = price_info["precio_estimado_anual"]
                     t["fuente_precio"] = price_info["fuente_precio"]
                     
-            with open(tit_json_path, "w", encoding="utf-8") as f:
-                json.dump(tit_data, f, ensure_ascii=False, indent=2)
+            atomic_json_dump(tit_data, tit_json_path)
             print(" -> 'titulaciones_universidad.json' actualizado con precios ECTS.")
         except Exception as e:
             print(f" [AVISO] Error al actualizar titulaciones_universidad.json: {e}")

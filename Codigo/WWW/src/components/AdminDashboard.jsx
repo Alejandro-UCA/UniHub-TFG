@@ -35,10 +35,10 @@ export default function AdminDashboard({ onLogout }) {
     setPerfReport(perfTracker.getPerformanceReport());
 
     try {
-      const univs = await apiService.getUniversities();
+      const univs = await apiService.getUniversities({ limit: 500 });
       if (univs) setDbUniversities(univs);
 
-      const degs = await apiService.getDegrees();
+      const degs = await apiService.getDegrees({ limit: 500 });
       if (degs) setDbDegrees(degs);
 
       const statsData = await apiService.getCrawlerStats();

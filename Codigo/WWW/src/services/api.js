@@ -155,7 +155,7 @@ export const apiService = {
   },
 
   async triggerEtlSync() {
-    return fetchAPI('/admin/sync-etl', {
+    return fetchAPI('/etl/sync', {
       method: 'POST'
     });
   }

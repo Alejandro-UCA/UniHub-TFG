@@ -420,7 +420,7 @@ export default function TuitionCalculator() {
             </div>
 
             {/* Subjects List Grouped by Course */}
-            {Object.keys(groupedByCourse).map(courseName => (
+            {Object.keys(groupedByCourse).sort((a, b) => a.localeCompare(b)).map(courseName => (
               <div key={courseName} className="glass-panel" style={{ marginBottom: '1.5rem', padding: '1.25rem', borderRadius: '12px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
                   <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--uca-cyan)', margin: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>

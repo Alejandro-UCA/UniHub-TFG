@@ -353,13 +353,13 @@ export default function AdminDashboard({ onLogout }) {
                 className={`btn ${crudTarget === 'universidades' ? 'btn-primary' : 'btn-outline'}`}
                 onClick={() => setCrudTarget('universidades')}
               >
-                <Building size={16} /> Universidades ({dbUniversities.length})
+                <Building size={16} /> Universidades (Mostrando {dbUniversities.length})
               </button>
               <button
                 className={`btn ${crudTarget === 'titulaciones' ? 'btn-primary' : 'btn-outline'}`}
                 onClick={() => setCrudTarget('titulaciones')}
               >
-                <BookOpen size={16} /> Titulaciones ({dbDegrees.length})
+                <BookOpen size={16} /> Titulaciones (Mostrando {dbDegrees.length})
               </button>
             </div>
 

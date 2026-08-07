@@ -176,7 +176,7 @@ export default function AboutUs() {
             Universidad de Cádiz (UCA) <ExternalLink size={14} />
           </a>
           <a 
-            href="http://localhost:8000/docs" 
+            href={`${window.location.protocol}//${window.location.hostname}:8000/docs`} 
             target="_blank" 
             rel="noreferrer" 
             className="btn btn-gold"

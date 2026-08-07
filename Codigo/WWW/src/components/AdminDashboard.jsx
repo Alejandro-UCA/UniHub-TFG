@@ -108,6 +108,7 @@ export default function AdminDashboard({ onLogout }) {
       await apiService.deleteUniversity(codigo);
       setDbUniversities(dbUniversities.filter(u => u.codigo !== codigo));
       showFeedback(`Universidad eliminada correctamente.`);
+      refreshData();
     } catch (err) {
       showFeedback(`Error al eliminar universidad: ${err.message}`, true);
     }
@@ -134,6 +135,7 @@ export default function AdminDashboard({ onLogout }) {
       await apiService.deleteDegree(codigoEstudio);
       setDbDegrees(dbDegrees.filter(d => d.codigo_estudio !== codigoEstudio));
       showFeedback(`Titulación eliminada correctamente.`);
+      refreshData();
     } catch (err) {
       showFeedback(`Error al eliminar titulación: ${err.message}`, true);
     }

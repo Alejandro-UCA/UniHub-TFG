@@ -109,11 +109,7 @@ export default function Geolocation({ universities, onViewDegrees }) {
             <span>O selecciona ciudad:</span>
             <select 
               value={selectedCity} 
-              onChange={(e) => {
-                setSelectedCity(e.target.value);
-                setUserLocation(SPANISH_CITIES_COORDS[e.target.value]);
-                setCurrentPage(1);
-              }}
+              onChange={(e) => setSelectedCity(e.target.value)}
               style={{
                 background: 'rgba(255, 255, 255, 0.15)',
                 color: '#FFFFFF',

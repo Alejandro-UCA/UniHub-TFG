@@ -453,27 +453,27 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
         metrics.save()
         checkpoint.mark_university_processed(u_code)
 
-    # Finalización de Proceso 2 (Parser CPU) si se ejecutó la Parte 1
-    print("\n[Finalizando Red] Enviando señal de parada al Proceso 2 (Parser CPU)...")
-    task_queue.put({"type": "STOP"})
-    
-    # Receive metrics summary from Process 2
-    consumer_results = result_queue.get()
-    parser_process.join()
+        # Finalización de Proceso 2 (Parser CPU) si se ejecutó la Parte 1
+        print("\n[Finalizando Red] Enviando señal de parada al Proceso 2 (Parser CPU)...")
+        task_queue.put({"type": "STOP"})
+        
+        # Receive metrics summary from Process 2
+        consumer_results = result_queue.get()
+        parser_process.join()
 
-    metrics.pdfs_parseados = consumer_results.get("parsed_count", 0)
-    metrics.titulaciones_descargadas_actualizadas = consumer_results.get("updated_degrees_count", 0)
-    metrics.save()
+        metrics.pdfs_parseados = consumer_results.get("parsed_count", 0)
+        metrics.titulaciones_descargadas_actualizadas = consumer_results.get("updated_degrees_count", 0)
+        metrics.save()
 
-    print("\n" + "=" * 70)
-    print("      CRAWLER UNIHUB PARTE 1 FINALIZADO CON ÉXITO")
-    print("======================================================================")
-    print(f" -> Universidades inspeccionadas: {metrics.universidades_inspeccionadas}")
-    print(f" -> Titulaciones inspeccionadas:  {metrics.titulaciones_inspeccionadas}")
-    print(f" -> Titulaciones al día:          {metrics.titulaciones_al_dia}")
-    print(f" -> Titulaciones actualizadas:    {metrics.titulaciones_descargadas_actualizadas}")
-    print(f" -> PDFs parseados del BOE:       {metrics.pdfs_parseados}")
-    print(f" -> Errores (registrados en log): {metrics.errores_detectados}")
+        print("\n" + "=" * 70)
+        print("      CRAWLER UNIHUB PARTE 1 FINALIZADO CON ÉXITO")
+        print("======================================================================")
+        print(f" -> Universidades inspeccionadas: {metrics.universidades_inspeccionadas}")
+        print(f" -> Titulaciones inspeccionadas:  {metrics.titulaciones_inspeccionadas}")
+        print(f" -> Titulaciones al día:          {metrics.titulaciones_al_dia}")
+        print(f" -> Titulaciones actualizadas:    {metrics.titulaciones_descargadas_actualizadas}")
+        print(f" -> PDFs parseados del BOE:       {metrics.pdfs_parseados}")
+        print(f" -> Errores (registrados en log): {metrics.errores_detectados}")
 
     # -------------------------------------------------------------------------
     # PARTE 2 DE LA FASE 1: ESCANEO PARALELO DE LAS WEBS OFICIALES DE UNIVERSIDADES

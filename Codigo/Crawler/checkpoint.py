@@ -46,7 +46,7 @@ class CheckpointManager:
     Manages crawler progress state and BOE metadata registry for incremental updates.
     Enforces strict non-empty validation, thread locks, and atomic file replacements.
     """
-    _lock = threading.Lock()
+    _lock = threading.RLock()
 
     def __init__(self, filepath=CHECKPOINT_JSON):
         self.filepath = filepath

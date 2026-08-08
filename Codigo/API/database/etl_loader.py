@@ -23,8 +23,17 @@ from models.models import (
 def run_etl():
     lock_file = "/tmp/etl_running.lock"
     if os.path.exists(lock_file):
-        print("[AVISO] El proceso ETL ya está en ejecución. Abortando para evitar colisiones.")
-        return
+        # Check if the PID in the lock file is still alive.
+        # If the container crashed previously the lock may be stale and must be removed.
+        try:
+            with open(lock_file, "r") as _lf:
+                stale_pid = int(_lf.read().strip())
+            os.kill(stale_pid, 0)  # Raises OSError if process does not exist
+            print("[AVISO] El proceso ETL ya está en ejecución (PID activo). Abortando para evitar colisiones.")
+            return
+        except (OSError, ValueError):
+            print("[AVISO] Se encontró un lock file huérfano (proceso anterior terminó de forma abrupta). Limpiando y continuando.")
+            os.remove(lock_file)
         
     try:
         # Create lock file
@@ -41,24 +50,22 @@ def run_etl():
         if not os.path.exists(crawler_datos_dir):
             crawler_datos_dir = os.path.join(os.path.dirname(base_api_dir), "Crawler", "Datos")
     
-    if not os.path.exists(crawler_datos_dir):
-        print(f"[ERROR] No se encontró el directorio de datos del crawler en '{crawler_datos_dir}'.")
-        return
+        if not os.path.exists(crawler_datos_dir):
+            print(f"[ERROR] No se encontró el directorio de datos del crawler en '{crawler_datos_dir}'.")
+            return
 
-    print(f"Directorio de datos localizado en: '{crawler_datos_dir}'")
+        print(f"Directorio de datos localizado en: '{crawler_datos_dir}'")
 
-    # Configuración del motor de base de datos y creación de tablas
-    print("Conectando a la base de datos PostgreSQL...")
-    try:
-        from database.connection import SessionAdmin, engine_admin
-        Base.metadata.create_all(bind=engine_admin)
-        db = SessionAdmin()
-    except Exception as e:
-        print(f"[ERROR] No se pudo conectar a PostgreSQL: {e}")
-        print("Asegúrate de que PostgreSQL está iniciado y las credenciales son correctas.")
-        return
-
-    try:
+        # Configuración del motor de base de datos y creación de tablas
+        print("Conectando a la base de datos PostgreSQL...")
+        try:
+            from database.connection import SessionAdmin, engine_admin
+            Base.metadata.create_all(bind=engine_admin)
+            db = SessionAdmin()
+        except Exception as e:
+            print(f"[ERROR] No se pudo conectar a PostgreSQL: {e}")
+            print("Asegúrate de que PostgreSQL está iniciado y las credenciales son correctas.")
+            return
 
         # 1. Migrar Universidades
         univ_json_path = os.path.join(crawler_datos_dir, "universidades_list.json")

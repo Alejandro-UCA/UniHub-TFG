@@ -65,9 +65,34 @@ export default function AdminDashboard({ onLogout }) {
     }
   };
 
+  const isFirstLoad = React.useRef(true);
+
   useEffect(() => {
-    refreshData();
+    refreshData().finally(() => {
+      isFirstLoad.current = false;
+    });
   }, []);
+
+  // Búsqueda en el servidor con debounce (permite al admin buscar más allá de los primeros 500)
+  useEffect(() => {
+    if (isFirstLoad.current) return;
+    
+    const delayDebounceFn = setTimeout(async () => {
+      try {
+        if (crudTarget === 'universidades') {
+          const univs = await apiService.getUniversities({ nombre: searchFilter, limit: 500 });
+          if (univs) setDbUniversities(univs);
+        } else {
+          const degs = await apiService.getDegrees({ titulo: searchFilter, limit: 500 });
+          if (degs) setDbDegrees(degs);
+        }
+      } catch (err) {
+        console.warn('Error en búsqueda de admin desde el servidor:', err);
+      }
+    }, 400);
+
+    return () => clearTimeout(delayDebounceFn);
+  }, [searchFilter, crudTarget]);
 
   const showFeedback = (msg, isError = false) => {
     setFeedbackMsg({ text: msg, isError });
@@ -144,25 +169,31 @@ export default function AdminDashboard({ onLogout }) {
   // Submit Handler for Form Modal
   const handleModalSubmit = async (formData) => {
     try {
+      // Clean up empty strings for numeric/optional fields before sending to API
+      const cleanData = { ...formData };
+      ['precio_credito_ects', 'precio_credito_2', 'precio_credito_3', 'precio_credito_4'].forEach(key => {
+        if (cleanData[key] === '') cleanData[key] = null;
+      });
+
       if (crudTarget === 'universidades') {
         if (modalMode === 'create') {
-          const created = await apiService.createUniversity(formData);
+          const created = await apiService.createUniversity(cleanData);
           setDbUniversities([created, ...dbUniversities]);
-          showFeedback(`Universidad '${formData.nombre}' creada con éxito.`);
+          showFeedback(`Universidad '${cleanData.nombre}' creada con éxito.`);
         } else {
-          const updated = await apiService.updateUniversity(formData.codigo, formData);
-          setDbUniversities(dbUniversities.map(u => u.codigo === formData.codigo ? updated : u));
-          showFeedback(`Universidad '${formData.nombre}' actualizada correctamente.`);
+          const updated = await apiService.updateUniversity(cleanData.codigo, cleanData);
+          setDbUniversities(dbUniversities.map(u => u.codigo === cleanData.codigo ? updated : u));
+          showFeedback(`Universidad '${cleanData.nombre}' actualizada correctamente.`);
         }
       } else {
         if (modalMode === 'create') {
-          const created = await apiService.createDegree(formData);
+          const created = await apiService.createDegree(cleanData);
           setDbDegrees([created, ...dbDegrees]);
-          showFeedback(`Titulación '${formData.titulo}' creada con éxito.`);
+          showFeedback(`Titulación '${cleanData.titulo}' creada con éxito.`);
         } else {
-          const updated = await apiService.updateDegree(formData.codigo_estudio, formData);
-          setDbDegrees(dbDegrees.map(d => d.codigo_estudio === formData.codigo_estudio ? updated : d));
-          showFeedback(`Titulación '${formData.titulo}' actualizada correctamente.`);
+          const updated = await apiService.updateDegree(cleanData.codigo_estudio, cleanData);
+          setDbDegrees(dbDegrees.map(d => d.codigo_estudio === cleanData.codigo_estudio ? updated : d));
+          showFeedback(`Titulación '${cleanData.titulo}' actualizada correctamente.`);
         }
       }
       setIsModalOpen(false);

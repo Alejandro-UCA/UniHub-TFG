@@ -1,5 +1,5 @@
 from typing import List, Optional
-from fastapi import APIRouter, Depends, HTTPException, Query, status
+from fastapi import APIRouter, Depends, HTTPException, Query, status, Response
 from sqlalchemy.orm import Session
 from sqlalchemy import case
 
@@ -12,9 +12,12 @@ router = APIRouter(prefix="/api/v1/titulaciones", tags=["Titulaciones y Planes d
 
 @router.get("", response_model=List[TitulacionOut], summary="Búsqueda global de titulaciones oficiales (Públicas primero)")
 def list_titulaciones(
+    response: Response,
     titulo: Optional[str] = Query(None, description="Filtrar por nombre o palabra clave de la titulación"),
     nivel_academico: Optional[str] = Query(None, description="Filtrar por Grado, Máster o Doctorado"),
     universidad_codigo: Optional[str] = Query(None, description="Filtrar por código de universidad"),
+    ccaa: Optional[str] = Query(None, description="Filtrar por CCAA de la universidad"),
+    tipo_universidad: Optional[str] = Query(None, description="Filtrar por tipo de universidad (pública/privada)"),
     skip: int = Query(0, ge=0),
     limit: int = Query(100, ge=1, le=500),
     db: Session = Depends(get_db)
@@ -26,11 +29,20 @@ def list_titulaciones(
         query = query.filter(Titulacion.nivel_academico.ilike(f"%{nivel_academico}%"))
     if universidad_codigo:
         query = query.filter(Titulacion.universidad_codigo == universidad_codigo.zfill(3))
+    if ccaa:
+        query = query.filter(Universidad.comunidad_autonoma.ilike(f"%{ccaa}%"))
+    if tipo_universidad:
+        query = query.filter(Universidad.tipo.ilike(f"%{tipo_universidad}%"))
         
     query = query.order_by(
         case((Universidad.tipo.ilike("%públic%"), 0), (Universidad.tipo.ilike("%public%"), 0), else_=1),
         Titulacion.titulo.asc()
     )
+    
+    total = query.count()
+    response.headers["X-Total-Count"] = str(total)
+    response.headers["Access-Control-Expose-Headers"] = "X-Total-Count"
+    
     return query.offset(skip).limit(limit).all()
 
 @router.get("/{codigo_estudio}", response_model=TitulacionDetalleOut, summary="Obtener información detallada de una titulación")

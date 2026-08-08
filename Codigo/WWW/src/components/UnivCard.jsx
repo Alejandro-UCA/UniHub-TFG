@@ -101,9 +101,16 @@ export default React.memo(function UnivCard({ univ, onViewDegrees, distanceKm })
         alignItems: 'center',
         justifyContent: 'space-between'
       }}>
-        <span style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--uca-cyan)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-          <BookOpen size={15} /> Ver titulaciones vigentes
-        </span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <span style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--uca-cyan)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+            <BookOpen size={15} /> Ver titulaciones vigentes
+          </span>
+          {univ.gestionado_por_admin && (
+            <div title="Registro bloqueado y administrado manualmente (No sobrescribible por ETL)" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.72rem', color: 'var(--uca-gold)', background: 'rgba(243, 167, 18, 0.1)', padding: '0.15rem 0.35rem', borderRadius: '4px' }}>
+              <span>Bloqueado</span>
+            </div>
+          )}
+        </div>
         <ExternalLink size={16} color="var(--text-light)" />
       </div>
     </div>

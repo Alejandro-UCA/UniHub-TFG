@@ -207,9 +207,14 @@ def trigger_api_etl_sync():
         "http://localhost:8000/api/v1/admin/sync-etl"
     ]
     print("\n[Fase 1 Completa -> Fase 2] Notificando a la API REST para sincronización ETL en PostgreSQL...")
+    
+    # Se requiere la API Key para autorizar la sincronización ETL
+    api_key = os.getenv("ADMIN_API_KEY", "unihub_super_secret_admin_key_2026")
+    headers = {"X-API-Key": api_key}
+    
     for sync_url in target_urls:
         try:
-            resp = requests.post(sync_url, timeout=5)
+            resp = requests.post(sync_url, headers=headers, timeout=5)
             if resp.ok:
                 print(f" -> Sincronización ETL iniciada con éxito en la API REST ({sync_url}).")
                 return
@@ -242,10 +247,9 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
         parser_process.start()
         print(" -> Proceso 2 (Parser CPU & Escritura en Disco) arrancado y listo en segundo plano.\n")
 
-        try:
-            # -------------------------------------------------------------------------
-            # PASO 1: Descargar / Inspeccionar listado de universidades (Públicas prioritarias)
-            # -------------------------------------------------------------------------
+        # -------------------------------------------------------------------------
+        # PASO 1: Descargar / Inspeccionar listado de universidades (Públicas prioritarias)
+        # -------------------------------------------------------------------------
         print("[Paso 1] Obteniendo listado oficial de universidades (Públicas prioritarias)...")
         univ_file = os.path.join(TEMP_PDF_DIR, "universidades_list.xls")
         
@@ -479,25 +483,24 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
         metrics.save()
         checkpoint.mark_university_processed(u_code)
 
-        finally:
-            # Finalización segura de Proceso 2 (Parser CPU) incluso si hay crasheos
-            print("\n[Finalizando Red] Enviando señal de parada al Proceso 2 (Parser CPU)...")
-            task_queue.put({"type": "STOP"})
+        # Finalización segura de Proceso 2 (Parser CPU) incluso si hay crasheos
+        print("\n[Finalizando Red] Enviando señal de parada al Proceso 2 (Parser CPU)...")
+        task_queue.put({"type": "STOP"})
+        
+        # Receive metrics summary from Process 2
+        try:
+            consumer_results = result_queue.get(timeout=10)
+            metrics.pdfs_parseados = consumer_results.get("parsed_count", 0)
+            metrics.titulaciones_descargadas_actualizadas = consumer_results.get("updated_degrees_count", 0)
+        except Exception as eq:
+            print(f" [AVISO] No se pudieron recolectar métricas del proceso parser: {eq}")
             
-            # Receive metrics summary from Process 2
-            try:
-                consumer_results = result_queue.get(timeout=10)
-                metrics.pdfs_parseados = consumer_results.get("parsed_count", 0)
-                metrics.titulaciones_descargadas_actualizadas = consumer_results.get("updated_degrees_count", 0)
-            except Exception as eq:
-                print(f" [AVISO] No se pudieron recolectar métricas del proceso parser: {eq}")
-                
-            parser_process.join(timeout=10)
-            if parser_process.is_alive():
-                print(" [AVISO] Forzando terminación del Proceso 2 (colgado).")
-                parser_process.terminate()
-            
-            metrics.save()
+        parser_process.join(timeout=10)
+        if parser_process.is_alive():
+            print(" [AVISO] Forzando terminación del Proceso 2 (colgado).")
+            parser_process.terminate()
+        
+        metrics.save()
 
         print("\n" + "=" * 70)
         print("      CRAWLER UNIHUB PARTE 1 FINALIZADO CON ÉXITO")

@@ -1,5 +1,5 @@
 from typing import List, Optional
-from fastapi import APIRouter, Depends, HTTPException, Query, status
+from fastapi import APIRouter, Depends, HTTPException, Query, status, Response
 from sqlalchemy.orm import Session
 from sqlalchemy import case
 
@@ -12,6 +12,7 @@ router = APIRouter(prefix="/api/v1/universidades", tags=["Universidades"])
 
 @router.get("", response_model=List[UniversidadOut], summary="Listar universidades públicas primero, luego privadas")
 def list_universidades(
+    response: Response,
     tipo: Optional[str] = Query(None, description="Filtrar por tipo (Pública / Privada)"),
     ccaa: Optional[str] = Query(None, description="Filtrar por Comunidad Autónoma"),
     nombre: Optional[str] = Query(None, description="Búsqueda por nombre de la universidad"),
@@ -31,6 +32,11 @@ def list_universidades(
         case((Universidad.tipo.ilike("%públic%"), 0), (Universidad.tipo.ilike("%public%"), 0), else_=1),
         Universidad.nombre.asc()
     )
+    
+    total = query.count()
+    response.headers["X-Total-Count"] = str(total)
+    response.headers["Access-Control-Expose-Headers"] = "X-Total-Count"
+    
     return query.offset(skip).limit(limit).all()
 
 @router.get("/{codigo}", response_model=UniversidadOut, summary="Obtener detalle de una universidad")

@@ -176,7 +176,7 @@ export default function AboutUs() {
             Universidad de Cádiz (UCA) <ExternalLink size={14} />
           </a>
           <a 
-            href={`${window.location.protocol}//${window.location.hostname}:8000/docs`} 
+            href={(import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api/v1').replace('/api/v1', '/docs')} 
             target="_blank" 
             rel="noreferrer" 
             className="btn btn-gold"

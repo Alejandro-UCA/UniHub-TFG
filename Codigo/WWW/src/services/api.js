@@ -31,10 +31,23 @@ async function fetchAPI(endpoint, options = {}) {
 
     if (!response.ok) {
       const errData = await response.json().catch(() => ({}));
-      throw new Error(errData.detail || `Error API (${response.status}): ${response.statusText}`);
+      let errorMsg = errData.detail;
+      
+      // Manejar formato de errores de validación de FastAPI (Pydantic) que devuelven un Array
+      if (Array.isArray(errorMsg)) {
+        errorMsg = errorMsg.map(e => `${e.loc?.join('.') || 'Campo'}: ${e.msg}`).join(' | ');
+      }
+      
+      throw new Error(errorMsg || `Error API (${response.status}): ${response.statusText}`);
     }
 
     const data = await response.json();
+    
+    if (options.returnWithTotal) {
+      const totalCount = parseInt(response.headers.get('X-Total-Count') || '0', 10);
+      return { data, totalCount };
+    }
+    
     return data;
   } catch (error) {
     const elapsed = performance.now() - startTime;
@@ -46,16 +59,16 @@ async function fetchAPI(endpoint, options = {}) {
 
 export const apiService = {
   // Universities GET
-  async getUniversities(params = {}) {
+  async getUniversities(params = {}, options = {}) {
     const query = new URLSearchParams();
-    if (params.tipo) query.append('tipo', params.tipo);
-    if (params.ccaa) query.append('ccaa', params.ccaa);
+    if (params.tipo && params.tipo !== 'todos') query.append('tipo', params.tipo);
+    if (params.ccaa && params.ccaa !== 'todas') query.append('ccaa', params.ccaa);
     if (params.nombre) query.append('nombre', params.nombre);
-    if (params.skip) query.append('skip', params.skip);
-    if (params.limit) query.append('limit', params.limit || 100);
+    if (params.skip !== undefined) query.append('skip', params.skip);
+    if (params.limit !== undefined) query.append('limit', params.limit);
 
     const queryString = query.toString() ? `?${query.toString()}` : '';
-    return fetchAPI(`/universidades${queryString}`);
+    return fetchAPI(`/universidades${queryString}`, options);
   },
 
   async getUniversityByCode(codigo) {
@@ -88,16 +101,18 @@ export const apiService = {
   },
 
   // Degrees GET
-  async getDegrees(params = {}) {
+  async getDegrees(params = {}, options = {}) {
     const query = new URLSearchParams();
     if (params.titulo) query.append('titulo', params.titulo);
-    if (params.nivel_academico) query.append('nivel_academico', params.nivel_academico);
+    if (params.nivel_academico && params.nivel_academico !== 'todos') query.append('nivel_academico', params.nivel_academico);
     if (params.universidad_codigo) query.append('universidad_codigo', params.universidad_codigo);
-    if (params.skip) query.append('skip', params.skip);
-    if (params.limit) query.append('limit', params.limit || 100);
+    if (params.ccaa && params.ccaa !== 'todas') query.append('ccaa', params.ccaa);
+    if (params.tipo_universidad && params.tipo_universidad !== 'todos') query.append('tipo_universidad', params.tipo_universidad);
+    if (params.skip !== undefined) query.append('skip', params.skip);
+    if (params.limit !== undefined) query.append('limit', params.limit);
 
     const queryString = query.toString() ? `?${query.toString()}` : '';
-    return fetchAPI(`/titulaciones${queryString}`);
+    return fetchAPI(`/titulaciones${queryString}`, options);
   },
 
   async getDegreeByCode(codigoEstudio) {

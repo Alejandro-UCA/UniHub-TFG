@@ -27,7 +27,8 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
           provincia: '',
           web: '',
           email: '',
-          telefono: ''
+          telefono: '',
+          gestionado_por_admin: false
         });
       } else {
         setFormData({
@@ -35,7 +36,12 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
           titulo: '',
           nivel_academico: 'Grado - RD 822/2021 (2)',
           estado: 'Publicado en B.O.E.',
-          universidad_codigo: ''
+          universidad_codigo: '',
+          precio_credito_ects: '',
+          precio_credito_2: '',
+          precio_credito_3: '',
+          precio_credito_4: '',
+          gestionado_por_admin: false
         });
       }
     }
@@ -44,7 +50,8 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
   if (!isOpen) return null;
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+    setFormData({ ...formData, [e.target.name]: value });
   };
 
   const handleSubmit = (e) => {
@@ -215,6 +222,20 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
                   />
                 </div>
               </div>
+
+              <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <input
+                  type="checkbox"
+                  id="gestionado_por_admin"
+                  name="gestionado_por_admin"
+                  checked={formData.gestionado_por_admin || false}
+                  onChange={handleChange}
+                  style={{ width: '1.25rem', height: '1.25rem', cursor: 'pointer' }}
+                />
+                <label htmlFor="gestionado_por_admin" style={{ fontSize: '0.88rem', fontWeight: 600, cursor: 'pointer' }}>
+                  Proteger Centro (No sobrescribir por ETL Automático)
+                </label>
+              </div>
             </>
           ) : (
             <>
@@ -282,6 +303,74 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
                     style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
                   />
                 </div>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: '0.3rem' }}>Precio Crédito (1ª Matrícula)</label>
+                  <input
+                    type="number"
+                    step="0.01"
+                    name="precio_credito_ects"
+                    value={formData.precio_credito_ects || ''}
+                    onChange={handleChange}
+                    placeholder="12.62"
+                    style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
+                  />
+                </div>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: '0.3rem' }}>Precio 2ª Matrícula</label>
+                  <input
+                    type="number"
+                    step="0.01"
+                    name="precio_credito_2"
+                    value={formData.precio_credito_2 || ''}
+                    onChange={handleChange}
+                    placeholder="25.24"
+                    style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
+                  />
+                </div>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.5rem' }}>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: '0.3rem' }}>Precio 3ª Matrícula</label>
+                  <input
+                    type="number"
+                    step="0.01"
+                    name="precio_credito_3"
+                    value={formData.precio_credito_3 || ''}
+                    onChange={handleChange}
+                    placeholder="54.27"
+                    style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
+                  />
+                </div>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: '0.3rem' }}>Precio 4ª Matrícula</label>
+                  <input
+                    type="number"
+                    step="0.01"
+                    name="precio_credito_4"
+                    value={formData.precio_credito_4 || ''}
+                    onChange={handleChange}
+                    placeholder="74.72"
+                    style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
+                  />
+                </div>
+              </div>
+
+              <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <input
+                  type="checkbox"
+                  id="gestionado_por_admin_tit"
+                  name="gestionado_por_admin"
+                  checked={formData.gestionado_por_admin || false}
+                  onChange={handleChange}
+                  style={{ width: '1.25rem', height: '1.25rem', cursor: 'pointer' }}
+                />
+                <label htmlFor="gestionado_por_admin_tit" style={{ fontSize: '0.88rem', fontWeight: 600, cursor: 'pointer' }}>
+                  Proteger Titulación (No sobrescribir por ETL Automático)
+                </label>
               </div>
             </>
           )}

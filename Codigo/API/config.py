@@ -1,4 +1,5 @@
 import os
+from urllib.parse import quote_plus
 
 class Settings:
     # API Configuration
@@ -25,12 +26,20 @@ class Settings:
 
     @property
     def DATABASE_URL(self) -> str:
-        """Constructs PostgreSQL SQLAlchemy connection string."""
-        return f"postgresql+psycopg2://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}@{self.POSTGRES_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}?client_encoding=utf8"
+        """Constructs PostgreSQL SQLAlchemy connection string.
+        Credentials are URL-encoded to handle special characters (@, /, %, etc.).
+        """
+        user = quote_plus(self.POSTGRES_USER)
+        password = quote_plus(self.POSTGRES_PASSWORD)
+        return f"postgresql+psycopg2://{user}:{password}@{self.POSTGRES_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}?client_encoding=utf8"
 
     @property
     def API_READONLY_DATABASE_URL(self) -> str:
-        """Constructs Read-Only PostgreSQL connection string for API Service Role."""
-        return f"postgresql+psycopg2://{self.API_DB_USER}:{self.API_DB_PASSWORD}@{self.POSTGRES_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}?client_encoding=utf8"
+        """Constructs Read-Only PostgreSQL connection string for API Service Role.
+        Credentials are URL-encoded to handle special characters (@, /, %, etc.).
+        """
+        user = quote_plus(self.API_DB_USER)
+        password = quote_plus(self.API_DB_PASSWORD)
+        return f"postgresql+psycopg2://{user}:{password}@{self.POSTGRES_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}?client_encoding=utf8"
 
 settings = Settings()

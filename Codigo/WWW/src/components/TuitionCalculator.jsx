@@ -50,7 +50,7 @@ export default function TuitionCalculator() {
     setDegreeDetail(null);
     setSubjectSelections({});
 
-    apiService.getDegrees({ universidad_codigo: selectedUnivCode, limit: 300 })
+    apiService.getDegrees({ universidad_codigo: selectedUnivCode, limit: 500 })
       .then(data => {
         setDegrees(data || []);
         if (data && data.length > 0) {

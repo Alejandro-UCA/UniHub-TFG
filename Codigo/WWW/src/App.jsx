@@ -59,11 +59,13 @@ export default function App() {
   const [selectedCCAA, setSelectedCCAA] = useState('todas');
 
   // Estados de paginación
+  // Estados de paginación y totales
   const [univCurrentPage, setUnivCurrentPage] = useState(1);
   const [univItemsPerPage, setUnivItemsPerPage] = useState(20);
 
   const [degreeCurrentPage, setDegreeCurrentPage] = useState(1);
   const [degreeItemsPerPage, setDegreeItemsPerPage] = useState(20);
+  const [degreeTotalItems, setDegreeTotalItems] = useState(MOCK_DEGREES.length);
 
   // Registrar vista inicial de página y cargar datos
   useEffect(() => {
@@ -86,14 +88,16 @@ export default function App() {
   const loadInitialData = async () => {
     setLoading(true);
     try {
-      const univData = await apiService.getUniversities({ limit: 500 });
-      if (univData && univData.length > 0) {
-        setUniversities(univData);
+      // Cargar todas las universidades a la vez (son pocas) para soportar mapas y filtros cruzados
+      const univRes = await apiService.getUniversities({ limit: 500 }, { returnWithTotal: true });
+      // Si la API devuelve un array (incluso si está vacío), la DB está inicializada
+      if (univRes && Array.isArray(univRes.data)) {
+        setUniversities(univRes.data);
       }
-      const degData = await apiService.getDegrees({ limit: 20000 });
-      if (degData && degData.length > 0) {
-        setDegrees(degData);
-      }
+      
+      // Nota: No llamamos a fetchDegreesPage(1) aquí.
+      // Al actualizar 'universities', el useEffect de abajo se disparará automáticamente,
+      // evitando una llamada duplicada a la API en el arranque.
     } catch (e) {
       console.warn('API REST loading fallback active. Showing offline sample dataset.');
     } finally {
@@ -101,9 +105,51 @@ export default function App() {
     }
   };
 
+  const fetchDegreesPage = async (page) => {
+    setLoading(true);
+    try {
+      const skip = (page - 1) * degreeItemsPerPage;
+      const res = await apiService.getDegrees({ 
+        limit: degreeItemsPerPage, 
+        skip,
+        titulo: searchQuery,
+        nivel_academico: selectedDegreeTipo,
+        ccaa: selectedCCAA,
+        tipo_universidad: selectedUnivTipo
+      }, { returnWithTotal: true });
+      
+      if (res && res.data) {
+        setDegrees(res.data);
+        setDegreeTotalItems(res.totalCount || res.data.length);
+      }
+    } catch (e) {
+      console.warn('Error fetching degrees page', e);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Escuchar cambios en filtros o paginación de titulaciones para refrescar datos en vivo
+  useEffect(() => {
+    // Evitamos llamar a la API antes del montaje inicial completo
+    if (universities === MOCK_UNIVERSITIES) return;
+
+    const delayDebounceFn = setTimeout(() => {
+      fetchDegreesPage(degreeCurrentPage);
+    }, 300);
+
+    return () => clearTimeout(delayDebounceFn);
+  }, [degreeCurrentPage, degreeItemsPerPage, searchQuery, selectedDegreeTipo, selectedCCAA, selectedUnivTipo]);
+
   const handleHeroSearch = (query) => {
     setSearchQuery(query);
   };
+
+  // Generate unique list of CCAA for filter dropdowns
+  const uniqueCCAAs = React.useMemo(() => {
+    const list = [...new Set(universities.map(u => u.comunidad_autonoma).filter(Boolean))];
+    return list.sort((a, b) => a.localeCompare(b));
+  }, [universities]);
 
   // Filtered & Sorted universities (Publics first, then Privates)
   const filteredUniversities = universities.filter(u => {
@@ -129,26 +175,8 @@ export default function App() {
   }, [universities]);
 
   // Filtered & Sorted degrees (including Doctorados and CCAA filter)
-  const filteredDegrees = degrees.filter(d => {
-    const matchesQuery = !searchQuery || `${d.titulo} ${d.codigo_estudio}`.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesTipo = selectedDegreeTipo === 'todos' || (
-      selectedDegreeTipo === 'grado' ? ((d.nivel_academico || '').toLowerCase().includes('grado') && !(d.nivel_academico || '').toLowerCase().includes('doctor')) :
-      selectedDegreeTipo === 'master' ? ((d.nivel_academico || '').toLowerCase().includes('máster') || (d.nivel_academico || '').toLowerCase().includes('master')) :
-      selectedDegreeTipo === 'doctorado' ? ((d.nivel_academico || '').toLowerCase().includes('doctor') || (d.nivel_academico || '').toLowerCase().includes('99/2011') || (d.titulo || '').toLowerCase().includes('doctor')) :
-      true
-    );
-    
-    // CCAA filter matching
-    let matchesCCAA = selectedCCAA === 'todas';
-    if (!matchesCCAA && d.universidad_codigo) {
-      const parentUniv = univCodeMap[d.universidad_codigo];
-      if (parentUniv && parentUniv.comunidad_autonoma) {
-        matchesCCAA = parentUniv.comunidad_autonoma.toLowerCase().includes(selectedCCAA.toLowerCase());
-      }
-    }
-
-    return matchesQuery && matchesTipo && matchesCCAA;
-  });
+  // Ya no filtramos en memoria las titulaciones, la API lo hace por nosotros
+  const filteredDegrees = degrees;
 
   // Top 6 Most Visited Universities for Featured Section
   const topVisitedUnivs = usageTracker.getTopVisitedUniversities(universities, 6);
@@ -159,10 +187,8 @@ export default function App() {
     univCurrentPage * univItemsPerPage
   );
 
-  const paginatedDegrees = filteredDegrees.slice(
-    (degreeCurrentPage - 1) * degreeItemsPerPage,
-    degreeCurrentPage * degreeItemsPerPage
-  );
+  // Titulaciones ya están paginadas desde el servidor
+  const paginatedDegrees = degrees;
 
   const handleViewUniversityDegrees = (univ) => {
     setSearchQuery(univ.nombre);
@@ -250,24 +276,47 @@ export default function App() {
                 />
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <Filter size={16} color="var(--uca-cyan)" />
-                <select 
-                  value={selectedUnivTipo}
-                  onChange={(e) => setSelectedUnivTipo(e.target.value)}
-                  style={{
-                    padding: '0.65rem 1rem',
-                    borderRadius: 'var(--radius-sm)',
-                    border: '1px solid var(--border-light)',
-                    background: 'var(--bg-card)',
-                    color: 'var(--text-main)',
-                    outline: 'none'
-                  }}
-                >
-                  <option value="todos">Todos los tipos</option>
-                  <option value="pública">Públicas</option>
-                  <option value="privada">Privadas</option>
-                </select>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <Filter size={16} color="var(--uca-cyan)" />
+                  <select 
+                    value={selectedUnivTipo}
+                    onChange={(e) => setSelectedUnivTipo(e.target.value)}
+                    style={{
+                      padding: '0.65rem 1rem',
+                      borderRadius: 'var(--radius-sm)',
+                      border: '1px solid var(--border-light)',
+                      background: 'var(--bg-card)',
+                      color: 'var(--text-main)',
+                      outline: 'none'
+                    }}
+                  >
+                    <option value="todos">Todos los tipos</option>
+                    <option value="pública">Públicas</option>
+                    <option value="privada">Privadas</option>
+                  </select>
+                </div>
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <Filter size={16} color="var(--uca-cyan)" />
+                  <select 
+                    value={selectedCCAA}
+                    onChange={(e) => setSelectedCCAA(e.target.value)}
+                    style={{
+                      padding: '0.65rem 1rem',
+                      borderRadius: 'var(--radius-sm)',
+                      border: '1px solid var(--border-light)',
+                      background: 'var(--bg-card)',
+                      color: 'var(--text-main)',
+                      outline: 'none'
+                    }}
+                  >
+                    <option value="todas">Todas las Comunidades</option>
+                    {uniqueCCAAs.map(ccaa => (
+                      <option key={ccaa} value={ccaa}>{ccaa}</option>
+                    ))}
+                  </select>
+                </div>
               </div>
             </div>
 
@@ -297,7 +346,7 @@ export default function App() {
           <section className="container" style={{ padding: '2.5rem 1.5rem' }}>
             <div style={{ marginBottom: '2rem' }}>
               <h2 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '0.5rem' }}>
-                Buscador de Titulaciones Oficiales Vigentes ({filteredDegrees.length})
+                Buscador de Titulaciones Oficiales Vigentes ({degreeTotalItems})
               </h2>
               <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)' }}>
                 Filtra por Grado, Máster o Doctorado y selecciona cualquier titulación para abrir su plan de estudios desglosado.
@@ -325,23 +374,60 @@ export default function App() {
                 />
               </div>
 
-              <select 
-                value={selectedDegreeTipo}
-                onChange={(e) => setSelectedDegreeTipo(e.target.value)}
-                style={{
-                  padding: '0.65rem 1rem',
-                  borderRadius: 'var(--radius-sm)',
-                  border: '1px solid var(--border-light)',
-                  background: 'var(--bg-card)',
-                  color: 'var(--text-main)',
-                  outline: 'none'
-                }}
-              >
-                <option value="todos">Todos los niveles</option>
-                <option value="grado">Grados</option>
-                <option value="master">Másteres</option>
-                <option value="doctorado">Doctorados</option>
-              </select>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+                <select 
+                  value={selectedDegreeTipo}
+                  onChange={(e) => setSelectedDegreeTipo(e.target.value)}
+                  style={{
+                    padding: '0.65rem 1rem',
+                    borderRadius: 'var(--radius-sm)',
+                    border: '1px solid var(--border-light)',
+                    background: 'var(--bg-card)',
+                    color: 'var(--text-main)',
+                    outline: 'none'
+                  }}
+                >
+                  <option value="todos">Todos los niveles</option>
+                  <option value="grado">Grados</option>
+                  <option value="master">Másteres</option>
+                  <option value="doctorado">Doctorados</option>
+                </select>
+
+                <select 
+                  value={selectedUnivTipo}
+                  onChange={(e) => setSelectedUnivTipo(e.target.value)}
+                  style={{
+                    padding: '0.65rem 1rem',
+                    borderRadius: 'var(--radius-sm)',
+                    border: '1px solid var(--border-light)',
+                    background: 'var(--bg-card)',
+                    color: 'var(--text-main)',
+                    outline: 'none'
+                  }}
+                >
+                  <option value="todos">Todas las Universidades</option>
+                  <option value="pública">Solo Públicas</option>
+                  <option value="privada">Solo Privadas</option>
+                </select>
+
+                <select 
+                  value={selectedCCAA}
+                  onChange={(e) => setSelectedCCAA(e.target.value)}
+                  style={{
+                    padding: '0.65rem 1rem',
+                    borderRadius: 'var(--radius-sm)',
+                    border: '1px solid var(--border-light)',
+                    background: 'var(--bg-card)',
+                    color: 'var(--text-main)',
+                    outline: 'none'
+                  }}
+                >
+                  <option value="todas">Todas las Comunidades</option>
+                  {uniqueCCAAs.map(ccaa => (
+                    <option key={ccaa} value={ccaa}>{ccaa}</option>
+                  ))}
+                </select>
+              </div>
             </div>
 
             {/* Degrees Grid */}
@@ -358,7 +444,7 @@ export default function App() {
             {/* Pagination Controls */}
             <Pagination 
               currentPage={degreeCurrentPage}
-              totalItems={filteredDegrees.length}
+              totalItems={degreeTotalItems}
               itemsPerPage={degreeItemsPerPage}
               onPageChange={setDegreeCurrentPage}
               onItemsPerPageChange={setDegreeItemsPerPage}

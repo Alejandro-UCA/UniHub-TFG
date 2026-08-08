@@ -85,4 +85,4 @@ Toda esta información se visualiza gráficamente en el **Panel de Administraci�
    - Portal Web SPA (Fase 3): `http://localhost` o `http://localhost:5173`
    - API REST & Documentación Swagger (Fase 2): `http://localhost:8000/docs`
    - Documentación ReDoc: `http://localhost:8000/redoc`
-   - Login Administrador: `admin` / `admin_pass_2026`
+   - Login Administrador: `admin` / `unihub_super_secret_admin_key_2026`

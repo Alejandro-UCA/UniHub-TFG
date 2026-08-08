@@ -55,7 +55,7 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
           </p>
         )}
 
-        {/* ECTS Credit Price & Estimated Annual Tuition Badge (Phase 1 Part 3) */}
+        {/* ECTS Credit Price & Estimated Annual Tuition Badge (Phase 1 Part 3 & Phase 2) */}
         {degree.precio_credito_ects && (
           <div style={{
             background: 'rgba(16, 185, 129, 0.08)',
@@ -63,18 +63,25 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
             borderRadius: 'var(--radius-sm)',
             padding: '0.45rem 0.65rem',
             marginBottom: '0.85rem',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
             fontSize: '0.78rem'
           }}>
-            <span style={{ color: 'var(--success)', fontWeight: 700 }}>💶 Matrícula Pública Estimada:</span>
-            <span style={{ fontWeight: 800, color: 'var(--text-main)' }}>
-              ~{Math.round(degree.precio_estimado_anual || (degree.precio_credito_ects * 60 + 45))} €/año
-              <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontWeight: 400, marginLeft: '0.35rem' }}>
-                ({degree.precio_credito_ects} €/ECTS)
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.2rem' }}>
+              <span style={{ color: 'var(--success)', fontWeight: 700 }}>💶 1ª Matrícula:</span>
+              <span style={{ fontWeight: 800, color: 'var(--text-main)' }}>
+                ~{Math.round(degree.precio_estimado_anual || (degree.precio_credito_ects * 60 + 45))} €/año
+                <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontWeight: 400, marginLeft: '0.35rem' }}>
+                  ({degree.precio_credito_ects} €/c)
+                </span>
               </span>
-            </span>
+            </div>
+            
+            {(degree.precio_credito_2 || degree.precio_credito_3 || degree.precio_credito_4) && (
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: 'var(--text-muted)', marginTop: '0.4rem', paddingTop: '0.4rem', borderTop: '1px dashed rgba(16, 185, 129, 0.2)' }}>
+                {degree.precio_credito_2 && <span>2ª: {degree.precio_credito_2}€</span>}
+                {degree.precio_credito_3 && <span>3ª: {degree.precio_credito_3}€</span>}
+                {degree.precio_credito_4 && <span>4ª: {degree.precio_credito_4}€</span>}
+              </div>
+            )}
           </div>
         )}
       </div>
@@ -87,9 +94,16 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
         alignItems: 'center',
         justifyContent: 'space-between'
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.78rem', color: 'var(--success)' }}>
-          <CheckCircle2 size={14} />
-          <span>Verificado BOE</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.75rem', color: 'var(--success)' }}>
+            <CheckCircle2 size={14} />
+            <span>BOE</span>
+          </div>
+          {degree.gestionado_por_admin && (
+            <div title="Registro bloqueado y administrado manualmente (No sobrescribible por ETL)" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.72rem', color: 'var(--uca-gold)', background: 'rgba(243, 167, 18, 0.1)', padding: '0.15rem 0.35rem', borderRadius: '4px' }}>
+              <span>Bloqueado</span>
+            </div>
+          )}
         </div>
 
         <button 

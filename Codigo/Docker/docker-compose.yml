@@ -26,9 +26,12 @@ services:
       POSTGRES_DB: ${POSTGRES_DB:-unihub_db}
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-admin}
+      POSTGRES_API_USER: ${POSTGRES_API_USER:-unihub_api_user}
+      POSTGRES_API_PASSWORD: ${POSTGRES_API_PASSWORD:-unihub_api_password_sec2026}
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ../API/database/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+      - ../API/database/02_security.sh:/docker-entrypoint-initdb.d/02_security.sh:ro
     ports:
       - "5432:5432"
     networks:
@@ -53,6 +56,7 @@ services:
       - PYTHONUNBUFFERED=1
       - CRAWLER_CRON_SCHEDULE=${CRAWLER_CRON_SCHEDULE:-0 2 1 * *}
       - CRAWLER_REQUEST_DELAY=${CRAWLER_REQUEST_DELAY:-1.0}
+      - ADMIN_API_KEY=${ADMIN_API_KEY:-unihub_super_secret_admin_key_2026}
     volumes:
       - ../Crawler/Datos:/app/Datos
     networks:
@@ -94,7 +98,7 @@ services:
       context: ../..
       dockerfile: Codigo/Docker/www/Dockerfile
       args:
-        VITE_API_URL: ${VITE_API_URL:-http://localhost:8000/api/v1}
+        VITE_API_URL: ${VITE_API_URL:-/api/v1}
         VITE_ADMIN_USER: ${VITE_ADMIN_USER:-admin}
         VITE_ADMIN_FEES: ${VITE_ADMIN_FEES:-45.00}
         VITE_BECA_MEC_REFERENCE_PRICE: ${VITE_BECA_MEC_REFERENCE_PRICE:-1008}

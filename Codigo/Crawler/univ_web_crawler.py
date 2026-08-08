@@ -146,7 +146,12 @@ def extract_private_university_pricing(soup: BeautifulSoup, page_text: str) -> d
     for pat in ects_patterns:
         m = re.search(pat, text_lower)
         if m:
-            val_str = m.group(1).replace(".", "").replace(",", ".")
+            val_str = m.group(1)
+            # European format: dot as thousands sep (e.g. 1.250), comma as decimal (e.g. 89,50)
+            if re.match(r'^\d{1,3}\.\d{3}$', val_str):
+                val_str = val_str.replace(".", "")
+            else:
+                val_str = val_str.replace(",", ".")
             try:
                 val_num = float(val_str)
                 if 15.0 <= val_num <= 500.0:
@@ -165,7 +170,11 @@ def extract_private_university_pricing(soup: BeautifulSoup, page_text: str) -> d
         for pat in patterns:
             m = re.search(pat, text_lower)
             if m:
-                val_str = m.group(1).replace(".", "").replace(",", ".")
+                val_str = m.group(1)
+                if re.match(r'^\d{1,3}\.\d{3}$', val_str):
+                    val_str = val_str.replace(".", "")
+                else:
+                    val_str = val_str.replace(",", ".")
                 try:
                     val_num = float(val_str)
                     if 15.0 <= val_num <= 500.0:
@@ -189,7 +198,11 @@ def extract_private_university_pricing(soup: BeautifulSoup, page_text: str) -> d
     for pat in annual_patterns:
         m = re.search(pat, text_lower)
         if m:
-            val_str = m.group(1).replace(".", "").replace(",", ".")
+            val_str = m.group(1)
+            if re.match(r'^\d{1,3}\.\d{3}$', val_str):
+                val_str = val_str.replace(".", "")
+            else:
+                val_str = val_str.replace(",", ".")
             try:
                 val_num = float(val_str)
                 if 1000.0 <= val_num <= 45000.0:
@@ -647,6 +660,22 @@ class UniversityWebCrawler:
                                             target_html = downloader.fetch_text(target_link)
                                             target_soup = BeautifulSoup(target_html, "html.parser")
                                             elementos_html = extract_html_subjects(target_soup)
+
+                                            # Fallback: If static HTML yields < 3 subjects, render with Playwright headless browser for SPA JavaScript portals
+                                            if len(elementos_html) < 3:
+                                                try:
+                                                    from spa_crawler import SPALayoutCrawler
+                                                    spa_crawler = SPALayoutCrawler()
+                                                    rendered_html = spa_crawler.render_spa_page(target_link)
+                                                    if rendered_html:
+                                                        spa_soup = BeautifulSoup(rendered_html, "html.parser")
+                                                        spa_elementos = extract_html_subjects(spa_soup)
+                                                        if len(spa_elementos) >= 3:
+                                                            elementos_html = spa_elementos
+                                                            target_soup = spa_soup
+                                                            target_html = rendered_html
+                                                except Exception:
+                                                    pass
                                             
                                             # Extraer precios de matrículas en universidades privadas
                                             extracted_pricing = {}
@@ -702,6 +731,18 @@ class UniversityWebCrawler:
                 print(f"     [ÉXITO PARTE 2] Encontrado plan de estudios en la web oficial: '{direct_source_url}'")
                 stats["resolved_degrees_count"] += 1
                 
+                degree_data = {}
+                if os.path.exists(plan_file):
+                    try:
+                        with open(plan_file, "r", encoding="utf-8") as f:
+                            degree_data = json.load(f)
+                    except Exception:
+                        pass
+                degree_data["codigo_estudio"] = d_code
+                degree_data["titulo"] = deg.get("titulo", "")
+                degree_data["nivel_academico"] = deg.get("nivel_academico", "")
+                degree_data["universidad_codigo"] = u_code
+                degree_data["universidad_nombre"] = u_name
                 degree_data["fecha_procesado"] = datetime.now().isoformat()
                 degree_data["web_fuente_directa_url"] = direct_source_url
                 degree_data["origen_fuente"] = "web_oficial_universidad"

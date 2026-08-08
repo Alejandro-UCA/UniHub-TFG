@@ -133,12 +133,15 @@ def run_phase1_part3():
             
             price_info = compute_degree_price(ccaa, tipo_univ, nivel, titulo, precios_catalogo=precios_catalogo)
             
-            degree["precio_credito_ects"] = price_info["precio_credito_ects"]
-            degree["precio_credito_2"] = price_info["precio_credito_2"]
-            degree["precio_credito_3"] = price_info["precio_credito_3"]
-            degree["precio_credito_4"] = price_info["precio_credito_4"]
-            degree["precio_estimado_anual"] = price_info["precio_estimado_anual"]
-            degree["fuente_precio"] = price_info["fuente_precio"]
+            if "pública" in tipo_univ.lower() or "publica" in tipo_univ.lower():
+                degree["precio_credito_ects"] = price_info["precio_credito_ects"]
+                degree["precio_credito_2"] = price_info["precio_credito_2"]
+                degree["precio_credito_3"] = price_info["precio_credito_3"]
+                degree["precio_credito_4"] = price_info["precio_credito_4"]
+                degree["precio_estimado_anual"] = price_info["precio_estimado_anual"]
+                degree["fuente_precio"] = price_info["fuente_precio"]
+            elif "fuente_precio" not in degree:
+                degree["fuente_precio"] = "Universidad Privada (Tarifas fijadas por la institución)"
             
             atomic_json_dump(degree, filepath)
                 
@@ -162,12 +165,15 @@ def run_phase1_part3():
                 
                 for t in u_info.get("titulaciones_vigentes", []):
                     price_info = compute_degree_price(ccaa, tipo_univ, t.get("nivel_academico", ""), t.get("titulo", ""), precios_catalogo=precios_catalogo)
-                    t["precio_credito_ects"] = price_info["precio_credito_ects"]
-                    t["precio_credito_2"] = price_info["precio_credito_2"]
-                    t["precio_credito_3"] = price_info["precio_credito_3"]
-                    t["precio_credito_4"] = price_info["precio_credito_4"]
-                    t["precio_estimado_anual"] = price_info["precio_estimado_anual"]
-                    t["fuente_precio"] = price_info["fuente_precio"]
+                    if "pública" in tipo_univ.lower() or "publica" in tipo_univ.lower():
+                        t["precio_credito_ects"] = price_info["precio_credito_ects"]
+                        t["precio_credito_2"] = price_info["precio_credito_2"]
+                        t["precio_credito_3"] = price_info["precio_credito_3"]
+                        t["precio_credito_4"] = price_info["precio_credito_4"]
+                        t["precio_estimado_anual"] = price_info["precio_estimado_anual"]
+                        t["fuente_precio"] = price_info["fuente_precio"]
+                    elif "fuente_precio" not in t:
+                        t["fuente_precio"] = "Universidad Privada (Tarifas fijadas por la institución)"
                     
             atomic_json_dump(tit_data, tit_json_path)
             print(" -> 'titulaciones_universidad.json' actualizado con precios ECTS.")

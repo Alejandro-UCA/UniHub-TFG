@@ -71,10 +71,17 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue):
             latest_boe_url = task.get("latest_boe_url")
             latest_boe_fecha = task.get("latest_boe_fecha")
             plan_file = os.path.join(PLANES_DIR, f"{d_code}.json")
+            existing_degree_data = {}
+            if os.path.exists(plan_file):
+                try:
+                    with open(plan_file, "r", encoding="utf-8") as f:
+                        existing_degree_data = json.load(f)
+                except Exception:
+                    pass
 
             if task_type == "DEGREE_NO_BOE":
                 print(f"     [Proceso Parser] -> [AVISO] Sin enlaces a BOE para [{d_code}]. Guardando metadatos base.")
-                degree_data = {
+                existing_degree_data.update({
                     "codigo_estudio": d_code,
                     "titulo": d_title,
                     "nivel_academico": nivel_academico,
@@ -82,9 +89,10 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue):
                     "universidad_nombre": u_name,
                     "fecha_procesado": datetime.now().isoformat(),
                     "boe_url": None,
-                    "plan_estudios": None
-                }
-                atomic_json_dump(degree_data, plan_file)
+                })
+                if "plan_estudios" not in existing_degree_data:
+                    existing_degree_data["plan_estudios"] = None
+                atomic_json_dump(existing_degree_data, plan_file)
                 checkpoint.update_degree_record(d_code, None, None, datetime.now().isoformat())
 
             elif task_type == "PARSE_DEGREE_PDFS":
@@ -149,7 +157,7 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue):
                         "total_elementos": len(combined_elementos),
                         "elementos_curriculares": combined_elementos
                     }
-                    degree_data = {
+                    existing_degree_data.update({
                         "codigo_estudio": d_code,
                         "titulo": d_title,
                         "nivel_academico": nivel_academico,
@@ -159,13 +167,14 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue):
                         "boe_url": latest_boe_url,
                         "boe_fecha": latest_boe_fecha,
                         "all_boe_urls": task.get("all_boe_urls", processed_boe_urls),
-                        "plan_estudios": curriculum_combined
-                    }
-                    atomic_json_dump(degree_data, plan_file)
+                        "plan_estudios": curriculum_combined,
+                        "origen_fuente": "boe"
+                    })
+                    atomic_json_dump(existing_degree_data, plan_file)
                     checkpoint.update_degree_record(d_code, latest_boe_url, latest_boe_fecha, datetime.now().isoformat())
                 else:
                     print(f"     [Proceso Parser] -> [AVISO] Ningún PDF de [{d_code}] contenía asignaturas desglosadas. Guardando metadatos base.")
-                    degree_data = {
+                    existing_degree_data.update({
                         "codigo_estudio": d_code,
                         "titulo": d_title,
                         "nivel_academico": nivel_academico,
@@ -173,10 +182,11 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue):
                         "universidad_nombre": u_name,
                         "fecha_procesado": datetime.now().isoformat(),
                         "boe_url": latest_boe_url,
-                        "boe_fecha": latest_boe_fecha,
-                        "plan_estudios": None
-                    }
-                    atomic_json_dump(degree_data, plan_file)
+                        "boe_fecha": latest_boe_fecha
+                    })
+                    if "plan_estudios" not in existing_degree_data:
+                        existing_degree_data["plan_estudios"] = None
+                    atomic_json_dump(existing_degree_data, plan_file)
                     checkpoint.update_degree_record(d_code, latest_boe_url, latest_boe_fecha, datetime.now().isoformat())
 
         except Exception as consumer_err:
@@ -232,9 +242,10 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
         parser_process.start()
         print(" -> Proceso 2 (Parser CPU & Escritura en Disco) arrancado y listo en segundo plano.\n")
 
-        # -------------------------------------------------------------------------
-        # PASO 1: Descargar / Inspeccionar listado de universidades (Públicas prioritarias)
-        # -------------------------------------------------------------------------
+        try:
+            # -------------------------------------------------------------------------
+            # PASO 1: Descargar / Inspeccionar listado de universidades (Públicas prioritarias)
+            # -------------------------------------------------------------------------
         print("[Paso 1] Obteniendo listado oficial de universidades (Públicas prioritarias)...")
         univ_file = os.path.join(TEMP_PDF_DIR, "universidades_list.xls")
         
@@ -243,6 +254,21 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
             downloader.download_file(URL_UNIVERSIDADES_LIST, univ_file)
             metrics.record_io_time(time.perf_counter() - t0)
             universities = parse_universities_xls(univ_file)
+            
+            # MERGE: Preservar las URLs que han sido rescatadas/corregidas por Wikidata en ejecuciones anteriores
+            if os.path.exists(UNIVERSIDADES_JSON):
+                try:
+                    with open(UNIVERSIDADES_JSON, "r", encoding="utf-8") as f:
+                        old_univs = json.load(f)
+                        old_map = {u["codigo"]: u for u in old_univs}
+                        for new_u in universities:
+                            old_u = old_map.get(new_u["codigo"])
+                            if old_u and old_u.get("web_corregida_por_wikidata"):
+                                new_u["web"] = old_u["web"]
+                                new_u["web_corregida_por_wikidata"] = True
+                except Exception:
+                    pass
+
             atomic_json_dump(universities, UNIVERSIDADES_JSON)
             checkpoint.mark_universities_downloaded()
             print(f" -> {len(universities)} universidades comprobadas y actualizadas en '{UNIVERSIDADES_JSON}'.")
@@ -453,17 +479,25 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
         metrics.save()
         checkpoint.mark_university_processed(u_code)
 
-        # Finalización de Proceso 2 (Parser CPU) si se ejecutó la Parte 1
-        print("\n[Finalizando Red] Enviando señal de parada al Proceso 2 (Parser CPU)...")
-        task_queue.put({"type": "STOP"})
-        
-        # Receive metrics summary from Process 2
-        consumer_results = result_queue.get()
-        parser_process.join()
-
-        metrics.pdfs_parseados = consumer_results.get("parsed_count", 0)
-        metrics.titulaciones_descargadas_actualizadas = consumer_results.get("updated_degrees_count", 0)
-        metrics.save()
+        finally:
+            # Finalización segura de Proceso 2 (Parser CPU) incluso si hay crasheos
+            print("\n[Finalizando Red] Enviando señal de parada al Proceso 2 (Parser CPU)...")
+            task_queue.put({"type": "STOP"})
+            
+            # Receive metrics summary from Process 2
+            try:
+                consumer_results = result_queue.get(timeout=10)
+                metrics.pdfs_parseados = consumer_results.get("parsed_count", 0)
+                metrics.titulaciones_descargadas_actualizadas = consumer_results.get("updated_degrees_count", 0)
+            except Exception as eq:
+                print(f" [AVISO] No se pudieron recolectar métricas del proceso parser: {eq}")
+                
+            parser_process.join(timeout=10)
+            if parser_process.is_alive():
+                print(" [AVISO] Forzando terminación del Proceso 2 (colgado).")
+                parser_process.terminate()
+            
+            metrics.save()
 
         print("\n" + "=" * 70)
         print("      CRAWLER UNIHUB PARTE 1 FINALIZADO CON ÉXITO")

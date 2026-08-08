@@ -216,6 +216,54 @@ class UniversityWebCrawler:
         self.timeout = timeout
         self.logger = ErrorLogger()
         self.checkpoint = CheckpointManager()
+        import threading
+        self.univ_file_lock = threading.Lock()
+
+    def rescue_university_url(self, univ_name: str) -> str:
+        """
+        Consulta la API pública de Wikipedia y Wikidata para recuperar el sitio web oficial de una institución.
+        """
+        import requests
+        headers = {
+            "User-Agent": "UniHubCrawler/1.0 (https://github.com/Alejandro-UCA/UniHub-TFG; contacto@unihub) requests"
+        }
+        search_url = "https://es.wikipedia.org/w/api.php"
+        search_params = {
+            "action": "query", "list": "search", "srsearch": univ_name,
+            "format": "json", "utf8": 1, "srlimit": 1
+        }
+        
+        try:
+            resp = requests.get(search_url, params=search_params, headers=headers, timeout=10)
+            data = resp.json()
+            if not data.get("query", {}).get("search"):
+                return None
+                
+            title = data["query"]["search"][0]["title"]
+            prop_params = {"action": "query", "prop": "pageprops", "titles": title, "format": "json"}
+            prop_resp = requests.get(search_url, params=prop_params, headers=headers, timeout=10)
+            prop_data = prop_resp.json()
+            
+            pages = prop_data.get("query", {}).get("pages", {})
+            page = list(pages.values())[0]
+            wikibase_item = page.get("pageprops", {}).get("wikibase_item")
+            
+            if not wikibase_item:
+                return None
+                
+            wikidata_url = "https://www.wikidata.org/w/api.php"
+            wd_params = {"action": "wbgetentities", "ids": wikibase_item, "props": "claims", "format": "json"}
+            wd_resp = requests.get(wikidata_url, params=wd_params, headers=headers, timeout=10)
+            wd_data = wd_resp.json()
+            
+            claims = wd_data.get("entities", {}).get(wikibase_item, {}).get("claims", {})
+            website_claims = claims.get("P856", [])
+            
+            if website_claims:
+                return website_claims[0].get("mainsnak", {}).get("datavalue", {}).get("value")
+        except Exception:
+            pass
+        return None
 
     def check_robots_allowed(self, target_url: str) -> tuple[bool, float | None]:
         """
@@ -375,7 +423,43 @@ class UniversityWebCrawler:
             print(f" [Parte 2] Universidad [{u_code}] {u_name}: Todas las titulaciones ({len(active_degrees)}) tienen plan de estudios. Finalizado.")
             return stats
 
-        print(f" [Parte 2] Universidad [{u_code}] {u_name}: {len(missing_degrees)} titulaciones sin plan de estudios. Verificando robots.txt en '{web_url}'...")
+        print(f" [Parte 2] Universidad [{u_code}] {u_name}: {len(missing_degrees)} titulaciones sin plan de estudios. Verificando conectividad en '{web_url}'...")
+
+        # 2.5 Test de conectividad y Protocolo de Rescate (Wikipedia API)
+        downloader = RUCTDownloader(delay=0.1, timeout=10)
+        try:
+            downloader.fetch_content(web_url)
+        except Exception as conn_err:
+            print(f" [RESCATE] Web '{web_url}' inalcanzable ({conn_err}). Consultando Wikipedia/Wikidata...")
+            rescued_url = self.rescue_university_url(u_name)
+            if rescued_url:
+                if rescued_url.startswith("http://"):
+                    rescued_url = "https://" + rescued_url[7:]
+                elif not rescued_url.startswith("https://"):
+                    rescued_url = "https://" + rescued_url
+                    
+                web_url = rescued_url
+                print(f" [RESCATE OK] URL corregida por Wikidata para [{u_code}]: {web_url}")
+                
+                # Actualizar permanentemente en universidades.json
+                with self.univ_file_lock:
+                    if os.path.exists(UNIVERSIDADES_JSON):
+                        try:
+                            with open(UNIVERSIDADES_JSON, "r", encoding="utf-8") as f:
+                                all_univs = json.load(f)
+                            for unv in all_univs:
+                                if unv.get("codigo") == u_code:
+                                    unv["web"] = web_url
+                                    unv["web_corregida_por_wikidata"] = True
+                                    break
+                            atomic_json_dump(all_univs, UNIVERSIDADES_JSON)
+                        except Exception as file_err:
+                            print(f"   [AVISO] No se pudo persistir la URL corregida en el JSON: {file_err}")
+            else:
+                print(f" [RESCATE FALLIDO] No se pudo encontrar web alternativa en Wikipedia para [{u_code}].")
+                self.checkpoint.record_pdf_download_failure(web_url, "ALL", f"Web principal caída/errónea. Rescate fallido: {conn_err}")
+                stats["robots_allowed"] = False
+                return stats
 
         # 3. Conectarse a la web oficial (HTTPS) y comprobar robots.txt y Crawl-delay
         can_fetch, crawl_delay = self.check_robots_allowed(web_url)
@@ -618,23 +702,16 @@ class UniversityWebCrawler:
                 print(f"     [ÉXITO PARTE 2] Encontrado plan de estudios en la web oficial: '{direct_source_url}'")
                 stats["resolved_degrees_count"] += 1
                 
-                degree_data = {
-                    "codigo_estudio": d_code,
-                    "titulo": d_title,
-                    "nivel_academico": deg.get("nivel_academico", ""),
-                    "universidad_codigo": u_code,
-                    "universidad_nombre": u_name,
-                    "fecha_procesado": datetime.now().isoformat(),
-                    "web_fuente_directa_url": direct_source_url,
-                    "origen_fuente": "web_oficial_universidad",
-                    "precio_credito_ects": found_curriculum.get("precio_credito_ects") or deg.get("precio_credito_ects"),
-                    "precio_credito_2": found_curriculum.get("precio_credito_2") or deg.get("precio_credito_2"),
-                    "precio_credito_3": found_curriculum.get("precio_credito_3") or deg.get("precio_credito_3"),
-                    "precio_credito_4": found_curriculum.get("precio_credito_4") or deg.get("precio_credito_4"),
-                    "precio_estimado_anual": found_curriculum.get("precio_estimado_anual") or deg.get("precio_estimado_anual"),
-                    "fuente_precio": found_curriculum.get("fuente_precio") or deg.get("fuente_precio"),
-                    "plan_estudios": found_curriculum
-                }
+                degree_data["fecha_procesado"] = datetime.now().isoformat()
+                degree_data["web_fuente_directa_url"] = direct_source_url
+                degree_data["origen_fuente"] = "web_oficial_universidad"
+                degree_data["precio_credito_ects"] = found_curriculum.get("precio_credito_ects") or deg.get("precio_credito_ects")
+                degree_data["precio_credito_2"] = found_curriculum.get("precio_credito_2") or deg.get("precio_credito_2")
+                degree_data["precio_credito_3"] = found_curriculum.get("precio_credito_3") or deg.get("precio_credito_3")
+                degree_data["precio_credito_4"] = found_curriculum.get("precio_credito_4") or deg.get("precio_credito_4")
+                degree_data["precio_estimado_anual"] = found_curriculum.get("precio_estimado_anual") or deg.get("precio_estimado_anual")
+                degree_data["fuente_precio"] = found_curriculum.get("fuente_precio") or deg.get("fuente_precio")
+                degree_data["plan_estudios"] = found_curriculum
                 
                 atomic_json_dump(degree_data, plan_file)
                 self.checkpoint.update_degree_record(d_code, direct_source_url, datetime.now().strftime("%Y-%m-%d"), datetime.now().isoformat())

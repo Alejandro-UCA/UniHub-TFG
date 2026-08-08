@@ -440,6 +440,7 @@ class UniversityWebCrawler:
 
         # 2.5 Test de conectividad y Protocolo de Rescate (Wikipedia API)
         downloader = RUCTDownloader(delay=0.1, timeout=10)
+        downloader.reset_university_context(u_code)
         try:
             downloader.fetch_content(web_url)
         except Exception as conn_err:
@@ -488,6 +489,7 @@ class UniversityWebCrawler:
 
         # 4. Acceso previo al Sitemap XML del portal académico (respetando retardo oficial)
         downloader = RUCTDownloader(delay=effective_delay, timeout=15)
+        downloader.reset_university_context(u_code)
         sitemap_urls = self.fetch_sitemap_urls(web_url)
         if sitemap_urls:
             print(f"     -> {len(sitemap_urls)} URLs académicas indexadas extraídas del Sitemap XML de la universidad.")

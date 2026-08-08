@@ -363,8 +363,12 @@ def parse_boe_pdf(pdf_filepath: str) -> dict:
                         for cell in clean_row:
                             if not ects_match:
                                 m = re.search(r"\b(\d+(?:[\.,]\d+)?)\b", cell)
-                                if m and float(m.group(1).replace(",", ".")) in [3, 4.5, 6, 9, 12, 15, 18, 24, 30]:
-                                    ects_match = m.group(1)
+                                if m:
+                                    try:
+                                        if float(m.group(1).replace(",", ".")) in [3, 4.5, 6, 9, 12, 15, 18, 24, 30]:
+                                            ects_match = m.group(1)
+                                    except ValueError:
+                                        pass
 
                             cell_lower = cell.lower()
                             if "básica" in cell_lower or "basica" in cell_lower or "fb" in cell_lower:
@@ -405,6 +409,39 @@ def parse_boe_pdf(pdf_filepath: str) -> dict:
                             })
     except Exception as e:
         print(f"   [AVISO] pdfplumber table extraction fallback: {e}")
+
+    # Fallback: Text-stream regex parser for PDFs without standard table grid borders
+    if len(elementos_curriculares) == 0 and full_text:
+        lines = full_text.splitlines()
+        for line in lines:
+            line_str = line.strip()
+            if not line_str or len(line_str) < 6:
+                continue
+
+            line_lower = line_str.lower()
+            if any(hk in line_lower for hk in ["asignatura", "materia", "denominación", "carácter", "créditos", "ects", "curso", "página", "boletín"]):
+                continue
+
+            # Regex pattern for subject line: [Subject Name] [Credits] [Character (FB/OB/OP/PE/TFG)]
+            m = re.search(r"^([A-ZÁÉÍÓÚÑa-záéíóúñ0-9\s\-\,\.\(\)]{5,70})\s+(\d+(?:[\.,]\d+)?)\s+(FB|OB|OP|PE|TFG|TFM|Obligatoria|Optativa|Básica)\b", line_str, re.IGNORECASE)
+            if m:
+                subj_name = m.group(1).strip()
+                cred_val = m.group(2).replace(",", ".")
+                car_str = m.group(3).upper()
+
+                try:
+                    if float(cred_val) in [3, 4.5, 6, 9, 12, 15, 18, 24, 30]:
+                        elementos_curriculares.append({
+                            "modulo": "",
+                            "materia": "",
+                            "nombre_elemento": subj_name,
+                            "creditos_ects": cred_val,
+                            "caracter": "FB" if "BÁSICA" in car_str or "FB" in car_str else ("OP" if "OPTATIVA" in car_str or "OP" in car_str else "OB"),
+                            "curso": "",
+                            "cuatrimestre": ""
+                        })
+                except ValueError:
+                    pass
 
     return {
         "resumen_creditos": resumen_creditos,

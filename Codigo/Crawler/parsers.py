@@ -300,6 +300,17 @@ def parse_boe_pdf(pdf_filepath: str) -> dict:
 
     full_text = "\n".join(raw_text_parts)
 
+    # Fallback for scanned image PDFs: Use local OCR when vector text layer is missing or empty
+    if len(full_text.strip()) < 50:
+        try:
+            from ocr_parser import OCRPDFParser
+            ocr_parser = OCRPDFParser()
+            ocr_text = ocr_parser.extract_text_via_ocr(pdf_filepath)
+            if len(ocr_text.strip()) >= 50:
+                full_text = ocr_text
+        except Exception:
+            pass
+
     # 1. Parse Credit Summary Table
     credit_keywords = [
         ("Formación Básica", r"(?:formaci[oó]n b[aá]sica|fb)\s*[:\.\-]?\s*(\d+)"),

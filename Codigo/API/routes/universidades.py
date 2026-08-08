@@ -87,6 +87,11 @@ def update_universidad(codigo: str, data: UniversidadUpdate, db: Session = Depen
         raise HTTPException(status_code=404, detail=f"Universidad con código '{codigo}' no encontrada.")
 
     update_dict = data.model_dump(exclude_unset=True)
+    
+    if "nombre" in update_dict:
+        if not update_dict["nombre"] or not update_dict["nombre"].strip():
+            raise HTTPException(status_code=422, detail="El nombre de la universidad no puede ser nulo ni vacío.")
+            
     for field, value in update_dict.items():
         setattr(univ, field, value)
     

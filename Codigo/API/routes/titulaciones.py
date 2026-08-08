@@ -70,6 +70,9 @@ def create_titulacion(data: TitulacionCreate, db: Session = Depends(get_admin_db
         estado=data.estado or "Publicado en B.O.E.",
         universidad_codigo=univ.codigo,
         precio_credito_ects=data.precio_credito_ects,
+        precio_credito_2=data.precio_credito_2,
+        precio_credito_3=data.precio_credito_3,
+        precio_credito_4=data.precio_credito_4,
         precio_estimado_anual=data.precio_estimado_anual,
         fuente_precio=data.fuente_precio,
         gestionado_por_admin=True
@@ -86,7 +89,15 @@ def update_titulacion(codigo_estudio: str, data: TitulacionUpdate, db: Session =
         raise HTTPException(status_code=404, detail=f"Titulación con código '{codigo_estudio}' no encontrada.")
 
     update_dict = data.model_dump(exclude_unset=True)
-    if "universidad_codigo" in update_dict and update_dict["universidad_codigo"]:
+    
+    if "titulo" in update_dict:
+        if not update_dict["titulo"] or not update_dict["titulo"].strip():
+            raise HTTPException(status_code=422, detail="El título de la titulación no puede ser nulo ni vacío.")
+            
+    if "universidad_codigo" in update_dict:
+        if not update_dict["universidad_codigo"] or not update_dict["universidad_codigo"].strip():
+            raise HTTPException(status_code=422, detail="El código de universidad no puede ser nulo ni vacío.")
+        
         u_code = update_dict["universidad_codigo"].zfill(3)
         univ = db.query(Universidad).filter(Universidad.codigo == u_code).first()
         if not univ:

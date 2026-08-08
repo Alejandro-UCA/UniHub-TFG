@@ -16,7 +16,7 @@ def list_titulaciones(
     nivel_academico: Optional[str] = Query(None, description="Filtrar por Grado, Máster o Doctorado"),
     universidad_codigo: Optional[str] = Query(None, description="Filtrar por código de universidad"),
     skip: int = Query(0, ge=0),
-    limit: int = Query(100, ge=1, le=20000),
+    limit: int = Query(100, ge=1, le=500),
     db: Session = Depends(get_db)
 ):
     query = db.query(Titulacion).outerjoin(Universidad)

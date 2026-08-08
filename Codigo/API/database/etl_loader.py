@@ -21,15 +21,25 @@ from models.models import (
 )
 
 def run_etl():
-    print("=" * 70)
-    print("     INICIANDO PROCESO ETL: MIGRACIÓN DE JSON (FASE 1) A POSTGRESQL")
-    print("======================================================================")
-    
-    # Ruta al directorio de datos de la Fase 1 (Comprobar primero la ruta Docker /app/Datos, fallback a ruta local)
-    base_api_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    crawler_datos_dir = "/app/Datos"
-    if not os.path.exists(crawler_datos_dir):
-        crawler_datos_dir = os.path.join(os.path.dirname(base_api_dir), "Crawler", "Datos")
+    lock_file = "/tmp/etl_running.lock"
+    if os.path.exists(lock_file):
+        print("[AVISO] El proceso ETL ya está en ejecución. Abortando para evitar colisiones.")
+        return
+        
+    try:
+        # Create lock file
+        with open(lock_file, 'w') as f:
+            f.write(str(os.getpid()))
+            
+        print("=" * 70)
+        print("     INICIANDO PROCESO ETL: MIGRACIÓN DE JSON (FASE 1) A POSTGRESQL")
+        print("======================================================================")
+        
+        # Ruta al directorio de datos de la Fase 1 (Comprobar primero la ruta Docker /app/Datos, fallback a ruta local)
+        base_api_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        crawler_datos_dir = "/app/Datos"
+        if not os.path.exists(crawler_datos_dir):
+            crawler_datos_dir = os.path.join(os.path.dirname(base_api_dir), "Crawler", "Datos")
     
     if not os.path.exists(crawler_datos_dir):
         print(f"[ERROR] No se encontró el directorio de datos del crawler en '{crawler_datos_dir}'.")
@@ -346,6 +356,9 @@ def run_etl():
         db.rollback()
     finally:
         db.close()
+        if os.path.exists(lock_file):
+            os.remove(lock_file)
+            
     print("=" * 70)
     print("     PROCESO ETL FINALIZADO CON ÉXITO")
     print("======================================================================")

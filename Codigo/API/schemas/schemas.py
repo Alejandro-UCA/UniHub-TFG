@@ -1,30 +1,30 @@
 from typing import List, Optional
 from datetime import datetime, date
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 class UniversidadBase(BaseModel):
-    codigo: str
-    nombre: str
-    tipo: Optional[str] = None
-    comunidad_autonoma: Optional[str] = None
-    municipio: Optional[str] = None
-    provincia: Optional[str] = None
-    web: Optional[str] = None
-    email: Optional[str] = None
-    telefono: Optional[str] = None
+    codigo: str = Field(..., max_length=10)
+    nombre: str = Field(..., max_length=500)
+    tipo: Optional[str] = Field(None, max_length=50)
+    comunidad_autonoma: Optional[str] = Field(None, max_length=100)
+    municipio: Optional[str] = Field(None, max_length=100)
+    provincia: Optional[str] = Field(None, max_length=100)
+    web: Optional[str] = Field(None, max_length=500)
+    email: Optional[str] = Field(None, max_length=255)
+    telefono: Optional[str] = Field(None, max_length=50)
 
 class UniversidadCreate(UniversidadBase):
     pass
 
 class UniversidadUpdate(BaseModel):
-    nombre: Optional[str] = None
-    tipo: Optional[str] = None
-    comunidad_autonoma: Optional[str] = None
-    municipio: Optional[str] = None
-    provincia: Optional[str] = None
-    web: Optional[str] = None
-    email: Optional[str] = None
-    telefono: Optional[str] = None
+    nombre: Optional[str] = Field(None, max_length=500)
+    tipo: Optional[str] = Field(None, max_length=50)
+    comunidad_autonoma: Optional[str] = Field(None, max_length=100)
+    municipio: Optional[str] = Field(None, max_length=100)
+    provincia: Optional[str] = Field(None, max_length=100)
+    web: Optional[str] = Field(None, max_length=500)
+    email: Optional[str] = Field(None, max_length=255)
+    telefono: Optional[str] = Field(None, max_length=50)
 
 class UniversidadOut(UniversidadBase):
     id: int
@@ -34,26 +34,26 @@ class UniversidadOut(UniversidadBase):
 
 
 class TitulacionBase(BaseModel):
-    codigo_estudio: str
+    codigo_estudio: str = Field(..., max_length=20)
     titulo: str
-    nivel_academico: Optional[str] = None
-    estado: Optional[str] = None
-    universidad_codigo: str
+    nivel_academico: Optional[str] = Field(None, max_length=200)
+    estado: Optional[str] = Field(None, max_length=200)
+    universidad_codigo: str = Field(..., max_length=10)
     precio_credito_ects: Optional[float] = None
     precio_estimado_anual: Optional[float] = None
-    fuente_precio: Optional[str] = None
+    fuente_precio: Optional[str] = Field(None, max_length=255)
 
 class TitulacionCreate(TitulacionBase):
     pass
 
 class TitulacionUpdate(BaseModel):
     titulo: Optional[str] = None
-    nivel_academico: Optional[str] = None
-    estado: Optional[str] = None
-    universidad_codigo: Optional[str] = None
+    nivel_academico: Optional[str] = Field(None, max_length=200)
+    estado: Optional[str] = Field(None, max_length=200)
+    universidad_codigo: Optional[str] = Field(None, max_length=10)
     precio_credito_ects: Optional[float] = None
     precio_estimado_anual: Optional[float] = None
-    fuente_precio: Optional[str] = None
+    fuente_precio: Optional[str] = Field(None, max_length=255)
 
 class TitulacionOut(TitulacionBase):
     id: int

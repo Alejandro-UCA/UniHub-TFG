@@ -69,7 +69,8 @@ def create_universidad(data: UniversidadCreate, db: Session = Depends(get_admin_
         provincia=data.provincia,
         web=data.web,
         email=data.email,
-        telefono=data.telefono
+        telefono=data.telefono,
+        gestionado_por_admin=True
     )
     db.add(new_univ)
     db.commit()
@@ -88,6 +89,8 @@ def update_universidad(codigo: str, data: UniversidadUpdate, db: Session = Depen
     update_dict = data.model_dump(exclude_unset=True)
     for field, value in update_dict.items():
         setattr(univ, field, value)
+    
+    univ.gestionado_por_admin = True
 
     db.commit()
     db.refresh(univ)

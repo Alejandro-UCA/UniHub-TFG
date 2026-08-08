@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS universidades (
     web VARCHAR(500),
     email VARCHAR(255),
     telefono VARCHAR(50),
+    gestionado_por_admin BOOLEAN DEFAULT FALSE,
     creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -31,6 +32,7 @@ CREATE TABLE IF NOT EXISTS titulaciones (
     precio_credito_4 NUMERIC(6, 2),
     precio_estimado_anual NUMERIC(8, 2),
     fuente_precio VARCHAR(255),
+    gestionado_por_admin BOOLEAN DEFAULT FALSE,
     creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

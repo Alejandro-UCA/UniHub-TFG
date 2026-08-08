@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Text, Date, DateTime, Numeric, ForeignKey, func
+from sqlalchemy import Column, Integer, String, Text, Date, DateTime, Numeric, ForeignKey, func, Boolean
 from sqlalchemy.orm import relationship
 from database.connection import Base
 
@@ -15,6 +15,7 @@ class Universidad(Base):
     web = Column(Text)
     email = Column(String(500))
     telefono = Column(String(200))
+    gestionado_por_admin = Column(Boolean, default=False)
     creado_en = Column(DateTime, default=func.now())
 
     titulaciones = relationship("Titulacion", back_populates="universidad", cascade="all, delete-orphan")
@@ -35,6 +36,7 @@ class Titulacion(Base):
     precio_credito_4 = Column(Numeric(6, 2), nullable=True)
     precio_estimado_anual = Column(Numeric(8, 2), nullable=True)
     fuente_precio = Column(Text, nullable=True)
+    gestionado_por_admin = Column(Boolean, default=False)
     creado_en = Column(DateTime, default=func.now())
 
     universidad = relationship("Universidad", back_populates="titulaciones")

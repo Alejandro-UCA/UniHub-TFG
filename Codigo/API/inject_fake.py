@@ -3,11 +3,11 @@ import sys
 
 sys.path.append('d:/Proyecto/Codigo/API')
 
-from database.connection import SessionLocal
+from database.connection import SessionAdmin
 from models.models import Titulacion, Universidad
 
 def inject_fake():
-    db = SessionLocal()
+    db = SessionAdmin()
     
     # Asegurar que UCA existe
     uca = db.query(Universidad).filter(Universidad.codigo == '005').first()

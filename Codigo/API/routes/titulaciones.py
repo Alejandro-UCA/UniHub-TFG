@@ -71,7 +71,8 @@ def create_titulacion(data: TitulacionCreate, db: Session = Depends(get_admin_db
         universidad_codigo=univ.codigo,
         precio_credito_ects=data.precio_credito_ects,
         precio_estimado_anual=data.precio_estimado_anual,
-        fuente_precio=data.fuente_precio
+        fuente_precio=data.fuente_precio,
+        gestionado_por_admin=True
     )
     db.add(new_degree)
     db.commit()
@@ -94,6 +95,8 @@ def update_titulacion(codigo_estudio: str, data: TitulacionUpdate, db: Session =
 
     for field, value in update_dict.items():
         setattr(tit, field, value)
+        
+    tit.gestionado_por_admin = True
 
     db.commit()
     db.refresh(tit)

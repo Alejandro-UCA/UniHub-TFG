@@ -59,9 +59,13 @@ def run_etl():
             univ_list = json.load(f)
             
         print(f"Migrando {len(univ_list)} universidades a PostgreSQL...")
+        
+        # Optimizacion: Cargar todas las universidades en memoria para evitar N+1 queries
+        existing_univs = {u.codigo: u for u in db.query(Universidad).all()}
+        
         for u in univ_list:
             code = u.get("codigo")
-            existing = db.query(Universidad).filter(Universidad.codigo == code).first()
+            existing = existing_univs.get(code)
             if not existing:
                 univ_obj = Universidad(
                     codigo=code,
@@ -86,6 +90,11 @@ def run_etl():
             
         active_titulaciones_codes = set()
         total_tits = 0
+        
+        # Optimizacion: Cargar todas las titulaciones en memoria para evitar N+1 queries
+        print(f"Cargando titulaciones existentes en memoria para optimizar...")
+        existing_tits = {t.codigo_estudio: t for t in db.query(Titulacion).all()}
+        
         for u_code, u_info in tit_data.items():
             vigentes = u_info.get("titulaciones_vigentes", [])
             total_tits += len(vigentes)
@@ -94,7 +103,7 @@ def run_etl():
                 if not d_code:
                     continue
                 active_titulaciones_codes.add(d_code)
-                existing = db.query(Titulacion).filter(Titulacion.codigo_estudio == d_code).first()
+                existing = existing_tits.get(d_code)
                 if not existing:
                     tit_obj = Titulacion(
                         codigo_estudio=d_code,
@@ -111,20 +120,24 @@ def run_etl():
                     )
                     db.add(tit_obj)
                 else:
-                    existing.titulo = t.get("titulo") or existing.titulo
-                    existing.nivel_academico = t.get("nivel_academico")
-                    existing.estado = t.get("estado")
-                    existing.precio_credito_ects = t.get("precio_credito_ects") or existing.precio_credito_ects
-                    existing.precio_credito_2 = t.get("precio_credito_2") or existing.precio_credito_2
-                    existing.precio_credito_3 = t.get("precio_credito_3") or existing.precio_credito_3
-                    existing.precio_credito_4 = t.get("precio_credito_4") or existing.precio_credito_4
-                    existing.precio_estimado_anual = t.get("precio_estimado_anual") or existing.precio_estimado_anual
-                    existing.fuente_precio = t.get("fuente_precio") or existing.fuente_precio
+                    if not existing.gestionado_por_admin:
+                        existing.titulo = t.get("titulo") or existing.titulo
+                        existing.nivel_academico = t.get("nivel_academico")
+                        existing.estado = t.get("estado")
+                        existing.precio_credito_ects = t.get("precio_credito_ects") or existing.precio_credito_ects
+                        existing.precio_credito_2 = t.get("precio_credito_2") or existing.precio_credito_2
+                        existing.precio_credito_3 = t.get("precio_credito_3") or existing.precio_credito_3
+                        existing.precio_credito_4 = t.get("precio_credito_4") or existing.precio_credito_4
+                        existing.precio_estimado_anual = t.get("precio_estimado_anual") or existing.precio_estimado_anual
+                        existing.fuente_precio = t.get("fuente_precio") or existing.fuente_precio
         
         # Eliminar las titulaciones en BD que ya no están vigentes en el JSON
         deleted_count = 0
         if active_titulaciones_codes:
-            deleted_count = db.query(Titulacion).filter(~Titulacion.codigo_estudio.in_(active_titulaciones_codes)).delete(synchronize_session=False)
+            deleted_count = db.query(Titulacion).filter(
+                ~Titulacion.codigo_estudio.in_(active_titulaciones_codes),
+                Titulacion.gestionado_por_admin == False
+            ).delete(synchronize_session=False)
 
         db.commit()
         print(f" -> {total_tits} titulaciones vigentes migradas con éxito. {deleted_count} titulaciones extintas borradas.")
@@ -142,6 +155,11 @@ def run_etl():
         
         resumenes_bulk = []
         elementos_bulk = []
+        
+        # Optimizacion: Cargar todos los planes y titulaciones en memoria para evitar N+1
+        existing_plans_dict = {p.codigo_estudio: p for p in db.query(PlanEstudios).all()}
+        existing_tits_dict = {t.codigo_estudio: t for t in db.query(Titulacion).all()}
+        existing_univs_dict = {u.codigo: u for u in db.query(Universidad).all()}
 
         for p_file in plan_files:
             p_path = os.path.join(planes_dir, p_file)
@@ -153,10 +171,10 @@ def run_etl():
                 continue
                 
             # Verify degree exists or auto-create if missing
-            tit_obj = db.query(Titulacion).filter(Titulacion.codigo_estudio == d_code).first()
+            tit_obj = existing_tits_dict.get(d_code)
             if not tit_obj:
                 univ_code = str(p_data.get("universidad_codigo", "000")).zfill(3)
-                univ_obj = db.query(Universidad).filter(Universidad.codigo == univ_code).first()
+                univ_obj = existing_univs_dict.get(univ_code)
                 if not univ_obj:
                     univ_obj = Universidad(
                         codigo=univ_code,
@@ -165,6 +183,7 @@ def run_etl():
                     )
                     db.add(univ_obj)
                     db.flush()
+                    existing_univs_dict[univ_code] = univ_obj
 
                 tit_obj = Titulacion(
                     codigo_estudio=d_code,
@@ -181,6 +200,7 @@ def run_etl():
                 )
                 db.add(tit_obj)
                 db.flush()
+                existing_tits_dict[d_code] = tit_obj
             else:
                 # Update existing titulacion if it was created during RUCT phase without prices
                 tit_obj.precio_credito_ects = p_data.get("precio_credito_ects") or tit_obj.precio_credito_ects
@@ -197,7 +217,7 @@ def run_etl():
                 except ValueError:
                     pass
 
-            plan_obj = db.query(PlanEstudios).filter(PlanEstudios.codigo_estudio == d_code).first()
+            plan_obj = existing_plans_dict.get(d_code)
             if not plan_obj:
                 plan_obj = PlanEstudios(
                     codigo_estudio=d_code,
@@ -207,6 +227,7 @@ def run_etl():
                 )
                 db.add(plan_obj)
                 db.flush()
+                existing_plans_dict[d_code] = plan_obj
             else:
                 # Si el plan ya existe, actualizar metadatos y limpiar asignaturas previas para refrescar limpiamente
                 plan_obj.boe_url = p_data.get("boe_url") or plan_obj.boe_url

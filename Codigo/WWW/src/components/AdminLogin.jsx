@@ -10,7 +10,8 @@ export default function AdminLogin({ onLoginSuccess }) {
     e.preventDefault();
     setError('');
 
-    if (username.trim() === 'admin' && password.trim() !== '') {
+    const ADMIN_USER = import.meta.env.VITE_ADMIN_USER || 'admin';
+    if (username.trim() === ADMIN_USER && password.trim() !== '') {
       // Almacenamos la contraseña como API Key para las peticiones CRUD y ETL.
       // La validación real la hará el backend al enviar la cabecera X-API-Key.
       sessionStorage.setItem('adminApiKey', password.trim());

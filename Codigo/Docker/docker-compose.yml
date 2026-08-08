@@ -51,6 +51,8 @@ services:
     restart: always
     environment:
       - PYTHONUNBUFFERED=1
+      - CRAWLER_CRON_SCHEDULE=${CRAWLER_CRON_SCHEDULE:-0 2 1 * *}
+      - CRAWLER_REQUEST_DELAY=${CRAWLER_REQUEST_DELAY:-1.0}
     volumes:
       - ../Crawler/Datos:/app/Datos
     networks:
@@ -93,6 +95,9 @@ services:
       dockerfile: Codigo/Docker/www/Dockerfile
       args:
         VITE_API_URL: ${VITE_API_URL:-http://localhost:8000/api/v1}
+        VITE_ADMIN_USER: ${VITE_ADMIN_USER:-admin}
+        VITE_ADMIN_FEES: ${VITE_ADMIN_FEES:-45.00}
+        VITE_BECA_MEC_REFERENCE_PRICE: ${VITE_BECA_MEC_REFERENCE_PRICE:-1008}
     container_name: unihub_www
     restart: always
     ports:

@@ -395,6 +395,17 @@ class UniversityWebCrawler:
         if sitemap_urls:
             print(f"     -> {len(sitemap_urls)} URLs académicas indexadas extraídas del Sitemap XML de la universidad.")
 
+        TITLE_STOPWORDS = {
+            "grado", "grados", "máster", "másteres", "master", "masteres", "doctorado", "doctorados",
+            "universitario", "oficial", "sobre", "entre", "para", "como", "esta", "este", "estos", "estas",
+            "del", "los", "las", "por", "con", "una", "uno", "que", "sus", "mas", "más",
+            "en", "the", "and", "for", "of", "in", "to", "i", "de", "a", "el", "la", "l'", "d'", "els", "les", "o", "u"
+        }
+        
+        lazy_home_html = None
+        lazy_soup = None
+        lazy_candidate_urls = None
+
         # 5. Escaneo/recorrido meticuloso de la web oficial de la universidad
         for d_idx, deg in enumerate(missing_degrees, 1):
             d_code = deg.get("codigo_estudio", "")
@@ -431,11 +442,6 @@ class UniversityWebCrawler:
                 except Exception as e:
                     print(f"     -> Falló lectura de URL directa previa: {e}")
 
-            TITLE_STOPWORDS = {
-                "grado", "grados", "máster", "másteres", "master", "masteres", "doctorado", "doctorados",
-                "universitario", "oficial", "sobre", "entre", "para", "como", "esta", "este", "estos", "estas",
-                "del", "los", "las", "por", "con", "una", "uno", "que", "sus", "mas", "más"
-            }
             title_keywords = [w for w in d_title.split() if len(w) >= 3 and w.lower() not in TITLE_STOPWORDS]
 
             # ESTRATEGIA 1: Escaneo priorizado de URLs obtenidas del Sitemap XML
@@ -483,24 +489,29 @@ class UniversityWebCrawler:
             # ESTRATEGIA 2: Escaneo de portales académicos con sinónimos amplios
             if not found_curriculum:
                 try:
-                    home_html = downloader.fetch_text(web_url)
-                    soup = BeautifulSoup(home_html, "html.parser")
+                    if lazy_home_html is None:
+                        lazy_home_html = downloader.fetch_text(web_url)
+                        lazy_soup = BeautifulSoup(lazy_home_html, "html.parser")
+                        lazy_candidate_urls = set()
 
-                    candidate_urls = set()
+                        for a in lazy_soup.find_all("a", href=True):
+                            href = a["href"].strip()
+                            if not is_valid_web_url(href):
+                                continue
+                            
+                            text = a.get_text(strip=True).lower()
+                            if any(kw in text for kw in ACADEMIC_KEYWORDS) or any(kw in href.lower() for kw in ACADEMIC_KEYWORDS):
+                                full_url = urllib.parse.urljoin(web_url, href)
+                                if is_same_or_subdomain(full_url, web_url):
+                                    lazy_candidate_urls.add(full_url)
+                    
+                    home_html = lazy_home_html
+                    soup = lazy_soup
+                    candidate_urls = lazy_candidate_urls
 
-                    for a in soup.find_all("a", href=True):
-                        href = a["href"].strip()
-                        if not is_valid_web_url(href):
-                            continue
-
-                        text = a.get_text(strip=True).lower()
-
-                        if any(kw in text for kw in ACADEMIC_KEYWORDS) or any(kw in href.lower() for kw in ACADEMIC_KEYWORDS):
-                            full_url = urllib.parse.urljoin(web_url, href)
-                            if is_same_or_subdomain(full_url, web_url):
-                                candidate_urls.add(full_url)
-
-                    scanned_urls = list(candidate_urls)[:8]
+                    # Ordenar URLs candidatas por longitud (menor a mayor) para priorizar índices principales
+                    scanned_urls = sorted(list(candidate_urls), key=len)[:8]
+                    visited_targets = set()
                     
                     for candidate_page_url in scanned_urls:
                         if found_curriculum:
@@ -522,6 +533,10 @@ class UniversityWebCrawler:
                                 matches_title = any(kw.lower() in text_lower or kw.lower() in href.lower() for kw in title_keywords)
                                 if matches_title:
                                     target_link = urllib.parse.urljoin(candidate_page_url, href)
+                                    if target_link in visited_targets:
+                                        continue
+                                    visited_targets.add(target_link)
+                                    
                                     if not is_same_or_subdomain(target_link, web_url):
                                         continue
                                     

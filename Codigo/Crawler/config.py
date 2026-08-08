@@ -40,7 +40,7 @@ URL_VERIFICACION_ESTADO_TEMPLATE = (
 )
 
 # Crawler Best Practices Configuration
-REQUEST_DELAY = 1.0  # Seconds between requests to avoid overloading server
+REQUEST_DELAY = float(os.getenv("CRAWLER_REQUEST_DELAY", 1.0))  # Seconds between requests to avoid overloading server
 MAX_RETRIES = 3      # Max reconnection/request attempts
 HTTP_TIMEOUT = 30    # Connection timeout in seconds
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"

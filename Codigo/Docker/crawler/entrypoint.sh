@@ -5,8 +5,9 @@ echo "======================================================================"
 echo "   INICIANDO CONTENEDOR CRAWLER RUCT CON REGLA CRON (0 2 1 * *)"
 echo "======================================================================"
 
-# Write cron schedule rule: 1st day of every month at 2:00 AM (0 2 1 * *)
-echo "0 2 1 * * root cd /app && /usr/local/bin/python main.py >> /var/log/crawler_cron.log 2>&1" > /etc/cron.d/crawler-cron
+# Load cron schedule rule from environment variable (default to 1st day of every month at 2:00 AM)
+CRON_SCHEDULE=${CRAWLER_CRON_SCHEDULE:-"0 2 1 * *"}
+echo "$CRON_SCHEDULE root cd /app && /usr/local/bin/python main.py >> /var/log/crawler_cron.log 2>&1" > /etc/cron.d/crawler-cron
 chmod 0644 /etc/cron.d/crawler-cron
 crontab /etc/cron.d/crawler-cron
 

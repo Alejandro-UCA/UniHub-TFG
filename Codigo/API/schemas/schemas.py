@@ -12,6 +12,7 @@ class UniversidadBase(BaseModel):
     web: Optional[str] = Field(None, max_length=500)
     email: Optional[str] = Field(None, max_length=255)
     telefono: Optional[str] = Field(None, max_length=50)
+    gestionado_por_admin: Optional[bool] = False
 
 class UniversidadCreate(UniversidadBase):
     pass
@@ -40,8 +41,12 @@ class TitulacionBase(BaseModel):
     estado: Optional[str] = Field(None, max_length=200)
     universidad_codigo: str = Field(..., max_length=10)
     precio_credito_ects: Optional[float] = None
+    precio_credito_2: Optional[float] = None
+    precio_credito_3: Optional[float] = None
+    precio_credito_4: Optional[float] = None
     precio_estimado_anual: Optional[float] = None
     fuente_precio: Optional[str] = Field(None, max_length=255)
+    gestionado_por_admin: Optional[bool] = False
 
 class TitulacionCreate(TitulacionBase):
     pass
@@ -52,6 +57,9 @@ class TitulacionUpdate(BaseModel):
     estado: Optional[str] = Field(None, max_length=200)
     universidad_codigo: Optional[str] = Field(None, max_length=10)
     precio_credito_ects: Optional[float] = None
+    precio_credito_2: Optional[float] = None
+    precio_credito_3: Optional[float] = None
+    precio_credito_4: Optional[float] = None
     precio_estimado_anual: Optional[float] = None
     fuente_precio: Optional[str] = Field(None, max_length=255)
 

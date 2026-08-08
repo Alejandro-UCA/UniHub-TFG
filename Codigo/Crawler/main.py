@@ -281,6 +281,11 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
             print(f" [ERROR CRÍTICO] {err_msg}: {e}")
             logger.log_error("paso_1_universidades", "ALL", URL_UNIVERSIDADES_LIST, err_msg, str(e))
             metrics.errores_detectados += 1
+            if parser_process.is_alive():
+                task_queue.put({"type": "STOP"})
+                parser_process.join(timeout=5)
+                if parser_process.is_alive():
+                    parser_process.terminate()
             return
 
         if limit_univ:
@@ -291,6 +296,12 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
         # -------------------------------------------------------------------------
         print("\n[Paso 2 y 3] Inspeccionando titulaciones vigentes y descargando PDFs candidatos...\n")
         titulaciones_por_universidad = {}
+        if os.path.exists(TITULACIONES_JSON):
+            try:
+                with open(TITULACIONES_JSON, "r", encoding="utf-8") as f:
+                    titulaciones_por_universidad = json.load(f)
+            except Exception:
+                titulaciones_por_universidad = {}
 
         for u_idx, univ in enumerate(universities, 1):
             metrics.universidades_inspeccionadas += 1
@@ -480,8 +491,8 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
                     metrics.errores_detectados += 1
                     continue
 
-        metrics.save()
-        checkpoint.mark_university_processed(u_code)
+            metrics.save()
+            checkpoint.mark_university_processed(u_code)
 
         # Finalización segura de Proceso 2 (Parser CPU) incluso si hay crasheos
         print("\n[Finalizando Red] Enviando señal de parada al Proceso 2 (Parser CPU)...")

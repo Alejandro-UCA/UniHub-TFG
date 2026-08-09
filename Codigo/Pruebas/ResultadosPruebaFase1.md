@@ -1,6 +1,6 @@
 # Reporte de Resultados y Trazabilidad de Prueba — Fase 1 (UniHub)
 
-**Fecha de Ejecución**: `2026-08-09T23:44:14.402341`  
+**Fecha de Ejecución**: `2026-08-09T23:54:40.646045`  
 **Ámbito**: 5 Universidades (3 Públicas + 2 Privadas) | Máximo 20 Titulaciones por Universidad
 
 ---
@@ -8,8 +8,8 @@
 ## 📌 1. Resumen Ejecutivo y Trazabilidad
 - **Universidades Evaluadas**: 5
 - **Titulaciones Procesadas**: 25
-- **Titulaciones con Asignaturas Extraídas**: 23 (92.0%)
-- **Total Asignaturas Extraídas**: 2985
+- **Titulaciones con Asignaturas Extraídas**: 21 (84.0%)
+- **Total Asignaturas Extraídas**: 2920
 - **Rescates Wikidata/Wikipedia Activados**: 0
 
 ---
@@ -31,7 +31,7 @@
 |:---:|:---|:---:|:---:|:---:|:---:|
 | `2501817` | **Graduado o Graduada en Administración y Dirección de Em** | BOE PDF (Parte 1) | **55** | 15.0€ | 945.0€ |
 | `2501819` | **Graduado o Graduada en Antropología Social y Cultural p** | BOE PDF (Parte 1) | **18** | 15.0€ | 945.0€ |
-| `2503108` | **Graduado o Graduada en Arqueología por la Universidad d** | BOE PDF (Parte 1) | **5** | 15.0€ | 945.0€ |
+| `2503108` | **Graduado o Graduada en Arqueología por la Universidad d** | BOE PDF (Parte 1) | **3** | 15.0€ | 945.0€ |
 | `2501803` | **Graduado o Graduada en Bellas Artes por la Universidad ** | BOE PDF (Parte 1) | **24** | 15.0€ | 945.0€ |
 | `2501807` | **Graduado o Graduada en Biología por la Universidad de G** | Web Oficial (Parte 2) | **10** | 15.0€ | 945.0€ |
 
@@ -63,11 +63,9 @@
 | Economía Política. | 6 ECTS | OB | 1 |
 | *... y 10 asignaturas adicionales más.* | | | |
 
-**Titulación `[2503108]` Graduado o Graduada en Arqueología por la Universidad de Granada; la Universidad de Jaén y la Universidad de Sevilla** (5 asignaturas):
+**Titulación `[2503108]` Graduado o Graduada en Arqueología por la Universidad de Granada; la Universidad de Jaén y la Universidad de Sevilla** (3 asignaturas):
 | Nombre de la Asignatura | Créditos ECTS | Carácter | Curso |
 |:---|:---:|:---:|:---:|
-| Prehistoria......................... Historia Antigua..................... Historia Medieval.................... Historia Moderna.................... Historia Contemporánea. . . . . . . . . . . . . . Geografía.......................... Antropología Cultural................. Historia del Arte..................... Filosofía de la Ciencia................ Idioma Moderno..................... | 6 ECTS | OP | 6 6 6 6 6 6 6 6 6 6 |
-| Básico. .............. Básico. .............. Básico. .............. Básico. .............. Básico. .............. Básico. .............. Obligatorio............ Obligatorio............ Obligatorio............ Obligatorio............ Obligatorio............ Obligatorio............ Obligatorio............ Obligatorio............ Trabajo Fin de Grado. .. | 30 ECTS | TFG/TFM | 30 6 6 6 6 6 12 18 18 12 18 12 18 6 6 |
 | Optativo. Optativo. Optativo. Optativo. Optativo. Optativo. | 30 ECTS | OP | n/a |
 | Optativo. Optativo. Optativo. Optativo. Optativo. Optativo. | 18 ECTS | OP | n/a |
 | Optativo. Optativo. Optativo. Optativo. Optativo. Optativo. | 18 ECTS | OP | 18 24 6 12 12 30 |
@@ -135,8 +133,8 @@
 |:---:|:---|:---:|:---:|:---:|:---:|
 | `2501194` | **Graduado o Graduada en Administración y Dirección de Em** | BOE PDF (Parte 1) | **102** | 15.0€ | 945.0€ |
 | `2502291` | **Graduado o Graduada en Antropología Social y Cultural p** | BOE PDF (Parte 1) | **114** | 15.0€ | 945.0€ |
-| `2503108` | **Graduado o Graduada en Arqueología por la Universidad d** | BOE PDF (Parte 1) | **5** | 15.0€ | 945.0€ |
-| `2502295` | **Graduado o Graduada en Arquitectura por la Universidad ** | BOE PDF (Parte 1) | **1059** | 15.0€ | 945.0€ |
+| `2503108` | **Graduado o Graduada en Arqueología por la Universidad d** | BOE PDF (Parte 1) | **3** | 15.0€ | 945.0€ |
+| `2502295` | **Graduado o Graduada en Arquitectura por la Universidad ** | BOE PDF (Parte 1) | **1014** | 15.0€ | 945.0€ |
 | `2502288` | **Graduado o Graduada en Bellas Artes por la Universidad ** | BOE PDF (Parte 1) | **111** | 15.0€ | 945.0€ |
 
 #### 📚 Desglose de Asignaturas (Muestreo Representativo por Titulación)
@@ -167,11 +165,9 @@
 | Antropología Simbólica I. | 6 ECTS | OP | 6 |
 | *... y 106 asignaturas adicionales más.* | | | |
 
-**Titulación `[2503108]` Graduado o Graduada en Arqueología por la Universidad de Granada; la Universidad de Jaén y la Universidad de Sevilla** (5 asignaturas):
+**Titulación `[2503108]` Graduado o Graduada en Arqueología por la Universidad de Granada; la Universidad de Jaén y la Universidad de Sevilla** (3 asignaturas):
 | Nombre de la Asignatura | Créditos ECTS | Carácter | Curso |
 |:---|:---:|:---:|:---:|
-| Prehistoria......................... Historia Antigua..................... Historia Medieval.................... Historia Moderna.................... Historia Contemporánea. . . . . . . . . . . . . . Geografía.......................... Antropología Cultural................. Historia del Arte..................... Filosofía de la Ciencia................ Idioma Moderno..................... | 6 ECTS | OP | 6 6 6 6 6 6 6 6 6 6 |
-| Básico. .............. Básico. .............. Básico. .............. Básico. .............. Básico. .............. Básico. .............. Obligatorio............ Obligatorio............ Obligatorio............ Obligatorio............ Obligatorio............ Obligatorio............ Obligatorio............ Obligatorio............ Trabajo Fin de Grado. .. | 30 ECTS | TFG/TFM | 30 6 6 6 6 6 12 18 18 12 18 12 18 6 6 |
 | Optativo. Optativo. Optativo. Optativo. Optativo. Optativo. | 30 ECTS | OP | n/a |
 | Optativo. Optativo. Optativo. Optativo. Optativo. Optativo. | 18 ECTS | OP | n/a |
 | Optativo. Optativo. Optativo. Optativo. Optativo. Optativo. | 18 ECTS | OP | 18 24 6 12 12 30 |
@@ -185,8 +181,8 @@
 |:---:|:---|:---:|:---:|:---:|:---:|
 | `2503418` | **Graduado o Graduada en Administración y Dirección de Em** | Web Oficial (Rastreada) | **0** | n/a | n/a |
 | `2503614` | **Graduado o Graduada en Animación  por la Universidad Eu** | BOE PDF (Parte 1) | **5** | n/a | n/a |
-| `2504664` | **Graduado o Graduada en Arte Digital y Tecnologías Creat** | BOE PDF (Parte 1) | **105** | n/a | n/a |
-| `2502108` | **Graduado o Graduada en Arte Electrónico y Digital** | BOE PDF (Parte 1) | **5** | n/a | n/a |
+| `2504664` | **Graduado o Graduada en Arte Digital y Tecnologías Creat** | BOE PDF (Parte 1) | **103** | n/a | n/a |
+| `2502108` | **Graduado o Graduada en Arte Electrónico y Digital** | Web Oficial (Rastreada) | **0** | n/a | n/a |
 | `2500074` | **Graduado o Graduada en Arte por la Universidad Europea ** | Web Oficial (Rastreada) | **0** | n/a | n/a |
 
 #### 📚 Desglose de Asignaturas (Muestreo Representativo por Titulación)
@@ -202,7 +198,7 @@
 | Prácticas Profesionales/Externas. | 12 ECTS | PE | n/a |
 | Trabajo Fin de Grado. | 18 ECTS | TFG/TFM | n/a |
 
-**Titulación `[2504664]` Graduado o Graduada en Arte Digital y Tecnologías Creativas por la Universidad Europea de Madrid** (105 asignaturas):
+**Titulación `[2504664]` Graduado o Graduada en Arte Digital y Tecnologías Creativas por la Universidad Europea de Madrid** (103 asignaturas):
 | Nombre de la Asignatura | Créditos ECTS | Carácter | Curso |
 |:---|:---:|:---:|:---:|
 | Denominación | 6 ECTS | OB | n/a |
@@ -213,7 +209,7 @@
 | Máster Universitario en Dirección de Negocios Internacionales | 6 ECTS | OB | Orden 137/2020, de 29 de julio (BOCM 6.08.20) |
 | Máster Universitario en Enfermería de Urgencias y Emergencias | 6 ECTS | OB | Orden 1950/2023, de 1 de junio (BOCM 14.06.23) |
 | Máster Universitario en Medicina de Urgencias y Emergencias | 6 ECTS | OB | Orden 1950/2023, de 1 de junio (BOCM 14.06.23) |
-| *... y 97 asignaturas adicionales más.* | | | |
+| *... y 95 asignaturas adicionales más.* | | | |
 
 ### [046] Universidad San Pablo-CEU (Privada)
 - **Web Oficial**: `www.uspceu.com`
@@ -223,9 +219,9 @@
 | Código | Titulación | Vía de Extracción | Asignaturas Extraídas | Precio ECTS | Precio Anual Est. |
 |:---:|:---|:---:|:---:|:---:|:---:|
 | `2504045` | **Graduado o Graduada en Administración y Dirección de Em** | BOE PDF (Parte 1) | **272** | n/a | n/a |
-| `2500609` | **Graduado o Graduada en Administración y Dirección de Em** | BOE PDF (Parte 1) | **162** | n/a | n/a |
+| `2500609` | **Graduado o Graduada en Administración y Dirección de Em** | BOE PDF (Parte 1) | **158** | n/a | n/a |
 | `2502433` | **Graduado o Graduada en Arquitectura / Degree in Archite** | BOE PDF (Parte 1) | **142** | n/a | n/a |
-| `2502434` | **Graduado o Graduada en Arquitectura Técnica por la Univ** | BOE PDF (Parte 1) | **5** | n/a | n/a |
+| `2502434` | **Graduado o Graduada en Arquitectura Técnica por la Univ** | Web Oficial (Rastreada) | **0** | n/a | n/a |
 | `2504041` | **Graduado o Graduada en Arte Digital por la Universidad ** | BOE PDF (Parte 1) | **489** | n/a | n/a |
 
 #### 📚 Desglose de Asignaturas (Muestreo Representativo por Titulación)
@@ -243,7 +239,7 @@
 | Biomateriales/Biomaterials. | 6 ECTS | OB | 2.º |
 | *... y 264 asignaturas adicionales más.* | | | |
 
-**Titulación `[2500609]` Graduado o Graduada en Administración y Dirección de Empresas por la Universidad San Pablo-CEU** (162 asignaturas):
+**Titulación `[2500609]` Graduado o Graduada en Administración y Dirección de Empresas por la Universidad San Pablo-CEU** (158 asignaturas):
 | Nombre de la Asignatura | Créditos ECTS | Carácter | Curso |
 |:---|:---:|:---:|:---:|
 | DENOMINACIÓN DEL TÍTULO | 6 ECTS | OB | n/a |
@@ -254,7 +250,7 @@
 | Grado en Turismo | 6 ECTS | OB | - 2021/2022: 1º y 2º |
 | Grado en Física e Instrumentación Espacial | 6 ECTS | OB | n/a |
 | Grado en Arquitectura Técnica y Edificación | 6 ECTS | OB | - 2021/2022: 1º, 2º 3º y 4º |
-| *... y 154 asignaturas adicionales más.* | | | |
+| *... y 150 asignaturas adicionales más.* | | | |
 
 **Titulación `[2502433]` Graduado o Graduada en Arquitectura / Degree in Architecture por la Universidad San Pablo-CEU** (142 asignaturas):
 | Nombre de la Asignatura | Créditos ECTS | Carácter | Curso |

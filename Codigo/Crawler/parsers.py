@@ -402,11 +402,25 @@ def parse_boe_pdf(pdf_filepath: str) -> dict:
                             final_subject_name = clean_row[1]
 
                         if final_subject_name and len(final_subject_name) > 3 and not any(k in final_subject_name.lower() for k in ["asignatura", "carácter", "créditos", "curso"]):
+                            # REFINEMENT 1: Filter out legal administrative citation lines
+                            is_legal_noise = re.search(r"^(decreto|orden|bocm|boe|decreto-ley|ley|real decreto|resolución|ordenatorio)\b", final_subject_name.lower()) or len(final_subject_name) > 180
+                            if is_legal_noise:
+                                continue
+
+                            # REFINEMENT 2: Clean numerical ECTS credit extraction
+                            clean_ects = "6"
+                            if ects_match:
+                                m_ects = re.search(r"(\d+(?:[\.,]\d+)?)", str(ects_match))
+                                if m_ects:
+                                    clean_ects = m_ects.group(1).replace(",", ".")
+
                             elementos_curriculares.append({
                                 "modulo": current_modulo,
                                 "materia": current_materia,
                                 "nombre_elemento": final_subject_name,
-                                "creditos_ects": ects_match or "6",
+                                "creditos": clean_ects,
+                                "creditos_ects": clean_ects,
+                                "tipo": caracter,
                                 "caracter": caracter,
                                 "curso": curso,
                                 "cuatrimestre": cuatrimestre

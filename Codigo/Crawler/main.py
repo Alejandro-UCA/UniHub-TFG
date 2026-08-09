@@ -131,8 +131,11 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue):
                                 if k not in combined_resumen_creditos:
                                     combined_resumen_creditos[k] = v
 
+                            import re
                             for elem in curriculum_data.get("elementos_curriculares", []):
-                                norm_name = elem.get("nombre_elemento", "").strip().lower()
+                                raw_name = elem.get("nombre_elemento", "").strip()
+                                # REFINEMENT 3: Strip parenthetical mention extensions for smart deduplication
+                                norm_name = re.sub(r"\s*\(.*?\)", "", raw_name).strip().lower()
                                 if norm_name and norm_name not in seen_subject_names:
                                     seen_subject_names.add(norm_name)
                                     combined_elementos.append(elem)

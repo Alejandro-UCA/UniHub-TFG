@@ -4,6 +4,8 @@ import re
 import json
 import time
 import gzip
+import threading
+import requests
 import urllib.parse
 from urllib.robotparser import RobotFileParser
 from bs4 import BeautifulSoup
@@ -237,14 +239,12 @@ class UniversityWebCrawler:
         self.timeout = timeout
         self.logger = ErrorLogger()
         self.checkpoint = CheckpointManager()
-        import threading
         self.univ_file_lock = threading.Lock()
 
     def rescue_university_url(self, univ_name: str) -> str:
         """
         Consulta la API pública de Wikipedia y Wikidata para recuperar el sitio web oficial de una institución.
         """
-        import requests
         headers = {
             "User-Agent": "UniHubCrawler/1.0 (https://github.com/Alejandro-UCA/UniHub-TFG; contacto@unihub) requests"
         }

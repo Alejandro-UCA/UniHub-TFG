@@ -1,7 +1,9 @@
 import os
 import sys
+import re
 import json
 import time
+import requests
 import traceback
 import argparse
 import concurrent.futures
@@ -23,7 +25,8 @@ from config import (
     URL_DETALLE_ESTUDIO_TEMPLATE,
     URL_VERIFICACION_ESTADO_TEMPLATE,
     CPU_WORKERS_COUNT,
-    ASYNC_PREFETCH_WORKERS
+    ASYNC_PREFETCH_WORKERS,
+    WEB_CRAWLER_WORKERS
 )
 from downloader import RUCTDownloader, SkipUniversityException
 from error_logger import ErrorLogger
@@ -35,6 +38,8 @@ from parsers import (
     parse_degree_detail_html,
     parse_boe_pdf
 )
+from univ_web_crawler import run_phase1_part2
+from precios_crawler import run_phase1_part3
 
 # Ensure Windows terminal stdout handles unicode characters safely
 if sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
@@ -141,7 +146,6 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue):
                                 if k not in combined_resumen_creditos:
                                     combined_resumen_creditos[k] = v
 
-                            import re
                             for elem in curriculum_data.get("elementos_curriculares", []):
                                 raw_name = elem.get("nombre_elemento", "").strip()
                                 # REFINEMENT 3: Strip parenthetical mention extensions for smart deduplication
@@ -213,7 +217,6 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue):
 
 def trigger_api_etl_sync():
     """Notifica a la API REST de la Fase 2 para iniciar la sincronización ETL relacional automáticamente."""
-    import requests
     target_urls = [
         os.getenv("API_SYNC_URL", "http://api:8000/api/v1/admin/sync-etl"),
         "http://unihub_api:8000/api/v1/admin/sync-etl",
@@ -553,15 +556,13 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
     # PARTE 2 DE LA FASE 1: ESCANEO PARALELO DE LAS WEBS OFICIALES DE UNIVERSIDADES
     # -------------------------------------------------------------------------
     if 2 in run_parts:
-        from univ_web_crawler import run_phase1_part2
         print("\n -> Inicializando Fase 1 - Parte 2 (Rastreo paralelo de webs oficiales de universidades)...")
-        run_phase1_part2(max_workers=4)
+        run_phase1_part2(max_workers=WEB_CRAWLER_WORKERS)
 
     # -------------------------------------------------------------------------
     # PARTE 3 DE LA FASE 1: CÁLCULO DE PRECIOS ECTS Y MATRÍCULAS DE UNIVERSIDADES PÚBLICAS
     # -------------------------------------------------------------------------
     if 3 in run_parts:
-        from precios_crawler import run_phase1_part3
         run_phase1_part3()
 
     # -------------------------------------------------------------------------

@@ -169,6 +169,10 @@ export const apiService = {
     return fetchAPI('/api_docs_info');
   },
 
+  async getCurriculumCoverage() {
+    return fetchAPI('/estadisticas/cobertura');
+  },
+
   async triggerEtlSync() {
     return fetchAPI('/etl/sync', {
       method: 'POST'

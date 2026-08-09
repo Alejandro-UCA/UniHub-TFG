@@ -50,6 +50,8 @@ class PlanEstudios(Base):
     codigo_estudio = Column(String(20), ForeignKey("titulaciones.codigo_estudio", ondelete="CASCADE"), unique=True, nullable=False)
     boe_url = Column(Text)
     boe_fecha = Column(Date)
+    origen_fuente = Column(String(100))
+    pdf_sha256 = Column(String(64))
     fecha_procesado = Column(DateTime)
     creado_en = Column(DateTime, default=func.now())
 

@@ -3,8 +3,8 @@ set -e
 
 echo "[INFO] Configurando Seguridad Dinámica para PostgreSQL (Fase 2)"
 
-API_USER=${POSTGRES_API_USER:-unihub_api_user}
-API_PASSWORD=${POSTGRES_API_PASSWORD:-unihub_api_password_sec2026}
+API_USER=${API_DB_USER:-${POSTGRES_API_USER:-unihub_api_user}}
+API_PASSWORD=${API_DB_PASSWORD:-${POSTGRES_API_PASSWORD:-unihub_api_password_sec2026}}
 
 psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
     DO \$\$

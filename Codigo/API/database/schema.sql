@@ -42,6 +42,8 @@ CREATE TABLE IF NOT EXISTS planes_estudio (
     codigo_estudio VARCHAR(20) UNIQUE REFERENCES titulaciones(codigo_estudio) ON DELETE CASCADE,
     boe_url TEXT,
     boe_fecha DATE,
+    origen_fuente VARCHAR(100),
+    pdf_sha256 VARCHAR(64),
     fecha_procesado TIMESTAMP,
     creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

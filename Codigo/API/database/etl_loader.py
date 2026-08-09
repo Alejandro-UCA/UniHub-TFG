@@ -21,7 +21,7 @@ from models.models import (
 )
 
 def run_etl():
-    lock_file = "/tmp/etl_running.lock"
+    lock_file = os.path.join(tempfile.gettempdir(), "etl_running.lock")
     if os.path.exists(lock_file):
         # Check if the PID in the lock file is still alive.
         # If the container crashed previously the lock may be stale and must be removed.
@@ -241,6 +241,8 @@ def run_etl():
                         codigo_estudio=d_code,
                         boe_url=p_data.get("boe_url"),
                         boe_fecha=boe_date_val,
+                        origen_fuente=p_data.get("origen_fuente"),
+                        pdf_sha256=p_data.get("pdf_sha256"),
                         fecha_procesado=datetime.now()
                     )
                     db.add(plan_obj)
@@ -250,6 +252,8 @@ def run_etl():
                     # Si el plan ya existe, actualizar metadatos y limpiar asignaturas previas para refrescar limpiamente
                     plan_obj.boe_url = p_data.get("boe_url") or plan_obj.boe_url
                     plan_obj.boe_fecha = boe_date_val or plan_obj.boe_fecha
+                    plan_obj.origen_fuente = p_data.get("origen_fuente") or plan_obj.origen_fuente
+                    plan_obj.pdf_sha256 = p_data.get("pdf_sha256") or plan_obj.pdf_sha256
                     plan_obj.fecha_procesado = datetime.now()
                     db.query(ResumenCreditos).filter(ResumenCreditos.plan_estudio_id == plan_obj.id).delete()
                     db.query(ElementoCurricular).filter(ElementoCurricular.plan_estudio_id == plan_obj.id).delete()

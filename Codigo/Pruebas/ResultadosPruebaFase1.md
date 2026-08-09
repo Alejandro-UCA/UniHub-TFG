@@ -1,6 +1,6 @@
 # Reporte de Resultados y Trazabilidad de Prueba — Fase 1 (UniHub)
 
-**Fecha de Ejecución**: `2026-08-10T00:43:57.595905`  
+**Fecha de Ejecución**: `2026-08-10T01:10:24.292427`  
 **Ámbito**: 5 Universidades (3 Públicas + 2 Privadas) | Máximo 20 Titulaciones por Universidad
 
 ---

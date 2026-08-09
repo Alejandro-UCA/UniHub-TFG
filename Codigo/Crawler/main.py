@@ -21,7 +21,9 @@ from config import (
     URL_UNIVERSIDADES_LIST,
     URL_ESTUDIOS_UNIV_TEMPLATE,
     URL_DETALLE_ESTUDIO_TEMPLATE,
-    URL_VERIFICACION_ESTADO_TEMPLATE
+    URL_VERIFICACION_ESTADO_TEMPLATE,
+    CPU_WORKERS_COUNT,
+    ASYNC_PREFETCH_WORKERS
 )
 from downloader import RUCTDownloader, SkipUniversityException
 from error_logger import ErrorLogger
@@ -252,7 +254,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
     # -------------------------------------------------------------------------
     if 1 in run_parts:
         # OPT-01: Lanzar Pool Multiprocesador de Consumidores (Parser CPU & Escritura en Disco)
-        num_parser_workers = max(1, min(4, mp.cpu_count()))
+        num_parser_workers = CPU_WORKERS_COUNT
         task_queue = mp.Queue(maxsize=200)
         result_queue = mp.Queue()
         parser_processes = []

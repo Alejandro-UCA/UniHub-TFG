@@ -4,9 +4,9 @@ import uuid
 import sqlite3
 import threading
 from datetime import datetime
-from config import CHECKPOINT_JSON
+from config import CHECKPOINT_JSON, CACHE_DB_PATH
 
-DB_PATH = os.path.join(os.path.dirname(os.path.abspath(CHECKPOINT_JSON)), "unihub_cache.sqlite3")
+DB_PATH = CACHE_DB_PATH
 
 def is_valid_value(val) -> bool:
     """

@@ -17,7 +17,15 @@ from config import (
     TEMP_PDF_DIR,
     USER_AGENT,
     REQUEST_DELAY,
-    HTTP_TIMEOUT
+    HTTP_TIMEOUT,
+    WEB_ROBOTS_FALLBACK_DELAY,
+    SITEMAP_FETCH_TIMEOUT,
+    WEB_SEARCH_SUBPAGES_LIMIT,
+    PRIVATE_ECTS_MIN,
+    PRIVATE_ECTS_MAX,
+    PRIVATE_ANNUAL_MIN,
+    PRIVATE_ANNUAL_MAX,
+    WEB_CRAWLER_WORKERS
 )
 from downloader import RUCTDownloader
 from error_logger import ErrorLogger

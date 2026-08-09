@@ -4,7 +4,16 @@ import requests
 import urllib3
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
-from config import REQUEST_DELAY, MAX_RETRIES, HTTP_TIMEOUT, USER_AGENT
+from config import (
+    REQUEST_DELAY,
+    MAX_RETRIES,
+    HTTP_TIMEOUT,
+    USER_AGENT,
+    DOMAIN_MAPPINGS,
+    CIRCUIT_BREAKER_FAILURES_THRESHOLD,
+    CIRCUIT_BREAKER_PAUSE_SECONDS,
+    CIRCUIT_BREAKER_MAX_PAUSES
+)
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -23,14 +32,16 @@ def normalize_url(url: str, domain_mappings: dict = None) -> str:
         elif url.startswith("https://https://"):
             url = "https://" + url[16:]
 
-    if domain_mappings:
-        for old_domain, new_domain in domain_mappings.items():
-            if old_domain in url:
-                url = url.replace(old_domain, new_domain)
+    if domain_mappings is None:
+        domain_mappings = DOMAIN_MAPPINGS
+
+    for old_domain, new_domain in domain_mappings.items():
+        if old_domain in url:
+            url = url.replace(old_domain, new_domain)
     return url
 
 class SkipUniversityException(Exception):
-    """Raised when consecutive connection failures exceed 3 cycles of 5-minute pauses for a university."""
+    """Raised when consecutive connection failures exceed threshold cycles of pauses for a university."""
     pass
 
 class RUCTDownloader:
@@ -40,10 +51,7 @@ class RUCTDownloader:
     - 10 consecutive failures -> 5-minute (300s) pause.
     - 3 consecutive 5-minute pauses -> raise SkipUniversityException and log error.
     """
-    DOMAIN_MAPPINGS = {
-        "portaldogc.gencat.cat": "dogc.gencat.cat",
-        "www.boa.aragon.es": "boa.aragon.es"
-    }
+    DOMAIN_MAPPINGS = DOMAIN_MAPPINGS
 
     def __init__(self, delay=REQUEST_DELAY, max_retries=MAX_RETRIES, timeout=HTTP_TIMEOUT, metrics_tracker=None):
         self.delay = delay
@@ -106,17 +114,19 @@ class RUCTDownloader:
             return False
 
         self.consecutive_failures += 1
-        print(f" [ADVERTENCIA] Fallo de conexión #{self.consecutive_failures}/10: {error_details}")
+        print(f" [ADVERTENCIA] Fallo de conexión #{self.consecutive_failures}/{CIRCUIT_BREAKER_FAILURES_THRESHOLD}: {error_details}")
         
-        if self.consecutive_failures >= 10:
+        if self.consecutive_failures >= CIRCUIT_BREAKER_FAILURES_THRESHOLD:
             self.pause_count_univ += 1
-            if self.pause_count_univ < 3:
-                print(f"\n⚠️ [RESILIENCIA] 10 fallos de conexión seguidos detectados. Pausando 5 minutos para reanudar (Pausa #{self.pause_count_univ}/3)...")
-                time.sleep(300) # 5 minutes pause
+            if self.pause_count_univ < CIRCUIT_BREAKER_MAX_PAUSES:
+                pause_min = int(CIRCUIT_BREAKER_PAUSE_SECONDS / 60)
+                print(f"\n⚠️ [RESILIENCIA] {CIRCUIT_BREAKER_FAILURES_THRESHOLD} fallos de conexión seguidos detectados. Pausando {pause_min} minutos para reanudar (Pausa #{self.pause_count_univ}/{CIRCUIT_BREAKER_MAX_PAUSES})...")
+                time.sleep(CIRCUIT_BREAKER_PAUSE_SECONDS)
                 self.consecutive_failures = 0
                 return True
             else:
-                print(f"\n❌ [CORTOCIRCUITO] 3 pausas de 5 minutos alcanzadas (15 min acumulados en la universidad [{self.current_univ_code}]). Saltando a la siguiente universidad...")
+                total_min = int((CIRCUIT_BREAKER_PAUSE_SECONDS * CIRCUIT_BREAKER_MAX_PAUSES) / 60)
+                print(f"\n❌ [CORTOCIRCUITO] {CIRCUIT_BREAKER_MAX_PAUSES} pausas alcanzadas ({total_min} min acumulados en la universidad [{self.current_univ_code}]). Saltando a la siguiente universidad...")
                 self.consecutive_failures = 0
                 raise SkipUniversityException(f"Problemas de conexion continuados en la universidad [{self.current_univ_code}]")
         return False

@@ -1,10 +1,17 @@
 import os
 import json
 import glob
-from config import DATA_DIR, PLANES_DIR, UNIVERSIDADES_JSON
+from config import (
+    DATA_DIR,
+    PLANES_DIR,
+    UNIVERSIDADES_JSON,
+    PRECIOS_CCAA_JSON,
+    DEFAULT_PUBLIC_ECTS_PRICE,
+    DEFAULT_ADMIN_FEES,
+    DOCTORATE_TUTELA_CREDITS,
+    STANDARD_YEAR_ECTS_CREDITS
+)
 from checkpoint import atomic_json_dump, load_json_safe
-
-PRECIOS_CCAA_JSON = os.path.join(DATA_DIR, "precios_ccaa.json")
 
 def load_precios_ccaa() -> dict:
     return load_json_safe(PRECIOS_CCAA_JSON, default={})

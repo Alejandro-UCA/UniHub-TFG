@@ -14,9 +14,32 @@ class SPALayoutCrawler:
     """
     Renders dynamic SPA university websites (React/Vue/Angular/AJAX)
     using Playwright headless Chromium, automatically expanding accordions and tabs.
+    Supports single-use or persistent browser instance reuse for maximum performance.
     """
+    _shared_instance = None
+
+    @classmethod
+    def get_shared_instance(cls, timeout=HTTP_TIMEOUT):
+        if cls._shared_instance is None:
+            cls._shared_instance = SPALayoutCrawler(timeout=timeout)
+        return cls._shared_instance
+
     def __init__(self, timeout=HTTP_TIMEOUT):
         self.timeout = timeout * 1000  # ms for Playwright
+        self._pw = None
+        self._browser = None
+
+    def _ensure_browser(self):
+        if not PLAYWRIGHT_AVAILABLE:
+            return None
+        if self._browser is None or not self._browser.is_connected():
+            try:
+                self._pw = sync_playwright().start()
+                self._browser = self._pw.chromium.launch(headless=True)
+            except Exception as e:
+                print(f"   [SPA Crawler] Error al arrancar Chromium: {e}")
+                self._browser = None
+        return self._browser
 
     def render_spa_page(self, target_url: str) -> str:
         """
@@ -27,34 +50,51 @@ class SPALayoutCrawler:
             return ""
 
         try:
-            with sync_playwright() as p:
-                browser = p.chromium.launch(headless=True)
-                context = browser.new_context(
-                    user_agent=USER_AGENT,
-                    viewport={"width": 1280, "height": 960}
-                )
-                page = context.new_page()
-                page.goto(target_url, timeout=self.timeout, wait_until="domcontentloaded")
-                page.wait_for_timeout(2000)
+            browser = self._ensure_browser()
+            if not browser:
+                return ""
 
-                # Expand interactive accordions or tabs if present
-                accordion_selectors = [
-                    "button", "a.accordion", ".tab", ".nav-link", ".panel-title", "details", "summary"
-                ]
-                for sel in accordion_selectors:
-                    try:
-                        elements = page.query_selector_all(sel)
-                        for elem in elements[:5]:
-                            txt = (elem.inner_text() or "").lower()
-                            if any(k in txt for k in ["asignatura", "estudio", "curso", "plan", "materia"]):
-                                elem.click(timeout=1000)
-                                page.wait_for_timeout(500)
-                    except Exception:
-                        pass
+            context = browser.new_context(
+                user_agent=USER_AGENT,
+                viewport={"width": 1280, "height": 960}
+            )
+            page = context.new_page()
+            page.goto(target_url, timeout=self.timeout, wait_until="domcontentloaded")
+            page.wait_for_timeout(1500)
 
-                rendered_html = page.content()
-                browser.close()
-                return rendered_html
+            # Expand interactive accordions or tabs if present
+            accordion_selectors = [
+                "button", "a.accordion", ".tab", ".nav-link", ".panel-title", "details", "summary"
+            ]
+            for sel in accordion_selectors:
+                try:
+                    elements = page.query_selector_all(sel)
+                    for elem in elements[:5]:
+                        txt = (elem.inner_text() or "").lower()
+                        if any(k in txt for k in ["asignatura", "estudio", "curso", "plan", "materia"]):
+                            elem.click(timeout=1000)
+                            page.wait_for_timeout(400)
+                except Exception:
+                    pass
+
+            rendered_html = page.content()
+            context.close()
+            return rendered_html
         except Exception as err:
             print(f"   [SPA Crawler] Headless browser fallback notice for '{target_url}': {err}")
             return ""
+
+    def close(self):
+        """Cleanly terminates the browser instance."""
+        if self._browser:
+            try:
+                self._browser.close()
+            except Exception:
+                pass
+            self._browser = None
+        if self._pw:
+            try:
+                self._pw.stop()
+            except Exception:
+                pass
+            self._pw = None

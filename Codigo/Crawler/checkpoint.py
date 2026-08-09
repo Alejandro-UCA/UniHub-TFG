@@ -41,6 +41,21 @@ def atomic_json_dump(data, filepath):
                 pass
         raise e
 
+def load_json_safe(filepath: str, default=None):
+    """
+    Safely reads a JSON file from disk if it exists.
+    Returns the loaded data or default (empty dict by default) on failure/missing file.
+    """
+    if default is None:
+        default = {}
+    if os.path.exists(filepath):
+        try:
+            with open(filepath, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            pass
+    return default
+
 class CheckpointManager:
     """
     Manages crawler progress state and BOE metadata registry for incremental updates.

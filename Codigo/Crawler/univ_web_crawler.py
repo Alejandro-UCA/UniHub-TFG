@@ -21,7 +21,7 @@ from config import (
 )
 from downloader import RUCTDownloader
 from error_logger import ErrorLogger
-from checkpoint import CheckpointManager, atomic_json_dump
+from checkpoint import CheckpointManager, atomic_json_dump, load_json_safe
 from parsers import parse_boe_pdf
 
 
@@ -504,6 +504,7 @@ class UniversityWebCrawler:
         lazy_home_html = None
         lazy_soup = None
         lazy_candidate_urls = None
+        lazy_scanned_pages_cache = {} # Cache dict: candidate_page_url -> (sub_html, sub_soup)
 
         # 5. Escaneo/recorrido meticuloso de la web oficial de la universidad
         for d_idx, deg in enumerate(missing_degrees, 1):
@@ -617,9 +618,20 @@ class UniversityWebCrawler:
                             break
 
                         try:
-                            time.sleep(0.5) # Buenas prácticas de rate-limiting
-                            sub_html = downloader.fetch_text(candidate_page_url)
-                            sub_soup = BeautifulSoup(sub_html, "html.parser")
+                            if candidate_page_url in lazy_scanned_pages_cache:
+                                sub_html, sub_soup = lazy_scanned_pages_cache[candidate_page_url]
+                            else:
+                                time.sleep(0.5) # Buenas prácticas de rate-limiting
+                                try:
+                                    sub_html = downloader.fetch_text(candidate_page_url)
+                                    sub_soup = BeautifulSoup(sub_html, "html.parser")
+                                    lazy_scanned_pages_cache[candidate_page_url] = (sub_html, sub_soup)
+                                except Exception as fetch_err:
+                                    lazy_scanned_pages_cache[candidate_page_url] = (None, None)
+                                    raise fetch_err
+
+                            if not sub_html or not sub_soup:
+                                continue
 
                             for a in sub_soup.find_all("a", href=True):
                                 href = a["href"].strip()
@@ -667,7 +679,7 @@ class UniversityWebCrawler:
                                             if len(elementos_html) < 3:
                                                 try:
                                                     from spa_crawler import SPALayoutCrawler
-                                                    spa_crawler = SPALayoutCrawler()
+                                                    spa_crawler = SPALayoutCrawler.get_shared_instance()
                                                     rendered_html = spa_crawler.render_spa_page(target_link)
                                                     if rendered_html:
                                                         spa_soup = BeautifulSoup(rendered_html, "html.parser")
@@ -733,13 +745,7 @@ class UniversityWebCrawler:
                 print(f"     [ÉXITO PARTE 2] Encontrado plan de estudios en la web oficial: '{direct_source_url}'")
                 stats["resolved_degrees_count"] += 1
                 
-                degree_data = {}
-                if os.path.exists(plan_file):
-                    try:
-                        with open(plan_file, "r", encoding="utf-8") as f:
-                            degree_data = json.load(f)
-                    except Exception:
-                        pass
+                degree_data = load_json_safe(plan_file)
                 degree_data["codigo_estudio"] = d_code
                 degree_data["titulo"] = deg.get("titulo", "")
                 degree_data["nivel_academico"] = deg.get("nivel_academico", "")

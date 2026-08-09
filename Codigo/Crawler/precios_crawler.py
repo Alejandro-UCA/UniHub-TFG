@@ -2,31 +2,20 @@ import os
 import json
 import glob
 from config import DATA_DIR, PLANES_DIR, UNIVERSIDADES_JSON
-from checkpoint import atomic_json_dump
+from checkpoint import atomic_json_dump, load_json_safe
 
 PRECIOS_CCAA_JSON = os.path.join(DATA_DIR, "precios_ccaa.json")
 
 def load_precios_ccaa() -> dict:
-    if os.path.exists(PRECIOS_CCAA_JSON):
-        try:
-            with open(PRECIOS_CCAA_JSON, "r", encoding="utf-8") as f:
-                return json.load(f)
-        except Exception:
-            pass
-    return {}
+    return load_json_safe(PRECIOS_CCAA_JSON, default={})
 
 def load_universidades_map() -> dict:
     univ_map = {}
-    if os.path.exists(UNIVERSIDADES_JSON):
-        try:
-            with open(UNIVERSIDADES_JSON, "r", encoding="utf-8") as f:
-                data = json.load(f)
-                for u in data:
-                    code = u.get("codigo")
-                    if code:
-                        univ_map[code] = u
-        except Exception:
-            pass
+    data = load_json_safe(UNIVERSIDADES_JSON, default=[])
+    for u in data:
+        code = u.get("codigo")
+        if code:
+            univ_map[code] = u
     return univ_map
 
 def compute_degree_price(ccaa: str, tipo_univ: str, nivel_academico: str, titulo: str, precios_catalogo: dict = None) -> dict:
@@ -117,11 +106,12 @@ def run_phase1_part3():
     
     updated_count = 0
     public_count = 0
+    prices_cache = {}
     
     for filepath in json_files:
         try:
-            with open(filepath, "r", encoding="utf-8") as f:
-                degree = json.load(f)
+            degree = load_json_safe(filepath)
+            d_code = degree.get("codigo_estudio") or os.path.splitext(os.path.basename(filepath))[0]
                 
             u_code = degree.get("universidad_codigo")
             univ = univ_map.get(u_code, {})
@@ -132,6 +122,7 @@ def run_phase1_part3():
             titulo = degree.get("titulo", "")
             
             price_info = compute_degree_price(ccaa, tipo_univ, nivel, titulo, precios_catalogo=precios_catalogo)
+            prices_cache[d_code] = (price_info, tipo_univ)
             
             if "pública" in tipo_univ.lower() or "publica" in tipo_univ.lower():
                 degree["precio_credito_ects"] = price_info["precio_credito_ects"]
@@ -155,8 +146,7 @@ def run_phase1_part3():
     tit_json_path = os.path.join(DATA_DIR, "titulaciones_universidad.json")
     if os.path.exists(tit_json_path):
         try:
-            with open(tit_json_path, "r", encoding="utf-8") as f:
-                tit_data = json.load(f)
+            tit_data = load_json_safe(tit_json_path)
                 
             for u_code, u_info in tit_data.items():
                 univ = univ_map.get(u_code, {})
@@ -164,8 +154,14 @@ def run_phase1_part3():
                 tipo_univ = univ.get("tipo", "Pública")
                 
                 for t in u_info.get("titulaciones_vigentes", []):
-                    price_info = compute_degree_price(ccaa, tipo_univ, t.get("nivel_academico", ""), t.get("titulo", ""), precios_catalogo=precios_catalogo)
-                    if "pública" in tipo_univ.lower() or "publica" in tipo_univ.lower():
+                    t_code = t.get("codigo_estudio") or t.get("codigo")
+                    if t_code in prices_cache:
+                        price_info, t_tipo = prices_cache[t_code]
+                    else:
+                        price_info = compute_degree_price(ccaa, tipo_univ, t.get("nivel_academico", ""), t.get("titulo", ""), precios_catalogo=precios_catalogo)
+                        t_tipo = tipo_univ
+                        
+                    if "pública" in t_tipo.lower() or "publica" in t_tipo.lower():
                         t["precio_credito_ects"] = price_info["precio_credito_ects"]
                         t["precio_credito_2"] = price_info["precio_credito_2"]
                         t["precio_credito_3"] = price_info["precio_credito_3"]

@@ -345,7 +345,8 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
                 "total_titulaciones_vigentes": len(active_degrees),
                 "titulaciones_vigentes": active_degrees
             }
-            atomic_json_dump(titulaciones_por_universidad, TITULACIONES_JSON)
+            if u_idx % 5 == 0 or u_idx == len(universities):
+                atomic_json_dump(titulaciones_por_universidad, TITULACIONES_JSON)
 
             # REQUERIMIENTO: Procesar titulaciones en orden inverso (última primero)
             degrees_to_process = active_degrees[::-1]

@@ -8,6 +8,27 @@ from config import REQUEST_DELAY, MAX_RETRIES, HTTP_TIMEOUT, USER_AGENT
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+def normalize_url(url: str, domain_mappings: dict = None) -> str:
+    """Normalizes legacy domains and cleans malformed protocol prefixes."""
+    if not url:
+        return ""
+    url = url.strip()
+    while url.startswith("http://https://") or url.startswith("https://http://") or url.startswith("http://http://") or url.startswith("https://https://"):
+        if url.startswith("http://https://"):
+            url = "https://" + url[15:]
+        elif url.startswith("https://http://"):
+            url = "http://" + url[15:]
+        elif url.startswith("http://http://"):
+            url = "http://" + url[14:]
+        elif url.startswith("https://https://"):
+            url = "https://" + url[16:]
+
+    if domain_mappings:
+        for old_domain, new_domain in domain_mappings.items():
+            if old_domain in url:
+                url = url.replace(old_domain, new_domain)
+    return url
+
 class SkipUniversityException(Exception):
     """Raised when consecutive connection failures exceed 3 cycles of 5-minute pauses for a university."""
     pass
@@ -60,21 +81,7 @@ class RUCTDownloader:
 
     def _normalize_url(self, url: str) -> str:
         """Normalizes legacy domains and cleans malformed protocol prefixes."""
-        url = url.strip()
-        while url.startswith("http://https://") or url.startswith("https://http://") or url.startswith("http://http://") or url.startswith("https://https://"):
-            if url.startswith("http://https://"):
-                url = "https://" + url[15:]
-            elif url.startswith("https://http://"):
-                url = "http://" + url[15:]
-            elif url.startswith("http://http://"):
-                url = "http://" + url[14:]
-            elif url.startswith("https://https://"):
-                url = "https://" + url[16:]
-
-        for old_domain, new_domain in self.DOMAIN_MAPPINGS.items():
-            if old_domain in url:
-                url = url.replace(old_domain, new_domain)
-        return url
+        return normalize_url(url, self.DOMAIN_MAPPINGS)
 
     def _apply_delay(self):
         """Enforces rate limiting delay between requests."""

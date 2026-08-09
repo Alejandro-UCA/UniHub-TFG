@@ -5,6 +5,7 @@ import xlrd
 from bs4 import BeautifulSoup
 import pdfplumber
 import pypdf
+from downloader import normalize_url
 
 def parse_universities_xls(filepath: str) -> list:
     """
@@ -243,16 +244,8 @@ def parse_degree_detail_html(html_content: str) -> dict:
             if href.startswith("/"):
                 href = "https://www.boe.es" + href
 
-            # Clean malformed double protocol prefixes from RUCT HTML
-            while href.startswith("http://https://") or href.startswith("https://http://") or href.startswith("http://http://") or href.startswith("https://https://"):
-                if href.startswith("http://https://"):
-                    href = "https://" + href[15:]
-                elif href.startswith("https://http://"):
-                    href = "http://" + href[15:]
-                elif href.startswith("http://http://"):
-                    href = "http://" + href[14:]
-                elif href.startswith("https://https://"):
-                    href = "https://" + href[16:]
+            # Clean malformed double protocol prefixes using centralized normalize_url
+            href = normalize_url(href)
                 
             boe_candidates.append({
                 "url": href,

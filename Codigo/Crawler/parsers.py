@@ -1,11 +1,34 @@
 import os
+import io
 import re
+import hashlib
 from datetime import datetime
 import xlrd
 from bs4 import BeautifulSoup
 import pdfplumber
 import pypdf
 from downloader import normalize_url
+
+# -----------------------------------------------------------------------------
+# GLOBAL PRE-COMPILED REGEX PATTERNS (OPT-02: Pre-compilación de Regex)
+# -----------------------------------------------------------------------------
+RE_CREDIT_SUMMARY = [
+    ("Formación Básica", re.compile(r"(?:formaci[oó]n b[aá]sica|fb)\s*[:\.\-]?\s*(\d+)", re.IGNORECASE)),
+    ("Obligatorias", re.compile(r"(?:obligatoria[s]?|ob)\s*[:\.\-]?\s*(\d+)", re.IGNORECASE)),
+    ("Optativas", re.compile(r"(?:optativa[s]?|op)\s*[:\.\-]?\s*(\d+)", re.IGNORECASE)),
+    ("Prácticas Externas", re.compile(r"(?:pr[aá]ctica[s]?|pe)\s*[:\.\-]?\s*(\d+)", re.IGNORECASE)),
+    ("Trabajo Fin de Grado / Máster", re.compile(r"(?:trabajo fin de|tfg|tfm)\s*[:\.\-]?\s*(\d+)", re.IGNORECASE)),
+    ("Créditos Totales", re.compile(r"(?:total|cr[eé]ditos totales)\s*[:\.\-]?\s*(\d+)", re.IGNORECASE))
+]
+
+RE_ECTS_NUMBER = re.compile(r"\b(\d+(?:[\.,]\d+)?)\b")
+RE_CURSO_NUM = re.compile(r"\b[1-6][ºº°]?\b")
+RE_LEGAL_NOISE = re.compile(r"^(decreto|orden|bocm|boe|decreto-ley|ley|real decreto|resolución|ordenatorio)\b", re.IGNORECASE)
+RE_ECTS_CLEAN = re.compile(r"(\d+(?:[\.,]\d+)?)")
+RE_TEXT_SUBJECT_LINE = re.compile(r"^([A-ZÁÉÍÓÚÑa-záéíóúñ0-9\s\-\,\.\(\)]{5,70})\s+(\d+(?:[\.,]\d+)?)\s+(FB|OB|OP|PE|TFG|TFM|Obligatoria|Optativa|Básica)\b", re.IGNORECASE)
+RE_MULTIPLE_SPACES = re.compile(r"\s+")
+RE_PARENTHESES_STRIP = re.compile(r"\s*\(.*?\)")
+
 
 def parse_universities_xls(filepath: str) -> list:
     """
@@ -273,17 +296,37 @@ def parse_degree_detail_html(html_content: str) -> dict:
     }
 
 
-def parse_boe_pdf(pdf_filepath: str) -> dict:
+def parse_boe_pdf(pdf_filepath) -> dict:
     """
     Extracts METICULOUS curriculum data (resumen creditos, asignaturas, modulos, materias, 
-    unidades formativas, bloques, ECTS, carácter, curso, cuatrimestre) from a BOE PDF file.
+    unidades formativas, bloques, ECTS, carácter, curso, cuatrimestre) from a BOE PDF.
+    Supports both disk file path (str) and in-memory bytes/io.BytesIO objects (OPT-04).
+    Calculates SHA256 digest of PDF stream for negative caching (OPT-06).
     """
     resumen_creditos = {}
     elementos_curriculares = []
     raw_text_parts = []
 
+    # Prepare stream or file source
+    if isinstance(pdf_filepath, bytes):
+        pdf_stream = io.BytesIO(pdf_filepath)
+        pdf_sha256 = hashlib.sha256(pdf_filepath[:4096]).hexdigest()
+    elif isinstance(pdf_filepath, io.BytesIO):
+        pdf_stream = pdf_filepath
+        pdf_bytes = pdf_filepath.getvalue()
+        pdf_sha256 = hashlib.sha256(pdf_bytes[:4096]).hexdigest()
+    else:
+        pdf_stream = pdf_filepath
+        pdf_sha256 = None
+        if os.path.exists(pdf_filepath):
+            try:
+                with open(pdf_filepath, "rb") as f:
+                    pdf_sha256 = hashlib.sha256(f.read(4096)).hexdigest()
+            except Exception:
+                pass
+
     try:
-        reader = pypdf.PdfReader(pdf_filepath)
+        reader = pypdf.PdfReader(pdf_stream)
         for page in reader.pages:
             text = page.extract_text()
             if text:
@@ -294,7 +337,7 @@ def parse_boe_pdf(pdf_filepath: str) -> dict:
     full_text = "\n".join(raw_text_parts)
 
     # Fallback for scanned image PDFs: Use local OCR when vector text layer is missing or empty
-    if len(full_text.strip()) < 50:
+    if len(full_text.strip()) < 50 and isinstance(pdf_filepath, str) and os.path.exists(pdf_filepath):
         try:
             from ocr_parser import OCRPDFParser
             ocr_parser = OCRPDFParser()
@@ -304,24 +347,18 @@ def parse_boe_pdf(pdf_filepath: str) -> dict:
         except Exception:
             pass
 
-    # 1. Parse Credit Summary Table
-    credit_keywords = [
-        ("Formación Básica", r"(?:formaci[oó]n b[aá]sica|fb)\s*[:\.\-]?\s*(\d+)"),
-        ("Obligatorias", r"(?:obligatoria[s]?|ob)\s*[:\.\-]?\s*(\d+)"),
-        ("Optativas", r"(?:optativa[s]?|op)\s*[:\.\-]?\s*(\d+)"),
-        ("Prácticas Externas", r"(?:pr[aá]ctica[s]?|pe)\s*[:\.\-]?\s*(\d+)"),
-        ("Trabajo Fin de Grado / Máster", r"(?:trabajo fin de|tfg|tfm)\s*[:\.\-]?\s*(\d+)"),
-        ("Créditos Totales", r"(?:total|cr[eé]ditos totales)\s*[:\.\-]?\s*(\d+)")
-    ]
-
-    for label, regex in credit_keywords:
-        match = re.search(regex, full_text, re.IGNORECASE)
+    # 1. Parse Credit Summary Table (using pre-compiled RE_CREDIT_SUMMARY)
+    for label, pattern in RE_CREDIT_SUMMARY:
+        match = pattern.search(full_text)
         if match:
             resumen_creditos[label] = match.group(1)
 
-    # 2. Extract Structured Curriculum Tables with pdfplumber
+    # 2. Extract Structured Curriculum Tables with pdfplumber (OPT-02)
     try:
-        with pdfplumber.open(pdf_filepath) as pdf:
+        if isinstance(pdf_stream, io.BytesIO):
+            pdf_stream.seek(0)
+
+        with pdfplumber.open(pdf_stream) as pdf:
             current_modulo = ""
             current_materia = ""
 
@@ -336,7 +373,7 @@ def parse_boe_pdf(pdf_filepath: str) -> dict:
                         if not row or all(cell is None or str(cell).strip() == "" for cell in row):
                             continue
                         
-                        clean_row = [re.sub(r"\s+", " ", str(cell).strip()) if cell else "" for cell in row]
+                        clean_row = [RE_MULTIPLE_SPACES.sub(" ", str(cell).strip()) if cell else "" for cell in row]
                         row_str = " ".join(clean_row).lower()
 
                         if is_first_row:
@@ -366,7 +403,7 @@ def parse_boe_pdf(pdf_filepath: str) -> dict:
 
                         for cell in clean_row:
                             if not ects_match:
-                                m = re.search(r"\b(\d+(?:[\.,]\d+)?)\b", cell)
+                                m = RE_ECTS_NUMBER.search(cell)
                                 if m:
                                     try:
                                         if float(m.group(1).replace(",", ".")) in [3, 4.5, 6, 9, 12, 15, 18, 24, 30]:
@@ -384,7 +421,7 @@ def parse_boe_pdf(pdf_filepath: str) -> dict:
                             elif "tfg" in cell_lower or "tfm" in cell_lower or "trabajo fin" in cell_lower:
                                 caracter = "TFG/TFM"
 
-                            if re.search(r"\b[1-6][ºº°]?\b", cell):
+                            if RE_CURSO_NUM.search(cell):
                                 curso = cell
                             if "cuatrimestre" in cell_lower or "semestre" in cell_lower:
                                 cuatrimestre = cell
@@ -402,15 +439,15 @@ def parse_boe_pdf(pdf_filepath: str) -> dict:
                             final_subject_name = clean_row[1]
 
                         if final_subject_name and len(final_subject_name) > 3 and not any(k in final_subject_name.lower() for k in ["asignatura", "carácter", "créditos", "curso"]):
-                            # REFINEMENT 1: Filter out legal administrative citation lines
-                            is_legal_noise = re.search(r"^(decreto|orden|bocm|boe|decreto-ley|ley|real decreto|resolución|ordenatorio)\b", final_subject_name.lower()) or len(final_subject_name) > 180
+                            # REFINEMENT 1 & OPT-02: Filter out legal administrative citation lines with pre-compiled regex
+                            is_legal_noise = RE_LEGAL_NOISE.search(final_subject_name) or len(final_subject_name) > 180
                             if is_legal_noise:
                                 continue
 
-                            # REFINEMENT 2: Clean numerical ECTS credit extraction
+                            # REFINEMENT 2 & OPT-02: Clean numerical ECTS credit extraction
                             clean_ects = "6"
                             if ects_match:
-                                m_ects = re.search(r"(\d+(?:[\.,]\d+)?)", str(ects_match))
+                                m_ects = RE_ECTS_CLEAN.search(str(ects_match))
                                 if m_ects:
                                     clean_ects = m_ects.group(1).replace(",", ".")
 
@@ -440,8 +477,8 @@ def parse_boe_pdf(pdf_filepath: str) -> dict:
             if any(hk in line_lower for hk in ["asignatura", "materia", "denominación", "carácter", "créditos", "ects", "curso", "página", "boletín"]):
                 continue
 
-            # Regex pattern for subject line: [Subject Name] [Credits] [Character (FB/OB/OP/PE/TFG)]
-            m = re.search(r"^([A-ZÁÉÍÓÚÑa-záéíóúñ0-9\s\-\,\.\(\)]{5,70})\s+(\d+(?:[\.,]\d+)?)\s+(FB|OB|OP|PE|TFG|TFM|Obligatoria|Optativa|Básica)\b", line_str, re.IGNORECASE)
+            # Regex pattern for subject line using pre-compiled RE_TEXT_SUBJECT_LINE
+            m = RE_TEXT_SUBJECT_LINE.search(line_str)
             if m:
                 subj_name = m.group(1).strip()
                 cred_val = m.group(2).replace(",", ".")
@@ -464,5 +501,6 @@ def parse_boe_pdf(pdf_filepath: str) -> dict:
     return {
         "resumen_creditos": resumen_creditos,
         "total_elementos": len(elementos_curriculares),
-        "elementos_curriculares": elementos_curriculares
+        "elementos_curriculares": elementos_curriculares,
+        "pdf_sha256": pdf_sha256
     }

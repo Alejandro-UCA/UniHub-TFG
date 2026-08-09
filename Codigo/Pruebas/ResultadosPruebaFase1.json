@@ -1,5 +1,5 @@
 {
-  "fecha_ejecucion": "2026-08-09T23:54:40.646045",
+  "fecha_ejecucion": "2026-08-10T00:43:57.595905",
   "universidades_escaneadas": [
     {
       "codigo": "008",
@@ -19466,12 +19466,9 @@
           "nivel_academico": "Grado - RD 822/2021 (2)",
           "origen_extrayente": "Pendiente",
           "boe_url": "http://www.boe.es/boe/dias/2025/11/20/index.php?e=310",
-          "paso_por_web_oficial": true,
+          "paso_por_web_oficial": false,
           "asignaturas_count": 0,
-          "asignaturas": [],
-          "precio_credito_ects": null,
-          "precio_estimado_anual": null,
-          "fuente_precio": "Universidad Privada (Tarifas fijadas por la institución)"
+          "asignaturas": []
         },
         {
           "codigo_estudio": "2503614",
@@ -20695,12 +20692,9 @@
           "nivel_academico": "Grado - RD 1393/2007 (1)",
           "origen_extrayente": "Pendiente",
           "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2016/01/05/BOCM-20160105-16.PDF",
-          "paso_por_web_oficial": true,
+          "paso_por_web_oficial": false,
           "asignaturas_count": 0,
-          "asignaturas": [],
-          "precio_credito_ects": null,
-          "precio_estimado_anual": null,
-          "fuente_precio": "Universidad Privada (Tarifas fijadas por la institución)"
+          "asignaturas": []
         },
         {
           "codigo_estudio": "2500074",
@@ -20708,12 +20702,9 @@
           "nivel_academico": "Grado - RD 1393/2007 (1)",
           "origen_extrayente": "Pendiente",
           "boe_url": "http://www.boe.es/boe/dias/2017/11/28/pdfs/BOE-A-2017-13830.pdf",
-          "paso_por_web_oficial": true,
+          "paso_por_web_oficial": false,
           "asignaturas_count": 0,
-          "asignaturas": [],
-          "precio_credito_ects": null,
-          "precio_estimado_anual": null,
-          "fuente_precio": "Universidad Privada (Tarifas fijadas por la institución)"
+          "asignaturas": []
         }
       ]
     },
@@ -27063,14 +27054,14 @@
           "codigo_estudio": "2502434",
           "titulo": "Graduado o Graduada en Arquitectura Técnica por la Universidad San Pablo-CEU",
           "nivel_academico": "Grado - RD 1393/2007 (1)",
-          "origen_extrayente": "Pendiente",
+          "origen_extrayente": "Web Oficial (Parte 2)",
           "boe_url": "http://www.bocm.es/boletin/CM_Orden_BOCM/2016/01/05/BOCM-20160105-16.PDF",
           "paso_por_web_oficial": true,
           "asignaturas_count": 0,
           "asignaturas": [],
-          "precio_credito_ects": null,
-          "precio_estimado_anual": null,
-          "fuente_precio": "Universidad Privada (Tarifas fijadas por la institución)"
+          "precio_credito_ects": 425.72,
+          "precio_estimado_anual": 25543.0,
+          "fuente_precio": "Web Oficial Universidad Privada"
         },
         {
           "codigo_estudio": "2504041",

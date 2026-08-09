@@ -106,17 +106,25 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue):
                 for cand_idx, item in enumerate(pdf_items, 1):
                     cand_url = item["cand_url"]
                     cand_date = item["cand_date"]
-                    pdf_path = item["pdf_path"]
+                    pdf_path = item.get("pdf_path")
+                    pdf_bytes = item.get("pdf_bytes")
 
                     try:
-                        if not os.path.exists(pdf_path):
+                        t_start = time.perf_counter()
+                        # OPT-04: Prefer in-memory bytes if available, fallback to file path
+                        pdf_input = pdf_bytes if pdf_bytes else pdf_path
+                        if not pdf_input:
                             continue
 
-                        t_start = time.perf_counter()
-                        curriculum_data = parse_boe_pdf(pdf_path)
+                        curriculum_data = parse_boe_pdf(pdf_input)
                         t_elapsed = time.perf_counter() - t_start
                         total_parse_time += t_elapsed
                         parsed_count += 1
+
+                        pdf_sha256 = curriculum_data.get("pdf_sha256")
+                        if pdf_sha256 and checkpoint.is_non_study_plan_hash(pdf_sha256):
+                            print(f"     [Proceso Parser] -> [OPT-06 CACHÉ HASH] PDF #{cand_idx} de [{d_code}] previamente marcado como NO plan de estudios por Hash SHA256. Omitiendo.")
+                            continue
 
                         total_elems = curriculum_data.get("total_elementos", 0)
                         resumen = curriculum_data.get("resumen_creditos", {})
@@ -141,13 +149,13 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue):
                                     combined_elementos.append(elem)
                         else:
                             print(f"     [Proceso Parser] -> PDF #{cand_idx} de [{d_code}] no contenía tabla de asignaturas. Registrando como NO plan de estudios.")
-                            checkpoint.mark_non_study_plan_pdf(cand_url)
+                            checkpoint.mark_non_study_plan_pdf(cand_url, pdf_sha256)
 
                     except Exception as pdf_err:
                         print(f"     [Proceso Parser] -> Error al procesar PDF candidate #{cand_idx} de [{d_code}]: {pdf_err}")
                         logger.log_error("paso_3_parse_pdf", d_code, cand_url, f"Error en parser PDF #{cand_idx}", str(pdf_err))
                     finally:
-                        if os.path.exists(pdf_path):
+                        if pdf_path and os.path.exists(pdf_path):
                             try:
                                 os.remove(pdf_path)
                             except Exception:
@@ -243,12 +251,16 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
     # PARTE 1 DE LA FASE 1: SCRAPING RUCT Y PARSER DE BOE
     # -------------------------------------------------------------------------
     if 1 in run_parts:
-        # Lanzar Proceso 2 (Consumidor / Parser CPU & Escritura en disco)
-        task_queue = mp.Queue(maxsize=100)
+        # OPT-01: Lanzar Pool Multiprocesador de Consumidores (Parser CPU & Escritura en Disco)
+        num_parser_workers = max(1, min(4, mp.cpu_count()))
+        task_queue = mp.Queue(maxsize=200)
         result_queue = mp.Queue()
-        parser_process = mp.Process(target=pdf_parser_consumer, args=(task_queue, result_queue), daemon=True)
-        parser_process.start()
-        print(" -> Proceso 2 (Parser CPU & Escritura en Disco) arrancado y listo en segundo plano.\n")
+        parser_processes = []
+        for w_idx in range(num_parser_workers):
+            p = mp.Process(target=pdf_parser_consumer, args=(task_queue, result_queue), daemon=True)
+            p.start()
+            parser_processes.append(p)
+        print(f" -> Proceso 2 (Pool de {num_parser_workers} trabajadores Parser CPU) arrancado y listo en segundo plano.\n")
 
         # -------------------------------------------------------------------------
         # PASO 1: Descargar / Inspeccionar listado de universidades (Públicas prioritarias)
@@ -284,11 +296,12 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
             print(f" [ERROR CRÍTICO] {err_msg}: {e}")
             logger.log_error("paso_1_universidades", "ALL", URL_UNIVERSIDADES_LIST, err_msg, str(e))
             metrics.errores_detectados += 1
-            if parser_process.is_alive():
-                task_queue.put({"type": "STOP"})
-                parser_process.join(timeout=5)
-                if parser_process.is_alive():
-                    parser_process.terminate()
+            for p in parser_processes:
+                if p.is_alive():
+                    task_queue.put({"type": "STOP"})
+                    p.join(timeout=2)
+                    if p.is_alive():
+                        p.terminate()
             return
 
         if limit_univ:
@@ -423,7 +436,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
                     if len(candidates) > 1:
                         print(f"     -> {len(discarded_older_boes)} BOEs históricos anteriores descartados (procesando únicamente el BOE más reciente).")
 
-                    # Download ONLY the single most recent PDF candidate in Process 1 and queue it for Process 2
+                    # OPT-04: Fetch candidate PDF in-memory (bytes) to avoid disk temporary file IOPS
                     downloaded_pdf_items = []
 
                     def fetch_single_candidate(cand_tuple):
@@ -439,15 +452,14 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
                             print(f"     [Proceso Red] -> PDF más reciente previamente registrado como inalcanzable (servidor inactivo). Omitiendo descarga.")
                             return None
 
-                        pdf_path = os.path.join(TEMP_PDF_DIR, f"{d_code}_candidate_{cand_idx}.pdf")
-
                         try:
-                            print(f"     [Proceso Red] -> Descargando PDF más reciente del BOE ({cand_date or 'fecha n/a'})...")
-                            downloader.download_file(cand_url, pdf_path, is_pdf=True)
+                            print(f"     [Proceso Red] -> Obteniendo PDF más reciente del BOE ({cand_date or 'fecha n/a'})...")
+                            # OPT-04: Fetch in-memory bytes
+                            pdf_bytes = downloader.fetch_content(cand_url)
                             return {
                                 "cand_url": cand_url,
                                 "cand_date": cand_date,
-                                "pdf_path": pdf_path
+                                "pdf_bytes": pdf_bytes
                             }
                         except SkipUniversityException:
                             raise
@@ -498,22 +510,30 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
             metrics.save()
             checkpoint.mark_university_processed(u_code)
 
-        # Finalización segura de Proceso 2 (Parser CPU) incluso si hay crasheos
-        print("\n[Finalizando Red] Enviando señal de parada al Proceso 2 (Parser CPU)...")
-        task_queue.put({"type": "STOP"})
+        # Finalización segura del Pool de Procesos 2 (Parser CPU)
+        print("\n[Finalizando Red] Enviando señal de parada al Pool de Procesos Parser CPU...")
+        for _ in range(num_parser_workers):
+            task_queue.put({"type": "STOP"})
         
-        # Receive metrics summary from Process 2
-        try:
-            consumer_results = result_queue.get(timeout=10)
-            metrics.pdfs_parseados = consumer_results.get("parsed_count", 0)
-            metrics.titulaciones_descargadas_actualizadas = consumer_results.get("updated_degrees_count", 0)
-        except Exception as eq:
-            print(f" [AVISO] No se pudieron recolectar métricas del proceso parser: {eq}")
-            
-        parser_process.join(timeout=10)
-        if parser_process.is_alive():
-            print(" [AVISO] Forzando terminación del Proceso 2 (colgado).")
-            parser_process.terminate()
+        # Receive metrics summary from Process 2 pool
+        total_parsed = 0
+        total_updated = 0
+        for _ in range(num_parser_workers):
+            try:
+                consumer_results = result_queue.get(timeout=5)
+                total_parsed += consumer_results.get("parsed_count", 0)
+                total_updated += consumer_results.get("updated_degrees_count", 0)
+            except Exception:
+                pass
+        
+        metrics.pdfs_parseados = total_parsed
+        metrics.titulaciones_descargadas_actualizadas = total_updated
+
+        for p in parser_processes:
+            p.join(timeout=5)
+            if p.is_alive():
+                print(" [AVISO] Forzando terminación de subproceso parser colgado.")
+                p.terminate()
         
         metrics.save()
 

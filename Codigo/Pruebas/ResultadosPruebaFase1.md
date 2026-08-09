@@ -1,6 +1,6 @@
 # Reporte de Resultados y Trazabilidad de Prueba — Fase 1 (UniHub)
 
-**Fecha de Ejecución**: `2026-08-09T23:54:40.646045`  
+**Fecha de Ejecución**: `2026-08-10T00:43:57.595905`  
 **Ámbito**: 5 Universidades (3 Públicas + 2 Privadas) | Máximo 20 Titulaciones por Universidad
 
 ---
@@ -179,11 +179,11 @@
 
 | Código | Titulación | Vía de Extracción | Asignaturas Extraídas | Precio ECTS | Precio Anual Est. |
 |:---:|:---|:---:|:---:|:---:|:---:|
-| `2503418` | **Graduado o Graduada en Administración y Dirección de Em** | Web Oficial (Rastreada) | **0** | n/a | n/a |
+| `2503418` | **Graduado o Graduada en Administración y Dirección de Em** | Pendiente | **0** | n/a | n/a |
 | `2503614` | **Graduado o Graduada en Animación  por la Universidad Eu** | BOE PDF (Parte 1) | **5** | n/a | n/a |
 | `2504664` | **Graduado o Graduada en Arte Digital y Tecnologías Creat** | BOE PDF (Parte 1) | **103** | n/a | n/a |
-| `2502108` | **Graduado o Graduada en Arte Electrónico y Digital** | Web Oficial (Rastreada) | **0** | n/a | n/a |
-| `2500074` | **Graduado o Graduada en Arte por la Universidad Europea ** | Web Oficial (Rastreada) | **0** | n/a | n/a |
+| `2502108` | **Graduado o Graduada en Arte Electrónico y Digital** | Pendiente | **0** | n/a | n/a |
+| `2500074` | **Graduado o Graduada en Arte por la Universidad Europea ** | Pendiente | **0** | n/a | n/a |
 
 #### 📚 Desglose de Asignaturas (Muestreo Representativo por Titulación)
 
@@ -221,7 +221,7 @@
 | `2504045` | **Graduado o Graduada en Administración y Dirección de Em** | BOE PDF (Parte 1) | **272** | n/a | n/a |
 | `2500609` | **Graduado o Graduada en Administración y Dirección de Em** | BOE PDF (Parte 1) | **158** | n/a | n/a |
 | `2502433` | **Graduado o Graduada en Arquitectura / Degree in Archite** | BOE PDF (Parte 1) | **142** | n/a | n/a |
-| `2502434` | **Graduado o Graduada en Arquitectura Técnica por la Univ** | Web Oficial (Rastreada) | **0** | n/a | n/a |
+| `2502434` | **Graduado o Graduada en Arquitectura Técnica por la Univ** | Web Oficial (Parte 2) | **0** | 425.72€ | 25543.0€ |
 | `2504041` | **Graduado o Graduada en Arte Digital por la Universidad ** | BOE PDF (Parte 1) | **489** | n/a | n/a |
 
 #### 📚 Desglose de Asignaturas (Muestreo Representativo por Titulación)

@@ -1,7 +1,9 @@
 import os
 import time
+import random
 import requests
 import urllib3
+from urllib.parse import urlparse
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 from config import (
@@ -46,10 +48,8 @@ class SkipUniversityException(Exception):
 
 class RUCTDownloader:
     """
-    Handles robust HTTP requests with rate limiting, retries, browser headers,
-    automatic HTTP->HTTPS fallback, and a circuit breaker for connection resilience:
-    - 10 consecutive failures -> 5-minute (300s) pause.
-    - 3 consecutive 5-minute pauses -> raise SkipUniversityException and log error.
+    Handles robust HTTP requests with rate limiting, per-domain jitter, Retry-After parsing,
+    browser headers, automatic HTTP->HTTPS fallback, and a circuit breaker for connection resilience.
     """
     DOMAIN_MAPPINGS = DOMAIN_MAPPINGS
 
@@ -60,8 +60,11 @@ class RUCTDownloader:
         self.session = requests.Session()
         self.session.headers.update({
             "User-Agent": USER_AGENT,
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
             "Accept-Language": "es-ES,es;q=0.9,en;q=0.8",
+            "Sec-Fetch-Dest": "document",
+            "Sec-Fetch-Mode": "navigate",
+            "Sec-Fetch-Site": "same-origin",
         })
         
         retry_strategy = Retry(
@@ -74,7 +77,7 @@ class RUCTDownloader:
         self.session.mount("http://", adapter)
         self.session.mount("https://", adapter)
         
-        self.last_request_time = 0
+        self.domain_last_request_times = {}
         
         # Connection resilience counters
         self.consecutive_failures = 0
@@ -91,12 +94,15 @@ class RUCTDownloader:
         """Normalizes legacy domains and cleans malformed protocol prefixes."""
         return normalize_url(url, self.DOMAIN_MAPPINGS)
 
-    def _apply_delay(self):
-        """Enforces rate limiting delay between requests."""
-        elapsed = time.time() - self.last_request_time
-        if elapsed < self.delay:
-            time.sleep(self.delay - elapsed)
-        self.last_request_time = time.time()
+    def _apply_delay(self, url: str = ""):
+        """Enforces per-domain rate limiting delay with random jitter to avoid WAF pattern detection."""
+        domain = urlparse(url).netloc if url else "default"
+        last_time = self.domain_last_request_times.get(domain, 0)
+        elapsed = time.time() - last_time
+        effective_delay = self.delay + random.uniform(0.1, 0.35)
+        if elapsed < effective_delay:
+            time.sleep(effective_delay - elapsed)
+        self.domain_last_request_times[domain] = time.time()
 
     def _handle_connection_success(self):
         """Resets failure counter on successful request."""
@@ -106,9 +112,7 @@ class RUCTDownloader:
         """
         Increments failure counter for genuine network/server overloads.
         Handles 5-minute pause and 15-minute skip thresholds.
-        Returns True if a 5-minute pause was completed (signalling a request retry).
         """
-        # HTTP 404 Not Found means missing file on server (not connection overload). Do NOT count towards circuit breaker.
         if "404" in str(error_details):
             print(f" [ADVERTENCIA] Recurso no encontrado (HTTP 404): {error_details}")
             return False
@@ -132,9 +136,9 @@ class RUCTDownloader:
         return False
 
     def fetch_content(self, url: str) -> bytes:
-        """Fetches raw content from a URL with connection resilience and HTTPS fallback."""
+        """Fetches raw content from a URL with connection resilience, Retry-After header parsing, and HTTPS fallback."""
         url = self._normalize_url(url)
-        self._apply_delay()
+        self._apply_delay(url)
         t0 = time.perf_counter()
 
         urls_to_try = [url]
@@ -146,6 +150,15 @@ class RUCTDownloader:
             try:
                 verify_ssl = False if target_url.startswith("https://") else True
                 response = self.session.get(target_url, timeout=self.timeout, verify=verify_ssl)
+                
+                # Check for HTTP 429 Too Many Requests and extract Retry-After header
+                if response.status_code == 429:
+                    retry_after_val = response.headers.get("Retry-After")
+                    retry_secs = int(retry_after_val) if (retry_after_val and retry_after_val.isdigit()) else 30
+                    print(f" ⚠️ [CORTESÍA RED] HTTP 429 (Too Many Requests) detectado en '{target_url}'. Respetando 'Retry-After': pausando {retry_secs}s...")
+                    time.sleep(retry_secs)
+                    return self.fetch_content(target_url)
+
                 response.raise_for_status()
                 elapsed = time.perf_counter() - t0
                 if self.metrics_tracker:
@@ -174,7 +187,7 @@ class RUCTDownloader:
     def download_file(self, url: str, destination_path: str, is_pdf: bool = False):
         """Downloads a remote file directly to disk with connection resilience and HTTPS fallback."""
         url = self._normalize_url(url)
-        self._apply_delay()
+        self._apply_delay(url)
         t0 = time.perf_counter()
 
         urls_to_try = [url]
@@ -186,6 +199,13 @@ class RUCTDownloader:
             try:
                 verify_ssl = False if target_url.startswith("https://") else True
                 with self.session.get(target_url, stream=True, timeout=self.timeout, verify=verify_ssl) as response:
+                    if response.status_code == 429:
+                        retry_after_val = response.headers.get("Retry-After")
+                        retry_secs = int(retry_after_val) if (retry_after_val and retry_after_val.isdigit()) else 30
+                        print(f" ⚠️ [CORTESÍA RED] HTTP 429 (Too Many Requests) detectado en '{target_url}'. Respetando 'Retry-After': pausando {retry_secs}s...")
+                        time.sleep(retry_secs)
+                        return self.download_file(url, destination_path, is_pdf=is_pdf)
+
                     response.raise_for_status()
                     
                     first_chunk = True

@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+import tempfile
 from datetime import datetime
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -60,7 +61,32 @@ def run_etl():
         print("Conectando a la base de datos PostgreSQL...")
         try:
             from database.connection import SessionAdmin, engine_admin
+            from sqlalchemy import text
             Base.metadata.create_all(bind=engine_admin)
+            
+            # Auto-migrar columnas adicionales si la BD venía de un esquema previo
+            schema_alter_queries = [
+                'ALTER TABLE universidades ADD COLUMN IF NOT EXISTS gestionado_por_admin BOOLEAN DEFAULT FALSE;',
+                'ALTER TABLE titulaciones ADD COLUMN IF NOT EXISTS precio_credito_2 NUMERIC(6,2);',
+                'ALTER TABLE titulaciones ADD COLUMN IF NOT EXISTS precio_credito_3 NUMERIC(6,2);',
+                'ALTER TABLE titulaciones ADD COLUMN IF NOT EXISTS precio_credito_4 NUMERIC(6,2);',
+                'ALTER TABLE titulaciones ADD COLUMN IF NOT EXISTS precio_estimado_anual NUMERIC(8,2);',
+                'ALTER TABLE titulaciones ADD COLUMN IF NOT EXISTS fuente_precio VARCHAR(100);',
+                'ALTER TABLE titulaciones ADD COLUMN IF NOT EXISTS gestionado_por_admin BOOLEAN DEFAULT FALSE;',
+                'ALTER TABLE planes_estudio ADD COLUMN IF NOT EXISTS origen_fuente VARCHAR(100);',
+                'ALTER TABLE planes_estudio ADD COLUMN IF NOT EXISTS pdf_sha256 VARCHAR(64);',
+                'ALTER TABLE elementos_curriculares ADD COLUMN IF NOT EXISTS tipo_asistencia VARCHAR(50);',
+                'ALTER TABLE elementos_curriculares ADD COLUMN IF NOT EXISTS calificacion_minima NUMERIC(4,2);',
+                'ALTER TABLE elementos_curriculares ADD COLUMN IF NOT EXISTS departamento VARCHAR(255);'
+            ]
+            with engine_admin.connect() as _conn:
+                for _q in schema_alter_queries:
+                    try:
+                        _conn.execute(text(_q))
+                    except Exception:
+                        pass
+                _conn.commit()
+
             db = SessionAdmin()
         except Exception as e:
             print(f"[ERROR] No se pudo conectar a PostgreSQL: {e}")
@@ -137,6 +163,7 @@ def run_etl():
                             fuente_precio=t.get("fuente_precio")
                         )
                         db.add(tit_obj)
+                        existing_tits[d_code] = tit_obj
                     else:
                         if not existing.gestionado_por_admin:
                             existing.titulo = t.get("titulo") or existing.titulo

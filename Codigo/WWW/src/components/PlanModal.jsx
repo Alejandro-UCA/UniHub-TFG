@@ -16,6 +16,13 @@ export default function PlanModal({ degree, onClose }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [onClose]);
 
+  // Bloquear scroll del body mientras el modal está abierto
+  useEffect(() => {
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = prevOverflow; };
+  }, []);
+
   useEffect(() => {
     async function loadCurriculum() {
       if (!degree || !degree.codigo_estudio) return;

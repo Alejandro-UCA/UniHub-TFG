@@ -58,11 +58,11 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
     e.preventDefault();
     setError('');
 
-    if (type === 'universidad' && (!formData.codigo || !formData.nombre)) {
+    if (type === 'universidad' && (!formData.codigo || !formData.codigo.trim() || !formData.nombre || !formData.nombre.trim())) {
       setError('El código y el nombre de la universidad son obligatorios.');
       return;
     }
-    if (type === 'titulacion' && (!formData.codigo_estudio || !formData.titulo || !formData.universidad_codigo)) {
+    if (type === 'titulacion' && (!formData.codigo_estudio || !formData.codigo_estudio.trim() || !formData.titulo || !formData.titulo.trim() || !formData.universidad_codigo || !formData.universidad_codigo.trim())) {
       setError('El código de estudio, título y código de universidad son obligatorios.');
       return;
     }

@@ -57,6 +57,7 @@ export default function App() {
   const [selectedUnivTipo, setSelectedUnivTipo] = useState('todos');
   const [selectedDegreeTipo, setSelectedDegreeTipo] = useState('todos');
   const [selectedCCAA, setSelectedCCAA] = useState('todas');
+  const [selectedUnivCodigo, setSelectedUnivCodigo] = useState('');
 
   // Estados de paginación
   // Estados de paginación y totales
@@ -77,7 +78,7 @@ export default function App() {
   useEffect(() => {
     setUnivCurrentPage(1);
     setDegreeCurrentPage(1);
-  }, [searchQuery, selectedUnivTipo, selectedDegreeTipo, selectedCCAA]);
+  }, [searchQuery, selectedUnivTipo, selectedDegreeTipo, selectedCCAA, selectedUnivCodigo]);
 
   // Alternador de tema visual (Modo Claro / Oscuro)
   const toggleTheme = () => {
@@ -105,7 +106,7 @@ export default function App() {
     }
   };
 
-  const fetchDegreesPage = async (page) => {
+  const fetchDegreesPage = async (page, signal) => {
     setLoading(true);
     try {
       const skip = (page - 1) * degreeItemsPerPage;
@@ -115,8 +116,9 @@ export default function App() {
         titulo: searchQuery,
         nivel_academico: selectedDegreeTipo,
         ccaa: selectedCCAA,
-        tipo_universidad: selectedUnivTipo
-      }, { returnWithTotal: true });
+        tipo_universidad: selectedUnivTipo,
+        universidad_codigo: selectedUnivCodigo
+      }, { returnWithTotal: true, signal });
       
       if (res && res.data) {
         setDegrees(res.data);
@@ -134,12 +136,13 @@ export default function App() {
     // Evitamos llamar a la API antes del montaje inicial completo
     if (universities === MOCK_UNIVERSITIES) return;
 
+    const controller = new AbortController();
     const delayDebounceFn = setTimeout(() => {
-      fetchDegreesPage(degreeCurrentPage);
+      fetchDegreesPage(degreeCurrentPage, controller.signal);
     }, 300);
 
-    return () => clearTimeout(delayDebounceFn);
-  }, [degreeCurrentPage, degreeItemsPerPage, searchQuery, selectedDegreeTipo, selectedCCAA, selectedUnivTipo]);
+    return () => { clearTimeout(delayDebounceFn); controller.abort(); };
+  }, [degreeCurrentPage, degreeItemsPerPage, searchQuery, selectedDegreeTipo, selectedCCAA, selectedUnivTipo, selectedUnivCodigo]);
 
   const handleHeroSearch = (query) => {
     setSearchQuery(query);
@@ -152,18 +155,20 @@ export default function App() {
   }, [universities]);
 
   // Filtered & Sorted universities (Publics first, then Privates)
-  const filteredUniversities = universities.filter(u => {
-    const matchesQuery = !searchQuery || `${u.nombre} ${u.municipio} ${u.provincia}`.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesTipo = selectedUnivTipo === 'todos' || (u.tipo || '').toLowerCase().includes(selectedUnivTipo);
-    const matchesCCAA = selectedCCAA === 'todas' || (u.comunidad_autonoma || '').toLowerCase().includes(selectedCCAA.toLowerCase());
-    return matchesQuery && matchesTipo && matchesCCAA;
-  }).sort((a, b) => {
-    const isAPublic = (a.tipo || '').toLowerCase().includes('públic') || (a.tipo || '').toLowerCase().includes('public');
-    const isBPublic = (b.tipo || '').toLowerCase().includes('públic') || (b.tipo || '').toLowerCase().includes('public');
-    if (isAPublic && !isBPublic) return -1;
-    if (!isAPublic && isBPublic) return 1;
-    return (a.nombre || '').localeCompare(b.nombre || '');
-  });
+  const filteredUniversities = React.useMemo(() => {
+    return universities.filter(u => {
+      const matchesQuery = !searchQuery || `${u.nombre} ${u.municipio} ${u.provincia}`.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesTipo = selectedUnivTipo === 'todos' || (u.tipo || '').toLowerCase().includes(selectedUnivTipo);
+      const matchesCCAA = selectedCCAA === 'todas' || (u.comunidad_autonoma || '').toLowerCase().includes(selectedCCAA.toLowerCase());
+      return matchesQuery && matchesTipo && matchesCCAA;
+    }).sort((a, b) => {
+      const isAPublic = (a.tipo || '').toLowerCase().includes('públic') || (a.tipo || '').toLowerCase().includes('public');
+      const isBPublic = (b.tipo || '').toLowerCase().includes('públic') || (b.tipo || '').toLowerCase().includes('public');
+      if (isAPublic && !isBPublic) return -1;
+      if (!isAPublic && isBPublic) return 1;
+      return (a.nombre || '').localeCompare(b.nombre || '');
+    });
+  }, [universities, searchQuery, selectedUnivTipo, selectedCCAA]);
 
   // Map of universities by code for fast CCAA lookup
   const univCodeMap = React.useMemo(() => {
@@ -179,7 +184,7 @@ export default function App() {
   const filteredDegrees = degrees;
 
   // Top 6 Most Visited Universities for Featured Section
-  const topVisitedUnivs = usageTracker.getTopVisitedUniversities(universities, 6);
+  const topVisitedUnivs = React.useMemo(() => usageTracker.getTopVisitedUniversities(universities, 6), [universities]);
 
   // Paginated Slices
   const paginatedUniversities = filteredUniversities.slice(
@@ -191,7 +196,8 @@ export default function App() {
   const paginatedDegrees = degrees;
 
   const handleViewUniversityDegrees = (univ) => {
-    setSearchQuery(univ.nombre);
+    setSearchQuery('');
+    setSelectedUnivCodigo(univ.codigo);
     setActiveTab('titulaciones');
   };
 

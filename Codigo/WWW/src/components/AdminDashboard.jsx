@@ -32,27 +32,36 @@ export default function AdminDashboard({ onLogout }) {
 
   const exportToCSV = (data, filename) => {
     if (!data || data.length === 0) return;
+    const sanitize = (val) => {
+      const str = String(val ?? '');
+      if (/^[=+\-@\t\r]/.test(str)) return "'" + str;
+      return str;
+    };
     const headers = Object.keys(data[0]).join(',');
-    const rows = data.map(obj => Object.values(obj).map(val => `"${String(val ?? '').replace(/"/g, '""')}"`).join(','));
-    const csvContent = 'data:text/csv;charset=utf-8,\uFEFF' + [headers, ...rows].join('\n');
-    const encodedUri = encodeURI(csvContent);
+    const rows = data.map(obj => Object.values(obj).map(val => `"${sanitize(val).replace(/"/g, '""')}"`).join(','));
+    const csvContent = '\uFEFF' + [headers, ...rows].join('\n');
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
-    link.setAttribute('href', encodedUri);
+    link.setAttribute('href', url);
     link.setAttribute('download', `${filename}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   };
 
   const exportToJSON = (data, filename) => {
     if (!data) return;
-    const jsonStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data, null, 2));
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
-    link.setAttribute('href', jsonStr);
+    link.setAttribute('href', url);
     link.setAttribute('download', `${filename}.json`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   };
 
   const refreshData = async () => {

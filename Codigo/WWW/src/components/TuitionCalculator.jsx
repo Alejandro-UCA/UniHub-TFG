@@ -374,7 +374,7 @@ export default function TuitionCalculator() {
           <div>Cargando plan de estudios oficial y asignaturas desde la base de datos...</div>
         </div>
       ) : degreeDetail ? (
-        <div style={{ display: 'grid', gridTemplateColumns: '2.2fr 1fr', gap: '2rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))', gap: '2rem' }}>
           
           {/* Left Column: Subjects Picker */}
           <div>

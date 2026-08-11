@@ -58,7 +58,6 @@ class UsageTracker {
   trackUniversityView(univCode, univName) {
     const key = `${univCode} - ${univName}`;
     this.events.universityViews[key] = (this.events.universityViews[key] || 0) + 1;
-    this.events.universityViews[univName] = (this.events.universityViews[univName] || 0) + 1;
     this.addRecentEvent('UNIV_VIEW', { code: univCode, name: univName });
     this.saveEvents();
   }
@@ -90,8 +89,8 @@ class UsageTracker {
   getTopVisitedUniversities(universitiesList, limit = 6) {
     if (!universitiesList || universitiesList.length === 0) return [];
     const sorted = [...universitiesList].sort((a, b) => {
-      const countA = (this.events.universityViews[`${a.codigo} - ${a.nombre}`] || 0) + (this.events.universityViews[a.nombre] || 0);
-      const countB = (this.events.universityViews[`${b.codigo} - ${b.nombre}`] || 0) + (this.events.universityViews[b.nombre] || 0);
+      const countA = this.events.universityViews[`${a.codigo} - ${a.nombre}`] || 0;
+      const countB = this.events.universityViews[`${b.codigo} - ${b.nombre}`] || 0;
       return countB - countA;
     });
     return sorted.slice(0, limit);

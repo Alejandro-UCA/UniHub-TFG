@@ -98,3 +98,11 @@ DEFAULT_PUBLIC_ECTS_PRICE = 15.00  # Precio ECTS público por defecto (€)
 DEFAULT_ADMIN_FEES = 45.00         # Tasas secretariales/administrativas estándar (€)
 DOCTORATE_TUTELA_CREDITS = 10     # Créditos equivalentes de tutela académica anual en Doctorado
 STANDARD_YEAR_ECTS_CREDITS = 60    # Créditos ECTS de un curso universitario estándar
+
+# ==============================================================================
+# 9. PARÁMETROS ADICIONALES DE RED, JITTER Y REINTENTOS HTTP 429
+# ==============================================================================
+JITTER_MIN_SECONDS = float(os.getenv("CRAWLER_JITTER_MIN", 0.10))          # Jitter aleatorio mínimo por petición (0.10s)
+JITTER_MAX_SECONDS = float(os.getenv("CRAWLER_JITTER_MAX", 0.35))          # Jitter aleatorio máximo por petición (0.35s)
+HTTP_429_DEFAULT_RETRY_AFTER = int(os.getenv("CRAWLER_429_RETRY_AFTER", 30))  # Retardo fallback para HTTP 429 si Retry-After no existe (30s)
+DOWNLOAD_CHUNK_SIZE = int(os.getenv("CRAWLER_CHUNK_SIZE", 8192))           # Tamaño del bloque para descargas directas en streaming (8192 bytes)

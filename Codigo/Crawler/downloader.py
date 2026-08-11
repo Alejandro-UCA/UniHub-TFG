@@ -14,7 +14,11 @@ from config import (
     DOMAIN_MAPPINGS,
     CIRCUIT_BREAKER_FAILURES_THRESHOLD,
     CIRCUIT_BREAKER_PAUSE_SECONDS,
-    CIRCUIT_BREAKER_MAX_PAUSES
+    CIRCUIT_BREAKER_MAX_PAUSES,
+    JITTER_MIN_SECONDS,
+    JITTER_MAX_SECONDS,
+    HTTP_429_DEFAULT_RETRY_AFTER,
+    DOWNLOAD_CHUNK_SIZE
 )
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -99,7 +103,7 @@ class RUCTDownloader:
         domain = urlparse(url).netloc if url else "default"
         last_time = self.domain_last_request_times.get(domain, 0)
         elapsed = time.time() - last_time
-        effective_delay = self.delay + random.uniform(0.1, 0.35)
+        effective_delay = self.delay + random.uniform(JITTER_MIN_SECONDS, JITTER_MAX_SECONDS)
         if elapsed < effective_delay:
             time.sleep(effective_delay - elapsed)
         self.domain_last_request_times[domain] = time.time()
@@ -154,7 +158,7 @@ class RUCTDownloader:
                 # Check for HTTP 429 Too Many Requests and extract Retry-After header
                 if response.status_code == 429:
                     retry_after_val = response.headers.get("Retry-After")
-                    retry_secs = int(retry_after_val) if (retry_after_val and retry_after_val.isdigit()) else 30
+                    retry_secs = int(retry_after_val) if (retry_after_val and retry_after_val.isdigit()) else HTTP_429_DEFAULT_RETRY_AFTER
                     print(f" ⚠️ [CORTESÍA RED] HTTP 429 (Too Many Requests) detectado en '{target_url}'. Respetando 'Retry-After': pausando {retry_secs}s...")
                     time.sleep(retry_secs)
                     return self.fetch_content(target_url)
@@ -201,7 +205,7 @@ class RUCTDownloader:
                 with self.session.get(target_url, stream=True, timeout=self.timeout, verify=verify_ssl) as response:
                     if response.status_code == 429:
                         retry_after_val = response.headers.get("Retry-After")
-                        retry_secs = int(retry_after_val) if (retry_after_val and retry_after_val.isdigit()) else 30
+                        retry_secs = int(retry_after_val) if (retry_after_val and retry_after_val.isdigit()) else HTTP_429_DEFAULT_RETRY_AFTER
                         print(f" ⚠️ [CORTESÍA RED] HTTP 429 (Too Many Requests) detectado en '{target_url}'. Respetando 'Retry-After': pausando {retry_secs}s...")
                         time.sleep(retry_secs)
                         return self.download_file(url, destination_path, is_pdf=is_pdf)
@@ -210,7 +214,7 @@ class RUCTDownloader:
                     
                     first_chunk = True
                     with open(destination_path, "wb") as f:
-                        for chunk in response.iter_content(chunk_size=8192):
+                        for chunk in response.iter_content(chunk_size=DOWNLOAD_CHUNK_SIZE):
                             if chunk:
                                 if is_pdf and first_chunk:
                                     first_chunk = False

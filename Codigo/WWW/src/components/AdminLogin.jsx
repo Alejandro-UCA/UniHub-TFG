@@ -10,14 +10,14 @@ export default function AdminLogin({ onLoginSuccess }) {
     e.preventDefault();
     setError('');
 
-    const ADMIN_USER = import.meta.env.VITE_ADMIN_USER || 'admin';
-    if (username.trim() === ADMIN_USER && password.trim() !== '') {
-      // Almacenamos la contraseña como API Key para las peticiones CRUD y ETL.
-      // La validación real la hará el backend al enviar la cabecera X-API-Key.
+    if (username.trim() !== '' && password.trim() !== '') {
+      // La validación real la realiza el backend al verificar la cabecera X-API-Key.
+      // El frontend no valida credenciales para no exponer datos en el bundle JS.
       sessionStorage.setItem('adminApiKey', password.trim());
+      sessionStorage.setItem('adminUser', username.trim());
       onLoginSuccess();
     } else {
-      setError('Credenciales de administrador incorrectas o API Key vacía. Acceso restringido únicamente al Administrador.');
+      setError('Debes introducir un usuario y una API Key válida. La autenticación es verificada por el servidor.');
     }
   };
 

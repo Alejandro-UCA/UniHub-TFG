@@ -242,7 +242,7 @@ export default function TuitionCalculator() {
       }
     } else {
       // Logic for Private Universities: Only MEC / MH cover equivalent public pricing cap (~16.80 €/ECTS)
-      const publicEctsEquivPrice = 16.80;
+      const publicEctsEquivPrice = parseFloat(degreeDetail?.precio_credito_ects) || 16.80;
       if (discountType === 'beca_mec') {
         let firstTierEctsSum = 0;
         elements.forEach((elem, idx) => {
@@ -307,6 +307,7 @@ export default function TuitionCalculator() {
               <div style={{ padding: '0.75rem', color: 'var(--text-muted)', fontSize: '0.9rem' }}>Cargando universidades...</div>
             ) : (
               <select
+                aria-label="Seleccionar universidad"
                 value={selectedUnivCode}
                 onChange={(e) => setSelectedUnivCode(e.target.value)}
                 style={{
@@ -341,6 +342,7 @@ export default function TuitionCalculator() {
               <div style={{ padding: '0.75rem', color: 'var(--text-muted)', fontSize: '0.9rem' }}>No hay titulaciones disponibles.</div>
             ) : (
               <select
+                aria-label="Seleccionar titulación"
                 value={selectedDegreeCode}
                 onChange={(e) => setSelectedDegreeCode(e.target.value)}
                 style={{
@@ -504,6 +506,7 @@ export default function TuitionCalculator() {
                         {/* Enrolment Tier Selector (1ª, 2ª, 3ª, 4ª) */}
                         <div>
                           <select
+                            aria-label="Seleccionar número de matrícula"
                             value={state.tier}
                             onChange={(e) => changeTier(idx, e.target.value)}
                             style={{
@@ -559,6 +562,7 @@ export default function TuitionCalculator() {
                   <Sparkles size={16} /> Exención o Bonificación Aplicable
                 </label>
                 <select
+                  aria-label="Seleccionar exención o bonificación"
                   value={discountType}
                   onChange={(e) => setDiscountType(e.target.value)}
                   style={{

@@ -63,6 +63,12 @@ body {
 }
 
 /* Custom Scrollbar */
+/* Scrollbar cross-browser estándar (Firefox y navegadores modernos) */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 116, 139, 0.4) transparent;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;

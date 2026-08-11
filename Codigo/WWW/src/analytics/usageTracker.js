@@ -27,8 +27,20 @@ class UsageTracker {
     }
   }
 
+  // Agregamos el método para podar los mapas
+  _pruneViewsMap(viewsMap, maxEntries = 500) {
+    const keys = Object.keys(viewsMap);
+    if (keys.length <= maxEntries) return viewsMap;
+    const sorted = keys.sort((a, b) => viewsMap[b] - viewsMap[a]);
+    const pruned = {};
+    sorted.slice(0, maxEntries).forEach(k => { pruned[k] = viewsMap[k]; });
+    return pruned;
+  }
+
   saveEvents() {
     try {
+      this.events.universityViews = this._pruneViewsMap(this.events.universityViews);
+      this.events.degreeViews = this._pruneViewsMap(this.events.degreeViews);
       localStorage.setItem(this.storageKey, JSON.stringify(this.events));
     } catch (e) {
       console.warn('Could not save usage analytics:', e);

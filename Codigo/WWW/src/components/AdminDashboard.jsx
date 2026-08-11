@@ -25,6 +25,8 @@ export default function AdminDashboard({ onLogout }) {
   // UI & CRUD Modal states
   const [loading, setLoading] = useState(false);
   const [searchFilter, setSearchFilter] = useState('');
+  const [crudCurrentPage, setCrudCurrentPage] = useState(1);
+  const [crudItemsPerPage, setCrudItemsPerPage] = useState(20);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMode, setModalMode] = useState('create'); // 'create', 'edit'
   const [selectedItem, setSelectedItem] = useState(null);
@@ -70,10 +72,13 @@ export default function AdminDashboard({ onLogout }) {
     setPerfReport(perfTracker.getPerformanceReport());
 
     try {
-      const univs = await apiService.getUniversities({ limit: 500 });
+      const skip = (crudCurrentPage - 1) * crudItemsPerPage;
+      const limit = crudItemsPerPage;
+      
+      const univs = await apiService.getUniversities({ skip, limit });
       if (univs) setDbUniversities(univs);
 
-      const degs = await apiService.getDegrees({ limit: 500 });
+      const degs = await apiService.getDegrees({ skip, limit });
       if (degs) setDbDegrees(degs);
 
       const statsData = await apiService.getCrawlerStats();
@@ -115,22 +120,30 @@ export default function AdminDashboard({ onLogout }) {
   useEffect(() => {
     if (isFirstLoad.current) return;
     
+    const controller = new AbortController();
     const delayDebounceFn = setTimeout(async () => {
       try {
+        const skip = (crudCurrentPage - 1) * crudItemsPerPage;
+        const limit = crudItemsPerPage;
+
         if (crudTarget === 'universidades') {
-          const univs = await apiService.getUniversities({ nombre: searchFilter, limit: 500 });
+          const univs = await apiService.getUniversities({ nombre: searchFilter, skip, limit }, { signal: controller.signal });
           if (univs) setDbUniversities(univs);
         } else {
-          const degs = await apiService.getDegrees({ titulo: searchFilter, limit: 500 });
+          const degs = await apiService.getDegrees({ titulo: searchFilter, skip, limit }, { signal: controller.signal });
           if (degs) setDbDegrees(degs);
         }
       } catch (err) {
+        if (err.name === 'AbortError') return;
         console.warn('Error en búsqueda de admin desde el servidor:', err);
       }
     }, 400);
 
-    return () => clearTimeout(delayDebounceFn);
-  }, [searchFilter, crudTarget]);
+    return () => {
+      clearTimeout(delayDebounceFn);
+      controller.abort();
+    };
+  }, [searchFilter, crudTarget, crudCurrentPage, crudItemsPerPage]);
 
   const showFeedback = (msg, isError = false) => {
     setFeedbackMsg({ text: msg, isError });
@@ -420,13 +433,13 @@ export default function AdminDashboard({ onLogout }) {
             <div style={{ display: 'flex', gap: '0.5rem' }}>
               <button
                 className={`btn ${crudTarget === 'universidades' ? 'btn-primary' : 'btn-outline'}`}
-                onClick={() => setCrudTarget('universidades')}
+                onClick={() => { setCrudTarget('universidades'); setCrudCurrentPage(1); }}
               >
                 <Building size={16} /> Universidades (Mostrando {dbUniversities.length})
               </button>
               <button
                 className={`btn ${crudTarget === 'titulaciones' ? 'btn-primary' : 'btn-outline'}`}
-                onClick={() => setCrudTarget('titulaciones')}
+                onClick={() => { setCrudTarget('titulaciones'); setCrudCurrentPage(1); }}
               >
                 <BookOpen size={16} /> Titulaciones (Mostrando {dbDegrees.length})
               </button>
@@ -502,10 +515,10 @@ export default function AdminDashboard({ onLogout }) {
                       </td>
                       <td style={{ padding: '0.75rem' }}>{u.comunidad_autonoma}</td>
                       <td style={{ padding: '0.75rem', textAlign: 'right' }}>
-                        <button className="btn btn-outline" onClick={() => handleOpenEditUniv(u)} style={{ padding: '0.3rem 0.6rem', marginRight: '0.4rem' }}>
+                        <button className="btn btn-outline" onClick={() => handleOpenEditUniv(u)} aria-label="Editar registro" style={{ padding: '0.3rem 0.6rem', marginRight: '0.4rem' }}>
                           <Edit size={14} />
                         </button>
-                        <button className="btn btn-outline" onClick={() => handleDeleteUniv(u.codigo)} style={{ padding: '0.3rem 0.6rem', color: '#EF4444', borderColor: 'rgba(239, 68, 68, 0.3)' }}>
+                        <button className="btn btn-outline" onClick={() => handleDeleteUniv(u.codigo)} aria-label="Eliminar registro" style={{ padding: '0.3rem 0.6rem', color: '#EF4444', borderColor: 'rgba(239, 68, 68, 0.3)' }}>
                           <Trash2 size={14} />
                         </button>
                       </td>
@@ -534,10 +547,10 @@ export default function AdminDashboard({ onLogout }) {
                       <td style={{ padding: '0.75rem' }}>{d.nivel_academico}</td>
                       <td style={{ padding: '0.75rem' }}>{d.universidad_codigo}</td>
                       <td style={{ padding: '0.75rem', textAlign: 'right' }}>
-                        <button className="btn btn-outline" onClick={() => handleOpenEditDegree(d)} style={{ padding: '0.3rem 0.6rem', marginRight: '0.4rem' }}>
+                        <button className="btn btn-outline" onClick={() => handleOpenEditDegree(d)} aria-label="Editar registro" style={{ padding: '0.3rem 0.6rem', marginRight: '0.4rem' }}>
                           <Edit size={14} />
                         </button>
-                        <button className="btn btn-outline" onClick={() => handleDeleteDegree(d.codigo_estudio)} style={{ padding: '0.3rem 0.6rem', color: '#EF4444', borderColor: 'rgba(239, 68, 68, 0.3)' }}>
+                        <button className="btn btn-outline" onClick={() => handleDeleteDegree(d.codigo_estudio)} aria-label="Eliminar registro" style={{ padding: '0.3rem 0.6rem', color: '#EF4444', borderColor: 'rgba(239, 68, 68, 0.3)' }}>
                           <Trash2 size={14} />
                         </button>
                       </td>
@@ -547,6 +560,12 @@ export default function AdminDashboard({ onLogout }) {
               </table>
             </div>
           )}
+
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', marginTop: '1rem' }}>
+            <button className="btn btn-outline" onClick={() => setCrudCurrentPage(p => Math.max(1, p - 1))} disabled={crudCurrentPage === 1}>Anterior</button>
+            <span style={{ fontSize: '0.9rem', fontWeight: 600 }}>Página {crudCurrentPage}</span>
+            <button className="btn btn-outline" onClick={() => setCrudCurrentPage(p => p + 1)} disabled={(crudTarget === 'universidades' ? filteredUnivs.length : filteredDegs.length) < crudItemsPerPage}>Siguiente</button>
+          </div>
         </div>
       )}
 

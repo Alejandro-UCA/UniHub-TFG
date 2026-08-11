@@ -39,6 +39,23 @@ export default function App() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [selectedDegree, setSelectedDegree] = useState(null);
 
+  const navigateToTab = (tab) => {
+    setActiveTab(tab);
+    window.history.pushState({ tab }, '', `/${tab === 'inicio' ? '' : tab}`);
+  };
+
+  useEffect(() => {
+    const handlePopState = (event) => {
+      if (event.state && event.state.tab) {
+        setActiveTab(event.state.tab);
+      } else {
+        setActiveTab('inicio');
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
   // Comprobar ruta de la URL para acceso manual a la vista de administración (/admin)
   useEffect(() => {
     const path = window.location.pathname;
@@ -198,7 +215,7 @@ export default function App() {
   const handleViewUniversityDegrees = (univ) => {
     setSearchQuery('');
     setSelectedUnivCodigo(univ.codigo);
-    setActiveTab('titulaciones');
+    navigateToTab('titulaciones');
   };
 
   return (
@@ -206,7 +223,7 @@ export default function App() {
       {/* Top Navbar */}
       <Navbar 
         activeTab={activeTab}
-        setActiveTab={setActiveTab}
+        setActiveTab={navigateToTab}
         isDark={isDark}
         toggleTheme={toggleTheme}
       />
@@ -217,7 +234,7 @@ export default function App() {
           <>
             <Hero 
               onSearch={handleHeroSearch}
-              setActiveTab={setActiveTab}
+              setActiveTab={navigateToTab}
               totalUnivs={universities.length}
               totalDegrees={degrees.length}
             />
@@ -231,7 +248,7 @@ export default function App() {
                 </div>
                 <button 
                   className="btn btn-outline" 
-                  onClick={() => setActiveTab('universidades')}
+                  onClick={() => navigateToTab('universidades')}
                 >
                   Ver Todas ({universities.length})
                 </button>
@@ -268,6 +285,7 @@ export default function App() {
                 <input 
                   type="text"
                   placeholder="Filtrar por nombre o provincia..."
+                  aria-label="Buscar universidades por nombre"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   style={{
@@ -286,6 +304,7 @@ export default function App() {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <Filter size={16} color="var(--uca-cyan)" />
                   <select 
+                    aria-label="Filtrar por tipo de universidad"
                     value={selectedUnivTipo}
                     onChange={(e) => setSelectedUnivTipo(e.target.value)}
                     style={{
@@ -306,6 +325,7 @@ export default function App() {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <Filter size={16} color="var(--uca-cyan)" />
                   <select 
+                    aria-label="Filtrar por Comunidad Autónoma"
                     value={selectedCCAA}
                     onChange={(e) => setSelectedCCAA(e.target.value)}
                     style={{
@@ -366,6 +386,7 @@ export default function App() {
                 <input 
                   type="text"
                   placeholder="Buscar por grado, máster o doctorado (ej. Ciencia de Datos, Derecho, Didáctica...)"
+                  aria-label="Buscar titulaciones por nombre"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   style={{
@@ -382,6 +403,7 @@ export default function App() {
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
                 <select 
+                  aria-label="Filtrar por nivel académico"
                   value={selectedDegreeTipo}
                   onChange={(e) => setSelectedDegreeTipo(e.target.value)}
                   style={{
@@ -400,6 +422,7 @@ export default function App() {
                 </select>
 
                 <select 
+                  aria-label="Filtrar por tipo de universidad"
                   value={selectedUnivTipo}
                   onChange={(e) => setSelectedUnivTipo(e.target.value)}
                   style={{
@@ -417,6 +440,7 @@ export default function App() {
                 </select>
 
                 <select 
+                  aria-label="Filtrar por Comunidad Autónoma"
                   value={selectedCCAA}
                   onChange={(e) => setSelectedCCAA(e.target.value)}
                   style={{
@@ -477,7 +501,7 @@ export default function App() {
           <AdminLogin 
             onLoginSuccess={() => {
               setIsAdmin(true);
-              setActiveTab('admin');
+              navigateToTab('admin');
             }}
           />
         )}
@@ -487,7 +511,7 @@ export default function App() {
             onLogout={() => {
               sessionStorage.removeItem('adminApiKey');
               setIsAdmin(false);
-              setActiveTab('inicio');
+              navigateToTab('inicio');
             }}
           />
         )}
@@ -502,7 +526,7 @@ export default function App() {
       )}
 
       {/* Footer */}
-      <Footer onNavigate={(tab) => setActiveTab(tab)} />
+      <Footer onNavigate={(tab) => navigateToTab(tab)} />
     </div>
   );
 }

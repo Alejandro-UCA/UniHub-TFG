@@ -27,24 +27,24 @@ export default function Footer({ onNavigate }) {
           <h4 style={{ color: '#FFFFFF', fontSize: '1rem', fontWeight: 700, marginBottom: '1rem' }}>Navegación</h4>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.88rem' }}>
             <li>
-              <span onClick={() => onNavigate && onNavigate('universidades')} style={{ color: 'var(--uca-azure)', cursor: 'pointer' }}>
+              <button onClick={() => onNavigate && onNavigate('universidades')} style={{ color: 'var(--uca-azure)', cursor: 'pointer', background: 'none', border: 'none', padding: 0, font: 'inherit', fontSize: 'inherit' }} tabIndex={0}>
                 Universidades de España
-              </span>
+              </button>
             </li>
             <li>
-              <span onClick={() => onNavigate && onNavigate('titulaciones')} style={{ color: '#94A3B8', cursor: 'pointer' }}>
+              <button onClick={() => onNavigate && onNavigate('titulaciones')} style={{ color: '#94A3B8', cursor: 'pointer', background: 'none', border: 'none', padding: 0, font: 'inherit', fontSize: 'inherit' }} tabIndex={0}>
                 Grados y Másteres Vigentes
-              </span>
+              </button>
             </li>
             <li>
-              <span onClick={() => onNavigate && onNavigate('cercania')} style={{ color: '#94A3B8', cursor: 'pointer' }}>
+              <button onClick={() => onNavigate && onNavigate('cercania')} style={{ color: '#94A3B8', cursor: 'pointer', background: 'none', border: 'none', padding: 0, font: 'inherit', fontSize: 'inherit' }} tabIndex={0}>
                 Localización por Cercanía
-              </span>
+              </button>
             </li>
             <li>
-              <span onClick={() => onNavigate && onNavigate('sobre-nosotros')} style={{ color: '#94A3B8', cursor: 'pointer' }}>
+              <button onClick={() => onNavigate && onNavigate('sobre-nosotros')} style={{ color: '#94A3B8', cursor: 'pointer', background: 'none', border: 'none', padding: 0, font: 'inherit', fontSize: 'inherit' }} tabIndex={0}>
                 Sobre Nosotros (TFG UCA)
-              </span>
+              </button>
             </li>
           </ul>
         </div>

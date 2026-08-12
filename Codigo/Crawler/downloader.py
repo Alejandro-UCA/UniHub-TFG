@@ -152,7 +152,7 @@ class RUCTDownloader:
         last_error = None
         for attempt_idx, target_url in enumerate(urls_to_try, 1):
             try:
-                verify_ssl = False if target_url.startswith("https://") else True
+                verify_ssl = True
                 response = self.session.get(target_url, timeout=self.timeout, verify=verify_ssl)
                 
                 # Check for HTTP 429 Too Many Requests and extract Retry-After header
@@ -201,7 +201,7 @@ class RUCTDownloader:
         last_error = None
         for attempt_idx, target_url in enumerate(urls_to_try, 1):
             try:
-                verify_ssl = False if target_url.startswith("https://") else True
+                verify_ssl = True
                 with self.session.get(target_url, stream=True, timeout=self.timeout, verify=verify_ssl) as response:
                     if response.status_code == 429:
                         retry_after_val = response.headers.get("Retry-After")

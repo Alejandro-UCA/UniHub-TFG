@@ -310,18 +310,21 @@ def parse_boe_pdf(pdf_filepath) -> dict:
     # Prepare stream or file source
     if isinstance(pdf_filepath, bytes):
         pdf_stream = io.BytesIO(pdf_filepath)
-        pdf_sha256 = hashlib.sha256(pdf_filepath[:4096]).hexdigest()
+        pdf_sha256 = hashlib.sha256(pdf_filepath).hexdigest()
     elif isinstance(pdf_filepath, io.BytesIO):
         pdf_stream = pdf_filepath
         pdf_bytes = pdf_filepath.getvalue()
-        pdf_sha256 = hashlib.sha256(pdf_bytes[:4096]).hexdigest()
+        pdf_sha256 = hashlib.sha256(pdf_bytes).hexdigest()
     else:
         pdf_stream = pdf_filepath
         pdf_sha256 = None
         if os.path.exists(pdf_filepath):
             try:
+                h = hashlib.sha256()
                 with open(pdf_filepath, "rb") as f:
-                    pdf_sha256 = hashlib.sha256(f.read(4096)).hexdigest()
+                    for chunk in iter(lambda: f.read(8192), b""):
+                        h.update(chunk)
+                pdf_sha256 = h.hexdigest()
             except Exception:
                 pass
 

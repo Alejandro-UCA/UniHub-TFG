@@ -53,6 +53,7 @@ def compute_degree_price(ccaa: str, tipo_univ: str, nivel_academico: str, titulo
                 break
                 
     if not ccaa_data:
+        print(f" [AVISO PRECIOS] CCAA '{ccaa}' no encontrada en catálogo. Usando fallback Andalucía.")
         ccaa_data = precios_catalogo.get("Andalucía", {})
 
     nivel_lower = (nivel_academico or "").lower()

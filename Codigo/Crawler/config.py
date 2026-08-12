@@ -55,7 +55,7 @@ MAX_RETRIES = int(os.getenv("CRAWLER_MAX_RETRIES", 3))           # Intentos máx
 HTTP_TIMEOUT = int(os.getenv("CRAWLER_HTTP_TIMEOUT", 30))         # Timeout de conexión HTTP en segundos
 USER_AGENT = os.getenv(
     "CRAWLER_USER_AGENT",
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+    "UniHubCrawler/1.0 (+https://github.com/Alejandro-UCA/UniHub-TFG; contacto@unihub)"
 )
 
 # Mapeo de dominios autonómicos obsoletos a dominios oficiales activos

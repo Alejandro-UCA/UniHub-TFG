@@ -105,7 +105,7 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
                 continue
 
             # Buscar créditos ECTS numéricos
-            creditos = "6"
+            creditos = ""
             found_ects = False
             for col in cols[1:]:
                 # Extraer números (enteros o decimales ej. 6, 4.5)
@@ -351,6 +351,9 @@ class UniversityWebCrawler:
 
         for sm_url in sitemap_targets:
             try:
+                can_fetch, _ = self.check_robots_allowed(sm_url)
+                if not can_fetch:
+                    continue
                 raw_bytes = downloader.fetch_content(sm_url)
                 if not raw_bytes:
                     continue
@@ -633,7 +636,8 @@ class UniversityWebCrawler:
                                 try:
                                     sub_html = downloader.fetch_text(candidate_page_url)
                                     sub_soup = BeautifulSoup(sub_html, "html.parser")
-                                    lazy_scanned_pages_cache[candidate_page_url] = (sub_html, sub_soup)
+                                    if len(lazy_scanned_pages_cache) < 20:
+                                        lazy_scanned_pages_cache[candidate_page_url] = (sub_html, sub_soup)
                                 except Exception as fetch_err:
                                     lazy_scanned_pages_cache[candidate_page_url] = (None, None)
                                     raise fetch_err

@@ -121,15 +121,14 @@ def parse_degrees_xls(filepath: str) -> list:
         )
         
         # Helper para normalización estricta de acentos y distorsiones de codificación UTF-8
+        import unicodedata
         def normalize_text(text: str) -> str:
             if not text:
                 return ""
             t = text.lower().strip()
-            # Eliminar distorsiones de doble codificación UTF-8 / ISO-8859-1
             t = t.replace("Ã³", "o").replace("Ã¡", "a").replace("Ã©", "e").replace("Ã­", "i").replace("Ãº", "u").replace("Ã±", "n")
-            # Normalizar tildes y diéresis estándar
-            t = t.replace("ó", "o").replace("á", "a").replace("é", "e").replace("í", "i").replace("ú", "u").replace("ñ", "n")
-            t = t.replace("ö", "o").replace("ä", "a").replace("ë", "e").replace("ï", "i").replace("ü", "u")
+            t = unicodedata.normalize('NFKD', t)
+            t = ''.join(c for c in t if not unicodedata.combining(c))
             return t
 
         estado_norm = normalize_text(estado)

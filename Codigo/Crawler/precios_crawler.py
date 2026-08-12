@@ -9,7 +9,8 @@ from config import (
     DEFAULT_PUBLIC_ECTS_PRICE,
     DEFAULT_ADMIN_FEES,
     DOCTORATE_TUTELA_CREDITS,
-    STANDARD_YEAR_ECTS_CREDITS
+    STANDARD_YEAR_ECTS_CREDITS,
+    DEFAULT_FALLBACK_CCAA
 )
 from checkpoint import atomic_json_dump, load_json_safe
 
@@ -53,8 +54,8 @@ def compute_degree_price(ccaa: str, tipo_univ: str, nivel_academico: str, titulo
                 break
                 
     if not ccaa_data:
-        print(f" [AVISO PRECIOS] CCAA '{ccaa}' no encontrada en catálogo. Usando fallback Andalucía.")
-        ccaa_data = precios_catalogo.get("Andalucía", {})
+        print(f" [AVISO PRECIOS] CCAA '{ccaa}' no encontrada en catálogo. Usando fallback {DEFAULT_FALLBACK_CCAA}.")
+        ccaa_data = precios_catalogo.get(DEFAULT_FALLBACK_CCAA, {})
 
     nivel_lower = (nivel_academico or "").lower()
     titulo_lower = (titulo or "").lower()

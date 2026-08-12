@@ -106,3 +106,15 @@ JITTER_MIN_SECONDS = float(os.getenv("CRAWLER_JITTER_MIN", 0.10))          # Jit
 JITTER_MAX_SECONDS = float(os.getenv("CRAWLER_JITTER_MAX", 0.35))          # Jitter aleatorio máximo por petición (0.35s)
 HTTP_429_DEFAULT_RETRY_AFTER = int(os.getenv("CRAWLER_429_RETRY_AFTER", 30))  # Retardo fallback para HTTP 429 si Retry-After no existe (30s)
 DOWNLOAD_CHUNK_SIZE = int(os.getenv("CRAWLER_CHUNK_SIZE", 8192))           # Tamaño del bloque para descargas directas en streaming (8192 bytes)
+
+# ==============================================================================
+# 10. PARÁMETROS ADICIONALES DE CACHÉ, QUEUES Y SERVICIOS EXTERNOS
+# ==============================================================================
+ROBOTS_CACHE_TTL_SECONDS = int(os.getenv("CRAWLER_ROBOTS_CACHE_TTL", 86400))       # TTL de caché de robots.txt (24h según RFC 9309)
+LAZY_SCANNED_PAGES_CACHE_LIMIT = int(os.getenv("CRAWLER_LAZY_LIMIT", 20))           # Límite de páginas escaneadas en caché RAM por titulación
+ROBOTS_CHECK_TIMEOUT = int(os.getenv("CRAWLER_ROBOTS_TIMEOUT", 10))                # Timeout para comprobación de robots.txt
+TASK_QUEUE_MAXSIZE = int(os.getenv("CRAWLER_TASK_QUEUE_MAXSIZE", 200))             # Tamaño máximo de la cola multiproceso
+TASK_QUEUE_GET_TIMEOUT = int(os.getenv("CRAWLER_TASK_QUEUE_TIMEOUT", 5))            # Timeout de lectura en cola de tareas (5s)
+DEFAULT_FALLBACK_CCAA = os.getenv("CRAWLER_DEFAULT_FALLBACK_CCAA", "Andalucía")      # CCAA por defecto para precios fallback
+WIKIPEDIA_API_URL = os.getenv("CRAWLER_WIKIPEDIA_API_URL", "https://es.wikipedia.org/w/api.php")
+WIKIDATA_API_URL = os.getenv("CRAWLER_WIKIDATA_API_URL", "https://www.wikidata.org/w/api.php")

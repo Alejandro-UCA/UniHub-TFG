@@ -41,7 +41,9 @@ from config import (
     URL_VERIFICACION_ESTADO_TEMPLATE,
     CPU_WORKERS_COUNT,
     ASYNC_PREFETCH_WORKERS,
-    WEB_CRAWLER_WORKERS
+    WEB_CRAWLER_WORKERS,
+    TASK_QUEUE_MAXSIZE,
+    TASK_QUEUE_GET_TIMEOUT
 )
 from downloader import RUCTDownloader, SkipUniversityException
 from error_logger import ErrorLogger
@@ -80,7 +82,7 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue):
 
     while True:
         try:
-            task = task_queue.get(timeout=5)
+            task = task_queue.get(timeout=TASK_QUEUE_GET_TIMEOUT)
             if task is None or (isinstance(task, dict) and task.get("type") == "STOP"):
                 break
         except Exception:
@@ -282,7 +284,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
     if 1 in run_parts:
         # OPT-01: Lanzar Pool Multiprocesador de Consumidores (Parser CPU & Escritura en Disco)
         num_parser_workers = _cap_workers(CPU_WORKERS_COUNT)
-        task_queue = mp.Queue(maxsize=200)
+        task_queue = mp.Queue(maxsize=TASK_QUEUE_MAXSIZE)
         parser_processes = []
         for w_idx in range(num_parser_workers):
             p = mp.Process(target=pdf_parser_consumer, args=(task_queue, result_queue), daemon=True)

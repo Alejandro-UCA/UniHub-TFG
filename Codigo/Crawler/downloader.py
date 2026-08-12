@@ -142,7 +142,7 @@ class RUCTDownloader:
     def fetch_content(self, url: str) -> bytes:
         """Fetches raw content from a URL with connection resilience, Retry-After header parsing, and HTTPS fallback."""
         url = self._normalize_url(url)
-        max_retries = 3
+        max_retries = MAX_RETRIES
         attempt = 0
         urls_to_try = [url]
         if url.startswith("http://"):
@@ -189,7 +189,7 @@ class RUCTDownloader:
     def download_file(self, url: str, destination_path: str, is_pdf: bool = False):
         """Downloads a remote file directly to disk with connection resilience and HTTPS fallback."""
         url = self._normalize_url(url)
-        max_retries = 3
+        max_retries = MAX_RETRIES
         attempt = 0
         urls_to_try = [url]
         if url.startswith("http://"):

@@ -19,16 +19,16 @@ else:
     engine_readonly = create_engine(
         db_readonly_url,
         pool_pre_ping=True,
-        pool_size=15,
-        max_overflow=25,
-        pool_recycle=1800
+        pool_size=settings.DB_READONLY_POOL_SIZE,
+        max_overflow=settings.DB_READONLY_MAX_OVERFLOW,
+        pool_recycle=settings.DB_POOL_RECYCLE
     )
     engine_admin = create_engine(
         db_admin_url,
         pool_pre_ping=True,
-        pool_size=5,
-        max_overflow=10,
-        pool_recycle=1800
+        pool_size=settings.DB_ADMIN_POOL_SIZE,
+        max_overflow=settings.DB_ADMIN_MAX_OVERFLOW,
+        pool_recycle=settings.DB_POOL_RECYCLE
     )
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine_readonly)

@@ -24,6 +24,13 @@ class Settings:
     # Clave de Administración para Operaciones CRUD y Sincronización ETL
     ADMIN_API_KEY: str = os.getenv("ADMIN_API_KEY", "unihub_super_secret_admin_key_2026")
 
+    # Parámetros del Pool de Conexiones SQLAlchemy
+    DB_READONLY_POOL_SIZE: int = int(os.getenv("DB_READONLY_POOL_SIZE", "15"))
+    DB_READONLY_MAX_OVERFLOW: int = int(os.getenv("DB_READONLY_MAX_OVERFLOW", "25"))
+    DB_ADMIN_POOL_SIZE: int = int(os.getenv("DB_ADMIN_POOL_SIZE", "5"))
+    DB_ADMIN_MAX_OVERFLOW: int = int(os.getenv("DB_ADMIN_MAX_OVERFLOW", "10"))
+    DB_POOL_RECYCLE: int = int(os.getenv("DB_POOL_RECYCLE", "1800"))
+
     @property
     def DATABASE_URL(self) -> str:
         """Constructs PostgreSQL SQLAlchemy connection string.

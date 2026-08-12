@@ -27,7 +27,12 @@ from config import (
     PRIVATE_ECTS_MAX,
     PRIVATE_ANNUAL_MIN,
     PRIVATE_ANNUAL_MAX,
-    WEB_CRAWLER_WORKERS
+    WEB_CRAWLER_WORKERS,
+    ROBOTS_CACHE_TTL_SECONDS,
+    LAZY_SCANNED_PAGES_CACHE_LIMIT,
+    ROBOTS_CHECK_TIMEOUT,
+    WIKIPEDIA_API_URL,
+    WIKIDATA_API_URL
 )
 from downloader import RUCTDownloader
 from error_logger import ErrorLogger
@@ -231,7 +236,7 @@ class UniversityWebCrawler:
     para obtener planes de estudio de las titulaciones que carecen de información en RUCT/BOE.
     """
     _robots_cache = {}
-    _robots_cache_ttl = 24 * 60 * 60  # 24h según RFC 9309
+    _robots_cache_ttl = ROBOTS_CACHE_TTL_SECONDS
 
     def __init__(self, user_agent=USER_AGENT, timeout=HTTP_TIMEOUT):
         self.user_agent = user_agent
@@ -245,23 +250,23 @@ class UniversityWebCrawler:
         Consulta la API pública de Wikipedia y Wikidata para recuperar el sitio web oficial de una institución.
         """
         headers = {
-            "User-Agent": "UniHubCrawler/1.0 (https://github.com/Alejandro-UCA/UniHub-TFG; contacto@unihub) requests"
+            "User-Agent": f"{USER_AGENT} requests"
         }
-        search_url = "https://es.wikipedia.org/w/api.php"
+        search_url = WIKIPEDIA_API_URL
         search_params = {
             "action": "query", "list": "search", "srsearch": univ_name,
             "format": "json", "utf8": 1, "srlimit": 1
         }
         
         try:
-            resp = requests.get(search_url, params=search_params, headers=headers, timeout=10)
+            resp = requests.get(search_url, params=search_params, headers=headers, timeout=self.timeout)
             data = resp.json()
             if not data.get("query", {}).get("search"):
                 return None
                 
             title = data["query"]["search"][0]["title"]
             prop_params = {"action": "query", "prop": "pageprops", "titles": title, "format": "json"}
-            prop_resp = requests.get(search_url, params=prop_params, headers=headers, timeout=10)
+            prop_resp = requests.get(search_url, params=prop_params, headers=headers, timeout=self.timeout)
             prop_data = prop_resp.json()
             
             pages = prop_data.get("query", {}).get("pages", {})
@@ -271,9 +276,9 @@ class UniversityWebCrawler:
             if not wikibase_item:
                 return None
                 
-            wikidata_url = "https://www.wikidata.org/w/api.php"
+            wikidata_url = WIKIDATA_API_URL
             wd_params = {"action": "wbgetentities", "ids": wikibase_item, "props": "claims", "format": "json"}
-            wd_resp = requests.get(wikidata_url, params=wd_params, headers=headers, timeout=10)
+            wd_resp = requests.get(wikidata_url, params=wd_params, headers=headers, timeout=self.timeout)
             wd_data = wd_resp.json()
             
             claims = wd_data.get("entities", {}).get(wikibase_item, {}).get("claims", {})
@@ -308,7 +313,7 @@ class UniversityWebCrawler:
             rp = RobotFileParser()
             rp.set_url(robots_url)
             
-            downloader = RUCTDownloader(delay=0.2, timeout=10)
+            downloader = RUCTDownloader(delay=REQUEST_DELAY, timeout=ROBOTS_CHECK_TIMEOUT)
             try:
                 robots_txt_content = downloader.fetch_text(robots_url)
                 rp.parse(robots_txt_content.splitlines())
@@ -643,7 +648,7 @@ class UniversityWebCrawler:
                                 try:
                                     sub_html = downloader.fetch_text(candidate_page_url)
                                     sub_soup = BeautifulSoup(sub_html, "html.parser")
-                                    if len(lazy_scanned_pages_cache) < 20:
+                                    if len(lazy_scanned_pages_cache) < LAZY_SCANNED_PAGES_CACHE_LIMIT:
                                         lazy_scanned_pages_cache[candidate_page_url] = (sub_html, sub_soup)
                                 except Exception as fetch_err:
                                     lazy_scanned_pages_cache[candidate_page_url] = (None, None)

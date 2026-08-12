@@ -234,6 +234,9 @@ class UniversityWebCrawler:
     Fase 1 - Parte 2: Crawling paralelo de las webs oficiales de las universidades
     para obtener planes de estudio de las titulaciones que carecen de información en RUCT/BOE.
     """
+    _robots_cache = {}
+    _robots_cache_ttl = 24 * 60 * 60  # 24h según RFC 9309
+
     def __init__(self, user_agent=USER_AGENT, timeout=HTTP_TIMEOUT):
         self.user_agent = user_agent
         self.timeout = timeout
@@ -288,7 +291,7 @@ class UniversityWebCrawler:
 
     def check_robots_allowed(self, target_url: str) -> tuple[bool, float | None]:
         """
-        Verifica el archivo robots.txt de la web oficial de la universidad.
+        Verifica el archivo robots.txt de la web oficial de la universidad con caché 24h.
         Devuelve tupla (can_fetch, crawl_delay):
         - can_fetch: True si el rastreo está permitido para nuestro User-Agent / *, False en caso contrario.
         - crawl_delay: Tiempo de espera en segundos declarado en robots.txt (o None si no existe).
@@ -297,8 +300,15 @@ class UniversityWebCrawler:
             parsed = urllib.parse.urlparse(target_url)
             if not parsed.scheme or not parsed.netloc:
                 return False, None
+            netloc = parsed.netloc
+            now = time.time()
+            # Caché 24h según RFC 9309 sección 2.4
+            if netloc in self._robots_cache:
+                ts, can_fetch, crawl_delay = self._robots_cache[netloc]
+                if now - ts < self._robots_cache_ttl:
+                    return can_fetch, crawl_delay
 
-            robots_url = f"{parsed.scheme}://{parsed.netloc}/robots.txt"
+            robots_url = f"{parsed.scheme}://{netloc}/robots.txt"
             rp = RobotFileParser()
             rp.set_url(robots_url)
             
@@ -308,11 +318,11 @@ class UniversityWebCrawler:
                 rp.parse(robots_txt_content.splitlines())
             except Exception:
                 # Si robots.txt no existe (404) o da error, el estándar web considera el acceso permitido
+                self._robots_cache[netloc] = (now, True, None)
                 return True, None
 
             can_fetch = rp.can_fetch(self.user_agent, target_url) or rp.can_fetch("*", target_url)
             
-            # Extraer Crawl-delay si está declarado en el robots.txt de la universidad
             crawl_delay = None
             try:
                 raw_delay = rp.crawl_delay(self.user_agent) or rp.crawl_delay("*")
@@ -321,6 +331,7 @@ class UniversityWebCrawler:
             except Exception:
                 pass
 
+            self._robots_cache[netloc] = (now, can_fetch, crawl_delay)
             return can_fetch, crawl_delay
         except Exception as e:
             print(f"   [robots.txt] No se pudo comprobar robots.txt para {target_url}: {e}. Se asume permitido.")

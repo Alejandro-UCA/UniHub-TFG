@@ -3,12 +3,19 @@ import sys
 import re
 import json
 import time
+import signal
 import requests
 import traceback
 import argparse
 import concurrent.futures
 import multiprocessing as mp
 from datetime import datetime
+
+# Docker / multiprocessing: usar 'spawn' para compatibilidad con contenedores Linux
+try:
+    mp.set_start_method('spawn', force=True)
+except RuntimeError:
+    pass
 
 from bs4 import BeautifulSoup
 
@@ -65,9 +72,12 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue):
 
     while True:
         try:
-            task = task_queue.get()
+            task = task_queue.get(timeout=5)
             if task is None or (isinstance(task, dict) and task.get("type") == "STOP"):
                 break
+        except Exception:
+            # Timeout para permitir chequeo de terminación y evitar bloqueo eterno
+            continue
 
             task_type = task.get("type")
             d_code = task.get("d_code", "")
@@ -252,14 +262,19 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
     checkpoint = CheckpointManager()
     metrics = PerformanceTracker()
 
+    # Ajuste Docker: limitar workers al número de CPUs disponibles en el contenedor
+    cpu_count = os.cpu_count() or 1
+    def _cap_workers(desired):
+        # No superar CPUs disponibles y respetar config mínima
+        return max(1, min(desired, cpu_count))
+
     # -------------------------------------------------------------------------
     # PARTE 1 DE LA FASE 1: SCRAPING RUCT Y PARSER DE BOE
     # -------------------------------------------------------------------------
     if 1 in run_parts:
         # OPT-01: Lanzar Pool Multiprocesador de Consumidores (Parser CPU & Escritura en Disco)
-        num_parser_workers = CPU_WORKERS_COUNT
+        num_parser_workers = _cap_workers(CPU_WORKERS_COUNT)
         task_queue = mp.Queue(maxsize=200)
-        result_queue = mp.Queue()
         parser_processes = []
         for w_idx in range(num_parser_workers):
             p = mp.Process(target=pdf_parser_consumer, args=(task_queue, result_queue), daemon=True)
@@ -573,7 +588,13 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
     print("======================================================================")
 
 
+def _handle_sigterm(signum, frame):
+    print("\n[SIGNAL] Señal de terminación recibida. Cerrando limpiamente...")
+    sys.exit(0)
+
 if __name__ == "__main__":
+    signal.signal(signal.SIGTERM, _handle_sigterm)
+    signal.signal(signal.SIGINT, _handle_sigterm)
     parser = argparse.ArgumentParser(description="Crawler UniHub para scraping de RUCT, BOE y webs oficiales de universidades.")
     parser.add_argument("--limit-univ", type=int, default=None, help="Limitar número de universidades a procesar.")
     parser.add_argument("--limit-degrees", type=int, default=None, help="Limitar número de titulaciones por universidad.")

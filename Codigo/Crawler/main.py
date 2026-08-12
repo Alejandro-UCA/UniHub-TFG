@@ -4,6 +4,7 @@ import re
 import json
 import time
 import signal
+import logging
 import requests
 import traceback
 import argparse
@@ -16,6 +17,13 @@ try:
     mp.set_start_method('spawn', force=True)
 except RuntimeError:
     pass
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s %(levelname)s %(processName)s %(message)s',
+    handlers=[logging.StreamHandler(sys.stdout)]
+)
+logger = logging.getLogger(__name__)
 
 from bs4 import BeautifulSoup
 

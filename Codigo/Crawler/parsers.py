@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup
 import pdfplumber
 import pypdf
 from downloader import normalize_url
+from functools import lru_cache
 
 # -----------------------------------------------------------------------------
 # GLOBAL PRE-COMPILED REGEX PATTERNS (OPT-02: Pre-compilación de Regex)

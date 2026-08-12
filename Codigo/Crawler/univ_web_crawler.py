@@ -82,33 +82,31 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
     """
     Extrae elementos curriculares de tablas HTML evitando filas de cabecera (<th>),
     palabras clave no curriculares (horarios, días) y validando créditos ECTS.
+    Mejora: deduplica por nombre normalizado y fusiona múltiples tablas.
     """
     elementos = []
+    seen_names = set()
     tables = soup.find_all("table")
     for t in tables:
         rows = t.find_all("tr")
         for row in rows:
-            # Descartar filas compuestas únicamente por cabeceras <th>
             tds = row.find_all("td")
             if not tds:
                 continue
-
             cols = [td.get_text(strip=True) for td in tds]
             if len(cols) < 2:
                 continue
-
             nombre_candidato = cols[0]
             nombre_lower = nombre_candidato.lower()
-
-            # Descartar cabeceras o términos de horario/calendario
             if len(nombre_candidato) < 4 or any(hk in nombre_lower for hk in HEADER_KEYWORDS) or any(sk in nombre_lower for sk in INVALID_SUBJECT_KEYWORDS):
                 continue
-
-            # Buscar créditos ECTS numéricos
+            # Normalizar nombre para deduplicación
+            norm_name = re.sub(r"\s+", " ", nombre_lower).strip()
+            if norm_name in seen_names:
+                continue
+            # Buscar créditos ECTS
             creditos = ""
-            found_ects = False
             for col in cols[1:]:
-                # Extraer números (enteros o decimales ej. 6, 4.5)
                 m = re.search(r"\b(\d+(?:[.,]\d+)?)\b", col)
                 if m:
                     val_str = m.group(1).replace(",", ".")
@@ -116,25 +114,23 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
                         val_num = float(val_str)
                         if 1.0 <= val_num <= 60.0:
                             creditos = str(int(val_num)) if val_num.is_integer() else str(val_num)
-                            found_ects = True
                             break
                     except ValueError:
                         pass
-
-            # Buscar término de curso dinámicamente en columnas
+            # Buscar curso
             curso = ""
             for col in cols[1:]:
                 col_lower = col.lower()
                 if any(c_kw in col_lower for c_kw in ["1º", "2º", "3º", "4º", "primer", "segundo", "tercer", "cuarto", "1er", "2do", "3er", "4to"]):
                     curso = col
                     break
-
             elementos.append({
                 "nombre_elemento": nombre_candidato,
                 "creditos_ects": creditos,
                 "caracter": "OB",
                 "curso": curso
             })
+            seen_names.add(norm_name)
     return elementos
 
 
@@ -683,6 +679,22 @@ class UniversityWebCrawler:
                                                 found_curriculum = parsed
                                                 direct_source_url = target_link
                                                 break
+                                            # Fallback: si el PDF no contiene plan, intentar extraer HTML de la misma URL sin .pdf
+                                            html_fallback_url = target_link[:-4] if target_link.lower().endswith(".pdf") else target_link
+                                            try:
+                                                html_content = downloader.fetch_text(html_fallback_url)
+                                                html_soup = BeautifulSoup(html_content, "html.parser")
+                                                elementos_html = extract_html_subjects(html_soup)
+                                                if len(elementos_html) >= 3:
+                                                    found_curriculum = {
+                                                        "resumen_creditos": {"Créditos Totales": "240" if "grado" in d_title.lower() else "60"},
+                                                        "total_elementos": len(elementos_html),
+                                                        "elementos_curriculares": elementos_html
+                                                    }
+                                                    direct_source_url = html_fallback_url
+                                                    break
+                                            except Exception:
+                                                pass
                                         except Exception:
                                             pass
                                         finally:

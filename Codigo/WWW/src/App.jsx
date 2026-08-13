@@ -1,20 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import UnivCard from './components/UnivCard';
 import DegreeCard from './components/DegreeCard';
 import PlanModal from './components/PlanModal';
-import Geolocation from './components/Geolocation';
-import AdminLogin from './components/AdminLogin';
-import AdminDashboard from './components/AdminDashboard';
-import AboutUs from './components/AboutUs';
-import TuitionCalculator from './components/TuitionCalculator';
-import Pagination from './components/Pagination';
-import Footer from './components/Footer';
+import ErrorBoundary from './components/ErrorBoundary';
 
 import { apiService } from './services/api';
 import usageTracker from './analytics/usageTracker';
 import { Search, Filter } from 'lucide-react';
+
+const Geolocation = React.lazy(() => import('./components/Geolocation'));
+const AdminLogin = React.lazy(() => import('./components/AdminLogin'));
+const AdminDashboard = React.lazy(() => import('./components/AdminDashboard'));
+const AboutUs = React.lazy(() => import('./components/AboutUs'));
+const TuitionCalculator = React.lazy(() => import('./components/TuitionCalculator'));
+const Pagination = React.lazy(() => import('./components/Pagination'));
+const Footer = React.lazy(() => import('./components/Footer'));
 
 const MOCK_UNIVERSITIES = [
   { codigo: "015", nombre: "Universidad Complutense de Madrid", tipo: "Pública", comunidad_autonoma: "Comunidad de Madrid", municipio: "Madrid", provincia: "Madrid", web: "www.ucm.es", email: "infocom@ucm.es" },
@@ -38,6 +40,7 @@ export default function App() {
   const [isDark, setIsDark] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [selectedDegree, setSelectedDegree] = useState(null);
+  const [initialDataLoaded, setInitialDataLoaded] = useState(false);
 
   const navigateToTab = (tab) => {
     setActiveTab(tab);
@@ -106,20 +109,15 @@ export default function App() {
   const loadInitialData = async () => {
     setLoading(true);
     try {
-      // Cargar todas las universidades a la vez (son pocas) para soportar mapas y filtros cruzados
       const univRes = await apiService.getUniversities({ limit: 500 }, { returnWithTotal: true });
-      // Si la API devuelve un array (incluso si está vacío), la DB está inicializada
       if (univRes && Array.isArray(univRes.data)) {
         setUniversities(univRes.data);
       }
-      
-      // Nota: No llamamos a fetchDegreesPage(1) aquí.
-      // Al actualizar 'universities', el useEffect de abajo se disparará automáticamente,
-      // evitando una llamada duplicada a la API en el arranque.
     } catch (e) {
       console.warn('API REST loading fallback active. Showing offline sample dataset.');
     } finally {
       setLoading(false);
+      setInitialDataLoaded(true);
     }
   };
 
@@ -150,8 +148,7 @@ export default function App() {
 
   // Escuchar cambios en filtros o paginación de titulaciones para refrescar datos en vivo
   useEffect(() => {
-    // Evitamos llamar a la API antes del montaje inicial completo
-    if (!universities || universities.length === MOCK_UNIVERSITIES.length && universities[0]?.codigo === MOCK_UNIVERSITIES[0]?.codigo) return;
+    if (!initialDataLoaded) return;
 
     const controller = new AbortController();
     const delayDebounceFn = setTimeout(() => {
@@ -219,18 +216,20 @@ export default function App() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      {/* Top Navbar */}
-      <Navbar 
-        activeTab={activeTab}
-        setActiveTab={navigateToTab}
-        isDark={isDark}
-        toggleTheme={toggleTheme}
-      />
+    <ErrorBoundary>
+      <Suspense fallback={<div style={{ padding: '2rem', textAlign: 'center' }}>Cargando...</div>}>
+        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+          {/* Top Navbar */}
+          <Navbar 
+            activeTab={activeTab}
+            setActiveTab={navigateToTab}
+            isDark={isDark}
+            toggleTheme={toggleTheme}
+          />
 
-      {/* Main Content Areas */}
-      <main style={{ flex: 1 }}>
-        {activeTab === 'inicio' && (
+          {/* Main Content Areas */}
+          <main style={{ flex: 1 }}>
+            {activeTab === 'inicio' && (
           <>
             <Hero 
               onSearch={handleHeroSearch}
@@ -528,5 +527,7 @@ export default function App() {
       {/* Footer */}
       <Footer onNavigate={(tab) => navigateToTab(tab)} />
     </div>
+      </Suspense>
+    </ErrorBoundary>
   );
 }

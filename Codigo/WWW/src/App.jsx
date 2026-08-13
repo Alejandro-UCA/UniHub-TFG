@@ -151,7 +151,7 @@ export default function App() {
   // Escuchar cambios en filtros o paginación de titulaciones para refrescar datos en vivo
   useEffect(() => {
     // Evitamos llamar a la API antes del montaje inicial completo
-    if (universities === MOCK_UNIVERSITIES) return;
+    if (!universities || universities.length === MOCK_UNIVERSITIES.length && universities[0]?.codigo === MOCK_UNIVERSITIES[0]?.codigo) return;
 
     const controller = new AbortController();
     const delayDebounceFn = setTimeout(() => {

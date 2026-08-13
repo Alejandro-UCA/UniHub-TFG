@@ -37,7 +37,7 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
     >
       <div>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
-          <span className={`badge ${isDoctor ? 'badge-doctor' : isMaster ? 'badge-master' : 'badge-grado'}`}>
+          <span className={`badge ${isDoctor ? 'badge-doctorado' : isMaster ? 'badge-master' : 'badge-grado'}`}>
             {isDoctor ? 'Doctorado' : isMaster ? 'Máster' : 'Grado Oficial'}
           </span>
           <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 600 }}>

@@ -17,6 +17,13 @@
   
   --border-light: #E2E8F0;
   --border-uca: rgba(0, 132, 200, 0.2);
+  --border: #E2E8F0;
+  --success: #10B981;
+  --accent: #0EA5E9;
+  --accent-bg: #E0F2FE;
+  --accent-border: #7DD3FC;
+  --text-h: #1A2530;
+  --social-bg: #F1F5F9;
   
   --shadow-sm: 0 2px 8px rgba(0, 43, 73, 0.06);
   --shadow-md: 0 8px 24px rgba(0, 43, 73, 0.1);
@@ -40,6 +47,13 @@
   
   --border-light: #2A3B50;
   --border-uca: rgba(0, 168, 232, 0.3);
+  --border: #2A3B50;
+  --success: #10B981;
+  --accent: #38BDF8;
+  --accent-bg: #0C1A24;
+  --accent-border: #0EA5E9;
+  --text-h: #F1F5F9;
+  --social-bg: #142030;
   
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
@@ -103,6 +117,16 @@ html {
   border: 1px solid var(--border-uca);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.glass-panel.card-hover {
+  cursor: pointer;
+}
+
+.glass-panel.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
 }
 
 /* Gradient Text Helper */
@@ -280,6 +304,23 @@ html {
   }
 }
 
+@media (max-width: 900px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: var(--bg-card);
+    flex-direction: column;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-light);
+    box-shadow: var(--shadow-md);
+    gap: 0.75rem !important;
+    z-index: 200;
+  }
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 0 1rem;
@@ -287,10 +328,12 @@ html {
 
   .grid-cards {
     grid-template-columns: 1fr !important;
+    gap: 1rem !important;
   }
 
   .hero-search-box {
     flex-direction: column !important;
+    gap: 0.5rem !important;
   }
 
   .calculator-layout {
@@ -298,12 +341,42 @@ html {
   }
 
   .calculator-subject-row {
-    grid-template-columns: auto 1fr !important;
+    grid-template-columns: auto 1fr auto !important;
     gap: 0.5rem !important;
   }
 
   .modal-content {
     max-height: 95vh;
-    padding: 1rem;
+    padding: 0.75rem;
+    margin: 0.5rem;
+    border-radius: var(--radius-md);
+  }
+
+  .modal-content table {
+    font-size: 0.8rem;
+  }
+
+  .modal-content th,
+  .modal-content td {
+    padding: 0.5rem 0.5rem !important;
+  }
+
+  h1, h2 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem) !important;
+  }
+
+  .glass-panel {
+    padding: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.85rem;
+  }
+
+  .container {
+    padding: 0 0.75rem;
   }
 }

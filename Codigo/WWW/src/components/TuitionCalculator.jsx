@@ -50,7 +50,8 @@ export default function TuitionCalculator() {
     setDegreeDetail(null);
     setSubjectSelections({});
 
-    apiService.getDegrees({ universidad_codigo: selectedUnivCode, limit: 500 })
+    const controller = new AbortController();
+    apiService.getDegrees({ universidad_codigo: selectedUnivCode, limit: 500 }, { signal: controller.signal })
       .then(data => {
         setDegrees(data || []);
         if (data && data.length > 0) {
@@ -59,16 +60,20 @@ export default function TuitionCalculator() {
         setLoadingDegrees(false);
       })
       .catch(err => {
-        console.error('Error cargando titulaciones:', err);
-        setLoadingDegrees(false);
+        if (err.name !== 'AbortError') {
+          console.error('Error cargando titulaciones:', err);
+          setLoadingDegrees(false);
+        }
       });
+    return () => controller.abort();
   }, [selectedUnivCode]);
 
   // 3. Fetch Degree Detail when Degree Changes
   useEffect(() => {
     if (!selectedDegreeCode) return;
     setLoadingDetail(true);
-    apiService.getDegreeByCode(selectedDegreeCode)
+    const controller = new AbortController();
+    apiService.getDegreeByCode(selectedDegreeCode, { signal: controller.signal })
       .then(data => {
         setDegreeDetail(data);
         setLoadingDetail(false);
@@ -89,9 +94,12 @@ export default function TuitionCalculator() {
         }
       })
       .catch(err => {
-        console.error('Error cargando detalle de titulación:', err);
-        setLoadingDetail(false);
+        if (err.name !== 'AbortError') {
+          console.error('Error cargando detalle de titulación:', err);
+          setLoadingDetail(false);
+        }
       });
+    return () => controller.abort();
   }, [selectedDegreeCode]);
 
   // Selected University object

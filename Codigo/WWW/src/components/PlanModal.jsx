@@ -77,6 +77,7 @@ export default function PlanModal({ degree, onClose }) {
           </div>
           <button 
             onClick={onClose}
+            aria-label="Cerrar modal"
             style={{
               background: 'rgba(255, 255, 255, 0.15)',
               border: 'none',

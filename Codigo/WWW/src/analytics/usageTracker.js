@@ -6,6 +6,7 @@ class UsageTracker {
 
   loadEvents() {
     try {
+      if (typeof localStorage === 'undefined') throw new Error('localStorage not available');
       const data = localStorage.getItem(this.storageKey);
       return data ? JSON.parse(data) : {
         pageViews: 0,
@@ -39,6 +40,7 @@ class UsageTracker {
 
   saveEvents() {
     try {
+      if (typeof localStorage === 'undefined') throw new Error('localStorage not available');
       this.events.universityViews = this._pruneViewsMap(this.events.universityViews);
       this.events.degreeViews = this._pruneViewsMap(this.events.degreeViews);
       localStorage.setItem(this.storageKey, JSON.stringify(this.events));

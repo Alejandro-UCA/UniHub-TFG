@@ -27,6 +27,7 @@ export default function Pagination({ currentPage, totalItems, itemsPerPage, onPa
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.88rem' }}>
         <span style={{ color: 'var(--text-muted)' }}>Mostrar por página:</span>
         <select 
+          aria-label="Elementos por página"
           value={itemsPerPage} 
           onChange={(e) => {
             onItemsPerPageChange(Number(e.target.value));

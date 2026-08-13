@@ -19,7 +19,7 @@ export default React.memo(function UnivCard({ univ, onViewDegrees, distanceKm })
 
   return (
     <div 
-      className="glass-panel" 
+      className="glass-panel card-hover" 
       tabIndex={0}
       role="article"
       onKeyDown={handleKeyDown}
@@ -28,19 +28,9 @@ export default React.memo(function UnivCard({ univ, onViewDegrees, distanceKm })
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        height: '100%',
-        transition: 'transform 0.25s ease, box-shadow 0.25s ease',
-        cursor: 'pointer'
+        height: '100%'
       }}
       onClick={handleClick}
-    onMouseEnter={(e) => {
-      e.currentTarget.style.transform = 'translateY(-4px)';
-      e.currentTarget.style.boxShadow = 'var(--shadow-lg)';
-    }}
-    onMouseLeave={(e) => {
-      e.currentTarget.style.transform = 'translateY(0)';
-      e.currentTarget.style.boxShadow = 'var(--shadow-md)';
-    }}
     >
       <div>
         {/* Card Header: Type Badge & Optional Distance */}

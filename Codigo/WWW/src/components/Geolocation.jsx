@@ -51,14 +51,16 @@ export default function Geolocation({ universities, onViewDegrees }) {
     setCurrentPage(1);
   }, [selectedCity]);
 
-  // Calculate distance for each university and sort
-  const univsWithDistance = universities.map((u) => {
-    const coords = getUniversityCoords(u);
-    const dist = userLocation
-      ? calculateHaversineDistance(userLocation.lat, userLocation.lng, coords.lat, coords.lng)
-      : 0;
-    return { ...u, distanceKm: dist, targetCity: coords.name };
-  }).sort((a, b) => a.distanceKm - b.distanceKm);
+  // Calculate distance for each university and sort (Memoized)
+  const univsWithDistance = React.useMemo(() => {
+    return universities.map((u) => {
+      const coords = getUniversityCoords(u);
+      const dist = userLocation
+        ? calculateHaversineDistance(userLocation.lat, userLocation.lng, coords.lat, coords.lng)
+        : 0;
+      return { ...u, distanceKm: dist, targetCity: coords.name };
+    }).sort((a, b) => a.distanceKm - b.distanceKm);
+  }, [universities, userLocation]);
 
   // Paginated Slice
   const paginatedUnivs = univsWithDistance.slice(

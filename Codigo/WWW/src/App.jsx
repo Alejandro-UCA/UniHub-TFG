@@ -38,7 +38,7 @@ const MOCK_DEGREES = [
 export default function App() {
   const [activeTab, setActiveTab] = useState('inicio');
   const [isDark, setIsDark] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(() => Boolean(sessionStorage.getItem('adminApiKey')));
   const [selectedDegree, setSelectedDegree] = useState(null);
   const [initialDataLoaded, setInitialDataLoaded] = useState(false);
 
@@ -63,7 +63,12 @@ export default function App() {
   useEffect(() => {
     const path = window.location.pathname;
     if (path === '/admin' || path === '/admin/' || path === '/admin/login') {
-      setActiveTab('admin-login');
+      if (sessionStorage.getItem('adminApiKey')) {
+        setIsAdmin(true);
+        setActiveTab('admin');
+      } else {
+        setActiveTab('admin-login');
+      }
     }
   }, []);
 
@@ -496,7 +501,7 @@ export default function App() {
           <AboutUs />
         )}
 
-        {activeTab === 'admin-login' && !isAdmin && (
+        {(activeTab === 'admin-login' || (activeTab === 'admin' && !isAdmin)) && (
           <AdminLogin 
             onLoginSuccess={() => {
               setIsAdmin(true);
@@ -509,6 +514,7 @@ export default function App() {
           <AdminDashboard 
             onLogout={() => {
               sessionStorage.removeItem('adminApiKey');
+              sessionStorage.removeItem('adminUser');
               setIsAdmin(false);
               navigateToTab('inicio');
             }}

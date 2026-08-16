@@ -68,7 +68,7 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.2rem' }}>
               <span style={{ color: 'var(--success)', fontWeight: 700 }}>💶 1ª Matrícula:</span>
               <span style={{ fontWeight: 800, color: 'var(--text-main)' }}>
-                ~{Math.round(degree.precio_estimado_anual || (degree.precio_credito_ects * 60 + 45))} €/año
+                ~{Math.round(parseFloat(degree.precio_estimado_anual) || ((parseFloat(degree.precio_credito_ects) || 0) * 60 + 45))} €/año
                 <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontWeight: 400, marginLeft: '0.35rem' }}>
                   ({degree.precio_credito_ects} €/c)
                 </span>

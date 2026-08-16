@@ -50,6 +50,9 @@ async function fetchAPI(endpoint, options = {}) {
     
     return data;
   } catch (error) {
+    if (error.name === 'AbortError') {
+      return null;
+    }
     const elapsed = performance.now() - startTime;
     perfTracker.recordAPILatency(endpoint, elapsed, true);
     console.warn(`API call error for ${endpoint}:`, error.message);
@@ -176,6 +179,12 @@ export const apiService = {
   async triggerEtlSync() {
     return fetchAPI('/etl/sync', {
       method: 'POST'
+    });
+  },
+
+  async verifyAdminAuth(apiKey) {
+    return fetchAPI('/auth/verify', {
+      headers: { 'X-API-Key': apiKey }
     });
   }
 };

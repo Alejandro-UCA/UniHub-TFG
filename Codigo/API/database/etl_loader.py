@@ -34,8 +34,12 @@ def run_etl():
             return
         except (OSError, ValueError):
             print("[AVISO] Se encontró un lock file huérfano (proceso anterior terminó de forma abrupta). Limpiando y continuando.")
-            os.remove(lock_file)
+            try:
+                os.remove(lock_file)
+            except Exception:
+                pass
         
+    db = None
     try:
         # Create lock file
         with open(lock_file, 'w') as f:
@@ -176,9 +180,9 @@ def run_etl():
                             existing.precio_estimado_anual = t.get("precio_estimado_anual") or existing.precio_estimado_anual
                             existing.fuente_precio = t.get("fuente_precio") or existing.fuente_precio
             
-            # Eliminar las titulaciones en BD que ya no están vigentes en el JSON
+            # Eliminar las titulaciones en BD que ya no están vigentes en el JSON (solo si el conjunto es representativo)
             deleted_count = 0
-            if active_titulaciones_codes:
+            if active_titulaciones_codes and len(active_titulaciones_codes) >= 100:
                 deleted_count = db.query(Titulacion).filter(
                     ~Titulacion.codigo_estudio.in_(active_titulaciones_codes),
                     Titulacion.gestionado_por_admin == False
@@ -391,11 +395,22 @@ def run_etl():
 
     except Exception as e:
         print(f"\n[ERROR FATAL ETL] Excepción no controlada: {e}")
-        db.rollback()
+        if db is not None:
+            try:
+                db.rollback()
+            except Exception:
+                pass
     finally:
-        db.close()
+        if db is not None:
+            try:
+                db.close()
+            except Exception:
+                pass
         if os.path.exists(lock_file):
-            os.remove(lock_file)
+            try:
+                os.remove(lock_file)
+            except Exception:
+                pass
             
     print("=" * 70)
     print("     PROCESO ETL FINALIZADO CON ÉXITO")

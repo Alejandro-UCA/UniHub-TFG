@@ -1,23 +1,37 @@
 import React, { useState } from 'react';
-import { ShieldCheck, Lock, User, AlertCircle, GraduationCap } from 'lucide-react';
+import { ShieldCheck, Lock, User, AlertCircle, RefreshCw } from 'lucide-react';
+import { apiService } from '../services/api';
 
 export default function AdminLogin({ onLoginSuccess }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
-    if (username.trim() !== '' && password.trim() !== '') {
-      // La validación real la realiza el backend al verificar la cabecera X-API-Key.
-      // El frontend no valida credenciales para no exponer datos en el bundle JS.
-      sessionStorage.setItem('adminApiKey', password.trim());
-      sessionStorage.setItem('adminUser', username.trim());
+    const cleanUser = username.trim();
+    const cleanKey = password.trim();
+
+    if (!cleanUser || !cleanKey) {
+      setError('Debes introducir un usuario y una API Key de administrador.');
+      return;
+    }
+
+    setLoading(true);
+    try {
+      // Validar la clave de administrador directamente contra el backend
+      await apiService.verifyAdminAuth(cleanKey);
+      sessionStorage.setItem('adminApiKey', cleanKey);
+      sessionStorage.setItem('adminUser', cleanUser);
       onLoginSuccess();
-    } else {
-      setError('Debes introducir un usuario y una API Key válida. La autenticación es verificada por el servidor.');
+    } catch (err) {
+      console.warn('Fallo en autenticación de administrador:', err.message);
+      setError('Clave de administrador incorrecta o servidor no accesible.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -126,9 +140,17 @@ export default function AdminLogin({ onLoginSuccess }) {
           <button 
             type="submit" 
             className="btn btn-primary" 
-            style={{ width: '100%', padding: '0.85rem', fontSize: '0.95rem', fontWeight: 700 }}
+            disabled={loading}
+            style={{ width: '100%', padding: '0.85rem', fontSize: '0.95rem', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', opacity: loading ? 0.7 : 1 }}
           >
-            Iniciar Sesión como Administrador
+            {loading ? (
+              <>
+                <RefreshCw size={18} className="animate-spin" />
+                <span>Verificando credenciales...</span>
+              </>
+            ) : (
+              'Iniciar Sesión como Administrador'
+            )}
           </button>
         </form>
       </div>

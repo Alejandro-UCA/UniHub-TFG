@@ -89,6 +89,7 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue):
             # Timeout para permitir chequeo de terminación y evitar bloqueo eterno
             continue
 
+        try:
             task_type = task.get("type")
             d_code = task.get("d_code", "")
             d_title = task.get("d_title", "")
@@ -282,6 +283,15 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
     # PARTE 1 DE LA FASE 1: SCRAPING RUCT Y PARSER DE BOE
     # -------------------------------------------------------------------------
     if 1 in run_parts:
+        # Limpieza preventiva de archivos temporales huérfanos de ejecuciones anteriores
+        if os.path.exists(TEMP_PDF_DIR):
+            for f_name in os.listdir(TEMP_PDF_DIR):
+                if f_name.endswith(('.tmp', '.pdf', '.xls', '.download')):
+                    try:
+                        os.remove(os.path.join(TEMP_PDF_DIR, f_name))
+                    except Exception:
+                        pass
+
         # OPT-01: Lanzar Pool Multiprocesador de Consumidores (Parser CPU & Escritura en Disco)
         num_parser_workers = _cap_workers(CPU_WORKERS_COUNT)
         task_queue = mp.Queue(maxsize=TASK_QUEUE_MAXSIZE)

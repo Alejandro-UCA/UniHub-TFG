@@ -84,7 +84,7 @@ export default function TuitionCalculator() {
           const elems = data.plan_estudios?.elementos_curriculares || [];
           const initialMap = {};
           elems.forEach((elem, idx) => {
-            const isFirstYear = (elem.curso || '').includes('1');
+            const isFirstYear = String(elem.curso || '').includes('1');
             initialMap[idx] = {
               selected: isFirstYear,
               tier: 1 // 1ª matrícula

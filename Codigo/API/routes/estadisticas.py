@@ -234,3 +234,7 @@ def get_estadisticas_cobertura(db: Session = Depends(get_db)):
 def sync_etl_data(background_tasks: BackgroundTasks, api_key: str = Depends(verify_api_key)):
     background_tasks.add_task(run_etl)
     return {"status": "ok", "mensaje": "Proceso de sincronización ETL iniciado en segundo plano."}
+
+@router.get("/auth/verify", summary="Verificar validez de la clave de administrador X-API-Key")
+def verify_admin_auth(api_key: str = Depends(verify_api_key)):
+    return {"authenticated": True, "role": "admin"}

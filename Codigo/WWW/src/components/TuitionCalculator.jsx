@@ -51,7 +51,7 @@ export default function TuitionCalculator() {
     setSubjectSelections({});
 
     const controller = new AbortController();
-    apiService.getDegrees({ universidad_codigo: selectedUnivCode, limit: 500 }, { signal: controller.signal })
+    apiService.getDegrees({ universidad_codigo: selectedUnivCode, con_plan: true, limit: 500 }, { signal: controller.signal })
       .then(data => {
         setDegrees(data || []);
         if (data && data.length > 0) {
@@ -383,7 +383,7 @@ export default function TuitionCalculator() {
           <RefreshCw size={32} className="spin" style={{ marginBottom: '1rem', color: 'var(--uca-cyan)' }} />
           <div>Cargando plan de estudios oficial y asignaturas desde la base de datos...</div>
         </div>
-      ) : degreeDetail ? (
+      ) : degreeDetail && elements.length > 0 ? (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))', gap: '2rem' }}>
           
           {/* Left Column: Subjects Picker */}
@@ -705,7 +705,19 @@ export default function TuitionCalculator() {
           </div>
 
         </div>
-      ) : null}
+      ) : (
+        <div className="glass-panel" style={{ padding: '3.5rem 2rem', textAlign: 'center', borderRadius: '12px' }}>
+          <div style={{ display: 'inline-flex', padding: '0.85rem', background: 'rgba(243, 167, 18, 0.12)', borderRadius: '50%', color: 'var(--uca-sun)', marginBottom: '1.25rem' }}>
+            <AlertCircle size={36} />
+          </div>
+          <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.5rem', color: 'var(--text-main)' }}>
+            Esta titulación no dispone de asignaturas desglosadas en el BOE
+          </h3>
+          <p style={{ color: 'var(--text-muted)', maxWidth: '540px', margin: '0 auto', fontSize: '0.92rem', lineHeight: 1.6 }}>
+            No se ha encontrado una tabla de asignaturas y créditos lectivos publicada en el BOE para este estudio. Por favor, selecciona otra titulación del selector superior para simular tu matrícula.
+          </p>
+        </div>
+      )}
 
     </div>
   );

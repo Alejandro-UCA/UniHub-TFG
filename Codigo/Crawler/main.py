@@ -479,12 +479,10 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
                         })
                         continue
 
-                    # Seleccionar ÚNICAMENTE el candidato BOE MÁS RECIENTE (candidates[0]) y descartar los anteriores
-                    most_recent_candidate = candidates[:1]
-                    discarded_older_boes = [c["url"] for c in candidates[1:]]
-
-                    if len(candidates) > 1:
-                        print(f"     -> {len(discarded_older_boes)} BOEs históricos anteriores descartados (procesando únicamente el BOE más reciente).")
+                    # Inspeccionar hasta 3 candidatos BOE (el más reciente primero; si es una modificación breve sin tabla de asignaturas, recurrir a los anteriores)
+                    target_candidates = candidates[:3]
+                    if len(candidates) > 3:
+                        print(f"     -> Inspeccionando los 3 BOEs más relevantes (descartados {len(candidates) - 3} históricos muy antiguos).")
 
                     # OPT-04: Fetch candidate PDF in-memory (bytes) to avoid disk temporary file IOPS
                     downloaded_pdf_items = []
@@ -519,7 +517,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
                             return None
 
                     with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
-                        futures = [executor.submit(fetch_single_candidate, (c_idx, c)) for c_idx, c in enumerate(most_recent_candidate, 1)]
+                        futures = [executor.submit(fetch_single_candidate, (c_idx, c)) for c_idx, c in enumerate(target_candidates, 1)]
                         for future in concurrent.futures.as_completed(futures):
                             try:
                                 item_res = future.result()

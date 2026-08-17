@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import case
 
 from database.connection import get_db, get_admin_db
-from models.models import Titulacion, PlanEstudios, Universidad
+from models.models import Titulacion, PlanEstudios, Universidad, ElementoCurricular
 from schemas.schemas import TitulacionOut, TitulacionDetalleOut, PlanEstudiosOut, TitulacionCreate, TitulacionUpdate
 from security import verify_api_key
 
@@ -18,11 +18,15 @@ def list_titulaciones(
     universidad_codigo: Optional[str] = Query(None, description="Filtrar por código de universidad"),
     ccaa: Optional[str] = Query(None, description="Filtrar por CCAA de la universidad"),
     tipo_universidad: Optional[str] = Query(None, description="Filtrar por tipo de universidad (pública/privada)"),
+    con_plan: Optional[bool] = Query(None, description="Filtrar solo titulaciones con plan de estudios y asignaturas disponibles"),
     skip: int = Query(0, ge=0),
     limit: int = Query(100, ge=1, le=500),
     db: Session = Depends(get_db)
 ):
     query = db.query(Titulacion).outerjoin(Universidad)
+    if con_plan is True:
+        has_plan_subquery = db.query(PlanEstudios.codigo_estudio).join(ElementoCurricular, PlanEstudios.id == ElementoCurricular.plan_estudio_id).subquery()
+        query = query.filter(Titulacion.codigo_estudio.in_(has_plan_subquery))
     if titulo:
         query = query.filter(Titulacion.titulo.ilike(f"%{titulo}%"))
     if nivel_academico:

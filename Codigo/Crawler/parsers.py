@@ -368,9 +368,12 @@ def parse_boe_pdf(pdf_filepath) -> dict:
             for page in pdf.pages:
                 tables = page.extract_tables()
                 for table in tables:
-                    subject_col_idx = 0
+                    subject_col_idx = -1
                     materia_col_idx = -1
-                    is_first_row = True
+                    ects_col_idx = -1
+                    caracter_col_idx = -1
+                    curso_col_idx = -1
+                    cuatrimestre_col_idx = -1
                     
                     for row in table:
                         if not row or all(cell is None or str(cell).strip() == "" for cell in row):
@@ -379,17 +382,23 @@ def parse_boe_pdf(pdf_filepath) -> dict:
                         clean_row = [RE_MULTIPLE_SPACES.sub(" ", str(cell).strip()) if cell else "" for cell in row]
                         row_str = " ".join(clean_row).lower()
 
-                        if is_first_row:
-                            is_first_row = False
-                            if "asignatura" in row_str or "materia" in row_str:
-                                # Determine columns from headers
-                                for idx, cell_str in enumerate(clean_row):
-                                    c_lower = cell_str.lower()
-                                    if "asignatura" in c_lower:
-                                        subject_col_idx = idx
-                                    elif "materia" in c_lower and "asignatura" not in c_lower:
-                                        materia_col_idx = idx
-                                continue
+                        # Detect header rows to establish column mapping
+                        if any(hk in row_str for hk in ["asignatura", "denominaci", "materia", "crédito", "credito", "ects", "carácter", "caracter", "curso", "módulo", "modulo"]):
+                            for idx, cell_str in enumerate(clean_row):
+                                c_lower = cell_str.lower()
+                                if any(kw in c_lower for kw in ["asignatura", "denominaci", "nombre", "actividad formativa", "unidad curricular"]):
+                                    subject_col_idx = idx
+                                elif any(kw in c_lower for kw in ["materia", "módulo", "modulo"]) and "asignatura" not in c_lower:
+                                    materia_col_idx = idx
+                                elif any(kw in c_lower for kw in ["crédito", "credito", "ects"]):
+                                    ects_col_idx = idx
+                                elif any(kw in c_lower for kw in ["carácter", "caracter", "tipo", "tipología"]):
+                                    caracter_col_idx = idx
+                                elif any(kw in c_lower for kw in ["curso", "año"]):
+                                    curso_col_idx = idx
+                                elif any(kw in c_lower for kw in ["cuatrimestre", "semestre", "periodo", "temporalidad"]):
+                                    cuatrimestre_col_idx = idx
+                            continue
 
                         if "módulo" in row_str or "modulo" in row_str:
                             current_modulo = clean_row[0] if clean_row else ""
@@ -404,50 +413,84 @@ def parse_boe_pdf(pdf_filepath) -> dict:
                         curso = ""
                         cuatrimestre = ""
 
+                        # If specific columns were mapped
+                        if ects_col_idx != -1 and ects_col_idx < len(clean_row) and clean_row[ects_col_idx]:
+                            m = RE_ECTS_NUMBER.search(clean_row[ects_col_idx])
+                            if m:
+                                ects_match = m.group(1)
+
+                        if caracter_col_idx != -1 and caracter_col_idx < len(clean_row) and clean_row[caracter_col_idx]:
+                            c_cell = clean_row[caracter_col_idx].lower()
+                            if "básica" in c_cell or "basica" in c_cell or "fb" in c_cell:
+                                caracter = "FB"
+                            elif "optativa" in c_cell or "op" in c_cell:
+                                caracter = "OP"
+                            elif "práctica" in c_cell or "pe" in c_cell:
+                                caracter = "PE"
+                            elif "tfg" in c_cell or "tfm" in c_cell or "trabajo fin" in c_cell:
+                                caracter = "TFG/TFM"
+
+                        if curso_col_idx != -1 and curso_col_idx < len(clean_row):
+                            curso = clean_row[curso_col_idx]
+
+                        if cuatrimestre_col_idx != -1 and cuatrimestre_col_idx < len(clean_row):
+                            cuatrimestre = clean_row[cuatrimestre_col_idx]
+
+                        # Fallback search across all cells if not mapped
                         for cell in clean_row:
                             if not ects_match:
                                 m = RE_ECTS_NUMBER.search(cell)
                                 if m:
                                     try:
-                                        if float(m.group(1).replace(",", ".")) in [3, 4.5, 6, 9, 12, 15, 18, 24, 30]:
+                                        if float(m.group(1).replace(",", ".")) in [1, 1.5, 2, 3, 4, 4.5, 5, 6, 7.5, 8, 9, 10, 12, 14, 15, 18, 20, 24, 30]:
                                             ects_match = m.group(1)
                                     except ValueError:
                                         pass
 
                             cell_lower = cell.lower()
-                            if "básica" in cell_lower or "basica" in cell_lower or "fb" in cell_lower:
-                                caracter = "FB"
-                            elif "optativa" in cell_lower or "op" in cell_lower:
-                                caracter = "OP"
-                            elif "práctica" in cell_lower or "pe" in cell_lower:
-                                caracter = "PE"
-                            elif "tfg" in cell_lower or "tfm" in cell_lower or "trabajo fin" in cell_lower:
-                                caracter = "TFG/TFM"
+                            if caracter == "OB":
+                                if "básica" in cell_lower or "basica" in cell_lower or "fb" in cell_lower:
+                                    caracter = "FB"
+                                elif "optativa" in cell_lower or "op" in cell_lower:
+                                    caracter = "OP"
+                                elif "práctica" in cell_lower or "pe" in cell_lower:
+                                    caracter = "PE"
+                                elif "tfg" in cell_lower or "tfm" in cell_lower or "trabajo fin" in cell_lower:
+                                    caracter = "TFG/TFM"
 
-                            if RE_CURSO_NUM.search(cell):
+                            if not curso and RE_CURSO_NUM.search(cell):
                                 curso = cell
-                            if "cuatrimestre" in cell_lower or "semestre" in cell_lower:
+                            if not cuatrimestre and ("cuatrimestre" in cell_lower or "semestre" in cell_lower):
                                 cuatrimestre = cell
+
+                        # Identify subject name column
+                        final_subject_name = ""
+                        if subject_col_idx != -1 and subject_col_idx < len(clean_row):
+                            final_subject_name = clean_row[subject_col_idx]
+                        elif len(clean_row) > 1 and (len(clean_row[0]) <= 4 or RE_CURSO_NUM.match(clean_row[0]) or clean_row[0].isdigit()) and len(clean_row[1]) > 3:
+                            final_subject_name = clean_row[1]
+                        elif len(clean_row) > 0:
+                            final_subject_name = clean_row[0]
 
                         # If materia is in column 0 and subject is in column 1
                         if materia_col_idx != -1 and materia_col_idx < len(clean_row):
                             current_materia = clean_row[materia_col_idx]
 
-                        final_subject_name = ""
-                        if subject_col_idx < len(clean_row):
-                            final_subject_name = clean_row[subject_col_idx]
-                        
-                        # Fallback heuristic: if subject column is 0, but column 0 equals the current materia, and column 1 exists, use column 1
-                        if subject_col_idx == 0 and len(clean_row) > 1 and final_subject_name.lower() == current_materia.lower():
+                        # Fallback heuristic: if subject column equals current materia, use adjacent column
+                        if len(clean_row) > 1 and final_subject_name.lower() == current_materia.lower():
                             final_subject_name = clean_row[1]
 
-                        if final_subject_name and len(final_subject_name) > 3 and not any(k in final_subject_name.lower() for k in ["asignatura", "carácter", "créditos", "curso"]):
-                            # REFINEMENT 1 & OPT-02: Filter out legal administrative citation lines with pre-compiled regex
-                            is_legal_noise = RE_LEGAL_NOISE.search(final_subject_name) or len(final_subject_name) > 180
-                            if is_legal_noise:
-                                continue
-
-                            # REFINEMENT 2 & OPT-02: Clean numerical ECTS credit extraction
+                        final_subject_name = final_subject_name.strip()
+                        # Strict validation of subject name
+                        if (
+                            final_subject_name 
+                            and len(final_subject_name) > 3 
+                            and not RE_LEGAL_NOISE.search(final_subject_name)
+                            and not bool(re.search(r"^(anexo|plan de estudios|bolet[ií]n oficial|ministerio|universidad|cve:|http|p[aá]gina|total\s+cr[eé]ditos|resumen|estructura general|distribuci[oó]n|observaciones)\b", final_subject_name, re.IGNORECASE))
+                            and not final_subject_name.lower() in ["asignatura", "carácter", "caracter", "créditos", "creditos", "curso", "materia", "módulo", "modulo", "ects", "tipo", "total"]
+                            and bool(re.search(r"[a-zA-ZáéíóúñÁÉÍÓÚÑ]{3,}", final_subject_name))
+                            and len(final_subject_name) <= 150
+                        ):
                             clean_ects = "6"
                             if ects_match:
                                 m_ects = RE_ECTS_CLEAN.search(str(ects_match))

@@ -87,53 +87,128 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
     """
     Extrae elementos curriculares de tablas HTML evitando filas de cabecera (<th>),
     palabras clave no curriculares (horarios, días) y validando créditos ECTS.
-    Mejora: deduplica por nombre normalizado y fusiona múltiples tablas.
+    Mejora: deduplica por nombre normalizado, detecta columnas de código/nombre y fusiona múltiples tablas.
     """
     elementos = []
     seen_names = set()
     tables = soup.find_all("table")
     for t in tables:
         rows = t.find_all("tr")
-        for row in rows:
-            tds = row.find_all("td")
+        subj_col = 0
+        ects_col = -1
+        car_col = -1
+        curso_col = -1
+
+        for r_idx, row in enumerate(rows):
+            tds = row.find_all(["td", "th"])
             if not tds:
                 continue
-            cols = [td.get_text(strip=True) for td in tds]
+            cols = [td.get_text(separator=" ", strip=True) for td in tds]
             if len(cols) < 2:
                 continue
-            nombre_candidato = cols[0]
-            nombre_lower = nombre_candidato.lower()
-            if len(nombre_candidato) < 4 or any(hk in nombre_lower for hk in HEADER_KEYWORDS) or any(sk in nombre_lower for sk in INVALID_SUBJECT_KEYWORDS):
+
+            row_str = " ".join(cols).lower()
+
+            # Detect header row
+            if any(hk in row_str for hk in ["asignatura", "denominaci", "materia", "crédito", "credito", "ects", "carácter", "caracter", "curso"]):
+                for c_i, c_val in enumerate(cols):
+                    c_low = c_val.lower()
+                    if any(w in c_low for w in ["asignatura", "denominaci", "nombre", "actividad"]):
+                        subj_col = c_i
+                    elif any(w in c_low for w in ["crédito", "credito", "ects"]):
+                        ects_col = c_i
+                    elif any(w in c_low for w in ["carácter", "caracter", "tipo"]):
+                        car_col = c_i
+                    elif any(w in c_low for w in ["curso", "año"]):
+                        curso_col = c_i
                 continue
+
+            # Candidate subject name
+            nombre_candidato = ""
+            if subj_col < len(cols) and len(cols[subj_col]) >= 4 and not cols[subj_col].isdigit():
+                nombre_candidato = cols[subj_col]
+            elif len(cols) > 1 and (len(cols[0]) <= 4 or cols[0].isdigit() or re.match(r"^[1-6][º°a-z]*$", cols[0].lower())) and len(cols[1]) >= 4:
+                nombre_candidato = cols[1]
+            elif len(cols) > 0:
+                nombre_candidato = cols[0]
+
+            nombre_candidato = re.sub(r"\s+", " ", nombre_candidato).strip()
+            nombre_lower = nombre_candidato.lower()
+
+            if (
+                len(nombre_candidato) < 4 
+                or any(hk in nombre_lower for hk in HEADER_KEYWORDS) 
+                or any(sk in nombre_lower for sk in INVALID_SUBJECT_KEYWORDS)
+                or not re.search(r"[a-zA-ZáéíóúñÁÉÍÓÚÑ]{3,}", nombre_candidato)
+                or len(nombre_candidato) > 150
+            ):
+                continue
+
             # Normalizar nombre para deduplicación
-            norm_name = re.sub(r"\s+", " ", nombre_lower).strip()
+            norm_name = nombre_lower
             if norm_name in seen_names:
                 continue
+
             # Buscar créditos ECTS
-            creditos = ""
-            for col in cols[1:]:
-                m = re.search(r"\b(\d+(?:[.,]\d+)?)\b", col)
-                if m:
-                    val_str = m.group(1).replace(",", ".")
-                    try:
-                        val_num = float(val_str)
-                        if 1.0 <= val_num <= 60.0:
-                            creditos = str(int(val_num)) if val_num.is_integer() else str(val_num)
-                            break
-                    except ValueError:
-                        pass
+            creditos = "6"
+            if ects_col != -1 and ects_col < len(cols):
+                m_c = re.search(r"\b(\d+(?:[.,]\d+)?)\b", cols[ects_col])
+                if m_c:
+                    creditos = m_c.group(1).replace(",", ".")
+            else:
+                for col in cols[1:]:
+                    m = re.search(r"\b(\d+(?:[.,]\d+)?)\b", col)
+                    if m:
+                        val_str = m.group(1).replace(",", ".")
+                        try:
+                            val_num = float(val_str)
+                            if 1.0 <= val_num <= 60.0:
+                                creditos = str(int(val_num)) if val_num.is_integer() else str(val_num)
+                                break
+                        except ValueError:
+                            pass
+
+            # Buscar carácter
+            caracter = "OB"
+            if car_col != -1 and car_col < len(cols):
+                c_val = cols[car_col].lower()
+                if "básica" in c_val or "basica" in c_val or "fb" in c_val:
+                    caracter = "FB"
+                elif "optativa" in c_val or "op" in c_val:
+                    caracter = "OP"
+                elif "práctica" in c_val or "pe" in c_val:
+                    caracter = "PE"
+                elif "tfg" in c_val or "tfm" in c_val:
+                    caracter = "TFG/TFM"
+            else:
+                for col in cols:
+                    c_val = col.lower()
+                    if "básica" in c_val or "basica" in c_val or "fb" in c_val:
+                        caracter = "FB"
+                        break
+                    elif "optativa" in c_val or "op" in c_val:
+                        caracter = "OP"
+                        break
+
             # Buscar curso
             curso = ""
-            for col in cols[1:]:
-                col_lower = col.lower()
-                if any(c_kw in col_lower for c_kw in ["1º", "2º", "3º", "4º", "primer", "segundo", "tercer", "cuarto", "1er", "2do", "3er", "4to"]):
-                    curso = col
-                    break
+            if curso_col != -1 and curso_col < len(cols):
+                curso = cols[curso_col]
+            else:
+                for col in cols[1:]:
+                    col_lower = col.lower()
+                    if any(c_kw in col_lower for c_kw in ["1º", "2º", "3º", "4º", "primer", "segundo", "tercer", "cuarto", "1er", "2do", "3er", "4to"]):
+                        curso = col
+                        break
+
             elementos.append({
+                "modulo": "",
+                "materia": "",
                 "nombre_elemento": nombre_candidato,
                 "creditos_ects": creditos,
-                "caracter": "OB",
-                "curso": curso
+                "caracter": caracter,
+                "curso": curso,
+                "cuatrimestre": ""
             })
             seen_names.add(norm_name)
     return elementos

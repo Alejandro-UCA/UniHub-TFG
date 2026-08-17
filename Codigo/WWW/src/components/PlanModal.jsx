@@ -166,8 +166,33 @@ export default function PlanModal({ degree, onClose }) {
                 </h3>
 
                 {elementos.length === 0 ? (
-                  <div style={{ padding: '1.5rem', textTransform: 'none', background: 'var(--bg-main)', borderRadius: 'var(--radius-sm)', color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-                    El plan de estudios está estructurado en el documento BOE adjunto. Puedes consultar el archivo PDF directamente usando el botón superior.
+                  <div style={{
+                    padding: '2rem 1.5rem',
+                    background: 'var(--bg-main)',
+                    borderRadius: 'var(--radius-md)',
+                    border: '1px dashed var(--border-light)',
+                    textAlign: 'center'
+                  }}>
+                    <div style={{ display: 'inline-flex', padding: '0.75rem', background: 'rgba(243, 167, 18, 0.12)', borderRadius: '50%', color: 'var(--uca-sun)', marginBottom: '1rem' }}>
+                      <FileText size={28} />
+                    </div>
+                    <h4 style={{ fontSize: '1.05rem', fontWeight: 700, marginBottom: '0.5rem', color: 'var(--text-main)' }}>
+                      No se ha encontrado un plan de estudios desglosado en el BOE
+                    </h4>
+                    <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', maxWidth: '580px', margin: '0 auto 1.25rem auto', lineHeight: 1.5 }}>
+                      Esta titulación oficial puede corresponder a un programa de Doctorado (que carece de asignaturas lectivas tradicionales), a una titulación de reciente implantación o a una universidad privada cuyos planes detallados se gestionan directamente en su propio portal docente.
+                    </p>
+                    {boeUrl && (
+                      <a
+                        href={boeUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn btn-outline"
+                        style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}
+                      >
+                        <FileText size={16} /> Consultar Resolución en BOE <ExternalLink size={14} />
+                      </a>
+                    )}
                   </div>
                 ) : (
                   <div style={{ overflowX: 'auto', border: '1px solid var(--border-light)', borderRadius: 'var(--radius-md)' }}>

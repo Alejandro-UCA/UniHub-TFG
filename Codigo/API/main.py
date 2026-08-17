@@ -46,6 +46,11 @@ def root():
         "fase": "Fase 2 - API REST & Base de Datos PostgreSQL"
     }
 
+@app.get("/salud", tags=["General"])
+@app.get("/api/v1/salud", tags=["General"])
+def health():
+    return {"status": "ok", "service": "unihub_api"}
+
 @app.post("/api/v1/admin/sync-etl", tags=["Administración"])
 def trigger_etl_sync(background_tasks: BackgroundTasks, api_key: str = Depends(verify_api_key)):
     """

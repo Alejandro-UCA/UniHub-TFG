@@ -11,6 +11,10 @@ from security import verify_api_key
 
 router = APIRouter(prefix="/api/v1", tags=["Métricas y Salud del Crawler"])
 
+@router.get("/salud", summary="Comprobar estado de salud del servicio API")
+def get_salud():
+    return {"status": "ok", "service": "unihub_api"}
+
 @router.get("/estadisticas", response_model=List[EstadisticaRendimientoOut], summary="Obtener historial de estadísticas de rendimiento del crawler")
 def get_estadisticas(
     limit: int = Query(10, ge=1, le=100),

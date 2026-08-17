@@ -66,7 +66,7 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
         pass
 
 
-def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue):
+def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue = None):
     """
     PROCESO 2 (CONSUMIDOR / ANÁLISIS DE DATOS CPU):
     Recibe tareas de la cola task_queue con PDFs ya descargados en disco.
@@ -84,6 +84,15 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue):
         try:
             task = task_queue.get(timeout=TASK_QUEUE_GET_TIMEOUT)
             if task is None or (isinstance(task, dict) and task.get("type") == "STOP"):
+                if result_queue is not None:
+                    try:
+                        result_queue.put({
+                            "parsed_count": parsed_count,
+                            "updated_degrees_count": updated_degrees_count,
+                            "total_parse_time": total_parse_time
+                        })
+                    except Exception:
+                        pass
                 break
         except Exception:
             # Timeout para permitir chequeo de terminación y evitar bloqueo eterno
@@ -295,6 +304,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
         # OPT-01: Lanzar Pool Multiprocesador de Consumidores (Parser CPU & Escritura en Disco)
         num_parser_workers = _cap_workers(CPU_WORKERS_COUNT)
         task_queue = mp.Queue(maxsize=TASK_QUEUE_MAXSIZE)
+        result_queue = mp.Queue()
         parser_processes = []
         for w_idx in range(num_parser_workers):
             p = mp.Process(target=pdf_parser_consumer, args=(task_queue, result_queue), daemon=True)

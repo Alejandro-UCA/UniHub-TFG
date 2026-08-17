@@ -110,15 +110,15 @@ export default function AdminLogin({ onLoginSuccess }) {
           </div>
 
           {/* Password Input */}
-          <div style={{ marginBottom: '1.75rem' }}>
+          <div style={{ marginBottom: '1.25rem' }}>
             <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '0.4rem' }}>
-              Contraseña
+              Clave de Administrador (API Key)
             </label>
             <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
               <Lock size={18} color="var(--text-light)" style={{ position: 'absolute', left: '12px' }} />
               <input 
                 type="password"
-                placeholder="••••••••"
+                placeholder="Clave de Administrador ('unihub_super_secret_admin_key_2026')"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -133,6 +133,21 @@ export default function AdminLogin({ onLoginSuccess }) {
                   fontSize: '0.95rem'
                 }}
               />
+            </div>
+            <div style={{ marginTop: '0.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                Clave por defecto: <code style={{ color: 'var(--uca-blue)' }}>unihub_super_secret_admin_key_2026</code>
+              </span>
+              <button
+                type="button"
+                onClick={() => {
+                  setUsername('admin');
+                  setPassword('unihub_super_secret_admin_key_2026');
+                }}
+                style={{ background: 'none', border: 'none', color: 'var(--uca-azure)', fontSize: '0.75rem', cursor: 'pointer', textDecoration: 'underline' }}
+              >
+                Autocompletar
+              </button>
             </div>
           </div>
 

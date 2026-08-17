@@ -111,12 +111,27 @@ export default function App() {
     document.documentElement.setAttribute('data-theme', !isDark ? 'dark' : 'light');
   };
 
+  const handleNavClickTab = (tab) => {
+    if (tab === 'titulaciones' && activeTab !== 'titulaciones') {
+      setSelectedUnivCodigo('');
+    }
+    navigateToTab(tab);
+  };
+
   const loadInitialData = async () => {
     setLoading(true);
     try {
-      const univRes = await apiService.getUniversities({ limit: 500 }, { returnWithTotal: true });
-      if (univRes && Array.isArray(univRes.data)) {
-        setUniversities(univRes.data);
+      const [univRes, degRes] = await Promise.allSettled([
+        apiService.getUniversities({ limit: 500 }, { returnWithTotal: true }),
+        apiService.getDegrees({ limit: degreeItemsPerPage, skip: 0 }, { returnWithTotal: true })
+      ]);
+      
+      if (univRes.status === 'fulfilled' && univRes.value?.data) {
+        setUniversities(univRes.value.data);
+      }
+      if (degRes.status === 'fulfilled' && degRes.value?.data) {
+        setDegrees(degRes.value.data);
+        setDegreeTotalItems(degRes.value.totalCount || degRes.value.data.length);
       }
     } catch (e) {
       console.warn('API REST loading fallback active. Showing offline sample dataset.');
@@ -161,10 +176,12 @@ export default function App() {
     }, 300);
 
     return () => { clearTimeout(delayDebounceFn); controller.abort(); };
-  }, [degreeCurrentPage, degreeItemsPerPage, searchQuery, selectedDegreeTipo, selectedCCAA, selectedUnivTipo, selectedUnivCodigo]);
+  }, [initialDataLoaded, degreeCurrentPage, degreeItemsPerPage, searchQuery, selectedDegreeTipo, selectedCCAA, selectedUnivTipo, selectedUnivCodigo]);
 
   const handleHeroSearch = (query) => {
+    setSelectedUnivCodigo('');
     setSearchQuery(query);
+    navigateToTab('titulaciones');
   };
 
   // Generate unique list of CCAA for filter dropdowns
@@ -227,7 +244,7 @@ export default function App() {
           {/* Top Navbar */}
           <Navbar 
             activeTab={activeTab}
-            setActiveTab={navigateToTab}
+            setActiveTab={handleNavClickTab}
             isDark={isDark}
             toggleTheme={toggleTheme}
           />
@@ -238,9 +255,9 @@ export default function App() {
           <>
             <Hero 
               onSearch={handleHeroSearch}
-              setActiveTab={navigateToTab}
+              setActiveTab={handleNavClickTab}
               totalUnivs={universities.length}
-              totalDegrees={degrees.length}
+              totalDegrees={degreeTotalItems}
             />
 
             {/* Featured Universities Section (Top 6 Most Visited) */}
@@ -382,6 +399,39 @@ export default function App() {
                 Filtra por Grado, Máster o Doctorado y selecciona cualquier titulación para abrir su plan de estudios desglosado.
               </p>
             </div>
+
+            {selectedUnivCodigo && (
+              <div style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.75rem',
+                background: 'rgba(0, 132, 200, 0.12)',
+                border: '1px solid var(--uca-blue)',
+                padding: '0.5rem 1rem',
+                borderRadius: '50px',
+                fontSize: '0.88rem',
+                color: 'var(--uca-blue)',
+                marginBottom: '1.5rem'
+              }}>
+                <span>🎓 Filtrando titulaciones de: <strong>{univCodeMap[selectedUnivCodigo]?.nombre || `Universidad ${selectedUnivCodigo}`}</strong></span>
+                <button 
+                  onClick={() => setSelectedUnivCodigo('')}
+                  style={{
+                    background: 'var(--uca-blue)',
+                    color: '#FFFFFF',
+                    border: 'none',
+                    borderRadius: '12px',
+                    padding: '0.2rem 0.6rem',
+                    cursor: 'pointer',
+                    fontSize: '0.78rem',
+                    fontWeight: 700
+                  }}
+                  title="Mostrar titulaciones de todas las universidades"
+                >
+                  ✕ Quitar filtro
+                </button>
+              </div>
+            )}
 
             {/* Filter Bar */}
             <div className="glass-panel" style={{ padding: '1.25rem', marginBottom: '2rem', display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center' }}>
@@ -531,7 +581,7 @@ export default function App() {
       )}
 
       {/* Footer */}
-      <Footer onNavigate={(tab) => navigateToTab(tab)} />
+      <Footer onNavigate={handleNavClickTab} />
     </div>
       </Suspense>
     </ErrorBoundary>

@@ -46,6 +46,11 @@ export default function Footer({ onNavigate }) {
                 Sobre Nosotros (TFG UCA)
               </button>
             </li>
+            <li>
+              <button onClick={() => onNavigate && onNavigate('admin')} style={{ color: 'var(--uca-sun)', cursor: 'pointer', background: 'none', border: 'none', padding: 0, font: 'inherit', fontSize: 'inherit' }} tabIndex={0}>
+                Panel de Administración (CRUD)
+              </button>
+            </li>
           </ul>
         </div>
 

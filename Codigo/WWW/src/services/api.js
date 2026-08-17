@@ -10,12 +10,9 @@ async function fetchAPI(endpoint, options = {}) {
     const adminApiKey = sessionStorage.getItem('adminApiKey');
     const headers = {
       'Content-Type': 'application/json',
+      ...(adminApiKey ? { 'X-API-Key': adminApiKey } : {}),
       ...options.headers,
     };
-    
-    if (adminApiKey) {
-      headers['X-API-Key'] = adminApiKey;
-    }
 
     const response = await fetch(url, {
       ...options,

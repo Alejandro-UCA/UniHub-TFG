@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { GraduationCap, MapPin, BookOpen, Sun, Moon, Info, Calculator, Menu, X } from 'lucide-react';
+import { GraduationCap, MapPin, BookOpen, Sun, Moon, Info, Calculator, Menu, X, ShieldCheck } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab, isDark, toggleTheme }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -107,6 +107,15 @@ export default function Navbar({ activeTab, setActiveTab, isDark, toggleTheme })
           >
             <Info size={16} />
             Sobre Nosotros
+          </button>
+          <button 
+            className={`btn ${activeTab === 'admin' || activeTab === 'admin-login' ? 'btn-primary' : 'btn-outline'}`}
+            style={{ padding: '0.5rem 0.85rem', fontSize: '0.88rem', borderColor: 'rgba(239, 68, 68, 0.4)' }}
+            onClick={() => handleNavClick('admin')}
+            title="Panel de Administración"
+          >
+            <ShieldCheck size={16} style={{ color: 'var(--uca-sun)' }} />
+            Admin
           </button>
         </nav>
       </div>

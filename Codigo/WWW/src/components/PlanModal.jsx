@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { X, FileText, ExternalLink, Award, Layers } from 'lucide-react';
+import { X, FileText, ExternalLink, Award, Layers, AlertTriangle } from 'lucide-react';
 import { apiService } from '../services/api';
 
 export default function PlanModal({ degree, onClose }) {
   const [loading, setLoading] = useState(true);
   const [planData, setPlanData] = useState(null);
   const [error, setError] = useState(null);
+
+  const isExtinct = (degree?.estado || '').toLowerCase().includes('extin') || 
+                    (degree?.estado || '').toLowerCase().includes('suprim') || 
+                    (degree?.estado || '').toLowerCase().includes('no vigente');
 
   // Manejador de la tecla Escape para accesibilidad (A11y)
   useEffect(() => {
@@ -100,6 +104,31 @@ export default function PlanModal({ degree, onClose }) {
 
         {/* Modal Body */}
         <div style={{ padding: '1.75rem' }}>
+          {/* Extinction Alert Banner */}
+          {isExtinct && (
+            <div style={{
+              background: 'rgba(245, 158, 11, 0.12)',
+              border: '1px solid rgba(245, 158, 11, 0.35)',
+              padding: '1rem 1.25rem',
+              borderRadius: 'var(--radius-md)',
+              display: 'flex',
+              alignItems: 'flex-start',
+              gap: '0.85rem',
+              marginBottom: '1.5rem',
+              color: '#B45309'
+            }}>
+              <AlertTriangle size={22} style={{ flexShrink: 0, marginTop: '2px' }} />
+              <div>
+                <div style={{ fontWeight: 800, fontSize: '0.95rem', marginBottom: '0.2rem' }}>
+                  ⚠️ Titulación oficial en proceso de extinción
+                </div>
+                <div style={{ fontSize: '0.85rem', lineHeight: 1.45, color: 'var(--text-main)' }}>
+                  Este plan de estudios no admite nuevos estudiantes de primer ingreso (título suprimido o en fase de sustitución). Se mantiene registrado en el catálogo ministerial oficial exclusivamente a efectos de convocatorias de examen, docencia residual y convalidaciones para alumnos ya matriculados.
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* BOE Document Button */}
           {boeUrl && (
             <div style={{

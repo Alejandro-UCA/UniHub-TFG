@@ -304,6 +304,39 @@ def parse_degree_detail_html(html_content: str) -> dict:
     }
 
 
+def normalize_cuatrimestre(cuat_raw: str) -> str:
+    """
+    Normaliza el cuatrimestre a un formato estándar legible (1C, 2C, Anual)
+    preservando siempre de forma segura el valor original si no coincide exactamente,
+    garantizando que ninguna asignatura quede huérfana o perdida (Solución 3).
+    """
+    if not cuat_raw:
+        return ""
+    c_str = str(cuat_raw).strip().lower()
+    
+    # 1. Anual
+    if any(k in c_str for k in ["anual", "an", "1 y 2", "1 y 2º", "1-2", "curso completo", "anuales"]):
+        return "Anual"
+    
+    # 2. Primer Cuatrimestre / Semestres impares (1, 3, 5, 7)
+    if (
+        c_str in ["1", "1º", "1.º", "1c", "1s", "1er", "primer", "primero", "1.er", "3", "5", "7"]
+        or "1er" in c_str or "1º cuat" in c_str or "1.º cuat" in c_str or "1.º sem" in c_str 
+        or "1er sem" in c_str or "primer cuat" in c_str or "primer sem" in c_str
+    ):
+        return "1C"
+        
+    # 3. Segundo Cuatrimestre / Semestres pares (2, 4, 6, 8)
+    if (
+        c_str in ["2", "2º", "2.º", "2c", "2s", "2do", "2º cuat", "2.º cuat", "2.º sem", "2do sem", "segundo", "segundo cuat", "segundo sem", "4", "6", "8"]
+        or "2º" in c_str or "2do" in c_str or "segundo" in c_str
+    ):
+        return "2C"
+        
+    # Fallback seguro: mantener el texto original limpio
+    return str(cuat_raw).strip()
+
+
 def parse_boe_pdf(pdf_filepath) -> dict:
     """
     Extracts METICULOUS curriculum data (resumen creditos, asignaturas, modulos, materias, 
@@ -550,7 +583,7 @@ def parse_boe_pdf(pdf_filepath) -> dict:
                                 "tipo": caracter,
                                 "caracter": caracter,
                                 "curso": clean_curso,
-                                "cuatrimestre": cuatrimestre
+                                "cuatrimestre": normalize_cuatrimestre(cuatrimestre)
                             })
     except Exception as e:
         print(f"   [AVISO] pdfplumber table extraction fallback: {e}")

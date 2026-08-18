@@ -351,6 +351,36 @@ def unreverse_text(text: str) -> str:
     return t
 
 
+def sanitize_subject_name(raw_name: str) -> str:
+    """
+    Limpia y normaliza el nombre de una asignatura:
+    1. Elimina texto invertido proveniente de matrices tipográficas.
+    2. Elimina puntos guía de índice y rellenos tipográficos ('......').
+    3. Separa códigos numéricos de secretaría de cabecera ('40147 - CÁLCULO I' -> 'CÁLCULO I').
+    4. Elimina espacios múltiples o caracteres invisibles (\u00a0, \u200b).
+    5. Elimina puntuación innecesaria al final (.,;:-).
+    """
+    if not raw_name:
+        return ""
+    name = unreverse_text(raw_name.strip())
+    
+    # Eliminar caracteres invisibles y colapsar espacios múltiples
+    name = re.sub(r"[\u00a0\u200b\t]+", " ", name)
+    name = re.sub(r"\s+", " ", name).strip()
+    
+    # Eliminar puntos guía de índice al final o en el cuerpo ('......')
+    name = re.sub(r"\s*\.{2,}\s*", " ", name).strip()
+    
+    # Separar códigos numéricos de secretaría iniciales (ej: '40147 - CÁLCULO I' -> 'CÁLCULO I')
+    m_code = re.match(r"^(\d{4,6}|[A-Z]\d{3,4})\s*[-–—]\s*(.+)$", name)
+    if m_code:
+        name = m_code.group(2).strip()
+        
+    # Eliminar puntuación sobrante de cierre de párrafo
+    name = name.rstrip(".,;:- ")
+    return name
+
+
 def parse_boe_pdf(pdf_filepath) -> dict:
     """
     Extracts METICULOUS curriculum data (resumen creditos, asignaturas, modulos, materias, 
@@ -480,9 +510,9 @@ def parse_boe_pdf(pdf_filepath) -> dict:
                                 caracter = "FB"
                             elif "optativa" in c_cell or "op" in c_cell:
                                 caracter = "OP"
-                            elif "práctica" in c_cell or "pe" in c_cell:
+                            elif "práctica" in c_cell or "practica" in c_cell or "pe" in c_cell or "externa" in c_cell:
                                 caracter = "PE"
-                            elif "tfg" in c_cell or "tfm" in c_cell or "trabajo fin" in c_cell:
+                            elif any(k in c_cell for k in ["tfg", "tfm", "trabajo fin", "trabajo de fin", "trabajo final", "proyecto fin", "proyecto de fin"]):
                                 caracter = "TFG/TFM"
 
                         if curso_col_idx != -1 and curso_col_idx < len(clean_row):
@@ -508,9 +538,9 @@ def parse_boe_pdf(pdf_filepath) -> dict:
                                     caracter = "FB"
                                 elif "optativa" in cell_lower or "op" in cell_lower:
                                     caracter = "OP"
-                                elif "práctica" in cell_lower or "pe" in cell_lower:
+                                elif "práctica" in cell_lower or "practica" in cell_lower or "pe" in cell_lower or "externa" in cell_lower:
                                     caracter = "PE"
-                                elif "tfg" in cell_lower or "tfm" in cell_lower or "trabajo fin" in cell_lower:
+                                elif any(k in cell_lower for k in ["tfg", "tfm", "trabajo fin", "trabajo de fin", "trabajo final", "proyecto fin", "proyecto de fin"]):
                                     caracter = "TFG/TFM"
 
                             if not curso and RE_CURSO_NUM.search(cell):
@@ -535,7 +565,7 @@ def parse_boe_pdf(pdf_filepath) -> dict:
                         if len(clean_row) > 1 and final_subject_name.lower() == current_materia.lower():
                             final_subject_name = clean_row[1]
 
-                        final_subject_name = unreverse_text(final_subject_name.strip())
+                        final_subject_name = sanitize_subject_name(final_subject_name)
                         # Strict validation of subject name
                         if (
                             final_subject_name 
@@ -545,6 +575,7 @@ def parse_boe_pdf(pdf_filepath) -> dict:
                             and not bool(re.search(r"^(grado|graduado|graduada|máster|master)\s+.*?\s+por\s+la\s+universi", final_subject_name, re.IGNORECASE))
                             and not bool(re.search(r"^(el rector|la rectora|el secretario general|la secretaria general|por delegaci[oó]n|el decano|la decana|el director|la directora|ante m[ií]|doy fe|firmado|visto bueno|v\.º\s*b\.º)\b", final_subject_name, re.IGNORECASE))
                             and not final_subject_name.strip().lower() in ["asignatura", "carácter", "caracter", "créditos", "creditos", "curso", "materia", "módulo", "modulo", "ects", "tipo", "total", "grau", "màster", "master", "mencion", "mención"]
+                            and not bool(re.search(r"([A-ZÁÉÍÓÚÑ])\1{2,}", final_subject_name))
                             and bool(re.search(r"[a-zA-ZáéíóúñÁÉÍÓÚÑ]{3,}", final_subject_name))
                             and len(final_subject_name) <= 150
                         ):

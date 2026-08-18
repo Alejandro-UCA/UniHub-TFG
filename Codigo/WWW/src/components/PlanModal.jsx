@@ -296,7 +296,17 @@ export default function PlanModal({ degree, onClose }) {
                       <tbody>
                         {elementos.map((elem, idx) => (
                           <tr key={idx} style={{ borderBottom: '1px solid var(--border-light)', background: idx % 2 === 0 ? 'transparent' : 'rgba(0, 132, 200, 0.03)' }}>
-                            <td style={{ padding: '0.65rem 1rem', fontSize: '0.82rem', color: 'var(--text-muted)' }}>{elem.materia || elem.modulo || '-'}</td>
+                            <td style={{ padding: '0.65rem 1rem', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+                              {elem.materia || elem.modulo ? (
+                                /menci|itinerari|especialid/i.test(elem.materia || elem.modulo) ? (
+                                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', color: 'var(--uca-blue)', fontWeight: 600 }}>
+                                    🏷️ {elem.materia || elem.modulo}
+                                  </span>
+                                ) : (
+                                  elem.materia || elem.modulo
+                                )
+                              ) : '-'}
+                            </td>
                             <td style={{ padding: '0.65rem 1rem', fontWeight: 600 }}>{elem.nombre_elemento}</td>
                             <td style={{ padding: '0.65rem 1rem', fontWeight: 700, color: 'var(--uca-blue)' }}>{elem.creditos_ects || '-'}</td>
                             <td style={{ padding: '0.65rem 1rem' }}>

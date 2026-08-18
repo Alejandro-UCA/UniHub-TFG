@@ -18,6 +18,7 @@ def list_titulaciones(
     universidad_codigo: Optional[str] = Query(None, description="Filtrar por código de universidad"),
     ccaa: Optional[str] = Query(None, description="Filtrar por CCAA de la universidad"),
     tipo_universidad: Optional[str] = Query(None, description="Filtrar por tipo de universidad (pública/privada)"),
+    rama: Optional[str] = Query(None, description="Filtrar por rama de conocimiento (salud, ingenieria, sociales, humanidades, ciencias)"),
     con_plan: Optional[bool] = Query(None, description="Filtrar solo titulaciones con plan de estudios y asignaturas disponibles"),
     skip: int = Query(0, ge=0),
     limit: int = Query(100, ge=1, le=500),
@@ -37,6 +38,18 @@ def list_titulaciones(
         query = query.filter(Universidad.comunidad_autonoma.ilike(f"%{ccaa}%"))
     if tipo_universidad:
         query = query.filter(Universidad.tipo.ilike(f"%{tipo_universidad}%"))
+    if rama and rama.lower() != "todas":
+        r_low = rama.lower().strip()
+        if "salud" in r_low:
+            query = query.filter(Titulacion.titulo.op("~*")(r"(médic|medic|salud|enferm|psicol|farmac|fisioter|odontol|veterin|nutric|bioméd|podol|terapia)"))
+        elif "ingenier" in r_low or "arquitect" in r_low or "tecnolog" in r_low:
+            query = query.filter(Titulacion.titulo.op("~*")(r"(ingenier|informát|computac|telecomunic|arquitect|industrial|software|aeronáut|robótic|electr)"))
+        elif "social" in r_low or "jurid" in r_low or "derecho" in r_low:
+            query = query.filter(Titulacion.titulo.op("~*")(r"(derecho|administrac|empresa|econom|marketing|educac|magisterio|pedagog|comunicac|periodis|criminol|turismo)"))
+        elif "arte" in r_low or "humanid" in r_low:
+            query = query.filter(Titulacion.titulo.op("~*")(r"(historia|filolog|filosof|lengua|arte|música|traducc|humanid|literat|arqueol)"))
+        elif "ciencia" in r_low or "experimental" in r_low:
+            query = query.filter(Titulacion.titulo.op("~*")(r"(físic|químic|matemát|biolog|geolog|biotecnol|ciencias del mar|estadíst|bioquím)"))
         
     query = query.order_by(
         case((Universidad.tipo.ilike("%públic%"), 0), (Universidad.tipo.ilike("%public%"), 0), else_=1),

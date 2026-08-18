@@ -82,9 +82,9 @@ export default function App() {
   const [selectedUnivTipo, setSelectedUnivTipo] = useState('todos');
   const [selectedDegreeTipo, setSelectedDegreeTipo] = useState('todos');
   const [selectedCCAA, setSelectedCCAA] = useState('todas');
+  const [selectedRama, setSelectedRama] = useState('todas');
   const [selectedUnivCodigo, setSelectedUnivCodigo] = useState('');
 
-  // Estados de paginación
   // Estados de paginación y totales
   const [univCurrentPage, setUnivCurrentPage] = useState(1);
   const [univItemsPerPage, setUnivItemsPerPage] = useState(20);
@@ -103,7 +103,7 @@ export default function App() {
   useEffect(() => {
     setUnivCurrentPage(1);
     setDegreeCurrentPage(1);
-  }, [searchQuery, selectedUnivTipo, selectedDegreeTipo, selectedCCAA, selectedUnivCodigo]);
+  }, [searchQuery, selectedUnivTipo, selectedDegreeTipo, selectedCCAA, selectedRama, selectedUnivCodigo]);
 
   // Alternador de tema visual (Modo Claro / Oscuro)
   const toggleTheme = () => {
@@ -152,6 +152,7 @@ export default function App() {
         nivel_academico: selectedDegreeTipo,
         ccaa: selectedCCAA,
         tipo_universidad: selectedUnivTipo,
+        rama: selectedRama,
         universidad_codigo: selectedUnivCodigo
       }, { returnWithTotal: true, signal });
       
@@ -176,7 +177,7 @@ export default function App() {
     }, 300);
 
     return () => { clearTimeout(delayDebounceFn); controller.abort(); };
-  }, [initialDataLoaded, degreeCurrentPage, degreeItemsPerPage, searchQuery, selectedDegreeTipo, selectedCCAA, selectedUnivTipo, selectedUnivCodigo]);
+  }, [initialDataLoaded, degreeCurrentPage, degreeItemsPerPage, searchQuery, selectedDegreeTipo, selectedCCAA, selectedUnivTipo, selectedRama, selectedUnivCodigo]);
 
   const handleHeroSearch = (query) => {
     setSelectedUnivCodigo('');
@@ -510,6 +511,27 @@ export default function App() {
                   {uniqueCCAAs.map(ccaa => (
                     <option key={ccaa} value={ccaa}>{ccaa}</option>
                   ))}
+                </select>
+
+                <select 
+                  aria-label="Filtrar por Rama de Conocimiento"
+                  value={selectedRama}
+                  onChange={(e) => setSelectedRama(e.target.value)}
+                  style={{
+                    padding: '0.65rem 1rem',
+                    borderRadius: 'var(--radius-sm)',
+                    border: '1px solid var(--border-light)',
+                    background: 'var(--bg-card)',
+                    color: 'var(--text-main)',
+                    outline: 'none'
+                  }}
+                >
+                  <option value="todas">Todas las Ramas</option>
+                  <option value="sociales">Ciencias Sociales y Jurídicas</option>
+                  <option value="ingenieria">Ingeniería y Arquitectura</option>
+                  <option value="salud">Ciencias de la Salud</option>
+                  <option value="artes">Artes y Humanidades</option>
+                  <option value="ciencias">Ciencias Experimentales</option>
                 </select>
               </div>
             </div>

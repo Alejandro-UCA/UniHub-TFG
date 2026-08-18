@@ -108,6 +108,7 @@ export const apiService = {
     if (params.universidad_codigo) query.append('universidad_codigo', params.universidad_codigo);
     if (params.ccaa && params.ccaa !== 'todas') query.append('ccaa', params.ccaa);
     if (params.tipo_universidad && params.tipo_universidad !== 'todos') query.append('tipo_universidad', params.tipo_universidad);
+    if (params.rama && params.rama !== 'todas') query.append('rama', params.rama);
     if (params.con_plan !== undefined && params.con_plan !== null) query.append('con_plan', params.con_plan);
     if (params.skip !== undefined) query.append('skip', params.skip);
     if (params.limit !== undefined) query.append('limit', params.limit);

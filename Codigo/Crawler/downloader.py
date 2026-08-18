@@ -24,10 +24,10 @@ from config import (
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def normalize_url(url: str, domain_mappings: dict = None) -> str:
-    """Normalizes legacy domains and cleans malformed protocol prefixes."""
+    """Normalizes legacy domains, cleans malformed protocol prefixes, and upgrades HTTP to HTTPS for secure official portals."""
     if not url:
         return ""
-    url = url.strip()
+    url = url.strip().strip("'\"` ")
     while url.startswith("http://https://") or url.startswith("https://http://") or url.startswith("http://http://") or url.startswith("https://https://"):
         if url.startswith("http://https://"):
             url = "https://" + url[15:]
@@ -44,6 +44,14 @@ def normalize_url(url: str, domain_mappings: dict = None) -> str:
     for old_domain, new_domain in domain_mappings.items():
         if old_domain in url:
             url = url.replace(old_domain, new_domain)
+
+    # Auto-upgrade to HTTPS for regional official bulletins that reject unencrypted HTTP
+    if url.startswith("http://"):
+        for secure_domain in ["dogc.gencat.cat", "boe.es", "educacion.gob.es", "bocm.madrid.org", "bocyl.jcyl.es", "dogv.gva.es", "boa.aragon.es", "doe.juntaex.es"]:
+            if secure_domain in url:
+                url = "https://" + url[7:]
+                break
+
     return url
 
 class SkipUniversityException(Exception):

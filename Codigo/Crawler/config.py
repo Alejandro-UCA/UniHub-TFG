@@ -64,9 +64,15 @@ DOMAIN_MAPPINGS = {
     "www.boa.aragon.es": "boa.aragon.es",
     "bocm.es": "bocm.madrid.org",
     "www.bocm.es": "bocm.madrid.org",
+    "wwww.bocm.es": "bocm.madrid.org",
     "bocyl.jcyl.es": "bocyl.jcyl.es",
     "www.bocyl.jcyl.es": "bocyl.jcyl.es",
-    "www.dogv.gva.es": "dogv.gva.es"
+    "www.dogv.gva.es": "dogv.gva.es",
+    "doe.gobex.es": "doe.juntaex.es",
+    "ww.boe.es": "www.boe.es",
+    "vwww.boe.es": "www.boe.es",
+    "pww.boe.es": "www.boe.es",
+    "'www.boe.es": "www.boe.es"
 }
 
 # ==============================================================================

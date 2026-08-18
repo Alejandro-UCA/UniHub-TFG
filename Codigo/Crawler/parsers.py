@@ -528,7 +528,8 @@ def parse_boe_pdf(pdf_filepath) -> dict:
                             and len(final_subject_name) > 3 
                             and not RE_LEGAL_NOISE.search(final_subject_name)
                             and not bool(re.search(r"^(anexo|plan de estudios|bolet[ií]n oficial|ministerio|universidad|cve:|http|p[aá]gina|total\s+cr[eé]ditos|resumen|estructura general|distribuci[oó]n|observaciones)\b", final_subject_name, re.IGNORECASE))
-                            and not final_subject_name.lower() in ["asignatura", "carácter", "caracter", "créditos", "creditos", "curso", "materia", "módulo", "modulo", "ects", "tipo", "total"]
+                            and not bool(re.search(r"^(grado|graduado|graduada|máster|master)\s+.*?\s+por\s+la\s+universi", final_subject_name, re.IGNORECASE))
+                            and not final_subject_name.strip().lower() in ["asignatura", "carácter", "caracter", "créditos", "creditos", "curso", "materia", "módulo", "modulo", "ects", "tipo", "total", "grau", "màster", "master", "mencion", "mención"]
                             and bool(re.search(r"[a-zA-ZáéíóúñÁÉÍÓÚÑ]{3,}", final_subject_name))
                             and len(final_subject_name) <= 150
                         ):

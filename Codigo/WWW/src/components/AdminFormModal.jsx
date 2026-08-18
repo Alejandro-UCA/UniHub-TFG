@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Save, AlertCircle, Building, BookOpen } from 'lucide-react';
+import { X, Save, AlertCircle, Building, BookOpen, Layers } from 'lucide-react';
 
 export default function AdminFormModal({ isOpen, mode, type, initialData, onClose, onSubmit }) {
   const [formData, setFormData] = useState({});
@@ -30,7 +30,7 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
           telefono: '',
           gestionado_por_admin: false
         });
-      } else {
+      } else if (type === 'titulacion') {
         setFormData({
           codigo_estudio: '',
           titulo: '',
@@ -42,6 +42,16 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
           precio_credito_3: '',
           precio_credito_4: '',
           gestionado_por_admin: false
+        });
+      } else if (type === 'asignatura') {
+        setFormData({
+          nombre_elemento: '',
+          creditos_ects: '6',
+          caracter: 'OB',
+          curso: '1',
+          cuatrimestre: '1C',
+          modulo: '',
+          materia: ''
         });
       }
     }
@@ -66,15 +76,25 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
       setError('El código de estudio, título y código de universidad son obligatorios.');
       return;
     }
+    if (type === 'asignatura' && (!formData.nombre_elemento || !formData.nombre_elemento.trim())) {
+      setError('El nombre de la asignatura es obligatorio.');
+      return;
+    }
 
     onSubmit(formData);
   };
 
   const isEdit = mode === 'edit';
 
+  const getTypeLabel = () => {
+    if (type === 'universidad') return 'Universidad';
+    if (type === 'titulacion') return 'Titulación';
+    return 'Asignatura';
+  };
+
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" style={{ maxWidth: '580px' }} onClick={(e) => e.stopPropagation()}>
+      <div className="modal-content" style={{ maxWidth: '600px' }} onClick={(e) => e.stopPropagation()}>
         {/* Header */}
         <div style={{
           background: 'linear-gradient(135deg, var(--uca-navy) 0%, var(--uca-blue) 100%)',
@@ -87,9 +107,15 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
           borderTopRightRadius: 'var(--radius-lg)'
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-            {type === 'universidad' ? <Building size={22} color="var(--uca-sun)" /> : <BookOpen size={22} color="var(--uca-azure)" />}
+            {type === 'universidad' ? (
+              <Building size={22} color="var(--uca-sun)" />
+            ) : type === 'titulacion' ? (
+              <BookOpen size={22} color="var(--uca-azure)" />
+            ) : (
+              <Layers size={22} color="var(--uca-gold)" />
+            )}
             <h3 style={{ fontSize: '1.15rem', fontWeight: 700 }}>
-              {isEdit ? `Editar ${type === 'universidad' ? 'Universidad' : 'Titulación'}` : `Añadir Nueva ${type === 'universidad' ? 'Universidad' : 'Titulación'}`}
+              {isEdit ? `Editar ${getTypeLabel()}` : `Añadir Nueva ${getTypeLabel()}`}
             </h3>
           </div>
           <button onClick={onClose} style={{ background: 'transparent', border: 'none', color: '#FFFFFF', cursor: 'pointer' }}>
@@ -117,7 +143,7 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
             </div>
           )}
 
-          {type === 'universidad' ? (
+          {type === 'universidad' && (
             <>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '1rem', marginBottom: '1rem' }}>
                 <div>
@@ -237,7 +263,9 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
                 </label>
               </div>
             </>
-          ) : (
+          )}
+
+          {type === 'titulacion' && (
             <>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '1rem', marginBottom: '1rem' }}>
                 <div>
@@ -249,60 +277,62 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
                     onChange={handleChange}
                     disabled={isEdit}
                     required
-                    placeholder="2504059"
+                    placeholder="2500123"
                     style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)', background: isEdit ? 'var(--bg-main)' : 'var(--bg-card)' }}
                   />
                 </div>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: '0.3rem' }}>Código Universidad *</label>
+                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: '0.3rem' }}>Título Oficial *</label>
+                  <input
+                    type="text"
+                    name="titulo"
+                    value={formData.titulo || ''}
+                    onChange={handleChange}
+                    required
+                    placeholder="Grado en Ingeniería Informática"
+                    style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
+                  />
+                </div>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: '0.3rem' }}>Nivel Académico</label>
+                  <select
+                    name="nivel_academico"
+                    value={formData.nivel_academico || 'Grado - RD 822/2021 (2)'}
+                    onChange={handleChange}
+                    style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
+                  >
+                    <option value="Grado - RD 822/2021 (2)">Grado - RD 822/2021</option>
+                    <option value="Máster Universitario - RD 822/2021 (2)">Máster Universitario - RD 822/2021</option>
+                    <option value="Doctorado - RD 99/2011">Doctorado - RD 99/2011</option>
+                  </select>
+                </div>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: '0.3rem' }}>Cód. Universidad *</label>
                   <input
                     type="text"
                     name="universidad_codigo"
                     value={formData.universidad_codigo || ''}
                     onChange={handleChange}
                     required
-                    placeholder="089"
+                    placeholder="005"
                     style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
                   />
                 </div>
               </div>
 
               <div style={{ marginBottom: '1rem' }}>
-                <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: '0.3rem' }}>Título Oficial *</label>
+                <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: '0.3rem' }}>Estado</label>
                 <input
                   type="text"
-                  name="titulo"
-                  value={formData.titulo || ''}
+                  name="estado"
+                  value={formData.estado || 'Publicado en B.O.E.'}
                   onChange={handleChange}
-                  required
-                  placeholder="Graduado o Graduada en Ciencia de Datos"
+                  placeholder="Publicado en B.O.E."
                   style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
                 />
-              </div>
-
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.5rem' }}>
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: '0.3rem' }}>Nivel Académico / Plan</label>
-                  <input
-                    type="text"
-                    name="nivel_academico"
-                    value={formData.nivel_academico || ''}
-                    onChange={handleChange}
-                    placeholder="Grado - RD 822/2021 (2)"
-                    style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
-                  />
-                </div>
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: '0.3rem' }}>Estado</label>
-                  <input
-                    type="text"
-                    name="estado"
-                    value={formData.estado || 'Publicado en B.O.E.'}
-                    onChange={handleChange}
-                    placeholder="Publicado en B.O.E."
-                    style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
-                  />
-                </div>
               </div>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
@@ -371,6 +401,108 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
                 <label htmlFor="gestionado_por_admin_tit" style={{ fontSize: '0.88rem', fontWeight: 600, cursor: 'pointer' }}>
                   Proteger Titulación (No sobrescribir por ETL Automático)
                 </label>
+              </div>
+            </>
+          )}
+
+          {type === 'asignatura' && (
+            <>
+              <div style={{ marginBottom: '1rem' }}>
+                <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: '0.3rem' }}>Nombre de la Asignatura *</label>
+                <input
+                  type="text"
+                  name="nombre_elemento"
+                  value={formData.nombre_elemento || ''}
+                  onChange={handleChange}
+                  required
+                  placeholder="Ej. Cálculo Diferencial e Integral"
+                  style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
+                />
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: '0.3rem' }}>Créditos ECTS</label>
+                  <input
+                    type="text"
+                    name="creditos_ects"
+                    value={formData.creditos_ects || '6'}
+                    onChange={handleChange}
+                    placeholder="6"
+                    style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
+                  />
+                </div>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: '0.3rem' }}>Carácter</label>
+                  <select
+                    name="caracter"
+                    value={formData.caracter || 'OB'}
+                    onChange={handleChange}
+                    style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
+                  >
+                    <option value="FB">Formación Básica (FB)</option>
+                    <option value="OB">Obligatoria (OB)</option>
+                    <option value="OP">Optativa (OP)</option>
+                    <option value="PE">Prácticas Externas (PE)</option>
+                    <option value="TFG">Trabajo Fin Grado (TFG)</option>
+                    <option value="TFM">Trabajo Fin Máster (TFM)</option>
+                  </select>
+                </div>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: '0.3rem' }}>Curso</label>
+                  <select
+                    name="curso"
+                    value={formData.curso || '1'}
+                    onChange={handleChange}
+                    style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
+                  >
+                    <option value="1">1º Curso</option>
+                    <option value="2">2º Curso</option>
+                    <option value="3">3º Curso</option>
+                    <option value="4">4º Curso</option>
+                    <option value="5">5º Curso</option>
+                    <option value="6">6º Curso</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: '0.3rem' }}>Cuatrimestre</label>
+                  <select
+                    name="cuatrimestre"
+                    value={formData.cuatrimestre || '1C'}
+                    onChange={handleChange}
+                    style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
+                  >
+                    <option value="1C">Primer Cuatrimestre (1C)</option>
+                    <option value="2C">Segundo Cuatrimestre (2C)</option>
+                    <option value="Anual">Anual</option>
+                  </select>
+                </div>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: '0.3rem' }}>Materia</label>
+                  <input
+                    type="text"
+                    name="materia"
+                    value={formData.materia || ''}
+                    onChange={handleChange}
+                    placeholder="Ej. Matemáticas"
+                    style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
+                  />
+                </div>
+              </div>
+
+              <div style={{ marginBottom: '1.5rem' }}>
+                <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: '0.3rem' }}>Módulo o Mención Curricular</label>
+                <input
+                  type="text"
+                  name="modulo"
+                  value={formData.modulo || ''}
+                  onChange={handleChange}
+                  placeholder="Ej. Mención en Inteligencia Artificial"
+                  style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
+                />
               </div>
             </>
           )}

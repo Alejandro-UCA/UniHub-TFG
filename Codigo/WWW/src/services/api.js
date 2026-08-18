@@ -146,6 +146,31 @@ export const apiService = {
     });
   },
 
+  // Subjects CRUD (Admin)
+  async getDegreeSubjects(codigoEstudio) {
+    return fetchAPI(`/titulaciones/${codigoEstudio}/asignaturas`);
+  },
+
+  async createDegreeSubject(codigoEstudio, data) {
+    return fetchAPI(`/titulaciones/${codigoEstudio}/asignaturas`, {
+      method: 'POST',
+      body: JSON.stringify(data)
+    });
+  },
+
+  async updateDegreeSubject(asignaturaId, data) {
+    return fetchAPI(`/titulaciones/asignaturas/${asignaturaId}`, {
+      method: 'PUT',
+      body: JSON.stringify(data)
+    });
+  },
+
+  async deleteDegreeSubject(asignaturaId) {
+    return fetchAPI(`/titulaciones/asignaturas/${asignaturaId}`, {
+      method: 'DELETE'
+    });
+  },
+
   // Crawler Stats, Physical Container Stats & Error Logs
   async getCrawlerStats() {
     return fetchAPI('/estadisticas');

@@ -60,61 +60,56 @@ export default function Navbar({ activeTab, setActiveTab, isDark, toggleTheme })
         </div>
 
         {/* Navigation Tabs */}
-        <nav className={`nav-links ${isMenuOpen ? 'open' : ''}`} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+        <nav className={`nav-links ${isMenuOpen ? 'open' : ''}`} style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
           <button 
-            className={`btn ${activeTab === 'inicio' ? 'btn-primary' : 'btn-outline'}`}
-            style={{ padding: '0.5rem 1rem', fontSize: '0.88rem' }}
+            className={`btn nav-tab-btn ${activeTab === 'inicio' ? 'btn-primary' : 'btn-outline'}`}
             onClick={() => handleNavClick('inicio')}
           >
             Inicio
           </button>
           <button 
-            className={`btn ${activeTab === 'universidades' ? 'btn-primary' : 'btn-outline'}`}
-            style={{ padding: '0.5rem 1rem', fontSize: '0.88rem' }}
+            className={`btn nav-tab-btn ${activeTab === 'universidades' ? 'btn-primary' : 'btn-outline'}`}
             onClick={() => handleNavClick('universidades')}
           >
             <GraduationCap size={16} />
             Universidades
           </button>
           <button 
-            className={`btn ${activeTab === 'titulaciones' ? 'btn-primary' : 'btn-outline'}`}
-            style={{ padding: '0.5rem 1rem', fontSize: '0.88rem' }}
+            className={`btn nav-tab-btn ${activeTab === 'titulaciones' ? 'btn-primary' : 'btn-outline'}`}
             onClick={() => handleNavClick('titulaciones')}
           >
             <BookOpen size={16} />
             Titulaciones
           </button>
           <button 
-            className={`btn ${activeTab === 'cercania' ? 'btn-gold' : 'btn-outline'}`}
-            style={{ padding: '0.5rem 1rem', fontSize: '0.88rem' }}
+            className={`btn nav-tab-btn ${activeTab === 'cercania' ? 'btn-gold' : 'btn-outline'}`}
             onClick={() => handleNavClick('cercania')}
           >
             <MapPin size={16} />
             Por Cercanía
           </button>
           <button 
-            className={`btn ${activeTab === 'calculadora' ? 'btn-primary' : 'btn-outline'}`}
-            style={{ padding: '0.5rem 1rem', fontSize: '0.88rem', borderColor: 'rgba(16, 185, 129, 0.4)' }}
+            className={`btn nav-tab-btn ${activeTab === 'calculadora' ? 'btn-primary' : 'btn-outline'}`}
+            style={activeTab !== 'calculadora' ? { borderColor: 'rgba(16, 185, 129, 0.4)' } : {}}
             onClick={() => handleNavClick('calculadora')}
           >
-            <Calculator size={16} style={{ color: '#10B981' }} />
+            <Calculator size={16} style={{ color: activeTab === 'calculadora' ? '#FFFFFF' : '#10B981' }} />
             Calcula tu Matrícula
           </button>
           <button 
-            className={`btn ${activeTab === 'sobre-nosotros' ? 'btn-primary' : 'btn-outline'}`}
-            style={{ padding: '0.5rem 1rem', fontSize: '0.88rem' }}
+            className={`btn nav-tab-btn ${activeTab === 'sobre-nosotros' ? 'btn-primary' : 'btn-outline'}`}
             onClick={() => handleNavClick('sobre-nosotros')}
           >
             <Info size={16} />
             Sobre Nosotros
           </button>
           <button 
-            className={`btn ${activeTab === 'admin' || activeTab === 'admin-login' ? 'btn-primary' : 'btn-outline'}`}
-            style={{ padding: '0.5rem 0.85rem', fontSize: '0.88rem', borderColor: 'rgba(239, 68, 68, 0.4)' }}
+            className={`btn nav-tab-btn ${activeTab === 'admin' || activeTab === 'admin-login' ? 'btn-primary' : 'btn-outline'}`}
+            style={activeTab !== 'admin' && activeTab !== 'admin-login' ? { borderColor: 'rgba(239, 68, 68, 0.4)' } : {}}
             onClick={() => handleNavClick('admin')}
             title="Panel de Administración"
           >
-            <ShieldCheck size={16} style={{ color: 'var(--uca-sun)' }} />
+            <ShieldCheck size={16} style={{ color: activeTab === 'admin' || activeTab === 'admin-login' ? '#FFFFFF' : 'var(--uca-sun)' }} />
             Admin
           </button>
         </nav>

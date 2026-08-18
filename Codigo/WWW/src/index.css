@@ -152,6 +152,20 @@ html {
   text-decoration: none;
 }
 
+.nav-tab-btn {
+  height: 38px;
+  min-height: 38px;
+  padding: 0 0.95rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  white-space: nowrap;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
 .btn-primary {
   background: linear-gradient(135deg, var(--uca-blue) 0%, var(--uca-cyan) 100%);
   color: #FFFFFF;

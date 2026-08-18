@@ -130,5 +130,43 @@ class TestPhase3FrontendExhaustive(unittest.TestCase):
         self.assertIn("--uca-cyan:", content)
         self.assertIn("scrollbar-width: thin;", content, "Falta scrollbar estándar para Firefox")
 
+    def test_09_pagination_scroll_to_top(self):
+        """Verifica que la paginación efectúe scroll automático suave al inicio."""
+        pag_path = os.path.join(self.COMPONENTS_DIR, "Pagination.jsx")
+        with open(pag_path, "r", encoding="utf-8") as f:
+            content = f.read()
+
+        self.assertIn("window.scrollTo({ top: 0, behavior: 'smooth' })", content, "Falta scroll to top en Pagination.jsx")
+
+    def test_10_admin_login_privacy_and_secrecy(self):
+        """Verifica que no existan credenciales por defecto, pistas ni autocompletar en el login de admin."""
+        login_path = os.path.join(self.COMPONENTS_DIR, "AdminLogin.jsx")
+        with open(login_path, "r", encoding="utf-8") as f:
+            content = f.read()
+
+        self.assertNotIn("Autocompletar", content, "No debe existir botón de autocompletar en Login")
+        self.assertNotIn("unihub_super_secret_admin_key_2026", content, "La clave no debe estar expuesta en el componente de login")
+        self.assertNotIn("Clave por defecto", content, "No debe haber pistas de credenciales en el texto")
+
+    def test_11_subjects_crud_and_full_catalog_pagination(self):
+        """Verifica la gestión de asignaturas y la integración de paginación total en el Admin Dashboard."""
+        admin_path = os.path.join(self.COMPONENTS_DIR, "AdminDashboard.jsx")
+        with open(admin_path, "r", encoding="utf-8") as f:
+            content = f.read()
+
+        self.assertIn("handleOpenSubjectsManager", content, "Falta gestor de asignaturas en AdminDashboard")
+        self.assertIn("selectedDegreeForSubjects", content, "Falta estado para modal de asignaturas")
+        self.assertIn("<Pagination", content, "El panel CRUD debe integrar el componente de paginación completa")
+
+    def test_12_footer_official_sources_legal_disclaimer(self):
+        """Verifica que el pie de página incluya el aviso legal sobre fuentes oficiales y elimine enlaces no procedentes."""
+        footer_path = os.path.join(self.COMPONENTS_DIR, "Footer.jsx")
+        with open(footer_path, "r", encoding="utf-8") as f:
+            content = f.read()
+
+        self.assertIn("Registro de Universidades, Centros y Títulos", content, "Falta mención al RUCT")
+        self.assertIn("Boletín Oficial del Estado", content, "Falta mención al BOE")
+        self.assertNotIn("Creado con amor", content, "Debe eliminarse el texto de 'Creado con amor'")
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

@@ -8,6 +8,19 @@ export default function Pagination({ currentPage, totalItems, itemsPerPage, onPa
 
   const pageSizeOptions = [5, 10, 20, 50, 100];
 
+  const handlePageChange = (newPage) => {
+    if (newPage >= 1 && newPage <= totalPages && newPage !== currentPage) {
+      onPageChange(newPage);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const handlePageSizeChange = (newSize) => {
+    onItemsPerPageChange(Number(newSize));
+    onPageChange(1);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="glass-panel" style={{
       display: 'flex',
@@ -29,10 +42,7 @@ export default function Pagination({ currentPage, totalItems, itemsPerPage, onPa
         <select 
           aria-label="Elementos por página"
           value={itemsPerPage} 
-          onChange={(e) => {
-            onItemsPerPageChange(Number(e.target.value));
-            onPageChange(1);
-          }}
+          onChange={(e) => handlePageSizeChange(e.target.value)}
           className="form-control"
           style={{ padding: '0.35rem 0.6rem', fontSize: '0.88rem', borderRadius: '8px', width: 'auto' }}
         >
@@ -48,7 +58,7 @@ export default function Pagination({ currentPage, totalItems, itemsPerPage, onPa
           className="btn btn-outline"
           style={{ padding: '0.4rem 0.65rem', borderRadius: '8px', fontSize: '0.85rem' }}
           disabled={currentPage === 1}
-          onClick={() => onPageChange(currentPage - 1)}
+          onClick={() => handlePageChange(currentPage - 1)}
         >
           <ChevronLeft size={16} /> Anterior
         </button>
@@ -61,7 +71,7 @@ export default function Pagination({ currentPage, totalItems, itemsPerPage, onPa
           className="btn btn-outline"
           style={{ padding: '0.4rem 0.65rem', borderRadius: '8px', fontSize: '0.85rem' }}
           disabled={currentPage >= totalPages}
-          onClick={() => onPageChange(currentPage + 1)}
+          onClick={() => handlePageChange(currentPage + 1)}
         >
           Siguiente <ChevronRight size={16} />
         </button>

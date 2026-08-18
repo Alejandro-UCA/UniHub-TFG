@@ -298,16 +298,24 @@ export default function TuitionCalculator() {
     <div style={{ padding: '2rem 0', maxWidth: '1280px', margin: '0 auto' }}>
       
       {/* Header Banner */}
-      <div className="glass-panel" style={{ padding: '2rem', marginBottom: '2rem', borderRadius: '16px', background: 'linear-gradient(135deg, rgba(0, 168, 204, 0.12) 0%, rgba(15, 23, 42, 0.6) 100%)', border: '1px solid rgba(0, 168, 204, 0.25)' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
-          <div style={{ background: 'var(--uca-cyan)', padding: '0.75rem', borderRadius: '12px', color: '#0F172A', display: 'flex' }}>
+      <div className="glass-panel" style={{ 
+        padding: '2rem', 
+        marginBottom: '2rem', 
+        borderRadius: '16px', 
+        background: 'linear-gradient(135deg, var(--uca-navy) 0%, var(--uca-blue) 100%)', 
+        color: '#FFFFFF',
+        boxShadow: 'var(--shadow-md)',
+        border: '1px solid rgba(255, 255, 255, 0.15)'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div style={{ background: 'rgba(255, 255, 255, 0.15)', padding: '0.75rem', borderRadius: '12px', color: 'var(--uca-sun)', display: 'flex' }}>
             <Calculator size={28} />
           </div>
           <div>
-            <h2 style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--text-main)', margin: 0 }}>
+            <h2 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#FFFFFF', margin: 0, letterSpacing: '-0.5px' }}>
               Calculadora Oficial de Matrícula Universitaria
             </h2>
-            <p style={{ color: 'var(--text-muted)', margin: '0.25rem 0 0 0', fontSize: '0.95rem' }}>
+            <p style={{ color: '#E2E8F0', margin: '0.35rem 0 0 0', fontSize: '0.95rem', lineHeight: 1.5 }}>
               Simula el coste exacto de tu matrícula seleccionando asignaturas y aplicando recargos por 1ª, 2ª, 3ª o 4ª matrícula según el Decreto de Precios Públicos oficial.
             </p>
           </div>

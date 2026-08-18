@@ -5,7 +5,10 @@ from sqlalchemy import case
 
 from database.connection import get_db, get_admin_db
 from models.models import Titulacion, PlanEstudios, Universidad, ElementoCurricular
-from schemas.schemas import TitulacionOut, TitulacionDetalleOut, PlanEstudiosOut, TitulacionCreate, TitulacionUpdate
+from schemas.schemas import (
+    TitulacionOut, TitulacionDetalleOut, PlanEstudiosOut, TitulacionCreate, TitulacionUpdate,
+    ElementoCurricularOut, ElementoCurricularCreate, ElementoCurricularUpdate
+)
 from security import verify_api_key
 
 router = APIRouter(prefix="/api/v1/titulaciones", tags=["Titulaciones y Planes de Estudio"])
@@ -149,5 +152,68 @@ def delete_titulacion(codigo_estudio: str, db: Session = Depends(get_admin_db), 
         raise HTTPException(status_code=404, detail=f"Titulación con código '{codigo_estudio}' no encontrada.")
 
     db.delete(tit)
+    db.commit()
+    return None
+
+# ==============================================================================
+# CRUD ASIGNATURAS / ELEMENTOS CURRICULARES (ADMIN)
+# ==============================================================================
+
+@router.get("/{codigo_estudio}/asignaturas", response_model=List[ElementoCurricularOut], summary="Listar asignaturas de una titulación")
+def list_asignaturas_titulacion(codigo_estudio: str, db: Session = Depends(get_db)):
+    plan = db.query(PlanEstudios).filter(PlanEstudios.codigo_estudio == codigo_estudio).first()
+    if not plan:
+        return []
+    return db.query(ElementoCurricular).filter(ElementoCurricular.plan_estudio_id == plan.id).order_by(ElementoCurricular.curso.asc(), ElementoCurricular.nombre_elemento.asc()).all()
+
+@router.post("/{codigo_estudio}/asignaturas", response_model=ElementoCurricularOut, status_code=status.HTTP_201_CREATED, summary="Crear nueva asignatura para una titulación (Admin)")
+def create_asignatura(codigo_estudio: str, data: ElementoCurricularCreate, db: Session = Depends(get_admin_db), api_key: str = Depends(verify_api_key)):
+    tit = db.query(Titulacion).filter(Titulacion.codigo_estudio == codigo_estudio).first()
+    if not tit:
+        raise HTTPException(status_code=404, detail=f"Titulación '{codigo_estudio}' no existe.")
+
+    plan = db.query(PlanEstudios).filter(PlanEstudios.codigo_estudio == codigo_estudio).first()
+    if not plan:
+        plan = PlanEstudios(codigo_estudio=codigo_estudio, origen_fuente="gestion_admin")
+        db.add(plan)
+        db.commit()
+        db.refresh(plan)
+
+    new_sub = ElementoCurricular(
+        plan_estudio_id=plan.id,
+        modulo=data.modulo,
+        materia=data.materia,
+        nombre_elemento=data.nombre_elemento,
+        creditos_ects=data.creditos_ects,
+        caracter=data.caracter,
+        curso=data.curso,
+        cuatrimestre=data.cuatrimestre
+    )
+    db.add(new_sub)
+    db.commit()
+    db.refresh(new_sub)
+    return new_sub
+
+@router.put("/asignaturas/{asignatura_id}", response_model=ElementoCurricularOut, summary="Actualizar asignatura existente (Admin)")
+def update_asignatura(asignatura_id: int, data: ElementoCurricularUpdate, db: Session = Depends(get_admin_db), api_key: str = Depends(verify_api_key)):
+    sub = db.query(ElementoCurricular).filter(ElementoCurricular.id == asignatura_id).first()
+    if not sub:
+        raise HTTPException(status_code=404, detail=f"Asignatura con ID {asignatura_id} no encontrada.")
+
+    update_dict = data.model_dump(exclude_unset=True)
+    for field, value in update_dict.items():
+        setattr(sub, field, value)
+
+    db.commit()
+    db.refresh(sub)
+    return sub
+
+@router.delete("/asignaturas/{asignatura_id}", status_code=status.HTTP_204_NO_CONTENT, summary="Eliminar asignatura (Admin)")
+def delete_asignatura(asignatura_id: int, db: Session = Depends(get_admin_db), api_key: str = Depends(verify_api_key)):
+    sub = db.query(ElementoCurricular).filter(ElementoCurricular.id == asignatura_id).first()
+    if not sub:
+        raise HTTPException(status_code=404, detail=f"Asignatura con ID {asignatura_id} no encontrada.")
+
+    db.delete(sub)
     db.commit()
     return None

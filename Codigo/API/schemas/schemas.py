@@ -70,8 +70,7 @@ class TitulacionOut(TitulacionBase):
     model_config = ConfigDict(from_attributes=True)
 
 
-class ElementoCurricularOut(BaseModel):
-    id: int
+class ElementoCurricularBase(BaseModel):
     modulo: Optional[str] = None
     materia: Optional[str] = None
     nombre_elemento: str
@@ -79,6 +78,21 @@ class ElementoCurricularOut(BaseModel):
     caracter: Optional[str] = None
     curso: Optional[str] = None
     cuatrimestre: Optional[str] = None
+
+class ElementoCurricularCreate(ElementoCurricularBase):
+    pass
+
+class ElementoCurricularUpdate(BaseModel):
+    modulo: Optional[str] = None
+    materia: Optional[str] = None
+    nombre_elemento: Optional[str] = None
+    creditos_ects: Optional[str] = None
+    caracter: Optional[str] = None
+    curso: Optional[str] = None
+    cuatrimestre: Optional[str] = None
+
+class ElementoCurricularOut(ElementoCurricularBase):
+    id: int
 
     model_config = ConfigDict(from_attributes=True)
 

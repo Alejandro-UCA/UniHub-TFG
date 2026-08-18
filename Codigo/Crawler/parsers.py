@@ -246,6 +246,10 @@ def parse_degree_detail_html(html_content: str) -> dict:
         text = a.get_text(strip=True)
         
         if "boe.es" in href.lower() or "boe" in text.lower() or ".pdf" in href.lower():
+            # Solución 3: Excluir enlaces y documentos anteriores a 2009 (Planes Pre-Bolonia como licenciaturas o diplomaturas derogadas)
+            if re.search(r"/(19\d\d|200[0-8])/", href) or re.search(r"A\d{5}-\d{5}\.pdf", href, re.IGNORECASE):
+                continue
+
             date_obj = None
             text_date_match = re.search(r"(\d{1,2})/(\d{1,2})/(\d{4})", text)
             if text_date_match:
@@ -264,6 +268,10 @@ def parse_degree_detail_html(html_content: str) -> dict:
                     except ValueError:
                         pass
             
+            # Descartar BOEs históricos con fecha anterior a 2009
+            if date_obj and date_obj < datetime(2009, 1, 1):
+                continue
+
             if href.startswith("/"):
                 href = "https://www.boe.es" + href
 
@@ -497,6 +505,42 @@ def parse_boe_pdf(pdf_filepath) -> dict:
                                 if m_ects:
                                     clean_ects = m_ects.group(1).replace(",", ".")
 
+                            try:
+                                ects_float = float(clean_ects)
+                            except ValueError:
+                                ects_float = 6.0
+
+                            # Solución 1: Exclusión ultra-segura de filas de resumen global de créditos
+                            # (ej. "Formación Básica: 60", "Obligatorias: 147", "Optativas: 18", "Créditos Totales: 240")
+                            # NO afecta a asignaturas compuestas reales como "Química Básica" o "Derecho de Obligaciones"
+                            name_norm = re.sub(r"[^\w\s]", "", final_subject_name).strip().lower()
+                            is_summary_row = False
+                            if ects_float >= 20.0:
+                                global_summary_labels = [
+                                    "basico", "basica", "formacion basica", "formación básica",
+                                    "obligatorio", "obligatoria", "obligatorias", "materias obligatorias", "asignaturas obligatorias",
+                                    "optativo", "optativa", "optativas", "materias optativas", "asignaturas optativas",
+                                    "total", "totales", "total creditos", "total de creditos", "creditos totales"
+                                ]
+                                if name_norm in global_summary_labels:
+                                    is_summary_row = True
+                                    resumen_creditos[final_subject_name] = str(clean_ects)
+                                elif name_norm in ["practicas externas", "practicas en empresa", "practicas curriculares"] and ects_float > 35.0:
+                                    is_summary_row = True
+                                    resumen_creditos[final_subject_name] = str(clean_ects)
+
+                            if is_summary_row:
+                                continue
+
+                            # Solución 2: Saneamiento del campo curso
+                            # Evitar que 'curso' herede erróneamente el valor numérico de 'creditos' (ej. curso: "6" por desalineación)
+                            clean_curso = str(curso or "").strip()
+                            m_c = re.search(r"(\d+)", clean_curso)
+                            if m_c:
+                                c_num = int(m_c.group(1))
+                                if c_num > 6 or (c_num == int(ects_float) and c_num > 4):
+                                    clean_curso = ""
+
                             elementos_curriculares.append({
                                 "modulo": current_modulo,
                                 "materia": current_materia,
@@ -505,7 +549,7 @@ def parse_boe_pdf(pdf_filepath) -> dict:
                                 "creditos_ects": clean_ects,
                                 "tipo": caracter,
                                 "caracter": caracter,
-                                "curso": curso,
+                                "curso": clean_curso,
                                 "cuatrimestre": cuatrimestre
                             })
     except Exception as e:

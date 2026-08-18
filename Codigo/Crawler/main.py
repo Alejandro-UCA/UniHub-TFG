@@ -116,6 +116,13 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue = None):
                 except Exception:
                     pass
 
+            is_doctorado = (
+                "doctor" in (nivel_academico or "").lower() or 
+                "560" in (nivel_academico or "").lower() or 
+                "900" in (nivel_academico or "").lower() or 
+                "doctor" in (d_title or "").lower()
+            )
+
             if task_type == "DEGREE_NO_BOE":
                 print(f"     [Proceso Parser] -> [AVISO] Sin enlaces a BOE para [{d_code}]. Guardando metadatos base.")
                 existing_degree_data.update({
@@ -127,7 +134,17 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue = None):
                     "fecha_procesado": datetime.now().isoformat(),
                     "boe_url": None,
                 })
-                if "plan_estudios" not in existing_degree_data:
+                if is_doctorado:
+                    existing_degree_data["plan_estudios"] = {
+                        "tipo_estructura": "programa_doctorado_investigacion",
+                        "normativa": "Real Decreto 99/2011",
+                        "descripcion_plan": "Programa Oficial de Doctorado centrado en la investigación avanzada, elaboración y defensa de Tesis Doctoral conforme al Real Decreto 99/2011.",
+                        "actividades_formativas": "Seminarios de investigación, estancias internacionales, publicaciones científicas y tutela académica anual.",
+                        "resumen_creditos": {"Tutela Académica Anual": "60 ECTS Equiv."},
+                        "total_elementos": 0,
+                        "elementos_curriculares": []
+                    }
+                elif "plan_estudios" not in existing_degree_data:
                     existing_degree_data["plan_estudios"] = None
                 atomic_json_dump(existing_degree_data, plan_file)
                 checkpoint.update_degree_record(d_code, None, None, datetime.now().isoformat())
@@ -617,16 +634,19 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
         # Receive metrics summary from Process 2 pool
         total_parsed = 0
         total_updated = 0
+        total_parse_time = 0.0
         for _ in range(num_parser_workers):
             try:
                 consumer_results = result_queue.get(timeout=5)
                 total_parsed += consumer_results.get("parsed_count", 0)
                 total_updated += consumer_results.get("updated_degrees_count", 0)
+                total_parse_time += consumer_results.get("total_parse_time", 0.0)
             except Exception:
                 pass
         
         metrics.pdfs_parseados = total_parsed
         metrics.titulaciones_descargadas_actualizadas = total_updated
+        metrics.total_pdf_parsing_time = round(total_parse_time, 2)
 
         for p in parser_processes:
             p.join(timeout=5)

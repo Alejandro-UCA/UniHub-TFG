@@ -191,10 +191,67 @@ export default function PlanModal({ degree, onClose }) {
               {/* Subjects & Modules Breakdown */}
               <div>
                 <h3 style={{ fontSize: '1.05rem', fontWeight: 700, marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <Layers size={18} color="var(--uca-cyan)" /> Estructura de Asignaturas, Módulos y Materias ({elementos.length})
+                  <Layers size={18} color="var(--uca-cyan)" /> {curriculum.tipo_estructura === 'programa_doctorado_investigacion' || (degree.nivel_academico || '').toLowerCase().includes('doctor') ? 'Estructura Investigadora y Formativa (RD 99/2011)' : `Estructura de Asignaturas, Módulos y Materias (${elementos.length})`}
                 </h3>
 
-                {elementos.length === 0 ? (
+                {curriculum.tipo_estructura === 'programa_doctorado_investigacion' || (degree.nivel_academico || '').toLowerCase().includes('doctor') ? (
+                  <div style={{
+                    padding: '2rem 1.75rem',
+                    background: 'linear-gradient(135deg, rgba(0, 132, 200, 0.05) 0%, rgba(15, 23, 42, 0.02) 100%)',
+                    borderRadius: 'var(--radius-md)',
+                    border: '1px solid rgba(0, 132, 200, 0.25)',
+                    textAlign: 'left'
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                      <div style={{ padding: '0.65rem', background: 'rgba(0, 132, 200, 0.15)', borderRadius: '10px', color: 'var(--uca-blue)' }}>
+                        <Award size={26} />
+                      </div>
+                      <div>
+                        <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-main)', margin: 0 }}>
+                          Programa Oficial de Doctorado
+                        </h4>
+                        <span style={{ fontSize: '0.82rem', color: 'var(--uca-cyan)', fontWeight: 600 }}>
+                          Regulado por el Real Decreto 99/2011
+                        </span>
+                      </div>
+                    </div>
+
+                    <p style={{ fontSize: '0.92rem', color: 'var(--text-main)', lineHeight: 1.6, marginBottom: '1.25rem' }}>
+                      {curriculum.descripcion_plan || 'Este programa oficial de Doctorado está estructurado en torno a líneas de investigación avanzada, la realización del Documento de Actividades del Doctorando (DAD) y la elaboración y defensa de la Tesis Doctoral.'}
+                    </p>
+
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
+                      <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
+                        <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', marginBottom: '0.25rem' }}>
+                          Dedicación Académica
+                        </div>
+                        <div style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--uca-blue)' }}>
+                          Investigación & Tesis Doctoral
+                        </div>
+                      </div>
+                      <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
+                        <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', marginBottom: '0.25rem' }}>
+                          Actividades Formativas
+                        </div>
+                        <div style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--text-main)' }}>
+                          Seminarios, Congresos y Publicaciones
+                        </div>
+                      </div>
+                    </div>
+
+                    {boeUrl && (
+                      <a
+                        href={boeUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn btn-outline"
+                        style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}
+                      >
+                        <FileText size={16} /> Consultar Memoria de Verificación en BOE <ExternalLink size={14} />
+                      </a>
+                    )}
+                  </div>
+                ) : elementos.length === 0 ? (
                   <div style={{
                     padding: '2rem 1.5rem',
                     background: 'var(--bg-main)',
@@ -209,7 +266,7 @@ export default function PlanModal({ degree, onClose }) {
                       No se ha encontrado un plan de estudios desglosado en el BOE
                     </h4>
                     <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', maxWidth: '580px', margin: '0 auto 1.25rem auto', lineHeight: 1.5 }}>
-                      Esta titulación oficial puede corresponder a un programa de Doctorado (que carece de asignaturas lectivas tradicionales), a una titulación de reciente implantación o a una universidad privada cuyos planes detallados se gestionan directamente en su propio portal docente.
+                      Esta titulación oficial puede corresponder a un título de reciente implantación o a una universidad privada cuyos planes detallados se gestionan directamente en su propio portal docente.
                     </p>
                     {boeUrl && (
                       <a
@@ -244,10 +301,10 @@ export default function PlanModal({ degree, onClose }) {
                             <td style={{ padding: '0.65rem 1rem', fontWeight: 700, color: 'var(--uca-blue)' }}>{elem.creditos_ects || '-'}</td>
                             <td style={{ padding: '0.65rem 1rem' }}>
                               <span className="badge" style={{ background: 'rgba(0, 132, 200, 0.1)', color: 'var(--uca-cyan)' }}>
-                                {elem.caracter || 'OB'}
+                                {elem.caracter || elem.tipo || 'OB'}
                               </span>
                             </td>
-                            <td style={{ padding: '0.65rem 1rem' }}>{elem.curso || '-'}</td>
+                            <td style={{ padding: '0.65rem 1rem' }}>{elem.curso ? `${elem.curso}º` : '-'}</td>
                             <td style={{ padding: '0.65rem 1rem' }}>{elem.cuatrimestre || '-'}</td>
                           </tr>
                         ))}

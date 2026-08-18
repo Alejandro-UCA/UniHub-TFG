@@ -337,6 +337,20 @@ def normalize_cuatrimestre(cuat_raw: str) -> str:
     return str(cuat_raw).strip()
 
 
+def unreverse_text(text: str) -> str:
+    """
+    Detecta y corrige texto espejado/invertido proveniente de matrices tipográficas inversas en PDFs antiguos.
+    Ejemplo: 'aígolocisP ne odarG' -> 'Grado en Psicología'.
+    """
+    if not text:
+        return ""
+    t = text.strip()
+    # Patrones comunes de texto en español invertido en PDFs
+    if any(t.endswith(rev) for rev in ["odarG", "retsáM", "retsaM", "aígolocisP", "acitámrofnI", "aicneiC", "ohcereD"]) or any(rev in t for rev in [" ne odarG", " ne retsáM", " aL ne "]):
+        return t[::-1]
+    return t
+
+
 def parse_boe_pdf(pdf_filepath) -> dict:
     """
     Extracts METICULOUS curriculum data (resumen creditos, asignaturas, modulos, materias, 
@@ -521,7 +535,7 @@ def parse_boe_pdf(pdf_filepath) -> dict:
                         if len(clean_row) > 1 and final_subject_name.lower() == current_materia.lower():
                             final_subject_name = clean_row[1]
 
-                        final_subject_name = final_subject_name.strip()
+                        final_subject_name = unreverse_text(final_subject_name.strip())
                         # Strict validation of subject name
                         if (
                             final_subject_name 
@@ -529,6 +543,7 @@ def parse_boe_pdf(pdf_filepath) -> dict:
                             and not RE_LEGAL_NOISE.search(final_subject_name)
                             and not bool(re.search(r"^(anexo|plan de estudios|bolet[ií]n oficial|ministerio|universidad|cve:|http|p[aá]gina|total\s+cr[eé]ditos|resumen|estructura general|distribuci[oó]n|observaciones)\b", final_subject_name, re.IGNORECASE))
                             and not bool(re.search(r"^(grado|graduado|graduada|máster|master)\s+.*?\s+por\s+la\s+universi", final_subject_name, re.IGNORECASE))
+                            and not bool(re.search(r"^(el rector|la rectora|el secretario general|la secretaria general|por delegaci[oó]n|el decano|la decana|el director|la directora|ante m[ií]|doy fe|firmado|visto bueno|v\.º\s*b\.º)\b", final_subject_name, re.IGNORECASE))
                             and not final_subject_name.strip().lower() in ["asignatura", "carácter", "caracter", "créditos", "creditos", "curso", "materia", "módulo", "modulo", "ects", "tipo", "total", "grau", "màster", "master", "mencion", "mención"]
                             and bool(re.search(r"[a-zA-ZáéíóúñÁÉÍÓÚÑ]{3,}", final_subject_name))
                             and len(final_subject_name) <= 150

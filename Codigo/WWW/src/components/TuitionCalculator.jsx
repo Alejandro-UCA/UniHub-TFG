@@ -80,13 +80,25 @@ export default function TuitionCalculator() {
         if (data) {
           usageTracker.trackDegreeView(data.codigo_estudio, data.titulo);
 
-          // Pre-select 1st year subjects by default if explicit curso tag exists
+          // Pre-select 1st year subjects by default if explicit curso tag exists, or up to 60 ECTS for flat plans
           const elems = data.plan_estudios?.elementos_curriculares || [];
+          const hasAnyCourse = elems.some(e => e.curso && String(e.curso).trim() !== '');
           const initialMap = {};
+          let preselectedEcts = 0;
           elems.forEach((elem, idx) => {
-            const isFirstYear = String(elem.curso || '').includes('1');
+            const ects = parseFloat(elem.creditos_ects) || 6;
+            let isSelected = false;
+            if (hasAnyCourse) {
+              isSelected = String(elem.curso || '').includes('1');
+            } else {
+              // Si no hay etiquetas de curso en el BOE, preseleccionar básicas/obligatorias hasta 60 ECTS
+              if (preselectedEcts + ects <= 60 && (elem.caracter === 'FB' || elem.caracter === 'OB' || !elem.caracter)) {
+                isSelected = true;
+                preselectedEcts += ects;
+              }
+            }
             initialMap[idx] = {
-              selected: isFirstYear,
+              selected: isSelected,
               tier: 1 // 1ª matrícula
             };
           });

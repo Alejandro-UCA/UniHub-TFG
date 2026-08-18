@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, FileText, CheckCircle2, ChevronRight } from 'lucide-react';
+import { CheckCircle2, ChevronRight } from 'lucide-react';
 import usageTracker from '../analytics/usageTracker';
 
 export default React.memo(function DegreeCard({ degree, onSelectDegree }) {

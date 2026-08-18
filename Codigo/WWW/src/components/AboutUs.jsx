@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, Award, BookOpen, Code, Database, Heart, ExternalLink, Server, Cpu, ShieldCheck, Zap, Globe, DollarSign, Smartphone, Activity } from 'lucide-react';
+import { GraduationCap, Award, BookOpen, Database, ExternalLink, Server, Zap, Globe, DollarSign } from 'lucide-react';
 
 export default function AboutUs() {
   return (

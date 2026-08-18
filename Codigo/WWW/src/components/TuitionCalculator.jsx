@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Calculator, Building2, GraduationCap, BookOpen, CheckSquare, Square, RefreshCw, AlertCircle, Sparkles, Receipt, Layers } from 'lucide-react';
+import { Calculator, Building2, GraduationCap, CheckSquare, Square, RefreshCw, AlertCircle, Sparkles, Receipt, Layers } from 'lucide-react';
 import { apiService } from '../services/api';
 import usageTracker from '../analytics/usageTracker';
 

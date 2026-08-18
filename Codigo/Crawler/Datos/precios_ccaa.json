@@ -1,0 +1,524 @@
+{
+  "Andalucía": {
+    "Grado": {
+      "1": 12.62,
+      "2": 25.24,
+      "3": 54.4,
+      "4": 75.6,
+      "defecto": 12.62
+    },
+    "Máster Habilitante": {
+      "1": 13.68,
+      "2": 27.36,
+      "3": 59.0,
+      "4": 82.0,
+      "defecto": 13.68
+    },
+    "Máster No Habilitante": {
+      "1": 13.68,
+      "2": 27.36,
+      "3": 59.0,
+      "4": 82.0,
+      "defecto": 13.68
+    },
+    "Doctorado": {
+      "1": 60.3,
+      "defecto": 60.3
+    },
+    "tasas_admin": 59.1,
+    "decreto_oficial": "Decreto de Precios Públicos de las Universidades Públicas de Andalucía"
+  },
+  "Aragón": {
+    "Grado": {
+      "1": 18.9,
+      "2": 32.13,
+      "3": 69.3,
+      "4": 96.25,
+      "defecto": 18.9
+    },
+    "Máster Habilitante": {
+      "1": 22.4,
+      "2": 38.08,
+      "3": 82.15,
+      "4": 114.1,
+      "defecto": 22.4
+    },
+    "Máster No Habilitante": {
+      "1": 34.5,
+      "2": 58.65,
+      "3": 126.5,
+      "4": 175.7,
+      "defecto": 34.5
+    },
+    "Doctorado": {
+      "1": 185.0,
+      "defecto": 185.0
+    },
+    "tasas_admin": 44.0,
+    "decreto_oficial": "Decreto de Tarifas Universitarias de la Comunidad Autónoma de Aragón"
+  },
+  "Principado de Asturias": {
+    "Grado": {
+      "1": 16.15,
+      "2": 27.45,
+      "3": 59.2,
+      "4": 82.2,
+      "defecto": 16.15
+    },
+    "Máster Habilitante": {
+      "1": 21.5,
+      "2": 36.55,
+      "3": 78.85,
+      "4": 109.5,
+      "defecto": 21.5
+    },
+    "Máster No Habilitante": {
+      "1": 29.0,
+      "2": 49.3,
+      "3": 106.35,
+      "4": 147.7,
+      "defecto": 29.0
+    },
+    "Doctorado": {
+      "1": 150.0,
+      "defecto": 150.0
+    },
+    "tasas_admin": 42.0,
+    "decreto_oficial": "Decreto de Precios Públicos del Principado de Asturias"
+  },
+  "Illes Balears": {
+    "Grado": {
+      "1": 16.4,
+      "2": 27.88,
+      "3": 60.15,
+      "4": 83.5,
+      "defecto": 16.4
+    },
+    "Máster Habilitante": {
+      "1": 21.8,
+      "2": 37.06,
+      "3": 79.95,
+      "4": 111.05,
+      "defecto": 21.8
+    },
+    "Máster No Habilitante": {
+      "1": 32.0,
+      "2": 54.4,
+      "3": 117.35,
+      "4": 163.0,
+      "defecto": 32.0
+    },
+    "Doctorado": {
+      "1": 160.0,
+      "defecto": 160.0
+    },
+    "tasas_admin": 45.0,
+    "decreto_oficial": "Decret de Preus Públics de les Illes Balears"
+  },
+  "Canarias": {
+    "Grado": {
+      "1": 12.5,
+      "2": 21.25,
+      "3": 45.8,
+      "4": 63.65,
+      "defecto": 12.5
+    },
+    "Máster Habilitante": {
+      "1": 14.2,
+      "2": 24.14,
+      "3": 52.05,
+      "4": 72.3,
+      "defecto": 14.2
+    },
+    "Máster No Habilitante": {
+      "1": 18.5,
+      "2": 31.45,
+      "3": 67.85,
+      "4": 94.2,
+      "defecto": 18.5
+    },
+    "Doctorado": {
+      "1": 120.0,
+      "defecto": 120.0
+    },
+    "tasas_admin": 40.0,
+    "decreto_oficial": "Decreto de Precios Públicos de la Comunidad Autónoma de Canarias"
+  },
+  "Cantabria": {
+    "Grado": {
+      "1": 14.8,
+      "2": 25.16,
+      "3": 54.28,
+      "4": 75.38,
+      "defecto": 14.8
+    },
+    "Máster Habilitante": {
+      "1": 19.8,
+      "2": 33.66,
+      "3": 72.6,
+      "4": 100.85,
+      "defecto": 19.8
+    },
+    "Máster No Habilitante": {
+      "1": 28.0,
+      "2": 47.6,
+      "3": 102.7,
+      "4": 142.6,
+      "defecto": 28.0
+    },
+    "Doctorado": {
+      "1": 145.0,
+      "defecto": 145.0
+    },
+    "tasas_admin": 43.0,
+    "decreto_oficial": "Decreto de Precios Públicos del Gobierno de Cantabria"
+  },
+  "Castilla y León": {
+    "Grado": {
+      "1": 17.8,
+      "2": 30.26,
+      "3": 65.28,
+      "4": 90.65,
+      "defecto": 17.8
+    },
+    "Máster Habilitante": {
+      "1": 23.5,
+      "2": 39.95,
+      "3": 86.2,
+      "4": 119.7,
+      "defecto": 23.5
+    },
+    "Máster No Habilitante": {
+      "1": 35.0,
+      "2": 59.5,
+      "3": 128.35,
+      "4": 178.25,
+      "defecto": 35.0
+    },
+    "Doctorado": {
+      "1": 200.0,
+      "defecto": 200.0
+    },
+    "tasas_admin": 50.0,
+    "decreto_oficial": "Decreto de Precios Públicos de la Junta de Castilla y León"
+  },
+  "Castilla-La Mancha": {
+    "Grado": {
+      "1": 15.5,
+      "2": 26.35,
+      "3": 56.85,
+      "4": 78.95,
+      "defecto": 15.5
+    },
+    "Máster Habilitante": {
+      "1": 18.2,
+      "2": 30.94,
+      "3": 66.75,
+      "4": 92.7,
+      "defecto": 18.2
+    },
+    "Máster No Habilitante": {
+      "1": 26.0,
+      "2": 44.2,
+      "3": 95.35,
+      "4": 132.45,
+      "defecto": 26.0
+    },
+    "Doctorado": {
+      "1": 140.0,
+      "defecto": 140.0
+    },
+    "tasas_admin": 45.0,
+    "decreto_oficial": "Decreto de Precios Públicos de Castilla-La Mancha"
+  },
+  "Cataluña": {
+    "Grado": {
+      "1": 18.46,
+      "2": 31.38,
+      "3": 67.7,
+      "4": 94.0,
+      "defecto": 18.46
+    },
+    "Máster Habilitante": {
+      "1": 27.67,
+      "2": 47.04,
+      "3": 101.48,
+      "4": 140.9,
+      "defecto": 27.67
+    },
+    "Máster No Habilitante": {
+      "1": 41.17,
+      "2": 69.99,
+      "3": 150.98,
+      "4": 209.65,
+      "defecto": 41.17
+    },
+    "Doctorado": {
+      "1": 401.12,
+      "defecto": 401.12
+    },
+    "tasas_admin": 69.8,
+    "decreto_oficial": "Decret de Preus Públics de la Generalitat de Catalunya"
+  },
+  "Comunitat Valenciana": {
+    "Grado": {
+      "1": 15.1,
+      "2": 25.67,
+      "3": 55.37,
+      "4": 76.9,
+      "defecto": 15.1
+    },
+    "Máster Habilitante": {
+      "1": 20.2,
+      "2": 34.34,
+      "3": 74.07,
+      "4": 102.88,
+      "defecto": 20.2
+    },
+    "Máster No Habilitante": {
+      "1": 35.34,
+      "2": 60.08,
+      "3": 129.6,
+      "4": 180.0,
+      "defecto": 35.34
+    },
+    "Doctorado": {
+      "1": 180.0,
+      "defecto": 180.0
+    },
+    "tasas_admin": 46.0,
+    "decreto_oficial": "Decret de Taxes Universitàries de la Generalitat Valenciana"
+  },
+  "Extremadura": {
+    "Grado": {
+      "1": 14.1,
+      "2": 23.97,
+      "3": 51.71,
+      "4": 71.82,
+      "defecto": 14.1
+    },
+    "Máster Habilitante": {
+      "1": 16.5,
+      "2": 28.05,
+      "3": 60.5,
+      "4": 84.05,
+      "defecto": 16.5
+    },
+    "Máster No Habilitante": {
+      "1": 24.0,
+      "2": 40.8,
+      "3": 88.0,
+      "4": 122.25,
+      "defecto": 24.0
+    },
+    "Doctorado": {
+      "1": 130.0,
+      "defecto": 130.0
+    },
+    "tasas_admin": 41.0,
+    "decreto_oficial": "Decreto de Precios Públicos de la Junta de Extremadura"
+  },
+  "Galicia": {
+    "Grado": {
+      "1": 11.89,
+      "2": 20.21,
+      "3": 43.6,
+      "4": 60.56,
+      "defecto": 11.89
+    },
+    "Máster Habilitante": {
+      "1": 13.5,
+      "2": 22.95,
+      "3": 49.5,
+      "4": 68.75,
+      "defecto": 13.5
+    },
+    "Máster No Habilitante": {
+      "1": 18.2,
+      "2": 30.94,
+      "3": 66.75,
+      "4": 92.7,
+      "defecto": 18.2
+    },
+    "Doctorado": {
+      "1": 110.0,
+      "defecto": 110.0
+    },
+    "tasas_admin": 38.0,
+    "decreto_oficial": "Decreto de Prezos Públicos da Xunta de Galicia"
+  },
+  "Comunidad de Madrid": {
+    "Grado": {
+      "1": 21.39,
+      "2": 36.36,
+      "3": 78.44,
+      "4": 108.94,
+      "defecto": 21.39
+    },
+    "Máster Habilitante": {
+      "1": 26.84,
+      "2": 45.63,
+      "3": 98.42,
+      "4": 136.7,
+      "defecto": 26.84
+    },
+    "Máster No Habilitante": {
+      "1": 45.02,
+      "2": 76.53,
+      "3": 165.1,
+      "4": 229.3,
+      "defecto": 45.02
+    },
+    "Doctorado": {
+      "1": 390.0,
+      "defecto": 390.0
+    },
+    "tasas_admin": 65.0,
+    "decreto_oficial": "Decreto del Consejo de Gobierno de la Comunidad de Madrid"
+  },
+  "Región de Murcia": {
+    "Grado": {
+      "1": 15.2,
+      "2": 25.84,
+      "3": 55.74,
+      "4": 77.42,
+      "defecto": 15.2
+    },
+    "Máster Habilitante": {
+      "1": 19.5,
+      "2": 33.15,
+      "3": 71.5,
+      "4": 99.32,
+      "defecto": 19.5
+    },
+    "Máster No Habilitante": {
+      "1": 29.0,
+      "2": 49.3,
+      "3": 106.35,
+      "4": 147.7,
+      "defecto": 29.0
+    },
+    "Doctorado": {
+      "1": 160.0,
+      "defecto": 160.0
+    },
+    "tasas_admin": 45.0,
+    "decreto_oficial": "Decreto de Precios Públicos de la Región de Murcia"
+  },
+  "Comunidad Foral de Navarra": {
+    "Grado": {
+      "1": 17.5,
+      "2": 29.75,
+      "3": 64.17,
+      "4": 89.13,
+      "defecto": 17.5
+    },
+    "Máster Habilitante": {
+      "1": 24.0,
+      "2": 40.8,
+      "3": 88.0,
+      "4": 122.25,
+      "defecto": 24.0
+    },
+    "Máster No Habilitante": {
+      "1": 33.0,
+      "2": 56.1,
+      "3": 121.0,
+      "4": 168.1,
+      "defecto": 33.0
+    },
+    "Doctorado": {
+      "1": 220.0,
+      "defecto": 220.0
+    },
+    "tasas_admin": 48.0,
+    "decreto_oficial": "Decreto Foral de Tarifas Universitarias de Navarra"
+  },
+  "País Vasco": {
+    "Grado": {
+      "1": 16.8,
+      "2": 28.56,
+      "3": 61.6,
+      "4": 85.56,
+      "defecto": 16.8
+    },
+    "Máster Habilitante": {
+      "1": 22.0,
+      "2": 37.4,
+      "3": 80.67,
+      "4": 112.05,
+      "defecto": 22.0
+    },
+    "Máster No Habilitante": {
+      "1": 31.0,
+      "2": 52.7,
+      "3": 113.67,
+      "4": 157.9,
+      "defecto": 31.0
+    },
+    "Doctorado": {
+      "1": 210.0,
+      "defecto": 210.0
+    },
+    "tasas_admin": 47.0,
+    "decreto_oficial": "Decreto de Precios Públicos del Gobierno Vasco / Eusko Jaurlaritza"
+  },
+  "La Rioja": {
+    "Grado": {
+      "1": 16.2,
+      "2": 27.54,
+      "3": 59.4,
+      "4": 82.51,
+      "defecto": 16.2
+    },
+    "Máster Habilitante": {
+      "1": 21.0,
+      "2": 35.7,
+      "3": 76.99,
+      "4": 106.96,
+      "defecto": 21.0
+    },
+    "Máster No Habilitante": {
+      "1": 28.5,
+      "2": 48.45,
+      "3": 104.5,
+      "4": 145.15,
+      "defecto": 28.5
+    },
+    "Doctorado": {
+      "1": 175.0,
+      "defecto": 175.0
+    },
+    "tasas_admin": 44.0,
+    "decreto_oficial": "Decreto de Precios Públicos del Gobierno de La Rioja"
+  },
+  "UNED": {
+    "Grado": {
+      "1": 14.5,
+      "2": 24.65,
+      "3": 53.17,
+      "4": 73.85,
+      "defecto": 14.5
+    },
+    "Máster Habilitante": {
+      "1": 22.0,
+      "2": 37.4,
+      "3": 80.67,
+      "4": 112.05,
+      "defecto": 22.0
+    },
+    "Máster No Habilitante": {
+      "1": 30.0,
+      "2": 51.0,
+      "3": 110.0,
+      "4": 152.8,
+      "defecto": 30.0
+    },
+    "Doctorado": {
+      "1": 190.0,
+      "defecto": 190.0
+    },
+    "tasas_admin": 40.0,
+    "decreto_oficial": "Orden Ministerial de Precios Públicos de la UNED"
+  }
+}

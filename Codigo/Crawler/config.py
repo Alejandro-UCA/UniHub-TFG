@@ -61,7 +61,12 @@ USER_AGENT = os.getenv(
 # Mapeo de dominios autonómicos obsoletos a dominios oficiales activos
 DOMAIN_MAPPINGS = {
     "portaldogc.gencat.cat": "dogc.gencat.cat",
-    "www.boa.aragon.es": "boa.aragon.es"
+    "www.boa.aragon.es": "boa.aragon.es",
+    "bocm.es": "bocm.madrid.org",
+    "www.bocm.es": "bocm.madrid.org",
+    "bocyl.jcyl.es": "bocyl.jcyl.es",
+    "www.bocyl.jcyl.es": "bocyl.jcyl.es",
+    "www.dogv.gva.es": "dogv.gva.es"
 }
 
 # ==============================================================================

@@ -176,13 +176,64 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue = None):
                                 if k not in combined_resumen_creditos:
                                     combined_resumen_creditos[k] = v
 
-                            for elem in curriculum_data.get("elementos_curriculares", []):
-                                raw_name = elem.get("nombre_elemento", "").strip()
-                                # REFINEMENT 3: Strip parenthetical mention extensions for smart deduplication
-                                norm_name = re.sub(r"\s*\(.*?\)", "", raw_name).strip().lower()
-                                if norm_name and norm_name not in seen_subject_names:
+                            # Indicación 1: Fusión Inteligente Multi-BOE
+                            # 1. El BOE más reciente (cand_idx == 1) define la estructura vigente con máxima prioridad.
+                            # 2. Los BOEs anteriores (cand_idx > 1) solo aportan asignaturas de cursos o módulos que no fueron
+                            #    publicados en el BOE de modificación parcial, descartando materias obsoletas, renombradas o desdobladas.
+                            is_latest = (cand_idx == 1)
+                            new_elements = curriculum_data.get("elementos_curriculares", [])
+
+                            if is_latest:
+                                for elem in new_elements:
+                                    raw_name = elem.get("nombre_elemento", "").strip()
+                                    norm_name = re.sub(r"\s*\(.*?\)", "", raw_name).strip().lower()
+                                    if norm_name and norm_name not in seen_subject_names:
+                                        seen_subject_names.add(norm_name)
+                                        combined_elementos.append(elem)
+                            else:
+                                # Calcular créditos por curso ya cubiertos en el plan vigente
+                                covered_courses = {}
+                                for ex_elem in combined_elementos:
+                                    c_tag = str(ex_elem.get("curso") or "").strip()
+                                    try:
+                                        c_ects = float(str(ex_elem.get("creditos_ects") or 6).replace(",", "."))
+                                    except ValueError:
+                                        c_ects = 6.0
+                                    covered_courses[c_tag] = covered_courses.get(c_tag, 0.0) + c_ects
+
+                                for elem in new_elements:
+                                    raw_name = elem.get("nombre_elemento", "").strip()
+                                    norm_name = re.sub(r"\s*\(.*?\)", "", raw_name).strip().lower()
+                                    c_tag = str(elem.get("curso") or "").strip()
+
+                                    # Si el curso ya tiene sus créditos completos en el plan vigente, omitir asignaturas viejas
+                                    if c_tag and covered_courses.get(c_tag, 0) >= 55.0:
+                                        continue
+
+                                    # Si el nombre ya existe en el plan vigente, omitir
+                                    if not norm_name or norm_name in seen_subject_names:
+                                        continue
+
+                                    # Detección de colisión léxica con asignaturas renombradas o desdobladas
+                                    tokens_new = set(re.findall(r"\w{4,}", norm_name))
+                                    has_collision = False
+                                    if tokens_new:
+                                        for ex_name in seen_subject_names:
+                                            tokens_ex = set(re.findall(r"\w{4,}", ex_name))
+                                            if tokens_new and tokens_ex and len(tokens_new & tokens_ex) >= max(2, len(tokens_new) - 1):
+                                                has_collision = True
+                                                break
+                                    if has_collision:
+                                        continue
+
                                     seen_subject_names.add(norm_name)
                                     combined_elementos.append(elem)
+
+                            # Si el plan ya está 100% completo, no es necesario procesar BOEs históricos más antiguos
+                            is_grado = "grado" in nivel_academico.lower() or "graduado" in nivel_academico.lower()
+                            is_master = "máster" in nivel_academico.lower() or "master" in nivel_academico.lower()
+                            if (is_grado and len(combined_elementos) >= 38) or (is_master and len(combined_elementos) >= 7):
+                                break
                         else:
                             print(f"     [Proceso Parser] -> PDF #{cand_idx} de [{d_code}] no contenía tabla de asignaturas. Registrando como NO plan de estudios.")
                             checkpoint.mark_non_study_plan_pdf(cand_url, pdf_sha256)

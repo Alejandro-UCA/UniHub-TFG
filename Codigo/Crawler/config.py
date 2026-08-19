@@ -69,7 +69,11 @@ DOMAIN_MAPPINGS = {
     "www.bocyl.jcyl.es": "bocyl.jcyl.es",
     "www.dogv.gva.es": "dogv.gva.es",
     "doe.gobex.es": "doe.juntaex.es",
+    "boe.es": "www.boe.es",
     "ww.boe.es": "www.boe.es",
+    "www.boe.es": "www.boe.es",
+    "wwww.boe.es": "www.boe.es",
+    "wwwww.boe.es": "www.boe.es",
     "vwww.boe.es": "www.boe.es",
     "pww.boe.es": "www.boe.es",
     "'www.boe.es": "www.boe.es"

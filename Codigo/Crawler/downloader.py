@@ -1,9 +1,10 @@
 import os
+import re
 import time
 import random
 import requests
 import urllib3
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urlsplit, urlunsplit
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 from config import (
@@ -28,7 +29,7 @@ def normalize_url(url: str, domain_mappings: dict = None) -> str:
     if not url:
         return ""
     url = url.strip().strip("'\"` ")
-    while url.startswith("http://https://") or url.startswith("https://http://") or url.startswith("http://http://") or url.startswith("https://https://"):
+    while any(url.startswith(prefix) for prefix in ["http://https://", "https://http://", "http://http://", "https://https://"]):
         if url.startswith("http://https://"):
             url = "https://" + url[15:]
         elif url.startswith("https://http://"):
@@ -38,19 +39,45 @@ def normalize_url(url: str, domain_mappings: dict = None) -> str:
         elif url.startswith("https://https://"):
             url = "https://" + url[16:]
 
-    if domain_mappings is None:
-        domain_mappings = DOMAIN_MAPPINGS
+    if not url.startswith("http://") and not url.startswith("https://"):
+        if url.startswith("//"):
+            url = "https:" + url
+        elif url.startswith("/"):
+            url = "https://www.boe.es" + url
+        else:
+            url = "https://" + url
 
-    for old_domain, new_domain in domain_mappings.items():
-        if old_domain in url:
-            url = url.replace(old_domain, new_domain)
+    try:
+        parts = urlsplit(url)
+        netloc = parts.netloc.lower()
+        
+        if domain_mappings is None:
+            domain_mappings = DOMAIN_MAPPINGS
 
-    # Auto-upgrade to HTTPS for regional official bulletins that reject unencrypted HTTP
-    if url.startswith("http://"):
+        # Safe hostname-level mapping (prevents substring corruption like www -> wwwww)
+        if netloc in domain_mappings:
+            netloc = domain_mappings[netloc]
+        elif re.match(r"^(?:w{1,8}|vwww|pww|'www)\.boe\.es$", netloc):
+            netloc = "www.boe.es"
+        elif re.match(r"^(?:w{1,8})\.bocm\.es$", netloc):
+            netloc = "bocm.madrid.org"
+        elif re.match(r"^(?:w{1,8})\.boa\.aragon\.es$", netloc):
+            netloc = "boa.aragon.es"
+        elif re.match(r"^(?:w{1,8})\.dogv\.gva\.es$", netloc):
+            netloc = "dogv.gva.es"
+        elif re.match(r"^(?:w{1,8})\.bocyl\.jcyl\.es$", netloc):
+            netloc = "bocyl.jcyl.es"
+
+        scheme = parts.scheme.lower()
+        # Auto-upgrade to HTTPS for regional official bulletins that reject unencrypted HTTP
         for secure_domain in ["dogc.gencat.cat", "boe.es", "educacion.gob.es", "bocm.madrid.org", "bocyl.jcyl.es", "dogv.gva.es", "boa.aragon.es", "doe.juntaex.es"]:
-            if secure_domain in url:
-                url = "https://" + url[7:]
+            if secure_domain in netloc:
+                scheme = "https"
                 break
+
+        url = urlunsplit((scheme, netloc, parts.path, parts.query, parts.fragment))
+    except Exception:
+        pass
 
     return url
 

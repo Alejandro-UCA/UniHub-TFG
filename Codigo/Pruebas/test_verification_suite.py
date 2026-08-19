@@ -49,7 +49,11 @@ class TestPhase1Crawler(unittest.TestCase):
             ("https://http://www.uca.es", "http://www.uca.es"),
             ("http://http://www.uca.es", "http://www.uca.es"),
             ("https://https://www.uca.es", "https://www.uca.es"),
-            ("www.uah.es", "www.uah.es"),
+            ("https://www.boe.es/boe/dias/2021/06/17/pdfs/BOE-A-2021-10088.pdf", "https://www.boe.es/boe/dias/2021/06/17/pdfs/BOE-A-2021-10088.pdf"),
+            ("http://ww.boe.es/boe/dias/2021/06/17/pdfs/BOE-A-2021-10088.pdf", "https://www.boe.es/boe/dias/2021/06/17/pdfs/BOE-A-2021-10088.pdf"),
+            ("https://wwwww.boe.es/boe/dias/2021/06/17/pdfs/BOE-A-2021-10088.pdf", "https://www.boe.es/boe/dias/2021/06/17/pdfs/BOE-A-2021-10088.pdf"),
+            ("http://portaldogc.gencat.cat/doc.pdf", "https://dogc.gencat.cat/doc.pdf"),
+            ("http://bocm.es/bocm.pdf", "https://bocm.madrid.org/bocm.pdf"),
         ]
         for raw, expected in test_cases:
             self.assertEqual(normalize_url(raw), expected)

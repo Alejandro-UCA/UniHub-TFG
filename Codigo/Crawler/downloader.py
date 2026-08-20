@@ -2,6 +2,7 @@ import os
 import re
 import time
 import random
+import threading
 import requests
 import urllib3
 from urllib.parse import urlparse, urlsplit, urlunsplit
@@ -91,6 +92,17 @@ class RUCTDownloader:
     browser headers, automatic HTTP->HTTPS fallback, and a circuit breaker for connection resilience.
     """
     DOMAIN_MAPPINGS = DOMAIN_MAPPINGS
+    _GLOBAL_DOMAIN_LOCKS = {}
+    _GLOBAL_DOMAIN_LOCKS_GUARD = threading.Lock()
+    _GLOBAL_DOMAIN_LAST_REQUEST_TIMES = {}
+
+    @classmethod
+    def _get_domain_lock(cls, domain: str) -> threading.Lock:
+        """Returns a synchronized thread lock for a specific hostname/domain."""
+        with cls._GLOBAL_DOMAIN_LOCKS_GUARD:
+            if domain not in cls._GLOBAL_DOMAIN_LOCKS:
+                cls._GLOBAL_DOMAIN_LOCKS[domain] = threading.Lock()
+            return cls._GLOBAL_DOMAIN_LOCKS[domain]
 
     def __init__(self, delay=REQUEST_DELAY, max_retries=MAX_RETRIES, timeout=HTTP_TIMEOUT, metrics_tracker=None):
         self.delay = delay
@@ -116,8 +128,6 @@ class RUCTDownloader:
         self.session.mount("http://", adapter)
         self.session.mount("https://", adapter)
         
-        self.domain_last_request_times = {}
-        
         # Connection resilience counters
         self.consecutive_failures = 0
         self.pause_count_univ = 0
@@ -134,14 +144,19 @@ class RUCTDownloader:
         return normalize_url(url, self.DOMAIN_MAPPINGS)
 
     def _apply_delay(self, url: str = ""):
-        """Enforces per-domain rate limiting delay with random jitter to avoid WAF pattern detection."""
-        domain = urlparse(url).netloc if url else "default"
-        last_time = self.domain_last_request_times.get(domain, 0)
-        elapsed = time.time() - last_time
-        effective_delay = self.delay + random.uniform(JITTER_MIN_SECONDS, JITTER_MAX_SECONDS)
-        if elapsed < effective_delay:
-            time.sleep(effective_delay - elapsed)
-        self.domain_last_request_times[domain] = time.time()
+        """Enforces per-domain rate limiting delay with random jitter and cross-thread domain synchronization."""
+        domain = urlparse(url).netloc.lower() if url else "default"
+        domain_lock = self._get_domain_lock(domain)
+        domain_lock.acquire()
+        try:
+            last_time = self._GLOBAL_DOMAIN_LAST_REQUEST_TIMES.get(domain, 0)
+            elapsed = time.time() - last_time
+            effective_delay = self.delay + random.uniform(JITTER_MIN_SECONDS, JITTER_MAX_SECONDS)
+            if elapsed < effective_delay:
+                time.sleep(effective_delay - elapsed)
+            self._GLOBAL_DOMAIN_LAST_REQUEST_TIMES[domain] = time.time()
+        finally:
+            domain_lock.release()
 
     def _handle_connection_success(self):
         """Resets failure counter on successful request."""

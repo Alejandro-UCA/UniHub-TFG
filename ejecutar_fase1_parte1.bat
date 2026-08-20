@@ -1,14 +1,11 @@
 @echo off
-REM ==============================================================================
-REM Script para Ejecutar la Fase 1 - Parte 1 de UniHub
-REM Scraping Oficial RUCT + Descarga y Parsing de PDFs del BOE Central
-REM ==============================================================================
-chcp 65001 >nul
+setlocal enabledelayedexpansion
+
 title UniHub - Ejecutar Fase 1 Parte 1 (RUCT + BOE Central)
 
 echo ======================================================================
-echo          UNIHUB - EJECUCIÓN DE LA FASE 1 PARTE 1
-echo       (Scraping Oficial RUCT y Parsing Sintáctico de BOE)
+echo          UNIHUB - EJECUCION DE LA FASE 1 PARTE 1
+echo       (Scraping Oficial RUCT y Parsing Sintactico de BOE)
 echo ======================================================================
 echo.
 
@@ -18,8 +15,8 @@ cd /d "%~dp0Codigo\Crawler"
 REM Verificar Python disponible
 python --version >nul 2>&1
 if %ERRORLEVEL% NEQ 0 (
-    echo [ERROR CRÍTICO] Python no está instalado o no se encuentra en el PATH.
-    echo Por favor, instala Python 3.10+ y asegúrate de que esté configurado.
+    echo [ERROR CRITICO] Python no esta instalado o no se encuentra en el PATH.
+    echo Por favor, instala Python 3.10+ y asegurate de que este configurado.
     echo.
     pause
     exit /b 1

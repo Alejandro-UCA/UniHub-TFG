@@ -370,13 +370,36 @@ export default function App() {
 
             {/* Universities Grid */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.5rem' }}>
-              {paginatedUniversities.map((univ) => (
-                <UnivCard 
-                  key={univ.codigo}
-                  univ={univ}
-                  onViewDegrees={handleViewUniversityDegrees}
-                />
-              ))}
+              {paginatedUniversities.length === 0 ? (
+                <div className="glass-panel" style={{ padding: '3.5rem 2rem', textAlign: 'center', borderRadius: '12px', gridColumn: '1 / -1' }}>
+                  <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>🏛️</div>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.5rem', color: 'var(--text-main)' }}>
+                    No se encontraron universidades con los filtros seleccionados
+                  </h3>
+                  <p style={{ color: 'var(--text-muted)', maxWidth: '500px', margin: '0 auto 1.25rem auto', fontSize: '0.9rem', lineHeight: 1.5 }}>
+                    Prueba a cambiar el tipo de centro, la Comunidad Autónoma o el término de búsqueda.
+                  </p>
+                  <button
+                    onClick={() => {
+                      setSearchQuery('');
+                      setSelectedUnivTipo('todos');
+                      setSelectedCCAA('todas');
+                    }}
+                    className="btn btn-primary"
+                    style={{ padding: '0.5rem 1.25rem', fontSize: '0.85rem' }}
+                  >
+                    Restablecer filtros de universidad
+                  </button>
+                </div>
+              ) : (
+                paginatedUniversities.map((univ) => (
+                  <UnivCard 
+                    key={univ.codigo}
+                    univ={univ}
+                    onViewDegrees={handleViewUniversityDegrees}
+                  />
+                ))
+              )}
             </div>
 
             {/* Pagination Controls */}
@@ -538,13 +561,39 @@ export default function App() {
 
             {/* Degrees Grid */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.5rem' }}>
-              {paginatedDegrees.map((degree) => (
-                <DegreeCard 
-                  key={degree.codigo_estudio}
-                  degree={degree}
-                  onSelectDegree={(deg) => setSelectedDegree(deg)}
-                />
-              ))}
+              {paginatedDegrees.length === 0 ? (
+                <div className="glass-panel" style={{ padding: '3.5rem 2rem', textAlign: 'center', borderRadius: '12px', gridColumn: '1 / -1' }}>
+                  <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>🔍</div>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.5rem', color: 'var(--text-main)' }}>
+                    No se encontraron titulaciones oficiales con los filtros seleccionados
+                  </h3>
+                  <p style={{ color: 'var(--text-muted)', maxWidth: '500px', margin: '0 auto 1.25rem auto', fontSize: '0.9rem', lineHeight: 1.5 }}>
+                    Prueba a modificar los términos de búsqueda, el nivel académico o restablecer los filtros.
+                  </p>
+                  <button
+                    onClick={() => {
+                      setSearchQuery('');
+                      setSelectedDegreeTipo('todos');
+                      setSelectedUnivTipo('todos');
+                      setSelectedCCAA('todas');
+                      setSelectedRama('todas');
+                      setSelectedUnivCodigo('');
+                    }}
+                    className="btn btn-primary"
+                    style={{ padding: '0.5rem 1.25rem', fontSize: '0.85rem' }}
+                  >
+                    Restablecer todos los filtros
+                  </button>
+                </div>
+              ) : (
+                paginatedDegrees.map((degree) => (
+                  <DegreeCard 
+                    key={degree.codigo_estudio}
+                    degree={degree}
+                    onSelectDegree={(deg) => setSelectedDegree(deg)}
+                  />
+                ))
+              )}
             </div>
 
             {/* Pagination Controls */}

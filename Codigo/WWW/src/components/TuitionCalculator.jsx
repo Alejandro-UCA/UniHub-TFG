@@ -18,6 +18,10 @@ export default function TuitionCalculator() {
   // Map of subject selections: { [subjectIdOrIndex]: { selected: boolean, tier: 1 | 2 | 3 | 4 } }
   const [subjectSelections, setSubjectSelections] = useState({});
 
+  // Estados para simulación por créditos/curso en titulaciones sin asignaturas en BOE (ej. privadas)
+  const [customEcts, setCustomEcts] = useState(60);
+  const [customTier, setCustomTier] = useState(1);
+
   // 1. Fetch All Universities (Public & Private)
   const fetchAllUnivs = async () => {
     setLoadingUnivs(true);
@@ -41,7 +45,7 @@ export default function TuitionCalculator() {
     fetchAllUnivs();
   }, []);
 
-  // 2. Fetch Degrees when University Changes
+  // 2. Fetch Degrees when University Changes (Public & Private)
   useEffect(() => {
     if (!selectedUnivCode) return;
     setLoadingDegrees(true);
@@ -51,7 +55,7 @@ export default function TuitionCalculator() {
     setSubjectSelections({});
 
     const controller = new AbortController();
-    apiService.getDegrees({ universidad_codigo: selectedUnivCode, con_plan: true, limit: 500 }, { signal: controller.signal })
+    apiService.getDegrees({ universidad_codigo: selectedUnivCode, limit: 500 }, { signal: controller.signal })
       .then(data => {
         setDegrees(data || []);
         if (data && data.length > 0) {
@@ -221,21 +225,40 @@ export default function TuitionCalculator() {
     const tierCosts = { 1: 0, 2: 0, 3: 0, 4: 0 };
     let selectedSubjectsCount = 0;
 
-    elements.forEach((elem, idx) => {
-      const state = subjectSelections[idx];
-      if (state?.selected) {
-        selectedSubjectsCount++;
-        const ects = parseFloat(elem.creditos_ects) || 6;
-        totalEcts += ects;
-        
-        const ectsPriceForTier = getEctsPrice(state.tier);
-        const subjectPrice = ects * ectsPriceForTier;
-        
-        totalSubjectCost += subjectPrice;
-        tierCounts[state.tier] = (tierCounts[state.tier] || 0) + 1;
-        tierCosts[state.tier] = (tierCosts[state.tier] || 0) + subjectPrice;
+    if (elements.length > 0) {
+      elements.forEach((elem, idx) => {
+        const state = subjectSelections[idx];
+        if (state?.selected) {
+          selectedSubjectsCount++;
+          const ects = parseFloat(elem.creditos_ects) || 6;
+          totalEcts += ects;
+          
+          const ectsPriceForTier = getEctsPrice(state.tier);
+          const subjectPrice = ects * ectsPriceForTier;
+          
+          totalSubjectCost += subjectPrice;
+          tierCounts[state.tier] = (tierCounts[state.tier] || 0) + 1;
+          tierCosts[state.tier] = (tierCosts[state.tier] || 0) + subjectPrice;
+        }
+      });
+    } else if (degreeDetail) {
+      // Simulación por curso/créditos para títulos sin desglose de asignaturas en BOE (ej. privadas)
+      totalEcts = customEcts;
+      selectedSubjectsCount = Math.round(customEcts / 6);
+      
+      let baseRate = parseFloat(degreeDetail.precio_credito_ects);
+      if (!baseRate && degreeDetail.precio_estimado_anual) {
+        baseRate = parseFloat(degreeDetail.precio_estimado_anual) / 60;
       }
-    });
+      if (!baseRate) baseRate = 16.80;
+
+      const multiplier = customTier === 1 ? 1 : customTier === 2 ? 1.5 : customTier === 3 ? 3.0 : 4.5;
+      const unitCost = baseRate * multiplier;
+      totalSubjectCost = totalEcts * unitCost;
+
+      tierCounts[customTier] = selectedSubjectsCount;
+      tierCosts[customTier] = totalSubjectCost;
+    }
 
     let discountAmount = 0;
     let finalAdminFees = selectedSubjectsCount > 0 ? adminFees : 0;
@@ -265,12 +288,16 @@ export default function TuitionCalculator() {
       const publicEctsEquivPrice = parseFloat(degreeDetail?.precio_credito_ects) || 16.80;
       if (discountType === 'beca_mec') {
         let firstTierEctsSum = 0;
-        elements.forEach((elem, idx) => {
-          const state = subjectSelections[idx];
-          if (state?.selected && state?.tier === 1) {
-            firstTierEctsSum += parseFloat(elem.creditos_ects) || 6;
-          }
-        });
+        if (elements.length > 0) {
+          elements.forEach((elem, idx) => {
+            const state = subjectSelections[idx];
+            if (state?.selected && state?.tier === 1) {
+              firstTierEctsSum += parseFloat(elem.creditos_ects) || 6;
+            }
+          });
+        } else if (customTier === 1) {
+          firstTierEctsSum = totalEcts;
+        }
         discountAmount = firstTierEctsSum * publicEctsEquivPrice;
         discountLabel = 'Cobertura Beca MEC (Equivalente Precio Público)';
       } else if (discountType === 'mh_bachillerato') {
@@ -292,7 +319,7 @@ export default function TuitionCalculator() {
       adminFees: finalAdminFees,
       grandTotal
     };
-  }, [elements, subjectSelections, baseEctsPrice, discountType, isPrivada]);
+  }, [elements, subjectSelections, baseEctsPrice, discountType, isPrivada, degreeDetail, customEcts, customTier]);
 
   return (
     <div style={{ padding: '2rem 0', maxWidth: '1280px', margin: '0 auto' }}>
@@ -403,168 +430,286 @@ export default function TuitionCalculator() {
           <RefreshCw size={32} className="spin" style={{ marginBottom: '1rem', color: 'var(--uca-cyan)' }} />
           <div>Cargando plan de estudios oficial y asignaturas desde la base de datos...</div>
         </div>
-      ) : degreeDetail && elements.length > 0 ? (
+      ) : degreeDetail ? (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))', gap: '2rem' }}>
           
-          {/* Left Column: Subjects Picker */}
+          {/* Left Column: Subjects Picker OR Flat ECTS Simulator */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
-              <div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-main)', margin: 0 }}>
-                  Asignaturas de la Titulación
-                </h3>
-                <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                  {elements.length} asignaturas encontradas en el Plan de Estudios oficial (BOE)
-                </span>
-              </div>
-              <div style={{ display: 'flex', gap: '0.5rem' }}>
-                <button
-                  onClick={() => selectAll(true)}
-                  style={{
-                    padding: '0.4rem 0.8rem',
-                    borderRadius: '6px',
-                    background: 'rgba(0, 168, 204, 0.15)',
-                    color: 'var(--uca-cyan)',
-                    border: '1px solid rgba(0, 168, 204, 0.3)',
-                    cursor: 'pointer',
-                    fontSize: '0.82rem',
-                    fontWeight: 600
-                  }}
-                >
-                  Seleccionar Todas
-                </button>
-                <button
-                  onClick={() => selectAll(false)}
-                  style={{
-                    padding: '0.4rem 0.8rem',
-                    borderRadius: '6px',
-                    background: 'rgba(239, 68, 68, 0.1)',
-                    color: '#EF4444',
-                    border: '1px solid rgba(239, 68, 68, 0.25)',
-                    cursor: 'pointer',
-                    fontSize: '0.82rem',
-                    fontWeight: 600
-                  }}
-                >
-                  Desmarcar Todas
-                </button>
-              </div>
-            </div>
-
-            {/* Subjects List Grouped by Course */}
-            {Object.keys(groupedByCourse).sort((a, b) => a.localeCompare(b)).map(courseName => (
-              <div key={courseName} className="glass-panel" style={{ marginBottom: '1.5rem', padding: '1.25rem', borderRadius: '12px' }}>
+            {elements.length > 0 ? (
+              <>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
-                  <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--uca-cyan)', margin: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <Layers size={18} /> {courseName}
-                  </h4>
-                  <div style={{ display: 'flex', gap: '0.35rem' }}>
+                  <div>
+                    <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-main)', margin: 0 }}>
+                      Asignaturas de la Titulación
+                    </h3>
+                    <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                      {elements.length} asignaturas encontradas en el Plan de Estudios oficial (BOE)
+                    </span>
+                  </div>
+                  <div style={{ display: 'flex', gap: '0.5rem' }}>
                     <button
-                      onClick={() => selectCourseAll(courseName, true)}
+                      onClick={() => selectAll(true)}
                       style={{
-                        padding: '0.25rem 0.6rem',
-                        borderRadius: '4px',
-                        background: 'rgba(0, 168, 204, 0.12)',
+                        padding: '0.4rem 0.8rem',
+                        borderRadius: '6px',
+                        background: 'rgba(0, 168, 204, 0.15)',
                         color: 'var(--uca-cyan)',
-                        border: '1px solid rgba(0, 168, 204, 0.25)',
+                        border: '1px solid rgba(0, 168, 204, 0.3)',
                         cursor: 'pointer',
-                        fontSize: '0.75rem',
+                        fontSize: '0.82rem',
                         fontWeight: 600
                       }}
                     >
-                      + Marcar {courseName}
+                      Seleccionar Todas
                     </button>
                     <button
-                      onClick={() => selectCourseAll(courseName, false)}
+                      onClick={() => selectAll(false)}
                       style={{
-                        padding: '0.25rem 0.6rem',
-                        borderRadius: '4px',
-                        background: 'rgba(255, 255, 255, 0.05)',
-                        color: 'var(--text-muted)',
-                        border: '1px solid var(--border-light)',
+                        padding: '0.4rem 0.8rem',
+                        borderRadius: '6px',
+                        background: 'rgba(239, 68, 68, 0.1)',
+                        color: '#EF4444',
+                        border: '1px solid rgba(239, 68, 68, 0.25)',
                         cursor: 'pointer',
-                        fontSize: '0.75rem',
+                        fontSize: '0.82rem',
                         fontWeight: 600
                       }}
                     >
-                      - Desmarcar
+                      Desmarcar Todas
                     </button>
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                  {groupedByCourse[courseName].map(subject => {
-                    const idx = subject.originalIndex;
-                    const state = subjectSelections[idx] || { selected: false, tier: 1 };
-                    const ects = parseFloat(subject.creditos_ects) || 6;
-                    const ectsPriceForTier = getEctsPrice(state.tier);
-                    const itemCost = ects * ectsPriceForTier;
+                {/* Subjects List Grouped by Course */}
+                {Object.keys(groupedByCourse).sort((a, b) => a.localeCompare(b)).map(courseName => (
+                  <div key={courseName} className="glass-panel" style={{ marginBottom: '1.5rem', padding: '1.25rem', borderRadius: '12px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
+                      <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--uca-cyan)', margin: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <Layers size={18} /> {courseName}
+                      </h4>
+                      <div style={{ display: 'flex', gap: '0.35rem' }}>
+                        <button
+                          onClick={() => selectCourseAll(courseName, true)}
+                          style={{
+                            padding: '0.25rem 0.6rem',
+                            borderRadius: '4px',
+                            background: 'rgba(0, 168, 204, 0.12)',
+                            color: 'var(--uca-cyan)',
+                            border: '1px solid rgba(0, 168, 204, 0.25)',
+                            cursor: 'pointer',
+                            fontSize: '0.75rem',
+                            fontWeight: 600
+                          }}
+                        >
+                          + Marcar {courseName}
+                        </button>
+                        <button
+                          onClick={() => selectCourseAll(courseName, false)}
+                          style={{
+                            padding: '0.25rem 0.6rem',
+                            borderRadius: '4px',
+                            background: 'rgba(255, 255, 255, 0.05)',
+                            color: 'var(--text-muted)',
+                            border: '1px solid var(--border-light)',
+                            cursor: 'pointer',
+                            fontSize: '0.75rem',
+                            fontWeight: 600
+                          }}
+                        >
+                          - Desmarcar
+                        </button>
+                      </div>
+                    </div>
 
-                    return (
-                      <div
-                        key={idx}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                      {groupedByCourse[courseName].map(subject => {
+                        const idx = subject.originalIndex;
+                        const state = subjectSelections[idx] || { selected: false, tier: 1 };
+                        const ects = parseFloat(subject.creditos_ects) || 6;
+                        const ectsPriceForTier = getEctsPrice(state.tier);
+                        const itemCost = ects * ectsPriceForTier;
+
+                        return (
+                          <div
+                            key={idx}
+                            style={{
+                              padding: '0.85rem 1rem',
+                              borderRadius: '8px',
+                              background: state.selected ? 'rgba(0, 168, 204, 0.08)' : 'var(--bg-card)',
+                              border: state.selected ? '1px solid var(--uca-cyan)' : '1px solid var(--border-light)',
+                              display: 'grid',
+                              gridTemplateColumns: 'auto 1fr auto auto',
+                              alignItems: 'center',
+                              gap: '1rem',
+                              transition: 'all 0.2s ease'
+                            }}
+                          >
+                            {/* Checkbox */}
+                            <div onClick={() => toggleSubject(idx)} style={{ cursor: 'pointer', display: 'flex', color: state.selected ? 'var(--uca-cyan)' : 'var(--text-muted)' }}>
+                              {state.selected ? <CheckSquare size={20} /> : <Square size={20} />}
+                            </div>
+
+                            {/* Subject Info */}
+                            <div>
+                              <div style={{ fontWeight: 600, fontSize: '0.95rem', color: 'var(--text-main)' }}>
+                                {subject.nombre_elemento}
+                              </div>
+                              <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'flex', gap: '0.75rem', marginTop: '0.15rem' }}>
+                                <span><strong>ECTS:</strong> {ects} cr.</span>
+                                {subject.caracter && <span><strong>Tipo:</strong> {subject.caracter}</span>}
+                              </div>
+                            </div>
+
+                            {/* Enrolment Tier Selector (1ª, 2ª, 3ª, 4ª) */}
+                            <div>
+                              <select
+                                aria-label="Seleccionar número de matrícula"
+                                value={state.tier}
+                                onChange={(e) => changeTier(idx, e.target.value)}
+                                style={{
+                                  padding: '0.35rem 0.6rem',
+                                  borderRadius: '6px',
+                                  background: state.tier > 1 ? 'rgba(245, 158, 11, 0.15)' : 'var(--bg-card)',
+                                  color: state.tier > 1 ? '#F59E0B' : 'var(--text-main)',
+                                  border: state.tier > 1 ? '1px solid #F59E0B' : '1px solid var(--border-light)',
+                                  fontWeight: 600,
+                                  fontSize: '0.82rem',
+                                  cursor: 'pointer'
+                                }}
+                              >
+                                <option value={1}>1ª Matrícula ({getEctsPrice(1).toFixed(2)}€/cr)</option>
+                                <option value={2}>2ª Matrícula ({getEctsPrice(2).toFixed(2)}€/cr)</option>
+                                <option value={3}>3ª Matrícula ({getEctsPrice(3).toFixed(2)}€/cr)</option>
+                                <option value={4}>4ª+ Matrícula ({getEctsPrice(4).toFixed(2)}€/cr)</option>
+                              </select>
+                            </div>
+
+                            {/* Cost Output */}
+                            <div style={{ fontWeight: 700, fontSize: '0.95rem', color: state.selected ? '#10B981' : 'var(--text-muted)', textAlign: 'right', minWidth: '80px' }}>
+                              {state.selected ? `${itemCost.toFixed(2)} €` : '0.00 €'}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
+              </>
+            ) : (
+              <div className="glass-panel" style={{ padding: '1.75rem', borderRadius: '12px', marginBottom: '1.5rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+                  <div style={{ background: 'rgba(0, 168, 204, 0.15)', padding: '0.65rem', borderRadius: '10px', color: 'var(--uca-cyan)' }}>
+                    <Layers size={24} />
+                  </div>
+                  <div>
+                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-main)', margin: 0 }}>
+                      {isPrivada ? 'Simulador de Honorarios de Universidad Privada' : 'Simulador Oficial por Curso y Créditos'}
+                    </h3>
+                    <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+                      Configura los créditos a matricular y el orden de matrícula
+                    </span>
+                  </div>
+                </div>
+
+                {/* Course Year Selection Preset */}
+                <div style={{ marginBottom: '1.5rem' }}>
+                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '0.5rem' }}>
+                    Selecciona Carga Académica Predeterminada:
+                  </label>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '0.5rem' }}>
+                    {[
+                      { label: 'Curso Completo (60 ECTS)', val: 60 },
+                      { label: '1 Cuatrimestre (30 ECTS)', val: 30 },
+                      { label: 'Matrícula Parcial (18 ECTS)', val: 18 }
+                    ].map((preset, pIdx) => (
+                      <button
+                        key={pIdx}
+                        type="button"
+                        onClick={() => setCustomEcts(preset.val)}
                         style={{
-                          padding: '0.85rem 1rem',
+                          padding: '0.6rem 0.5rem',
                           borderRadius: '8px',
-                          background: state.selected ? 'rgba(0, 168, 204, 0.08)' : 'var(--bg-card)',
-                          border: state.selected ? '1px solid var(--uca-cyan)' : '1px solid var(--border-light)',
-                          display: 'grid',
-                          gridTemplateColumns: 'auto 1fr auto auto',
-                          alignItems: 'center',
-                          gap: '1rem',
+                          background: customEcts === preset.val ? 'var(--uca-azure)' : 'var(--bg-card)',
+                          color: customEcts === preset.val ? '#FFFFFF' : 'var(--text-main)',
+                          border: customEcts === preset.val ? '1px solid var(--uca-azure)' : '1px solid var(--border-light)',
+                          fontWeight: 600,
+                          fontSize: '0.8rem',
+                          cursor: 'pointer',
                           transition: 'all 0.2s ease'
                         }}
                       >
-                        {/* Checkbox */}
-                        <div onClick={() => toggleSubject(idx)} style={{ cursor: 'pointer', display: 'flex', color: state.selected ? 'var(--uca-cyan)' : 'var(--text-muted)' }}>
-                          {state.selected ? <CheckSquare size={20} /> : <Square size={20} />}
-                        </div>
-
-                        {/* Subject Info */}
-                        <div>
-                          <div style={{ fontWeight: 600, fontSize: '0.95rem', color: 'var(--text-main)' }}>
-                            {subject.nombre_elemento}
-                          </div>
-                          <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'flex', gap: '0.75rem', marginTop: '0.15rem' }}>
-                            <span><strong>ECTS:</strong> {ects} cr.</span>
-                            {subject.caracter && <span><strong>Tipo:</strong> {subject.caracter}</span>}
-                          </div>
-                        </div>
-
-                        {/* Enrolment Tier Selector (1ª, 2ª, 3ª, 4ª) */}
-                        <div>
-                          <select
-                            aria-label="Seleccionar número de matrícula"
-                            value={state.tier}
-                            onChange={(e) => changeTier(idx, e.target.value)}
-                            style={{
-                              padding: '0.35rem 0.6rem',
-                              borderRadius: '6px',
-                              background: state.tier > 1 ? 'rgba(245, 158, 11, 0.15)' : 'var(--bg-card)',
-                              color: state.tier > 1 ? '#F59E0B' : 'var(--text-main)',
-                              border: state.tier > 1 ? '1px solid #F59E0B' : '1px solid var(--border-light)',
-                              fontWeight: 600,
-                              fontSize: '0.82rem',
-                              cursor: 'pointer'
-                            }}
-                          >
-                            <option value={1}>1ª Matrícula ({getEctsPrice(1).toFixed(2)}€/cr)</option>
-                            <option value={2}>2ª Matrícula ({getEctsPrice(2).toFixed(2)}€/cr)</option>
-                            <option value={3}>3ª Matrícula ({getEctsPrice(3).toFixed(2)}€/cr)</option>
-                            <option value={4}>4ª+ Matrícula ({getEctsPrice(4).toFixed(2)}€/cr)</option>
-                          </select>
-                        </div>
-
-                        {/* Cost Output */}
-                        <div style={{ fontWeight: 700, fontSize: '0.95rem', color: state.selected ? '#10B981' : 'var(--text-muted)', textAlign: 'right', minWidth: '80px' }}>
-                          {state.selected ? `${itemCost.toFixed(2)} €` : '0.00 €'}
-                        </div>
-                      </div>
-                    );
-                  })}
+                        {preset.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
+
+                {/* Custom ECTS Slider / Input */}
+                <div style={{ marginBottom: '1.5rem' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.4rem' }}>
+                    <label style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-main)' }}>
+                      Número total de Créditos ECTS a matricular:
+                    </label>
+                    <span style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--uca-blue)' }}>
+                      {customEcts} ECTS
+                    </span>
+                  </div>
+                  <input
+                    type="range"
+                    min={6}
+                    max={90}
+                    step={6}
+                    value={customEcts}
+                    onChange={(e) => setCustomEcts(parseInt(e.target.value, 10))}
+                    style={{ width: '100%', accentColor: 'var(--uca-blue)', cursor: 'pointer' }}
+                  />
+                </div>
+
+                {/* Custom Matrícula Tier */}
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '0.4rem' }}>
+                    Convocatoria / Orden de Matrícula:
+                  </label>
+                  <select
+                    aria-label="Seleccionar orden de matrícula"
+                    value={customTier}
+                    onChange={(e) => setCustomTier(parseInt(e.target.value, 10))}
+                    style={{
+                      width: '100%',
+                      padding: '0.65rem 0.85rem',
+                      borderRadius: '8px',
+                      background: 'var(--bg-card)',
+                      color: 'var(--text-main)',
+                      border: '1px solid var(--border-light)',
+                      fontWeight: 600,
+                      fontSize: '0.9rem',
+                      outline: 'none',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    <option value={1}>1ª Matrícula (Tarifa ordinaria)</option>
+                    <option value={2}>2ª Matrícula (+50% recargo oficial)</option>
+                    <option value={3}>3ª Matrícula (+200% recargo oficial)</option>
+                    <option value={4}>4ª+ Matrícula (+350% recargo oficial)</option>
+                  </select>
+                </div>
+
+                {isPrivada && (
+                  <div style={{
+                    marginTop: '1.5rem',
+                    padding: '0.85rem 1rem',
+                    borderRadius: '8px',
+                    background: 'rgba(0, 168, 204, 0.08)',
+                    border: '1px solid rgba(0, 168, 204, 0.25)',
+                    fontSize: '0.82rem',
+                    color: 'var(--text-main)',
+                    lineHeight: 1.5
+                  }}>
+                    ℹ️ <strong>Nota sobre Universidades Privadas:</strong> Los honorarios académicos anuales son fijados por el consejo de administración del centro. Para becas oficiales (Beca MEC o Matrícula de Honor), la cuantía bonificada cubre el equivalente al precio público regulado.
+                  </div>
+                )}
               </div>
-            ))}
+            )}
           </div>
 
           {/* Right Column: Receipt Breakdown Panel */}
@@ -708,7 +853,7 @@ export default function TuitionCalculator() {
                   {calculation.grandTotal.toFixed(2)} €
                 </div>
                 <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-                  (Valores oficiales calculados según tarifa ECTS pública)
+                  (Valores oficiales calculados según tarifa ECTS oficial)
                 </div>
               </div>
 
@@ -731,10 +876,10 @@ export default function TuitionCalculator() {
             <AlertCircle size={36} />
           </div>
           <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.5rem', color: 'var(--text-main)' }}>
-            Esta titulación no dispone de asignaturas desglosadas en el BOE
+            Selecciona una Universidad y Titulación
           </h3>
           <p style={{ color: 'var(--text-muted)', maxWidth: '540px', margin: '0 auto', fontSize: '0.92rem', lineHeight: 1.6 }}>
-            No se ha encontrado una tabla de asignaturas y créditos lectivos publicada en el BOE para este estudio. Por favor, selecciona otra titulación del selector superior para simular tu matrícula.
+            Elige una titulación en los selectores superiores para simular el coste oficial de matrícula.
           </p>
         </div>
       )}

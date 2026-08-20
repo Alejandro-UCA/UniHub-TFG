@@ -41,6 +41,7 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
           precio_credito_2: '',
           precio_credito_3: '',
           precio_credito_4: '',
+          precio_estimado_anual: '',
           gestionado_por_admin: false
         });
       } else if (type === 'asignatura') {

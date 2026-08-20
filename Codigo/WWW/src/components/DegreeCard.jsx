@@ -66,7 +66,7 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
         )}
 
         {/* ECTS Credit Price & Estimated Annual Tuition Badge (Phase 1 Part 3 & Phase 2) */}
-        {degree.precio_credito_ects && (
+        {(degree.precio_credito_ects || degree.precio_estimado_anual) && (
           <div style={{
             background: 'rgba(16, 185, 129, 0.08)',
             border: '1px solid rgba(16, 185, 129, 0.25)',
@@ -79,9 +79,11 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
               <span style={{ color: 'var(--success)', fontWeight: 700 }}>💶 1ª Matrícula:</span>
               <span style={{ fontWeight: 800, color: 'var(--text-main)' }}>
                 ~{Math.round(parseFloat(degree.precio_estimado_anual) || ((parseFloat(degree.precio_credito_ects) || 0) * 60 + 45))} €/año
-                <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontWeight: 400, marginLeft: '0.35rem' }}>
-                  ({degree.precio_credito_ects} €/c)
-                </span>
+                {degree.precio_credito_ects && (
+                  <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontWeight: 400, marginLeft: '0.35rem' }}>
+                    ({degree.precio_credito_ects} €/c)
+                  </span>
+                )}
               </span>
             </div>
             

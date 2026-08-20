@@ -670,7 +670,7 @@ export default function AdminDashboard({ onLogout }) {
                     .filter(d => {
                       if (crudPillFilter === 'Grado') return d.nivel_academico?.toLowerCase().includes('grado');
                       if (crudPillFilter === 'Máster') return d.nivel_academico?.toLowerCase().includes('máster') || d.nivel_academico?.toLowerCase().includes('master');
-                      if (crudPillFilter === 'Doctorado') return d.nivel_academico?.toLowerCase().includes('doctorado');
+                      if (crudPillFilter === 'Doctorado') return d.nivel_academico?.toLowerCase().includes('doctor') || d.nivel_academico?.toLowerCase().includes('99/2011') || d.titulo?.toLowerCase().includes('doctor');
                       return true;
                     })
                     .map((d) => (

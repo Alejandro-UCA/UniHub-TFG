@@ -168,5 +168,35 @@ class TestPhase3FrontendExhaustive(unittest.TestCase):
         self.assertIn("Boletín Oficial del Estado", content, "Falta mención al BOE")
         self.assertNotIn("Creado con amor", content, "Debe eliminarse el texto de 'Creado con amor'")
 
+    def test_13_private_university_and_flat_degree_resilience(self):
+        """Verifica que PlanModal gestione titulaciones sin desglose BOE o privadas mostrando información oficial sin bloquearse."""
+        plan_path = os.path.join(self.COMPONENTS_DIR, "PlanModal.jsx")
+        with open(plan_path, "r", encoding="utf-8") as f:
+            content = f.read()
+
+        self.assertIn("Plan de Estudios Gestionado por la Universidad", content, "Falta mensaje explicativo oficial en PlanModal")
+        self.assertIn("annualPrice", content, "Falta cálculo de precio anual para universidades privadas y públicas")
+        self.assertIn("isPrivada", content, "Falta distintivo para universidades privadas")
+
+    def test_14_tuition_calculator_private_and_flat_simulation(self):
+        """Verifica que TuitionCalculator admita todas las universidades privadas y titulaciones sin desglose rígido."""
+        calc_path = os.path.join(self.COMPONENTS_DIR, "TuitionCalculator.jsx")
+        with open(calc_path, "r", encoding="utf-8") as f:
+            content = f.read()
+
+        self.assertNotIn("con_plan: true", content, "TuitionCalculator no debe filtrar rígidamente con_plan: true para permitir privadas")
+        self.assertIn("customEcts", content, "Falta simulación por créditos configurables para titulaciones sin asignaturas en BOE")
+        self.assertIn("customTier", content, "Falta simulación de convocatoria/orden de matrícula")
+
+    def test_15_empty_state_resilience_in_app_grids(self):
+        """Verifica que App.jsx renderice estados vacíos informativos con botón de restablecer filtros."""
+        app_path = os.path.join(self.SRC_DIR, "App.jsx")
+        with open(app_path, "r", encoding="utf-8") as f:
+            content = f.read()
+
+        self.assertIn("No se encontraron universidades con los filtros seleccionados", content)
+        self.assertIn("No se encontraron titulaciones oficiales con los filtros seleccionados", content)
+        self.assertIn("Restablecer todos los filtros", content)
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

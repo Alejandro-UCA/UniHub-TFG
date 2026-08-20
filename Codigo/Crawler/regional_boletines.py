@@ -62,7 +62,7 @@ class RegionalGazetteResolver:
                 temp_pdf = os.path.join(TEMP_PDF_DIR, f"regional_{degree_code}.pdf")
                 try:
                     self.downloader.download_file(pdf_url, temp_pdf, is_pdf=True)
-                    curriculum = parse_boe_pdf(temp_pdf)
+                    curriculum = parse_boe_pdf(temp_pdf, target_title=degree_title, univ_name=university_name)
                     if curriculum and (curriculum.get("total_elementos", 0) > 0 or len(curriculum.get("resumen_creditos", {})) > 0):
                         curriculum["fuente_regional"] = REGIONAL_SEARCH_ENDPOINTS[ccaa]["name"]
                         return curriculum

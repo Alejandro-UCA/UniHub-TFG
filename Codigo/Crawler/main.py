@@ -170,7 +170,7 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue = None):
                         if not pdf_input:
                             continue
 
-                        curriculum_data = parse_boe_pdf(pdf_input)
+                        curriculum_data = parse_boe_pdf(pdf_input, target_title=d_title, univ_name=u_name)
                         t_elapsed = time.perf_counter() - t_start
                         total_parse_time += t_elapsed
                         parsed_count += 1

@@ -643,7 +643,7 @@ class UniversityWebCrawler:
                     if existing_direct_url.lower().endswith(".pdf"):
                         temp_pdf = os.path.join(TEMP_PDF_DIR, f"web_{d_code}.pdf")
                         downloader.download_file(existing_direct_url, temp_pdf)
-                        parsed = parse_boe_pdf(temp_pdf)
+                        parsed = parse_boe_pdf(temp_pdf, target_title=d_title, univ_name=univ_nombre)
                         if os.path.exists(temp_pdf):
                             os.remove(temp_pdf)
                         if parsed.get("total_elementos", 0) > 0 or len(parsed.get("resumen_creditos", {})) > 0:
@@ -666,7 +666,7 @@ class UniversityWebCrawler:
                             temp_pdf = os.path.join(TEMP_PDF_DIR, f"web_{d_code}.pdf")
                             try:
                                 downloader.download_file(sm_candidate_url, temp_pdf)
-                                parsed = parse_boe_pdf(temp_pdf)
+                                parsed = parse_boe_pdf(temp_pdf, target_title=d_title, univ_name=univ_nombre)
                                 if parsed.get("total_elementos", 0) > 0 or len(parsed.get("resumen_creditos", {})) > 0:
                                     found_curriculum = parsed
                                     direct_source_url = sm_candidate_url
@@ -766,7 +766,7 @@ class UniversityWebCrawler:
                                         temp_pdf = os.path.join(TEMP_PDF_DIR, f"web_{d_code}.pdf")
                                         try:
                                             downloader.download_file(target_link, temp_pdf)
-                                            parsed = parse_boe_pdf(temp_pdf)
+                                            parsed = parse_boe_pdf(temp_pdf, target_title=d_title, univ_name=univ_nombre)
                                             if parsed.get("total_elementos", 0) > 0 or len(parsed.get("resumen_creditos", {})) > 0:
                                                 found_curriculum = parsed
                                                 direct_source_url = target_link

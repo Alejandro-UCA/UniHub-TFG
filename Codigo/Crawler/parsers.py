@@ -2,6 +2,7 @@ import os
 import io
 import re
 import hashlib
+import unicodedata
 from datetime import datetime
 import xlrd
 from bs4 import BeautifulSoup
@@ -9,6 +10,52 @@ import pdfplumber
 import pypdf
 from downloader import normalize_url
 from functools import lru_cache
+
+# -----------------------------------------------------------------------------
+# GLOBAL PRE-COMPILED REGEX PATTERNS (OPT-02: Pre-compilación de Regex)
+# -----------------------------------------------------------------------------
+SPANISH_STOP_WORDS = {
+    "el", "la", "los", "las", "un", "una", "unos", "unas",
+    "de", "del", "en", "a", "al", "por", "con", "sin", "sobre", "para", "entre", "hacia", "desde", "hasta", "segun", "tras", "durante", "mediante",
+    "y", "e", "o", "u", "ni", "que", "como", "donde", "cuando",
+    "graduado", "graduada", "graduados", "graduadas", "grado", "grados",
+    "master", "masteres", "máster", "másteres",
+    "doctor", "doctora", "doctorado", "doctorados",
+    "titulo", "titulos", "titulacion", "titulaciones", "título", "títulos", "titulación", "titulaciones",
+    "estudio", "estudios", "plan", "planes", "oficial", "oficiales",
+    "universidad", "universidades", "universitaria", "universitarias", "universitario", "universitarios",
+    "conducente", "conducentes", "obtencion", "obtención", "superacion", "superación",
+    "anexo", "anexos", "resolucion", "resolución", "decreto", "orden", "acuerdo",
+    "centro", "centros", "facultad", "facultades", "escuela", "escuelas",
+    "programa", "programas", "ensenanzas", "enseñanzas", "ensenanza", "enseñanza",
+    "rama", "ramas", "conocimiento", "conocimientos", "mencion", "mención", "menciones",
+    "distribucion", "distribución", "creditos", "créditos", "resumen", "estructura"
+}
+
+RE_DEGREE_SECTION_MARKERS = [
+    re.compile(r"(?:ANEXO\s+[I|V|X\d]+|ANEXO\b)[^\n\r]*[\n\r]+([^\n\r]{5,150})", re.IGNORECASE),
+    re.compile(r"(?:plan de estudios conducente|plan de estudios del?|t[ií]tulo oficial de|obtenci[oó]n del t[ií]tulo de|denominaci[oó]n del t[ií]tulo\s*:)\s+([^\n\r]{5,150})", re.IGNORECASE),
+    re.compile(r"(?:^|\n)\s*(?:Grado|Graduado|Graduada|M[aá]ster|Doctorado)\s+en\s+([A-ZÁÉÍÓÚÑ][^\n\r\(\)]{3,80})", re.IGNORECASE)
+]
+
+def extract_degree_core_keywords(title: str, univ_name: str = "") -> set:
+    """
+    Extrae lemas y palabras clave discriminativas de una titulación excluyendo preposiciones,
+    artículos y términos genéricos (grado, máster, universidad, plan, oficial, etc.).
+    """
+    if not title:
+        return set()
+    norm = title.lower()
+    norm = unicodedata.normalize('NFKD', norm).encode('ASCII', 'ignore').decode('utf-8')
+    words = re.findall(r'\b[a-z0-9]{3,}\b', norm)
+    
+    univ_words = set()
+    if univ_name:
+        u_norm = unicodedata.normalize('NFKD', univ_name.lower()).encode('ASCII', 'ignore').decode('utf-8')
+        univ_words = set(re.findall(r'\b[a-z0-9]{3,}\b', u_norm))
+    
+    return set(w for w in words if w not in SPANISH_STOP_WORDS and w not in univ_words)
+
 
 # -----------------------------------------------------------------------------
 # GLOBAL PRE-COMPILED REGEX PATTERNS (OPT-02: Pre-compilación de Regex)
@@ -450,10 +497,11 @@ def sanitize_subject_name(raw_name: str) -> str:
     return name
 
 
-def parse_boe_pdf(pdf_filepath) -> dict:
+def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> dict:
     """
     Extracts METICULOUS curriculum data (resumen creditos, asignaturas, modulos, materias, 
     unidades formativas, bloques, ECTS, carácter, curso, cuatrimestre) from a BOE PDF.
+    Supports multi-degree BOE resolution disambiguation (segmenting Anexos by degree title).
     Supports both disk file path (str) and in-memory bytes/io.BytesIO objects (OPT-04).
     Calculates SHA256 digest of PDF stream for negative caching (OPT-06).
     """
@@ -501,12 +549,59 @@ def parse_boe_pdf(pdf_filepath) -> dict:
             ocr_text = ocr_parser.extract_text_via_ocr(pdf_filepath)
             if len(ocr_text.strip()) >= 50:
                 full_text = ocr_text
+                raw_text_parts = [full_text]
         except Exception:
             pass
 
-    # 1. Parse Credit Summary Table (using pre-compiled RE_CREDIT_SUMMARY)
+    # -------------------------------------------------------------------------
+    # MULTI-DEGREE DISAMBIGUATION ENGINE:
+    # Detect if the BOE resolution publishes multiple distinct degree curricula
+    # (e.g. Anexo I: Informática, Anexo II: Marketing, Anexo III: Psicología).
+    # -------------------------------------------------------------------------
+    target_kw = extract_degree_core_keywords(target_title, univ_name)
+    detected_sections = []
+    
+    for page_idx, p_text in enumerate(raw_text_parts):
+        for pattern in RE_DEGREE_SECTION_MARKERS:
+            for match in pattern.finditer(p_text):
+                sec_raw = match.group(0).strip()
+                sec_kw = extract_degree_core_keywords(sec_raw, univ_name)
+                if sec_kw and len(sec_kw) > 0:
+                    detected_sections.append({
+                        "page_idx": page_idx,
+                        "raw": sec_raw,
+                        "keywords": sec_kw
+                    })
+
+    # Check if multiple distinct degree sections exist
+    is_multi_degree_doc = False
+    if len(detected_sections) >= 2:
+        for i in range(len(detected_sections)):
+            for j in range(i + 1, len(detected_sections)):
+                if not detected_sections[i]["keywords"].intersection(detected_sections[j]["keywords"]):
+                    is_multi_degree_doc = True
+                    break
+            if is_multi_degree_doc:
+                break
+
+    page_inclusion_mask = [True] * len(raw_text_parts)
+    if is_multi_degree_doc and target_kw:
+        current_state = False
+        for page_idx in range(len(raw_text_parts)):
+            for s in detected_sections:
+                if s["page_idx"] == page_idx:
+                    overlap = target_kw.intersection(s["keywords"])
+                    current_state = bool(overlap)
+            page_inclusion_mask[page_idx] = current_state
+
+        # Safety fallback: if no page was matched, include all pages
+        if not any(page_inclusion_mask):
+            page_inclusion_mask = [True] * len(raw_text_parts)
+
+    # 1. Parse Credit Summary Table (using text from relevant pages or full_text)
+    relevant_text = "\n".join([raw_text_parts[i] for i in range(len(raw_text_parts)) if i < len(page_inclusion_mask) and page_inclusion_mask[i]]) or full_text
     for label, pattern in RE_CREDIT_SUMMARY:
-        match = pattern.search(full_text)
+        match = pattern.search(relevant_text)
         if match:
             resumen_creditos[label] = match.group(1)
 
@@ -519,7 +614,11 @@ def parse_boe_pdf(pdf_filepath) -> dict:
             current_modulo = ""
             current_materia = ""
 
-            for page in pdf.pages:
+            for page_idx, page in enumerate(pdf.pages):
+                # If multi-degree resolution, skip pages of other degrees
+                if is_multi_degree_doc and page_idx < len(page_inclusion_mask) and not page_inclusion_mask[page_idx]:
+                    continue
+
                 tables = page.extract_tables()
                 for table in tables:
                     subject_col_idx = -1

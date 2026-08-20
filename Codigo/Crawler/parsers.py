@@ -320,21 +320,75 @@ def normalize_cuatrimestre(cuat_raw: str) -> str:
     
     # 2. Primer Cuatrimestre / Semestres impares (1, 3, 5, 7)
     if (
-        c_str in ["1", "1º", "1.º", "1c", "1s", "1er", "primer", "primero", "1.er", "3", "5", "7"]
+        c_str in ["1", "1º", "1.º", "1c", "1s", "1er", "primer", "primero", "1.er", "3", "5", "7", "s1", "c1"]
         or "1er" in c_str or "1º cuat" in c_str or "1.º cuat" in c_str or "1.º sem" in c_str 
         or "1er sem" in c_str or "primer cuat" in c_str or "primer sem" in c_str
+        or "semestre 1" in c_str or "semestre 3" in c_str or "semestre 5" in c_str or "semestre 7" in c_str
+        or "cuatrimestre 1" in c_str or "cuatrimestre 3" in c_str or "cuatrimestre 5" in c_str or "cuatrimestre 7" in c_str
     ):
         return "1C"
         
     # 3. Segundo Cuatrimestre / Semestres pares (2, 4, 6, 8)
     if (
-        c_str in ["2", "2º", "2.º", "2c", "2s", "2do", "2º cuat", "2.º cuat", "2.º sem", "2do sem", "segundo", "segundo cuat", "segundo sem", "4", "6", "8"]
+        c_str in ["2", "2º", "2.º", "2c", "2s", "2do", "2º cuat", "2.º cuat", "2.º sem", "2do sem", "segundo", "segundo cuat", "segundo sem", "4", "6", "8", "s2", "c2"]
         or "2º" in c_str or "2do" in c_str or "segundo" in c_str
+        or "semestre 2" in c_str or "semestre 4" in c_str or "semestre 6" in c_str or "semestre 8" in c_str
+        or "cuatrimestre 2" in c_str or "cuatrimestre 4" in c_str or "cuatrimestre 6" in c_str or "cuatrimestre 8" in c_str
     ):
         return "2C"
         
     # Fallback seguro: mantener el texto original limpio
     return str(cuat_raw).strip()
+
+
+def normalize_curso(curso_raw: str, current_materia: str = "", ects_val: float = 6.0) -> tuple:
+    """
+    Normaliza el campo curso de forma estricta (1, 2, 3, 4, 5, 6 o vacío).
+    Si curso_raw contiene texto descriptivo de materia o asignatura (ej. 'Comunicación Oral y Escrita.'),
+    lo traslada a la materia si esta estaba vacía, y limpia el curso a "".
+    Retorna una tupla (curso_limpio, materia_actualizada).
+    """
+    if not curso_raw:
+        return "", current_materia
+    c_str = str(curso_raw).strip()
+    c_low = c_str.lower()
+    
+    # 1. Comprobar desalineación de créditos ECTS (ej. si curso_raw es simplemente "6" o "5" igual a ects_val)
+    if c_str.isdigit():
+        c_val_int = int(c_str)
+        if c_val_int == int(ects_val) and c_val_int >= 5 and not any(k in c_low for k in ["curso", "año", "curs", "º", "er", "to"]):
+            return "", current_materia
+
+    # 2. Detectar números ordinales o textuales en español/catalán (1º, 1er, primer, segon, etc.)
+    if c_low in ["1", "1º", "1.º", "1er", "primer", "primero", "primer curso", "1r", "1r curs", "i", "curso 1", "año 1"]:
+        return "1", current_materia
+    if c_low in ["2", "2º", "2.º", "2do", "2n", "segundo", "segon", "segundo curso", "2n curs", "ii", "curso 2", "año 2"]:
+        return "2", current_materia
+    if c_low in ["3", "3º", "3.º", "3er", "3r", "tercer", "tercero", "tercer curso", "3r curs", "iii", "curso 3", "año 3"]:
+        return "3", current_materia
+    if c_low in ["4", "4º", "4.º", "4to", "4t", "cuarto", "quart", "cuarto curso", "4t curs", "iv", "curso 4", "año 4"]:
+        return "4", current_materia
+    if c_low in ["5", "5º", "5.º", "5to", "5è", "quinto", "cinquè", "quinto curso", "5è curs", "v", "curso 5", "año 5"]:
+        return "5", current_materia
+    if c_low in ["6", "6º", "6.º", "6to", "6è", "sexto", "sisè", "sexto curso", "6è curs", "vi", "curso 6", "año 6"]:
+        return "6", current_materia
+
+    # 3. Buscar si contiene un dígito aislado 1-6
+    m = re.search(r"\b([1-6])\b", c_str)
+    if m:
+        c_num = int(m.group(1))
+        if c_num == int(ects_val) and c_num >= 5 and not any(k in c_low for k in ["curso", "año", "curs"]):
+            return "", current_materia
+        return str(c_num), current_materia
+
+    # 4. Si curso_raw es un texto largo (> 3 caracteres alfabéticos) y no es un curso numérico,
+    # es un nombre de materia/módulo desalineado por la tabla del PDF
+    if re.search(r"[a-zA-ZáéíóúñÁÉÍÓÚÑ]{4,}", c_str):
+        if not current_materia or current_materia.strip() == "":
+            current_materia = c_str
+        return "", current_materia
+
+    return "", current_materia
 
 
 def unreverse_text(text: str) -> str:
@@ -612,14 +666,8 @@ def parse_boe_pdf(pdf_filepath) -> dict:
                             if is_summary_row:
                                 continue
 
-                            # Solución 2: Saneamiento del campo curso
-                            # Evitar que 'curso' herede erróneamente el valor numérico de 'creditos' (ej. curso: "6" por desalineación)
-                            clean_curso = str(curso or "").strip()
-                            m_c = re.search(r"(\d+)", clean_curso)
-                            if m_c:
-                                c_num = int(m_c.group(1))
-                                if c_num > 6 or (c_num == int(ects_float) and c_num > 4):
-                                    clean_curso = ""
+                            # Solución 2: Saneamiento estricto del campo curso y rescate de materia
+                            clean_curso, current_materia = normalize_curso(curso, current_materia, ects_val=ects_float)
 
                             elementos_curriculares.append({
                                 "modulo": current_modulo,

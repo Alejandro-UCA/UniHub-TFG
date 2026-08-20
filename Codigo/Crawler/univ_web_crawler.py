@@ -313,9 +313,10 @@ class UniversityWebCrawler:
     _robots_cache = {}
     _robots_cache_ttl = ROBOTS_CACHE_TTL_SECONDS
 
-    def __init__(self, user_agent=USER_AGENT, timeout=HTTP_TIMEOUT):
+    def __init__(self, user_agent=USER_AGENT, timeout=HTTP_TIMEOUT, metrics_tracker=None):
         self.user_agent = user_agent
         self.timeout = timeout
+        self.metrics_tracker = metrics_tracker
         self.logger = ErrorLogger()
         self.checkpoint = CheckpointManager()
         self.univ_file_lock = threading.Lock()
@@ -413,11 +414,11 @@ class UniversityWebCrawler:
             print(f"   [robots.txt] No se pudo comprobar robots.txt para {target_url}: {e}. Se asume permitido.")
             return True, None
 
-    def fetch_sitemap_urls(self, base_url: str) -> set:
+    def extract_sitemap_candidate_urls(self, base_url: str, missing_degrees: list = None) -> set:
         """
-        Previamente accede al Sitemap (sitemap.xml / sitemap_index.xml) del portal académico
+        Extrae y pre-procesa el Sitemap XML de la universidad (incluyendo archivos .xml.gz comprimidos)
         para detectar directamente las URLs disponibles en el sitio web de la universidad.
-        Optimización 1: Timeout ajustado a 4s por sitemap candidato para evitar cuellos de botella.
+        Optimización: Timeout ajustado a SITEMAP_FETCH_TIMEOUT y filtrado selectivo según keywords y grados faltantes.
         """
         sitemap_candidate_urls = set()
         parsed = urllib.parse.urlparse(base_url)
@@ -434,36 +435,47 @@ class UniversityWebCrawler:
             f"{domain_base}/sitemap-estudios.xml"
         ]
 
-        downloader = RUCTDownloader(delay=0.1, timeout=4)
+        title_tokens = set()
+        if missing_degrees:
+            for deg in missing_degrees:
+                t = deg.get("titulo", "").lower()
+                words = [w for w in re.findall(r"\b[a-záéíóúñ]{4,}\b", t) if w not in ["grado", "graduada", "graduado", "master", "máster", "universidad", "estudios", "oficial", "titulacion", "titulación"]]
+                title_tokens.update(words[:3])
 
-        for sm_url in sitemap_targets:
-            try:
-                can_fetch, _ = self.check_robots_allowed(sm_url)
-                if not can_fetch:
+        downloader = RUCTDownloader(delay=0.1, timeout=SITEMAP_FETCH_TIMEOUT, metrics_tracker=self.metrics_tracker)
+        try:
+            for sm_url in sitemap_targets:
+                try:
+                    can_fetch, _ = self.check_robots_allowed(sm_url)
+                    if not can_fetch:
+                        continue
+                    raw_bytes = downloader.fetch_content(sm_url)
+                    if not raw_bytes:
+                        continue
+
+                    if sm_url.endswith(".gz") or raw_bytes.startswith(b"\x1f\x8b"):
+                        try:
+                            raw_bytes = gzip.decompress(raw_bytes)
+                        except Exception:
+                            pass
+
+                    xml_content = raw_bytes.decode("utf-8", errors="replace")
+                    if xml_content and ("<urlset" in xml_content or "<sitemapindex" in xml_content or "<loc>" in xml_content):
+                        print(f"     [Sitemap] Sitemap XML detectado y analizado en '{sm_url}'.")
+                        locs = re.findall(r"<loc>(.*?)</loc>", xml_content, re.IGNORECASE)
+                        for loc in locs:
+                            loc_clean = loc.strip()
+                            loc_lower = loc_clean.lower()
+                            if any(kw in loc_lower for kw in ACADEMIC_KEYWORDS):
+                                sitemap_candidate_urls.add(loc_clean)
+                            elif title_tokens and any(tok in loc_lower for tok in title_tokens):
+                                sitemap_candidate_urls.add(loc_clean)
+                        if sitemap_candidate_urls:
+                            break
+                except Exception:
                     continue
-                raw_bytes = downloader.fetch_content(sm_url)
-                if not raw_bytes:
-                    continue
-
-                if sm_url.endswith(".gz") or raw_bytes.startswith(b"\x1f\x8b"):
-                    try:
-                        raw_bytes = gzip.decompress(raw_bytes)
-                    except Exception:
-                        pass
-
-                xml_content = raw_bytes.decode("utf-8", errors="replace")
-                if xml_content and ("<urlset" in xml_content or "<sitemapindex" in xml_content or "<loc>" in xml_content):
-                    print(f"     [Sitemap] Sitemap XML detectado y analizado en '{sm_url}'.")
-                    locs = re.findall(r"<loc>(.*?)</loc>", xml_content, re.IGNORECASE)
-                    for loc in locs:
-                        loc_clean = loc.strip()
-                        loc_lower = loc_clean.lower()
-                        if any(kw in loc_lower for kw in ACADEMIC_KEYWORDS):
-                            sitemap_candidate_urls.add(loc_clean)
-                    if sitemap_candidate_urls:
-                        break
-            except Exception:
-                continue
+        finally:
+            downloader.close()
 
         return sitemap_candidate_urls
 
@@ -586,9 +598,9 @@ class UniversityWebCrawler:
         print(f" [PERMITIDO ROBOTS] Universidad [{u_code}] {u_name}: Crawling PERMITIDO por robots.txt{delay_msg}. Iniciando escaneo web...")
 
         # 4. Acceso previo al Sitemap XML del portal académico (respetando retardo oficial)
-        downloader = RUCTDownloader(delay=effective_delay, timeout=15)
+        downloader = RUCTDownloader(delay=effective_delay, timeout=15, metrics_tracker=self.metrics_tracker)
         downloader.reset_university_context(u_code)
-        sitemap_urls = self.fetch_sitemap_urls(web_url)
+        sitemap_urls = self.extract_sitemap_candidate_urls(web_url, missing_degrees=missing_degrees)
         if sitemap_urls:
             print(f"     -> {len(sitemap_urls)} URLs académicas indexadas extraídas del Sitemap XML de la universidad.")
 
@@ -882,10 +894,11 @@ class UniversityWebCrawler:
             else:
                 print(f"     -> No se encontró plan de estudios en la web oficial para [{d_code}].")
 
+        downloader.close()
         return stats
 
 
-def run_phase1_part2(max_workers: int = 4):
+def run_phase1_part2(max_workers: int = 4, metrics_tracker=None):
     """
     Punto de entrada principal para la Fase 1 - Parte 2:
     Rastrea las webs oficiales de las universidades de forma paralela para encontrar información faltante.
@@ -906,7 +919,7 @@ def run_phase1_part2(max_workers: int = 4):
 
     print(f" -> {len(universities)} universidades a procesar en paralelo con {max_workers} trabajadores.")
 
-    crawler = UniversityWebCrawler()
+    crawler = UniversityWebCrawler(metrics_tracker=metrics_tracker)
     
     total_missing = 0
     total_resolved = 0

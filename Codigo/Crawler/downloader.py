@@ -303,3 +303,16 @@ class RUCTDownloader:
                 raise last_error
             print(f" 🔄 [RESILIENCIA] Reintentando descarga tras pausa para '{url}'...")
         raise last_error
+
+    def close(self):
+        """Closes the underlying requests session and releases open socket pool resources."""
+        try:
+            self.session.close()
+        except Exception:
+            pass
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.close()

@@ -671,13 +671,19 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
     # -------------------------------------------------------------------------
     if 2 in run_parts:
         print("\n -> Inicializando Fase 1 - Parte 2 (Rastreo paralelo de webs oficiales de universidades)...")
-        run_phase1_part2(max_workers=WEB_CRAWLER_WORKERS)
+        run_phase1_part2(max_workers=WEB_CRAWLER_WORKERS, metrics_tracker=metrics)
 
     # -------------------------------------------------------------------------
     # PARTE 3 DE LA FASE 1: CÁLCULO DE PRECIOS ECTS Y MATRÍCULAS DE UNIVERSIDADES PÚBLICAS
     # -------------------------------------------------------------------------
     if 3 in run_parts:
         run_phase1_part3()
+
+    # -------------------------------------------------------------------------
+    # PERSISTENCIA FINAL DE MÉTRICAS Y CHECKPOINTS
+    # -------------------------------------------------------------------------
+    metrics.save()
+    checkpoint.flush()
 
     # -------------------------------------------------------------------------
     # NOTIFICACIÓN A FASE 2: AL FINALIZAR LAS PARTES SOLICITADAS

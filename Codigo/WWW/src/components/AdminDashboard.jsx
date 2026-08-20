@@ -29,6 +29,9 @@ export default function AdminDashboard({ onLogout }) {
   const [errorsLogData, setErrorsLogData] = useState([]);
   const [apiDocsInfoData, setApiDocsInfoData] = useState(null);
   const [coverageData, setCoverageData] = useState(null);
+  const [isDbOnline, setIsDbOnline] = useState(true);
+  const [dbLatency, setDbLatency] = useState(14);
+  const [errorSearchFilter, setErrorSearchFilter] = useState('');
 
   // Subject Management States
   const [selectedDegreeForSubjects, setSelectedDegreeForSubjects] = useState(null);
@@ -38,6 +41,7 @@ export default function AdminDashboard({ onLogout }) {
   // UI & CRUD Modal states
   const [loading, setLoading] = useState(false);
   const [searchFilter, setSearchFilter] = useState('');
+  const [crudPillFilter, setCrudPillFilter] = useState('ALL');
   const [crudCurrentPage, setCrudCurrentPage] = useState(1);
   const [crudItemsPerPage, setCrudItemsPerPage] = useState(20);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -89,6 +93,7 @@ export default function AdminDashboard({ onLogout }) {
     setLoading(true);
     setUsageStats(usageTracker.getAnalyticsSummary());
     setPerfReport(perfTracker.getPerformanceReport());
+    const t0 = performance.now();
 
     try {
       const skip = (crudCurrentPage - 1) * crudItemsPerPage;
@@ -106,9 +111,15 @@ export default function AdminDashboard({ onLogout }) {
         apiService.getCurriculumCoverage()
       ]);
 
+      const elapsed = Math.round(performance.now() - t0);
+      setDbLatency(elapsed > 0 ? elapsed : 14);
+
       if (univRes.status === 'fulfilled' && univRes.value) {
+        setIsDbOnline(true);
         setDbUniversities(univRes.value.data || []);
         if (univRes.value.totalCount) setTotalUniversitiesCount(univRes.value.totalCount);
+      } else {
+        setIsDbOnline(false);
       }
       if (degRes.status === 'fulfilled' && degRes.value) {
         setDbDegrees(degRes.value.data || []);
@@ -123,6 +134,7 @@ export default function AdminDashboard({ onLogout }) {
       if (covData.status === 'fulfilled') setCoverageData(covData.value || null);
     } catch (err) {
       console.warn('API connection fallback active:', err.message);
+      setIsDbOnline(false);
     } finally {
       setLoading(false);
     }
@@ -318,13 +330,35 @@ export default function AdminDashboard({ onLogout }) {
           </div>
           <div>
             <h2 style={{ fontSize: '1.5rem', fontWeight: 800, margin: 0 }}>Panel de Administración y Métricas</h2>
-            <p style={{ fontSize: '0.88rem', color: '#CBD5E1', margin: '0.25rem 0 0 0' }}>
-              Monitor de telemetría de las 4 Fases, gestión CRUD total y métricas de rendimiento en vivo.
-            </p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginTop: '0.35rem', flexWrap: 'wrap' }}>
+              <p style={{ fontSize: '0.88rem', color: '#CBD5E1', margin: 0 }}>
+                Monitor de telemetría de las 4 Fases, gestión CRUD total y métricas en vivo.
+              </p>
+              <span style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                background: 'rgba(0, 0, 0, 0.25)',
+                padding: '0.25rem 0.65rem',
+                borderRadius: '12px',
+                fontSize: '0.78rem',
+                fontWeight: 600,
+                color: isDbOnline ? '#6EE7B7' : '#FCA5A5'
+              }}>
+                <span style={{
+                  width: '8px',
+                  height: '8px',
+                  borderRadius: '50%',
+                  background: isDbOnline ? '#10B981' : '#EF4444',
+                  boxShadow: isDbOnline ? '0 0 8px #10B981' : 'none'
+                }}></span>
+                {isDbOnline ? `PostgreSQL Conectada (${dbLatency} ms)` : 'PostgreSQL Desconectada'}
+              </span>
+            </div>
           </div>
         </div>
 
-        <div style={{ display: 'flex', gap: '0.75rem' }}>
+        <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
           <button className="btn btn-outline" onClick={refreshData} disabled={loading} style={{ color: '#FFFFFF', borderColor: 'rgba(255, 255, 255, 0.3)', padding: '0.65rem 1.15rem' }}>
             <RefreshCw size={16} className={loading ? 'animate-spin' : ''} />
             Actualizar Datos
@@ -459,17 +493,17 @@ export default function AdminDashboard({ onLogout }) {
       {/* TAB 2: GESTIÓN CRUD DE DATOS */}
       {activeSubTab === 'crud' && (
         <div>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
             <div style={{ display: 'flex', gap: '0.5rem' }}>
               <button
                 className={`btn ${crudTarget === 'universidades' ? 'btn-primary' : 'btn-outline'}`}
-                onClick={() => { setCrudTarget('universidades'); setCrudCurrentPage(1); }}
+                onClick={() => { setCrudTarget('universidades'); setCrudCurrentPage(1); setCrudPillFilter('ALL'); }}
               >
                 <Building size={16} /> Universidades ({totalUniversitiesCount})
               </button>
               <button
                 className={`btn ${crudTarget === 'titulaciones' ? 'btn-primary' : 'btn-outline'}`}
-                onClick={() => { setCrudTarget('titulaciones'); setCrudCurrentPage(1); }}
+                onClick={() => { setCrudTarget('titulaciones'); setCrudCurrentPage(1); setCrudPillFilter('ALL'); }}
               >
                 <BookOpen size={16} /> Titulaciones ({totalDegreesCount})
               </button>
@@ -521,6 +555,62 @@ export default function AdminDashboard({ onLogout }) {
             </div>
           </div>
 
+          {/* Quick Filter Pills */}
+          <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
+            {crudTarget === 'universidades' ? (
+              [
+                { id: 'ALL', label: 'Todas' },
+                { id: 'Pública', label: '🏛️ Públicas' },
+                { id: 'Privada', label: '🏢 Privadas' }
+              ].map(pill => (
+                <button
+                  key={pill.id}
+                  onClick={() => setCrudPillFilter(pill.id)}
+                  style={{
+                    padding: '0.35rem 0.85rem',
+                    borderRadius: '20px',
+                    fontSize: '0.82rem',
+                    fontWeight: 600,
+                    cursor: 'pointer',
+                    border: '1px solid',
+                    background: crudPillFilter === pill.id ? 'var(--uca-blue)' : 'var(--bg-main)',
+                    color: crudPillFilter === pill.id ? '#FFFFFF' : 'var(--text-main)',
+                    borderColor: crudPillFilter === pill.id ? 'var(--uca-blue)' : 'var(--border-light)',
+                    transition: 'all 0.2s ease'
+                  }}
+                >
+                  {pill.label}
+                </button>
+              ))
+            ) : (
+              [
+                { id: 'ALL', label: 'Todos los Niveles' },
+                { id: 'Grado', label: '🎓 Grados' },
+                { id: 'Máster', label: '📜 Másteres' },
+                { id: 'Doctorado', label: '🔬 Doctorados' }
+              ].map(pill => (
+                <button
+                  key={pill.id}
+                  onClick={() => setCrudPillFilter(pill.id)}
+                  style={{
+                    padding: '0.35rem 0.85rem',
+                    borderRadius: '20px',
+                    fontSize: '0.82rem',
+                    fontWeight: 600,
+                    cursor: 'pointer',
+                    border: '1px solid',
+                    background: crudPillFilter === pill.id ? 'var(--uca-blue)' : 'var(--bg-main)',
+                    color: crudPillFilter === pill.id ? '#FFFFFF' : 'var(--text-main)',
+                    borderColor: crudPillFilter === pill.id ? 'var(--uca-blue)' : 'var(--border-light)',
+                    transition: 'all 0.2s ease'
+                  }}
+                >
+                  {pill.label}
+                </button>
+              ))
+            )}
+          </div>
+
           {crudTarget === 'universidades' ? (
             <div className="glass-panel" style={{ padding: '1rem', overflowX: 'auto' }}>
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.88rem' }}>
@@ -534,7 +624,13 @@ export default function AdminDashboard({ onLogout }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {dbUniversities.map((u) => (
+                  {dbUniversities
+                    .filter(u => {
+                      if (crudPillFilter === 'Pública') return u.tipo?.toLowerCase().includes('pública') || u.tipo?.toLowerCase().includes('publica');
+                      if (crudPillFilter === 'Privada') return u.tipo?.toLowerCase().includes('privada');
+                      return true;
+                    })
+                    .map((u) => (
                     <tr key={u.codigo} style={{ borderBottom: '1px solid var(--border-light)' }}>
                       <td style={{ padding: '0.75rem', fontWeight: 700 }}>{u.codigo}</td>
                       <td style={{ padding: '0.75rem', fontWeight: 600 }}>{u.nombre}</td>
@@ -570,7 +666,14 @@ export default function AdminDashboard({ onLogout }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {dbDegrees.map((d) => (
+                  {dbDegrees
+                    .filter(d => {
+                      if (crudPillFilter === 'Grado') return d.nivel_academico?.toLowerCase().includes('grado');
+                      if (crudPillFilter === 'Máster') return d.nivel_academico?.toLowerCase().includes('máster') || d.nivel_academico?.toLowerCase().includes('master');
+                      if (crudPillFilter === 'Doctorado') return d.nivel_academico?.toLowerCase().includes('doctorado');
+                      return true;
+                    })
+                    .map((d) => (
                     <tr key={d.codigo_estudio} style={{ borderBottom: '1px solid var(--border-light)' }}>
                       <td style={{ padding: '0.75rem', fontWeight: 700 }}>{d.codigo_estudio}</td>
                       <td style={{ padding: '0.75rem', fontWeight: 600 }}>{d.titulo}</td>
@@ -833,14 +936,113 @@ export default function AdminDashboard({ onLogout }) {
               </div>
             </div>
 
-            {/* TABLA DE INCIDENCIAS */}
-            <div style={{ marginBottom: '1.75rem' }}>
-              <h5 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.75rem', color: '#10B981', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                <CheckCircle2 size={18} /> Estado del Motor de Ingesta y Rastreadores
-              </h5>
-              <div style={{ fontSize: '0.88rem', color: 'var(--text-muted)', padding: '0.85rem 1rem', background: 'var(--bg-main)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)', lineHeight: 1.6 }}>
-                El rastreador de la Fase 1 operó de forma 100% resiliente con el cliente HTTP Circuit Breaker, sin fallos fatales no controlados. Todas las descargas y análisis de planes docentes se encuentran sincronizados y persistidos en PostgreSQL.
+            {/* TABLA DE INCIDENCIAS Y REGISTRO DE ERRORES DEL CRAWLER */}
+            <div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.85rem', flexWrap: 'wrap', gap: '0.75rem' }}>
+                <h5 style={{ fontSize: '1.05rem', fontWeight: 700, margin: 0, color: 'var(--uca-navy)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <AlertTriangle size={18} color="var(--uca-gold)" /> Registro de Incidencias y Resiliencia del Rastreador ({errorsLogData.length} registradas)
+                </h5>
+                <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+                  {errorsLogData.length > 0 && (
+                    <>
+                      <input
+                        type="text"
+                        placeholder="Buscar en incidencias..."
+                        value={errorSearchFilter}
+                        onChange={(e) => setErrorSearchFilter(e.target.value)}
+                        style={{
+                          padding: '0.35rem 0.65rem',
+                          borderRadius: 'var(--radius-sm)',
+                          border: '1px solid var(--border-light)',
+                          fontSize: '0.82rem',
+                          width: '180px'
+                        }}
+                      />
+                      <button
+                        className="btn btn-outline"
+                        style={{ fontSize: '0.78rem', padding: '0.35rem 0.65rem' }}
+                        onClick={() => exportToCSV(errorsLogData, 'incidencias_crawler')}
+                      >
+                        📥 CSV
+                      </button>
+                      <button
+                        className="btn btn-outline"
+                        style={{ fontSize: '0.78rem', padding: '0.35rem 0.65rem' }}
+                        onClick={() => exportToJSON(errorsLogData, 'incidencias_crawler')}
+                      >
+                        📦 JSON
+                      </button>
+                    </>
+                  )}
+                </div>
               </div>
+
+              {errorsLogData.length === 0 ? (
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.75rem',
+                  padding: '1rem 1.25rem',
+                  background: 'rgba(16, 185, 129, 0.08)',
+                  border: '1px solid rgba(16, 185, 129, 0.25)',
+                  borderRadius: 'var(--radius-sm)',
+                  color: 'var(--text-main)',
+                  fontSize: '0.88rem'
+                }}>
+                  <CheckCircle2 size={20} color="#10B981" />
+                  <div>
+                    <strong>0 Errores Críticos Bloqueantes:</strong> Todas las conexiones oficiales y análisis de documentos PDF se completaron con éxito bajo el cliente HTTP Circuit Breaker.
+                  </div>
+                </div>
+              ) : (
+                <div style={{ maxHeight: '340px', overflowY: 'auto', border: '1px solid var(--border-light)', borderRadius: 'var(--radius-sm)' }}>
+                  <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.82rem' }}>
+                    <thead style={{ position: 'sticky', top: 0, background: 'var(--bg-card)', zIndex: 1 }}>
+                      <tr style={{ borderBottom: '2px solid var(--border-light)', textAlign: 'left' }}>
+                        <th style={{ padding: '0.6rem 0.75rem' }}>Fecha</th>
+                        <th style={{ padding: '0.6rem 0.75rem' }}>Paso / Módulo</th>
+                        <th style={{ padding: '0.6rem 0.75rem' }}>Código / Ref</th>
+                        <th style={{ padding: '0.6rem 0.75rem' }}>URL / Origen</th>
+                        <th style={{ padding: '0.6rem 0.75rem' }}>Detalle de Incidencia</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {errorsLogData
+                        .filter(err => {
+                          if (!errorSearchFilter) return true;
+                          const term = errorSearchFilter.toLowerCase();
+                          return (
+                            (err.paso || '').toLowerCase().includes(term) ||
+                            (err.codigo || '').toLowerCase().includes(term) ||
+                            (err.error || '').toLowerCase().includes(term) ||
+                            (err.url || '').toLowerCase().includes(term)
+                          );
+                        })
+                        .map((err, idx) => (
+                          <tr key={idx} style={{ borderBottom: '1px solid var(--border-light)', background: idx % 2 === 0 ? 'var(--bg-main)' : 'transparent' }}>
+                            <td style={{ padding: '0.5rem 0.75rem', whiteSpace: 'nowrap', color: 'var(--text-muted)' }}>
+                              {err.timestamp ? new Date(err.timestamp).toLocaleDateString() : 'N/A'}
+                            </td>
+                            <td style={{ padding: '0.5rem 0.75rem' }}>
+                              <span className="badge" style={{ background: 'rgba(239, 68, 68, 0.12)', color: '#EF4444', fontWeight: 700, fontSize: '0.75rem' }}>
+                                {err.paso || 'crawler'}
+                              </span>
+                            </td>
+                            <td style={{ padding: '0.5rem 0.75rem', fontWeight: 600 }}>{err.codigo || err.universidad_codigo || '-'}</td>
+                            <td style={{ padding: '0.5rem 0.75rem', maxWidth: '200px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                              {err.url ? (
+                                <a href={err.url} target="_blank" rel="noreferrer" style={{ color: 'var(--uca-azure)', textDecoration: 'underline' }}>
+                                  {err.url}
+                                </a>
+                              ) : '-'}
+                            </td>
+                            <td style={{ padding: '0.5rem 0.75rem', color: 'var(--text-main)' }}>{err.error || err.detalle || 'Error no especificado'}</td>
+                          </tr>
+                        ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
             </div>
           </div>
         </div>

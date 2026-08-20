@@ -389,6 +389,19 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
                 </div>
               </div>
 
+              <div style={{ marginBottom: '1rem' }}>
+                <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: '0.3rem' }}>Precio Estimado Anual (€/curso)</label>
+                <input
+                  type="number"
+                  step="0.01"
+                  name="precio_estimado_anual"
+                  value={formData.precio_estimado_anual || ''}
+                  onChange={handleChange}
+                  placeholder="8500.00"
+                  style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
+                />
+              </div>
+
               <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                 <input
                   type="checkbox"

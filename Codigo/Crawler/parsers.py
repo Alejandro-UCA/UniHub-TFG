@@ -31,6 +31,35 @@ RE_MULTIPLE_SPACES = re.compile(r"\s+")
 RE_PARENTHESES_STRIP = re.compile(r"\s*\(.*?\)")
 
 
+def unreverse_text(text: str) -> str:
+    """
+    Detecta y corrige texto espejado/invertido proveniente de matrices tipográficas inversas en PDFs antiguos.
+    Ejemplo: 'aígolocisP ne odarG' -> 'Grado en Psicología'.
+    """
+    if not text:
+        return ""
+    t = str(text).strip()
+    if any(t.endswith(rev) for rev in ["odarG", "retsáM", "retsaM", "aígolocisP", "acitámrofnI", "aicneiC", "ohcereD"]) or any(rev in t for rev in [" ne odarG", " ne retsáM", " aL ne "]):
+        return t[::-1]
+    return t
+
+
+def sanitize_string_value(val: str) -> str:
+    """
+    Sanea de forma universal y transversal cualquier valor de texto de universidades, titulaciones y planes:
+    1. Corrige texto invertido/espejado.
+    2. Elimina caracteres invisibles (\u00a0, \u200b) y saltos de línea.
+    3. Colapsa espacios múltiples en un único espacio.
+    4. Elimina puntuación final huérfana (. , ; :).
+    """
+    if not val:
+        return ""
+    s = unreverse_text(str(val).strip())
+    s = re.sub(r"[\u00a0\u200b\t\r\n]+", " ", s)
+    s = re.sub(r"\s+", " ", s).strip()
+    return s.rstrip(";:,").strip()
+
+
 def parse_universities_xls(filepath: str) -> list:
     """
     Parses the XLS file downloaded from RUCT containing the list of universities.
@@ -63,14 +92,14 @@ def parse_universities_xls(filepath: str) -> list:
         if code and name:
             universities.append({
                 "codigo": code.zfill(3),
-                "nombre": name,
-                "tipo": tipo,
-                "comunidad_autonoma": ccaa,
-                "municipio": row_dict.get("Municipio", ""),
-                "provincia": row_dict.get("Provincia", ""),
-                "web": url,
-                "email": row_dict.get("EMail", ""),
-                "telefono": row_dict.get("Teléfono 1", row_dict.get("TelÃ©fono 1", ""))
+                "nombre": sanitize_string_value(name),
+                "tipo": sanitize_string_value(tipo),
+                "comunidad_autonoma": sanitize_string_value(ccaa),
+                "municipio": sanitize_string_value(row_dict.get("Municipio", "")),
+                "provincia": sanitize_string_value(row_dict.get("Provincia", "")),
+                "web": url.strip(),
+                "email": row_dict.get("EMail", "").strip(),
+                "telefono": sanitize_string_value(row_dict.get("Teléfono 1", row_dict.get("TelÃ©fono 1", "")))
             })
             
     # Ordenación prioritaria: Universidades Públicas primero, Privadas después
@@ -171,10 +200,10 @@ def parse_degrees_xls(filepath: str) -> list:
         # La titulación debe pertenecer a la Lista Blanca, NO estar en Lista Negra y NO ser un plan antiguo Pre-Bolonia (LRU)
         if code and title and has_whitelist and not has_blacklist and not is_legacy_level and not is_legacy_title:
             raw_active_degrees.append({
-                "codigo_estudio": code,
-                "titulo": title,
-                "nivel_academico": nivel,
-                "estado": estado
+                "codigo_estudio": code.strip(),
+                "titulo": sanitize_string_value(title),
+                "nivel_academico": sanitize_string_value(nivel),
+                "estado": sanitize_string_value(estado)
             })
 
     # Deduplicate renovated degrees within the same university
@@ -389,20 +418,6 @@ def normalize_curso(curso_raw: str, current_materia: str = "", ects_val: float =
         return "", current_materia
 
     return "", current_materia
-
-
-def unreverse_text(text: str) -> str:
-    """
-    Detecta y corrige texto espejado/invertido proveniente de matrices tipográficas inversas en PDFs antiguos.
-    Ejemplo: 'aígolocisP ne odarG' -> 'Grado en Psicología'.
-    """
-    if not text:
-        return ""
-    t = text.strip()
-    # Patrones comunes de texto en español invertido en PDFs
-    if any(t.endswith(rev) for rev in ["odarG", "retsáM", "retsaM", "aígolocisP", "acitámrofnI", "aicneiC", "ohcereD"]) or any(rev in t for rev in [" ne odarG", " ne retsáM", " aL ne "]):
-        return t[::-1]
-    return t
 
 
 def sanitize_subject_name(raw_name: str) -> str:
@@ -670,8 +685,8 @@ def parse_boe_pdf(pdf_filepath) -> dict:
                             clean_curso, current_materia = normalize_curso(curso, current_materia, ects_val=ects_float)
 
                             elementos_curriculares.append({
-                                "modulo": current_modulo,
-                                "materia": current_materia,
+                                "modulo": sanitize_string_value(current_modulo),
+                                "materia": sanitize_string_value(current_materia),
                                 "nombre_elemento": final_subject_name,
                                 "creditos": clean_ects,
                                 "creditos_ects": clean_ects,

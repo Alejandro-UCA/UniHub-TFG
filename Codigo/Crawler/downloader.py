@@ -124,7 +124,7 @@ class RUCTDownloader:
             status_forcelist=[429, 500, 502, 503, 504],
             raise_on_status=False
         )
-        adapter = HTTPAdapter(max_retries=retry_strategy)
+        adapter = HTTPAdapter(max_retries=retry_strategy, pool_connections=20, pool_maxsize=20)
         self.session.mount("http://", adapter)
         self.session.mount("https://", adapter)
         

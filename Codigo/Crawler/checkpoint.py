@@ -1,5 +1,6 @@
 import json
 import os
+import time
 import uuid
 import sqlite3
 import threading
@@ -71,6 +72,7 @@ class CheckpointManager:
         self.filepath = filepath
         self.db_path = db_path
         self._last_mtime = 0
+        self._last_save_time = 0.0
         self._cached_state = None
         self._init_sqlite()
         self.state = self._load_checkpoint()
@@ -168,7 +170,7 @@ class CheckpointManager:
     def mark_universities_downloaded(self):
         with CheckpointManager._lock:
             self.state["universities_downloaded"] = True
-            self._save()
+            self._save(force=True)
 
     def is_university_processed(self, univ_code: str) -> bool:
         if not is_valid_value(univ_code):
@@ -197,7 +199,7 @@ class CheckpointManager:
                     conn.commit()
             except Exception:
                 pass
-            self._save()
+            self._save(force=True)
 
     def is_non_study_plan_pdf(self, pdf_url: str) -> bool:
         if not is_valid_value(pdf_url):
@@ -233,7 +235,7 @@ class CheckpointManager:
                     conn.commit()
             except Exception:
                 pass
-            self._save()
+            self._save(force=False)
 
     def is_non_study_plan_hash(self, pdf_sha256: str) -> bool:
         if not is_valid_value(pdf_sha256):
@@ -275,7 +277,7 @@ class CheckpointManager:
                     conn.commit()
             except Exception:
                 pass
-            self._save()
+            self._save(force=False)
 
     def record_pdf_download_failure(self, pdf_url: str, degree_code: str, reason: str):
         if not is_valid_value(pdf_url):
@@ -348,7 +350,7 @@ class CheckpointManager:
                     conn.commit()
             except Exception:
                 pass
-            self._save()
+            self._save(force=False)
 
     def mark_extinct_degree(self, degree_code: str, reason: str = "Extinguida"):
         if not is_valid_value(degree_code):
@@ -368,7 +370,7 @@ class CheckpointManager:
                     conn.commit()
             except Exception:
                 pass
-            self._save()
+            self._save(force=False)
 
     def is_extinct_degree(self, degree_code: str) -> bool:
         if not is_valid_value(degree_code):
@@ -395,7 +397,7 @@ class CheckpointManager:
                 "motivo": reason,
                 "timestamp": datetime.now().isoformat()
             }
-            self._save()
+            self._save(force=False)
 
     def is_robots_denied_university(self, univ_code: str) -> bool:
         if not is_valid_value(univ_code):
@@ -404,6 +406,19 @@ class CheckpointManager:
             denied = self.state.get("robots_denied_universities", {})
             return univ_code in denied if isinstance(denied, dict) else False
 
-    def _save(self):
+    def _save(self, force: bool = False):
+        """
+        Saves checkpoint state to checkpoint.json.
+        If force=False, throttles disk writes to at most once every 30 seconds.
+        If force=True (e.g. at end of each university or final shutdown), saves immediately.
+        """
         with CheckpointManager._lock:
+            now = time.time()
+            if not force and (now - self._last_save_time) < 30.0:
+                return
             atomic_json_dump(self.state, self.filepath)
+            self._last_save_time = now
+
+    def flush(self):
+        """Forces an immediate atomic disk flush of checkpoint.json."""
+        self._save(force=True)

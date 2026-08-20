@@ -171,7 +171,7 @@ Todos los comandos de Docker se pueden ejecutar desde la raíz del proyecto usan
 
 ## ⚡ 5. Scripts Automatizados en la Raíz del Proyecto
 
-Para simplificar la administración en sistemas Windows:
+Para simplificar la administración y ejecución en sistemas Windows:
 
 * **Iniciar el proyecto completo:**
   ```cmd
@@ -184,6 +184,18 @@ Para simplificar la administración en sistemas Windows:
   detener_proyecto.bat
   ```
   *(Apaga ordenadamente los 4 contenedores y libera los puertos del sistema)*
+
+* **Ejecutar la Fase 1 Parte 1 (Scraping oficial RUCT + Parsing BOE):**
+  ```cmd
+  ejecutar_fase1_parte1.bat
+  ```
+  *(Lanza la recolección oficial y admite parámetros adicionales, ej. `ejecutar_fase1_parte1.bat --limit-univ 5`)*
+
+* **Limpieza total de datos y caché para ejecución limpia desde cero:**
+  ```cmd
+  limpiar_datos.bat
+  ```
+  *(Vacía `planes_estudio/`, elimina la base de datos de caché SQLite WAL y deja el entorno preparado para reconstruir el 100% del catálogo sin datos residuales)*
 
 ---
 

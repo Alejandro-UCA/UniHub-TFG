@@ -5,7 +5,12 @@ import uuid
 import sqlite3
 import threading
 from datetime import datetime
-from config import CHECKPOINT_JSON, CACHE_DB_PATH
+from config import (
+    CHECKPOINT_JSON, 
+    CACHE_DB_PATH,
+    CHECKPOINT_FLUSH_INTERVAL_SECONDS,
+    SQLITE_CONNECT_TIMEOUT
+)
 
 DB_PATH = CACHE_DB_PATH
 
@@ -78,7 +83,7 @@ class CheckpointManager:
         self.state = self._load_checkpoint()
 
     def _get_connection(self):
-        conn = sqlite3.connect(self.db_path, timeout=30.0)
+        conn = sqlite3.connect(self.db_path, timeout=SQLITE_CONNECT_TIMEOUT)
         conn.execute("PRAGMA journal_mode=WAL;")
         conn.execute("PRAGMA synchronous=NORMAL;")
         return conn
@@ -414,7 +419,7 @@ class CheckpointManager:
         """
         with CheckpointManager._lock:
             now = time.time()
-            if not force and (now - self._last_save_time) < 30.0:
+            if not force and (now - self._last_save_time) < CHECKPOINT_FLUSH_INTERVAL_SECONDS:
                 return
             atomic_json_dump(self.state, self.filepath)
             self._last_save_time = now

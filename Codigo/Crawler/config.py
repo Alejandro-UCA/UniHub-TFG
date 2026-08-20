@@ -57,6 +57,12 @@ USER_AGENT = os.getenv(
     "CRAWLER_USER_AGENT",
     "UniHubCrawler/1.0 (+https://github.com/Alejandro-UCA/UniHub-TFG; contacto@unihub)"
 )
+HTTP_POOL_CONNECTIONS = int(os.getenv("CRAWLER_HTTP_POOL_CONNECTIONS", 20))  # Tamaño del pool de hosts en caché Keep-Alive
+HTTP_POOL_MAXSIZE = int(os.getenv("CRAWLER_HTTP_POOL_MAXSIZE", 10))          # Conexiones simultáneas por host
+DOWNLOAD_CHUNK_SIZE = int(os.getenv("CRAWLER_CHUNK_SIZE", 8192))             # Bloque para descargas de PDF (bytes)
+JITTER_MIN_SECONDS = float(os.getenv("CRAWLER_JITTER_MIN", 0.10))            # Jitter aleatorio mínimo por petición (0.10s)
+JITTER_MAX_SECONDS = float(os.getenv("CRAWLER_JITTER_MAX", 0.35))            # Jitter aleatorio máximo por petición (0.35s)
+HTTP_429_DEFAULT_RETRY_AFTER = int(os.getenv("CRAWLER_429_RETRY_AFTER", 30)) # Retardo fallback para HTTP 429 (30s)
 
 # Mapeo de dominios autonómicos obsoletos a dominios oficiales activos
 DOMAIN_MAPPINGS = {
@@ -82,54 +88,53 @@ DOMAIN_MAPPINGS = {
 # ==============================================================================
 # 5. PATRÓN CIRCUIT BREAKER (RESILIENCIA ANTE CAÍDAS DE RED/SERVIDOR)
 # ==============================================================================
-CIRCUIT_BREAKER_FAILURES_THRESHOLD = 10  # Fallos seguidos para activar pausa
-CIRCUIT_BREAKER_PAUSE_SECONDS = 300      # Duración de la pausa (5 minutos)
-CIRCUIT_BREAKER_MAX_PAUSES = 3           # Pausas máximas acumuladas antes de omitir universidad (15 min)
+CIRCUIT_BREAKER_FAILURES_THRESHOLD = int(os.getenv("CRAWLER_CB_FAILURES_THRESHOLD", 10))  # Fallos seguidos para activar pausa
+CIRCUIT_BREAKER_PAUSE_SECONDS = int(os.getenv("CRAWLER_CB_PAUSE_SECONDS", 300))           # Duración de la pausa (5 minutos)
+CIRCUIT_BREAKER_MAX_PAUSES = int(os.getenv("CRAWLER_CB_MAX_PAUSES", 3))                    # Pausas máximas antes de omitir (15 min)
 
 # ==============================================================================
 # 6. PARALELISMO Y MULTIPROCESAMIENTO (OPT-01 & OPT-03)
 # ==============================================================================
-CPU_WORKERS_COUNT = int(os.getenv("CRAWLER_CPU_WORKERS", max(1, min(4, os.cpu_count() or 4))))  # Pool multiprocesador PDF/OCR
-ASYNC_PREFETCH_WORKERS = 4                                                                       # Hilos de precarga de titulaciones RUCT
-WEB_CRAWLER_WORKERS = 4                                                                         # Hilos de escaneo web oficial
+CPU_WORKERS_COUNT = int(os.getenv("CRAWLER_CPU_WORKERS", max(1, min(4, os.cpu_count() or 4))))  # Pool multiproceso PDF/OCR
+ASYNC_PREFETCH_WORKERS = int(os.getenv("CRAWLER_PREFETCH_WORKERS", 4))                           # Hilos precarga RUCT
+WEB_CRAWLER_WORKERS = int(os.getenv("CRAWLER_WEB_WORKERS", 4))                                   # Hilos escaneo web oficial
+TASK_QUEUE_MAXSIZE = int(os.getenv("CRAWLER_TASK_QUEUE_MAXSIZE", 200))                           # Tamaño máximo cola multiproceso
+TASK_QUEUE_GET_TIMEOUT = int(os.getenv("CRAWLER_TASK_QUEUE_TIMEOUT", 5))                          # Timeout de lectura en cola (5s)
 
 # ==============================================================================
 # 7. PARÁMETROS DEL RASTREADOR WEB OFICIAL Y SITEMAPS (FASE 1 PARTE 2)
 # ==============================================================================
-WEB_ROBOTS_FALLBACK_DELAY = 0.5   # Retardo por defecto si robots.txt no especifica Crawl-delay
-SITEMAP_FETCH_TIMEOUT = 4         # Timeout por candidato de Sitemap XML en segundos
-WEB_SEARCH_SUBPAGES_LIMIT = 8     # Límite de subpáginas a inspeccionar por portal
-WEB_SEARCH_SUBPAGES_DEPTH = 5     # Coincidencias máximas examinadas del Sitemap
+WEB_ROBOTS_FALLBACK_DELAY = float(os.getenv("CRAWLER_ROBOTS_DELAY", 0.5))      # Retardo por defecto si no hay Crawl-delay
+ROBOTS_CHECK_TIMEOUT = int(os.getenv("CRAWLER_ROBOTS_TIMEOUT", 10))             # Timeout para lectura de robots.txt
+ROBOTS_CACHE_TTL_SECONDS = int(os.getenv("CRAWLER_ROBOTS_CACHE_TTL", 86400))    # TTL de caché robots.txt (24h RFC 9309)
+SITEMAP_FETCH_TIMEOUT = int(os.getenv("CRAWLER_SITEMAP_TIMEOUT", 4))            # Timeout por candidato de Sitemap XML
+WEB_SEARCH_SUBPAGES_LIMIT = int(os.getenv("CRAWLER_SUBPAGES_LIMIT", 8))        # Subpáginas máximas a inspeccionar
+WEB_SEARCH_SUBPAGES_DEPTH = int(os.getenv("CRAWLER_SUBPAGES_DEPTH", 5))        # Coincidencias máximas del Sitemap
+LAZY_SCANNED_PAGES_CACHE_LIMIT = int(os.getenv("CRAWLER_LAZY_LIMIT", 20))      # Páginas escaneadas en caché RAM
 
-PRIVATE_ECTS_MIN = 15.0           # Umbral mínimo razonable para precio ECTS en privada (€)
-PRIVATE_ECTS_MAX = 500.0          # Umbral máximo razonable para precio ECTS en privada (€)
-PRIVATE_ANNUAL_MIN = 1000.0       # Umbral mínimo razonable para matrícula anual en privada (€)
-PRIVATE_ANNUAL_MAX = 45000.0      # Umbral máximo razonable para matrícula anual en privada (€)
-
-# ==============================================================================
-# 8. CÁLCULO DE TARIFAS PÚBLICAS SIIU (FASE 1 PARTE 3)
-# ==============================================================================
-DEFAULT_PUBLIC_ECTS_PRICE = 15.00  # Precio ECTS público por defecto (€)
-DEFAULT_ADMIN_FEES = 45.00         # Tasas secretariales/administrativas estándar (€)
-DOCTORATE_TUTELA_CREDITS = 10     # Créditos equivalentes de tutela académica anual en Doctorado
-STANDARD_YEAR_ECTS_CREDITS = 60    # Créditos ECTS de un curso universitario estándar
+PRIVATE_ECTS_MIN = float(os.getenv("CRAWLER_PRIVATE_ECTS_MIN", 15.0))          # Umbral mínimo precio ECTS privada (€)
+PRIVATE_ECTS_MAX = float(os.getenv("CRAWLER_PRIVATE_ECTS_MAX", 500.0))         # Umbral máximo precio ECTS privada (€)
+PRIVATE_ANNUAL_MIN = float(os.getenv("CRAWLER_PRIVATE_ANNUAL_MIN", 1000.0))    # Umbral mínimo matrícula anual privada (€)
+PRIVATE_ANNUAL_MAX = float(os.getenv("CRAWLER_PRIVATE_ANNUAL_MAX", 45000.0))   # Umbral máximo matrícula anual privada (€)
 
 # ==============================================================================
-# 9. PARÁMETROS ADICIONALES DE RED, JITTER Y REINTENTOS HTTP 429
+# 8. CÁLCULO DE TARIFAS PÚBLICAS SIIU Y PARÁMETROS ACADÉMICOS (FASE 1 PARTE 3)
 # ==============================================================================
-JITTER_MIN_SECONDS = float(os.getenv("CRAWLER_JITTER_MIN", 0.10))          # Jitter aleatorio mínimo por petición (0.10s)
-JITTER_MAX_SECONDS = float(os.getenv("CRAWLER_JITTER_MAX", 0.35))          # Jitter aleatorio máximo por petición (0.35s)
-HTTP_429_DEFAULT_RETRY_AFTER = int(os.getenv("CRAWLER_429_RETRY_AFTER", 30))  # Retardo fallback para HTTP 429 si Retry-After no existe (30s)
-DOWNLOAD_CHUNK_SIZE = int(os.getenv("CRAWLER_CHUNK_SIZE", 8192))           # Tamaño del bloque para descargas directas en streaming (8192 bytes)
+DEFAULT_PUBLIC_ECTS_PRICE = float(os.getenv("CRAWLER_DEFAULT_PUBLIC_ECTS", 15.00)) # Precio ECTS público por defecto (€)
+DEFAULT_ADMIN_FEES = float(os.getenv("CRAWLER_DEFAULT_ADMIN_FEES", 45.00))          # Tasas administrativas estándar (€)
+DOCTORATE_TUTELA_CREDITS = int(os.getenv("CRAWLER_DOCTORATE_TUTELA_CREDITS", 10))   # ECTS tutela anual en Doctorado
+STANDARD_YEAR_ECTS_CREDITS = int(os.getenv("CRAWLER_STANDARD_YEAR_ECTS", 60))       # ECTS de curso universitario estándar
+DEFAULT_FALLBACK_CCAA = os.getenv("CRAWLER_DEFAULT_FALLBACK_CCAA", "Andalucía")     # CCAA por defecto para tarifas
+DEFAULT_SUBJECT_ECTS = float(os.getenv("CRAWLER_DEFAULT_SUBJECT_ECTS", 6.0))        # Créditos ECTS estándar por asignatura
 
 # ==============================================================================
-# 10. PARÁMETROS ADICIONALES DE CACHÉ, QUEUES Y SERVICIOS EXTERNOS
+# 9. PERSISTENCIA, CHECKPOINTS Y BASES DE DATOS
 # ==============================================================================
-ROBOTS_CACHE_TTL_SECONDS = int(os.getenv("CRAWLER_ROBOTS_CACHE_TTL", 86400))       # TTL de caché de robots.txt (24h según RFC 9309)
-LAZY_SCANNED_PAGES_CACHE_LIMIT = int(os.getenv("CRAWLER_LAZY_LIMIT", 20))           # Límite de páginas escaneadas en caché RAM por titulación
-ROBOTS_CHECK_TIMEOUT = int(os.getenv("CRAWLER_ROBOTS_TIMEOUT", 10))                # Timeout para comprobación de robots.txt
-TASK_QUEUE_MAXSIZE = int(os.getenv("CRAWLER_TASK_QUEUE_MAXSIZE", 200))             # Tamaño máximo de la cola multiproceso
-TASK_QUEUE_GET_TIMEOUT = int(os.getenv("CRAWLER_TASK_QUEUE_TIMEOUT", 5))            # Timeout de lectura en cola de tareas (5s)
-DEFAULT_FALLBACK_CCAA = os.getenv("CRAWLER_DEFAULT_FALLBACK_CCAA", "Andalucía")      # CCAA por defecto para precios fallback
+CHECKPOINT_FLUSH_INTERVAL_SECONDS = float(os.getenv("CRAWLER_CHECKPOINT_INTERVAL", 30.0)) # Intervalo salvaguarda JSON (segundos)
+SQLITE_CONNECT_TIMEOUT = float(os.getenv("CRAWLER_SQLITE_TIMEOUT", 30.0))                  # Timeout conexión SQLite WAL (segundos)
+
+# ==============================================================================
+# 10. SERVICIOS EXTERNOS Y APIS PÚBLICAS
+# ==============================================================================
 WIKIPEDIA_API_URL = os.getenv("CRAWLER_WIKIPEDIA_API_URL", "https://es.wikipedia.org/w/api.php")
 WIKIDATA_API_URL = os.getenv("CRAWLER_WIKIDATA_API_URL", "https://www.wikidata.org/w/api.php")

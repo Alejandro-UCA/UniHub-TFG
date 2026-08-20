@@ -20,7 +20,9 @@ from config import (
     JITTER_MIN_SECONDS,
     JITTER_MAX_SECONDS,
     HTTP_429_DEFAULT_RETRY_AFTER,
-    DOWNLOAD_CHUNK_SIZE
+    DOWNLOAD_CHUNK_SIZE,
+    HTTP_POOL_CONNECTIONS,
+    HTTP_POOL_MAXSIZE
 )
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -124,7 +126,11 @@ class RUCTDownloader:
             status_forcelist=[429, 500, 502, 503, 504],
             raise_on_status=False
         )
-        adapter = HTTPAdapter(max_retries=retry_strategy, pool_connections=20, pool_maxsize=20)
+        adapter = HTTPAdapter(
+            max_retries=retry_strategy, 
+            pool_connections=HTTP_POOL_CONNECTIONS, 
+            pool_maxsize=HTTP_POOL_MAXSIZE
+        )
         self.session.mount("http://", adapter)
         self.session.mount("https://", adapter)
         

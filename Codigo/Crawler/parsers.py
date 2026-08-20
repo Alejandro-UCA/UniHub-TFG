@@ -667,6 +667,10 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                                     curso_col_idx = idx
                                 elif any(kw in c_lower for kw in ["cuatrimestre", "semestre", "periodo", "temporalidad"]):
                                     cuatrimestre_col_idx = idx
+                            
+                            # Si la tabla tiene columna Materia pero no Asignatura (común en Másteres), usar Materia como elemento curricular
+                            if subject_col_idx == -1 and materia_col_idx != -1:
+                                subject_col_idx = materia_col_idx
                             continue
 
                         if "módulo" in row_str or "modulo" in row_str:
@@ -741,13 +745,14 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                         elif len(clean_row) > 0:
                             final_subject_name = clean_row[0]
 
-                        # If materia is in column 0 and subject is in column 1
-                        if materia_col_idx != -1 and materia_col_idx < len(clean_row):
+                        # If materia is in a distinct column from subject
+                        if materia_col_idx != -1 and materia_col_idx != subject_col_idx and materia_col_idx < len(clean_row):
                             current_materia = clean_row[materia_col_idx]
 
-                        # Fallback heuristic: if subject column equals current materia, use adjacent column
-                        if len(clean_row) > 1 and final_subject_name.lower() == current_materia.lower():
-                            final_subject_name = clean_row[1]
+                        # Fallback heuristic: if subject column equals current materia and column 1 has text, use column 1
+                        if len(clean_row) > 1 and materia_col_idx != subject_col_idx and final_subject_name.lower() == current_materia.lower():
+                            if not RE_ECTS_NUMBER.match(clean_row[1]) and len(clean_row[1]) > 3:
+                                final_subject_name = clean_row[1]
 
                         final_subject_name = sanitize_subject_name(final_subject_name)
                         # Strict validation of subject name
@@ -756,13 +761,18 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                             and len(final_subject_name) > 3 
                             and not RE_LEGAL_NOISE.search(final_subject_name)
                             and not bool(re.search(r"^(anexo|plan de estudios|bolet[ií]n oficial|ministerio|universidad|cve:|http|p[aá]gina|total\s+cr[eé]ditos|resumen|estructura general|distribuci[oó]n|observaciones)\b", final_subject_name, re.IGNORECASE))
-                            and not bool(re.search(r"^(grado|graduado|graduada|máster|master)\s+.*?\s+por\s+la\s+universi", final_subject_name, re.IGNORECASE))
+                            and not bool(re.search(r"^(?:grado|graduado|graduada|máster|master|doctorado|programa\s+(?:oficial\s+)?de\s+doctorado|enseñanza)\b", final_subject_name, re.IGNORECASE))
+                            and not bool(re.search(r"^(?:centros?\s+(?:propios|adscritos|integrados|universitarios)|campus\s+de|sede\s+de|facultad\s+de|escuela\s+de)\b", final_subject_name, re.IGNORECASE))
                             and not bool(re.search(r"^(el rector|la rectora|el secretario general|la secretaria general|por delegaci[oó]n|el decano|la decana|el director|la directora|ante m[ií]|doy fe|firmado|visto bueno|v\.º\s*b\.º)\b", final_subject_name, re.IGNORECASE))
                             and not final_subject_name.strip().lower() in ["asignatura", "carácter", "caracter", "créditos", "creditos", "curso", "materia", "módulo", "modulo", "ects", "tipo", "total", "grau", "màster", "master", "mencion", "mención"]
                             and not bool(re.search(r"([A-ZÁÉÍÓÚÑ])\1{2,}", final_subject_name))
                             and bool(re.search(r"[a-zA-ZáéíóúñÁÉÍÓÚÑ]{3,}", final_subject_name))
                             and len(final_subject_name) <= 150
                         ):
+                            # Si no se detectó ningún número de créditos ECTS y la tabla carece de columnas curriculares, no es una tabla de plan docente
+                            if not ects_match and ects_col_idx == -1 and caracter_col_idx == -1 and curso_col_idx == -1:
+                                continue
+
                             clean_ects = "6"
                             if ects_match:
                                 m_ects = RE_ECTS_CLEAN.search(str(ects_match))

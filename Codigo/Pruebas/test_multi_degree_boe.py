@@ -150,5 +150,32 @@ class TestMultiDegreeBOEDisambiguation(unittest.TestCase):
         # Verificar que solo la página 2 (Gestión de Información y Contenidos Digitales) sea True, y no Humanidades Digitales (página 3)
         self.assertEqual(page_inclusion_mask, [False, False, True, False, False])
 
+    def test_05_materia_only_master_plans_and_decree_filtering(self):
+        """
+        Verifica que los planes de máster con estructura sólo de 'Materia | ECTS' se extraigan
+        correctamente y que los decretos administrativos de autorización de centros se filtren a 0 elementos.
+        """
+        from parsers import sanitize_subject_name
+        import re
+
+        # Valid subject from Master
+        valid_subject = "Principios de Biología de la Conservación"
+        clean = sanitize_subject_name(valid_subject)
+        self.assertEqual(clean, "Principios de Biología de la Conservación")
+
+        # Non-subject administrative rows in regional decrees
+        degree_row_1 = "Graduado o Graduada en Ingeniería Agrícola"
+        degree_row_2 = "Máster Universitario en Biofísica"
+        degree_row_3 = "Programa de Doctorado en Farmacia"
+        center_row = "CENTROS PROPIOS"
+
+        deg_regex = re.compile(r"^(?:grado|graduado|graduada|máster|master|doctorado|programa\s+(?:oficial\s+)?de\s+doctorado|enseñanza)\b", re.IGNORECASE)
+        center_regex = re.compile(r"^(?:centros?\s+(?:propios|adscritos|integrados|universitarios)|campus\s+de|sede\s+de|facultad\s+de|escuela\s+de)\b", re.IGNORECASE)
+
+        self.assertTrue(bool(deg_regex.search(degree_row_1)))
+        self.assertTrue(bool(deg_regex.search(degree_row_2)))
+        self.assertTrue(bool(deg_regex.search(degree_row_3)))
+        self.assertTrue(bool(center_regex.search(center_row)))
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

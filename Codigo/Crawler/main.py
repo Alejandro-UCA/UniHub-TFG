@@ -337,7 +337,7 @@ def trigger_api_etl_sync():
     print(" -> Nota: La Fase 1 ha finalizado. La Fase 2 se sincronizará cuando el servicio API esté disponible o se ejecute el ETL.")
 
 
-def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: list = None):
+def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: list = None, force: bool = False):
     if run_parts is None:
         run_parts = [1, 2, 3]
 
@@ -530,8 +530,8 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
                     latest_boe_url = boe_info.get("latest_boe_url")
                     latest_boe_fecha = boe_info.get("boe_date")
                 
-                    # Check if degree is already up to date
-                    if os.path.exists(plan_file) and checkpoint.is_degree_up_to_date(d_code, latest_boe_url, latest_boe_fecha):
+                    # Check if degree is already up to date (bypassed if --force is active)
+                    if not force and os.path.exists(plan_file) and checkpoint.is_degree_up_to_date(d_code, latest_boe_url, latest_boe_fecha):
                         metrics.titulaciones_al_dia += 1
                         print(f"     -> Información al día (BOE {latest_boe_fecha or 'coincide'}). Sin cambios necesarios.")
                         continue
@@ -705,6 +705,7 @@ if __name__ == "__main__":
     parser.add_argument("--limit-degrees", type=int, default=None, help="Limitar número de titulaciones por universidad.")
     parser.add_argument("--only-part", type=int, choices=[1, 2, 3], default=None, help="Ejecutar únicamente la parte seleccionada de la Fase 1 (1: RUCT/BOE, 2: Web Crawler, 3: Precios ECTS).")
     parser.add_argument("--parts", type=int, nargs="+", choices=[1, 2, 3], default=None, help="Seleccionar partes específicas a ejecutar (ej. --parts 1 2). Por defecto ejecuta 1, 2 y 3 juntas.")
+    parser.add_argument("--force", action="store_true", default=False, help="Forzar re-descarga y re-procesamiento de todas las titulaciones ignorando la comprobación de fecha BOE de la caché.")
     args = parser.parse_args()
 
     # Determinar partes a ejecutar
@@ -715,4 +716,4 @@ if __name__ == "__main__":
     else:
         selected_parts = [1, 2, 3] # Comportamiento normal por defecto: las 3 partes juntas
 
-    run_crawler(limit_univ=args.limit_univ, limit_degrees=args.limit_degrees, run_parts=selected_parts)
+    run_crawler(limit_univ=args.limit_univ, limit_degrees=args.limit_degrees, run_parts=selected_parts, force=args.force)

@@ -3,12 +3,19 @@ import os
 # ==============================================================================
 # 1. DIRECTORIOS Y RUTAS BASE DE SISTEMA
 # ==============================================================================
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(BASE_DIR, "Datos")
-PLANES_DIR = os.path.join(DATA_DIR, "planes_estudio")
-TEMP_PDF_DIR = os.path.join(BASE_DIR, "temp_pdfs")
+# Carpeta raíz del módulo Crawler
+BASE_DIR = os.getenv("CRAWLER_BASE_DIR", os.path.dirname(os.path.abspath(__file__)))
 
-# Asegurar la existencia de los directorios de trabajo
+# Carpeta donde se almacenan todos los datos persistidos (JSONs, SQLite, estadísticas)
+DATA_DIR = os.getenv("CRAWLER_DATA_DIR", os.path.join(BASE_DIR, "Datos"))
+
+# Subcarpeta donde se guardan los archivos JSON individuales de cada titulación/plan de estudio
+PLANES_DIR = os.getenv("CRAWLER_PLANES_DIR", os.path.join(DATA_DIR, "planes_estudio"))
+
+# Carpeta temporal para descarga en disco de PDFs del BOE antes de su análisis por los procesos CPU
+TEMP_PDF_DIR = os.getenv("CRAWLER_TEMP_PDF_DIR", os.path.join(BASE_DIR, "temp_pdfs"))
+
+# Asegurar la existencia automática de los directorios de trabajo en disco
 os.makedirs(DATA_DIR, exist_ok=True)
 os.makedirs(PLANES_DIR, exist_ok=True)
 os.makedirs(TEMP_PDF_DIR, exist_ok=True)
@@ -16,33 +23,54 @@ os.makedirs(TEMP_PDF_DIR, exist_ok=True)
 # ==============================================================================
 # 2. ARCHIVOS DE PERSISTENCIA Y CACHÉ DUAL (JSON & SQLITE WAL)
 # ==============================================================================
-UNIVERSIDADES_JSON = os.path.join(DATA_DIR, "universidades.json")
-TITULACIONES_JSON = os.path.join(DATA_DIR, "titulaciones_universidad.json")
-ERRORES_JSON = os.path.join(DATA_DIR, "errores_crawler.json")
-CHECKPOINT_JSON = os.path.join(DATA_DIR, "checkpoint.json")
-ESTADISTICAS_JSON = os.path.join(DATA_DIR, "estadisticas_rendimiento.json")
-PRECIOS_CCAA_JSON = os.path.join(DATA_DIR, "precios_ccaa.json")
-CACHE_DB_PATH = os.path.join(DATA_DIR, "unihub_cache.sqlite3")
+# Archivo JSON con el catálogo de las 109 universidades de España (Públicas y Privadas)
+UNIVERSIDADES_JSON = os.getenv("CRAWLER_UNIVERSIDADES_JSON", os.path.join(DATA_DIR, "universidades.json"))
+
+# Archivo JSON con el catálogo consolidado de titulaciones vigentes por universidad
+TITULACIONES_JSON = os.getenv("CRAWLER_TITULACIONES_JSON", os.path.join(DATA_DIR, "titulaciones_universidad.json"))
+
+# Archivo JSON de registro de incidencias, errores de red y URLs no disponibles
+ERRORES_JSON = os.getenv("CRAWLER_ERRORES_JSON", os.path.join(DATA_DIR, "errores_crawler.json"))
+
+# Archivo JSON de respaldo de puntos de control (checkpoint) para reanudar el rastreo ante paradas
+CHECKPOINT_JSON = os.getenv("CRAWLER_CHECKPOINT_JSON", os.path.join(DATA_DIR, "checkpoint.json"))
+
+# Archivo JSON con métricas de Green IT, tiempos de CPU, esperas de red y consumo de RAM
+ESTADISTICAS_JSON = os.getenv("CRAWLER_ESTADISTICAS_JSON", os.path.join(DATA_DIR, "estadisticas_rendimiento.json"))
+
+# Archivo JSON con los precios oficiales por crédito ECTS de los 18 decretos autonómicos
+PRECIOS_CCAA_JSON = os.getenv("CRAWLER_PRECIOS_CCAA_JSON", os.path.join(DATA_DIR, "precios_ccaa.json"))
+
+# Base de datos transaccional SQLite WAL para indexación ultrarrápida (0ms) y firmas SHA-256 de PDFs
+CACHE_DB_PATH = os.getenv("CRAWLER_CACHE_DB_PATH", os.path.join(DATA_DIR, "unihub_cache.sqlite3"))
 
 # ==============================================================================
 # 3. ENDPOINTS Y PLANTILLAS OFICIALES DEL RUCT (MINISTERIO DE EDUCACIÓN)
 # ==============================================================================
-URL_UNIVERSIDADES_LIST = (
+# URL oficial del Ministerio para exportar el listado completo de universidades españolas
+URL_UNIVERSIDADES_LIST = os.getenv(
+    "CRAWLER_URL_UNIV_LIST",
     "https://www.educacion.gob.es/ruct/listauniversidades"
     "?actual=universidades&cccaa=&tipo_univ=&d-8320336-e=2&6578706f7274=1&codigoUniversidad=&consulta=1"
 )
 
-URL_ESTUDIOS_UNIV_TEMPLATE = (
+# Plantilla de URL para exportar el catálogo de titulaciones de una universidad según su código
+URL_ESTUDIOS_UNIV_TEMPLATE = os.getenv(
+    "CRAWLER_URL_ESTUDIOS_TEMPLATE",
     "https://www.educacion.gob.es/ruct/listaestudiosuniversidad"
     "?actual=universidades&d-1335801-e=2&6578706f7274=1&codigoUniversidad={codigo_universidad}"
 )
 
-URL_DETALLE_ESTUDIO_TEMPLATE = (
+# Plantilla de URL para acceder a la ficha individual de una titulación y extraer sus enlaces al BOE
+URL_DETALLE_ESTUDIO_TEMPLATE = os.getenv(
+    "CRAWLER_URL_DETALLE_TEMPLATE",
     "https://www.educacion.gob.es/ruct/estudiouniversidad.action"
     "?codigoCiclo=SC&codigoEstudio={codigo_estudio}&actual=universidad"
 )
 
-URL_VERIFICACION_ESTADO_TEMPLATE = (
+# Plantilla de URL para verificar el estado de vigencia (Vigente vs Extinguida) en el buscador del RUCT
+URL_VERIFICACION_ESTADO_TEMPLATE = os.getenv(
+    "CRAWLER_URL_VERIFICACION_TEMPLATE",
     "https://www.educacion.gob.es/ruct/listaestudios"
     "?actual=estudios&codigoEstudio={codigo_estudio}"
 )

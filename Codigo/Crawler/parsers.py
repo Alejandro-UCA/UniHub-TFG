@@ -33,10 +33,27 @@ SPANISH_STOP_WORDS = {
 }
 
 RE_DEGREE_SECTION_MARKERS = [
-    re.compile(r"(?:ANEXO\s+[I|V|X\d]+|ANEXO\b)[^\n\r]*[\n\r]+([^\n\r]{5,150})", re.IGNORECASE),
-    re.compile(r"(?:plan de estudios conducente|plan de estudios del?|t[ií]tulo oficial de|obtenci[oó]n del t[ií]tulo de|denominaci[oó]n del t[ií]tulo\s*:)\s+([^\n\r]{5,150})", re.IGNORECASE),
-    re.compile(r"(?:^|\n)\s*(?:Grado|Graduado|Graduada|M[aá]ster|Doctorado)\s+en\s+([A-ZÁÉÍÓÚÑ][^\n\r\(\)]{3,80})", re.IGNORECASE)
+    re.compile(r"(?:ANEXO\s+[I|V|X\d]+|ANEXO\b)\s*[:\.\-–—]?\s*([^\n\r]+(?:\n[^\n\r]+)?)", re.IGNORECASE),
+    re.compile(r"(?:plan de estudios conducentes?\s+(?:a\s+la\s+obtenci[oó]n\s+)?al\s+t[ií]tulo\s+(?:oficial\s+)?de\s*:?|t[ií]tulo\s+oficial\s+de\s*:?|denominaci[oó]n\s+del\s+t[ií]tulo\s*:?)\s*([^\n\r]+(?:\n[^\n\r]+)?)", re.IGNORECASE),
+    re.compile(r"(?:^|\n)\s*(?:Plan de Estudios por Asignaturas\s*:\s*)?(?:Grado|Graduado|Graduada|M[aá]ster|Master|Doctorado)\s+en\s+([A-ZÁÉÍÓÚÑ][^\n\r\(\)]{3,80}(?:\n[^\n\r\(\)]{3,80})?)", re.IGNORECASE)
 ]
+
+def is_section_matching(sec_kw: set, target_kw: set) -> bool:
+    """
+    Evalúa si un conjunto de palabras clave de sección corresponde a la titulación objetivo.
+    Requiere al menos 50% de coincidencia léxica o 2 términos coincidentes para evitar colisiones.
+    """
+    if not sec_kw or not target_kw:
+        return False
+    intersection = target_kw.intersection(sec_kw)
+    if not intersection:
+        return False
+    score = len(intersection) / len(target_kw)
+    if len(target_kw) == 1:
+        return len(intersection) == 1
+    if len(target_kw) == 2:
+        return len(intersection) >= 1 and score >= 0.5
+    return len(intersection) >= 2 or score >= 0.5
 
 def extract_degree_core_keywords(title: str, univ_name: str = "") -> set:
     """
@@ -590,8 +607,7 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
         for page_idx in range(len(raw_text_parts)):
             for s in detected_sections:
                 if s["page_idx"] == page_idx:
-                    overlap = target_kw.intersection(s["keywords"])
-                    current_state = bool(overlap)
+                    current_state = is_section_matching(s["keywords"], target_kw)
             page_inclusion_mask[page_idx] = current_state
 
         # Safety fallback: if no page was matched, include all pages

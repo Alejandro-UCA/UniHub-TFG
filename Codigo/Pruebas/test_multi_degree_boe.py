@@ -107,5 +107,48 @@ class TestMultiDegreeBOEDisambiguation(unittest.TestCase):
         # Verificar que solo las páginas de Psicología (índices 4 y 5) sean marcadas como True
         self.assertEqual(page_inclusion_mask, [False, False, False, False, True, True])
 
+    def test_04_mega_resolution_multiline_headings(self):
+        """
+        Verifica la discriminación en macro-resoluciones universitarias (ej. UC3M con 70 páginas)
+        donde los títulos de grado contienen saltos de línea y 'conducentes' en plural.
+        """
+        raw_text_pages = [
+            "UNIVERSIDAD CARLOS III DE MADRID\nResolución por la que se publican planes de estudio",
+            "PLAN DE ESTUDIOS CONDUCENTES AL TÍTULO DE: GRADO EN CIENCIAS \nPOLÍTICAS\nDistribución general del plan de estudios en créditos ECTS: 240",
+            "PLAN DE ESTUDIOS CONDUCENTES AL TÍTULO DE: GRADO EN GESTIÓN \nDE LA INFORMACIÓN Y CONTENIDOS DIGITALES\nDistribución general del plan de estudios en créditos ECTS: 240",
+            "PLAN DE ESTUDIOS CONDUCENTES AL TÍTULO DE: GRADO EN HUMANIDADES DIGITALES\nDistribución general del plan de estudios en créditos ECTS: 240",
+            "PLAN DE ESTUDIOS CONDUCENTES AL TÍTULO DE: GRADO EN TURISMO\nDistribución general del plan de estudios en créditos ECTS: 240"
+        ]
+
+        target_title = "Graduado o Graduada en Gestión de la Información y Contenidos Digitales por la Universidad Carlos III de Madrid"
+        univ_name = "Universidad Carlos III de Madrid"
+        target_kw = extract_degree_core_keywords(target_title, univ_name)
+
+        from parsers import is_section_matching
+        detected_sections = []
+        for page_idx, p_text in enumerate(raw_text_pages):
+            for pattern in RE_DEGREE_SECTION_MARKERS:
+                for match in pattern.finditer(p_text):
+                    sec_raw = match.group(0).strip()
+                    sec_kw = extract_degree_core_keywords(sec_raw, univ_name)
+                    if sec_kw and len(sec_kw) > 0:
+                        detected_sections.append({
+                            "page_idx": page_idx,
+                            "raw": sec_raw,
+                            "keywords": sec_kw
+                        })
+
+        page_inclusion_mask = [True] * len(raw_text_pages)
+        if len(detected_sections) >= 2 and target_kw:
+            current_state = False
+            for page_idx in range(len(raw_text_pages)):
+                for s in detected_sections:
+                    if s["page_idx"] == page_idx:
+                        current_state = is_section_matching(s["keywords"], target_kw)
+                page_inclusion_mask[page_idx] = current_state
+
+        # Verificar que solo la página 2 (Gestión de Información y Contenidos Digitales) sea True, y no Humanidades Digitales (página 3)
+        self.assertEqual(page_inclusion_mask, [False, False, True, False, False])
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

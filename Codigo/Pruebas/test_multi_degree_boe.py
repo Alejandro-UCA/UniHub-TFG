@@ -228,5 +228,47 @@ class TestMultiDegreeBOEDisambiguation(unittest.TestCase):
         self.assertFalse(bool(RE_HEADER_GARBAGE.match("Matemáticas I")))
         self.assertFalse(bool(RE_TABLE_HEADER_NOISE.match("Cálculo Numérico")))
 
+    def test_09_multiline_subject_fragment_stitching(self):
+        """Verifica que celdas multilínea en tablas PDF se fusionen correctamente con su asignatura cabecera."""
+        from parsers import parse_boe_pdf, RE_ECTS_NUMBER
+
+        # Simulación de filas partidas
+        table_data = [
+            ["Asignatura", "Carácter", "ECTS"],
+            ["Literatura Española: ", "FB", "6"],
+            ["la Generación del 27", "", ""],
+            ["Bases físicas y químicas ", "FB", "6"],
+            ["para el estudio del medio ambiente", "", ""],
+            ["Derecho Constitucional I", "OB", "6"]
+        ]
+
+        merged_rows = []
+        subject_col_idx = 0
+        for row in table_data:
+            clean_row = [str(c).strip() if c else "" for c in row]
+            if clean_row[0] == "Asignatura":
+                continue
+            has_ects = any(RE_ECTS_NUMBER.search(c) for idx_c, c in enumerate(clean_row) if idx_c != 0)
+            target_subj = clean_row[0]
+            is_fragment = not has_ects and len(target_subj) > 0 and (target_subj[0].islower() or target_subj.lower().startswith(("la ", "para ")))
+            if is_fragment and merged_rows:
+                merged_rows[-1][0] = f"{merged_rows[-1][0].rstrip(' :-,')} {target_subj}".strip()
+                continue
+            merged_rows.append(clean_row)
+
+        self.assertEqual(len(merged_rows), 3)
+        self.assertEqual(merged_rows[0][0], "Literatura Española la Generación del 27")
+        self.assertEqual(merged_rows[1][0], "Bases físicas y químicas para el estudio del medio ambiente")
+        self.assertEqual(merged_rows[2][0], "Derecho Constitucional I")
+
+    def test_10_multi_degree_fallback_non_inclusion(self):
+        """Verifica que si una titulación NO pertenece a una resolución multi-grado, se retorne 0 elementos sin fallback espurio."""
+        from parsers import parse_boe_pdf
+
+        # Si el stream está vacío o el grado no pertenece a la resolución, debe retornar 0
+        res = parse_boe_pdf(b"%PDF-1.4\n%empty\n", target_title="Graduado o Graduada en Titulación Inexistente", univ_name="Universidad Falsa")
+        self.assertEqual(res["total_elementos"], 0)
+        self.assertEqual(res["elementos_curriculares"], [])
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

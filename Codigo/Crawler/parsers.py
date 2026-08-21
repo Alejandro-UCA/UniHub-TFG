@@ -638,17 +638,24 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                 break
 
     page_inclusion_mask = [True] * len(raw_text_parts)
+    has_any_match = False
     if is_multi_degree_doc and target_kw:
         current_state = False
         for page_idx in range(len(raw_text_parts)):
             for s in detected_sections:
                 if s["page_idx"] == page_idx:
                     current_state = is_section_matching(s["keywords"], target_kw)
+                    if current_state:
+                        has_any_match = True
             page_inclusion_mask[page_idx] = current_state
 
-        # Safety fallback: if no page was matched, include all pages
-        if not any(page_inclusion_mask):
-            page_inclusion_mask = [True] * len(raw_text_parts)
+        # If it is a multi-degree resolution and target degree is NOT present in any section, return 0 elements!
+        if not has_any_match:
+            return {
+                "resumen_creditos": {},
+                "total_elementos": 0,
+                "elementos_curriculares": []
+            }
 
     # 1. Parse Credit Summary Table (using text from relevant pages or full_text)
     relevant_text = "\n".join([raw_text_parts[i] for i in range(len(raw_text_parts)) if i < len(page_inclusion_mask) and page_inclusion_mask[i]]) or full_text
@@ -665,25 +672,69 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
         with pdfplumber.open(pdf_stream) as pdf:
             current_modulo = ""
             current_materia = ""
+            current_state = False if is_multi_degree_doc else True
 
             for page_idx, page in enumerate(pdf.pages):
-                # If multi-degree resolution, skip pages of other degrees
-                if is_multi_degree_doc and page_idx < len(page_inclusion_mask) and not page_inclusion_mask[page_idx]:
+                # Extract section headers with top vertical positions on this page for sub-page bounding
+                page_headers = []
+                if is_multi_degree_doc:
+                    words = page.extract_words() or []
+                    lines_by_top = {}
+                    for w in words:
+                        top_bucket = round(w["top"] / 6.0) * 6.0
+                        if top_bucket not in lines_by_top:
+                            lines_by_top[top_bucket] = []
+                        lines_by_top[top_bucket].append(w["text"])
+
+                    for top_pos, l_words in sorted(lines_by_top.items()):
+                        line_str = " ".join(l_words)
+                        for pattern in RE_DEGREE_SECTION_MARKERS:
+                            m = pattern.search(line_str)
+                            if m:
+                                sec_raw = m.group(0).strip()
+                                if not RE_PREAMBLE_REJECTION.search(sec_raw):
+                                    sec_kw = extract_degree_core_keywords(sec_raw, univ_name)
+                                    if sec_kw:
+                                        page_headers.append({
+                                            "top": top_pos,
+                                            "keywords": sec_kw,
+                                            "matches": is_section_matching(sec_kw, target_kw)
+                                        })
+
+                # Find tables with bounding boxes
+                found_tables = page.find_tables()
+                if not found_tables:
                     continue
 
-                tables = page.extract_tables()
-                for table in tables:
+                for t_obj in found_tables:
+                    t_top = t_obj.bbox[1]
+
+                    # If page has headers, update state based on headers located above this table
+                    if is_multi_degree_doc and page_headers:
+                        for h in page_headers:
+                            if h["top"] <= t_top + 10:
+                                current_state = h["matches"]
+
+                    if is_multi_degree_doc and not current_state:
+                        continue
+
+                    table_data = t_obj.extract()
+                    if not table_data:
+                        continue
+
                     subject_col_idx = -1
                     materia_col_idx = -1
                     ects_col_idx = -1
                     caracter_col_idx = -1
                     curso_col_idx = -1
                     cuatrimestre_col_idx = -1
-                    
-                    for row in table:
+
+                    # Multiline row stitching pre-pass: merge fragmented text lines
+                    merged_rows = []
+                    for row in table_data:
                         if not row or all(cell is None or str(cell).strip() == "" for cell in row):
                             continue
-                        
+
                         clean_row = [RE_MULTIPLE_SPACES.sub(" ", str(cell).strip()) if cell else "" for cell in row]
                         row_str = " ".join(clean_row).lower()
 
@@ -699,16 +750,40 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                                     ects_col_idx = idx
                                 elif any(kw in c_lower for kw in ["carácter", "caracter", "tipo", "tipología"]):
                                     caracter_col_idx = idx
-                                elif any(kw in c_lower for kw in ["curso", "año"]):
+                                elif any(kw in c_lower for kw in ["curso", "curs", "año"]):
                                     curso_col_idx = idx
                                 elif any(kw in c_lower for kw in ["cuatrimestre", "semestre", "periodo", "temporalidad"]):
                                     cuatrimestre_col_idx = idx
-                            
-                            # Si la tabla tiene columna Materia pero no Asignatura (común en Másteres), usar Materia como elemento curricular
+
                             if subject_col_idx == -1 and materia_col_idx != -1:
                                 subject_col_idx = materia_col_idx
                             continue
 
+                        # Check if this row is a continuation fragment
+                        target_subj_col = subject_col_idx if (subject_col_idx != -1 and subject_col_idx < len(clean_row)) else (1 if len(clean_row) > 1 and len(clean_row[0]) <= 4 else 0)
+                        target_subj_cell = clean_row[target_subj_col] if target_subj_col < len(clean_row) else ""
+                        has_ects = any(RE_ECTS_NUMBER.search(c) for idx_c, c in enumerate(clean_row) if idx_c != target_subj_col)
+
+                        is_fragment = (
+                            not has_ects 
+                            and len(target_subj_cell) > 0 
+                            and (
+                                target_subj_cell[0].islower() 
+                                or target_subj_cell.lower().startswith(("la ", "el ", "los ", "las ", "de ", "del ", "para ", "en ", "y ", "a ", "con ", "sobre ", "por "))
+                            )
+                        )
+
+                        if is_fragment and merged_rows:
+                            prev = merged_rows[-1]
+                            prev_col = subject_col_idx if (subject_col_idx != -1 and subject_col_idx < len(prev)) else (1 if len(prev) > 1 and len(prev[0]) <= 4 else 0)
+                            if prev_col < len(prev) and prev[prev_col]:
+                                prev[prev_col] = f"{prev[prev_col].rstrip(' :-,')} {target_subj_cell}".strip()
+                                continue
+
+                        merged_rows.append(clean_row)
+
+                    for clean_row in merged_rows:
+                        row_str = " ".join(clean_row).lower()
                         if "módulo" in row_str or "modulo" in row_str:
                             current_modulo = clean_row[0] if clean_row else ""
                             continue
@@ -722,7 +797,6 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                         curso = ""
                         cuatrimestre = ""
 
-                        # If specific columns were mapped
                         if ects_col_idx != -1 and ects_col_idx < len(clean_row) and clean_row[ects_col_idx]:
                             m = RE_ECTS_NUMBER.search(clean_row[ects_col_idx])
                             if m:

@@ -37,7 +37,7 @@ from config import (
 from downloader import RUCTDownloader
 from error_logger import ErrorLogger
 from checkpoint import CheckpointManager, atomic_json_dump, load_json_safe
-from parsers import parse_boe_pdf
+from parsers import parse_boe_pdf, classify_subject_caracter
 
 
 # Lista ampliada de palabras clave y sinónimos para portales académicos y planes de estudio
@@ -59,6 +59,48 @@ INVALID_SUBJECT_KEYWORDS = [
     "lunes", "martes", "miércoles", "miercoles", "jueves", "viernes", "sábado", "sabado",
     "aula", "edificio", "horario", "calendario", "examen", "convocatoria"
 ]
+
+
+def ensure_https_url(url: str) -> str:
+    """Fuerza protocolo HTTPS en cualquier URL web universitaria."""
+    if not url:
+        return ""
+    u = url.strip()
+    if u.startswith("http://"):
+        return "https://" + u[7:]
+    elif not u.startswith("https://"):
+        return "https://" + u
+    return u
+
+
+def parse_price_value(val_str: str, min_val: float, max_val: float) -> float | None:
+    """Convierte cadenas numéricas europeas o estándar a float y valida que se encuentren en el rango esperado."""
+    if not val_str:
+        return None
+    s = str(val_str).strip()
+    if "." in s and "," in s:
+        s = s.replace(".", "").replace(",", ".")
+    elif re.match(r'^\d{1,3}\.\d{3}$', s):
+        s = s.replace(".", "")
+    elif "," in s:
+        s = s.replace(",", ".")
+    try:
+        val_num = float(s)
+        if min_val <= val_num <= max_val:
+            return round(val_num, 2)
+    except ValueError:
+        pass
+    return None
+
+
+def build_html_curriculum_payload(elementos_html: list, degree_title: str) -> dict:
+    """Construye la estructura estándar de plan de estudios a partir de asignaturas extraídas de HTML."""
+    is_grado = "grado" in (degree_title or "").lower()
+    return {
+        "resumen_creditos": {"Créditos Totales": "240" if is_grado else "60"},
+        "total_elementos": len(elementos_html),
+        "elementos_curriculares": elementos_html
+    }
 
 
 def is_valid_web_url(href) -> bool:
@@ -171,23 +213,12 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
             # Buscar carácter
             caracter = "OB"
             if car_col != -1 and car_col < len(cols):
-                c_val = cols[car_col].lower()
-                if "básica" in c_val or "basica" in c_val or re.search(r"\bfb\b", c_val):
-                    caracter = "FB"
-                elif "optativa" in c_val or re.search(r"\bop\b", c_val):
-                    caracter = "OP"
-                elif "práctica" in c_val or "practica" in c_val or re.search(r"\bpe\b", c_val):
-                    caracter = "PE"
-                elif "tfg" in c_val or "tfm" in c_val:
-                    caracter = "TFG/TFM"
+                caracter = classify_subject_caracter(cols[car_col], default="OB")
             else:
                 for col in cols:
-                    c_val = col.lower()
-                    if "básica" in c_val or "basica" in c_val or re.search(r"\bfb\b", c_val):
-                        caracter = "FB"
-                        break
-                    elif "optativa" in c_val or re.search(r"\bop\b", c_val):
-                        caracter = "OP"
+                    car = classify_subject_caracter(col, default="")
+                    if car:
+                        caracter = car
                         break
 
             # Buscar curso
@@ -232,19 +263,10 @@ def extract_private_university_pricing(soup: BeautifulSoup, page_text: str) -> d
     for pat in ects_patterns:
         m = re.search(pat, text_lower)
         if m:
-            val_str = m.group(1)
-            # European format: dot as thousands sep (e.g. 1.250), comma as decimal (e.g. 89,50)
-            if re.match(r'^\d{1,3}\.\d{3}$', val_str):
-                val_str = val_str.replace(".", "")
-            else:
-                val_str = val_str.replace(",", ".")
-            try:
-                val_num = float(val_str)
-                if 15.0 <= val_num <= 500.0:
-                    pricing_data["precio_credito_ects"] = round(val_num, 2)
-                    break
-            except ValueError:
-                pass
+            price = parse_price_value(m.group(1), 15.0, 500.0)
+            if price is not None:
+                pricing_data["precio_credito_ects"] = price
+                break
                 
     # 1.5 Patrones para segunda/tercera/cuarta matrícula
     tier_patterns = {
@@ -256,18 +278,10 @@ def extract_private_university_pricing(soup: BeautifulSoup, page_text: str) -> d
         for pat in patterns:
             m = re.search(pat, text_lower)
             if m:
-                val_str = m.group(1)
-                if re.match(r'^\d{1,3}\.\d{3}$', val_str):
-                    val_str = val_str.replace(".", "")
-                else:
-                    val_str = val_str.replace(",", ".")
-                try:
-                    val_num = float(val_str)
-                    if 15.0 <= val_num <= 500.0:
-                        pricing_data[key] = round(val_num, 2)
-                        break
-                except ValueError:
-                    pass
+                price = parse_price_value(m.group(1), 15.0, 500.0)
+                if price is not None:
+                    pricing_data[key] = price
+                    break
                     
     # Clonar precios base si faltan recargos de matrícula en privadas
     if "precio_credito_ects" in pricing_data:
@@ -284,18 +298,10 @@ def extract_private_university_pricing(soup: BeautifulSoup, page_text: str) -> d
     for pat in annual_patterns:
         m = re.search(pat, text_lower)
         if m:
-            val_str = m.group(1)
-            if re.match(r'^\d{1,3}\.\d{3}$', val_str):
-                val_str = val_str.replace(".", "")
-            else:
-                val_str = val_str.replace(",", ".")
-            try:
-                val_num = float(val_str)
-                if 1000.0 <= val_num <= 45000.0:
-                    pricing_data["precio_estimado_anual"] = round(val_num, 2)
-                    break
-            except ValueError:
-                pass
+            price = parse_price_value(m.group(1), 1000.0, 45000.0)
+            if price is not None:
+                pricing_data["precio_estimado_anual"] = price
+                break
                 
     if "precio_credito_ects" in pricing_data and "precio_estimado_anual" not in pricing_data:
         pricing_data["precio_estimado_anual"] = round(pricing_data["precio_credito_ects"] * 60, 2)
@@ -321,6 +327,24 @@ class UniversityWebCrawler:
         self.logger = ErrorLogger()
         self.checkpoint = CheckpointManager()
         self.univ_file_lock = threading.Lock()
+
+    def _try_parse_candidate_pdf(self, downloader: RUCTDownloader, pdf_url: str, d_code: str, d_title: str, u_name: str) -> dict | None:
+        """Descarga, analiza con parse_boe_pdf y limpia con seguridad el archivo PDF temporal."""
+        temp_pdf = os.path.join(TEMP_PDF_DIR, f"web_{d_code}.pdf")
+        try:
+            downloader.download_file(pdf_url, temp_pdf)
+            parsed = parse_boe_pdf(temp_pdf, target_title=d_title, univ_name=u_name)
+            if parsed.get("total_elementos", 0) > 0 or len(parsed.get("resumen_creditos", {})) > 0:
+                return parsed
+        except Exception:
+            pass
+        finally:
+            if os.path.exists(temp_pdf):
+                try:
+                    os.remove(temp_pdf)
+                except Exception:
+                    pass
+        return None
 
     def rescue_university_url(self, univ_name: str) -> str:
         """
@@ -512,10 +536,7 @@ class UniversityWebCrawler:
             print(f" [Parte 2] Universidad [{u_code}] {u_name}: Sin web oficial registrada. Finalizado.")
             return stats
 
-        if web_url.startswith("http://"):
-            web_url = "https://" + web_url[7:]
-        elif not web_url.startswith("https://"):
-            web_url = "https://" + web_url
+        web_url = ensure_https_url(web_url)
 
         # Comprobar si la universidad fue previamente registrada en checkpoint como denegada por robots.txt
         if self.checkpoint.is_robots_denied_university(u_code):
@@ -563,12 +584,7 @@ class UniversityWebCrawler:
             print(f" [RESCATE] Web '{web_url}' inalcanzable ({conn_err}). Consultando Wikipedia/Wikidata...")
             rescued_url = self.rescue_university_url(u_name)
             if rescued_url:
-                if rescued_url.startswith("http://"):
-                    rescued_url = "https://" + rescued_url[7:]
-                elif not rescued_url.startswith("https://"):
-                    rescued_url = "https://" + rescued_url
-                    
-                web_url = rescued_url
+                web_url = ensure_https_url(rescued_url)
                 print(f" [RESCATE OK] URL corregida por Wikidata para [{u_code}]: {web_url}")
                 
                 # Actualizar permanentemente en universidades.json
@@ -649,12 +665,8 @@ class UniversityWebCrawler:
                 try:
                     print(f"     -> Probando URL directa guardada previamente: {existing_direct_url}")
                     if existing_direct_url.lower().endswith(".pdf"):
-                        temp_pdf = os.path.join(TEMP_PDF_DIR, f"web_{d_code}.pdf")
-                        downloader.download_file(existing_direct_url, temp_pdf)
-                        parsed = parse_boe_pdf(temp_pdf, target_title=d_title, univ_name=u_name)
-                        if os.path.exists(temp_pdf):
-                            os.remove(temp_pdf)
-                        if parsed.get("total_elementos", 0) > 0 or len(parsed.get("resumen_creditos", {})) > 0:
+                        parsed = self._try_parse_candidate_pdf(downloader, existing_direct_url, d_code, d_title, u_name)
+                        if parsed:
                             found_curriculum = parsed
                             direct_source_url = existing_direct_url
                 except Exception as e:
@@ -671,33 +683,18 @@ class UniversityWebCrawler:
                     try:
                         time.sleep(0.5)
                         if sm_candidate_url.lower().endswith(".pdf"):
-                            temp_pdf = os.path.join(TEMP_PDF_DIR, f"web_{d_code}.pdf")
-                            try:
-                                downloader.download_file(sm_candidate_url, temp_pdf)
-                                parsed = parse_boe_pdf(temp_pdf, target_title=d_title, univ_name=u_name)
-                                if parsed.get("total_elementos", 0) > 0 or len(parsed.get("resumen_creditos", {})) > 0:
-                                    found_curriculum = parsed
-                                    direct_source_url = sm_candidate_url
-                                    print(f"     -> Encontrado plan de estudios desde Sitemap XML: {sm_candidate_url}")
-                                    break
-                            except Exception:
-                                pass
-                            finally:
-                                if os.path.exists(temp_pdf):
-                                    try:
-                                        os.remove(temp_pdf)
-                                    except Exception:
-                                        pass
+                            parsed = self._try_parse_candidate_pdf(downloader, sm_candidate_url, d_code, d_title, u_name)
+                            if parsed:
+                                found_curriculum = parsed
+                                direct_source_url = sm_candidate_url
+                                print(f"     -> Encontrado plan de estudios desde Sitemap XML: {sm_candidate_url}")
+                                break
                         else:
                             sub_html = downloader.fetch_text(sm_candidate_url)
                             sub_soup = BeautifulSoup(sub_html, "html.parser")
                             elementos_html = extract_html_subjects(sub_soup)
                             if len(elementos_html) >= 3:
-                                found_curriculum = {
-                                    "resumen_creditos": {"Créditos Totales": "240" if "grado" in d_title.lower() else "60"},
-                                    "total_elementos": len(elementos_html),
-                                    "elementos_curriculares": elementos_html
-                                }
+                                found_curriculum = build_html_curriculum_payload(elementos_html, d_title)
                                 direct_source_url = sm_candidate_url
                                 print(f"     -> Encontradas asignaturas HTML válidas desde Sitemap XML: {sm_candidate_url}")
                                 break
@@ -771,38 +768,23 @@ class UniversityWebCrawler:
                                         continue
                                     
                                     if target_link.lower().endswith(".pdf"):
-                                        temp_pdf = os.path.join(TEMP_PDF_DIR, f"web_{d_code}.pdf")
+                                        parsed = self._try_parse_candidate_pdf(downloader, target_link, d_code, d_title, u_name)
+                                        if parsed:
+                                            found_curriculum = parsed
+                                            direct_source_url = target_link
+                                            break
+                                        # Fallback: si el PDF no contiene plan, intentar extraer HTML de la misma URL sin .pdf
+                                        html_fallback_url = target_link[:-4] if target_link.lower().endswith(".pdf") else target_link
                                         try:
-                                            downloader.download_file(target_link, temp_pdf)
-                                            parsed = parse_boe_pdf(temp_pdf, target_title=d_title, univ_name=u_name)
-                                            if parsed.get("total_elementos", 0) > 0 or len(parsed.get("resumen_creditos", {})) > 0:
-                                                found_curriculum = parsed
-                                                direct_source_url = target_link
+                                            html_content = downloader.fetch_text(html_fallback_url)
+                                            html_soup = BeautifulSoup(html_content, "html.parser")
+                                            elementos_html = extract_html_subjects(html_soup)
+                                            if len(elementos_html) >= 3:
+                                                found_curriculum = build_html_curriculum_payload(elementos_html, d_title)
+                                                direct_source_url = html_fallback_url
                                                 break
-                                            # Fallback: si el PDF no contiene plan, intentar extraer HTML de la misma URL sin .pdf
-                                            html_fallback_url = target_link[:-4] if target_link.lower().endswith(".pdf") else target_link
-                                            try:
-                                                html_content = downloader.fetch_text(html_fallback_url)
-                                                html_soup = BeautifulSoup(html_content, "html.parser")
-                                                elementos_html = extract_html_subjects(html_soup)
-                                                if len(elementos_html) >= 3:
-                                                    found_curriculum = {
-                                                        "resumen_creditos": {"Créditos Totales": "240" if "grado" in d_title.lower() else "60"},
-                                                        "total_elementos": len(elementos_html),
-                                                        "elementos_curriculares": elementos_html
-                                                    }
-                                                    direct_source_url = html_fallback_url
-                                                    break
-                                            except Exception:
-                                                pass
                                         except Exception:
                                             pass
-                                        finally:
-                                            if os.path.exists(temp_pdf):
-                                                try:
-                                                    os.remove(temp_pdf)
-                                                except Exception:
-                                                    pass
                                     else:
                                         # Descargar e inspeccionar el HTML específico de la subpágina de la titulación target_link
                                         try:
@@ -851,11 +833,7 @@ class UniversityWebCrawler:
                                                             pass
 
                                             if len(elementos_html) >= 3 or extracted_pricing:
-                                                found_curriculum = {
-                                                    "resumen_creditos": {"Créditos Totales": "240" if "grado" in d_title.lower() else "60"},
-                                                    "total_elementos": len(elementos_html),
-                                                    "elementos_curriculares": elementos_html
-                                                }
+                                                found_curriculum = build_html_curriculum_payload(elementos_html, d_title)
                                                 if extracted_pricing.get("precio_credito_ects"):
                                                     found_curriculum["precio_credito_ects"] = extracted_pricing["precio_credito_ects"]
                                                     found_curriculum["precio_credito_2"] = extracted_pricing.get("precio_credito_2")

@@ -10,7 +10,10 @@ from univ_web_crawler import (
     extract_private_university_pricing,
     UniversityWebCrawler,
     is_valid_web_url,
-    is_same_or_subdomain
+    is_same_or_subdomain,
+    ensure_https_url,
+    parse_price_value,
+    build_html_curriculum_payload
 )
 from spa_crawler import SPALayoutCrawler
 
@@ -78,6 +81,31 @@ class TestPhase1Part2Fixes(unittest.TestCase):
 
         self.assertTrue(is_same_or_subdomain("https://ingenieria.uca.es/grado", "https://www.uca.es"))
         self.assertFalse(is_same_or_subdomain("https://www.google.com", "https://www.uca.es"))
+
+    def test_07_ensure_https_url(self):
+        """Verifica que ensure_https_url normalice correctamente los prefijos HTTP a HTTPS."""
+        self.assertEqual(ensure_https_url("http://www.uca.es"), "https://www.uca.es")
+        self.assertEqual(ensure_https_url("https://www.uca.es"), "https://www.uca.es")
+        self.assertEqual(ensure_https_url("www.uca.es"), "https://www.uca.es")
+        self.assertEqual(ensure_https_url(""), "")
+
+    def test_08_parse_price_value(self):
+        """Verifica la conversión numérica robusta en formato europeo y estándar."""
+        self.assertEqual(parse_price_value("85,50", 15.0, 500.0), 85.50)
+        self.assertEqual(parse_price_value("1.250", 1000.0, 45000.0), 1250.0)
+        self.assertEqual(parse_price_value("9.800,00", 1000.0, 45000.0), 9800.0)
+        self.assertIsNone(parse_price_value("5.0", 15.0, 500.0))  # Fuera de rango
+        self.assertIsNone(parse_price_value("invalid", 15.0, 500.0))
+
+    def test_09_build_html_curriculum_payload(self):
+        """Verifica la construcción uniforme del payload curricular HTML."""
+        elements = [{"nombre_elemento": "Matemáticas", "creditos_ects": "6", "caracter": "FB"}]
+        payload_grado = build_html_curriculum_payload(elements, "Grado en Ingeniería Informática")
+        self.assertEqual(payload_grado["total_elementos"], 1)
+        self.assertEqual(payload_grado["resumen_creditos"]["Créditos Totales"], "240")
+
+        payload_master = build_html_curriculum_payload(elements, "Máster en Ciberseguridad")
+        self.assertEqual(payload_master["resumen_creditos"]["Créditos Totales"], "60")
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

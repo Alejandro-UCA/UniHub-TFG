@@ -7,11 +7,8 @@ from config import (
     PLANES_DIR,
     UNIVERSIDADES_JSON,
     PRECIOS_CCAA_JSON,
-    DEFAULT_PUBLIC_ECTS_PRICE,
-    DEFAULT_ADMIN_FEES,
     DOCTORATE_TUTELA_CREDITS,
-    STANDARD_YEAR_ECTS_CREDITS,
-    DEFAULT_FALLBACK_CCAA
+    STANDARD_YEAR_ECTS_CREDITS
 )
 from checkpoint import atomic_json_dump, load_json_safe
 
@@ -172,7 +169,7 @@ def normalize_ccaa_name(name: str) -> str:
     hacia las claves canónicas del catálogo oficial.
     """
     if not name:
-        return "Andalucía"
+        return ""
     
     n = name.strip().lower()
     if "andaluc" in n:
@@ -214,6 +211,28 @@ def normalize_ccaa_name(name: str) -> str:
     
     return name
 
+
+def is_public_university(tipo_univ: str) -> bool:
+    """Determina si una universidad es de titularidad pública."""
+    if not tipo_univ:
+        return False
+    t = str(tipo_univ).strip().lower()
+    return "pública" in t or "publica" in t
+
+
+def apply_price_info_to_degree(degree_dict: dict, price_info: dict, tipo_univ: str) -> None:
+    """Aplica de forma consistente los precios ECTS y la fuente oficial/privada al diccionario de la titulación."""
+    if is_public_university(tipo_univ):
+        degree_dict["precio_credito_ects"] = price_info.get("precio_credito_ects")
+        degree_dict["precio_credito_2"] = price_info.get("precio_credito_2")
+        degree_dict["precio_credito_3"] = price_info.get("precio_credito_3")
+        degree_dict["precio_credito_4"] = price_info.get("precio_credito_4")
+        degree_dict["precio_estimado_anual"] = price_info.get("precio_estimado_anual")
+        degree_dict["fuente_precio"] = price_info.get("fuente_precio")
+    elif "fuente_precio" not in degree_dict:
+        degree_dict["fuente_precio"] = "Universidad Privada (Tarifas fijadas por la institución)"
+
+
 def load_precios_ccaa() -> dict:
     """
     Carga el catálogo de precios por CCAA. Si no existe en disco o está vacío,
@@ -226,6 +245,7 @@ def load_precios_ccaa() -> dict:
         atomic_json_dump(catalog, PRECIOS_CCAA_JSON)
     return catalog
 
+
 def load_universidades_map() -> dict:
     univ_map = {}
     data = load_json_safe(UNIVERSIDADES_JSON, default=[])
@@ -235,12 +255,13 @@ def load_universidades_map() -> dict:
             univ_map[code] = u
     return univ_map
 
+
 def compute_degree_price(ccaa: str, tipo_univ: str, nivel_academico: str, titulo: str, precios_catalogo: dict = None) -> dict:
     """
     Calcula el precio oficial del crédito ECTS (1ª, 2ª, 3ª, 4ª matrícula) y la matrícula anual
     para universidades públicas de España según los decretos autonómicos vigentes (SIIU).
     """
-    if "pública" not in tipo_univ.lower() and "publica" not in tipo_univ.lower():
+    if not is_public_university(tipo_univ):
         return {
             "precio_credito_ects": None,
             "precio_credito_2": None,
@@ -256,8 +277,8 @@ def compute_degree_price(ccaa: str, tipo_univ: str, nivel_academico: str, titulo
     canonical_ccaa = normalize_ccaa_name(ccaa)
     ccaa_data = precios_catalogo.get(canonical_ccaa)
     
-    if not ccaa_data:
-        # Fallback de búsqueda difusa
+    if not ccaa_data and canonical_ccaa:
+        # Búsqueda difusa por nombre de CCAA
         for k, v in precios_catalogo.items():
             if k.lower() in canonical_ccaa.lower() or canonical_ccaa.lower() in k.lower():
                 ccaa_data = v
@@ -265,8 +286,14 @@ def compute_degree_price(ccaa: str, tipo_univ: str, nivel_academico: str, titulo
                 break
                 
     if not ccaa_data:
-        canonical_ccaa = DEFAULT_FALLBACK_CCAA
-        ccaa_data = precios_catalogo.get(DEFAULT_FALLBACK_CCAA, {})
+        return {
+            "precio_credito_ects": None,
+            "precio_credito_2": None,
+            "precio_credito_3": None,
+            "precio_credito_4": None,
+            "precio_estimado_anual": None,
+            "fuente_precio": f"CCAA desconocida o no registrada ({ccaa or 'Sin CCAA'})"
+        }
 
     nivel_lower = (nivel_academico or "").lower()
     titulo_lower = (titulo or "").lower()
@@ -289,35 +316,61 @@ def compute_degree_price(ccaa: str, tipo_univ: str, nivel_academico: str, titulo
     else:
         cat = "Grado"
         
-    cat_prices = ccaa_data.get(cat, {})
+    cat_prices = ccaa_data.get(cat)
+    if not cat_prices:
+        return {
+            "precio_credito_ects": None,
+            "precio_credito_2": None,
+            "precio_credito_3": None,
+            "precio_credito_4": None,
+            "precio_estimado_anual": None,
+            "fuente_precio": f"Categoría {cat} no registrada en decreto de {canonical_ccaa}"
+        }
+
     if isinstance(cat_prices, dict):
-        precio_ects = float(cat_prices.get("1") or cat_prices.get("defecto") or 15.00)
-        precio_2 = float(cat_prices.get("2") or precio_ects * 1.7)
-        precio_3 = float(cat_prices.get("3") or precio_ects * 3.6)
-        precio_4 = float(cat_prices.get("4") or precio_ects * 5.0)
+        precio_ects = cat_prices.get("1") or cat_prices.get("defecto")
+        precio_2 = cat_prices.get("2")
+        precio_3 = cat_prices.get("3")
+        precio_4 = cat_prices.get("4")
     else:
-        precio_ects = float(cat_prices) if cat_prices else 15.00
-        precio_2 = precio_ects * 1.7
-        precio_3 = precio_ects * 3.6
-        precio_4 = precio_ects * 5.0
+        precio_ects = cat_prices
+        precio_2 = None
+        precio_3 = None
+        precio_4 = None
+
+    if precio_ects is None:
+        return {
+            "precio_credito_ects": None,
+            "precio_credito_2": None,
+            "precio_credito_3": None,
+            "precio_credito_4": None,
+            "precio_estimado_anual": None,
+            "fuente_precio": f"Precio no disponible en decreto de {canonical_ccaa}"
+        }
+
+    precio_ects = float(precio_ects)
+    precio_2 = float(precio_2) if precio_2 is not None else None
+    precio_3 = float(precio_3) if precio_3 is not None else None
+    precio_4 = float(precio_4) if precio_4 is not None else None
         
-    tasas_admin = float(ccaa_data.get("tasas_admin", 45.00))
+    tasas_admin = float(ccaa_data.get("tasas_admin", 0.0))
     decreto_fuente = ccaa_data.get("decreto_oficial", f"Decreto de Precios Públicos de {canonical_ccaa}")
     
     # Para Doctorado la matrícula anual es la tutela académica (~100-400€)
     if cat == "Doctorado":
         precio_anual = round(precio_ects + tasas_admin, 2)
     else:
-        precio_anual = round(60 * precio_ects + tasas_admin, 2)
+        precio_anual = round(STANDARD_YEAR_ECTS_CREDITS * precio_ects + tasas_admin, 2)
         
     return {
         "precio_credito_ects": round(precio_ects, 2),
-        "precio_credito_2": round(precio_2, 2),
-        "precio_credito_3": round(precio_3, 2),
-        "precio_credito_4": round(precio_4, 2),
+        "precio_credito_2": round(precio_2, 2) if precio_2 is not None else None,
+        "precio_credito_3": round(precio_3, 2) if precio_3 is not None else None,
+        "precio_credito_4": round(precio_4, 2) if precio_4 is not None else None,
         "precio_estimado_anual": round(precio_anual, 2),
         "fuente_precio": f"Oficial SIIU / {decreto_fuente}"
     }
+
 
 def run_phase1_part3():
     """
@@ -344,28 +397,19 @@ def run_phase1_part3():
             u_code = degree.get("universidad_codigo")
             univ = univ_map.get(u_code, {})
             
-            ccaa = univ.get("comunidad_autonoma") or degree.get("comunidad_autonoma", "Andalucía")
-            tipo_univ = univ.get("tipo") or degree.get("tipo", "Pública")
+            ccaa = univ.get("comunidad_autonoma") or degree.get("comunidad_autonoma") or ""
+            tipo_univ = univ.get("tipo") or degree.get("tipo") or ""
             nivel = degree.get("nivel_academico", "")
             titulo = degree.get("titulo", "")
             
             price_info = compute_degree_price(ccaa, tipo_univ, nivel, titulo, precios_catalogo=precios_catalogo)
             prices_cache[d_code] = (price_info, tipo_univ)
             
-            if "pública" in tipo_univ.lower() or "publica" in tipo_univ.lower():
-                degree["precio_credito_ects"] = price_info["precio_credito_ects"]
-                degree["precio_credito_2"] = price_info["precio_credito_2"]
-                degree["precio_credito_3"] = price_info["precio_credito_3"]
-                degree["precio_credito_4"] = price_info["precio_credito_4"]
-                degree["precio_estimado_anual"] = price_info["precio_estimado_anual"]
-                degree["fuente_precio"] = price_info["fuente_precio"]
-            elif "fuente_precio" not in degree:
-                degree["fuente_precio"] = "Universidad Privada (Tarifas fijadas por la institución)"
-            
+            apply_price_info_to_degree(degree, price_info, tipo_univ)
             atomic_json_dump(degree, filepath)
                 
             updated_count += 1
-            if price_info["precio_credito_ects"] is not None:
+            if price_info.get("precio_credito_ects") is not None:
                 public_count += 1
         except Exception as e:
             print(f" [AVISO] Error al procesar precio de '{filepath}': {e}")
@@ -378,8 +422,8 @@ def run_phase1_part3():
                 
             for u_code, u_info in tit_data.items():
                 univ = univ_map.get(u_code, {})
-                ccaa = univ.get("comunidad_autonoma", "Andalucía")
-                tipo_univ = univ.get("tipo", "Pública")
+                ccaa = univ.get("comunidad_autonoma") or ""
+                tipo_univ = univ.get("tipo") or ""
                 
                 for t in u_info.get("titulaciones_vigentes", []):
                     t_code = t.get("codigo_estudio") or t.get("codigo")
@@ -389,15 +433,7 @@ def run_phase1_part3():
                         price_info = compute_degree_price(ccaa, tipo_univ, t.get("nivel_academico", ""), t.get("titulo", ""), precios_catalogo=precios_catalogo)
                         t_tipo = tipo_univ
                         
-                    if "pública" in t_tipo.lower() or "publica" in t_tipo.lower():
-                        t["precio_credito_ects"] = price_info["precio_credito_ects"]
-                        t["precio_credito_2"] = price_info["precio_credito_2"]
-                        t["precio_credito_3"] = price_info["precio_credito_3"]
-                        t["precio_credito_4"] = price_info["precio_credito_4"]
-                        t["precio_estimado_anual"] = price_info["precio_estimado_anual"]
-                        t["fuente_precio"] = price_info["fuente_precio"]
-                    elif "fuente_precio" not in t:
-                        t["fuente_precio"] = "Universidad Privada (Tarifas fijadas por la institución)"
+                    apply_price_info_to_degree(t, price_info, t_tipo)
                     
             atomic_json_dump(tit_data, tit_json_path)
             print(" -> 'titulaciones_universidad.json' actualizado con precios ECTS.")
@@ -407,6 +443,7 @@ def run_phase1_part3():
     print(f" -> Titulaciones en planes_estudio actualizadas: {updated_count}")
     print(f" -> Titulaciones Públicas con Tarifa Oficial SIIU: {public_count}")
     print("======================================================================\n")
+
 
 if __name__ == "__main__":
     run_phase1_part3()

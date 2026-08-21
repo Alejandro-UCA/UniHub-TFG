@@ -148,11 +148,8 @@ PRIVATE_ANNUAL_MAX = float(os.getenv("CRAWLER_PRIVATE_ANNUAL_MAX", 45000.0))   #
 # ==============================================================================
 # 8. CÁLCULO DE TARIFAS PÚBLICAS SIIU Y PARÁMETROS ACADÉMICOS (FASE 1 PARTE 3)
 # ==============================================================================
-DEFAULT_PUBLIC_ECTS_PRICE = float(os.getenv("CRAWLER_DEFAULT_PUBLIC_ECTS", 15.00)) # Precio ECTS público por defecto (€)
-DEFAULT_ADMIN_FEES = float(os.getenv("CRAWLER_DEFAULT_ADMIN_FEES", 45.00))          # Tasas administrativas estándar (€)
 DOCTORATE_TUTELA_CREDITS = int(os.getenv("CRAWLER_DOCTORATE_TUTELA_CREDITS", 10))   # ECTS tutela anual en Doctorado
 STANDARD_YEAR_ECTS_CREDITS = int(os.getenv("CRAWLER_STANDARD_YEAR_ECTS", 60))       # ECTS de curso universitario estándar
-DEFAULT_FALLBACK_CCAA = os.getenv("CRAWLER_DEFAULT_FALLBACK_CCAA", "Andalucía")     # CCAA por defecto para tarifas
 DEFAULT_SUBJECT_ECTS = float(os.getenv("CRAWLER_DEFAULT_SUBJECT_ECTS", 6.0))        # Créditos ECTS estándar por asignatura
 
 # ==============================================================================

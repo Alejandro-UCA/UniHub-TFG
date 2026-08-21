@@ -37,7 +37,12 @@ from config import (
 from downloader import RUCTDownloader
 from error_logger import ErrorLogger
 from checkpoint import CheckpointManager, atomic_json_dump, load_json_safe
-from parsers import parse_boe_pdf, classify_subject_caracter
+from parsers import (
+    parse_boe_pdf,
+    classify_subject_caracter,
+    is_curriculum_complete,
+    get_curriculum_completeness_status
+)
 
 
 # Lista ampliada de palabras clave y sinónimos para portales académicos y planes de estudio
@@ -556,11 +561,9 @@ class UniversityWebCrawler:
             needs_info = True
             if os.path.exists(plan_file):
                 try:
-                    with open(plan_file, "r", encoding="utf-8") as f:
-                        d_json = json.load(f)
-                        plan = d_json.get("plan_estudios")
-                        if plan and (plan.get("total_elementos", 0) > 0 or len(plan.get("resumen_creditos", {})) > 0):
-                            needs_info = False
+                    d_json = load_json_safe(plan_file)
+                    if is_curriculum_complete(d_json):
+                        needs_info = False
                 except Exception:
                     needs_info = True
             
@@ -873,7 +876,13 @@ class UniversityWebCrawler:
                 degree_data["precio_credito_4"] = found_curriculum.get("precio_credito_4") or deg.get("precio_credito_4")
                 degree_data["precio_estimado_anual"] = found_curriculum.get("precio_estimado_anual") or deg.get("precio_estimado_anual")
                 degree_data["fuente_precio"] = found_curriculum.get("fuente_precio") or deg.get("fuente_precio")
+                
+                # Diagnosticar completitud curricular del plan obtenido
                 degree_data["plan_estudios"] = found_curriculum
+                comp_status = get_curriculum_completeness_status(degree_data)
+                found_curriculum["plan_completo"] = comp_status["is_complete"]
+                found_curriculum["ects_totales_detectados"] = comp_status["total_ects_obtained"]
+                found_curriculum["ects_exigidos"] = comp_status["required_ects"]
                 
                 atomic_json_dump(degree_data, plan_file)
                 self.checkpoint.update_degree_record(d_code, direct_source_url, datetime.now().strftime("%Y-%m-%d"), datetime.now().isoformat())

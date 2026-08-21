@@ -151,6 +151,10 @@ PRIVATE_ANNUAL_MAX = float(os.getenv("CRAWLER_PRIVATE_ANNUAL_MAX", 45000.0))   #
 DOCTORATE_TUTELA_CREDITS = int(os.getenv("CRAWLER_DOCTORATE_TUTELA_CREDITS", 10))   # ECTS tutela anual en Doctorado
 STANDARD_YEAR_ECTS_CREDITS = int(os.getenv("CRAWLER_STANDARD_YEAR_ECTS", 60))       # ECTS de curso universitario estándar
 DEFAULT_SUBJECT_ECTS = float(os.getenv("CRAWLER_DEFAULT_SUBJECT_ECTS", 6.0))        # Créditos ECTS estándar por asignatura
+GRADO_STANDARD_ECTS = int(os.getenv("CRAWLER_GRADO_STANDARD_ECTS", 240))             # ECTS oficiales de un Grado estándar (4 años)
+MASTER_MIN_ECTS = int(os.getenv("CRAWLER_MASTER_MIN_ECTS", 60))                      # ECTS mínimos oficiales de un Máster
+MEDICINA_ECTS = int(os.getenv("CRAWLER_MEDICINA_ECTS", 360))                         # ECTS oficiales de Grado en Medicina (6 años)
+ESPECIALES_GRADO_ECTS = int(os.getenv("CRAWLER_ESPECIALES_GRADO_ECTS", 300))         # ECTS de Grados de 5 años (Farmacia, Odontología, Veterinaria, Arquitectura)
 
 # ==============================================================================
 # 9. PERSISTENCIA, CHECKPOINTS Y BASES DE DATOS

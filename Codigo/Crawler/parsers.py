@@ -8,6 +8,12 @@ import xlrd
 from bs4 import BeautifulSoup
 import pdfplumber
 import pypdf
+from config import (
+    GRADO_STANDARD_ECTS,
+    MASTER_MIN_ECTS,
+    MEDICINA_ECTS,
+    ESPECIALES_GRADO_ECTS
+)
 from downloader import normalize_url
 from functools import lru_cache
 
@@ -173,6 +179,173 @@ def classify_subject_caracter(text: str, default: str = "OB") -> str:
     if any(k in t for k in ["tfg", "tfm", "trabajo fin", "trabajo de fin", "trabajo final", "proyecto fin", "proyecto de fin"]):
         return "TFG/TFM"
     return default
+
+
+def get_required_degree_credits(nivel_academico: str, titulo: str, resumen_creditos: dict = None) -> float:
+    """
+    Calcula el número oficial de créditos ECTS exigidos por la normativa española
+    (RD 1393/2007, RD 822/2021) para completar la titulación.
+    1. Si existe 'Créditos Totales' en la tabla resumen del BOE o web, se extrae ese valor exacto.
+    2. Si es Grado en Medicina: 360 ECTS.
+    3. Si es Grado en Odontología, Farmacia, Veterinaria, Arquitectura o Doble Grado: 300 ECTS.
+    4. Si es Grado estándar: 240 ECTS.
+    5. Si es Máster:
+       - Másteres Habilitantes de 120 ECTS (Ingeniería Industrial, Caminos, Telecomunicación, Aeronáutica, Agronómica, Naval).
+       - Másteres Habilitantes de 90 ECTS (Abogacía, Psicología General Sanitaria).
+       - Másteres de 60 ECTS (Profesorado, Arquitectura y generalidad de másteres de especialización).
+    """
+    if resumen_creditos and isinstance(resumen_creditos, dict):
+        total_val = resumen_creditos.get("Créditos Totales") or resumen_creditos.get("Total") or resumen_creditos.get("total")
+        if total_val:
+            try:
+                parsed_total = float(str(total_val).strip().replace(",", "."))
+                if parsed_total >= 30.0:
+                    return parsed_total
+            except ValueError:
+                pass
+
+    nivel_lower = (nivel_academico or "").lower()
+    titulo_lower = (titulo or "").lower()
+
+    # Grados especiales
+    if "medicina" in titulo_lower:
+        return float(MEDICINA_ECTS)
+    if any(k in titulo_lower for k in ["veterinaria", "farmacia", "odontología", "odontologia", "arquitectura"]):
+        return float(ESPECIALES_GRADO_ECTS)
+    if "doble" in titulo_lower or "simultaneidad" in titulo_lower or "pceo" in titulo_lower:
+        return float(ESPECIALES_GRADO_ECTS)
+    if "grado" in nivel_lower or "graduado" in nivel_lower or "graduada" in nivel_lower or "grau" in nivel_lower:
+        return float(GRADO_STANDARD_ECTS)
+
+    # Másteres
+    if "máster" in nivel_lower or "master" in nivel_lower or "431" in nivel_lower:
+        if any(k in titulo_lower for k in [
+            "ingeniería industrial", "ingenieria industrial",
+            "ingeniería de caminos", "ingenieria de caminos",
+            "ingeniería de telecomunicación", "ingenieria de telecomunicacion", "ingeniería de telecomunicaciones",
+            "ingeniería aeronáutica", "ingenieria aeronautica",
+            "ingeniería agronómica", "ingenieria agronomica",
+            "ingeniería naval", "ingenieria naval",
+            "ingeniería de montes", "ingenieria de montes"
+        ]):
+            return 120.0
+        if any(k in titulo_lower for k in [
+            "abogacía", "abogacia", "abogacia y procura", "abogacía y procura",
+            "psicología general sanitaria", "psicologia general sanitaria"
+        ]):
+            return 90.0
+        return float(MASTER_MIN_ECTS)
+
+    return float(GRADO_STANDARD_ECTS)
+
+
+def compute_curriculum_total_ects(elementos_curriculares: list) -> float:
+    """
+    Calcula la suma acumulada de créditos ECTS de todas las asignaturas/elementos
+    curriculares proporcionados.
+    """
+    if not elementos_curriculares or not isinstance(elementos_curriculares, list):
+        return 0.0
+    total = 0.0
+    for elem in elementos_curriculares:
+        if not isinstance(elem, dict):
+            continue
+        raw_val = elem.get("creditos_ects")
+        if raw_val is not None:
+            try:
+                cleaned = str(raw_val).strip().replace(",", ".")
+                m = re.search(r"\d+(?:\.\d+)?", cleaned)
+                if m:
+                    total += float(m.group(0))
+            except ValueError:
+                pass
+    return round(total, 2)
+
+
+def is_curriculum_complete(degree_data: dict) -> bool:
+    """
+    Valida matemáticamente si el plan de estudios de la titulación es completo.
+    Comprueba si:
+    1. Si es Doctorado (RD 99/2011), se considera completo por su estructura de tutela/investigación.
+    2. Si es Grado o Máster, verifica que el plan exista, tenga asignaturas y que la suma de ECTS
+       ofertados sea mayor o igual que los créditos mínimos exigidos por la titulación.
+    """
+    status = get_curriculum_completeness_status(degree_data)
+    return status.get("is_complete", False)
+
+
+def get_curriculum_completeness_status(degree_data: dict) -> dict:
+    """
+    Diagnostica y devuelve un reporte detallado del estado de completitud curricular de una titulación.
+    """
+    if not degree_data or not isinstance(degree_data, dict):
+        return {
+            "is_complete": False,
+            "total_ects_obtained": 0.0,
+            "required_ects": 240.0,
+            "total_elementos": 0,
+            "status": "sin_datos"
+        }
+
+    nivel = degree_data.get("nivel_academico", "")
+    titulo = degree_data.get("titulo", "")
+    nivel_lower = str(nivel).lower()
+    titulo_lower = str(titulo).lower()
+
+    # Doctorados (RD 99/2011)
+    if "doctor" in nivel_lower or "doctor" in titulo_lower or "560" in nivel_lower or "900" in nivel_lower:
+        plan = degree_data.get("plan_estudios")
+        has_doc_structure = plan is not None
+        return {
+            "is_complete": has_doc_structure,
+            "total_ects_obtained": 0.0,
+            "required_ects": 0.0,
+            "total_elementos": len(plan.get("elementos_curriculares", [])) if (plan and isinstance(plan, dict)) else 0,
+            "status": "doctorado_estructural" if has_doc_structure else "sin_plan"
+        }
+
+    plan = degree_data.get("plan_estudios")
+    if not plan or not isinstance(plan, dict):
+        required = get_required_degree_credits(nivel, titulo)
+        return {
+            "is_complete": False,
+            "total_ects_obtained": 0.0,
+            "required_ects": required,
+            "total_elementos": 0,
+            "status": "sin_plan"
+        }
+
+    elementos = plan.get("elementos_curriculares", [])
+    total_elementos = len(elementos)
+    resumen = plan.get("resumen_creditos", {})
+    required = get_required_degree_credits(nivel, titulo, resumen)
+    total_ects = compute_curriculum_total_ects(elementos)
+
+    if total_elementos == 0:
+        return {
+            "is_complete": False,
+            "total_ects_obtained": 0.0,
+            "required_ects": required,
+            "total_elementos": 0,
+            "status": "solo_resumen" if len(resumen) > 0 else "sin_asignaturas"
+        }
+
+    if total_ects >= required:
+        return {
+            "is_complete": True,
+            "total_ects_obtained": total_ects,
+            "required_ects": required,
+            "total_elementos": total_elementos,
+            "status": "completo"
+        }
+    else:
+        return {
+            "is_complete": False,
+            "total_ects_obtained": total_ects,
+            "required_ects": required,
+            "total_elementos": total_elementos,
+            "status": "incompleto_parcial"
+        }
 
 
 def parse_universities_xls(filepath: str) -> list:

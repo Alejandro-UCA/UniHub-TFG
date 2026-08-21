@@ -53,7 +53,9 @@ from parsers import (
     parse_universities_xls,
     parse_degrees_xls,
     parse_degree_detail_html,
-    parse_boe_pdf
+    parse_boe_pdf,
+    is_curriculum_complete,
+    get_curriculum_completeness_status
 )
 from univ_web_crawler import run_phase1_part2
 from precios_crawler import run_phase1_part3
@@ -282,9 +284,15 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue = None):
                                     combined_elementos.append(elem)
 
                             # Si el plan ya está 100% completo, no es necesario procesar BOEs históricos más antiguos
-                            is_grado = "grado" in nivel_academico.lower() or "graduado" in nivel_academico.lower()
-                            is_master = "máster" in nivel_academico.lower() or "master" in nivel_academico.lower()
-                            if (is_grado and len(combined_elementos) >= 38) or (is_master and len(combined_elementos) >= 7):
+                            test_deg_probe = {
+                                "nivel_academico": nivel_academico,
+                                "titulo": d_title,
+                                "plan_estudios": {
+                                    "resumen_creditos": combined_resumen_creditos,
+                                    "elementos_curriculares": combined_elementos
+                                }
+                            }
+                            if is_curriculum_complete(test_deg_probe):
                                 break
                         else:
                             print(f"     [Proceso Parser] -> PDF #{cand_idx} de [{d_code}] no contenía tabla de asignaturas. Registrando como NO plan de estudios.")
@@ -307,6 +315,16 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue = None):
                         "total_elementos": len(combined_elementos),
                         "elementos_curriculares": combined_elementos
                     }
+                    test_deg_final = {
+                        "nivel_academico": nivel_academico,
+                        "titulo": d_title,
+                        "plan_estudios": curriculum_combined
+                    }
+                    comp_status = get_curriculum_completeness_status(test_deg_final)
+                    curriculum_combined["plan_completo"] = comp_status["is_complete"]
+                    curriculum_combined["ects_totales_detectados"] = comp_status["total_ects_obtained"]
+                    curriculum_combined["ects_exigidos"] = comp_status["required_ects"]
+
                     save_degree_payload(
                         plan_file=plan_file,
                         d_code=d_code,

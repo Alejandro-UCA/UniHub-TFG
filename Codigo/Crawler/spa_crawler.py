@@ -1,5 +1,6 @@
 import sys
 import time
+import threading
 from bs4 import BeautifulSoup
 from config import USER_AGENT, HTTP_TIMEOUT
 
@@ -17,29 +18,33 @@ class SPALayoutCrawler:
     Supports single-use or persistent browser instance reuse for maximum performance.
     """
     _shared_instance = None
+    _lock = threading.Lock()
 
     @classmethod
     def get_shared_instance(cls, timeout=HTTP_TIMEOUT):
-        if cls._shared_instance is None:
-            cls._shared_instance = SPALayoutCrawler(timeout=timeout)
-        return cls._shared_instance
+        with cls._lock:
+            if cls._shared_instance is None:
+                cls._shared_instance = SPALayoutCrawler(timeout=timeout)
+            return cls._shared_instance
 
     def __init__(self, timeout=HTTP_TIMEOUT):
         self.timeout = timeout * 1000  # ms for Playwright
         self._pw = None
         self._browser = None
+        self._inst_lock = threading.Lock()
 
     def _ensure_browser(self):
         if not PLAYWRIGHT_AVAILABLE:
             return None
-        if self._browser is None or not self._browser.is_connected():
-            try:
-                self._pw = sync_playwright().start()
-                self._browser = self._pw.chromium.launch(headless=True)
-            except Exception as e:
-                print(f"   [SPA Crawler] Error al arrancar Chromium: {e}")
-                self._browser = None
-        return self._browser
+        with self._inst_lock:
+            if self._browser is None or not self._browser.is_connected():
+                try:
+                    self._pw = sync_playwright().start()
+                    self._browser = self._pw.chromium.launch(headless=True)
+                except Exception as e:
+                    print(f"   [SPA Crawler] Error al arrancar Chromium: {e}")
+                    self._browser = None
+            return self._browser
 
     def render_spa_page(self, target_url: str) -> str:
         """

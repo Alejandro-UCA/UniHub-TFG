@@ -172,21 +172,21 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
             caracter = "OB"
             if car_col != -1 and car_col < len(cols):
                 c_val = cols[car_col].lower()
-                if "básica" in c_val or "basica" in c_val or "fb" in c_val:
+                if "básica" in c_val or "basica" in c_val or re.search(r"\bfb\b", c_val):
                     caracter = "FB"
-                elif "optativa" in c_val or "op" in c_val:
+                elif "optativa" in c_val or re.search(r"\bop\b", c_val):
                     caracter = "OP"
-                elif "práctica" in c_val or "pe" in c_val:
+                elif "práctica" in c_val or "practica" in c_val or re.search(r"\bpe\b", c_val):
                     caracter = "PE"
                 elif "tfg" in c_val or "tfm" in c_val:
                     caracter = "TFG/TFM"
             else:
                 for col in cols:
                     c_val = col.lower()
-                    if "básica" in c_val or "basica" in c_val or "fb" in c_val:
+                    if "básica" in c_val or "basica" in c_val or re.search(r"\bfb\b", c_val):
                         caracter = "FB"
                         break
-                    elif "optativa" in c_val or "op" in c_val:
+                    elif "optativa" in c_val or re.search(r"\bop\b", c_val):
                         caracter = "OP"
                         break
 
@@ -312,6 +312,7 @@ class UniversityWebCrawler:
     """
     _robots_cache = {}
     _robots_cache_ttl = ROBOTS_CACHE_TTL_SECONDS
+    _robots_lock = threading.Lock()
 
     def __init__(self, user_agent=USER_AGENT, timeout=HTTP_TIMEOUT, metrics_tracker=None):
         self.user_agent = user_agent
@@ -379,11 +380,12 @@ class UniversityWebCrawler:
                 return False, None
             netloc = parsed.netloc
             now = time.time()
-            # Caché 24h según RFC 9309 sección 2.4
-            if netloc in self._robots_cache:
-                ts, can_fetch, crawl_delay = self._robots_cache[netloc]
-                if now - ts < self._robots_cache_ttl:
-                    return can_fetch, crawl_delay
+            # Caché 24h según RFC 9309 sección 2.4 (protegida por Lock entre hilos)
+            with self._robots_lock:
+                if netloc in self._robots_cache:
+                    ts, can_fetch, crawl_delay = self._robots_cache[netloc]
+                    if now - ts < self._robots_cache_ttl:
+                        return can_fetch, crawl_delay
 
             robots_url = f"{parsed.scheme}://{netloc}/robots.txt"
             rp = RobotFileParser()
@@ -395,8 +397,11 @@ class UniversityWebCrawler:
                 rp.parse(robots_txt_content.splitlines())
             except Exception:
                 # Si robots.txt no existe (404) o da error, el estándar web considera el acceso permitido
-                self._robots_cache[netloc] = (now, True, None)
+                with self._robots_lock:
+                    self._robots_cache[netloc] = (now, True, None)
                 return True, None
+            finally:
+                downloader.close()
 
             can_fetch = rp.can_fetch(self.user_agent, target_url) or rp.can_fetch("*", target_url)
             
@@ -408,7 +413,8 @@ class UniversityWebCrawler:
             except Exception:
                 pass
 
-            self._robots_cache[netloc] = (now, can_fetch, crawl_delay)
+            with self._robots_lock:
+                self._robots_cache[netloc] = (now, can_fetch, crawl_delay)
             return can_fetch, crawl_delay
         except Exception as e:
             print(f"   [robots.txt] No se pudo comprobar robots.txt para {target_url}: {e}. Se asume permitido.")
@@ -549,10 +555,10 @@ class UniversityWebCrawler:
         print(f" [Parte 2] Universidad [{u_code}] {u_name}: {len(missing_degrees)} titulaciones sin plan de estudios. Verificando conectividad en '{web_url}'...")
 
         # 2.5 Test de conectividad y Protocolo de Rescate (Wikipedia API)
-        downloader = RUCTDownloader(delay=0.1, timeout=10)
-        downloader.reset_university_context(u_code)
+        conn_downloader = RUCTDownloader(delay=0.1, timeout=10)
+        conn_downloader.reset_university_context(u_code)
         try:
-            downloader.fetch_content(web_url)
+            conn_downloader.fetch_content(web_url)
         except Exception as conn_err:
             print(f" [RESCATE] Web '{web_url}' inalcanzable ({conn_err}). Consultando Wikipedia/Wikidata...")
             rescued_url = self.rescue_university_url(u_name)
@@ -584,6 +590,8 @@ class UniversityWebCrawler:
                 self.checkpoint.record_pdf_download_failure(web_url, "ALL", f"Web principal caída/errónea. Rescate fallido: {conn_err}")
                 stats["robots_allowed"] = False
                 return stats
+        finally:
+            conn_downloader.close()
 
         # 3. Conectarse a la web oficial (HTTPS) y comprobar robots.txt y Crawl-delay
         can_fetch, crawl_delay = self.check_robots_allowed(web_url)
@@ -643,7 +651,7 @@ class UniversityWebCrawler:
                     if existing_direct_url.lower().endswith(".pdf"):
                         temp_pdf = os.path.join(TEMP_PDF_DIR, f"web_{d_code}.pdf")
                         downloader.download_file(existing_direct_url, temp_pdf)
-                        parsed = parse_boe_pdf(temp_pdf, target_title=d_title, univ_name=univ_nombre)
+                        parsed = parse_boe_pdf(temp_pdf, target_title=d_title, univ_name=u_name)
                         if os.path.exists(temp_pdf):
                             os.remove(temp_pdf)
                         if parsed.get("total_elementos", 0) > 0 or len(parsed.get("resumen_creditos", {})) > 0:
@@ -666,7 +674,7 @@ class UniversityWebCrawler:
                             temp_pdf = os.path.join(TEMP_PDF_DIR, f"web_{d_code}.pdf")
                             try:
                                 downloader.download_file(sm_candidate_url, temp_pdf)
-                                parsed = parse_boe_pdf(temp_pdf, target_title=d_title, univ_name=univ_nombre)
+                                parsed = parse_boe_pdf(temp_pdf, target_title=d_title, univ_name=u_name)
                                 if parsed.get("total_elementos", 0) > 0 or len(parsed.get("resumen_creditos", {})) > 0:
                                     found_curriculum = parsed
                                     direct_source_url = sm_candidate_url
@@ -766,7 +774,7 @@ class UniversityWebCrawler:
                                         temp_pdf = os.path.join(TEMP_PDF_DIR, f"web_{d_code}.pdf")
                                         try:
                                             downloader.download_file(target_link, temp_pdf)
-                                            parsed = parse_boe_pdf(temp_pdf, target_title=d_title, univ_name=univ_nombre)
+                                            parsed = parse_boe_pdf(temp_pdf, target_title=d_title, univ_name=u_name)
                                             if parsed.get("total_elementos", 0) > 0 or len(parsed.get("resumen_creditos", {})) > 0:
                                                 found_curriculum = parsed
                                                 direct_source_url = target_link
@@ -853,7 +861,7 @@ class UniversityWebCrawler:
                                                     found_curriculum["precio_credito_2"] = extracted_pricing.get("precio_credito_2")
                                                     found_curriculum["precio_credito_3"] = extracted_pricing.get("precio_credito_3")
                                                     found_curriculum["precio_credito_4"] = extracted_pricing.get("precio_credito_4")
-                                                    found_curriculum["precio_estimado_anual"] = extracted_pricing["precio_estimado_anual"]
+                                                    found_curriculum["precio_estimado_anual"] = extracted_pricing.get("precio_estimado_anual")
                                                     found_curriculum["fuente_precio"] = "Web Oficial Universidad Privada"
 
                                                 direct_source_url = target_link

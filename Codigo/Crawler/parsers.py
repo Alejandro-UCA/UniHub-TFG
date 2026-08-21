@@ -57,7 +57,7 @@ RE_PREAMBLE_REJECTION = re.compile(r"^(?:resoluci[oó]n|acuerdo|orden|decreto|de
 RE_HEADER_GARBAGE = re.compile(r"^(?:(?:FB|OB|OP|PE|TFG|TFM|B|O)\s*)+$", re.IGNORECASE)
 RE_TABLE_HEADER_NOISE = re.compile(r"^(?:n[º°\.]*\s*ctos|n[º°\.]*\s*cr[eé]ditos|c[oó]digo|ects|car[aá]cter|curso|cuatrimestre|semestre)\b", re.IGNORECASE)
 RE_SUMMARY_LABEL = re.compile(
-    r"^(?:formaci[oó]n\s+b[aá]sica|b[aá]sic[ao]s?|obligatori[ao]s?|optativ[ao]s?|materias\s+obligatorias|materias\s+optativas|asignaturas\s+obligatorias|asignaturas\s+optativas|cr[eé]ditos\s+totales|total\s+(?:de\s+)?cr[eé]ditos|total)\s*(?:\([a-z0-9\s]+\))?$",
+    r"^(?:formaci[oó]n\s+b[aá]sica|b[aá]sic[ao]s?|obligatori[ao]s?|optativ[ao]s?|cr[eé]ditos\s+(?:b[aá]sicos|obligatorios|optativos)|materias\s+(?:b[aá]sicas|obligatorias|optativas)|asignaturas\s+(?:b[aá]sicas|obligatorias|optativas)|cr[eé]ditos\s+totales|total\s+(?:de\s+)?cr[eé]ditos|total|reconocimiento\s+(?:de\s+)?cr[eé]ditos|actividades\s+art[ií]culo\s+12\.8.*|pr[aá]cticas\s+acad[eé]micas\s+externas\s+optativas)\s*(?:\([a-z0-9\s]+\))?$",
     re.IGNORECASE
 )
 
@@ -896,17 +896,20 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                             except ValueError:
                                 ects_float = 6.0
 
-                            # Exclusión ultra-segura de filas de resumen de créditos y módulos agrupados (> 18 ECTS)
-                            # En el sistema universitario español ninguna asignatura individual supera 18 ECTS.
-                            # Si una fila tiene > 18 ECTS o coincide con etiquetas de resumen (FB, OB, OP, etc.),
+                            # Exclusión ultra-segura de filas de resumen de créditos, módulos agrupados (> 18 ECTS) y filas 0 ECTS
+                            # En el sistema universitario español ninguna asignatura individual ordinaria supera 18 ECTS (salvo TFG/TFM o Prácticas de hasta 30 ECTS).
+                            # Si una fila tiene > 18 ECTS (sin ser TFG/PE), tiene <= 0 ECTS o coincide con etiquetas de resumen o reconocimiento,
                             # se registra en resumen_creditos y NO como asignatura curricular individual.
                             is_summary_row = False
                             if RE_SUMMARY_LABEL.match(final_subject_name.strip()):
                                 is_summary_row = True
-                                resumen_creditos[final_subject_name] = str(clean_ects)
-                            elif ects_float > 18.0:
+                                resumen_creditos[final_subject_name] = str(clean_ects) if ects_float > 0 else "0-6"
+                            elif ects_float > 18.0 and caracter not in ["TFG/TFM", "PE"]:
                                 is_summary_row = True
                                 resumen_creditos[final_subject_name] = str(clean_ects)
+                            elif ects_float <= 0.0 or "reconocimiento" in final_subject_name.lower() or "artículo 12.8" in final_subject_name.lower():
+                                is_summary_row = True
+                                resumen_creditos[final_subject_name] = str(clean_ects) if ects_float > 0 else "0-6"
 
                             if is_summary_row:
                                 continue

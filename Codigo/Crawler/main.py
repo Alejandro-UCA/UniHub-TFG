@@ -43,7 +43,8 @@ from config import (
     ASYNC_PREFETCH_WORKERS,
     WEB_CRAWLER_WORKERS,
     TASK_QUEUE_MAXSIZE,
-    TASK_QUEUE_GET_TIMEOUT
+    TASK_QUEUE_GET_TIMEOUT,
+    MAX_BOE_CANDIDATES_PER_DEGREE
 )
 from downloader import RUCTDownloader, SkipUniversityException
 from error_logger import ErrorLogger
@@ -594,10 +595,15 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
                         })
                         continue
 
-                    # Inspeccionar hasta 3 candidatos BOE (el más reciente primero; si es una modificación breve sin tabla de asignaturas, recurrir a los anteriores)
-                    target_candidates = candidates[:3]
-                    if len(candidates) > 3:
-                        print(f"     -> Inspeccionando los 3 BOEs más relevantes (descartados {len(candidates) - 3} históricos muy antiguos).")
+                    # Seleccionar todos los PDFs pertenecientes a los fieldsets de Plan de Estudios y Correcciones (prioridad >= 90)
+                    # Si no existen fieldsets específicos (fallback), tomar los primeros candidatos ordenados por fecha
+                    high_priority_candidates = [c for c in candidates if c.get("priority", 0) >= 90]
+                    if high_priority_candidates:
+                        target_candidates = high_priority_candidates[:MAX_BOE_CANDIDATES_PER_DEGREE]
+                        if len(high_priority_candidates) > len(target_candidates):
+                            print(f"     -> Procesando los {len(target_candidates)} BOEs del plan de estudios más relevantes (acotados por límite de seguridad).")
+                    else:
+                        target_candidates = [c for c in candidates if c.get("priority", 0) > 0][:MAX_BOE_CANDIDATES_PER_DEGREE]
 
                     # OPT-04: Fetch candidate PDF in-memory (bytes) to avoid disk temporary file IOPS
                     downloaded_pdf_items = []

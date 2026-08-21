@@ -155,6 +155,7 @@ GRADO_STANDARD_ECTS = int(os.getenv("CRAWLER_GRADO_STANDARD_ECTS", 240))        
 MASTER_MIN_ECTS = int(os.getenv("CRAWLER_MASTER_MIN_ECTS", 60))                      # ECTS mínimos oficiales de un Máster
 MEDICINA_ECTS = int(os.getenv("CRAWLER_MEDICINA_ECTS", 360))                         # ECTS oficiales de Grado en Medicina (6 años)
 ESPECIALES_GRADO_ECTS = int(os.getenv("CRAWLER_ESPECIALES_GRADO_ECTS", 300))         # ECTS de Grados de 5 años (Farmacia, Odontología, Veterinaria, Arquitectura)
+MAX_BOE_CANDIDATES_PER_DEGREE = int(os.getenv("CRAWLER_MAX_BOE_CANDIDATES", 8))       # Límite máximo de seguridad de BOEs candidatos a procesar por titulación
 
 # ==============================================================================
 # 9. PERSISTENCIA, CHECKPOINTS Y BASES DE DATOS

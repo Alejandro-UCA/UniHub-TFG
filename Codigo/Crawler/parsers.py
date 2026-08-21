@@ -151,6 +151,30 @@ def sanitize_string_value(val: str) -> str:
     return s.rstrip(";:,").strip()
 
 
+def clean_excel_code(raw_val: str, zfill_len: int = 0) -> str:
+    """Limpia la distorsión numérica de celdas Excel (.0) y aplica zfill opcional."""
+    val = str(raw_val).strip() if raw_val is not None else ""
+    if val.endswith(".0"):
+        val = val[:-2]
+    return val.zfill(zfill_len) if zfill_len > 0 and val else val
+
+
+def classify_subject_caracter(text: str, default: str = "OB") -> str:
+    """Clasifica de forma unificada el carácter oficial de una asignatura (FB, OP, PE, TFG/TFM, OB)."""
+    if not text:
+        return default
+    t = text.lower()
+    if any(k in t for k in ["básica", "basica", "fb"]):
+        return "FB"
+    if any(k in t for k in ["optativa", "op"]):
+        return "OP"
+    if any(k in t for k in ["práctica", "practica", "pe", "externa"]):
+        return "PE"
+    if any(k in t for k in ["tfg", "tfm", "trabajo fin", "trabajo de fin", "trabajo final", "proyecto fin", "proyecto de fin"]):
+        return "TFG/TFM"
+    return default
+
+
 def parse_universities_xls(filepath: str) -> list:
     """
     Parses the XLS file downloaded from RUCT containing the list of universities.
@@ -170,11 +194,11 @@ def parse_universities_xls(filepath: str) -> list:
         row_dict = {}
         for idx, header in enumerate(headers):
             val = str(row[idx]).strip() if idx < len(row) else ""
-            if header in ["Código", "CÃ³digo"] and val.endswith(".0"):
-                val = val[:-2].zfill(3)
+            if header in ["Código", "CÃ³digo"]:
+                val = clean_excel_code(val, zfill_len=3)
             row_dict[header] = val
         
-        code = row_dict.get("Código", row_dict.get("CÃ³digo", ""))
+        code = clean_excel_code(row_dict.get("Código", row_dict.get("CÃ³digo", "")), zfill_len=3)
         name = row_dict.get("Universidad", "")
         tipo = row_dict.get("Tipo", "")
         ccaa = row_dict.get("Comunidad Autónoma", row_dict.get("Comunidad AutÃ³noma", ""))
@@ -182,7 +206,7 @@ def parse_universities_xls(filepath: str) -> list:
         
         if code and name:
             universities.append({
-                "codigo": code.zfill(3),
+                "codigo": code,
                 "nombre": sanitize_string_value(name),
                 "tipo": sanitize_string_value(tipo),
                 "comunidad_autonoma": sanitize_string_value(ccaa),
@@ -225,11 +249,11 @@ def parse_degrees_xls(filepath: str) -> list:
         row_dict = {}
         for idx, header in enumerate(headers):
             val = str(row[idx]).strip() if idx < len(row) else ""
-            if header in ["Código", "CÃ³digo"] and val.endswith(".0"):
-                val = val[:-2]
+            if header in ["Código", "CÃ³digo"]:
+                val = clean_excel_code(val)
             row_dict[header] = val
         
-        code = row_dict.get("Código") or row_dict.get("CÃ³digo") or ""
+        code = clean_excel_code(row_dict.get("Código") or row_dict.get("CÃ³digo") or "")
         title = row_dict.get("Título") or row_dict.get("TÃ­tulo") or ""
         nivel = row_dict.get("Nivel académico") or row_dict.get("Nivel acadÃ©mico") or ""
         estado = (
@@ -809,15 +833,7 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                                 ects_match = m.group(1)
 
                         if caracter_col_idx != -1 and caracter_col_idx < len(clean_row) and clean_row[caracter_col_idx]:
-                            c_cell = clean_row[caracter_col_idx].lower()
-                            if "básica" in c_cell or "basica" in c_cell or "fb" in c_cell:
-                                caracter = "FB"
-                            elif "optativa" in c_cell or "op" in c_cell:
-                                caracter = "OP"
-                            elif "práctica" in c_cell or "practica" in c_cell or "pe" in c_cell or "externa" in c_cell:
-                                caracter = "PE"
-                            elif any(k in c_cell for k in ["tfg", "tfm", "trabajo fin", "trabajo de fin", "trabajo final", "proyecto fin", "proyecto de fin"]):
-                                caracter = "TFG/TFM"
+                            caracter = classify_subject_caracter(clean_row[caracter_col_idx], default="OB")
 
                         if curso_col_idx != -1 and curso_col_idx < len(clean_row):
                             curso = clean_row[curso_col_idx]
@@ -838,14 +854,7 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
 
                             cell_lower = cell.lower()
                             if caracter == "OB":
-                                if "básica" in cell_lower or "basica" in cell_lower or "fb" in cell_lower:
-                                    caracter = "FB"
-                                elif "optativa" in cell_lower or "op" in cell_lower:
-                                    caracter = "OP"
-                                elif "práctica" in cell_lower or "practica" in cell_lower or "pe" in cell_lower or "externa" in cell_lower:
-                                    caracter = "PE"
-                                elif any(k in cell_lower for k in ["tfg", "tfm", "trabajo fin", "trabajo de fin", "trabajo final", "proyecto fin", "proyecto de fin"]):
-                                    caracter = "TFG/TFM"
+                                caracter = classify_subject_caracter(cell_lower, default="OB")
 
                             if not curso and RE_CURSO_NUM.search(cell):
                                 curso = cell
@@ -981,14 +990,15 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                         continue
 
                     if cred_float in [1, 1.5, 2, 3, 4, 4.5, 5, 6, 7.5, 8, 9, 10, 12, 14, 15, 18]:
+                        final_car = classify_subject_caracter(car_str, default="OB")
                         elementos_curriculares.append({
                             "modulo": "",
                             "materia": "",
                             "nombre_elemento": subj_name,
                             "creditos": cred_val,
                             "creditos_ects": cred_val,
-                            "tipo": "FB" if "BÁSICA" in car_str or "FB" in car_str else ("OP" if "OPTATIVA" in car_str or "OP" in car_str else "OB"),
-                            "caracter": "FB" if "BÁSICA" in car_str or "FB" in car_str else ("OP" if "OPTATIVA" in car_str or "OP" in car_str else "OB"),
+                            "tipo": final_car,
+                            "caracter": final_car,
                             "curso": "",
                             "cuatrimestre": ""
                         })

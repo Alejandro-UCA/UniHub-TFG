@@ -195,8 +195,11 @@ class RUCTDownloader:
                 raise SkipUniversityException(f"Problemas de conexion continuados en la universidad [{self.current_univ_code}]")
         return False
 
-    def fetch_content(self, url: str) -> bytes:
-        """Fetches raw content from a URL with connection resilience, Retry-After header parsing, and HTTPS fallback."""
+    def _request_with_retry(self, url: str, stream: bool = False) -> requests.Response:
+        """
+        Executes an HTTP GET request with connection resilience, Retry-After header parsing,
+        automatic HTTP->HTTPS fallback, and Circuit Breaker error management.
+        """
         url = self._normalize_url(url)
         max_retries = MAX_RETRIES
         attempt = 0
@@ -212,7 +215,7 @@ class RUCTDownloader:
             for target_url in urls_to_try:
                 try:
                     verify_ssl = True
-                    response = self.session.get(target_url, timeout=self.timeout, verify=verify_ssl)
+                    response = self.session.get(target_url, stream=stream, timeout=self.timeout, verify=verify_ssl)
                     if response.status_code == 429:
                         retry_after_val = response.headers.get("Retry-After")
                         retry_secs = int(retry_after_val) if (retry_after_val and retry_after_val.isdigit()) else HTTP_429_DEFAULT_RETRY_AFTER
@@ -224,7 +227,7 @@ class RUCTDownloader:
                     if self.metrics_tracker:
                         self.metrics_tracker.record_io_time(elapsed)
                     self._handle_connection_success()
-                    return response.content
+                    return response
                 except SkipUniversityException:
                     raise
                 except Exception as e:
@@ -237,6 +240,11 @@ class RUCTDownloader:
             print(f" 🔄 [RESILIENCIA] Reintentando petición tras pausa para '{url}'...")
         raise last_error
 
+    def fetch_content(self, url: str) -> bytes:
+        """Fetches raw content from a URL with connection resilience, Retry-After header parsing, and HTTPS fallback."""
+        response = self._request_with_retry(url, stream=False)
+        return response.content
+
     def fetch_text(self, url: str, encoding="utf-8") -> str:
         """Fetches decoded string content from a URL."""
         content = self.fetch_content(url)
@@ -244,65 +252,25 @@ class RUCTDownloader:
 
     def download_file(self, url: str, destination_path: str, is_pdf: bool = False):
         """Downloads a remote file directly to disk with connection resilience and HTTPS fallback."""
-        url = self._normalize_url(url)
-        max_retries = MAX_RETRIES
-        attempt = 0
-        urls_to_try = [url]
-        if url.startswith("http://"):
-            urls_to_try.append("https://" + url[7:])
-
-        while attempt < max_retries:
-            attempt += 1
-            self._apply_delay(url)
-            t0 = time.perf_counter()
-            last_error = None
-            for target_url in urls_to_try:
+        try:
+            with self._request_with_retry(url, stream=True) as response:
+                first_chunk = True
+                with open(destination_path, "wb") as f:
+                    for chunk in response.iter_content(chunk_size=DOWNLOAD_CHUNK_SIZE):
+                        if chunk:
+                            if is_pdf and first_chunk:
+                                first_chunk = False
+                                content_type = response.headers.get("Content-Type", "").lower()
+                                if not (b"%PDF-" in chunk[:1024] or "application/pdf" in content_type):
+                                    raise ValueError("Respuesta HTTP no es un PDF válido")
+                            f.write(chunk)
+        except Exception:
+            if os.path.exists(destination_path):
                 try:
-                    verify_ssl = True
-                    with self.session.get(target_url, stream=True, timeout=self.timeout, verify=verify_ssl) as response:
-                        if response.status_code == 429:
-                            retry_after_val = response.headers.get("Retry-After")
-                            retry_secs = int(retry_after_val) if (retry_after_val and retry_after_val.isdigit()) else HTTP_429_DEFAULT_RETRY_AFTER
-                            print(f" ⚠️ [CORTESÍA RED] HTTP 429 detectado en '{target_url}'. Pausando {retry_secs}s...")
-                            time.sleep(retry_secs)
-                            continue
-                        response.raise_for_status()
-                        first_chunk = True
-                        with open(destination_path, "wb") as f:
-                            for chunk in response.iter_content(chunk_size=DOWNLOAD_CHUNK_SIZE):
-                                if chunk:
-                                    if is_pdf and first_chunk:
-                                        first_chunk = False
-                                        content_type = response.headers.get("Content-Type", "").lower()
-                                        if not (b"%PDF-" in chunk[:1024] or "application/pdf" in content_type):
-                                            raise ValueError("Respuesta HTTP no es un PDF válido")
-                                    f.write(chunk)
-                    elapsed = time.perf_counter() - t0
-                    if self.metrics_tracker:
-                        self.metrics_tracker.record_io_time(elapsed)
-                    self._handle_connection_success()
-                    return
-                except SkipUniversityException:
-                    if os.path.exists(destination_path):
-                        try:
-                            os.remove(destination_path)
-                        except Exception:
-                            pass
-                    raise
-                except Exception as e:
-                    if os.path.exists(destination_path):
-                        try:
-                            os.remove(destination_path)
-                        except Exception:
-                            pass
-                    last_error = e
-                    print(f"     [Proceso Red] -> Falló conexión a '{target_url}': {e}")
-                    continue
-            should_retry = self._handle_connection_failure(str(last_error))
-            if not should_retry:
-                raise last_error
-            print(f" 🔄 [RESILIENCIA] Reintentando descarga tras pausa para '{url}'...")
-        raise last_error
+                    os.remove(destination_path)
+                except Exception:
+                    pass
+            raise
 
     def close(self):
         """Closes the underlying requests session and releases open socket pool resources."""

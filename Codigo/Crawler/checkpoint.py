@@ -177,112 +177,74 @@ class CheckpointManager:
             self.state["universities_downloaded"] = True
             self._save(force=True)
 
-    def is_university_processed(self, univ_code: str) -> bool:
-        if not is_valid_value(univ_code):
+    def _is_item_registered(self, table: str, column: str, state_key: str, value: str) -> bool:
+        """Generic check for item presence in SQLite WAL with memory fallback."""
+        if not is_valid_value(value):
             return False
         with CheckpointManager._lock:
             try:
                 with self._get_connection() as conn:
-                    cur = conn.execute("SELECT 1 FROM processed_universities WHERE univ_code = ?", (univ_code,))
+                    cur = conn.execute(f"SELECT 1 FROM {table} WHERE {column} = ?", (value,))
                     if cur.fetchone():
                         return True
             except Exception:
                 pass
-            return univ_code in self.state.get("processed_universities", [])
+            items = self.state.get(state_key, [])
+            return value in items if isinstance(items, (list, dict, set)) else False
 
-    def mark_university_processed(self, univ_code: str):
-        if not is_valid_value(univ_code):
+    def _register_simple_item(self, table: str, state_key: str, value: str, force_save: bool = False):
+        """Generic atomic registration of a single item into SQLite WAL and memory list."""
+        if not is_valid_value(value):
             return
         with CheckpointManager._lock:
-            if "processed_universities" not in self.state:
-                self.state["processed_universities"] = []
-            if univ_code not in self.state["processed_universities"]:
-                self.state["processed_universities"].append(univ_code)
+            if state_key not in self.state or not isinstance(self.state[state_key], list):
+                self.state[state_key] = []
+            if value not in self.state[state_key]:
+                self.state[state_key].append(value)
             try:
                 with self._get_connection() as conn:
-                    conn.execute("INSERT OR REPLACE INTO processed_universities VALUES (?)", (univ_code,))
+                    conn.execute(f"INSERT OR REPLACE INTO {table} VALUES (?)", (value,))
                     conn.commit()
             except Exception:
                 pass
-            self._save(force=True)
+            self._save(force=force_save)
+
+    def is_university_processed(self, univ_code: str) -> bool:
+        return self._is_item_registered("processed_universities", "univ_code", "processed_universities", univ_code)
+
+    def mark_university_processed(self, univ_code: str):
+        self._register_simple_item("processed_universities", "processed_universities", univ_code, force_save=True)
 
     def is_non_study_plan_pdf(self, pdf_url: str) -> bool:
-        if not is_valid_value(pdf_url):
-            return False
-        with CheckpointManager._lock:
-            try:
-                with self._get_connection() as conn:
-                    cur = conn.execute("SELECT 1 FROM non_study_plan_pdfs WHERE pdf_url = ?", (pdf_url,))
-                    if cur.fetchone():
-                        return True
-            except Exception:
-                pass
-            return pdf_url in self.state.get("non_study_plan_pdfs", [])
+        return self._is_item_registered("non_study_plan_pdfs", "pdf_url", "non_study_plan_pdfs", pdf_url)
 
     def mark_non_study_plan_pdf(self, pdf_url: str, pdf_sha256: str = None):
         if not is_valid_value(pdf_url):
             return
-        with CheckpointManager._lock:
-            if "non_study_plan_pdfs" not in self.state:
-                self.state["non_study_plan_pdfs"] = []
-            if pdf_url not in self.state["non_study_plan_pdfs"]:
-                self.state["non_study_plan_pdfs"].append(pdf_url)
-            try:
-                with self._get_connection() as conn:
-                    conn.execute("INSERT OR REPLACE INTO non_study_plan_pdfs VALUES (?)", (pdf_url,))
-                    if pdf_sha256:
+        self._register_simple_item("non_study_plan_pdfs", "non_study_plan_pdfs", pdf_url, force_save=False)
+        if pdf_sha256:
+            with CheckpointManager._lock:
+                try:
+                    with self._get_connection() as conn:
                         conn.execute("INSERT OR REPLACE INTO non_study_plan_hashes VALUES (?, ?, ?)", 
                                      (pdf_sha256, "NO_PLAN_ESTUDIOS", datetime.now().isoformat()))
-                        if "non_study_plan_hashes" not in self.state:
-                            self.state["non_study_plan_hashes"] = []
-                        if pdf_sha256 not in self.state["non_study_plan_hashes"]:
-                            self.state["non_study_plan_hashes"].append(pdf_sha256)
-                    conn.commit()
-            except Exception:
-                pass
-            self._save(force=False)
+                        conn.commit()
+                except Exception:
+                    pass
+                if "non_study_plan_hashes" not in self.state:
+                    self.state["non_study_plan_hashes"] = []
+                if pdf_sha256 not in self.state["non_study_plan_hashes"]:
+                    self.state["non_study_plan_hashes"].append(pdf_sha256)
+                self._save(force=False)
 
     def is_non_study_plan_hash(self, pdf_sha256: str) -> bool:
-        if not is_valid_value(pdf_sha256):
-            return False
-        with CheckpointManager._lock:
-            try:
-                with self._get_connection() as conn:
-                    cur = conn.execute("SELECT 1 FROM non_study_plan_hashes WHERE pdf_sha256 = ?", (pdf_sha256,))
-                    if cur.fetchone():
-                        return True
-            except Exception:
-                pass
-            return pdf_sha256 in self.state.get("non_study_plan_hashes", [])
+        return self._is_item_registered("non_study_plan_hashes", "pdf_sha256", "non_study_plan_hashes", pdf_sha256)
 
     def is_unreachable_url(self, pdf_url: str) -> bool:
-        if not is_valid_value(pdf_url):
-            return False
-        with CheckpointManager._lock:
-            try:
-                with self._get_connection() as conn:
-                    cur = conn.execute("SELECT 1 FROM unreachable_urls WHERE url = ?", (pdf_url,))
-                    if cur.fetchone():
-                        return True
-            except Exception:
-                pass
-            return pdf_url in self.state.get("unreachable_urls", [])
+        return self._is_item_registered("unreachable_urls", "url", "unreachable_urls", pdf_url)
 
     def mark_unreachable_url(self, pdf_url: str):
-        if not is_valid_value(pdf_url):
-            return
-        with CheckpointManager._lock:
-            if "unreachable_urls" not in self.state:
-                self.state["unreachable_urls"] = []
-            if pdf_url not in self.state["unreachable_urls"]:
-                self.state["unreachable_urls"].append(pdf_url)
-            try:
-                with self._get_connection() as conn:
-                    conn.execute("INSERT OR REPLACE INTO unreachable_urls VALUES (?)", (pdf_url,))
-                    conn.commit()
-            except Exception:
-                pass
-            self._save(force=False)
+        self._register_simple_item("unreachable_urls", "unreachable_urls", pdf_url, force_save=False)
 
     def record_pdf_download_failure(self, pdf_url: str, degree_code: str, reason: str):
         if not is_valid_value(pdf_url):
@@ -378,18 +340,7 @@ class CheckpointManager:
             self._save(force=False)
 
     def is_extinct_degree(self, degree_code: str) -> bool:
-        if not is_valid_value(degree_code):
-            return False
-        with CheckpointManager._lock:
-            try:
-                with self._get_connection() as conn:
-                    cur = conn.execute("SELECT 1 FROM extinct_degrees WHERE degree_code = ?", (degree_code,))
-                    if cur.fetchone():
-                        return True
-            except Exception:
-                pass
-            extinct = self.state.get("extinct_degrees", {})
-            return degree_code in extinct if isinstance(extinct, dict) else False
+        return self._is_item_registered("extinct_degrees", "degree_code", "extinct_degrees", degree_code)
 
     def mark_robots_denied_university(self, univ_code: str, web_url: str, reason: str = "Crawling denegado por robots.txt"):
         if not is_valid_value(univ_code):

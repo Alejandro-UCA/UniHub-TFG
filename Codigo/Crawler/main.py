@@ -66,6 +66,40 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
         pass
 
 
+def save_degree_payload(plan_file: str, d_code: str, d_title: str, u_code: str, u_name: str, 
+                        nivel_academico: str, boe_url: str = None, boe_fecha: str = None, 
+                        plan_estudios: dict = None, all_boe_urls: list = None, 
+                        origen_fuente: str = None, checkpoint_mgr=None, existing_data: dict = None):
+    """
+    Guarda atómicamente el payload JSON del plan de estudios y actualiza el checkpoint del sistema.
+    """
+    payload = existing_data if existing_data is not None else {}
+    now_iso = datetime.now().isoformat()
+    payload.update({
+        "codigo_estudio": d_code,
+        "titulo": d_title,
+        "nivel_academico": nivel_academico,
+        "universidad_codigo": u_code,
+        "universidad_nombre": u_name,
+        "fecha_procesado": now_iso,
+        "boe_url": boe_url,
+        "boe_fecha": boe_fecha
+    })
+    if plan_estudios is not None:
+        payload["plan_estudios"] = plan_estudios
+    elif "plan_estudios" not in payload:
+        payload["plan_estudios"] = None
+        
+    if all_boe_urls:
+        payload["all_boe_urls"] = all_boe_urls
+    if origen_fuente:
+        payload["origen_fuente"] = origen_fuente
+
+    atomic_json_dump(payload, plan_file)
+    if checkpoint_mgr:
+        checkpoint_mgr.update_degree_record(d_code, boe_url, boe_fecha, now_iso)
+
+
 def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue = None):
     """
     PROCESO 2 (CONSUMIDOR / ANÁLISIS DE DATOS CPU):
@@ -125,17 +159,9 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue = None):
 
             if task_type == "DEGREE_NO_BOE":
                 print(f"     [Proceso Parser] -> [AVISO] Sin enlaces a BOE para [{d_code}]. Guardando metadatos base.")
-                existing_degree_data.update({
-                    "codigo_estudio": d_code,
-                    "titulo": d_title,
-                    "nivel_academico": nivel_academico,
-                    "universidad_codigo": u_code,
-                    "universidad_nombre": u_name,
-                    "fecha_procesado": datetime.now().isoformat(),
-                    "boe_url": None,
-                })
+                plan_doc = None
                 if is_doctorado:
-                    existing_degree_data["plan_estudios"] = {
+                    plan_doc = {
                         "tipo_estructura": "programa_doctorado_investigacion",
                         "normativa": "Real Decreto 99/2011",
                         "descripcion_plan": "Programa Oficial de Doctorado centrado en la investigación avanzada, elaboración y defensa de Tesis Doctoral conforme al Real Decreto 99/2011.",
@@ -144,10 +170,19 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue = None):
                         "total_elementos": 0,
                         "elementos_curriculares": []
                     }
-                elif "plan_estudios" not in existing_degree_data:
-                    existing_degree_data["plan_estudios"] = None
-                atomic_json_dump(existing_degree_data, plan_file)
-                checkpoint.update_degree_record(d_code, None, None, datetime.now().isoformat())
+                save_degree_payload(
+                    plan_file=plan_file,
+                    d_code=d_code,
+                    d_title=d_title,
+                    u_code=u_code,
+                    u_name=u_name,
+                    nivel_academico=nivel_academico,
+                    boe_url=None,
+                    boe_fecha=None,
+                    plan_estudios=plan_doc,
+                    checkpoint_mgr=checkpoint,
+                    existing_data=existing_degree_data
+                )
 
             elif task_type == "PARSE_DEGREE_PDFS":
                 pdf_items = task.get("pdf_items", [])
@@ -272,45 +307,39 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue = None):
                         "total_elementos": len(combined_elementos),
                         "elementos_curriculares": combined_elementos
                     }
-                    existing_degree_data.update({
-                        "codigo_estudio": d_code,
-                        "titulo": d_title,
-                        "nivel_academico": nivel_academico,
-                        "universidad_codigo": u_code,
-                        "universidad_nombre": u_name,
-                        "fecha_procesado": datetime.now().isoformat(),
-                        "boe_url": latest_boe_url,
-                        "boe_fecha": latest_boe_fecha,
-                        "all_boe_urls": task.get("all_boe_urls", processed_boe_urls),
-                        "plan_estudios": curriculum_combined,
-                        "origen_fuente": "boe"
-                    })
-                    atomic_json_dump(existing_degree_data, plan_file)
-                    checkpoint.update_degree_record(d_code, latest_boe_url, latest_boe_fecha, datetime.now().isoformat())
+                    save_degree_payload(
+                        plan_file=plan_file,
+                        d_code=d_code,
+                        d_title=d_title,
+                        u_code=u_code,
+                        u_name=u_name,
+                        nivel_academico=nivel_academico,
+                        boe_url=latest_boe_url,
+                        boe_fecha=latest_boe_fecha,
+                        plan_estudios=curriculum_combined,
+                        all_boe_urls=task.get("all_boe_urls", processed_boe_urls),
+                        origen_fuente="boe",
+                        checkpoint_mgr=checkpoint,
+                        existing_data=existing_degree_data
+                    )
                 else:
                     print(f"     [Proceso Parser] -> [AVISO] Ningún PDF de [{d_code}] contenía asignaturas desglosadas. Guardando metadatos base.")
-                    existing_degree_data.update({
-                        "codigo_estudio": d_code,
-                        "titulo": d_title,
-                        "nivel_academico": nivel_academico,
-                        "universidad_codigo": u_code,
-                        "universidad_nombre": u_name,
-                        "fecha_procesado": datetime.now().isoformat(),
-                        "boe_url": latest_boe_url,
-                        "boe_fecha": latest_boe_fecha
-                    })
-                    if "plan_estudios" not in existing_degree_data:
-                        existing_degree_data["plan_estudios"] = None
-                    atomic_json_dump(existing_degree_data, plan_file)
-                    checkpoint.update_degree_record(d_code, latest_boe_url, latest_boe_fecha, datetime.now().isoformat())
+                    save_degree_payload(
+                        plan_file=plan_file,
+                        d_code=d_code,
+                        d_title=d_title,
+                        u_code=u_code,
+                        u_name=u_name,
+                        nivel_academico=nivel_academico,
+                        boe_url=latest_boe_url,
+                        boe_fecha=latest_boe_fecha,
+                        plan_estudios=existing_degree_data.get("plan_estudios"),
+                        checkpoint_mgr=checkpoint,
+                        existing_data=existing_degree_data
+                    )
 
         except Exception as consumer_err:
             print(f"     [Proceso Parser ERROR] Excepción inesperada en consumidor: {consumer_err}")
-
-    result_queue.put({
-        "parsed_count": parsed_count,
-        "updated_degrees_count": updated_degrees_count
-    })
 
 
 def trigger_api_etl_sync():
@@ -560,16 +589,17 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
                         cand_url = cand["url"]
                         cand_date = cand.get("boe_date")
 
+                        cand_label = "PDF más reciente" if cand_idx == 1 else f"PDF candidato #{cand_idx}"
                         if checkpoint.is_non_study_plan_pdf(cand_url):
-                            print(f"     [Proceso Red] -> PDF más reciente previamente descartado (NO es plan de estudios). Omitiendo descarga.")
+                            print(f"     [Proceso Red] -> {cand_label} previamente descartado (NO es plan de estudios). Omitiendo descarga.")
                             return None
 
                         if checkpoint.is_unreachable_url(cand_url):
-                            print(f"     [Proceso Red] -> PDF más reciente previamente registrado como inalcanzable (servidor inactivo). Omitiendo descarga.")
+                            print(f"     [Proceso Red] -> {cand_label} previamente registrado como inalcanzable (servidor inactivo). Omitiendo descarga.")
                             return None
 
                         try:
-                            print(f"     [Proceso Red] -> Obteniendo PDF más reciente del BOE ({cand_date or 'fecha n/a'})...")
+                            print(f"     [Proceso Red] -> Obteniendo {cand_label} del BOE ({cand_date or 'fecha n/a'})...")
                             # OPT-04: Fetch in-memory bytes
                             pdf_bytes = downloader.fetch_content(cand_url)
                             return {

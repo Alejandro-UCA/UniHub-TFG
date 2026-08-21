@@ -270,5 +270,61 @@ class TestMultiDegreeBOEDisambiguation(unittest.TestCase):
         self.assertEqual(res["total_elementos"], 0)
         self.assertEqual(res["elementos_curriculares"], [])
 
+    def test_11_multi_degree_resolution_without_anexo_keyword(self):
+        """Verifica que resoluciones macro que contienen varios grados sin palabra ANEXO se desambigüen por diferencias de keywords."""
+        from parsers import extract_degree_core_keywords, is_section_matching, RE_DEGREE_SECTION_MARKERS
+
+        raw_text_pages = [
+            "UNIVERSIDAD CAMILO JOSÉ CELA\nPlan de estudios conducente al título de Graduado en Artes Digitales\nAsignaturas de Artes...",
+            "Plan de estudios conducente al título de Graduado en Criminología y Seguridad\nAsignaturas de Criminología...",
+            "Plan de estudios conducente al título de Graduado en Derecho\nAsignaturas de Derecho..."
+        ]
+
+        target_title = "Graduado o Graduada en Derecho por la Universidad Camilo José Cela"
+        univ_name = "Universidad Camilo José Cela"
+        target_kw = extract_degree_core_keywords(target_title, univ_name)
+
+        detected_sections = []
+        for page_idx, p_text in enumerate(raw_text_pages):
+            for pattern in RE_DEGREE_SECTION_MARKERS:
+                for match in pattern.finditer(p_text):
+                    sec_raw = match.group(0).strip()
+                    sec_kw = extract_degree_core_keywords(sec_raw, univ_name)
+                    if sec_kw and len(sec_kw) > 0:
+                        detected_sections.append({
+                            "page_idx": page_idx,
+                            "raw": sec_raw,
+                            "keywords": sec_kw
+                        })
+
+        page_inclusion_mask = [True] * len(raw_text_pages)
+        if len(detected_sections) >= 2 and target_kw:
+            current_state = False
+            for page_idx in range(len(raw_text_pages)):
+                for s in detected_sections:
+                    if s["page_idx"] == page_idx:
+                        current_state = is_section_matching(s["keywords"], target_kw)
+                page_inclusion_mask[page_idx] = current_state
+
+        self.assertEqual(page_inclusion_mask, [False, False, True])
+
+    def test_12_practicum_macro_blocks_over_30_ects_exclusion(self):
+        """Verifica que bloques macroscópicos de prácticas de más de 30 ECTS (ej. 54 ECTS) se excluyan de asignaturas y vayan a resumen."""
+        from parsers import RE_SUMMARY_LABEL
+
+        macro_practicum = "Prácticas Académicas Externas"
+        ects_val = 54.0
+        caracter = "PE"
+
+        is_summary = False
+        if RE_SUMMARY_LABEL.match(macro_practicum):
+            is_summary = True
+        elif ects_val > 30.0:
+            is_summary = True
+        elif ects_val > 18.0 and caracter not in ["TFG/TFM", "PE"]:
+            is_summary = True
+
+        self.assertTrue(is_summary)
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

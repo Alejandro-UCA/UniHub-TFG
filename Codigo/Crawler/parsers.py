@@ -31,6 +31,10 @@ SPANISH_STOP_WORDS = {
     "programa", "programas", "ensenanzas", "enseñanzas", "ensenanza", "enseñanza",
     "rama", "ramas", "conocimiento", "conocimientos", "mencion", "mención", "menciones",
     "distribucion", "distribución", "creditos", "créditos", "resumen", "estructura",
+    # Administrative & layout structural tokens
+    "apartado", "materia", "materias", "asignatura", "asignaturas", "modulo", "módulo",
+    "docon", "rector", "rectora", "secretario", "secretaria", "emilio", "lora", "tamayo",
+    "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre",
     # English generics & connectives for bilingual resolutions (UC3M, UAB, UPF, etc.)
     "bachelor", "bachelors", "master", "masters", "doctor", "phd", "degree", "degrees",
     "and", "in", "of", "for", "with", "the", "an", "science", "sciences",
@@ -39,18 +43,18 @@ SPANISH_STOP_WORDS = {
     # Catalan / Valenciano / Balear generics & connectives
     "grau", "graus", "estudis", "estudi", "pla", "plans", "oficial", "oficials",
     "universitat", "universitats", "universitari", "universitaris", "universitaria", "universitaries",
-    "ciencies", "ciències", "enginyeria", "enginyeries", "dels", "deles", "dela", "per", "amb",
+    "ciencies", "ciències", "socials", "juridiques", "jurídiques", "humanitats", "enginyeria", "enginyeries", "dels", "deles", "dela", "per", "amb",
     # Galician & Basque generics
     "grao", "graos", "estudos", "estudo", "plano", "planos", "universidade", "gradua", "graduak", "masterra", "unibertsitatea"
 }
 
 RE_DEGREE_SECTION_MARKERS = [
     # 1. ANEXO I, ANEXO II, etc.
-    re.compile(r"(?:ANEXO\s+[I|V|X\d]+|ANEXO\b)\s*[:\.\-–—]?\s*([^\n\r]+(?:\n[^\n\r]+)?)", re.IGNORECASE),
+    re.compile(r"(?:ANEXO\s+[I|V|X\d]+|ANEXO\b)\s*[:\.\-–—]?\s*([^\n\r\(\)]+(?:\n[^\n\r\(\)]+)?)", re.IGNORECASE),
     # 2. Plan de estudios conducente al/del título oficial de... / Título oficial de...
-    re.compile(r"(?:plan de estudios (?:conducentes?\s+)?(?:a\s+la\s+obtenci[oó]n\s+)?(?:del|al)\s+t[ií]tulo\s+(?:oficial\s+)?de\s*:?|(?:el\s+)?t[ií]tulo\s+(?:oficial\s+)?de\s*:?|denominaci[oó]n\s+del\s+t[ií]tulo\s*:?)\s*([^\n\r]+(?:\n[^\n\r]+)?)", re.IGNORECASE),
+    re.compile(r"(?:plan de estudios (?:conducentes?\s+)?(?:a\s+la\s+obtenci[oó]n\s+)?(?:del|al)\s+t[ií]tulo\s+(?:oficial\s+)?de\s*:?|(?:el\s+)?t[ií]tulo\s+(?:oficial\s+)?de\s*:?|denominaci[oó]n\s+del\s+t[ií]tulo\s*:?)\s*([^\n\r\(\)]+(?:\n[^\n\r\(\)]+)?)", re.IGNORECASE),
     # 3. Numbered or direct degree headings: Graduado o Graduada en..., Máster Universitario en..., Grau en...
-    re.compile(r"(?:^|\n)\s*(?:\d+[\.\)]\s*)?(?:Plan de Estudios por Asignaturas\s*:\s*)?(?:(?:El\s+)?T[ií]tulo\s+de\s+)?(?:Grado|Graduado(?:\s*[\/\(]a[\/\)]|\s+o\s+Graduada)?|Graduada|M[aá]ster(?:\s+Universitario)?|Master|Doctorado|Bachelor|Grau)\s+(?:en|in|de|d'|del)\s+([A-ZÁÉÍÓÚÑ][^\n\r\(\)]{3,80})", re.IGNORECASE)
+    re.compile(r"(?:^|\n)\s*(?:\d+[\.\)]\s*)?(?:Plan de Estudios por Asignaturas\s*:\s*)?(?:(?:El\s+)?T[ií]tulo\s+de\s+)?(?:Grado|Graduado(?:\s*[\/\(]a[\/\)]|\s+o\s+Graduada)?|Graduada|M[aá]ster(?:\s+Universitario)?|Master|Doctorado|Bachelor|Grau)\s+(?:en|in|de|d'|del)\s+([A-ZÁÉÍÓÚÑ][^\n\r\(\)]{3,80}(?:\n[^\n\r\(\)]{3,80})?)", re.IGNORECASE)
 ]
 
 RE_PREAMBLE_REJECTION = re.compile(r"^(?:resoluci[oó]n|acuerdo|orden|decreto|de\s+conformidad|visto\s+el)\b", re.IGNORECASE)
@@ -631,7 +635,9 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
     if len(detected_sections) >= 2:
         for i in range(len(detected_sections)):
             for j in range(i + 1, len(detected_sections)):
-                if not detected_sections[i]["keywords"].intersection(detected_sections[j]["keywords"]):
+                diff_i = detected_sections[i]["keywords"].difference(detected_sections[j]["keywords"])
+                diff_j = detected_sections[j]["keywords"].difference(detected_sections[i]["keywords"])
+                if diff_i and diff_j:
                     is_multi_degree_doc = True
                     break
             if is_multi_degree_doc:
@@ -896,18 +902,21 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                             except ValueError:
                                 ects_float = 6.0
 
-                            # Exclusión ultra-segura de filas de resumen de créditos, módulos agrupados (> 18 ECTS) y filas 0 ECTS
-                            # En el sistema universitario español ninguna asignatura individual ordinaria supera 18 ECTS (salvo TFG/TFM o Prácticas de hasta 30 ECTS).
-                            # Si una fila tiene > 18 ECTS (sin ser TFG/PE), tiene <= 0 ECTS o coincide con etiquetas de resumen o reconocimiento,
+                            # Exclusión ultra-segura de filas de resumen de créditos, módulos agrupados (> 30 ECTS o > 18 ECTS ordinarios) y filas <= 0 ECTS
+                            # En el sistema universitario español ninguna asignatura individual supera 30 ECTS (máximo legal para TFG o Prácticum anual).
+                            # Si una fila tiene > 30 ECTS, > 18 ECTS (sin ser TFG/PE), tiene <= 0 ECTS o coincide con etiquetas de resumen o totales,
                             # se registra en resumen_creditos y NO como asignatura curricular individual.
                             is_summary_row = False
                             if RE_SUMMARY_LABEL.match(final_subject_name.strip()):
                                 is_summary_row = True
                                 resumen_creditos[final_subject_name] = str(clean_ects) if ects_float > 0 else "0-6"
+                            elif ects_float > 30.0:
+                                is_summary_row = True
+                                resumen_creditos[final_subject_name] = str(clean_ects)
                             elif ects_float > 18.0 and caracter not in ["TFG/TFM", "PE"]:
                                 is_summary_row = True
                                 resumen_creditos[final_subject_name] = str(clean_ects)
-                            elif ects_float <= 0.0 or "reconocimiento" in final_subject_name.lower() or "artículo 12.8" in final_subject_name.lower():
+                            elif ects_float <= 0.0 or "reconocimiento" in final_subject_name.lower() or "artículo 12.8" in final_subject_name.lower() or "total " in final_subject_name.lower() or "total:" in final_subject_name.lower():
                                 is_summary_row = True
                                 resumen_creditos[final_subject_name] = str(clean_ects) if ects_float > 0 else "0-6"
 

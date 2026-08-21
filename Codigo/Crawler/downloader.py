@@ -195,12 +195,33 @@ class RUCTDownloader:
                 raise SkipUniversityException(f"Problemas de conexion continuados en la universidad [{self.current_univ_code}]")
         return False
 
+    def _prepare_ruct_session(self, url: str):
+        """
+        Garantiza que la sesión HTTP con el servidor RUCT del Ministerio esté inicializada
+        y con la consulta de resultados activa antes de solicitar la descarga del archivo Excel (export=1).
+        Esto previene que el servidor devuelva la página HTML del formulario (Expected BOF record; found <!DOC).
+        """
+        try:
+            if "listauniversidades" in url and "export=1" in url:
+                self.session.get("https://www.educacion.gob.es/ruct/listauniversidades.action?actual=universidades", timeout=self.timeout)
+                self.session.get("https://www.educacion.gob.es/ruct/listauniversidades?actual=universidades&cccaa=&tipo_univ=&codigoUniversidad=&consulta=1", timeout=self.timeout)
+            elif "listaestudiosuniversidad" in url and "export=1" in url:
+                m = re.search(r"codigoUniversidad=([^&]+)", url)
+                if m:
+                    u_code = m.group(1)
+                    self.session.get(f"https://www.educacion.gob.es/ruct/listaestudiosuniversidad?actual=universidades&codigoUniversidad={u_code}", timeout=self.timeout)
+        except Exception:
+            pass
+
     def _request_with_retry(self, url: str, stream: bool = False) -> requests.Response:
         """
         Executes an HTTP GET request with connection resilience, Retry-After header parsing,
         automatic HTTP->HTTPS fallback, and Circuit Breaker error management.
         """
         url = self._normalize_url(url)
+        if "export=1" in url and ("listauniversidades" in url or "listaestudiosuniversidad" in url):
+            self._prepare_ruct_session(url)
+
         max_retries = MAX_RETRIES
         attempt = 0
         urls_to_try = [url]
@@ -263,6 +284,12 @@ class RUCTDownloader:
                                 content_type = response.headers.get("Content-Type", "").lower()
                                 if not (b"%PDF-" in chunk[:1024] or "application/pdf" in content_type):
                                     raise ValueError("Respuesta HTTP no es un PDF válido")
+                            elif first_chunk and destination_path.lower().endswith(".xls"):
+                                first_chunk = False
+                                # Si RUCT devuelve una página HTML de error/sesión en lugar de binario Excel
+                                if chunk.strip().startswith(b"<!DOC") or chunk.strip().startswith(b"<html") or chunk.strip().startswith(b"<!doc"):
+                                    print(f" ⚠️ [AVISO] Respuesta RUCT retornó HTML en lugar de binario XLS para '{url}'. Reinicializando sesión...")
+                                    self._prepare_ruct_session(url)
                             f.write(chunk)
         except Exception:
             if os.path.exists(destination_path):

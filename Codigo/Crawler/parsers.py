@@ -348,13 +348,61 @@ def get_curriculum_completeness_status(degree_data: dict) -> dict:
         }
 
 
+def parse_universities_from_html(html_text: str) -> list:
+    """
+    Fallback parser for universities when RUCT returns an HTML table instead of a binary XLS.
+    """
+    soup = BeautifulSoup(html_text, "html.parser")
+    table = soup.find("table")
+    if not table:
+        return []
+    headers = [th.get_text(strip=True) for th in table.find_all("th")]
+    universities = []
+    for tr in table.find_all("tr"):
+        tds = [td.get_text(strip=True) for td in tr.find_all(["td", "th"])]
+        if not tds or len(tds) < 2 or any(k in tds[0] for k in ["Código", "CÃ³digo", "Codigo"]):
+            continue
+        row_dict = dict(zip(headers, tds)) if len(headers) == len(tds) else {}
+        code = clean_excel_code(row_dict.get("Código") or row_dict.get("CÃ³digo") or row_dict.get("Codigo") or tds[0], zfill_len=3)
+        name = row_dict.get("Universidad") or (tds[1] if len(tds) > 1 else "")
+        tipo = row_dict.get("Tipo") or (tds[2] if len(tds) > 2 else "")
+        ccaa = row_dict.get("Comunidad Autónoma") or row_dict.get("Comunidad AutÃ³noma") or (tds[3] if len(tds) > 3 else "")
+        url = row_dict.get("URL") or (tds[4] if len(tds) > 4 else "")
+        if code and name:
+            universities.append({
+                "codigo": code,
+                "nombre": sanitize_string_value(name),
+                "tipo": sanitize_string_value(tipo),
+                "comunidad_autonoma": sanitize_string_value(ccaa),
+                "municipio": sanitize_string_value(row_dict.get("Municipio", "")),
+                "provincia": sanitize_string_value(row_dict.get("Provincia", "")),
+                "web": url.strip(),
+                "email": row_dict.get("EMail", "").strip(),
+                "telefono": sanitize_string_value(row_dict.get("Teléfono 1", row_dict.get("TelÃ©fono 1", "")))
+            })
+    return universities
+
+
 def parse_universities_xls(filepath: str) -> list:
     """
     Parses the XLS file downloaded from RUCT containing the list of universities.
     Returns a list of dictionaries with cleaned university details.
+    Includes automatic fallback to HTML table parsing if RUCT returned an HTML response.
     """
-    wb = xlrd.open_workbook(filepath)
-    sheet = wb.sheet_by_index(0)
+    try:
+        wb = xlrd.open_workbook(filepath)
+        sheet = wb.sheet_by_index(0)
+    except Exception as xl_err:
+        try:
+            with open(filepath, "r", encoding="utf-8", errors="replace") as f:
+                html_text = f.read()
+            if "<table" in html_text.lower():
+                parsed_html = parse_universities_from_html(html_text)
+                if parsed_html:
+                    return parsed_html
+        except Exception:
+            pass
+        raise xl_err
     
     if sheet.nrows == 0:
         return []
@@ -401,6 +449,36 @@ def parse_universities_xls(filepath: str) -> list:
     return universities
 
 
+def parse_degrees_from_html(html_text: str) -> list:
+    """
+    Fallback parser for degrees when RUCT returns an HTML table instead of a binary XLS.
+    """
+    soup = BeautifulSoup(html_text, "html.parser")
+    table = soup.find("table")
+    if not table:
+        return []
+    headers = [th.get_text(strip=True) for th in table.find_all("th")]
+    raw_rows = []
+    for tr in table.find_all("tr"):
+        tds = [td.get_text(strip=True) for td in tr.find_all(["td", "th"])]
+        if not tds or len(tds) < 2 or any(k in tds[0] for k in ["Código", "CÃ³digo", "Codigo"]):
+            continue
+        row_dict = dict(zip(headers, tds)) if len(headers) == len(tds) else {}
+        code = clean_excel_code(row_dict.get("Código") or row_dict.get("CÃ³digo") or tds[0])
+        title = row_dict.get("Título") or row_dict.get("TÃ­tulo") or (tds[1] if len(tds) > 1 else "")
+        nivel = row_dict.get("Nivel académico") or row_dict.get("Nivel acadÃ©mico") or (tds[2] if len(tds) > 2 else "")
+        estado = (
+            row_dict.get("Estado") or 
+            row_dict.get("Estado del título") or 
+            row_dict.get("Estado del tÃ­tulo") or 
+            row_dict.get("Situación") or 
+            (tds[3] if len(tds) > 3 else "")
+        )
+        if code and title:
+            raw_rows.append({"code": code, "title": title, "nivel": nivel, "estado": estado})
+    return raw_rows
+
+
 def parse_degrees_xls(filepath: str) -> list:
     """
     Parses the XLS file downloaded from RUCT for a specific university.
@@ -408,81 +486,104 @@ def parse_degrees_xls(filepath: str) -> list:
     2. DEDUPLICATES RENOVATED DEGREES within the same university:
        If multiple active versions of the same title exist, keeps ONLY the latest / renovated version.
     """
-    wb = xlrd.open_workbook(filepath)
-    sheet = wb.sheet_by_index(0)
+    is_html_fallback = False
+    html_raw_rows = []
+    try:
+        wb = xlrd.open_workbook(filepath)
+        sheet = wb.sheet_by_index(0)
+    except Exception as xl_err:
+        try:
+            with open(filepath, "r", encoding="utf-8", errors="replace") as f:
+                html_text = f.read()
+            if "<table" in html_text.lower():
+                html_raw_rows = parse_degrees_from_html(html_text)
+                is_html_fallback = True
+        except Exception:
+            pass
+        if not is_html_fallback:
+            raise xl_err
     
-    if sheet.nrows == 0:
+    if not is_html_fallback and sheet.nrows == 0:
         return []
     
-    headers = [str(cell).strip() for cell in sheet.row_values(0)]
     raw_active_degrees = []
     
-    for r in range(1, sheet.nrows):
-        row = sheet.row_values(r)
-        row_dict = {}
-        for idx, header in enumerate(headers):
-            val = str(row[idx]).strip() if idx < len(row) else ""
-            if header in ["Código", "CÃ³digo"]:
-                val = clean_excel_code(val)
-            row_dict[header] = val
+    if is_html_fallback:
+        candidate_rows = html_raw_rows
+    else:
+        headers = [str(cell).strip() for cell in sheet.row_values(0)]
+        candidate_rows = []
+        for r in range(1, sheet.nrows):
+            row = sheet.row_values(r)
+            row_dict = {}
+            for idx, header in enumerate(headers):
+                val = str(row[idx]).strip() if idx < len(row) else ""
+                if header in ["Código", "CÃ³digo"]:
+                    val = clean_excel_code(val)
+                row_dict[header] = val
+            
+            code = clean_excel_code(row_dict.get("Código") or row_dict.get("CÃ³digo") or "")
+            title = row_dict.get("Título") or row_dict.get("TÃ­tulo") or ""
+            nivel = row_dict.get("Nivel académico") or row_dict.get("Nivel acadÃ©mico") or ""
+            estado = (
+                row_dict.get("Estado") or 
+                row_dict.get("Estado del título") or 
+                row_dict.get("Estado del tÃ­tulo") or 
+                row_dict.get("Estado del estudio") or 
+                row_dict.get("Situación") or 
+                row_dict.get("SituaciÃ³n") or ""
+            )
+            candidate_rows.append({"code": code, "title": title, "nivel": nivel, "estado": estado})
         
-        code = clean_excel_code(row_dict.get("Código") or row_dict.get("CÃ³digo") or "")
-        title = row_dict.get("Título") or row_dict.get("TÃ­tulo") or ""
-        nivel = row_dict.get("Nivel académico") or row_dict.get("Nivel acadÃ©mico") or ""
-        estado = (
-            row_dict.get("Estado") or 
-            row_dict.get("Estado del título") or 
-            row_dict.get("Estado del tÃ­tulo") or 
-            row_dict.get("Estado del estudio") or 
-            row_dict.get("Situación") or 
-            row_dict.get("SituaciÃ³n") or ""
-        )
-        
-        # Helper para normalización estricta de acentos y distorsiones de codificación UTF-8
-        import unicodedata
-        def normalize_text(text: str) -> str:
-            if not text:
-                return ""
-            t = text.lower().strip()
-            t = t.replace("Ã³", "o").replace("Ã¡", "a").replace("Ã©", "e").replace("Ã­", "i").replace("Ãº", "u").replace("Ã±", "n")
-            t = unicodedata.normalize('NFKD', t)
-            t = ''.join(c for c in t if not unicodedata.combining(c))
-            return t
+    # Helper para normalización estricta de acentos y distorsiones de codificación UTF-8
+    def normalize_text(text: str) -> str:
+        if not text:
+            return ""
+        t = text.lower().strip()
+        t = t.replace("Ã³", "o").replace("Ã¡", "a").replace("Ã©", "e").replace("Ã­", "i").replace("Ãº", "u").replace("Ã±", "n")
+        t = unicodedata.normalize('NFKD', t)
+        t = ''.join(c for c in t if not unicodedata.combining(c))
+        return t
+
+    # 1. LISTA NEGRA AMPLIADA (Términos que denotan inactividad, extinción o desestimación)
+    blacklist = [
+        "extinguid", "extincion", "extinta", "extinto",
+        "no vigente", "sin docencia", "baja",
+        "derogad", "cancelad", "eliminad", "revocad",
+        "suspendid", "caducad", "desestimad", "sustituid",
+        "no impartid", "sin efecto", "cierre", "cerrad", "archivo"
+    ]
+
+    # 2. LISTA BLANCA ESTRICTA (Términos explícitos de actividad, publicación en BOE o autorización real)
+    whitelist = [
+        "vigente", 
+        "impartiendose", 
+        "autorizad", 
+        "renovad", 
+        "acreditad", 
+        "alta",
+        "publicad",
+        "b.o.e",
+        "boe",
+        "inscrit"
+    ]
+
+    legacy_levels = ["solo segundo ciclo", "ciclo corto", "ciclo largo", "primer ciclo", "primer y segundo ciclo", "pre-bolonia", "rd 56/2005"]
+    legacy_title_prefixes = ["licenciado", "licenciada", "diplomado", "diplomada", "ingeniero tecnico", "ingeniera tecnica", "arquitecto tecnico", "arquitecta tecnica"]
+
+    for row_data in candidate_rows:
+        code = row_data["code"]
+        title = row_data["title"]
+        nivel = row_data["nivel"]
+        estado = row_data["estado"]
 
         estado_norm = normalize_text(estado)
         nivel_norm = normalize_text(nivel)
         title_norm = normalize_text(title)
 
-        # 1. LISTA NEGRA AMPLIADA (Términos que denotan inactividad, extinción o desestimación)
-        blacklist = [
-            "extinguid", "extincion", "extinta", "extinto",
-            "no vigente", "sin docencia", "baja",
-            "derogad", "cancelad", "eliminad", "revocad",
-            "suspendid", "caducad", "desestimad", "sustituid",
-            "no impartid", "sin efecto", "cierre", "cerrad", "archivo"
-        ]
         has_blacklist = any(term in estado_norm for term in blacklist)
-
-        # 2. LISTA BLANCA ESTRICTA (Términos explícitos de actividad, publicación en BOE o autorización real)
-        whitelist = [
-            "vigente", 
-            "impartiendose", 
-            "autorizad", 
-            "renovad", 
-            "acreditad", 
-            "alta",
-            "publicad",
-            "b.o.e",
-            "boe",
-            "inscrit"
-        ]
         has_whitelist = any(term in estado_norm for term in whitelist)
-
-        # 3. RECHAZO DE NIVELES ACADÉMICOS Y TÍTULOS PRE-BOLONIA EXTEXTOS (LRU / RD 56/2005)
-        legacy_levels = ["solo segundo ciclo", "ciclo corto", "ciclo largo", "primer ciclo", "primer y segundo ciclo", "pre-bolonia", "rd 56/2005"]
         is_legacy_level = any(leg in nivel_norm for leg in legacy_levels)
-
-        legacy_title_prefixes = ["licenciado", "licenciada", "diplomado", "diplomada", "ingeniero tecnico", "ingeniera tecnica", "arquitecto tecnico", "arquitecta tecnica"]
         is_legacy_title = any(title_norm.startswith(prefix) for prefix in legacy_title_prefixes)
 
         # La titulación debe pertenecer a la Lista Blanca, NO estar en Lista Negra y NO ser un plan antiguo Pre-Bolonia (LRU)

@@ -230,5 +230,61 @@ class TestCurriculumCompletenessValidation(unittest.TestCase):
         self.assertEqual(res["boe_date"], "2018-03-18")
         self.assertEqual(len(res["all_boe_links"]), 2)
 
+    def test_13_parse_universities_from_html_fallback(self):
+        """Verifica que si RUCT retorna una tabla HTML de universidades en lugar de XLS, se parsee sin errores."""
+        import tempfile
+        html_content = """
+        <html>
+          <body>
+            <table>
+              <tr><th>Código</th><th>Universidad</th><th>Tipo</th><th>Comunidad Autónoma</th><th>Municipio</th><th>Provincia</th><th>URL</th></tr>
+              <tr><td>005</td><td>Universidad de Cádiz</td><td>Pública</td><td>Andalucía</td><td>Cádiz</td><td>Cádiz</td><td>https://www.uca.es</td></tr>
+              <tr><td>089</td><td>CUNEF Universidad</td><td>Privada</td><td>Comunidad de Madrid</td><td>Madrid</td><td>Madrid</td><td>https://www.cunef.edu</td></tr>
+            </table>
+          </body>
+        </html>
+        """
+        with tempfile.NamedTemporaryFile("w", suffix=".xls", delete=False, encoding="utf-8") as tf:
+            tf.write(html_content)
+            temp_path = tf.name
+        try:
+            from parsers import parse_universities_xls
+            univs = parse_universities_xls(temp_path)
+            self.assertEqual(len(univs), 2)
+            self.assertEqual(univs[0]["codigo"], "005")
+            self.assertEqual(univs[0]["tipo"], "Pública")
+            self.assertEqual(univs[1]["codigo"], "089")
+            self.assertEqual(univs[1]["tipo"], "Privada")
+        finally:
+            if os.path.exists(temp_path):
+                os.remove(temp_path)
+
+    def test_14_parse_degrees_from_html_fallback(self):
+        """Verifica que si RUCT retorna una tabla HTML de titulaciones en lugar de XLS, se parsee y filtre sin errores."""
+        import tempfile
+        html_content = """
+        <html>
+          <body>
+            <table>
+              <tr><th>Código</th><th>Título</th><th>Nivel académico</th><th>Estado</th></tr>
+              <tr><td>2500001</td><td>Grado en Ingeniería Informática</td><td>Grado</td><td>Vigente</td></tr>
+              <tr><td>2500002</td><td>Grado en Medicina</td><td>Grado</td><td>Extinguida</td></tr>
+            </table>
+          </body>
+        </html>
+        """
+        with tempfile.NamedTemporaryFile("w", suffix=".xls", delete=False, encoding="utf-8") as tf:
+            tf.write(html_content)
+            temp_path = tf.name
+        try:
+            from parsers import parse_degrees_xls
+            degrees = parse_degrees_xls(temp_path)
+            self.assertEqual(len(degrees), 1)
+            self.assertEqual(degrees[0]["codigo_estudio"], "2500001")
+            self.assertEqual(degrees[0]["titulo"], "Grado en Ingeniería Informática")
+        finally:
+            if os.path.exists(temp_path):
+                os.remove(temp_path)
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

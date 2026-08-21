@@ -15,6 +15,7 @@ from functools import lru_cache
 # GLOBAL PRE-COMPILED REGEX PATTERNS (OPT-02: Pre-compilación de Regex)
 # -----------------------------------------------------------------------------
 SPANISH_STOP_WORDS = {
+    # Spanish articles, prepositions, conjunctions, generics
     "el", "la", "los", "las", "un", "una", "unos", "unas",
     "de", "del", "en", "a", "al", "por", "con", "sin", "sobre", "para", "entre", "hacia", "desde", "hasta", "segun", "tras", "durante", "mediante",
     "y", "e", "o", "u", "ni", "que", "como", "donde", "cuando",
@@ -29,14 +30,36 @@ SPANISH_STOP_WORDS = {
     "centro", "centros", "facultad", "facultades", "escuela", "escuelas",
     "programa", "programas", "ensenanzas", "enseñanzas", "ensenanza", "enseñanza",
     "rama", "ramas", "conocimiento", "conocimientos", "mencion", "mención", "menciones",
-    "distribucion", "distribución", "creditos", "créditos", "resumen", "estructura"
+    "distribucion", "distribución", "creditos", "créditos", "resumen", "estructura",
+    # English generics & connectives for bilingual resolutions (UC3M, UAB, UPF, etc.)
+    "bachelor", "bachelors", "master", "masters", "doctor", "phd", "degree", "degrees",
+    "and", "in", "of", "for", "with", "the", "an", "science", "sciences",
+    "engineering", "studies", "study", "university", "business", "management", "international",
+    "applied", "advanced", "official", "curriculum", "syllabus",
+    # Catalan / Valenciano / Balear generics & connectives
+    "grau", "graus", "estudis", "estudi", "pla", "plans", "oficial", "oficials",
+    "universitat", "universitats", "universitari", "universitaris", "universitaria", "universitaries",
+    "ciencies", "ciències", "enginyeria", "enginyeries", "dels", "deles", "dela", "per", "amb",
+    # Galician & Basque generics
+    "grao", "graos", "estudos", "estudo", "plano", "planos", "universidade", "gradua", "graduak", "masterra", "unibertsitatea"
 }
 
 RE_DEGREE_SECTION_MARKERS = [
+    # 1. ANEXO I, ANEXO II, etc.
     re.compile(r"(?:ANEXO\s+[I|V|X\d]+|ANEXO\b)\s*[:\.\-–—]?\s*([^\n\r]+(?:\n[^\n\r]+)?)", re.IGNORECASE),
-    re.compile(r"(?:plan de estudios conducentes?\s+(?:a\s+la\s+obtenci[oó]n\s+)?al\s+t[ií]tulo\s+(?:oficial\s+)?de\s*:?|t[ií]tulo\s+oficial\s+de\s*:?|denominaci[oó]n\s+del\s+t[ií]tulo\s*:?)\s*([^\n\r]+(?:\n[^\n\r]+)?)", re.IGNORECASE),
-    re.compile(r"(?:^|\n)\s*(?:Plan de Estudios por Asignaturas\s*:\s*)?(?:Grado|Graduado|Graduada|M[aá]ster|Master|Doctorado)\s+en\s+([A-ZÁÉÍÓÚÑ][^\n\r\(\)]{3,80}(?:\n[^\n\r\(\)]{3,80})?)", re.IGNORECASE)
+    # 2. Plan de estudios conducente al/del título oficial de... / Título oficial de...
+    re.compile(r"(?:plan de estudios (?:conducentes?\s+)?(?:a\s+la\s+obtenci[oó]n\s+)?(?:del|al)\s+t[ií]tulo\s+(?:oficial\s+)?de\s*:?|(?:el\s+)?t[ií]tulo\s+(?:oficial\s+)?de\s*:?|denominaci[oó]n\s+del\s+t[ií]tulo\s*:?)\s*([^\n\r]+(?:\n[^\n\r]+)?)", re.IGNORECASE),
+    # 3. Numbered or direct degree headings: Graduado o Graduada en..., Máster Universitario en..., Grau en...
+    re.compile(r"(?:^|\n)\s*(?:\d+[\.\)]\s*)?(?:Plan de Estudios por Asignaturas\s*:\s*)?(?:(?:El\s+)?T[ií]tulo\s+de\s+)?(?:Grado|Graduado(?:\s*[\/\(]a[\/\)]|\s+o\s+Graduada)?|Graduada|M[aá]ster(?:\s+Universitario)?|Master|Doctorado|Bachelor|Grau)\s+(?:en|in|de|d'|del)\s+([A-ZÁÉÍÓÚÑ][^\n\r\(\)]{3,80})", re.IGNORECASE)
 ]
+
+RE_PREAMBLE_REJECTION = re.compile(r"^(?:resoluci[oó]n|acuerdo|orden|decreto|de\s+conformidad|visto\s+el)\b", re.IGNORECASE)
+RE_HEADER_GARBAGE = re.compile(r"^(?:(?:FB|OB|OP|PE|TFG|TFM|B|O)\s*)+$", re.IGNORECASE)
+RE_TABLE_HEADER_NOISE = re.compile(r"^(?:n[º°\.]*\s*ctos|n[º°\.]*\s*cr[eé]ditos|c[oó]digo|ects|car[aá]cter|curso|cuatrimestre|semestre)\b", re.IGNORECASE)
+RE_SUMMARY_LABEL = re.compile(
+    r"^(?:formaci[oó]n\s+b[aá]sica|b[aá]sic[ao]s?|obligatori[ao]s?|optativ[ao]s?|materias\s+obligatorias|materias\s+optativas|asignaturas\s+obligatorias|asignaturas\s+optativas|cr[eé]ditos\s+totales|total\s+(?:de\s+)?cr[eé]ditos|total)\s*(?:\([a-z0-9\s]+\))?$",
+    re.IGNORECASE
+)
 
 def is_section_matching(sec_kw: set, target_kw: set) -> bool:
     """
@@ -524,6 +547,7 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
     """
     resumen_creditos = {}
     elementos_curriculares = []
+    seen_subject_map = {}
     raw_text_parts = []
 
     # Prepare stream or file source
@@ -579,9 +603,21 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
     detected_sections = []
     
     for page_idx, p_text in enumerate(raw_text_parts):
+        text_to_search = p_text
+        if page_idx == 0:
+            m_anexo = re.search(r"\bANEXO\b", p_text, re.IGNORECASE)
+            if m_anexo:
+                text_to_search = p_text[m_anexo.start():]
+            else:
+                m_sig = re.search(r"(?:El Rector|La Rectora|El Secretario General|La Secretaria General|El Director|La Directora)\b", p_text, re.IGNORECASE)
+                if m_sig:
+                    text_to_search = p_text[m_sig.end():]
+
         for pattern in RE_DEGREE_SECTION_MARKERS:
-            for match in pattern.finditer(p_text):
+            for match in pattern.finditer(text_to_search):
                 sec_raw = match.group(0).strip()
+                if RE_PREAMBLE_REJECTION.search(sec_raw):
+                    continue
                 sec_kw = extract_degree_core_keywords(sec_raw, univ_name)
                 if sec_kw and len(sec_kw) > 0:
                     detected_sections.append({
@@ -760,6 +796,8 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                             final_subject_name 
                             and len(final_subject_name) > 3 
                             and not RE_LEGAL_NOISE.search(final_subject_name)
+                            and not RE_HEADER_GARBAGE.match(final_subject_name)
+                            and not RE_TABLE_HEADER_NOISE.match(final_subject_name)
                             and not bool(re.search(r"^(anexo|plan de estudios|bolet[ií]n oficial|ministerio|universidad|cve:|http|p[aá]gina|total\s+cr[eé]ditos|resumen|estructura general|distribuci[oó]n|observaciones)\b", final_subject_name, re.IGNORECASE))
                             and not bool(re.search(r"^(?:grado|graduado|graduada|máster|master|doctorado|programa\s+(?:oficial\s+)?de\s+doctorado|enseñanza)\b", final_subject_name, re.IGNORECASE))
                             and not bool(re.search(r"^(?:centros?\s+(?:propios|adscritos|integrados|universitarios)|campus\s+de|sede\s+de|facultad\s+de|escuela\s+de)\b", final_subject_name, re.IGNORECASE))
@@ -784,42 +822,47 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                             except ValueError:
                                 ects_float = 6.0
 
-                            # Solución 1: Exclusión ultra-segura de filas de resumen global de créditos
-                            # (ej. "Formación Básica: 60", "Obligatorias: 147", "Optativas: 18", "Créditos Totales: 240")
-                            # NO afecta a asignaturas compuestas reales como "Química Básica" o "Derecho de Obligaciones"
-                            name_norm = re.sub(r"[^\w\s]", "", final_subject_name).strip().lower()
+                            # Exclusión ultra-segura de filas de resumen de créditos y módulos agrupados (> 18 ECTS)
+                            # En el sistema universitario español ninguna asignatura individual supera 18 ECTS.
+                            # Si una fila tiene > 18 ECTS o coincide con etiquetas de resumen (FB, OB, OP, etc.),
+                            # se registra en resumen_creditos y NO como asignatura curricular individual.
                             is_summary_row = False
-                            if ects_float >= 20.0:
-                                global_summary_labels = [
-                                    "basico", "basica", "formacion basica", "formación básica",
-                                    "obligatorio", "obligatoria", "obligatorias", "materias obligatorias", "asignaturas obligatorias",
-                                    "optativo", "optativa", "optativas", "materias optativas", "asignaturas optativas",
-                                    "total", "totales", "total creditos", "total de creditos", "creditos totales"
-                                ]
-                                if name_norm in global_summary_labels:
-                                    is_summary_row = True
-                                    resumen_creditos[final_subject_name] = str(clean_ects)
-                                elif name_norm in ["practicas externas", "practicas en empresa", "practicas curriculares"] and ects_float > 35.0:
-                                    is_summary_row = True
-                                    resumen_creditos[final_subject_name] = str(clean_ects)
+                            if RE_SUMMARY_LABEL.match(final_subject_name.strip()):
+                                is_summary_row = True
+                                resumen_creditos[final_subject_name] = str(clean_ects)
+                            elif ects_float > 18.0:
+                                is_summary_row = True
+                                resumen_creditos[final_subject_name] = str(clean_ects)
 
                             if is_summary_row:
                                 continue
 
-                            # Solución 2: Saneamiento estricto del campo curso y rescate de materia
                             clean_curso, current_materia = normalize_curso(curso, current_materia, ects_val=ects_float)
+                            clean_cuat = normalize_cuatrimestre(cuatrimestre)
 
-                            elementos_curriculares.append({
-                                "modulo": sanitize_string_value(current_modulo),
-                                "materia": sanitize_string_value(current_materia),
-                                "nombre_elemento": final_subject_name,
-                                "creditos": clean_ects,
-                                "creditos_ects": clean_ects,
-                                "tipo": caracter,
-                                "caracter": caracter,
-                                "curso": clean_curso,
-                                "cuatrimestre": normalize_cuatrimestre(cuatrimestre)
-                            })
+                            norm_name = re.sub(r"[^\w\s]", "", final_subject_name).strip().lower()
+                            if norm_name in seen_subject_map:
+                                idx_ex = seen_subject_map[norm_name]
+                                if not elementos_curriculares[idx_ex]["curso"] and clean_curso:
+                                    elementos_curriculares[idx_ex]["curso"] = clean_curso
+                                if not elementos_curriculares[idx_ex]["cuatrimestre"] and clean_cuat:
+                                    elementos_curriculares[idx_ex]["cuatrimestre"] = clean_cuat
+                                if elementos_curriculares[idx_ex]["caracter"] == "OB" and caracter != "OB":
+                                    elementos_curriculares[idx_ex]["caracter"] = caracter
+                                    elementos_curriculares[idx_ex]["tipo"] = caracter
+                            else:
+                                seen_subject_map[norm_name] = len(elementos_curriculares)
+                                elementos_curriculares.append({
+                                    "modulo": sanitize_string_value(current_modulo),
+                                    "materia": sanitize_string_value(current_materia),
+                                    "nombre_elemento": final_subject_name,
+                                    "creditos": clean_ects,
+                                    "creditos_ects": clean_ects,
+                                    "tipo": caracter,
+                                    "caracter": caracter,
+                                    "curso": clean_curso,
+                                    "cuatrimestre": clean_cuat
+                                })
     except Exception as e:
         print(f"   [AVISO] pdfplumber table extraction fallback: {e}")
 
@@ -838,17 +881,27 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
             # Regex pattern for subject line using pre-compiled RE_TEXT_SUBJECT_LINE
             m = RE_TEXT_SUBJECT_LINE.search(line_str)
             if m:
-                subj_name = m.group(1).strip()
+                subj_name = sanitize_subject_name(m.group(1).strip())
                 cred_val = m.group(2).replace(",", ".")
                 car_str = m.group(3).upper()
 
+                if RE_HEADER_GARBAGE.match(subj_name) or RE_TABLE_HEADER_NOISE.match(subj_name):
+                    continue
+
                 try:
-                    if float(cred_val) in [3, 4.5, 6, 9, 12, 15, 18, 24, 30]:
+                    cred_float = float(cred_val)
+                    if RE_SUMMARY_LABEL.match(subj_name) or cred_float > 18.0:
+                        resumen_creditos[subj_name] = str(cred_val)
+                        continue
+
+                    if cred_float in [1, 1.5, 2, 3, 4, 4.5, 5, 6, 7.5, 8, 9, 10, 12, 14, 15, 18]:
                         elementos_curriculares.append({
                             "modulo": "",
                             "materia": "",
                             "nombre_elemento": subj_name,
+                            "creditos": cred_val,
                             "creditos_ects": cred_val,
+                            "tipo": "FB" if "BÁSICA" in car_str or "FB" in car_str else ("OP" if "OPTATIVA" in car_str or "OP" in car_str else "OB"),
                             "caracter": "FB" if "BÁSICA" in car_str or "FB" in car_str else ("OP" if "OPTATIVA" in car_str or "OP" in car_str else "OB"),
                             "curso": "",
                             "cuatrimestre": ""

@@ -177,5 +177,56 @@ class TestMultiDegreeBOEDisambiguation(unittest.TestCase):
         self.assertTrue(bool(deg_regex.search(degree_row_3)))
         self.assertTrue(bool(center_regex.search(center_row)))
 
+    def test_06_bilingual_keyword_isolation_no_collisions(self):
+        """Verifica que títulos bilingües en inglés/español no colisionen en palabras genéricas como bachelor/and/engineering."""
+        title_cs = "Graduado o Graduada en Ingeniería Informática / Bachelor in Computer Science and Engineering"
+        title_data = "Graduado o Graduada en Análisis de Datos / Bachelor in Data Science and Engineering"
+        title_stats = "Graduado o Graduada en Estadística y Empresa / Bachelor in Statistics and Business"
+        univ = "Universidad Carlos III de Madrid"
+
+        kw_cs = extract_degree_core_keywords(title_cs, univ)
+        kw_data = extract_degree_core_keywords(title_data, univ)
+        kw_stats = extract_degree_core_keywords(title_stats, univ)
+
+        self.assertNotIn("bachelor", kw_cs)
+        self.assertNotIn("engineering", kw_cs)
+        self.assertNotIn("science", kw_cs)
+        self.assertIn("computer", kw_cs)
+        self.assertIn("informatica", kw_cs)
+
+        # No must-have collisions
+        self.assertEqual(len(kw_cs.intersection(kw_data)), 0)
+        self.assertEqual(len(kw_cs.intersection(kw_stats)), 0)
+
+    def test_07_summary_labels_and_huge_ects_exclusion(self):
+        """Verifica que los resúmenes globales de créditos y módulos grandes se detecten y excluyan de asignaturas."""
+        from parsers import RE_SUMMARY_LABEL
+
+        # Summary labels
+        self.assertTrue(bool(RE_SUMMARY_LABEL.match("Formación Básica (FB)")))
+        self.assertTrue(bool(RE_SUMMARY_LABEL.match("Obligatorias (OB)")))
+        self.assertTrue(bool(RE_SUMMARY_LABEL.match("Optativas (OP)")))
+        self.assertTrue(bool(RE_SUMMARY_LABEL.match("Formación Básica (B)")))
+        self.assertTrue(bool(RE_SUMMARY_LABEL.match("Total créditos")))
+        self.assertTrue(bool(RE_SUMMARY_LABEL.match("Créditos Totales")))
+
+        # Real subjects that must NOT match summary label
+        self.assertFalse(bool(RE_SUMMARY_LABEL.match("Química Básica")))
+        self.assertFalse(bool(RE_SUMMARY_LABEL.match("Derecho de Obligaciones")))
+        self.assertFalse(bool(RE_SUMMARY_LABEL.match("Prácticas Externas")))
+        self.assertFalse(bool(RE_SUMMARY_LABEL.match("Trabajo Fin de Grado")))
+
+    def test_08_garbage_header_rejection(self):
+        """Verifica que secuencias espurias de siglas de cabecera sean rechazadas."""
+        from parsers import RE_HEADER_GARBAGE, RE_TABLE_HEADER_NOISE
+
+        self.assertTrue(bool(RE_HEADER_GARBAGE.match("OB OP OP OP TFG")))
+        self.assertTrue(bool(RE_HEADER_GARBAGE.match("FB OB OB OP")))
+        self.assertTrue(bool(RE_TABLE_HEADER_NOISE.match("N.º ctos")))
+        self.assertTrue(bool(RE_TABLE_HEADER_NOISE.match("Nº creditos")))
+
+        self.assertFalse(bool(RE_HEADER_GARBAGE.match("Matemáticas I")))
+        self.assertFalse(bool(RE_TABLE_HEADER_NOISE.match("Cálculo Numérico")))
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

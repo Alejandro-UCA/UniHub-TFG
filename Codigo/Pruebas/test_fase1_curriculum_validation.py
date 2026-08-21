@@ -8,7 +8,8 @@ from parsers import (
     get_required_degree_credits,
     compute_curriculum_total_ects,
     is_curriculum_complete,
-    get_curriculum_completeness_status
+    get_curriculum_completeness_status,
+    parse_degree_detail_html
 )
 
 class TestCurriculumCompletenessValidation(unittest.TestCase):
@@ -165,6 +166,69 @@ class TestCurriculumCompletenessValidation(unittest.TestCase):
         status = get_curriculum_completeness_status(deg_empty)
         self.assertFalse(status["is_complete"])
         self.assertEqual(status["status"], "sin_plan")
+
+    def test_11_parse_degree_detail_html_contextual_priority(self):
+        """Verifica que el parser HTML priorice los fieldsets de Plan de Estudios y Correcciones frente al Acuerdo de Consejo de Ministros."""
+        sample_html = """
+        <html>
+          <body>
+            <fieldset>
+              <legend>Fechas y Enlaces a BOE</legend>
+              <label>Fecha de publicación del Acuerdo de Consejo de Ministros en el BOE:</label>
+              <a href="http://www.boe.es/boe/dias/2021/05/10/pdfs/BOE-A-2021-9999.pdf">BOE 10/05/2021</a>
+              <label>Publicación Plan Estudios en el BOE:</label>
+              <a href="http://www.boe.es/boe/dias/2010/08/02/pdfs/BOE-A-2010-12409.pdf">BOE 02/08/2010</a>
+            </fieldset>
+            <fieldset>
+              <legend>Fechas de Corrección Plan Estudio</legend>
+              <table>
+                <tr><th>Correcciones</th></tr>
+                <tr><td><a href="http://www.boe.es/boe/dias/2019/04/26/pdfs/BOE-A-2019-6255.pdf">BOE 26/04/2019</a></td></tr>
+                <tr><td><a href="http://www.boe.es/boe/dias/2020/07/10/pdfs/BOE-A-2020-7713.pdf">BOE 10/07/2020</a></td></tr>
+              </table>
+            </fieldset>
+          </body>
+        </html>
+        """
+        res = parse_degree_detail_html(sample_html)
+        self.assertFalse(res["is_extinct"])
+        
+        # El enlace más prioritario debe ser la corrección más reciente (2020-07-10)
+        self.assertEqual(res["latest_boe_url"], "https://www.boe.es/boe/dias/2020/07/10/pdfs/BOE-A-2020-7713.pdf")
+        self.assertEqual(res["boe_date"], "2020-07-10")
+
+        # Comprobar el orden estricto de los candidatos:
+        # 1. Corrección 2020 (Prioridad 100)
+        # 2. Corrección 2019 (Prioridad 100)
+        # 3. Plan Inicial 2010 (Prioridad 90)
+        # 4. Acuerdo Consejo Ministros 2021 (Prioridad 10 - al final pese a tener fecha 2021)
+        candidates = res["all_boe_candidates"]
+        self.assertEqual(len(candidates), 4)
+        self.assertEqual(candidates[0]["boe_date"], "2020-07-10")
+        self.assertEqual(candidates[0]["priority"], 100)
+        self.assertEqual(candidates[1]["boe_date"], "2019-04-26")
+        self.assertEqual(candidates[1]["priority"], 100)
+        self.assertEqual(candidates[2]["boe_date"], "2010-08-02")
+        self.assertEqual(candidates[2]["priority"], 90)
+        self.assertEqual(candidates[3]["boe_date"], "2021-05-10")
+        self.assertEqual(candidates[3]["priority"], 10)
+
+    def test_12_parse_degree_detail_html_safe_fallback(self):
+        """Verifica que una página sin fieldsets estándar ordene todos los BOEs válidos de forma segura por fecha."""
+        raw_html = """
+        <html>
+          <body>
+            <div>
+              <a href="http://www.boe.es/boe/dias/2015/05/21/pdfs/BOE-A-2015-5628.pdf">BOE 21/05/2015</a>
+              <a href="http://www.boe.es/boe/dias/2018/03/18/pdfs/BOE-A-2018-2918.pdf">BOE 18/03/2018</a>
+            </div>
+          </body>
+        </html>
+        """
+        res = parse_degree_detail_html(raw_html)
+        self.assertEqual(res["latest_boe_url"], "https://www.boe.es/boe/dias/2018/03/18/pdfs/BOE-A-2018-2918.pdf")
+        self.assertEqual(res["boe_date"], "2018-03-18")
+        self.assertEqual(len(res["all_boe_links"]), 2)
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

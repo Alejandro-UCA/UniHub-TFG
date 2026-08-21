@@ -517,10 +517,74 @@ def parse_degrees_xls(filepath: str) -> list:
     return list(grouped_degrees.values())
 
 
+def extract_link_context_priority(a_tag) -> tuple:
+    """
+    Determina la prioridad y categoría de un enlace en la ficha del RUCT analizando
+    su contexto semántico (fieldset legend, etiquetas th/label/strong adyacentes y texto contenedor).
+    
+    Retorna una tupla: (prioridad_numerica, tipo_documento)
+    Donde mayor prioridad_numerica indica mayor preferencia:
+      - 100: "plan_correccion" (Modificaciones o correcciones del plan de estudios)
+      - 90:  "plan_inicial" (Publicación oficial del plan de estudios en el BOE)
+      - 30:  "boe_general" (Otros enlaces BOE genéricos como órdenes ministeriales)
+      - 10:  "acuerdo_consejo_ministros" (Acuerdo administrativo de oficialización)
+      - 0:   "tramite_autonomico_extincion" (Autorización regional, informe o extinción)
+    """
+    parent_tr = a_tag.find_parent("tr")
+    parent_fieldset = a_tag.find_parent("fieldset")
+    
+    legend_text = ""
+    if parent_fieldset:
+        legend_tag = parent_fieldset.find("legend")
+        if legend_tag:
+            legend_text = legend_tag.get_text(strip=True).lower()
+
+    th_text = ""
+    if parent_tr:
+        th_tag = parent_tr.find("th")
+        if th_tag:
+            th_text = th_tag.get_text(strip=True).lower()
+
+    prev_label = a_tag.find_previous(["th", "label", "legend", "h3", "h4", "strong", "td"])
+    prev_text = prev_label.get_text(strip=True).lower() if prev_label else ""
+
+    container_text = parent_fieldset.get_text(separator=" ", strip=True).lower() if parent_fieldset else ""
+
+    combined_context = f"{legend_text} {th_text} {prev_text} {container_text}"
+
+    # Regla 1: Correcciones o modificaciones del plan de estudios -> PRIORIDAD 100
+    if (
+        "correcci" in legend_text or "modificaci" in legend_text or 
+        "correcci" in th_text or "modificaci" in th_text or 
+        "correcciones" in th_text or "corrección plan estudio" in combined_context or "correccion plan estudio" in combined_context
+    ):
+        return 100, "plan_correccion"
+
+    # Regla 2: Publicación del plan de estudios en el BOE -> PRIORIDAD 90
+    if (
+        "publicación plan estudios" in prev_text or "publicacion plan estudios" in prev_text or
+        "plan de estudios" in prev_text or "plan estudios" in prev_text or
+        "publicación plan estudios" in combined_context or "publicacion plan estudios" in combined_context
+    ) and "consejo de ministros" not in prev_text:
+        return 90, "plan_inicial"
+
+    # Regla 3: Acuerdo de Consejo de Ministros -> PRIORIDAD 10 (Administrativo, sin asignaturas)
+    if "consejo de ministros" in prev_text or "acuerdo de consejo de ministros" in combined_context:
+        return 10, "acuerdo_consejo_ministros"
+
+    # Regla 4: Trámite autonómico o extinción -> PRIORIDAD 0
+    if any(k in combined_context for k in ["autorización ccaa", "autorizacion ccaa", "extinción", "extincion", "renovación acreditación", "renovacion acreditacion"]):
+        return 0, "tramite_autonomico_extincion"
+
+    # Regla 5: Fallback general neutro para enlaces a BOE
+    return 30, "boe_general"
+
+
 def parse_degree_detail_html(html_content: str) -> dict:
     """
     Parses the HTML of the degree detail page to verify real-time status and extract all BOE PDF links.
-    Returns a dictionary with is_extinct (bool), exact status text, and candidate BOE links.
+    Returns a dictionary with is_extinct (bool), exact status text, and candidate BOE links ordered
+    by semantic context priority (study plans and modifications first) and reverse chronological order.
     """
     soup = BeautifulSoup(html_content, "html.parser")
     full_text_lower = soup.get_text().lower()
@@ -594,26 +658,32 @@ def parse_degree_detail_html(html_content: str) -> dict:
 
             # Clean malformed double protocol prefixes using centralized normalize_url
             href = normalize_url(href)
+            
+            priority, doc_type = extract_link_context_priority(a)
                 
             boe_candidates.append({
                 "url": href,
                 "text": text,
                 "date": date_obj,
-                "boe_date": date_obj.strftime("%Y-%m-%d") if date_obj else None
+                "boe_date": date_obj.strftime("%Y-%m-%d") if date_obj else None,
+                "priority": priority,
+                "doc_type": doc_type
             })
             
     if not boe_candidates:
-        return {"latest_boe_url": None, "boe_date": None, "all_boe_links": [], "all_boe_candidates": []}
+        return {"is_extinct": False, "latest_boe_url": None, "boe_date": None, "all_boe_links": [], "all_boe_candidates": []}
     
+    # Multi-criterio: 1º Mayor prioridad contextual (Planes reales y correcciones antes que Acuerdos), 2º Fecha más reciente
     sorted_candidates = sorted(
         boe_candidates,
-        key=lambda c: c["date"] if c["date"] is not None else datetime(1970, 1, 1),
+        key=lambda c: (c.get("priority", 0), c["date"] if c["date"] is not None else datetime(1970, 1, 1)),
         reverse=True
     )
     
     latest = sorted_candidates[0]
         
     return {
+        "is_extinct": False,
         "latest_boe_url": latest["url"],
         "boe_date": latest["boe_date"],
         "all_boe_links": [c["url"] for c in sorted_candidates],

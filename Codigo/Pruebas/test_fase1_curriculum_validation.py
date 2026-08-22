@@ -380,5 +380,52 @@ class TestCurriculumCompletenessValidation(unittest.TestCase):
         self.assertEqual(subjects_real[0]["nombre_elemento"], "Cálculo Infinitesimal")
         self.assertEqual(subjects_real[0]["creditos_ects"], "6")
 
+    def test_17_multilingual_url_and_table_support(self):
+        """Verifica que el ranking semántico y la extracción de tablas reconozca Catalán, Gallego, Euskera e Inglés."""
+        from bs4 import BeautifulSoup
+        from univ_web_crawler import score_academic_candidate_url, extract_html_subjects, is_valid_curricular_table
+
+        # 1. Priorización de URLs multilingües (Catalán, Gallego, Euskera, Inglés)
+        score_ca = score_academic_candidate_url("https://www.uab.cat/web/graus-i-dobles-graus", "Graus i Dobles Graus", "Grado")
+        score_gl = score_academic_candidate_url("https://www.usc.gal/gl/estudos/graos", "Graos e Dobres Graos", "Grado")
+        score_eu = score_academic_candidate_url("https://www.ehu.eus/eu/web/graduak", "Gradu Ikasketak", "Grado")
+        score_en = score_academic_candidate_url("https://www.uc3m.es/bachelor-degree/study-plans", "Bachelor Degrees", "Grado")
+
+        self.assertGreaterEqual(score_ca, 90)
+        self.assertGreaterEqual(score_gl, 90)
+        self.assertGreaterEqual(score_eu, 90)
+        self.assertGreaterEqual(score_en, 90)
+
+        # 2. Tabla curricular en Catalán (UAB / UPC)
+        html_ca = """
+        <html><body>
+          <table>
+            <tr><th>Curs</th><th>Tipus</th><th>Assignatura</th><th>Crèdits ECTS</th></tr>
+            <tr><td>1</td><td>OB</td><td>Estructures de Dades i Algorismes</td><td>6</td></tr>
+            <tr><td>1</td><td>FB</td><td>Àlgebra Lineal</td><td>6</td></tr>
+          </table>
+        </body></html>
+        """
+        soup_ca = BeautifulSoup(html_ca, "html.parser")
+        self.assertTrue(is_valid_curricular_table(soup_ca.find("table")))
+        subjects_ca = extract_html_subjects(soup_ca)
+        self.assertEqual(len(subjects_ca), 2)
+        self.assertEqual(subjects_ca[0]["nombre_elemento"], "Estructures de Dades i Algorismes")
+
+        # 3. Tabla de baremo de notas en Catalán (debe rechazarse)
+        html_ca_grade = """
+        <html><body>
+          <table>
+            <tr><th>Qualificació qualitativa</th><th>Qualificació numèrica</th></tr>
+            <tr><td>Suspens</td><td>0-4,9</td></tr>
+            <tr><td>Aprovat</td><td>5,0-6,9</td></tr>
+            <tr><td>Excel·lent</td><td>9,0-10</td></tr>
+          </table>
+        </body></html>
+        """
+        soup_ca_grade = BeautifulSoup(html_ca_grade, "html.parser")
+        self.assertFalse(is_valid_curricular_table(soup_ca_grade.find("table")))
+        self.assertEqual(len(extract_html_subjects(soup_ca_grade)), 0)
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

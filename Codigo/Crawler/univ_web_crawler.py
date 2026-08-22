@@ -45,36 +45,76 @@ from parsers import (
 )
 
 
-# Lista ampliada de palabras clave y sinónimos para portales académicos y planes de estudio
+# Lista ampliada de palabras clave y sinónimos para portales académicos y planes de estudio (ES / CA / GL / EU / EN)
 ACADEMIC_KEYWORDS = [
+    # Español
     "grado", "grados", "máster", "másteres", "master", "masteres",
     "doctorado", "doctorados", "titulación", "titulaciones", "estudio", "estudios",
     "enseñanza", "enseñanzas", "oferta-academica", "oferta_academica", "oferta-formativa",
     "plan-de-estudios", "plan_estudios", "plan-estudios", "planes-de-estudio",
     "guia-docente", "guias-docentes", "asignaturas", "programas", "curriculo",
-    "currículo", "pensum", "malla-curricular", "titulos-oficiales", "estudios-oficiales"
+    "currículo", "pensum", "malla-curricular", "titulos-oficiales", "estudios-oficiales",
+    # Català / Valencià / Balear (UAB, UB, UPC, UPF, UV, UPV, UIB, etc.)
+    "grau", "graus", "graus-i-dobles-graus", "dobles-graus", "estudis-de-grau",
+    "pla-destudis", "pla-estudis", "plans-destudi", "assignatures", "guia-docent",
+    "guies-docents", "titulacions-oficials", "doctorat", "programes-de-doctorat",
+    # Galego (USC, UDC, UVigo)
+    "grao", "graos", "graos-e-dobres-graos", "estudos-de-grao", "estudos",
+    "plano-de-estudos", "posgrao", "doutoramento", "programas-de-doutoramento",
+    # Euskara (UPV/EHU, Deusto, Mondragon)
+    "gradua", "graduak", "gradu-bikoitzak", "ikasketak", "ikasketa-plana",
+    "irakasgaiak", "irakaskuntza", "eskaintza-akademikoa", "masterra", "masterrak",
+    "unibertsitate-masterra", "graduondokoa", "doktoregoa", "doktorego-programak",
+    # English (UC3M, UPF, IE, Navarra, bilingual degrees)
+    "bachelor", "bachelors", "undergraduate", "degrees", "double-degrees",
+    "study-plan", "study-plans", "curriculum", "syllabus", "courses", "subjects",
+    "postgraduate", "graduate", "master-degrees", "phd", "doctorate", "doctoral-programmes"
 ]
 
 HEADER_KEYWORDS = [
+    # Español
     "asignatura", "materia", "nombre", "crédito", "credito", "ects",
-    "curso", "carácter", "caracter", "tipo", "código", "codigo", "guía", "guia"
+    "curso", "carácter", "caracter", "tipo", "código", "codigo", "guía", "guia", "semestre", "cuatrimestre",
+    # Català / Valencià / Balear
+    "assignatura", "credits", "curs", "tipus", "quadrimestre", "guia docent",
+    # Galego
+    "asineira", "creditos", "cuadrimestre",
+    # Euskara
+    "irakasgaia", "kredituak", "maila", "ikasturtea", "mota", "lauhilekoa",
+    # English
+    "subject", "course", "module", "credits", "type", "year", "semester", "term", "syllabus"
 ]
 
 INVALID_SUBJECT_KEYWORDS = [
+    # Días de la semana y horarios (Multilingüe)
     "lunes", "martes", "miércoles", "miercoles", "jueves", "viernes", "sábado", "sabado",
-    "aula", "edificio", "horario", "calendario", "examen", "convocatoria",
-    # Calificaciones, notas y trámites administrativos de secretaría
+    "dilluns", "dimarts", "dimecres", "dijous", "divendres", "dissabte",
+    "luns", "mércores", "venres",
+    "astelehena", "asteartea", "asteazkena", "osteguna", "ostirala", "larunbata",
+    "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday",
+    # Infraestructura y calendario
+    "aula", "edificio", "horario", "horari", "ordutegia", "timetable", "schedule",
+    "calendario", "calendari", "egutegia", "calendar", "examen", "examens", "azterketa",
+    "convocatoria", "convocatòria",
+    # Calificaciones, notas y trámites administrativos de secretaría (ES / CA / GL / EU / EN)
     "suspenso", "aprobado", "notable", "sobresaliente", "matrícula de honor", "matricula de honor",
     "calificación cualitativa", "calificacion cualitativa", "calificación numérica", "calificacion numerica",
     "calificación estándar", "calificacion estandar", "escala de calificaciones", "tabla de equivalencias",
     "baremo", "convalidación", "convalidacion", "reconocimiento de créditos", "reconocimiento de creditos",
-    "buscar por", "1º apellido", "2º apellido", "listado simple", "listado detallado"
+    "suspes", "suspès", "aprovat", "excel·lent", "matricula d'honor", "matricula de honor",
+    "qualificació qualitativa", "qualificacio qualitativa", "qualificació numèrica", "qualificacio numerica",
+    "escala de qualificacions", "taula d'equivalències", "taula dequivalencies", "reconeixement de crèdits", "reconeixement de credits",
+    "sobresalinte", "cualificación cualitativa", "cualificacion cualitativa", "táboa de equivalencias", "taboa de equivalencias", "recoñecemento de créditos",
+    "ez-gai", "oso ondo", "bikain", "ohorezko matrikula", "kalifikazio kualitatiboa", "kalifikazio numerikoa", "kreditu-aitorpena",
+    "grading scale", "qualitative grade", "numerical grade", "credit recognition",
+    "buscar por", "1º apellido", "2º apellido", "listado simple", "listado detallado", "cerca per", "bilatu"
 ]
 
 
 def score_academic_candidate_url(url: str, link_text: str, academic_level: str, title_keywords: list = None) -> int:
     """
-    Calcula la prioridad semántica de una URL candidata (0-100+):
+    Calcula la prioridad semántica multilingüe de una URL candidata (0-100+):
+    - Soporta Español, Catalán/Valenciano/Balear, Gallego, Euskera e Inglés.
     - Prioridad Alta (80-100): Portales de catálogo oficiales según el nivel académico (grados, másteres, doctorados).
     - Prioridad Media (40-60): Portales de oferta académica general y planes de estudio.
     - Prioridad Baja (1-10): Rutas administrativas o de servicios (nunca descartadas, pero evaluadas al final si no hay alternativa).
@@ -84,38 +124,97 @@ def score_academic_candidate_url(url: str, link_text: str, academic_level: str, 
     level_low = (academic_level or "").lower()
     score = 10  # Puntuación base para cualquier enlace interno alcanzable
     
-    # 1. Portales de catálogo específicos según el nivel académico (Prioridad Máxima)
-    if "grado" in level_low:
-        if any(kw in u_low for kw in ["grados-y-dobles-grados", "dobles-grados", "/grados", "/grado/", "/estudios/grado", "oferta-academica/grados", "oferta-formativa/grados"]):
+    # 1. Portales de catálogo específicos según el nivel académico (Prioridad Máxima 90-100)
+    if "grado" in level_low or "grau" in level_low or "grao" in level_low or "gradua" in level_low or "bachelor" in level_low:
+        grado_url_patterns = [
+            # Español
+            "grados-y-dobles-grados", "dobles-grados", "/grados", "/grado/", "/estudios/grado", "oferta-academica/grados", "oferta-formativa/grados",
+            # Català / Valencià
+            "graus-i-dobles-graus", "dobles-graus", "/graus", "/grau/", "/estudis/grau", "oferta-formativa/graus", "estudis-de-grau",
+            # Galego
+            "graos-e-dobres-graos", "dobres-graos", "/graos", "/grao/", "/estudos/grao", "estudos-de-grao",
+            # Euskara
+            "gradu-bikoitzak", "/graduak", "/gradua/", "gradu-ikasketak",
+            # English
+            "bachelor-degree", "bachelor-degrees", "/undergraduate", "/bachelor/", "study-plans", "/degrees/"
+        ]
+        grado_text_patterns = [
+            "grado", "grados", "grau", "graus", "grao", "graos", "gradua", "graduak", "bachelor", "undergraduate"
+        ]
+        if any(kw in u_low for kw in grado_url_patterns):
             score += 90
-        elif "grado" in t_low or "grados" in t_low:
-            score += 70
-    elif "master" in level_low or "máster" in level_low:
-        if any(kw in u_low for kw in ["masteres-universitarios", "masteres-oficiales", "/masteres", "/master/", "/posgrado", "/postgrado"]):
-            score += 90
-        elif "master" in t_low or "máster" in t_low or "posgrado" in t_low:
-            score += 70
-    elif "doctor" in level_low:
-        if any(kw in u_low for kw in ["programas-de-doctorado", "/doctorado", "/doctorados", "/escuela-doctorado"]):
-            score += 90
-        elif "doctorado" in t_low or "doctor" in t_low:
+        elif any(kw in t_low for kw in grado_text_patterns):
             score += 70
 
-    # 2. Portales generales de oferta académica y planes de estudio (Prioridad Media)
-    if any(kw in u_low for kw in ["oferta-academica", "oferta_academica", "oferta-formativa", "planes-de-estudio", "plan_estudios", "titulos-oficiales", "estudios-oficiales", "malla-curricular"]):
+    elif "master" in level_low or "máster" in level_low or "màster" in level_low or "masterra" in level_low:
+        master_url_patterns = [
+            # Español
+            "masteres-universitarios", "masteres-oficiales", "/masteres", "/master/", "/posgrado", "/postgrado",
+            # Català / Valencià
+            "masters-universitaris", "estudis-de-master", "/masters", "/postgrau",
+            # Galego
+            "estudos-de-posgrao", "/posgrao",
+            # Euskara
+            "unibertsitate-masterra", "/masterrak", "/graduondokoa",
+            # English
+            "master-degrees", "master-programs", "/masters/", "/postgraduate/", "/graduate/"
+        ]
+        master_text_patterns = [
+            "master", "máster", "màster", "masteres", "másteres", "màsters", "posgrado", "postgrado", "postgrau", "posgrao", "masterra", "masterrak", "postgraduate"
+        ]
+        if any(kw in u_low for kw in master_url_patterns):
+            score += 90
+        elif any(kw in t_low for kw in master_text_patterns):
+            score += 70
+
+    elif "doctor" in level_low or "doutor" in level_low or "doktor" in level_low or "phd" in level_low:
+        doctor_url_patterns = [
+            "programas-de-doctorado", "/doctorado", "/doctorados", "/escuela-doctorado",
+            "programes-de-doctorat", "/doctorat", "/doctorats", "escola-de-doctorat",
+            "programas-de-doutoramento", "/doutoramento", "escola-de-doutoramento",
+            "doktorego-programak", "/doktoregoa", "doktorego-eskola",
+            "doctoral-programmes", "doctoral-programs", "/doctorate", "/phd/"
+        ]
+        doctor_text_patterns = [
+            "doctorado", "doctor", "doctorat", "doutoramento", "doktoregoa", "phd", "doctorate"
+        ]
+        if any(kw in u_low for kw in doctor_url_patterns):
+            score += 90
+        elif any(kw in t_low for kw in doctor_text_patterns):
+            score += 70
+
+    # 2. Portales generales de oferta académica y planes de estudio multilingües (Prioridad Media 40-50)
+    general_url_patterns = [
+        "oferta-academica", "oferta_academica", "oferta-formativa", "planes-de-estudio", "plan_estudios",
+        "pla-destudis", "pla-estudis", "plans-destudi", "plano-de-estudos", "ikasketa-plana",
+        "titulos-oficiales", "estudios-oficiales", "estudis-oficials", "titulacions-oficials", "titulacions",
+        "malla-curricular", "academic-offer", "academic-programs", "curriculum", "syllabus"
+    ]
+    general_text_patterns = [
+        "oferta académica", "oferta academica", "oferta formativa", "planes de estudio", "pla d'estudis",
+        "plano de estudos", "ikasketa plana", "titulaciones oficiales", "estudios oficiales", "study plans", "academic programs"
+    ]
+    if any(kw in u_low for kw in general_url_patterns):
         score += 50
-    if any(kw in t_low for kw in ["oferta académica", "oferta academica", "planes de estudio", "titulaciones oficiales", "estudios oficiales"]):
+    if any(kw in t_low for kw in general_text_patterns):
         score += 40
 
     # 3. Coincidencia con palabras clave del título de la titulación concreta
     if title_keywords and any(kw.lower() in u_low or kw.lower() in t_low for kw in title_keywords):
         score += 40
 
-    # 4. Rutas administrativas o servicios generales: PRIORIDAD MÁS BAJA (No se eliminan, se evalúan al final)
+    # 4. Rutas administrativas o servicios generales: PRIORIDAD MÁS BAJA (Multilingüe: No se eliminan, se evalúan al final)
     admin_service_patterns = [
-        "/administracion", "/oficina-del-estudiante", "/servicios", "/alojamiento",
-        "/transporte", "/seguro-escolar", "/becas", "/pau", "/noticias", "/prensa",
-        "/eventos", "/actividades", "/categoria", "/wp-content", "/galeria", "/agenda"
+        # Español
+        "/administracion", "/oficina-del-estudiante", "/servicios", "/alojamiento", "/transporte", "/seguro-escolar", "/becas", "/pau", "/noticias", "/prensa", "/eventos", "/actividades", "/categoria", "/wp-content", "/galeria", "/agenda",
+        # Català
+        "/administracio", "/oficina-de-lestudiant", "/serveis", "/allotjament", "/beques",
+        # Galego
+        "/oficina-do-estudante", "/servizos", "/aloxamento", "/bolsas",
+        # Euskara
+        "/administrazioa", "/ikaslearen-bulegoa", "/zerbitzuak", "/ostatua", "/bekak",
+        # English
+        "/administration", "/student-office", "/services", "/accommodation", "/scholarships", "/news", "/press", "/events"
     ]
     if any(p in u_low for p in admin_service_patterns):
         score = max(1, score - 80)
@@ -124,23 +223,39 @@ def score_academic_candidate_url(url: str, link_text: str, academic_level: str, 
 
 
 def is_valid_curricular_table(table_tag) -> bool:
-    """Verifica que una tabla HTML sea verdaderamente curricular y no un formulario de búsqueda ni una escala de notas."""
+    """Verifica que una tabla HTML sea verdaderamente curricular y no un formulario de búsqueda ni una escala de notas (Multilingüe)."""
     if table_tag.find(["input", "select", "textarea"]):
         return False
     txt = table_tag.get_text(separator=" ", strip=True).lower()
     grading_scale_markers = [
-        "calificación cualitativa", "calificacion cualitativa",
-        "calificación numérica", "calificacion numerica",
-        "calificación estándar", "calificacion estandar",
-        "escala de calificaciones", "tabla de equivalencias",
-        "buscar por...", "1º apellido", "2º apellido"
+        # ES
+        "calificación cualitativa", "calificacion cualitativa", "calificación numérica", "calificacion numerica",
+        "calificación estándar", "calificacion estandar", "escala de calificaciones", "tabla de equivalencias",
+        "buscar por...", "1º apellido", "2º apellido",
+        # CA
+        "qualificació qualitativa", "qualificacio qualitativa", "qualificació numèrica", "qualificacio numerica",
+        "escala de qualificacions", "taula d'equivalències", "taula dequivalencies", "cerca per",
+        # GL
+        "cualificación cualitativa", "cualificacion cualitativa", "táboa de equivalencias", "taboa de equivalencias",
+        # EU
+        "kalifikazio kualitatiboa", "kalifikazio numerikoa", "bilatu",
+        # EN
+        "grading scale", "qualitative grade", "numerical grade", "credit recognition"
     ]
     if any(m in txt for m in grading_scale_markers):
         return False
-    # Debe poseer al menos un indicador curricular en encabezados o texto
+    # Debe poseer al menos un indicador curricular en encabezados o texto (Multilingüe)
     curricular_markers = [
-        "asignatura", "materia", "denominaci", "ects", "crédito", "credito",
-        "carácter", "caracter", "semestre", "cuatrimestre", "guía docente", "guia docente"
+        # ES
+        "asignatura", "materia", "denominaci", "ects", "crédito", "credito", "carácter", "caracter", "semestre", "cuatrimestre", "guía docente", "guia docente",
+        # CA
+        "assignatura", "credits", "curs", "tipus", "quadrimestre", "guia docent",
+        # GL
+        "asineira", "creditos", "cuadrimestre",
+        # EU
+        "irakasgaia", "kredituak", "maila", "ikasturtea", "mota", "lauhilekoa",
+        # EN
+        "subject", "course", "module", "credits", "syllabus", "semester"
     ]
     return any(m in txt for m in curricular_markers)
 
@@ -237,17 +352,17 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
 
             row_str = " ".join(cols).lower()
 
-            # Detect header row
-            if any(hk in row_str for hk in ["asignatura", "denominaci", "materia", "crédito", "credito", "ects", "carácter", "caracter", "curso"]):
+            # Detect header row (Multilingüe: ES / CA / GL / EU / EN)
+            if any(hk in row_str for hk in HEADER_KEYWORDS):
                 for c_i, c_val in enumerate(cols):
                     c_low = c_val.lower()
-                    if any(w in c_low for w in ["asignatura", "denominaci", "nombre", "actividad"]):
+                    if any(w in c_low for w in ["asignatura", "assignatura", "asineira", "irakasgaia", "materia", "denominaci", "nombre", "actividad", "subject", "course", "modul", "módulo", "modulo"]):
                         subj_col = c_i
-                    elif any(w in c_low for w in ["crédito", "credito", "ects"]):
+                    elif any(w in c_low for w in ["crédito", "credito", "crèdit", "credit", "kreditu", "ects"]):
                         ects_col = c_i
-                    elif any(w in c_low for w in ["carácter", "caracter", "tipo"]):
+                    elif any(w in c_low for w in ["carácter", "caracter", "caràcter", "tipo", "tipus", "mota", "type"]):
                         car_col = c_i
-                    elif any(w in c_low for w in ["curso", "año"]):
+                    elif any(w in c_low for w in ["curso", "curs", "ano", "año", "ikasturtea", "maila", "year", "level"]):
                         curso_col = c_i
                 continue
 

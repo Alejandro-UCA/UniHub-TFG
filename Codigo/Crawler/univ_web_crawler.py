@@ -92,10 +92,11 @@ INVALID_SUBJECT_KEYWORDS = [
     "luns", "mércores", "venres",
     "astelehena", "asteartea", "asteazkena", "osteguna", "ostirala", "larunbata",
     "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday",
-    # Infraestructura y calendario
-    "aula", "edificio", "horario", "horari", "ordutegia", "timetable", "schedule",
-    "calendario", "calendari", "egutegia", "calendar", "examen", "examens", "azterketa",
-    "convocatoria", "convocatòria",
+    # Infraestructura y calendario específico (no descartar materias pedagógicas sobre 'en el aula')
+    "aula magna", "aula virtual", "número de aula", "numero de aula", "despacho",
+    "horario de clases", "horari de classes", "timetable", "schedule",
+    "calendario de exámenes", "calendari d'exàmens", "egutegia",
+    "convocatoria ordinaria", "convocatoria extraordinaria",
     # Calificaciones, notas y trámites administrativos de secretaría (ES / CA / GL / EU / EN)
     "suspenso", "aprobado", "notable", "sobresaliente", "matrícula de honor", "matricula de honor",
     "calificación cualitativa", "calificacion cualitativa", "calificación numérica", "calificacion numerica",

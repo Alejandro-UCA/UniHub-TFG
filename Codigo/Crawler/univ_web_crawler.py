@@ -62,8 +62,87 @@ HEADER_KEYWORDS = [
 
 INVALID_SUBJECT_KEYWORDS = [
     "lunes", "martes", "miércoles", "miercoles", "jueves", "viernes", "sábado", "sabado",
-    "aula", "edificio", "horario", "calendario", "examen", "convocatoria"
+    "aula", "edificio", "horario", "calendario", "examen", "convocatoria",
+    # Calificaciones, notas y trámites administrativos de secretaría
+    "suspenso", "aprobado", "notable", "sobresaliente", "matrícula de honor", "matricula de honor",
+    "calificación cualitativa", "calificacion cualitativa", "calificación numérica", "calificacion numerica",
+    "calificación estándar", "calificacion estandar", "escala de calificaciones", "tabla de equivalencias",
+    "baremo", "convalidación", "convalidacion", "reconocimiento de créditos", "reconocimiento de creditos",
+    "buscar por", "1º apellido", "2º apellido", "listado simple", "listado detallado"
 ]
+
+
+def score_academic_candidate_url(url: str, link_text: str, academic_level: str, title_keywords: list = None) -> int:
+    """
+    Calcula la prioridad semántica de una URL candidata (0-100+):
+    - Prioridad Alta (80-100): Portales de catálogo oficiales según el nivel académico (grados, másteres, doctorados).
+    - Prioridad Media (40-60): Portales de oferta académica general y planes de estudio.
+    - Prioridad Baja (1-10): Rutas administrativas o de servicios (nunca descartadas, pero evaluadas al final si no hay alternativa).
+    """
+    u_low = url.lower()
+    t_low = (link_text or "").lower()
+    level_low = (academic_level or "").lower()
+    score = 10  # Puntuación base para cualquier enlace interno alcanzable
+    
+    # 1. Portales de catálogo específicos según el nivel académico (Prioridad Máxima)
+    if "grado" in level_low:
+        if any(kw in u_low for kw in ["grados-y-dobles-grados", "dobles-grados", "/grados", "/grado/", "/estudios/grado", "oferta-academica/grados", "oferta-formativa/grados"]):
+            score += 90
+        elif "grado" in t_low or "grados" in t_low:
+            score += 70
+    elif "master" in level_low or "máster" in level_low:
+        if any(kw in u_low for kw in ["masteres-universitarios", "masteres-oficiales", "/masteres", "/master/", "/posgrado", "/postgrado"]):
+            score += 90
+        elif "master" in t_low or "máster" in t_low or "posgrado" in t_low:
+            score += 70
+    elif "doctor" in level_low:
+        if any(kw in u_low for kw in ["programas-de-doctorado", "/doctorado", "/doctorados", "/escuela-doctorado"]):
+            score += 90
+        elif "doctorado" in t_low or "doctor" in t_low:
+            score += 70
+
+    # 2. Portales generales de oferta académica y planes de estudio (Prioridad Media)
+    if any(kw in u_low for kw in ["oferta-academica", "oferta_academica", "oferta-formativa", "planes-de-estudio", "plan_estudios", "titulos-oficiales", "estudios-oficiales", "malla-curricular"]):
+        score += 50
+    if any(kw in t_low for kw in ["oferta académica", "oferta academica", "planes de estudio", "titulaciones oficiales", "estudios oficiales"]):
+        score += 40
+
+    # 3. Coincidencia con palabras clave del título de la titulación concreta
+    if title_keywords and any(kw.lower() in u_low or kw.lower() in t_low for kw in title_keywords):
+        score += 40
+
+    # 4. Rutas administrativas o servicios generales: PRIORIDAD MÁS BAJA (No se eliminan, se evalúan al final)
+    admin_service_patterns = [
+        "/administracion", "/oficina-del-estudiante", "/servicios", "/alojamiento",
+        "/transporte", "/seguro-escolar", "/becas", "/pau", "/noticias", "/prensa",
+        "/eventos", "/actividades", "/categoria", "/wp-content", "/galeria", "/agenda"
+    ]
+    if any(p in u_low for p in admin_service_patterns):
+        score = max(1, score - 80)
+
+    return score
+
+
+def is_valid_curricular_table(table_tag) -> bool:
+    """Verifica que una tabla HTML sea verdaderamente curricular y no un formulario de búsqueda ni una escala de notas."""
+    if table_tag.find(["input", "select", "textarea"]):
+        return False
+    txt = table_tag.get_text(separator=" ", strip=True).lower()
+    grading_scale_markers = [
+        "calificación cualitativa", "calificacion cualitativa",
+        "calificación numérica", "calificacion numerica",
+        "calificación estándar", "calificacion estandar",
+        "escala de calificaciones", "tabla de equivalencias",
+        "buscar por...", "1º apellido", "2º apellido"
+    ]
+    if any(m in txt for m in grading_scale_markers):
+        return False
+    # Debe poseer al menos un indicador curricular en encabezados o texto
+    curricular_markers = [
+        "asignatura", "materia", "denominaci", "ects", "crédito", "credito",
+        "carácter", "caracter", "semestre", "cuatrimestre", "guía docente", "guia docente"
+    ]
+    return any(m in txt for m in curricular_markers)
 
 
 def ensure_https_url(url: str) -> str:
@@ -133,13 +212,15 @@ def is_same_or_subdomain(target_url: str, base_url: str) -> bool:
 def extract_html_subjects(soup: BeautifulSoup) -> list:
     """
     Extrae elementos curriculares de tablas HTML evitando filas de cabecera (<th>),
-    palabras clave no curriculares (horarios, días) y validando créditos ECTS.
+    palabras clave no curriculares (horarios, días, notas) y validando créditos ECTS.
     Mejora: deduplica por nombre normalizado, detecta columnas de código/nombre y fusiona múltiples tablas.
     """
     elementos = []
     seen_names = set()
     tables = soup.find_all("table")
     for t in tables:
+        if not is_valid_curricular_table(t):
+            continue
         rows = t.find_all("tr")
         subj_col = 0
         ects_col = -1
@@ -710,25 +791,36 @@ class UniversityWebCrawler:
                     if lazy_home_html is None:
                         lazy_home_html = downloader.fetch_text(web_url)
                         lazy_soup = BeautifulSoup(lazy_home_html, "html.parser")
-                        lazy_candidate_urls = set()
+                        lazy_candidate_urls = []
 
                         for a in lazy_soup.find_all("a", href=True):
                             href = a["href"].strip()
                             if not is_valid_web_url(href):
                                 continue
                             
-                            text = a.get_text(strip=True).lower()
-                            if any(kw in text for kw in ACADEMIC_KEYWORDS) or any(kw in href.lower() for kw in ACADEMIC_KEYWORDS):
+                            text = a.get_text(strip=True)
+                            text_lower = text.lower()
+                            if any(kw in text_lower for kw in ACADEMIC_KEYWORDS) or any(kw in href.lower() for kw in ACADEMIC_KEYWORDS):
                                 full_url = urllib.parse.urljoin(web_url, href)
                                 if is_same_or_subdomain(full_url, web_url):
-                                    lazy_candidate_urls.add(full_url)
+                                    lazy_candidate_urls.append((full_url, text))
                     
                     home_html = lazy_home_html
                     soup = lazy_soup
-                    candidate_urls = lazy_candidate_urls
 
-                    # Ordenar URLs candidatas por longitud (menor a mayor) para priorizar índices principales
-                    scanned_urls = sorted(list(candidate_urls), key=len)[:8]
+                    # Ordenar URLs candidatas por puntuación semántica descendente (de mayor a menor prioridad según nivel académico)
+                    d_level = deg.get("nivel_academico", "")
+                    scored_candidates = [
+                        (score_academic_candidate_url(u, t, d_level, title_keywords), u)
+                        for u, t in lazy_candidate_urls
+                    ]
+                    best_url_scores = {}
+                    for sc, u in scored_candidates:
+                        if u not in best_url_scores or sc > best_url_scores[u]:
+                            best_url_scores[u] = sc
+
+                    sorted_candidates = sorted(best_url_scores.items(), key=lambda x: x[1], reverse=True)
+                    scanned_urls = [u for u, score in sorted_candidates[:12]]
                     visited_targets = set()
                     
                     for candidate_page_url in scanned_urls:

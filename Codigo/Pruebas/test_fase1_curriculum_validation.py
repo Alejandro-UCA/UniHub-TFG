@@ -286,5 +286,99 @@ class TestCurriculumCompletenessValidation(unittest.TestCase):
             if os.path.exists(temp_path):
                 os.remove(temp_path)
 
+    def test_15_score_academic_candidate_url_priority(self):
+        """Verifica que el ranking de URLs priorice catálogos de grados y degrade servicios/administración a la prioridad más baja."""
+        from univ_web_crawler import score_academic_candidate_url
+        
+        # 1. Catálogo oficial de Grados -> Prioridad Máxima (100)
+        score_catalogo = score_academic_candidate_url(
+            url="https://www.unirioja.es/grados-y-dobles-grados/",
+            link_text="Grados y dobles grados",
+            academic_level="Grado",
+            title_keywords=["informática"]
+        )
+        self.assertGreaterEqual(score_catalogo, 90)
+
+        # 2. Portal de Máster para un Máster -> Prioridad Máxima (100)
+        score_master = score_academic_candidate_url(
+            url="https://www.unirioja.es/masteres-universitarios/",
+            link_text="Másteres universitarios",
+            academic_level="Máster",
+            title_keywords=["química"]
+        )
+        self.assertGreaterEqual(score_master, 90)
+
+        # 3. Ruta administrativa / secretaría -> Prioridad Más Baja (1-10) pero NO eliminada
+        score_admin = score_academic_candidate_url(
+            url="https://www.unirioja.es/administracion-y-servicios/oficina-del-estudiante/reconocimientos/",
+            link_text="Reconocimientos",
+            academic_level="Grado",
+            title_keywords=["informática"]
+        )
+        self.assertLessEqual(score_admin, 10)
+        self.assertGreaterEqual(score_admin, 1)
+
+        # El catálogo debe superar ampliamente a la ruta administrativa
+        self.assertGreater(score_catalogo, score_admin)
+
+    def test_16_anti_grade_table_filtering(self):
+        """Verifica que las tablas de equivalencia de notas (Suspenso, Aprobado...) y formularios sean rechazadas."""
+        from bs4 import BeautifulSoup
+        from univ_web_crawler import extract_html_subjects, is_valid_curricular_table
+
+        # 1. Tabla de equivalencia de calificaciones (debe rechazarse)
+        html_grade = """
+        <html><body>
+          <table>
+            <tr><th>Calificación cualitativa</th><th>Calificación numérica</th><th>Calificación estándar UR</th></tr>
+            <tr><td>Suspenso</td><td>0-4,9</td><td>-</td></tr>
+            <tr><td>Aprobado</td><td>5,0-6,9</td><td>5,5</td></tr>
+            <tr><td>Notable</td><td>7,0-8,9</td><td>7,5</td></tr>
+            <tr><td>Sobresaliente</td><td>9,0-10</td><td>9</td></tr>
+            <tr><td>Matrícula de Honor</td><td>10</td><td>10</td></tr>
+          </table>
+        </body></html>
+        """
+        soup_grade = BeautifulSoup(html_grade, "html.parser")
+        table_grade = soup_grade.find("table")
+        self.assertFalse(is_valid_curricular_table(table_grade))
+        subjects_grade = extract_html_subjects(soup_grade)
+        self.assertEqual(len(subjects_grade), 0)
+
+        # 2. Formulario de búsqueda de tutorías con inputs (debe rechazarse)
+        html_form = """
+        <html><body>
+          <table>
+            <tr><td>Buscar por...</td></tr>
+            <tr><td>1º Apellido</td><td><input type="text" name="ape1" /></td></tr>
+          </table>
+        </body></html>
+        """
+        soup_form = BeautifulSoup(html_form, "html.parser")
+        table_form = soup_form.find("table")
+        self.assertFalse(is_valid_curricular_table(table_form))
+        subjects_form = extract_html_subjects(soup_form)
+        self.assertEqual(len(subjects_form), 0)
+
+        # 3. Tabla curricular real con asignaturas (debe aceptarse)
+        html_real = """
+        <html><body>
+          <table>
+            <tr><th>Curso</th><th>Carácter</th><th>Asignatura</th><th>Créditos ECTS</th></tr>
+            <tr><td>1</td><td>FB</td><td>Cálculo Infinitesimal</td><td>6</td></tr>
+            <tr><td>1</td><td>FB</td><td>Álgebra Lineal</td><td>6</td></tr>
+            <tr><td>1</td><td>OB</td><td>Fundamentos de Programación</td><td>6</td></tr>
+            <tr><td>1</td><td>OB</td><td>Estructura de Computadores</td><td>6</td></tr>
+          </table>
+        </body></html>
+        """
+        soup_real = BeautifulSoup(html_real, "html.parser")
+        table_real = soup_real.find("table")
+        self.assertTrue(is_valid_curricular_table(table_real))
+        subjects_real = extract_html_subjects(soup_real)
+        self.assertEqual(len(subjects_real), 4)
+        self.assertEqual(subjects_real[0]["nombre_elemento"], "Cálculo Infinitesimal")
+        self.assertEqual(subjects_real[0]["creditos_ects"], "6")
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

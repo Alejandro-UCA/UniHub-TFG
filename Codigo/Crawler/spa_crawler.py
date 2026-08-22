@@ -15,36 +15,32 @@ class SPALayoutCrawler:
     """
     Renders dynamic SPA university websites (React/Vue/Angular/AJAX)
     using Playwright headless Chromium, automatically expanding accordions and tabs.
-    Supports single-use or persistent browser instance reuse for maximum performance.
+    Thread-local architecture ensures full thread-safety in multi-worker pools.
     """
-    _shared_instance = None
-    _lock = threading.Lock()
+    _local = threading.local()
 
     @classmethod
     def get_shared_instance(cls, timeout=HTTP_TIMEOUT):
-        with cls._lock:
-            if cls._shared_instance is None:
-                cls._shared_instance = SPALayoutCrawler(timeout=timeout)
-            return cls._shared_instance
+        if not hasattr(cls._local, "instance") or cls._local.instance is None:
+            cls._local.instance = SPALayoutCrawler(timeout=timeout)
+        return cls._local.instance
 
     def __init__(self, timeout=HTTP_TIMEOUT):
         self.timeout = timeout * 1000  # ms for Playwright
         self._pw = None
         self._browser = None
-        self._inst_lock = threading.Lock()
 
     def _ensure_browser(self):
         if not PLAYWRIGHT_AVAILABLE:
             return None
-        with self._inst_lock:
-            if self._browser is None or not self._browser.is_connected():
-                try:
-                    self._pw = sync_playwright().start()
-                    self._browser = self._pw.chromium.launch(headless=True)
-                except Exception as e:
-                    print(f"   [SPA Crawler] Error al arrancar Chromium: {e}")
-                    self._browser = None
-            return self._browser
+        if self._browser is None or not self._browser.is_connected():
+            try:
+                self._pw = sync_playwright().start()
+                self._browser = self._pw.chromium.launch(headless=True)
+            except Exception as e:
+                print(f"   [SPA Crawler] Error al arrancar Chromium: {e}")
+                self._browser = None
+        return self._browser
 
     def render_spa_page(self, target_url: str) -> str:
         """
@@ -54,6 +50,7 @@ class SPALayoutCrawler:
         if not PLAYWRIGHT_AVAILABLE:
             return ""
 
+        context = None
         try:
             browser = self._ensure_browser()
             if not browser:
@@ -67,7 +64,7 @@ class SPALayoutCrawler:
             page.goto(target_url, timeout=self.timeout, wait_until="domcontentloaded")
             page.wait_for_timeout(1500)
 
-            # Expand interactive accordions or tabs if present
+            # Expand interactive accordions or tabs if present (Multilingüe)
             accordion_selectors = [
                 "button", "a.accordion", ".tab", ".nav-link", ".panel-title", "details", "summary"
             ]
@@ -76,18 +73,23 @@ class SPALayoutCrawler:
                     elements = page.query_selector_all(sel)
                     for elem in elements[:5]:
                         txt = (elem.inner_text() or "").lower()
-                        if any(k in txt for k in ["asignatura", "estudio", "curso", "plan", "materia"]):
+                        if any(k in txt for k in ["asignatura", "estudio", "curso", "plan", "materia", "assignatura", "curs", "grau", "irakasgai", "syllabus", "subject"]):
                             elem.click(timeout=1000)
                             page.wait_for_timeout(400)
                 except Exception:
                     pass
 
             rendered_html = page.content()
-            context.close()
             return rendered_html
         except Exception as err:
             print(f"   [SPA Crawler] Headless browser fallback notice for '{target_url}': {err}")
             return ""
+        finally:
+            if context:
+                try:
+                    context.close()
+                except Exception:
+                    pass
 
     def close(self):
         """Cleanly terminates the browser instance."""

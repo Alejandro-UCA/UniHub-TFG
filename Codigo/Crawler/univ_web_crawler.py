@@ -37,6 +37,7 @@ from config import (
     HUB_AND_SPOKE_MAX_DEPTH,
     HUB_AND_SPOKE_MAX_HOPS,
     HUB_ACADEMIC_KEYWORDS,
+    MEMORIA_VERIFICADA_KEYWORDS,
     MAX_ORGANIC_AFFILIATED_HUBS_PER_UNIV,
     ORGANIC_AFFILIATED_HUB_KEYWORDS,
     EUROPEAN_ALLIANCES_KEYWORDS,
@@ -214,6 +215,10 @@ def score_academic_candidate_url(url: str, link_text: str, academic_level: str, 
         score += 50
     if any(kw in t_low for kw in general_text_patterns):
         score += 40
+
+    # 2.5. Memorias Verificadas y Documentos Oficiales de Calidad / Acreditación ANECA / SGIC (Prioridad Máxima 95-100)
+    if any(kw in u_low for kw in MEMORIA_VERIFICADA_KEYWORDS) or any(kw in t_low for kw in MEMORIA_VERIFICADA_KEYWORDS):
+        score += 95
 
     # 3. Coincidencia con palabras clave específicas del título de la titulación (Multilingüe: raíz/stemming)
     if title_keywords:
@@ -1327,7 +1332,7 @@ class UniversityWebCrawler:
                                                 for a_pdf in target_soup.find_all("a", href=True):
                                                     h_pdf = a_pdf["href"].strip()
                                                     t_pdf = a_pdf.get_text(strip=True).lower()
-                                                    if h_pdf.lower().endswith(".pdf") or any(pk in t_pdf for pk in ["plan de estudios", "pla d'estudis", "guía docente", "guia docent", "folleto"]):
+                                                    if h_pdf.lower().endswith(".pdf") or any(pk in t_pdf for pk in ["plan de estudios", "pla d'estudis", "guía docente", "guia docent", "folleto"]) or any(pk in t_pdf or pk in h_pdf.lower() for pk in MEMORIA_VERIFICADA_KEYWORDS):
                                                         pdf_link = urllib.parse.urljoin(target_link, h_pdf)
                                                         if pdf_link.lower().endswith(".pdf") and is_same_or_subdomain(pdf_link, web_url):
                                                             parsed_pdf = self._try_parse_candidate_pdf(downloader, pdf_link, d_code, d_title, u_name)

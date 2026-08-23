@@ -136,23 +136,31 @@ WEB_ROBOTS_FALLBACK_DELAY = float(os.getenv("CRAWLER_ROBOTS_DELAY", 0.5))      #
 ROBOTS_CHECK_TIMEOUT = int(os.getenv("CRAWLER_ROBOTS_TIMEOUT", 10))             # Timeout para lectura de robots.txt
 ROBOTS_CACHE_TTL_SECONDS = int(os.getenv("CRAWLER_ROBOTS_CACHE_TTL", 86400))    # TTL de caché robots.txt (24h RFC 9309)
 SITEMAP_FETCH_TIMEOUT = int(os.getenv("CRAWLER_SITEMAP_TIMEOUT", 4))            # Timeout por candidato de Sitemap XML
-WEB_SEARCH_SUBPAGES_LIMIT = int(os.getenv("CRAWLER_SUBPAGES_LIMIT", 8))        # Subpáginas máximas a inspeccionar
-WEB_SEARCH_SUBPAGES_DEPTH = int(os.getenv("CRAWLER_SUBPAGES_DEPTH", 5))        # Coincidencias máximas del Sitemap
-LAZY_SCANNED_PAGES_CACHE_LIMIT = int(os.getenv("CRAWLER_LAZY_LIMIT", 20))      # Páginas escaneadas en caché RAM
+WEB_SEARCH_SUBPAGES_LIMIT = int(os.getenv("CRAWLER_SUBPAGES_LIMIT", 12))       # Subpáginas máximas a inspeccionar
+WEB_SEARCH_SUBPAGES_DEPTH = int(os.getenv("CRAWLER_SUBPAGES_DEPTH", 6))        # Coincidencias máximas del Sitemap
+LAZY_SCANNED_PAGES_CACHE_LIMIT = int(os.getenv("CRAWLER_LAZY_LIMIT", 25))      # Páginas escaneadas en caché RAM
 SPA_ACCORDION_CLICK_DELAY = float(os.getenv("CRAWLER_SPA_CLICK_DELAY", 0.35))   # Pausa tras desplegar acordeón (s)
 SPA_SUBPAGE_FETCH_TIMEOUT = int(os.getenv("CRAWLER_SPA_FETCH_TIMEOUT", 15))     # Timeout para descarga de subpáginas SPA (s)
 WEB_SEARCH_RETRY_DELAY = float(os.getenv("CRAWLER_WEB_SEARCH_DELAY", 0.4))      # Pausa cortés entre búsquedas de subpáginas (s)
 
 # Parámetros del Patrón Hub-and-Spoke Catalog Indexing (Fase 1 Parte 2)
-HUB_AND_SPOKE_MAX_HUBS = int(os.getenv("CRAWLER_HUB_MAX_HUBS", 35))             # Catálogos maestros y facultades a pre-indexar
-HUB_AND_SPOKE_MAX_DEPTH = int(os.getenv("CRAWLER_HUB_MAX_DEPTH", 6))            # Cota máxima de profundidad en segmentos URL
-HUB_AND_SPOKE_MAX_HOPS = int(os.getenv("CRAWLER_HUB_MAX_HOPS", 5))              # Cota máxima de saltos BFS entre sub-hubs de catálogo
+HUB_AND_SPOKE_MAX_HUBS = int(os.getenv("CRAWLER_HUB_MAX_HUBS", 45))             # Catálogos maestros, facultades y calidad a pre-indexar
+HUB_AND_SPOKE_MAX_DEPTH = int(os.getenv("CRAWLER_HUB_MAX_DEPTH", 7))            # Cota máxima de profundidad en segmentos URL
+HUB_AND_SPOKE_MAX_HOPS = int(os.getenv("CRAWLER_HUB_MAX_HOPS", 6))              # Cota máxima de saltos BFS entre sub-hubs de catálogo
 HUB_ACADEMIC_KEYWORDS = [
     "grados", "graus", "graos", "graduak", "bachelor",
     "masteres", "masters", "màsters", "posgrado", "postgrado", "postgrau", "posgrao",
     "oferta-academica", "oferta_academica", "oferta-formativa", "oferta-de-grados", "oferta-de-masteres",
     "estudios", "estudis", "estudos", "estudios-ofertados", "titulaciones", "titulacions",
-    "facultades", "facultats", "facultad", "facultat", "centros", "centres", "planes-de-estudio"
+    "facultades", "facultats", "facultad", "facultat", "centros", "centres", "planes-de-estudio",
+    "calidad", "qualitat", "kalitatea", "sgic", "verificacion", "verificacio", "memorias", "memoria-verificada"
+]
+
+# Palabras clave para la detección prioritaria de Memorias Verificadas (ANECA / AQU / ACCUA / SGIC)
+MEMORIA_VERIFICADA_KEYWORDS = [
+    "memoria", "verificad", "verificacio", "verificacion", "autoinforme",
+    "acreditac", "acreditacio", "acreditacion", "informe-modificacion",
+    "informemod", "sgic", "calidad", "qualitat", "kalitatea"
 ]
 
 # Parámetros para Descubrimiento Orgánico de Centros Adscritos y Alianzas Europeas (Patrones 1 y 3)

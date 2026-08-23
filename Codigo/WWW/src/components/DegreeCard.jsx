@@ -11,6 +11,13 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
                       (degree.origen_fuente || '').includes('interuniversitario') ||
                       (degree.titulo || '').toLowerCase().includes(' y la universidad') ||
                       (degree.titulo || '').toLowerCase().includes(' y la universitat');
+  const isEuropean = degree.es_alianza_europea || 
+                     (degree.origen_fuente || '').includes('alianza_europea') ||
+                     (degree.plan_estudios?.tipo_estructura || '') === 'consorcio_europeo_erasmus_mundus' ||
+                     (degree.titulo || '').toLowerCase().includes('erasmus mundus') ||
+                     (degree.titulo || '').toLowerCase().includes('sea-eu');
+  const isAffiliated = Boolean(degree.centro_adscrito) || 
+                       (degree.origen_fuente || '').includes('centro_adscrito');
   const isExtinct = (degree.estado || '').toLowerCase().includes('extin') || 
                     (degree.estado || '').toLowerCase().includes('suprim') || 
                     (degree.estado || '').toLowerCase().includes('no vigente');
@@ -48,6 +55,16 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
             <span className={`badge ${isDoctor ? 'badge-doctorado' : isMaster ? 'badge-master' : 'badge-grado'}`}>
               {isDoctor ? 'Doctorado (RD 99/2011)' : isMaster ? 'Máster' : 'Grado Oficial'}
             </span>
+            {isEuropean && (
+              <span className="badge" style={{ background: 'rgba(14, 165, 233, 0.15)', color: '#0EA5E9', border: '1px solid rgba(14, 165, 233, 0.35)', fontSize: '0.7rem', fontWeight: 700 }}>
+                🌍 Alianza Europea / Erasmus
+              </span>
+            )}
+            {isAffiliated && (
+              <span className="badge" style={{ background: 'rgba(139, 92, 246, 0.15)', color: '#8B5CF6', border: '1px solid rgba(139, 92, 246, 0.35)', fontSize: '0.7rem', fontWeight: 700 }}>
+                🏛️ {degree.centro_adscrito || 'Centro Adscrito'}
+              </span>
+            )}
             {isInteruniv && (
               <span className="badge" style={{ background: 'rgba(99, 102, 241, 0.15)', color: '#6366F1', border: '1px solid rgba(99, 102, 241, 0.35)', fontSize: '0.7rem', fontWeight: 700 }}>
                 🤝 Interuniversitario

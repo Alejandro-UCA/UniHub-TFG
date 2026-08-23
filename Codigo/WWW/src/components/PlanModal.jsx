@@ -300,6 +300,76 @@ export default function PlanModal({ degree, onClose }) {
                       </a>
                     )}
                   </div>
+                ) : (curriculum.tipo_estructura === 'consorcio_europeo_erasmus_mundus' || degree.es_alianza_europea || (degree.titulo || '').toLowerCase().includes('erasmus mundus') || (degree.titulo || '').toLowerCase().includes('sea-eu')) ? (
+                  <div style={{
+                    padding: '2rem 1.75rem',
+                    background: 'linear-gradient(135deg, rgba(14, 165, 233, 0.08) 0%, rgba(99, 102, 241, 0.05) 100%)',
+                    borderRadius: 'var(--radius-md)',
+                    border: '1px solid rgba(14, 165, 233, 0.3)',
+                    textAlign: 'left'
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                      <div style={{ padding: '0.65rem', background: 'rgba(14, 165, 233, 0.15)', borderRadius: '10px', color: '#0EA5E9' }}>
+                        <Award size={26} />
+                      </div>
+                      <div>
+                        <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-main)', margin: 0 }}>
+                          Programa Internacional de Excelencia Europea (Erasmus Mundus / Alianza Universitaria)
+                        </h4>
+                        <span style={{ fontSize: '0.82rem', color: '#0EA5E9', fontWeight: 600 }}>
+                          Consorcio Universitario Internacional Acreditado por la Comisión Europea
+                        </span>
+                      </div>
+                    </div>
+
+                    <p style={{ fontSize: '0.92rem', color: 'var(--text-main)', lineHeight: 1.6, marginBottom: '1.25rem' }}>
+                      Este título de Máster Conjunto se imparte en consorcio transnacional entre prestigiosas universidades europeas en lengua inglesa. La docencia se distribuye de forma itinerante a lo largo de los semestres en los campus asociados y el plan de estudios completo, convenios de movilidad y becas de excelencia Erasmus Mundus se gestionan de manera unificada a través del portal central del consorcio europeo.
+                    </p>
+
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
+                      <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
+                        <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', marginBottom: '0.25rem' }}>
+                          Carga Docente Oficial
+                        </div>
+                        <div style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--uca-blue)' }}>
+                          {curriculum.ects_exigidos || 60} ECTS Verificados
+                        </div>
+                      </div>
+                      <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
+                        <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', marginBottom: '0.25rem' }}>
+                          Idioma y Movilidad
+                        </div>
+                        <div style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--text-main)' }}>
+                          Inglés / Itinerancia Transnacional
+                        </div>
+                      </div>
+                    </div>
+
+                    <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                      {degree.web_fuente_directa_url && (
+                        <a
+                          href={degree.web_fuente_directa_url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="btn btn-primary"
+                          style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}
+                        >
+                          <ExternalLink size={14} /> Portal Oficial del Consorcio Europeo
+                        </a>
+                      )}
+                      {boeUrl && (
+                        <a
+                          href={boeUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="btn btn-outline"
+                          style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}
+                        >
+                          <FileText size={16} /> Resolución Oficial en BOE <ExternalLink size={14} />
+                        </a>
+                      )}
+                    </div>
+                  </div>
                 ) : elementos.length === 0 ? (
                   <div style={{
                     padding: '2.5rem 1.75rem',

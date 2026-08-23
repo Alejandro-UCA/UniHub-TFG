@@ -152,6 +152,20 @@ HUB_ACADEMIC_KEYWORDS = [
     "facultades", "facultats", "facultad", "facultat", "centros", "centres", "planes-de-estudio"
 ]
 
+# Parámetros para Descubrimiento Orgánico de Centros Adscritos y Alianzas Europeas (Patrones 1 y 3)
+MAX_ORGANIC_AFFILIATED_HUBS_PER_UNIV = int(os.getenv("CRAWLER_MAX_ORGANIC_HUBS", 12))
+ORGANIC_AFFILIATED_HUB_KEYWORDS = [
+    "adscrit", "adscrito", "adscrita", "centres adscrits", "centros adscritos",
+    "escuela adscrita", "instituto adscrito", "escola", "escuela", "institut", "instituto",
+    "fundacio", "fundacion", "consorcio", "alianza", "sea-eu", "erasmus", "eunice", 
+    "charmeu", "arqus", "civica", "civis", "eut+"
+]
+EUROPEAN_ALLIANCES_KEYWORDS = [
+    "erasmus mundus", "joint master", "european master", "sea-eu", "eunice", 
+    "charmeu", "charm-eu", "arqus", "civica", "civis", "eut+", "neurotecheu", 
+    "circle u", "unite!", "enlight", "4eu+", "una europa", "eureca-pro", "ingenium"
+]
+
 PRIVATE_ECTS_MIN = float(os.getenv("CRAWLER_PRIVATE_ECTS_MIN", 15.0))          # Umbral mínimo precio ECTS privada (€)
 PRIVATE_ECTS_MAX = float(os.getenv("CRAWLER_PRIVATE_ECTS_MAX", 500.0))         # Umbral máximo precio ECTS privada (€)
 PRIVATE_ANNUAL_MIN = float(os.getenv("CRAWLER_PRIVATE_ANNUAL_MIN", 1000.0))    # Umbral mínimo matrícula anual privada (€)

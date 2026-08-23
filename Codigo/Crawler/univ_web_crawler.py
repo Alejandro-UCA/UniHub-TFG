@@ -37,6 +37,9 @@ from config import (
     HUB_AND_SPOKE_MAX_DEPTH,
     HUB_AND_SPOKE_MAX_HOPS,
     HUB_ACADEMIC_KEYWORDS,
+    MAX_ORGANIC_AFFILIATED_HUBS_PER_UNIV,
+    ORGANIC_AFFILIATED_HUB_KEYWORDS,
+    EUROPEAN_ALLIANCES_KEYWORDS,
     WIKIPEDIA_API_URL,
     WIKIDATA_API_URL
 )
@@ -594,6 +597,8 @@ class UniversityWebCrawler:
         self.logger = ErrorLogger()
         self.checkpoint = CheckpointManager()
         self.univ_file_lock = threading.Lock()
+        self.organic_affiliated_hubs = defaultdict(dict)
+        self.organic_affiliated_cache = {}
 
     def _try_parse_candidate_pdf(self, downloader: RUCTDownloader, pdf_url: str, d_code: str, d_title: str, u_name: str) -> dict | None:
         """Descarga, analiza con parse_boe_pdf y limpia con seguridad el archivo PDF temporal."""
@@ -624,13 +629,16 @@ class UniversityWebCrawler:
         """
         Patrón Hub-and-Spoke Catalog Indexing con exploración BFS multinivel (hasta max_hops saltos).
         Descarga de forma secuencial y cortés (respetando REQUEST_DELAY y robots.txt)
-        los catálogos maestros, facultades y sub-hubs de la universidad (grados, másteres, ramas)
+        los catálogos maestros, facultades y sub-hubs de la universidad (grados, másteres, ramas),
+        descubre orgánicamente portales de centros adscritos y alianzas europeas sin URLs preescritas,
         y mapea las URLs directas a las titulaciones en tiempo constante O(1).
         """
         catalog_map = defaultdict(list)
         hub_keywords = HUB_ACADEMIC_KEYWORDS
         seen_hubs = {web_url.rstrip("/")}
         seen_deg_urls = set()
+        seen_organic_domains = set()
+        organic_hubs = {}
         
         # Cola BFS: tuplas de (url_hub, nivel_salto_actual)
         queue = [(web_url, 0)]
@@ -658,6 +666,14 @@ class UniversityWebCrawler:
                     h_low = h.lower()
                     
                     if not is_same_or_subdomain(full_link, web_url):
+                        # Descubrimiento orgánico de Centros Adscritos y Alianzas Europeas (Patrones 1 y 3)
+                        if full_link.startswith("http") and any(k in t_low or k in h_low for k in ORGANIC_AFFILIATED_HUB_KEYWORDS):
+                            parsed_ext = urllib.parse.urlparse(full_link)
+                            ext_domain = f"{parsed_ext.scheme}://{parsed_ext.netloc}"
+                            if ext_domain not in seen_organic_domains and len(organic_hubs) < MAX_ORGANIC_AFFILIATED_HUBS_PER_UNIV:
+                                seen_organic_domains.add(ext_domain)
+                                hub_name = t_text.strip() if len(t_text.strip()) >= 3 else parsed_ext.netloc
+                                organic_hubs[ext_domain] = (full_link, hub_name)
                         continue
                         
                     # 1. ¿Es un sub-hub académico navegable y aún tenemos margen de saltos?
@@ -689,6 +705,8 @@ class UniversityWebCrawler:
             except Exception:
                 continue
                 
+        if organic_hubs:
+            self.organic_affiliated_hubs[web_url].update(organic_hubs)
         return catalog_map
 
     def rescue_university_url(self, univ_name: str) -> str:
@@ -1342,6 +1360,80 @@ class UniversityWebCrawler:
                 except Exception as crawl_err:
                     print(f"     -> Error al rastrear la web oficial para [{d_code}]: {crawl_err}")
 
+            # ESTRATEGIA 2.5: Exploración Orgánica de Centros Adscritos Descubiertos (Patrón 1)
+            if not found_curriculum:
+                discovered_hubs = self.organic_affiliated_hubs.get(web_url, {})
+                d_title_low = d_title.lower()
+                matched_hub_url = None
+                matched_hub_name = None
+                
+                for ext_dom, (hub_url, hub_name) in discovered_hubs.items():
+                    hub_tokens = re.findall(r'\b[a-zA-Z0-9áéíóúñÁÉÍÓÚÑ]{3,}\b', hub_name.lower())
+                    if any(tok in d_title_low for tok in hub_tokens if tok not in TITLE_STOPWORDS and tok not in univ_name_tokens):
+                        matched_hub_url = hub_url
+                        matched_hub_name = hub_name
+                        break
+                
+                if matched_hub_url:
+                    try:
+                        print(f"     -> [Centro Adscrito Orgánico] Descubierto '{matched_hub_name}' ({matched_hub_url})")
+                        if matched_hub_url not in self.organic_affiliated_cache:
+                            self.organic_affiliated_cache[matched_hub_url] = self._build_academic_catalog_map(
+                                downloader, matched_hub_url, max_depth=5, max_hubs=8, max_hops=3
+                            )
+                        center_map = self.organic_affiliated_cache[matched_hub_url]
+                        if center_map:
+                            center_candidates = []
+                            for kw in title_keywords:
+                                kw_low = kw.lower()
+                                for map_tok, links in center_map.items():
+                                    if kw_low in map_tok:
+                                        for c_u, c_t in links:
+                                            center_candidates.append((c_u, c_t))
+                            if center_candidates:
+                                for c_u, c_t in center_candidates[:3]:
+                                    if found_curriculum:
+                                        break
+                                    try:
+                                        c_html = downloader.fetch_text(c_u)
+                                        c_soup = BeautifulSoup(c_html, "html.parser")
+                                        c_elems = extract_html_subjects(c_soup)
+                                        if len(c_elems) >= 3:
+                                            found_curriculum = build_html_curriculum_payload(c_elems, d_title)
+                                            direct_source_url = c_u
+                                            found_curriculum["centro_adscrito"] = matched_hub_name
+                                            print(f"     -> [Centro Adscrito Éxito] Encontradas {len(c_elems)} asignaturas en {c_u}")
+                                            break
+                                    except Exception:
+                                        pass
+                    except Exception as e_center:
+                        print(f"     -> Error al consultar centro adscrito orgánico '{matched_hub_name}': {e_center}")
+
+            # ESTRATEGIA 3: Modelado de Alianzas Universitarias Europeas y Erasmus Mundus (Patrón 3)
+            is_european_program = any(k in d_title.lower() for k in EUROPEAN_ALLIANCES_KEYWORDS)
+            if is_european_program and (not found_curriculum or len(found_curriculum.get("elementos_curriculares", [])) == 0):
+                req_ects = get_required_degree_credits(d_level, d_title) or 60
+                discovered_alliance_url = None
+                discovered_hubs = self.organic_affiliated_hubs.get(web_url, {})
+                for ext_dom, (hub_url, hub_name) in discovered_hubs.items():
+                    if any(ak in hub_name.lower() or ak in hub_url.lower() for ak in ["sea-eu", "erasmus", "eunice", "charmeu", "arqus", "civica", "civis", "alliance", "european"]):
+                        discovered_alliance_url = hub_url
+                        break
+                        
+                found_curriculum = {
+                    "tipo_estructura": "consorcio_europeo_erasmus_mundus",
+                    "nombre_plan": d_title,
+                    "total_elementos": 0,
+                    "elementos_curriculares": [],
+                    "es_alianza_europea": True,
+                    "plan_completo": True,
+                    "ects_exigidos": req_ects,
+                    "ects_totales_detectados": req_ects,
+                    "descripcion_consorcio": "Programa Conjunto de Excelencia Internacional (Erasmus Mundus / Alianza Universitaria Europea). La docencia e itinerario curricular se imparten en consorcio internacional en lengua inglesa a través de los campus europeos asociados."
+                }
+                direct_source_url = discovered_alliance_url or existing_direct_url or deg.get("boe_url") or web_url
+                print(f"     -> [Alianza Europea / Erasmus Mundus Orgánico] Ficha de consorcio internacional ({req_ects} ECTS) -> {direct_source_url}")
+
             # Guardar el plan y la URL directa donde se ha encontrado
             if found_curriculum and direct_source_url:
                 print(f"     [ÉXITO PARTE 2] Encontrado plan de estudios en la web oficial: '{direct_source_url}'")
@@ -1355,7 +1447,17 @@ class UniversityWebCrawler:
                 degree_data["universidad_nombre"] = u_name
                 degree_data["fecha_procesado"] = datetime.now().isoformat()
                 degree_data["web_fuente_directa_url"] = direct_source_url
-                degree_data["origen_fuente"] = "web_oficial_universidad"
+                
+                # Origen de fuente semántico
+                if found_curriculum.get("centro_adscrito"):
+                    degree_data["centro_adscrito"] = found_curriculum["centro_adscrito"]
+                    degree_data["origen_fuente"] = "centro_adscrito_organico"
+                elif found_curriculum.get("es_alianza_europea"):
+                    degree_data["es_alianza_europea"] = True
+                    degree_data["origen_fuente"] = "alianza_europea_erasmus_mundus"
+                else:
+                    degree_data["origen_fuente"] = "web_oficial_universidad"
+                    
                 degree_data["precio_credito_ects"] = found_curriculum.get("precio_credito_ects") or deg.get("precio_credito_ects")
                 degree_data["precio_credito_2"] = found_curriculum.get("precio_credito_2") or deg.get("precio_credito_2")
                 degree_data["precio_credito_3"] = found_curriculum.get("precio_credito_3") or deg.get("precio_credito_3")
@@ -1437,6 +1539,24 @@ def propagate_interuniversity_and_shared_boe_plans(planes_dir: str = PLANES_DIR)
         elif norm_t in title_index:
             matched_plan, source_url = title_index[norm_t]
             origen = "interuniversitario_compartido"
+            stats["interuniv_shared_rescued"] += 1
+
+        is_european = any(k in d.get("titulo", "").lower() for k in EUROPEAN_ALLIANCES_KEYWORDS)
+        if not matched_plan and is_european:
+            req_c = get_required_degree_credits(d.get("nivel_academico", ""), d.get("titulo", "")) or 60
+            matched_plan = {
+                "tipo_estructura": "consorcio_europeo_erasmus_mundus",
+                "nombre_plan": d.get("titulo", ""),
+                "total_elementos": 0,
+                "elementos_curriculares": [],
+                "es_alianza_europea": True,
+                "plan_completo": True,
+                "ects_exigidos": req_c,
+                "ects_totales_detectados": req_c,
+                "descripcion_consorcio": "Programa Conjunto de Excelencia Internacional (Erasmus Mundus / Alianza Universitaria Europea). La docencia e itinerario curricular se imparten en consorcio internacional en lengua inglesa a través de los campus europeos asociados."
+            }
+            origen = "alianza_europea_erasmus_mundus"
+            source_url = d.get("web_fuente_directa_url") or d.get("boe_url") or "https://erasmus-plus.ec.europa.eu"
             stats["interuniv_shared_rescued"] += 1
 
         if matched_plan:

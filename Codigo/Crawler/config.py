@@ -139,6 +139,9 @@ SITEMAP_FETCH_TIMEOUT = int(os.getenv("CRAWLER_SITEMAP_TIMEOUT", 4))            
 WEB_SEARCH_SUBPAGES_LIMIT = int(os.getenv("CRAWLER_SUBPAGES_LIMIT", 8))        # Subpáginas máximas a inspeccionar
 WEB_SEARCH_SUBPAGES_DEPTH = int(os.getenv("CRAWLER_SUBPAGES_DEPTH", 5))        # Coincidencias máximas del Sitemap
 LAZY_SCANNED_PAGES_CACHE_LIMIT = int(os.getenv("CRAWLER_LAZY_LIMIT", 20))      # Páginas escaneadas en caché RAM
+SPA_ACCORDION_CLICK_DELAY = float(os.getenv("CRAWLER_SPA_CLICK_DELAY", 0.35))   # Pausa tras desplegar acordeón (s)
+SPA_SUBPAGE_FETCH_TIMEOUT = int(os.getenv("CRAWLER_SPA_FETCH_TIMEOUT", 15))     # Timeout para descarga de subpáginas SPA (s)
+WEB_SEARCH_RETRY_DELAY = float(os.getenv("CRAWLER_WEB_SEARCH_DELAY", 0.4))      # Pausa cortés entre búsquedas de subpáginas (s)
 
 # Parámetros del Patrón Hub-and-Spoke Catalog Indexing (Fase 1 Parte 2)
 HUB_AND_SPOKE_MAX_HUBS = int(os.getenv("CRAWLER_HUB_MAX_HUBS", 35))             # Catálogos maestros y facultades a pre-indexar

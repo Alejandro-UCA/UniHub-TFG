@@ -56,7 +56,8 @@ from parsers import (
     parse_degree_detail_html,
     parse_boe_pdf,
     is_curriculum_complete,
-    get_curriculum_completeness_status
+    get_curriculum_completeness_status,
+    is_doctorate_program
 )
 from univ_web_crawler import run_phase1_part2
 from precios_crawler import run_phase1_part3
@@ -153,12 +154,7 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue = None):
                 except Exception:
                     pass
 
-            is_doctorado = (
-                "doctor" in (nivel_academico or "").lower() or 
-                "560" in (nivel_academico or "").lower() or 
-                "900" in (nivel_academico or "").lower() or 
-                "doctor" in (d_title or "").lower()
-            )
+            is_doctorado = is_doctorate_program(nivel_academico, d_title)
 
             if task_type == "DEGREE_NO_BOE":
                 print(f"     [Proceso Parser] -> [AVISO] Sin enlaces a BOE para [{d_code}]. Guardando metadatos base.")

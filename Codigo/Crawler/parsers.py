@@ -88,6 +88,13 @@ def is_section_matching(sec_kw: set, target_kw: set) -> bool:
         return len(intersection) >= 1 and score >= 0.5
     return len(intersection) >= 2 or score >= 0.5
 
+def is_doctorate_program(nivel: str = "", titulo: str = "") -> bool:
+    """Determina de forma unificada si una titulación corresponde a un programa oficial de doctorado (RD 99/2011)."""
+    n_low = (nivel or "").lower()
+    t_low = (titulo or "").lower()
+    return "doctor" in n_low or "99/2011" in n_low or "doctor" in t_low or "phd" in t_low or "560" in n_low or "900" in n_low
+
+
 def extract_degree_core_keywords(title: str, univ_name: str = "") -> set:
     """
     Extrae lemas y palabras clave discriminativas de una titulación excluyendo preposiciones,
@@ -293,7 +300,7 @@ def get_curriculum_completeness_status(degree_data: dict) -> dict:
     titulo_lower = str(titulo).lower()
 
     # Doctorados (RD 99/2011)
-    if "doctor" in nivel_lower or "doctor" in titulo_lower or "560" in nivel_lower or "900" in nivel_lower:
+    if is_doctorate_program(nivel, titulo):
         plan = degree_data.get("plan_estudios")
         has_doc_structure = plan is not None
         return {

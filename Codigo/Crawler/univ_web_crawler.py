@@ -40,6 +40,8 @@ from config import (
     MAX_ORGANIC_AFFILIATED_HUBS_PER_UNIV,
     ORGANIC_AFFILIATED_HUB_KEYWORDS,
     EUROPEAN_ALLIANCES_KEYWORDS,
+    SPA_SUBPAGE_FETCH_TIMEOUT,
+    WEB_SEARCH_RETRY_DELAY,
     WIKIPEDIA_API_URL,
     WIKIDATA_API_URL
 )
@@ -53,6 +55,7 @@ from parsers import (
     get_curriculum_completeness_status,
     compute_curriculum_total_ects,
     get_required_degree_credits,
+    is_doctorate_program,
     RE_SUMMARY_LABEL
 )
 
@@ -1069,7 +1072,7 @@ class UniversityWebCrawler:
                     if found_curriculum:
                         break
                     try:
-                        time.sleep(0.5)
+                        time.sleep(WEB_SEARCH_RETRY_DELAY)
                         if sm_candidate_url.lower().endswith(".pdf"):
                             parsed = self._try_parse_candidate_pdf(downloader, sm_candidate_url, d_code, d_title, u_name)
                             if parsed:
@@ -1115,7 +1118,7 @@ class UniversityWebCrawler:
                         if found_curriculum or sc < 40:
                             break
                         try:
-                            time.sleep(0.4)
+                            time.sleep(WEB_SEARCH_RETRY_DELAY)
                             if cat_url.lower().endswith(".pdf"):
                                 parsed = self._try_parse_candidate_pdf(downloader, cat_url, d_code, d_title, u_name)
                                 if parsed:
@@ -1208,7 +1211,7 @@ class UniversityWebCrawler:
                             if candidate_page_url in lazy_scanned_pages_cache:
                                 sub_html, sub_soup = lazy_scanned_pages_cache[candidate_page_url]
                             else:
-                                time.sleep(0.5) # Buenas prácticas de rate-limiting
+                                time.sleep(WEB_SEARCH_RETRY_DELAY) # Buenas prácticas de rate-limiting
                                 try:
                                     sub_html = downloader.fetch_text(candidate_page_url)
                                     sub_soup = BeautifulSoup(sub_html, "html.parser")

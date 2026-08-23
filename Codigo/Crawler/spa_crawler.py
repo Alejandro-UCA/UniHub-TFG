@@ -4,7 +4,7 @@ import os
 import tempfile
 import threading
 from bs4 import BeautifulSoup
-from config import USER_AGENT, HTTP_TIMEOUT
+from config import USER_AGENT, HTTP_TIMEOUT, SPA_ACCORDION_CLICK_DELAY
 
 PLAYWRIGHT_AVAILABLE = False
 try:
@@ -138,7 +138,7 @@ class SPALayoutCrawler:
                             clicked_elements.add(txt)
                             try:
                                 elem.click(timeout=1000)
-                                page.wait_for_timeout(350)
+                                page.wait_for_timeout(int(SPA_ACCORDION_CLICK_DELAY * 1000))
                             except Exception:
                                 pass
                 except Exception:

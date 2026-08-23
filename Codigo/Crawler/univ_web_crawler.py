@@ -1011,6 +1011,15 @@ class UniversityWebCrawler:
                         if parsed:
                             found_curriculum = parsed
                             direct_source_url = existing_direct_url
+                    else:
+                        sub_html = downloader.fetch_text(existing_direct_url)
+                        if sub_html:
+                            sub_soup = BeautifulSoup(sub_html, "html.parser")
+                            elementos_html = extract_html_subjects(sub_soup)
+                            if len(elementos_html) >= 3:
+                                found_curriculum = build_html_curriculum_payload(elementos_html, d_title)
+                                direct_source_url = existing_direct_url
+                                print(f"     -> [ÉXITO FAST-PATH] Encontradas {len(elementos_html)} asignaturas en URL previa: {existing_direct_url}")
                 except Exception as e:
                     print(f"     -> Falló lectura de URL directa previa: {e}")
 
@@ -1088,8 +1097,8 @@ class UniversityWebCrawler:
                                 req_c = get_required_degree_credits(d_level, d_title)
                                 cur_c = compute_curriculum_total_ects(c_elementos)
                                 
-                                # Si HTML estático es < 3 o parcial, renderizar SPA con Playwright
-                                if len(c_elementos) < 3 or (req_c > 0 and cur_c < req_c):
+                                # Si HTML estático tiene < 3 asignaturas (contenedor SPA vacío JS), renderizar con Playwright
+                                if len(c_elementos) < 3:
                                     try:
                                         from spa_crawler import SPALayoutCrawler
                                         spa_c = SPALayoutCrawler.get_shared_instance()
@@ -1212,10 +1221,10 @@ class UniversityWebCrawler:
                                             target_soup = BeautifulSoup(target_html, "html.parser")
                                             elementos_html = extract_html_subjects(target_soup)
 
-                                            # Paso 1: Si HTML estático tiene < 3 asignaturas o es parcial, renderizar SPA con Playwright expandiendo todas las pestañas de cursos (1º a 4º)
+                                            # Paso 1: Si HTML estático tiene < 3 asignaturas (contenedor SPA vacío JS), renderizar con Playwright
                                             req_ects = get_required_degree_credits(d_level, d_title)
                                             current_ects = compute_curriculum_total_ects(elementos_html)
-                                            if len(elementos_html) < 3 or (req_ects > 0 and current_ects < req_ects):
+                                            if len(elementos_html) < 3:
                                                 try:
                                                     from spa_crawler import SPALayoutCrawler
                                                     spa_crawler = SPALayoutCrawler.get_shared_instance()

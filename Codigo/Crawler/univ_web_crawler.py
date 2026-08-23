@@ -10,7 +10,9 @@ import urllib.parse
 from urllib.robotparser import RobotFileParser
 from bs4 import BeautifulSoup
 import concurrent.futures
+import unicodedata
 from datetime import datetime
+from collections import defaultdict
 
 from config import (
     UNIVERSIDADES_JSON,
@@ -31,6 +33,9 @@ from config import (
     ROBOTS_CACHE_TTL_SECONDS,
     LAZY_SCANNED_PAGES_CACHE_LIMIT,
     ROBOTS_CHECK_TIMEOUT,
+    HUB_AND_SPOKE_MAX_HUBS,
+    HUB_AND_SPOKE_MAX_DEPTH,
+    HUB_ACADEMIC_KEYWORDS,
     WIKIPEDIA_API_URL,
     WIKIDATA_API_URL
 )
@@ -41,7 +46,10 @@ from parsers import (
     parse_boe_pdf,
     classify_subject_caracter,
     is_curriculum_complete,
-    get_curriculum_completeness_status
+    get_curriculum_completeness_status,
+    compute_curriculum_total_ects,
+    get_required_degree_credits,
+    RE_SUMMARY_LABEL
 )
 
 
@@ -129,15 +137,15 @@ def score_academic_candidate_url(url: str, link_text: str, academic_level: str, 
     if "grado" in level_low or "grau" in level_low or "grao" in level_low or "gradua" in level_low or "bachelor" in level_low:
         grado_url_patterns = [
             # Español
-            "grados-y-dobles-grados", "dobles-grados", "/grados", "/grado/", "/estudios/grado", "oferta-academica/grados", "oferta-formativa/grados",
+            "grados-y-dobles-grados", "dobles-grados", "oferta-de-grados", "/grados", "/grado/", "/estudios/grado", "oferta-academica/grados", "oferta-formativa/grados", "grado-",
             # Català / Valencià
-            "graus-i-dobles-graus", "dobles-graus", "/graus", "/grau/", "/estudis/grau", "oferta-formativa/graus", "estudis-de-grau",
+            "graus-i-dobles-graus", "dobles-graus", "oferta-de-graus", "/graus", "/grau/", "/estudis/grau", "oferta-formativa/graus", "estudis-de-grau", "grau-",
             # Galego
-            "graos-e-dobres-graos", "dobres-graos", "/graos", "/grao/", "/estudos/grao", "estudos-de-grao",
+            "graos-e-dobres-graos", "dobres-graos", "oferta-de-graos", "/graos", "/grao/", "/estudos/grao", "estudos-de-grao", "grao-",
             # Euskara
-            "gradu-bikoitzak", "/graduak", "/gradua/", "gradu-ikasketak",
+            "gradu-bikoitzak", "/graduak", "/gradua/", "gradu-ikasketak", "gradua-",
             # English
-            "bachelor-degree", "bachelor-degrees", "/undergraduate", "/bachelor/", "study-plans", "/degrees/"
+            "bachelor-degree", "bachelor-degrees", "/undergraduate", "/bachelor/", "study-plans", "/degrees/", "bachelor-"
         ]
         grado_text_patterns = [
             "grado", "grados", "grau", "graus", "grao", "graos", "gradua", "graduak", "bachelor", "undergraduate"
@@ -200,12 +208,24 @@ def score_academic_candidate_url(url: str, link_text: str, academic_level: str, 
     if any(kw in t_low for kw in general_text_patterns):
         score += 40
 
-    # 3. Coincidencia con palabras clave del título de la titulación concreta
-    if title_keywords and any(kw.lower() in u_low or kw.lower() in t_low for kw in title_keywords):
-        score += 40
+    # 3. Coincidencia con palabras clave específicas del título de la titulación (Multilingüe: raíz/stemming)
+    if title_keywords:
+        for kw in title_keywords:
+            kw_low = kw.lower()
+            kw_stem = kw_low[:4] if len(kw_low) >= 4 else kw_low
+            if kw_low in u_low or kw_low in t_low or (len(kw_stem) >= 4 and (kw_stem in u_low or kw_stem in t_low)):
+                score += 50
+                break
 
-    # 4. Rutas administrativas o servicios generales: PRIORIDAD MÁS BAJA (Multilingüe: No se eliminan, se evalúan al final)
+    # 4. Rutas administrativas, legales, de cookies o servicios generales: PRIORIDAD MÁS BAJA (Multilingüe: No se eliminan, se evalúan al final)
     admin_service_patterns = [
+        # Legal, cookies, privacidad y webmaster
+        "/cookies", "politica-de-cookies", "politica-cookies", "aviso-legal", "avis-legal",
+        "privacidad", "privadesa", "proteccion-de-datos", "proteccio-de-dades", "accesibilidad",
+        "accessibilitat", "mapa-web", "mapa-del-sitio", "contactar", "contacto", "contacte",
+        "buzon", "sugerencias", "transparencia", "actas", "normativa", "sede-electronica", "web-institucional",
+        # Mínors, microcredenciales y formación permanente (no son grados ni másteres oficiales)
+        "/minors", "/minor", "minors/", "minor/", "/microcredenciales", "/microcredencials", "/formacion-continua", "/formacio-continua",
         # Español
         "/administracion", "/oficina-del-estudiante", "/servicios", "/alojamiento", "/transporte", "/seguro-escolar", "/becas", "/pau", "/noticias", "/prensa", "/eventos", "/actividades", "/categoria", "/wp-content", "/galeria", "/agenda",
         # Català
@@ -218,34 +238,44 @@ def score_academic_candidate_url(url: str, link_text: str, academic_level: str, 
         "/administration", "/student-office", "/services", "/accommodation", "/scholarships", "/news", "/press", "/events"
     ]
     if any(p in u_low for p in admin_service_patterns):
-        score = max(1, score - 80)
+        score = max(1, score - 120)
 
     return score
 
 
 def is_valid_curricular_table(table_tag) -> bool:
-    """Verifica que una tabla HTML sea verdaderamente curricular y no un formulario de búsqueda ni una escala de notas (Multilingüe)."""
+    """Verifica que una tabla HTML sea verdaderamente curricular y no un formulario de búsqueda, escala de notas, tabla de cookies ni baremo administrativo de convalidaciones (Multilingüe)."""
     if table_tag.find(["input", "select", "textarea"]):
         return False
     txt = table_tag.get_text(separator=" ", strip=True).lower()
-    grading_scale_markers = [
-        # ES
+    
+    # 1. Marcadores de descarte administrativo, legal, reconocimientos o formación corporativa
+    discard_markers = [
+        # Escala de notas y baremos
         "calificación cualitativa", "calificacion cualitativa", "calificación numérica", "calificacion numerica",
         "calificación estándar", "calificacion estandar", "escala de calificaciones", "tabla de equivalencias",
-        "buscar por...", "1º apellido", "2º apellido",
-        # CA
-        "qualificació qualitativa", "qualificacio qualitativa", "qualificació numèrica", "qualificacio numerica",
-        "escala de qualificacions", "taula d'equivalències", "taula dequivalencies", "cerca per",
-        # GL
-        "cualificación cualitativa", "cualificacion cualitativa", "táboa de equivalencias", "taboa de equivalencias",
-        # EU
-        "kalifikazio kualitatiboa", "kalifikazio numerikoa", "bilatu",
-        # EN
-        "grading scale", "qualitative grade", "numerical grade", "credit recognition"
+        "qualificació qualitativa", "qualificacio qualitativa", "cualificación cualitativa", "kalifikazio kualitatiboa",
+        "grading scale", "qualitative grade",
+        # Reconocimientos y convalidaciones administrativas
+        "se pueden reconocer", "reconocimiento de créditos", "reconocimiento de creditos", "normativa aplicable",
+        "tabla de convalidaciones", "taula de convalidacions", "taula dequivalencies", "táboa de equivalencias",
+        # Privacidad y protección de datos
+        "responsable del tratamiento", "delegado de protección", "delegado de proteccion", "dpo", "finalidades o usos de los datos",
+        "base jurídica", "base juridica", "derechos de los interesados", "plazo de conservación", "_ga", "_gid", "_fbp", "cookie-agreed",
+        # Formación a medida / Convenios de empresas
+        "formación a medida", "formacion a medida", "empresa / institución", "empresa / institucion", "entidad colaboradora",
+        # Mínors y microcredenciales (si no es el grado oficial)
+        "oferta de minors", "plan de estudios del mínor"
     ]
-    if any(m in txt for m in grading_scale_markers):
+    if any(m in txt for m in discard_markers):
         return False
-    # Debe poseer al menos un indicador curricular en encabezados o texto (Multilingüe)
+
+    # 2. Descartar tablas de política de cookies y privacidad
+    cookie_markers = ["_ga", "_gid", "_fbp", "cookie-agreed", "caducidad", "titularidad", "finalidad", "consentimiento", "duración", "duracio", "duracion"]
+    if any(m in txt for m in cookie_markers) and not any(cm in txt for cm in ["asignatura", "assignatura", "materia", "irakasgaia", "subject", "course"]):
+        return False
+
+    # 3. Debe poseer al menos un indicador curricular genuino en encabezados o texto (Multilingüe)
     curricular_markers = [
         # ES
         "asignatura", "materia", "denominaci", "ects", "crédito", "credito", "carácter", "caracter", "semestre", "cuatrimestre", "guía docente", "guia docente",
@@ -383,6 +413,7 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
                 len(nombre_candidato) < 4 
                 or any(hk in nombre_lower for hk in HEADER_KEYWORDS) 
                 or any(sk in nombre_lower for sk in INVALID_SUBJECT_KEYWORDS)
+                or RE_SUMMARY_LABEL.match(nombre_candidato.strip())
                 or not re.search(r"[a-zA-ZáéíóúñÁÉÍÓÚÑ]{3,}", nombre_candidato)
                 or len(nombre_candidato) > 150
             ):
@@ -393,12 +424,20 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
             if norm_name in seen_names:
                 continue
 
-            # Buscar créditos ECTS
+            # Buscar créditos ECTS (las asignaturas individuales en España oscilan entre 1.0 y 18.0 ECTS, o hasta 30.0 ECTS para TFG/Practicum)
             creditos = "6"
+            ects_val_num = 6.0
             if ects_col != -1 and ects_col < len(cols):
                 m_c = re.search(r"\b(\d+(?:[.,]\d+)?)\b", cols[ects_col])
                 if m_c:
-                    creditos = m_c.group(1).replace(",", ".")
+                    raw_c = m_c.group(1).replace(",", ".")
+                    try:
+                        c_f = float(raw_c)
+                        if 1.0 <= c_f <= 30.0:
+                            creditos = raw_c
+                            ects_val_num = c_f
+                    except ValueError:
+                        pass
             else:
                 for col in cols[1:]:
                     m = re.search(r"\b(\d+(?:[.,]\d+)?)\b", col)
@@ -406,11 +445,16 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
                         val_str = m.group(1).replace(",", ".")
                         try:
                             val_num = float(val_str)
-                            if 1.0 <= val_num <= 60.0:
+                            if 1.0 <= val_num <= 30.0:
                                 creditos = str(int(val_num)) if val_num.is_integer() else str(val_num)
+                                ects_val_num = val_num
                                 break
                         except ValueError:
                             pass
+
+            # Si el crédito excede 30 ECTS (o > 18 ECTS sin ser TFG/Practicum), es una fila de resumen modular o total, no una asignatura individual
+            if ects_val_num > 30.0 or (ects_val_num > 18.0 and not any(k in nombre_lower for k in ["trabajo", "tfg", "tfm", "practicum", "prácticas", "tesis", "practiques"])):
+                continue
 
             # Buscar carácter
             caracter = "OB"
@@ -547,6 +591,90 @@ class UniversityWebCrawler:
                 except Exception:
                     pass
         return None
+
+    def _build_academic_catalog_map(
+        self, 
+        downloader: RUCTDownloader, 
+        web_url: str, 
+        max_depth: int = HUB_AND_SPOKE_MAX_DEPTH, 
+        max_hubs: int = HUB_AND_SPOKE_MAX_HUBS
+    ) -> dict:
+        """
+        Patrón Hub-and-Spoke Catalog Indexing estrictamente SECUENCIAL por universidad.
+        Descarga de forma secuencial y cortés (respetando REQUEST_DELAY y robots.txt)
+        los catálogos maestros y facultades de la universidad (grados, másteres, facultades)
+        y mapea las URLs directas para evitar sobrecargar el servidor institucional.
+        """
+        catalog_map = defaultdict(list)
+        try:
+            home_html = downloader.fetch_text(web_url)
+            if not home_html:
+                return catalog_map
+            home_soup = BeautifulSoup(home_html, "html.parser")
+            
+            # 1. Identificar enlaces a Hubs Académicos Oficiales y Facultades/Centros
+            hub_keywords = HUB_ACADEMIC_KEYWORDS
+            hub_urls = []
+            seen_hubs = {web_url.rstrip("/")}
+            
+            for a in home_soup.find_all("a", href=True):
+                h = a["href"].strip()
+                if not is_valid_web_url(h):
+                    continue
+                t = a.get_text(strip=True).lower()
+                h_low = h.lower()
+                if any(k in t or k in h_low for k in hub_keywords):
+                    full_hub = urllib.parse.urljoin(web_url, h)
+                    norm_hub = full_hub.rstrip("/")
+                    if is_same_or_subdomain(full_hub, web_url) and norm_hub not in seen_hubs:
+                        seen_hubs.add(norm_hub)
+                        hub_urls.append(full_hub)
+                        if len(hub_urls) >= max_hubs:
+                            break
+
+            # 2. Explorar los Hubs de forma 100% SECUENCIAL respetando el downloader ético
+            for hub_url in hub_urls:
+                try:
+                    h_html = downloader.fetch_text(hub_url)
+                    if not h_html:
+                        continue
+                    h_soup = BeautifulSoup(h_html, "html.parser")
+                    
+                    for a_deg in h_soup.find_all("a", href=True):
+                        dh = a_deg["href"].strip()
+                        if not is_valid_web_url(dh):
+                            continue
+                        d_text = a_deg.get_text(strip=True)
+                        if len(d_text) < 4:
+                            continue
+                        
+                        # Comprobar cota de profundidad en URL (número de segmentos de ruta <= max_depth)
+                        parsed_u = urllib.parse.urlparse(dh)
+                        depth = len([p for p in parsed_u.path.strip("/").split("/") if p])
+                        if depth > max_depth:
+                            continue
+                            
+                        full_deg_url = urllib.parse.urljoin(hub_url, dh)
+                        if is_same_or_subdomain(full_deg_url, web_url):
+                            raw_toks = re.findall(r'\b[a-zA-ZáéíóúñÁÉÍÓÚÑ]{4,}\b', d_text + " " + dh)
+                            all_toks = set()
+                            for w in raw_toks:
+                                w_low = w.lower()
+                                all_toks.add(w_low)
+                                # Token normalizado sin acentos
+                                w_norm = unicodedata.normalize('NFKD', w_low).encode('ASCII', 'ignore').decode('utf-8')
+                                all_toks.add(w_norm)
+                                if w_norm.endswith('s') and len(w_norm) > 4:
+                                    all_toks.add(w_norm[:-1])
+                                if w_norm.endswith('es') and len(w_norm) > 5:
+                                    all_toks.add(w_norm[:-2])
+                            for tok in all_toks:
+                                catalog_map[tok].append((full_deg_url, d_text))
+                except Exception:
+                    pass
+        except Exception:
+            pass
+        return catalog_map
 
     def rescue_university_url(self, univ_name: str) -> str:
         """
@@ -722,7 +850,7 @@ class UniversityWebCrawler:
         u_code = univ.get("codigo", "")
         u_name = univ.get("nombre", "")
         u_type = univ.get("tipo", "")
-        web_url = univ.get("web", "").strip()
+        web_url = (univ.get("web") or univ.get("url") or univ.get("web_url") or "").strip()
 
         stats = {
             "u_code": u_code,
@@ -747,8 +875,11 @@ class UniversityWebCrawler:
             return stats
 
         # 2. Identificar titulaciones sin información del plan de estudios
-        univ_data = titulaciones_por_univ.get(u_code, {})
-        active_degrees = univ_data.get("titulaciones_vigentes", [])
+        if isinstance(titulaciones_por_univ, list):
+            active_degrees = titulaciones_por_univ
+        else:
+            univ_data = titulaciones_por_univ.get(u_code, {})
+            active_degrees = univ_data.get("titulaciones_vigentes", []) if isinstance(univ_data, dict) else (univ_data or [])
         
         missing_degrees = []
         for deg in active_degrees:
@@ -828,10 +959,20 @@ class UniversityWebCrawler:
         if sitemap_urls:
             print(f"     -> {len(sitemap_urls)} URLs académicas indexadas extraídas del Sitemap XML de la universidad.")
 
+        # 4.1. Pre-indexado rápido de catálogos maestros Hub-and-Spoke (Profundidad <= 6)
+        catalog_map = self._build_academic_catalog_map(downloader, web_url, max_depth=6)
+        if catalog_map:
+            print(f"     -> [Hub-and-Spoke] {len(catalog_map)} términos académicos indexados desde catálogos maestros (Profundidad <= 6).")
+
         TITLE_STOPWORDS = {
-            "grado", "grados", "máster", "másteres", "master", "masteres", "doctorado", "doctorados",
-            "universitario", "oficial", "sobre", "entre", "para", "como", "esta", "este", "estos", "estas",
-            "del", "los", "las", "por", "con", "una", "uno", "que", "sus", "mas", "más",
+            "grado", "grados", "graduado", "graduada", "graduats", "graduades", "grau", "graus", "grao", "graos", "gradua", "graduak", "bachelor", "undergraduate",
+            "máster", "master", "másteres", "masteres", "màster", "màsters", "masterra", "masterrak", "postgrado", "posgrado", "postgrau", "posgrao", "postgraduate",
+            "doctor", "doctora", "doctorado", "doctorados", "doctorat", "doctorats", "doutoramento", "doktoregoa", "doctorate", "phd",
+            "universitario", "universitaria", "universitaris", "universitaries", "oficial", "oficials", "programa", "programas", "título", "titulo", "titulacion", "titulaciones", "titulacions",
+            "estudio", "estudios", "estudis", "estudos", "ikasketak", "enseñanza", "ensenanza", "mención", "mencion",
+            "universidad", "universidades", "universitat", "universitats", "universidade", "unibertsitatea", "university",
+            "sobre", "entre", "para", "como", "esta", "este", "estos", "estas", "del", "los", "las", "por", "con", "una", "uno", "que", "sus", "mas", "más",
+            "autónoma", "autonoma", "politécnica", "politecnica", "internacional", "nacional", "distancia",
             "en", "the", "and", "for", "of", "in", "to", "i", "de", "a", "el", "la", "l'", "d'", "els", "les", "o", "u"
         }
         
@@ -844,6 +985,7 @@ class UniversityWebCrawler:
         for d_idx, deg in enumerate(missing_degrees, 1):
             d_code = deg.get("codigo_estudio", "")
             d_title = deg.get("titulo", "")
+            d_level = deg.get("nivel_academico", "")
             plan_file = os.path.join(PLANES_DIR, f"{d_code}.json")
 
             print(f"   [{d_idx}/{len(missing_degrees)}] Buscando en web oficial plan para [{d_code}]: {d_title[:60]}...")
@@ -872,7 +1014,11 @@ class UniversityWebCrawler:
                 except Exception as e:
                     print(f"     -> Falló lectura de URL directa previa: {e}")
 
-            title_keywords = [w for w in d_title.split() if len(w) >= 3 and w.lower() not in TITLE_STOPWORDS]
+            univ_name_tokens = set(re.findall(r'\b[a-zA-ZáéíóúñÁÉÍÓÚÑ]{3,}\b', u_name.lower()))
+            title_keywords = [
+                w for w in re.findall(r'\b[a-zA-ZáéíóúñÁÉÍÓÚÑ]{3,}\b', d_title)
+                if w.lower() not in TITLE_STOPWORDS and w.lower() not in univ_name_tokens
+            ]
 
             # ESTRATEGIA 1: Escaneo priorizado de URLs obtenidas del Sitemap XML
             if not found_curriculum and sitemap_urls:
@@ -898,8 +1044,71 @@ class UniversityWebCrawler:
                                 direct_source_url = sm_candidate_url
                                 print(f"     -> Encontradas asignaturas HTML válidas desde Sitemap XML: {sm_candidate_url}")
                                 break
-                    except Exception as sm_err:
-                        print(f"     -> Error al probar URL del Sitemap '{sm_candidate_url}': {sm_err}")
+                    except Exception:
+                        pass
+
+            # ESTRATEGIA 1.5: Búsqueda instantánea en el índice Hub-and-Spoke de Catálogos (Profundidad <= 6)
+            if not found_curriculum and catalog_map:
+                catalog_candidates = []
+                for kw in title_keywords:
+                    kw_low = kw.lower()
+                    kw_stem = kw_low[:4] if len(kw_low) >= 4 else kw_low
+                    for map_tok, links in catalog_map.items():
+                        if kw_low in map_tok or (len(kw_stem) >= 4 and kw_stem in map_tok):
+                            for c_url, c_text in links:
+                                catalog_candidates.append((c_url, c_text))
+
+                if catalog_candidates:
+                    # Deduplicar y ordenar por score semántico
+                    seen_c = set()
+                    scored_cat = []
+                    for c_url, c_text in catalog_candidates:
+                        if c_url not in seen_c:
+                            seen_c.add(c_url)
+                            sc = score_academic_candidate_url(c_url, c_text, d_level, title_keywords)
+                            scored_cat.append((sc, c_url, c_text))
+                    
+                    scored_cat.sort(key=lambda x: x[0], reverse=True)
+                    for sc, cat_url, cat_text in scored_cat[:4]:
+                        if found_curriculum or sc < 40:
+                            break
+                        try:
+                            time.sleep(0.4)
+                            if cat_url.lower().endswith(".pdf"):
+                                parsed = self._try_parse_candidate_pdf(downloader, cat_url, d_code, d_title, u_name)
+                                if parsed:
+                                    found_curriculum = parsed
+                                    direct_source_url = cat_url
+                                    print(f"     -> [Hub-and-Spoke] Encontrado plan PDF: {cat_url}")
+                                    break
+                            else:
+                                c_html = downloader.fetch_text(cat_url)
+                                c_soup = BeautifulSoup(c_html, "html.parser")
+                                c_elementos = extract_html_subjects(c_soup)
+                                req_c = get_required_degree_credits(d_level, d_title)
+                                cur_c = compute_curriculum_total_ects(c_elementos)
+                                
+                                # Si HTML estático es < 3 o parcial, renderizar SPA con Playwright
+                                if len(c_elementos) < 3 or (req_c > 0 and cur_c < req_c):
+                                    try:
+                                        from spa_crawler import SPALayoutCrawler
+                                        spa_c = SPALayoutCrawler.get_shared_instance()
+                                        rend = spa_c.render_spa_page(cat_url)
+                                        if rend:
+                                            rend_soup = BeautifulSoup(rend, "html.parser")
+                                            rend_elem = extract_html_subjects(rend_soup)
+                                            if len(rend_elem) > len(c_elementos):
+                                                c_elementos = rend_elem
+                                    except Exception:
+                                        pass
+                                
+                                if len(c_elementos) >= 3:
+                                    found_curriculum = build_html_curriculum_payload(c_elementos, d_title)
+                                    direct_source_url = cat_url
+                                    print(f"     -> [Hub-and-Spoke] Encontradas {len(c_elementos)} asignaturas HTML: {cat_url}")
+                                    break
+                        except Exception:
+                            pass
 
             # ESTRATEGIA 2: Escaneo de portales académicos con sinónimos amplios
             if not found_curriculum:
@@ -1003,8 +1212,10 @@ class UniversityWebCrawler:
                                             target_soup = BeautifulSoup(target_html, "html.parser")
                                             elementos_html = extract_html_subjects(target_soup)
 
-                                            # Fallback: If static HTML yields < 3 subjects, render with Playwright headless browser for SPA JavaScript portals
-                                            if len(elementos_html) < 3:
+                                            # Paso 1: Si HTML estático tiene < 3 asignaturas o es parcial, renderizar SPA con Playwright expandiendo todas las pestañas de cursos (1º a 4º)
+                                            req_ects = get_required_degree_credits(d_level, d_title)
+                                            current_ects = compute_curriculum_total_ects(elementos_html)
+                                            if len(elementos_html) < 3 or (req_ects > 0 and current_ects < req_ects):
                                                 try:
                                                     from spa_crawler import SPALayoutCrawler
                                                     spa_crawler = SPALayoutCrawler.get_shared_instance()
@@ -1012,12 +1223,53 @@ class UniversityWebCrawler:
                                                     if rendered_html:
                                                         spa_soup = BeautifulSoup(rendered_html, "html.parser")
                                                         spa_elementos = extract_html_subjects(spa_soup)
-                                                        if len(spa_elementos) >= 3:
+                                                        if len(spa_elementos) > len(elementos_html):
                                                             elementos_html = spa_elementos
                                                             target_soup = spa_soup
                                                             target_html = rendered_html
+                                                            current_ects = compute_curriculum_total_ects(elementos_html)
                                                 except Exception:
                                                     pass
+
+                                            # Paso 2: Si el temario sigue siendo parcial, explorar sub-enlaces de menciones/especialidades/TFG en la misma ficha
+                                            if elementos_html and req_ects > 0 and current_ects < req_ects:
+                                                sub_itinerarios = []
+                                                for a_sub in target_soup.find_all("a", href=True):
+                                                    h_sub = a_sub["href"].strip()
+                                                    t_sub = a_sub.get_text(strip=True).lower()
+                                                    if any(k in t_sub or k in h_sub.lower() for k in ["mencion", "mención", "especialidad", "optativas", "itinerari", "itinerario", "trabajo fin", "tfg", "tfm", "menciones"]):
+                                                        full_sub = urllib.parse.urljoin(target_link, h_sub)
+                                                        if is_same_or_subdomain(full_sub, web_url) and full_sub != target_link and is_valid_web_url(full_sub):
+                                                            sub_itinerarios.append(full_sub)
+
+                                                seen_names = {e.get("nombre_elemento", "").lower() for e in elementos_html}
+                                                for s_url in sub_itinerarios[:3]:
+                                                    try:
+                                                        s_html = downloader.fetch_text(s_url)
+                                                        s_soup = BeautifulSoup(s_html, "html.parser")
+                                                        s_elems = extract_html_subjects(s_soup)
+                                                        for se in s_elems:
+                                                            s_name = se.get("nombre_elemento", "").lower()
+                                                            if s_name and s_name not in seen_names:
+                                                                seen_names.add(s_name)
+                                                                elementos_html.append(se)
+                                                        current_ects = compute_curriculum_total_ects(elementos_html)
+                                                    except Exception:
+                                                        pass
+
+                                            # Paso 3: Si sigue siendo parcial o faltan asignaturas, comprobar si la ficha enlaza el PDF oficial del plan completo
+                                            if not found_curriculum and (len(elementos_html) < 3 or (req_ects > 0 and current_ects < req_ects)):
+                                                for a_pdf in target_soup.find_all("a", href=True):
+                                                    h_pdf = a_pdf["href"].strip()
+                                                    t_pdf = a_pdf.get_text(strip=True).lower()
+                                                    if h_pdf.lower().endswith(".pdf") or any(pk in t_pdf for pk in ["plan de estudios", "pla d'estudis", "guía docente", "guia docent", "folleto"]):
+                                                        pdf_link = urllib.parse.urljoin(target_link, h_pdf)
+                                                        if pdf_link.lower().endswith(".pdf") and is_same_or_subdomain(pdf_link, web_url):
+                                                            parsed_pdf = self._try_parse_candidate_pdf(downloader, pdf_link, d_code, d_title, u_name)
+                                                            if parsed_pdf and parsed_pdf.get("total_elementos", 0) > len(elementos_html):
+                                                                found_curriculum = parsed_pdf
+                                                                direct_source_url = pdf_link
+                                                                break
                                             
                                             # Extraer precios de matrículas en universidades privadas
                                             extracted_pricing = {}
@@ -1043,7 +1295,7 @@ class UniversityWebCrawler:
                                                         except Exception:
                                                             pass
 
-                                            if len(elementos_html) >= 3 or extracted_pricing:
+                                            if not found_curriculum and (len(elementos_html) >= 3 or extracted_pricing):
                                                 found_curriculum = build_html_curriculum_payload(elementos_html, d_title)
                                                 if extracted_pricing.get("precio_credito_ects"):
                                                     found_curriculum["precio_credito_ects"] = extracted_pricing["precio_credito_ects"]
@@ -1055,6 +1307,8 @@ class UniversityWebCrawler:
 
                                                 direct_source_url = target_link
                                                 print(f"     -> Encontrados datos e información en subpágina de titulación: {target_link}")
+                                                break
+                                            elif found_curriculum:
                                                 break
                                         except Exception as t_err:
                                             print(f"     -> Error al examinar subpágina de titulación '{target_link}': {t_err}")

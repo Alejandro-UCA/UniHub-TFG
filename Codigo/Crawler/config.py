@@ -140,6 +140,17 @@ WEB_SEARCH_SUBPAGES_LIMIT = int(os.getenv("CRAWLER_SUBPAGES_LIMIT", 8))        #
 WEB_SEARCH_SUBPAGES_DEPTH = int(os.getenv("CRAWLER_SUBPAGES_DEPTH", 5))        # Coincidencias máximas del Sitemap
 LAZY_SCANNED_PAGES_CACHE_LIMIT = int(os.getenv("CRAWLER_LAZY_LIMIT", 20))      # Páginas escaneadas en caché RAM
 
+# Parámetros del Patrón Hub-and-Spoke Catalog Indexing (Fase 1 Parte 2)
+HUB_AND_SPOKE_MAX_HUBS = int(os.getenv("CRAWLER_HUB_MAX_HUBS", 35))             # Catálogos maestros y facultades a pre-indexar
+HUB_AND_SPOKE_MAX_DEPTH = int(os.getenv("CRAWLER_HUB_MAX_DEPTH", 6))            # Cota máxima de profundidad en segmentos URL
+HUB_ACADEMIC_KEYWORDS = [
+    "grados", "graus", "graos", "graduak", "bachelor",
+    "masteres", "masters", "màsters", "posgrado", "postgrado", "postgrau", "posgrao",
+    "oferta-academica", "oferta_academica", "oferta-formativa", "oferta-de-grados", "oferta-de-masteres",
+    "estudios", "estudis", "estudos", "estudios-ofertados", "titulaciones", "titulacions",
+    "facultades", "facultats", "facultad", "facultat", "centros", "centres", "planes-de-estudio"
+]
+
 PRIVATE_ECTS_MIN = float(os.getenv("CRAWLER_PRIVATE_ECTS_MIN", 15.0))          # Umbral mínimo precio ECTS privada (€)
 PRIVATE_ECTS_MAX = float(os.getenv("CRAWLER_PRIVATE_ECTS_MAX", 500.0))         # Umbral máximo precio ECTS privada (€)
 PRIVATE_ANNUAL_MIN = float(os.getenv("CRAWLER_PRIVATE_ANNUAL_MIN", 1000.0))    # Umbral mínimo matrícula anual privada (€)

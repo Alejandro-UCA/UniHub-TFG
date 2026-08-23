@@ -22,8 +22,11 @@ Codigo/Crawler/Datos/*.json
 Codigo/Crawler/Datos/planes_estudio/
 Codigo/Crawler/Datos/Planes/
 Codigo/Crawler/Datos/Temp/
+Codigo/Crawler/Datos/auditoria_exhaustiva/
 Codigo/Crawler/temp_pdfs/
 Codigo/API/Datos/
+*.sqlite3*
+*.db*
 
 # IDE
 .idea/

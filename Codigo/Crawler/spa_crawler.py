@@ -18,6 +18,7 @@ class SPALayoutCrawler:
     Thread-local architecture ensures full thread-safety in multi-worker pools.
     """
     _local = threading.local()
+    _lock = threading.Lock()
 
     @classmethod
     def get_shared_instance(cls, timeout=HTTP_TIMEOUT):
@@ -64,18 +65,36 @@ class SPALayoutCrawler:
             page.goto(target_url, timeout=self.timeout, wait_until="domcontentloaded")
             page.wait_for_timeout(1500)
 
-            # Expand interactive accordions or tabs if present (Multilingüe)
+            # Expand interactive accordions, course tabs (1º a 4º curso) and specialization panels (Multilingüe)
             accordion_selectors = [
-                "button", "a.accordion", ".tab", ".nav-link", ".panel-title", "details", "summary"
+                "button", "a.accordion", ".tab", ".nav-link", ".panel-title", "details summary", ".accordion-header", ".ui-accordion-header", "li[role='tab']", "a[role='tab']"
             ]
+            clicked_elements = set()
             for sel in accordion_selectors:
                 try:
                     elements = page.query_selector_all(sel)
-                    for elem in elements[:5]:
-                        txt = (elem.inner_text() or "").lower()
-                        if any(k in txt for k in ["asignatura", "estudio", "curso", "plan", "materia", "assignatura", "curs", "grau", "irakasgai", "syllabus", "subject"]):
-                            elem.click(timeout=1000)
-                            page.wait_for_timeout(400)
+                    for elem in elements[:12]:
+                        txt = (elem.inner_text() or "").strip().lower()
+                        if not txt or txt in clicked_elements:
+                            continue
+                        course_tab_match = any(
+                            k in txt for k in [
+                                # Cursos 1º a 4º (ES, CA, GL, EU, EN)
+                                "1º", "2º", "3º", "4º", "1er", "2º", "3º", "4º", "primer curs", "segon curs", "tercer curs", "quart curs",
+                                "1r curs", "2n curs", "3r curs", "4t curs", "1. maila", "2. maila", "3. maila", "4. maila",
+                                "primeiro curso", "segundo curso", "terceiro curso", "cuarto curso", "year 1", "year 2", "year 3", "year 4",
+                                # Materias, especialidades y TFG
+                                "asignatura", "materia", "plan de estudios", "pla d'estudis", "ikasketa plana", "syllabus",
+                                "mención", "mencion", "especialidad", "optativas", "itinerari", "itinerario", "trabajo fin", "tfg", "tfm"
+                            ]
+                        )
+                        if course_tab_match:
+                            clicked_elements.add(txt)
+                            try:
+                                elem.click(timeout=1000)
+                                page.wait_for_timeout(350)
+                            except Exception:
+                                pass
                 except Exception:
                     pass
 

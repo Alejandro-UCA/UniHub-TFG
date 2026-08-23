@@ -190,7 +190,7 @@ class RUCTDownloader:
                 return True
             else:
                 total_min = int((CIRCUIT_BREAKER_PAUSE_SECONDS * CIRCUIT_BREAKER_MAX_PAUSES) / 60)
-                print(f"\n❌ [CORTOCIRCUITO] {CIRCUIT_BREAKER_MAX_PAUSES} pausas alcanzadas ({total_min} min acumulados en la universidad [{self.current_univ_code}]). Saltando a la siguiente universidad...")
+                print(f"\n [CORTOCIRCUITO] {CIRCUIT_BREAKER_MAX_PAUSES} pausas alcanzadas ({total_min} min acumulados en la universidad [{self.current_univ_code}]). Saltando a la siguiente universidad...")
                 self.consecutive_failures = 0
                 raise SkipUniversityException(f"Problemas de conexion continuados en la universidad [{self.current_univ_code}]")
         return False
@@ -240,7 +240,7 @@ class RUCTDownloader:
                     if response.status_code == 429:
                         retry_after_val = response.headers.get("Retry-After")
                         retry_secs = int(retry_after_val) if (retry_after_val and retry_after_val.isdigit()) else HTTP_429_DEFAULT_RETRY_AFTER
-                        print(f" ⚠️ [CORTESÍA RED] HTTP 429 detectado en '{target_url}'. Pausando {retry_secs}s...")
+                        print(f" [AVISO CORTESIA RED] HTTP 429 detectado en '{target_url}'. Pausando {retry_secs}s...")
                         time.sleep(retry_secs)
                         continue
                     response.raise_for_status()

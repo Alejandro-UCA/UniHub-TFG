@@ -143,6 +143,7 @@ LAZY_SCANNED_PAGES_CACHE_LIMIT = int(os.getenv("CRAWLER_LAZY_LIMIT", 20))      #
 # Parámetros del Patrón Hub-and-Spoke Catalog Indexing (Fase 1 Parte 2)
 HUB_AND_SPOKE_MAX_HUBS = int(os.getenv("CRAWLER_HUB_MAX_HUBS", 35))             # Catálogos maestros y facultades a pre-indexar
 HUB_AND_SPOKE_MAX_DEPTH = int(os.getenv("CRAWLER_HUB_MAX_DEPTH", 6))            # Cota máxima de profundidad en segmentos URL
+HUB_AND_SPOKE_MAX_HOPS = int(os.getenv("CRAWLER_HUB_MAX_HOPS", 5))              # Cota máxima de saltos BFS entre sub-hubs de catálogo
 HUB_ACADEMIC_KEYWORDS = [
     "grados", "graus", "graos", "graduak", "bachelor",
     "masteres", "masters", "màsters", "posgrado", "postgrado", "postgrau", "posgrao",

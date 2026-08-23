@@ -35,6 +35,7 @@ from config import (
     ROBOTS_CHECK_TIMEOUT,
     HUB_AND_SPOKE_MAX_HUBS,
     HUB_AND_SPOKE_MAX_DEPTH,
+    HUB_AND_SPOKE_MAX_HOPS,
     HUB_ACADEMIC_KEYWORDS,
     WIKIPEDIA_API_URL,
     WIKIDATA_API_URL
@@ -617,66 +618,61 @@ class UniversityWebCrawler:
         downloader: RUCTDownloader, 
         web_url: str, 
         max_depth: int = HUB_AND_SPOKE_MAX_DEPTH, 
-        max_hubs: int = HUB_AND_SPOKE_MAX_HUBS
+        max_hubs: int = HUB_AND_SPOKE_MAX_HUBS,
+        max_hops: int = HUB_AND_SPOKE_MAX_HOPS
     ) -> dict:
         """
-        Patrón Hub-and-Spoke Catalog Indexing estrictamente SECUENCIAL por universidad.
+        Patrón Hub-and-Spoke Catalog Indexing con exploración BFS multinivel (hasta max_hops saltos).
         Descarga de forma secuencial y cortés (respetando REQUEST_DELAY y robots.txt)
-        los catálogos maestros y facultades de la universidad (grados, másteres, facultades)
-        y mapea las URLs directas para evitar sobrecargar el servidor institucional.
+        los catálogos maestros, facultades y sub-hubs de la universidad (grados, másteres, ramas)
+        y mapea las URLs directas a las titulaciones en tiempo constante O(1).
         """
         catalog_map = defaultdict(list)
-        try:
-            home_html = downloader.fetch_text(web_url)
-            if not home_html:
-                return catalog_map
-            home_soup = BeautifulSoup(home_html, "html.parser")
-            
-            # 1. Identificar enlaces a Hubs Académicos Oficiales y Facultades/Centros
-            hub_keywords = HUB_ACADEMIC_KEYWORDS
-            hub_urls = []
-            seen_hubs = {web_url.rstrip("/")}
-            
-            for a in home_soup.find_all("a", href=True):
-                h = a["href"].strip()
-                if not is_valid_web_url(h):
-                    continue
-                t = a.get_text(strip=True).lower()
-                h_low = h.lower()
-                if any(k in t or k in h_low for k in hub_keywords):
-                    full_hub = urllib.parse.urljoin(web_url, h)
-                    norm_hub = full_hub.rstrip("/")
-                    if is_same_or_subdomain(full_hub, web_url) and norm_hub not in seen_hubs:
-                        seen_hubs.add(norm_hub)
-                        hub_urls.append(full_hub)
-                        if len(hub_urls) >= max_hubs:
-                            break
+        hub_keywords = HUB_ACADEMIC_KEYWORDS
+        seen_hubs = {web_url.rstrip("/")}
+        seen_deg_urls = set()
+        
+        # Cola BFS: tuplas de (url_hub, nivel_salto_actual)
+        queue = [(web_url, 0)]
+        visited_hubs_count = 0
 
-            # 2. Explorar los Hubs de forma 100% SECUENCIAL respetando el downloader ético
-            for hub_url in hub_urls:
-                try:
-                    h_html = downloader.fetch_text(hub_url)
-                    if not h_html:
+        while queue and visited_hubs_count < max_hubs:
+            current_hub, current_hop = queue.pop(0)
+            visited_hubs_count += 1
+            
+            try:
+                html_content = downloader.fetch_text(current_hub)
+                if not html_content:
+                    continue
+                soup = BeautifulSoup(html_content, "html.parser")
+                
+                for a in soup.find_all("a", href=True):
+                    h = a["href"].strip()
+                    if not is_valid_web_url(h):
                         continue
-                    h_soup = BeautifulSoup(h_html, "html.parser")
                     
-                    for a_deg in h_soup.find_all("a", href=True):
-                        dh = a_deg["href"].strip()
-                        if not is_valid_web_url(dh):
-                            continue
-                        d_text = a_deg.get_text(strip=True)
-                        if len(d_text) < 4:
-                            continue
+                    full_link = urllib.parse.urljoin(current_hub, h)
+                    norm_link = full_link.rstrip("/")
+                    t_text = a.get_text(strip=True)
+                    t_low = t_text.lower()
+                    h_low = h.lower()
+                    
+                    if not is_same_or_subdomain(full_link, web_url):
+                        continue
                         
-                        # Comprobar cota de profundidad en URL (número de segmentos de ruta <= max_depth)
-                        parsed_u = urllib.parse.urlparse(dh)
-                        depth = len([p for p in parsed_u.path.strip("/").split("/") if p])
-                        if depth > max_depth:
-                            continue
+                    # 1. ¿Es un sub-hub académico navegable y aún tenemos margen de saltos?
+                    if current_hop < max_hops and any(k in t_low or k in h_low for k in hub_keywords):
+                        if norm_link not in seen_hubs and len(seen_hubs) < max_hubs * 2:
+                            seen_hubs.add(norm_link)
+                            queue.append((full_link, current_hop + 1))
                             
-                        full_deg_url = urllib.parse.urljoin(hub_url, dh)
-                        if is_same_or_subdomain(full_deg_url, web_url):
-                            raw_toks = re.findall(r'\b[a-zA-ZáéíóúñÁÉÍÓÚÑ]{4,}\b', d_text + " " + dh)
+                    # 2. ¿Es un enlace a titulación o plan docente? Indexar en catalog_map
+                    if len(t_text) >= 4:
+                        parsed_u = urllib.parse.urlparse(h)
+                        depth = len([p for p in parsed_u.path.strip("/").split("/") if p])
+                        if depth <= max_depth and norm_link not in seen_deg_urls:
+                            seen_deg_urls.add(norm_link)
+                            raw_toks = re.findall(r'\b[a-zA-ZáéíóúñÁÉÍÓÚÑ]{4,}\b', t_text + " " + h)
                             all_toks = set()
                             for w in raw_toks:
                                 w_low = w.lower()
@@ -689,11 +685,10 @@ class UniversityWebCrawler:
                                 if w_norm.endswith('es') and len(w_norm) > 5:
                                     all_toks.add(w_norm[:-2])
                             for tok in all_toks:
-                                catalog_map[tok].append((full_deg_url, d_text))
-                except Exception:
-                    pass
-        except Exception:
-            pass
+                                catalog_map[tok].append((full_link, t_text))
+            except Exception:
+                continue
+                
         return catalog_map
 
     def rescue_university_url(self, univ_name: str) -> str:

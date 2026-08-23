@@ -1137,14 +1137,24 @@ class UniversityWebCrawler:
                                         spa_c = SPALayoutCrawler.get_shared_instance()
                                         rend = spa_c.render_spa_page(cat_url)
                                         if rend:
-                                            rend_soup = BeautifulSoup(rend, "html.parser")
-                                            rend_elem = extract_html_subjects(rend_soup)
-                                            if len(rend_elem) > len(c_elementos):
-                                                c_elementos = rend_elem
+                                            if getattr(rend, "is_download", False):
+                                                pdf_bytes = getattr(rend, "content_bytes", b"")
+                                                if pdf_bytes and (b"%PDF-" in pdf_bytes[:1024] or getattr(rend, "filename", "").lower().endswith(".pdf")):
+                                                    pdf_curriculum = parse_boe_pdf(pdf_bytes, d_title, d_level)
+                                                    if pdf_curriculum and len(pdf_curriculum.get("elementos_curriculares", [])) >= 3:
+                                                        found_curriculum = pdf_curriculum
+                                                        direct_source_url = cat_url
+                                                        print(f"     -> [Playwright Download Rescate] Encontrado PDF oficial con {len(pdf_curriculum['elementos_curriculares'])} asignaturas: {cat_url}")
+                                                        break
+                                            else:
+                                                rend_soup = BeautifulSoup(rend, "html.parser")
+                                                rend_elem = extract_html_subjects(rend_soup)
+                                                if len(rend_elem) > len(c_elementos):
+                                                    c_elementos = rend_elem
                                     except Exception:
                                         pass
                                 
-                                if len(c_elementos) >= 3:
+                                if len(c_elementos) >= 3 and not found_curriculum:
                                     found_curriculum = build_html_curriculum_payload(c_elementos, d_title)
                                     direct_source_url = cat_url
                                     print(f"     -> [Hub-and-Spoke] Encontradas {len(c_elementos)} asignaturas HTML: {cat_url}")
@@ -1263,13 +1273,23 @@ class UniversityWebCrawler:
                                                     spa_crawler = SPALayoutCrawler.get_shared_instance()
                                                     rendered_html = spa_crawler.render_spa_page(target_link)
                                                     if rendered_html:
-                                                        spa_soup = BeautifulSoup(rendered_html, "html.parser")
-                                                        spa_elementos = extract_html_subjects(spa_soup)
-                                                        if len(spa_elementos) > len(elementos_html):
-                                                            elementos_html = spa_elementos
-                                                            target_soup = spa_soup
-                                                            target_html = rendered_html
-                                                            current_ects = compute_curriculum_total_ects(elementos_html)
+                                                        if getattr(rendered_html, "is_download", False):
+                                                            pdf_bytes = getattr(rendered_html, "content_bytes", b"")
+                                                            if pdf_bytes and (b"%PDF-" in pdf_bytes[:1024] or getattr(rendered_html, "filename", "").lower().endswith(".pdf")):
+                                                                pdf_curriculum = parse_boe_pdf(pdf_bytes, d_title, d_level)
+                                                                if pdf_curriculum and len(pdf_curriculum.get("elementos_curriculares", [])) >= 3:
+                                                                    found_curriculum = pdf_curriculum
+                                                                    direct_source_url = target_link
+                                                                    print(f"     -> [Playwright Download Rescate] Encontrado PDF oficial con {len(pdf_curriculum['elementos_curriculares'])} asignaturas: {target_link}")
+                                                                    break
+                                                        else:
+                                                            spa_soup = BeautifulSoup(rendered_html, "html.parser")
+                                                            spa_elementos = extract_html_subjects(spa_soup)
+                                                            if len(spa_elementos) > len(elementos_html):
+                                                                elementos_html = spa_elementos
+                                                                target_soup = spa_soup
+                                                                target_html = rendered_html
+                                                                current_ects = compute_curriculum_total_ects(elementos_html)
                                                 except Exception:
                                                     pass
 

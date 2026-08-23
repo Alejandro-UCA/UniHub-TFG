@@ -1,5 +1,7 @@
 import sys
 import time
+import os
+import tempfile
 import threading
 from bs4 import BeautifulSoup
 from config import USER_AGENT, HTTP_TIMEOUT
@@ -10,6 +12,20 @@ try:
     PLAYWRIGHT_AVAILABLE = True
 except ImportError:
     PLAYWRIGHT_AVAILABLE = False
+
+
+class RenderResult(str):
+    """
+    Subclase de string para total retrocompatibilidad con código existente que espera
+    un HTML string, pero enriquecida con metadatos de descargas binarias (PDFs).
+    """
+    def __new__(cls, html_content="", is_download=False, content_bytes=b"", filename=""):
+        obj = str.__new__(cls, html_content or "")
+        obj.is_download = is_download
+        obj.content_bytes = content_bytes or b""
+        obj.filename = filename or ""
+        return obj
+
 
 class SPALayoutCrawler:
     """
@@ -43,27 +59,57 @@ class SPALayoutCrawler:
                 self._browser = None
         return self._browser
 
-    def render_spa_page(self, target_url: str) -> str:
+    def render_spa_page(self, target_url: str) -> RenderResult:
         """
         Renders target_url in headless Chromium, clicks accordion/tab elements,
-        and returns the fully rendered HTML string. Safe fallback if Playwright is unavailable.
+        and returns the fully rendered HTML string or intercepted binary download.
+        Safe fallback if Playwright is unavailable.
         """
         if not PLAYWRIGHT_AVAILABLE:
-            return ""
+            return RenderResult("")
 
         context = None
         try:
             browser = self._ensure_browser()
             if not browser:
-                return ""
+                return RenderResult("")
 
             context = browser.new_context(
                 user_agent=USER_AGENT,
-                viewport={"width": 1280, "height": 960}
+                viewport={"width": 1280, "height": 960},
+                accept_downloads=True
             )
             page = context.new_page()
-            page.goto(target_url, timeout=self.timeout, wait_until="domcontentloaded")
-            page.wait_for_timeout(1500)
+
+            # Interceptar descargas automáticas forzadas por cabeceras Content-Disposition (Patrón A)
+            try:
+                page.goto(target_url, timeout=self.timeout, wait_until="domcontentloaded")
+                page.wait_for_timeout(1500)
+            except Exception as nav_err:
+                if "Download is starting" in str(nav_err) or "net::ERR_ABORTED" in str(nav_err):
+                    try:
+                        with page.expect_download(timeout=self.timeout) as dl_info:
+                            try:
+                                page.goto(target_url, timeout=self.timeout)
+                            except Exception:
+                                pass
+                        dl = dl_info.value
+                        temp_f = tempfile.NamedTemporaryFile(delete=False, suffix="_" + dl.suggested_filename)
+                        temp_f.close()
+                        dl.save_as(temp_f.name)
+                        with open(temp_f.name, "rb") as f_in:
+                            dl_bytes = f_in.read()
+                        try:
+                            os.remove(temp_f.name)
+                        except Exception:
+                            pass
+                        print(f"   [SPA Crawler] Descarga binaria interceptada con éxito ({len(dl_bytes)} bytes): '{dl.suggested_filename}'")
+                        return RenderResult("", is_download=True, content_bytes=dl_bytes, filename=dl.suggested_filename)
+                    except Exception as dl_err:
+                        print(f"   [SPA Crawler] Fallo al capturar descarga de '{target_url}': {dl_err}")
+                        return RenderResult("")
+                else:
+                    raise nav_err
 
             # Expand interactive accordions, course tabs (1º a 4º curso) and specialization panels (Multilingüe)
             accordion_selectors = [
@@ -99,10 +145,10 @@ class SPALayoutCrawler:
                     pass
 
             rendered_html = page.content()
-            return rendered_html
+            return RenderResult(rendered_html)
         except Exception as err:
             print(f"   [SPA Crawler] Headless browser fallback notice for '{target_url}': {err}")
-            return ""
+            return RenderResult("")
         finally:
             if context:
                 try:

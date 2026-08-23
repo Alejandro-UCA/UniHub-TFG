@@ -257,7 +257,7 @@ export default function PlanModal({ degree, onClose }) {
                       </div>
                       <div>
                         <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-main)', margin: 0 }}>
-                          Programa Oficial de Doctorado
+                          Programa Oficial de Doctorado e Investigación
                         </h4>
                         <span style={{ fontSize: '0.82rem', color: 'var(--uca-cyan)', fontWeight: 600 }}>
                           Regulado por el Real Decreto 99/2011
@@ -266,7 +266,7 @@ export default function PlanModal({ degree, onClose }) {
                     </div>
 
                     <p style={{ fontSize: '0.92rem', color: 'var(--text-main)', lineHeight: 1.6, marginBottom: '1.25rem' }}>
-                      {curriculum.descripcion_plan || 'Este programa oficial de Doctorado está estructurado en torno a líneas de investigación avanzada, la realización del Documento de Actividades del Doctorando (DAD) y la elaboración y defensa de la Tesis Doctoral.'}
+                      Conforme a la normativa universitaria española (Real Decreto 99/2011), los estudios de Doctorado no se estructuran en asignaturas lectivas tradicionales con créditos ECTS, sino que se articulan en torno a <strong>Líneas de Investigación Científica, Actividades Formativas Transversales</strong> (seminarios, congresos y estancias) y la elaboración y defensa pública de la <strong>Tesis Doctoral</strong> bajo tutela académica anual.
                     </p>
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
@@ -280,10 +280,10 @@ export default function PlanModal({ degree, onClose }) {
                       </div>
                       <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
                         <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', marginBottom: '0.25rem' }}>
-                          Actividades Formativas
+                          Régimen de Matrícula
                         </div>
                         <div style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--text-main)' }}>
-                          Seminarios, Congresos y Publicaciones
+                          Tutela Académica Anual Oficial
                         </div>
                       </div>
                     </div>

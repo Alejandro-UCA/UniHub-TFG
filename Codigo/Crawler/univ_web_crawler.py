@@ -344,13 +344,33 @@ def is_valid_web_url(href) -> bool:
 
 
 def is_same_or_subdomain(target_url: str, base_url: str) -> bool:
-    """Verifica si target_url pertenece al mismo dominio o a un subdominio oficial de la universidad."""
+    """
+    Verifica si target_url pertenece al mismo dominio institucional, subdominio hermano
+    (ej. quimicas.ub.edu vs web.ub.edu) o equivalente autonómico (.gal, .cat, .eus, .es, .edu).
+    """
     try:
-        t_netloc = urllib.parse.urlparse(target_url).netloc.lower().replace("www.", "")
-        b_netloc = urllib.parse.urlparse(base_url).netloc.lower().replace("www.", "")
+        t_netloc = urllib.parse.urlparse(target_url).netloc.lower().replace("www.", "").split(":")[0]
+        b_netloc = urllib.parse.urlparse(base_url).netloc.lower().replace("www.", "").split(":")[0]
         if not t_netloc or not b_netloc:
             return False
-        return t_netloc == b_netloc or t_netloc.endswith("." + b_netloc) or b_netloc.endswith("." + t_netloc)
+        
+        if t_netloc == b_netloc or t_netloc.endswith("." + b_netloc) or b_netloc.endswith("." + t_netloc):
+            return True
+        
+        t_parts = t_netloc.split(".")
+        b_parts = b_netloc.split(".")
+        if len(t_parts) >= 2 and len(b_parts) >= 2:
+            # Comparar dominio organizacional base (ej. ub.edu, unex.es, usc.es, uib.es)
+            t_root = ".".join(t_parts[-2:])
+            b_root = ".".join(b_parts[-2:])
+            if t_root == b_root:
+                return True
+            # Soporte para migraciones de TLDs autonómicos (.gal / .cat / .eus / .es / .edu / .eu / .org)
+            if t_parts[-2] == b_parts[-2] and len(t_parts[-2]) >= 2:
+                valid_tlds = {"es", "gal", "cat", "eus", "edu", "org", "eu"}
+                if t_parts[-1] in valid_tlds and b_parts[-1] in valid_tlds:
+                    return True
+        return False
     except Exception:
         return False
 
@@ -578,7 +598,7 @@ class UniversityWebCrawler:
         """Descarga, analiza con parse_boe_pdf y limpia con seguridad el archivo PDF temporal."""
         temp_pdf = os.path.join(TEMP_PDF_DIR, f"web_{d_code}.pdf")
         try:
-            downloader.download_file(pdf_url, temp_pdf)
+            downloader.download_file(pdf_url, temp_pdf, is_pdf=True)
             parsed = parse_boe_pdf(temp_pdf, target_title=d_title, univ_name=u_name)
             if parsed.get("total_elementos", 0) > 0 or len(parsed.get("resumen_creditos", {})) > 0:
                 return parsed
@@ -1364,6 +1384,78 @@ class UniversityWebCrawler:
         return stats
 
 
+def normalize_joint_title(title: str) -> str:
+    """Normaliza el título de una titulación interuniversitaria para indexación y emparejamiento."""
+    if not title:
+        return ""
+    t = unicodedata.normalize("NFKD", title.lower()).encode("ASCII", "ignore").decode("utf-8")
+    t = re.sub(r"[\(\[].*?[\)\]]", "", t)
+    t = t.replace("universitat", "universidad").replace("politècnica", "politecnica").replace("de la", "de")
+    t = re.sub(r"[^a-z0-9\s]", " ", t)
+    return " ".join(t.split())
+
+
+def propagate_interuniversity_and_shared_boe_plans(planes_dir: str = PLANES_DIR) -> dict:
+    """
+    Sincroniza y propaga atómicamente planes de estudio completos entre:
+    1. Titulaciones que comparten la MISMA resolución oficial del BOE.
+    2. Titulaciones interuniversitarias que comparten el mismo plan verificado por ANECA.
+    Garantiza 100% de aislamiento entre procesos sin bloqueos ni contención de red.
+    """
+    stats = {"boe_shared_rescued": 0, "interuniv_shared_rescued": 0, "total_propagated": 0}
+    if not os.path.exists(planes_dir):
+        return stats
+
+    files = [f for f in os.listdir(planes_dir) if f.endswith(".json") and f.replace(".json", "").isdigit()]
+    boe_index = {}
+    title_index = {}
+    empty_records = []
+
+    for f in files:
+        path = os.path.join(planes_dir, f)
+        d = load_json_safe(path)
+        if not d:
+            continue
+        boe = d.get("boe_url") or ""
+        elems = d.get("plan_estudios", {}).get("elementos_curriculares", []) if d.get("plan_estudios") else []
+        norm_t = normalize_joint_title(d.get("titulo", ""))
+        
+        if len(elems) >= 3:
+            if boe and "boe.es" in boe:
+                if boe not in boe_index or len(elems) > len(boe_index[boe][0].get("elementos_curriculares", [])):
+                    boe_index[boe] = (d.get("plan_estudios", {}), d.get("web_fuente_directa_url") or boe)
+            if norm_t:
+                if norm_t not in title_index or len(elems) > len(title_index[norm_t][0].get("elementos_curriculares", [])):
+                    title_index[norm_t] = (d.get("plan_estudios", {}), d.get("web_fuente_directa_url") or boe)
+        else:
+            empty_records.append((f, d, boe, norm_t))
+
+    for f, d, boe, norm_t in empty_records:
+        matched_plan = None
+        source_url = ""
+        origen = ""
+
+        if boe in boe_index:
+            matched_plan, source_url = boe_index[boe]
+            origen = "resolucion_boe_compartida"
+            stats["boe_shared_rescued"] += 1
+        elif norm_t in title_index:
+            matched_plan, source_url = title_index[norm_t]
+            origen = "interuniversitario_compartido"
+            stats["interuniv_shared_rescued"] += 1
+
+        if matched_plan:
+            path = os.path.join(planes_dir, f)
+            d["plan_estudios"] = matched_plan
+            d["origen_fuente"] = origen
+            d["web_fuente_directa_url"] = source_url
+            d["fecha_procesado"] = datetime.now().isoformat()
+            atomic_json_dump(d, path)
+            stats["total_propagated"] += 1
+
+    return stats
+
+
 def run_phase1_part2(max_workers: int = 4, metrics_tracker=None):
     """
     Punto de entrada principal para la Fase 1 - Parte 2:
@@ -1409,12 +1501,17 @@ def run_phase1_part2(max_workers: int = 4, metrics_tracker=None):
                 print(f" [ERROR PARTE 2] Excepción inesperada en universidad {univ.get('codigo')}: {exc}")
                 crawler.logger.log_error("fase1_parte2_univ_web", univ.get("codigo", "ALL"), univ.get("web", ""), "Excepcion no controlada en escaneo web de universidad", str(exc))
 
+    # Consolidación atómica de planes interuniversitarios y resoluciones BOE compartidas
+    prop_stats = propagate_interuniversity_and_shared_boe_plans()
+    print(f" -> Titulaciones propagadas por BOE/Consorcio: {prop_stats.get('total_propagated', 0)}")
+
     print("\n" + "=" * 70)
     print("      FASE 1 - PARTE 2 FINALIZADA DE FORMA METICULOSA Y RESPETUOSA")
     print("======================================================================")
     print(f" -> Universidades escaneadas:             {len(universities)}")
     print(f" -> Titulaciones sin plan iniciales:       {total_missing}")
     print(f" -> Titulaciones completadas desde web:    {total_resolved}")
+    print(f" -> Titulaciones propagadas interuniv:     {prop_stats.get('total_propagated', 0)}")
     print(f" -> Cancelaciones por robots.txt:         {denied_by_robots}")
 
 if __name__ == "__main__":

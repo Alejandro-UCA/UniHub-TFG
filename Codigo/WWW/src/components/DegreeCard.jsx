@@ -7,6 +7,10 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
   const isDoctor = (degree.nivel_academico || '').toLowerCase().includes('doctor') || 
                    (degree.nivel_academico || '').toLowerCase().includes('99/2011') ||
                    (degree.titulo || '').toLowerCase().includes('doctor');
+  const isInteruniv = (degree.titulo || '').toLowerCase().includes('interuniversitario') || 
+                      (degree.origen_fuente || '').includes('interuniversitario') ||
+                      (degree.titulo || '').toLowerCase().includes(' y la universidad') ||
+                      (degree.titulo || '').toLowerCase().includes(' y la universitat');
   const isExtinct = (degree.estado || '').toLowerCase().includes('extin') || 
                     (degree.estado || '').toLowerCase().includes('suprim') || 
                     (degree.estado || '').toLowerCase().includes('no vigente');
@@ -40,10 +44,15 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
     >
       <div>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.75rem', flexWrap: 'wrap', gap: '0.35rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
             <span className={`badge ${isDoctor ? 'badge-doctorado' : isMaster ? 'badge-master' : 'badge-grado'}`}>
-              {isDoctor ? 'Doctorado' : isMaster ? 'Máster' : 'Grado Oficial'}
+              {isDoctor ? 'Doctorado (RD 99/2011)' : isMaster ? 'Máster' : 'Grado Oficial'}
             </span>
+            {isInteruniv && (
+              <span className="badge" style={{ background: 'rgba(99, 102, 241, 0.15)', color: '#6366F1', border: '1px solid rgba(99, 102, 241, 0.35)', fontSize: '0.7rem', fontWeight: 700 }}>
+                🤝 Interuniversitario
+              </span>
+            )}
             {isExtinct && (
               <span className="badge" style={{ background: 'rgba(245, 158, 11, 0.15)', color: '#D97706', border: '1px solid rgba(245, 158, 11, 0.35)', fontSize: '0.7rem', fontWeight: 700 }}>
                 ⚠️ A extinguir
@@ -123,7 +132,7 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
           className="btn btn-secondary" 
           style={{ padding: '0.4rem 0.85rem', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '0.25rem' }}
         >
-          <span>Plan de Estudios</span>
+          <span>{isDoctor ? 'Estructura Investigadora' : 'Plan de Estudios'}</span>
           <ChevronRight size={14} />
         </button>
       </div>

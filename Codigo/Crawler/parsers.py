@@ -1279,10 +1279,14 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                             lines_by_top[top_bucket] = []
                         lines_by_top[top_bucket].append(w["text"])
 
-                    for top_pos, l_words in sorted(lines_by_top.items()):
-                        line_str = " ".join(l_words)
+                    sorted_tops = sorted(lines_by_top.keys())
+                    sorted_lines = [" ".join(lines_by_top[t]) for t in sorted_tops]
+
+                    for i in range(len(sorted_lines)):
+                        combined_3_lines = " ".join(sorted_lines[i:min(i+3, len(sorted_lines))])
+                        top_pos = sorted_tops[i]
                         for pattern in RE_DEGREE_SECTION_MARKERS:
-                            m = pattern.search(line_str)
+                            m = pattern.search(combined_3_lines)
                             if m:
                                 sec_raw = m.group(0).strip()
                                 if not RE_PREAMBLE_REJECTION.search(sec_raw):
@@ -1293,6 +1297,7 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                                             "keywords": sec_kw,
                                             "matches": is_section_matching(sec_kw, target_kw)
                                         })
+
 
                 # Find tables with bounding boxes
                 found_tables = page.find_tables()

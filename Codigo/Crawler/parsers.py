@@ -67,7 +67,15 @@ RE_DEGREE_SECTION_MARKERS = [
 ]
 
 
-RE_PREAMBLE_REJECTION = re.compile(r"^(?:resoluci[oó]n|acuerdo|orden|decreto|de\s+conformidad|visto\s+el)\b", re.IGNORECASE)
+RE_PREAMBLE_REJECTION = re.compile(
+    r"(?:resoluci[oó]n|acuerdo|orden|decreto|de\s+conformidad|visto\s+el|"
+    r"relacionados\s+a\s+continuaci[oó]n|este\s+rectorado|publicar\s+(?:el|los)\s+plan|"
+    r"aprobar\s+(?:el|los)\s+plan|haberse\s+establecido|una\s+vez\s+homologad|"
+    r"homologado\s+por|inscrito\s+en\s+el\s+registro|previa\s+homologaci[oó]n|"
+    r"consejo\s+de\s+ministros|consejo\s+de\s+gobierno|t[ií]tulos\s+oficiales\s+de\s+grado\s+siguientes|"
+    r"siguientes\s+ense[ñn]anzas|siguientes\s+planes)\b",
+    re.IGNORECASE
+)
 RE_HEADER_GARBAGE = re.compile(r"^(?:(?:FB|OB|OP|PE|TFG|TFM|B|O)\s*)+$", re.IGNORECASE)
 RE_TABLE_HEADER_NOISE = re.compile(r"^(?:n[º°\.]*\s*ctos|n[º°\.]*\s*cr[eé]ditos|c[oó]digo|ects|car[aá]cter|curso|cuatrimestre|semestre)\b", re.IGNORECASE)
 RE_SUMMARY_LABEL = re.compile(
@@ -139,6 +147,13 @@ RE_MULTIPLE_SPACES = re.compile(r"\s+")
 RE_PARENTHESES_STRIP = re.compile(r"\s*\(.*?\)")
 
 
+REVERSED_SPANISH_MARKERS = [
+    "oxena", "odnum", "airotsih", "soidutse", "sotidérc", "sotiderc", "odaudarg", "adaudarg",
+    "retsám", "retsam", "odarg", "ohcered", "aígolocisp", "acitámrofni", "aírenigneg",
+    "airenigneg", "aicneic", "lartsemes", "latot", "acisáb", "acisab", "sairotagilbo", "savitatpo", "laveidem"
+]
+
+
 def unreverse_text(text: str) -> str:
     """
     Detecta y corrige texto espejado/invertido proveniente de matrices tipográficas inversas en PDFs antiguos.
@@ -146,10 +161,20 @@ def unreverse_text(text: str) -> str:
     """
     if not text:
         return ""
-    t = str(text).strip()
-    if any(t.endswith(rev) for rev in ["odarG", "retsáM", "retsaM", "aígolocisP", "acitámrofnI", "aicneiC", "ohcereD"]) or any(rev in t for rev in [" ne odarG", " ne retsáM", " aL ne "]):
-        return t[::-1]
-    return t
+    lines = str(text).splitlines()
+    unreversed_lines = []
+    for line in lines:
+        l_str = line.strip()
+        l_lower = l_str.lower()
+        if (
+            any(rev in l_lower for rev in REVERSED_SPANISH_MARKERS)
+            or any(l_str.endswith(rev) for rev in ["odarG", "retsáM", "retsaM", "aígolocisP", "acitámrofnI", "aicneiC", "ohcereD"])
+            or any(rev in l_str for rev in [" ne odarG", " ne retsáM", " aL ne "])
+        ):
+            unreversed_lines.append(l_str[::-1])
+        else:
+            unreversed_lines.append(l_str)
+    return "\n".join(unreversed_lines)
 
 
 def sanitize_string_value(val: str) -> str:
@@ -1168,7 +1193,7 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
         for page in reader.pages:
             text = page.extract_text()
             if text:
-                raw_text_parts.append(text)
+                raw_text_parts.append(unreverse_text(text))
     except Exception as e:
         print(f"   [AVISO] error pypdf: {e}")
 
@@ -1281,7 +1306,7 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                         lines_by_top[top_bucket].append(w["text"])
 
                     sorted_tops = sorted(lines_by_top.keys())
-                    sorted_lines = [" ".join(lines_by_top[t]) for t in sorted_tops]
+                    sorted_lines = [unreverse_text(" ".join(lines_by_top[t])) for t in sorted_tops]
 
                     for i in range(len(sorted_lines)):
                         combined_3_lines = " ".join(sorted_lines[i:min(i+3, len(sorted_lines))])
@@ -1334,7 +1359,7 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                         if not row or all(cell is None or str(cell).strip() == "" for cell in row):
                             continue
 
-                        clean_row = [RE_MULTIPLE_SPACES.sub(" ", str(cell).strip()) if cell else "" for cell in row]
+                        clean_row = [unreverse_text(RE_MULTIPLE_SPACES.sub(" ", str(cell).strip())) if cell else "" for cell in row]
                         row_str = " ".join(clean_row).lower()
 
                         # Detect header rows to establish column mapping

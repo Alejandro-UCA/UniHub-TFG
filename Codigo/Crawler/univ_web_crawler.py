@@ -679,10 +679,11 @@ class UniversityWebCrawler:
         self.organic_affiliated_cache = {}
 
     def _try_parse_candidate_pdf(self, downloader: RUCTDownloader, pdf_url: str, d_code: str, d_title: str, u_name: str) -> dict | None:
-        """Descarga, analiza con parse_boe_pdf y limpia con seguridad el archivo PDF temporal."""
+        """Descarga, analiza con parse_boe_pdf, valida la identidad semántica sobre la totalidad del PDF y limpia el archivo temporal."""
         pdf_url_low = pdf_url.lower()
-        # Rechazar explícitamente PDFs de plantillas de Curriculum Vitae (CVN), formularios de profesorado o listados de proyectos de tesis
         if any(bad in pdf_url_low for bad in CV_EXCLUSION_MARKERS):
+            return None
+        if any(bad in pdf_url_low for bad in NON_OFFICIAL_COURSE_MARKERS):
             return None
 
         temp_pdf = os.path.join(TEMP_PDF_DIR, f"web_{d_code}.pdf")
@@ -690,6 +691,40 @@ class UniversityWebCrawler:
             downloader.download_file(pdf_url, temp_pdf, is_pdf=True)
             parsed = parse_boe_pdf(temp_pdf, target_title=d_title, univ_name=u_name)
             if parsed.get("total_elementos", 0) > 0 or len(parsed.get("resumen_creditos", {})) > 0:
+                # Verificación de identidad: comprobar contra la totalidad del PDF y su URL
+                target_kw = extract_degree_core_keywords(d_title, u_name)
+                url_clean = pdf_url.replace("/", " ").replace("-", " ").replace("_", " ")
+                pdf_kw = extract_degree_core_keywords(url_clean, u_name)
+                
+                if not is_section_matching(pdf_kw, target_kw):
+                    # Extraer texto de la totalidad de páginas del documento PDF (sin límites de páginas)
+                    pdf_text_full = ""
+                    try:
+                        import pypdf
+                        reader = pypdf.PdfReader(temp_pdf)
+                        pdf_text_full = " ".join([page.extract_text() or "" for page in reader.pages])
+                    except Exception:
+                        pass
+
+                    # Comprobar si alguna sección o anexo en cualquier página del PDF contiene la titulación objetivo
+                    from parsers import RE_DEGREE_SECTION_MARKERS, RE_PREAMBLE_REJECTION
+                    found_match_in_doc = False
+                    for pattern in RE_DEGREE_SECTION_MARKERS:
+                        for match in pattern.finditer(pdf_text_full):
+                            sec_raw = match.group(0).strip()
+                            if RE_PREAMBLE_REJECTION.search(sec_raw):
+                                continue
+                            sec_kw = extract_degree_core_keywords(sec_raw, u_name)
+                            if is_section_matching(sec_kw, target_kw):
+                                found_match_in_doc = True
+                                break
+                        if found_match_in_doc:
+                            break
+
+                    if not found_match_in_doc:
+                        pdf_full_kw = extract_degree_core_keywords(pdf_text_full + " " + url_clean, u_name)
+                        if not is_section_matching(pdf_full_kw, target_kw):
+                            return None
                 return parsed
         except Exception:
             pass

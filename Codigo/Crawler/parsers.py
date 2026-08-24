@@ -173,19 +173,22 @@ def clean_excel_code(raw_val: str, zfill_len: int = 0) -> str:
 
 
 def classify_subject_caracter(text: str, default: str = "OB") -> str:
-    """Clasifica de forma unificada el carácter oficial de una asignatura (FB, OP, PE, TFG/TFM, OB)."""
+    """Clasifica de forma unificada el carácter oficial de una asignatura (FB, OP, PE, TFG/TFM, OB) en ES, CA, GL, EU y EN."""
     if not text:
         return default
-    t = text.lower()
-    if any(k in t for k in ["básica", "basica", "fb"]):
+    t = text.lower().strip()
+    if any(k in t for k in ["básica", "basica", "bàsica", "fb", "oinarrizko", "basic", "core", "formació bàsica", "formacion basica"]):
         return "FB"
-    if any(k in t for k in ["optativa", "op"]):
+    if any(k in t for k in ["optativa", "optatiu", "op", "hautazko", "optional", "elective"]):
         return "OP"
-    if any(k in t for k in ["práctica", "practica", "pe", "externa"]):
+    if any(k in t for k in ["práctica", "practica", "pràctica", "pe", "externa", "externes", "kanpoko praktikak", "internship", "placement"]):
         return "PE"
-    if any(k in t for k in ["tfg", "tfm", "trabajo fin", "trabajo de fin", "trabajo final", "proyecto fin", "proyecto de fin"]):
+    if any(k in t for k in ["tfg", "tfm", "trabajo fin", "trabajo de fin", "trabajo final", "treball final", "treball fi", "gral", "master amaierako", "bachelor thesis", "master thesis"]):
         return "TFG/TFM"
+    if any(k in t for k in ["obligatoria", "obligatòria", "ob", "derrigorrezko", "compulsory", "mandatory"]):
+        return "OB"
     return default
+
 
 
 def get_required_degree_credits(nivel_academico: str, titulo: str, resumen_creditos: dict = None) -> float:

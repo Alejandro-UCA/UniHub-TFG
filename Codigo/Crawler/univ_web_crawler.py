@@ -38,6 +38,8 @@ from config import (
     HUB_AND_SPOKE_MAX_HOPS,
     HUB_ACADEMIC_KEYWORDS,
     MEMORIA_VERIFICADA_KEYWORDS,
+    DEGREE_SUBPAGE_TAB_VARIANTS,
+    INVALID_METADATA_LABELS,
     MAX_ORGANIC_AFFILIATED_HUBS_PER_UNIV,
     ORGANIC_AFFILIATED_HUB_KEYWORDS,
     EUROPEAN_ALLIANCES_KEYWORDS,
@@ -415,17 +417,21 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
 
             row_str = " ".join(cols).lower()
 
-            # Detect header row (Multilingüe: ES / CA / GL / EU / EN)
-            if any(hk in row_str for hk in HEADER_KEYWORDS):
+            # Detect header row de forma rigurosa (Multilingüe: ES / CA / GL / EU / EN)
+            # Una fila es cabecera si: todas sus celdas son <th>, o al menos 2 columnas coinciden con nombres canónicos de cabecera (o 1 en r_idx == 0)
+            matched_header_cols = sum(1 for c in cols if any(c.strip().lower() == hk for hk in HEADER_KEYWORDS))
+            is_header_row = (r_idx == 0 and matched_header_cols >= 1) or matched_header_cols >= 2 or all(td.name == "th" for td in tds)
+
+            if is_header_row:
                 for c_i, c_val in enumerate(cols):
-                    c_low = c_val.lower()
-                    if any(w in c_low for w in ["asignatura", "assignatura", "asineira", "irakasgaia", "materia", "denominaci", "nombre", "actividad", "subject", "course", "modul", "módulo", "modulo"]):
+                    c_low = c_val.lower().strip()
+                    if any(w == c_low or w in c_low for w in ["asignatura", "assignatura", "asineira", "irakasgaia", "materia", "denominació", "denominacion", "denominación", "nombre", "actividad", "subject", "course", "modul", "módulo", "modulo"]):
                         subj_col = c_i
-                    elif any(w in c_low for w in ["crédito", "credito", "crèdit", "credit", "kreditu", "ects"]):
+                    elif any(w == c_low or w in c_low for w in ["crédito", "credito", "crèdits", "credits", "credit", "kredituak", "kreditu", "ects"]):
                         ects_col = c_i
-                    elif any(w in c_low for w in ["carácter", "caracter", "caràcter", "tipo", "tipus", "mota", "type"]):
+                    elif any(w == c_low or w in c_low for w in ["carácter", "caracter", "caràcter", "tipo", "tipus", "mota", "type"]):
                         car_col = c_i
-                    elif any(w in c_low for w in ["curso", "curs", "ano", "año", "ikasturtea", "maila", "year", "level"]):
+                    elif any(w == c_low or w in c_low for w in ["curso", "curs", "ano", "año", "ikasturtea", "maila", "year", "level"]):
                         curso_col = c_i
                 continue
 
@@ -443,8 +449,10 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
 
             if (
                 len(nombre_candidato) < 4 
-                or any(hk in nombre_lower for hk in HEADER_KEYWORDS) 
+                or any(nombre_lower == hk for hk in HEADER_KEYWORDS) 
                 or any(sk in nombre_lower for sk in INVALID_SUBJECT_KEYWORDS)
+                or nombre_lower in INVALID_METADATA_LABELS
+                or any(lbl in nombre_lower for lbl in INVALID_METADATA_LABELS if len(lbl) > 6)
                 or RE_SUMMARY_LABEL.match(nombre_candidato.strip())
                 or not re.search(r"[a-zA-ZáéíóúñÁÉÍÓÚÑ]{3,}", nombre_candidato)
                 or len(nombre_candidato) > 150
@@ -1272,8 +1280,26 @@ class UniversityWebCrawler:
                                             target_soup = BeautifulSoup(target_html, "html.parser")
                                             elementos_html = extract_html_subjects(target_soup)
 
-                                            # Paso 1: Si HTML estático tiene < 3 asignaturas (contenedor SPA vacío JS), renderizar con Playwright
+                                            # Paso 0.5: Si HTML estático tiene < 3 asignaturas, explorar variantes de subpestaña docentes (?subjects, -plan, etc.)
                                             req_ects = get_required_degree_credits(d_level, d_title)
+                                            if len(elementos_html) < 3 and not any(q in target_link for q in ["?", "#"]):
+                                                for tab_var in DEGREE_SUBPAGE_TAB_VARIANTS:
+                                                    tab_url = target_link.rstrip("/") + tab_var if tab_var.startswith("?") or tab_var.startswith("-") or tab_var.startswith("/") else target_link + "/" + tab_var
+                                                    try:
+                                                        tab_html = downloader.fetch_text(tab_url)
+                                                        if tab_html:
+                                                            tab_soup = BeautifulSoup(tab_html, "html.parser")
+                                                            tab_elems = extract_html_subjects(tab_soup)
+                                                            if len(tab_elems) >= 3:
+                                                                elementos_html = tab_elems
+                                                                target_soup = tab_soup
+                                                                target_html = tab_html
+                                                                target_link = tab_url
+                                                                break
+                                                    except Exception:
+                                                        pass
+
+                                            # Paso 1: Si tras variantes sigue teniendo < 3 asignaturas (contenedor SPA vacío JS), renderizar con Playwright
                                             current_ects = compute_curriculum_total_ects(elementos_html)
                                             if len(elementos_html) < 3:
                                                 try:

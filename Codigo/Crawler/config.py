@@ -163,6 +163,35 @@ MEMORIA_VERIFICADA_KEYWORDS = [
     "informemod", "sgic", "calidad", "qualitat", "kalitatea"
 ]
 
+# Variantes de subpestaña o sufijo para fichas de titulaciones universitarias
+DEGREE_SUBPAGE_TAB_VARIANTS = [
+    "?subjects", "?assignatures", "-plan", "/plan-de-estudios", "/pla-estudis",
+    "?tab=plan", "?p_vista=P", "/asignaturas", "/pages/docencia/guias_docentes"
+]
+
+# Metadatos de ficha administrativa a descartar para evitar confusión con asignaturas (Multilingüe: ES, CA, GL, EU)
+INVALID_METADATA_LABELS = {
+    # ES
+    "centro de gestión", "centro de gestion", "modalidad de docencia", "ámbito de conocimiento",
+    "ambito de conocimiento", "idioma de impartición", "idioma de imparticion", "idioma de docencia",
+    "nota de corte", "precio orientativo por crédito", "precio orientativo", "plazas de nuevo ingreso",
+    "plazas", "duración de los estudios", "duración", "duracion", "datos del grado", "datos del máster",
+    "jefe de estudios", "coordinador", "coordinación", "dirección de correo", "prácticas externas", "practicas externas",
+    # CA / VA
+    "centre de gestió", "centre de gestio", "modalitat de docència", "modalitat de docencia",
+    "àmbit de coneixement", "ambit de coneixement", "idioma de docència", "idioma de docencia",
+    "nota de tall", "nota de tall / preinscripció", "preu orientatiu per crèdit", "preu orientatiu",
+    "places de nou ingrés", "places", "durada", "dades del grau", "dades del màster", "dades del master",
+    "cap d'estudis", "adreça electrònica", "pràctiques externes", "practiques externes",
+    # GL
+    "centro de xestión", "modalidade de docencia", "lingua de docencia", "nota de corte",
+    "prezo por crédito", "prazas", "duración", "datos do grao", "datos do máster", "prácticas externas",
+    # EU
+    "kudeaketa zentroa", "irakaskuntza modalitatea", "ebaki nota", "kredituko prezioa",
+    "plazak", "iraupena", "graduaren datuak", "masterraren datuak", "kanpoko praktikak"
+}
+
+
 # Parámetros para Descubrimiento Orgánico de Centros Adscritos y Alianzas Europeas (Patrones 1 y 3)
 MAX_ORGANIC_AFFILIATED_HUBS_PER_UNIV = int(os.getenv("CRAWLER_MAX_ORGANIC_HUBS", 12))
 ORGANIC_AFFILIATED_HUB_KEYWORDS = [

@@ -12,8 +12,11 @@ from config import (
     GRADO_STANDARD_ECTS,
     MASTER_MIN_ECTS,
     MEDICINA_ECTS,
-    ESPECIALES_GRADO_ECTS
+    ESPECIALES_GRADO_ECTS,
+    BOE_SCHEMA_CONCEPT_VOCABULARY,
+    BOE_SPURIOUS_MARKERS
 )
+
 from downloader import normalize_url
 from functools import lru_cache
 
@@ -919,7 +922,123 @@ def sanitize_subject_name(raw_name: str) -> str:
     return name
 
 
+def parse_header_schema(header_line: str) -> list:
+    """
+    Construye dinámicamente el esquema de columnas del PDF a partir de la línea de encabezado.
+    Devuelve la secuencia ordenada de conceptos detectados ('modulo', 'asignatura', 'tipo', 'creditos', etc.).
+    """
+    clean = header_line.lower().strip()
+    clean = re.sub(r"^\d+(?:\.\d+)*\s*[-–—:]?\s*", "", clean)
+    clean = clean.replace("estructura del plan de estudios", "").replace(":", "")
+    tokens = re.findall(r'[a-záéíóúñç]+', clean)
+    
+    schema = []
+    seen = set()
+    for t in tokens:
+        for concept, syns in BOE_SCHEMA_CONCEPT_VOCABULARY.items():
+            if t in syns and concept not in seen:
+                schema.append(concept)
+                seen.add(concept)
+                break
+    return schema
+
+
+def parse_boe_text_curriculum_dynamic(full_text: str, degree_title: str = "", level: str = "") -> dict:
+    """
+    Analizador dinámico de texto para resoluciones del BOE (RD 822/2021 y textos tabulados).
+    Deduce el esquema de columnas del documento y extrae todas las asignaturas con sus módulos y créditos,
+    garantizando 0 datos espurios.
+    """
+    lines = [l.strip() for l in full_text.splitlines() if l.strip()]
+    
+    schema = []
+    start_idx = -1
+    for idx, line in enumerate(lines):
+        s = parse_header_schema(line)
+        if len(s) >= 2 and ("asignatura" in s or "materia" in s) and ("creditos" in s or "tipo" in s):
+            schema = s
+            start_idx = idx
+            break
+            
+    if not schema or start_idx == -1:
+        return {}
+        
+    extracted = []
+    current_modulo = ""
+    
+    tipo_idx = schema.index("tipo") if "tipo" in schema else -1
+    cred_idx = schema.index("creditos") if "creditos" in schema else -1
+    tipo_before_cred = (tipo_idx != -1 and cred_idx != -1 and tipo_idx < cred_idx)
+    
+    if tipo_before_cred:
+        re_pattern = re.compile(
+            r"^(?:(?P<mod>[A-ZÁÉÍÓÚÑ][^.\n\t]+?)\.\s+)?(?P<name>[A-ZÁÉÍÓÚÑ][^.\n\t]+?(?:\.|\b))\s*(?P<car>FBA|FB|OBL|OB|OPT|OP|PE|PEX|TFG|TFM|EXT|OIN|DER|HAU)\s+(?P<ects>\d+(?:[.,]\d+)?)(?:\s+(?P<extra>.*))?$",
+            re.IGNORECASE
+        )
+    else:
+        re_pattern = re.compile(
+            r"^(?:(?P<mod>[A-ZÁÉÍÓÚÑ][^.\n\t]+?)\.\s+)?(?P<name>[A-ZÁÉÍÓÚÑ][^.\n\t]+?(?:\.|\b))\s*(?P<ects>\d+(?:[.,]\d+)?)\s+(?P<car>FBA|FB|OBL|OB|OPT|OP|PE|PEX|TFG|TFM|EXT|OIN|DER|HAU)(?:\s+(?P<extra>.*))?$",
+            re.IGNORECASE
+        )
+        
+    seen_names = set()
+    
+    for line in lines[start_idx+1:]:
+        l_low = line.lower()
+        if any(term in l_low for term in BOE_SPURIOUS_MARKERS):
+            continue
+        if re.match(r"^\d+\.\d+\s+condiciones de terminación", l_low):
+            break
+            
+        # Detectar módulo agrupador independiente
+        if line.endswith(".") and not re.search(r"\b(FBA|FB|OBL|OB|OPT|OP|PE|TFG|TFM)\b", line) and not re.search(r"\b\d+\s*$", line):
+            if len(line) > 3 and not any(term in l_low for term in BOE_SPURIOUS_MARKERS):
+                current_modulo = line.rstrip(".")
+                continue
+                
+        m = re_pattern.match(line)
+        if m:
+            prefix_mod = m.group("mod")
+            if prefix_mod and len(prefix_mod) > 3:
+                row_modulo = prefix_mod.strip()
+            else:
+                row_modulo = current_modulo
+                
+            s_name = m.group("name").strip().rstrip(".")
+            s_car = m.group("car").upper()
+            s_ects = m.group("ects").replace(",", ".")
+            
+            # Filtros estrictos anti-ruido
+            if len(s_name) < 3 or any(term in s_name.lower() for term in BOE_SPURIOUS_MARKERS):
+                continue
+            if s_name.lower() in seen_names:
+                continue
+            seen_names.add(s_name.lower())
+            
+            car = classify_subject_caracter(s_car, default="OB")
+                
+            extracted.append({
+                "modulo": row_modulo,
+                "materia": row_modulo,
+                "nombre_elemento": s_name,
+                "creditos": s_ects,
+                "creditos_ects": s_ects,
+                "tipo": car,
+                "caracter": car,
+                "curso": "",
+                "cuatrimestre": ""
+            })
+            
+    is_grado = "grado" in (degree_title or "").lower()
+    return {
+        "resumen_creditos": {"Créditos Totales": str(GRADO_STANDARD_ECTS if is_grado else MASTER_MIN_ECTS)},
+        "total_elementos": len(extracted),
+        "elementos_curriculares": extracted
+    }
+
+
 def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> dict:
+
     """
     Extracts METICULOUS curriculum data (resumen creditos, asignaturas, modulos, materias, 
     unidades formativas, bloques, ECTS, carácter, curso, cuatrimestre) from a BOE PDF.
@@ -1315,7 +1434,15 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
     except Exception as e:
         print(f"   [AVISO] pdfplumber table extraction fallback: {e}")
 
-    # Fallback: Text-stream regex parser for PDFs without standard table grid borders
+    # Fallback: Dynamic schema text parser for RD 822/2021 & unstructured text BOEs without vector table borders
+    if len(elementos_curriculares) == 0 and full_text:
+        dyn_res = parse_boe_text_curriculum_dynamic(full_text, target_title, "")
+        if dyn_res and len(dyn_res.get("elementos_curriculares", [])) > 0:
+            elementos_curriculares = dyn_res["elementos_curriculares"]
+            if not resumen_creditos and dyn_res.get("resumen_creditos"):
+                resumen_creditos = dyn_res["resumen_creditos"]
+
+    # Fallback secondary: Text-stream regex parser for older unbordered PDF layouts
     if len(elementos_curriculares) == 0 and full_text:
         lines = full_text.splitlines()
         for line in lines:
@@ -1358,6 +1485,7 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                         })
                 except ValueError:
                     pass
+
 
     return {
         "resumen_creditos": resumen_creditos,

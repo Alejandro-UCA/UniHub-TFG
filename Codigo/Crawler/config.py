@@ -234,3 +234,28 @@ SQLITE_CONNECT_TIMEOUT = float(os.getenv("CRAWLER_SQLITE_TIMEOUT", 30.0))       
 # ==============================================================================
 WIKIPEDIA_API_URL = os.getenv("CRAWLER_WIKIPEDIA_API_URL", "https://es.wikipedia.org/w/api.php")
 WIKIDATA_API_URL = os.getenv("CRAWLER_WIKIDATA_API_URL", "https://www.wikidata.org/w/api.php")
+
+# ==============================================================================
+# 11. INFERENCIA DINÁMICA DE ESQUEMAS EN PDFs DE RESOLUCIONES BOE (RD 822/2021)
+# ==============================================================================
+BOE_SCHEMA_CONCEPT_VOCABULARY = {
+    "modulo": ["modulo", "módulo", "modul", "mòdul"],
+    "materia": ["materia", "materias"],
+    "asignatura": [
+        "asignatura", "asignaturas", "denominación", "denominacion",
+        "nombre", "actividad", "assignatura", "irakasgaia"
+    ],
+    "tipo": ["tipo", "carácter", "caracter", "tipus", "mota", "modalidad"],
+    "creditos": ["créditos", "creditos", "crèdits", "credits", "ects", "kredituak"],
+    "curso": ["curso", "curs", "año", "ano", "maila"],
+    "semestre": ["semestre", "cuatrimestre", "quadrimestre", "lauhilekoa", "organización temporal", "organizacion temporal"],
+    "especialidad": ["especialidad", "mención", "mencion", "itinerario"]
+}
+
+BOE_SPURIOUS_MARKERS = [
+    "boletín oficial del estado", "boletin oficial", "cve: boe-", "el rector", "la rectora",
+    "el decano", "la decana", "el secretario", "la secretaria", "doy fe", "ante mí",
+    "distribución de créditos", "total de créditos", "rama de conocimiento", "ámbito de conocimiento",
+    "centro de impartición", "menciones: no tiene", "condiciones de terminación"
+]
+

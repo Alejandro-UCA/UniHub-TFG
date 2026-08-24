@@ -52,7 +52,8 @@ from config import (
     HEADER_KEYWORDS,
     INVALID_SUBJECT_KEYWORDS,
     TITLE_STOPWORDS,
-    CV_EXCLUSION_MARKERS
+    CV_EXCLUSION_MARKERS,
+    NON_OFFICIAL_COURSE_MARKERS
 )
 from downloader import RUCTDownloader
 from error_logger import ErrorLogger
@@ -318,19 +319,29 @@ def build_html_curriculum_payload(elementos_html: list, degree_title: str) -> di
     }
 
 
+RE_LEVEL_GRADO = re.compile(r"\b(?:grado|grados|graduado|graduada|graduados|graduadas|grau|graus|grao|graos|gradua|graduak|bachelor|undergraduate|llistat-de-graus|estudis-de-grau)\b", re.IGNORECASE)
+RE_LEVEL_MASTER_DOC = re.compile(r"\b(?:master|masters|máster|másteres|màster|màsters|masterra|masterrak|postgrado|posgrado|postgrau|posgrao|postgraduate|doctor|doctorado|doctorados|doctorat|doctorats|doutoramento|doktoregoa)\b", re.IGNORECASE)
+
+
 def is_html_page_matching_degree(soup: BeautifulSoup, target_title: str, univ_name: str, page_url: str = "") -> bool:
     """
     Verifica que la página HTML pertenezca realmente a la titulación objetivo y no a otra titulación distinta.
-    Comprueba <title>, <h1>, <h2>, <h3>, meta tags y la propia URL para evitar colisiones cruzadas.
+    Comprueba:
+    1. Que no sea una subpágina de cursos de extensión, títulos propios o formularios no oficiales.
+    2. Consistencia estricta de Nivel Académico (evita que un Grado absorba un Máster/Postgrado de la misma temática).
+    3. Validación semántica del núcleo temático con lematización multilingüe.
     """
     if not target_title or not soup:
         return False
 
-    target_kw = extract_degree_core_keywords(target_title, univ_name)
-    if not target_kw:
-        return True
+    target_low = target_title.lower()
+    url_low = (page_url or "").lower()
 
-    # Extraer encabezados y título de la página
+    # 1. Descartar cursos de extensión, títulos propios no oficiales y formularios administrativos
+    if any(m in url_low for m in NON_OFFICIAL_COURSE_MARKERS):
+        return False
+
+    # 2. Extraer encabezados y título de la página
     page_texts = []
     if soup.title and soup.title.string:
         page_texts.append(soup.title.string)
@@ -348,11 +359,28 @@ def is_html_page_matching_degree(soup: BeautifulSoup, target_title: str, univ_na
             page_texts.append(meta["content"])
 
     if page_url:
-        page_texts.append(page_url)
+        page_texts.append(page_url.replace("/", " ").replace("-", " ").replace("_", " "))
 
-    combined_page_header = " ".join(page_texts)
+    combined_page_header = " ".join(page_texts).lower()
+
+    # 3. Validación de consistencia de Nivel Académico (Grado vs Máster/Postgrado vs Doctorado)
+    is_target_grado = bool(RE_LEVEL_GRADO.search(target_low))
+    is_target_master = bool(RE_LEVEL_MASTER_DOC.search(target_low))
+    
+    is_page_grado = bool(RE_LEVEL_GRADO.search(combined_page_header))
+    is_page_master_doc = bool(RE_LEVEL_MASTER_DOC.search(combined_page_header))
+
+    if is_target_grado and not is_page_grado and is_page_master_doc:
+        return False
+    if is_target_master and not is_page_master_doc and is_page_grado:
+        return False
+
+    # 4. Validación semántica del núcleo temático
+    target_kw = extract_degree_core_keywords(target_title, univ_name)
+    if not target_kw:
+        return True
+
     page_kw = extract_degree_core_keywords(combined_page_header, univ_name)
-
     if not page_kw:
         return False
 

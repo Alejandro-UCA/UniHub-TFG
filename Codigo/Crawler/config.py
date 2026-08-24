@@ -391,3 +391,9 @@ PREAMBLE_REJECTION_PATTERNS = [
     r"siguientes\s+planes"
 ]
 
+# Marcadores para excluir cursos de extensión, títulos propios no oficiales y formularios administrativos
+NON_OFFICIAL_COURSE_MARKERS = [
+    "extension-universitaria", "cursos-extension", "precios-publicos", 
+    "formacion-continua", "titulos-propios", "diploma-extension", "master-propio"
+]
+

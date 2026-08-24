@@ -63,6 +63,8 @@ from parsers import (
     compute_curriculum_total_ects,
     get_required_degree_credits,
     is_doctorate_program,
+    extract_degree_core_keywords,
+    is_section_matching,
     RE_SUMMARY_LABEL
 )
 
@@ -350,6 +352,47 @@ def build_html_curriculum_payload(elementos_html: list, degree_title: str) -> di
         "total_elementos": len(elementos_html),
         "elementos_curriculares": elementos_html
     }
+
+
+def is_html_page_matching_degree(soup: BeautifulSoup, target_title: str, univ_name: str, page_url: str = "") -> bool:
+    """
+    Verifica que la página HTML pertenezca realmente a la titulación objetivo y no a otra titulación distinta.
+    Comprueba <title>, <h1>, <h2>, <h3>, meta tags y la propia URL para evitar colisiones cruzadas.
+    """
+    if not target_title or not soup:
+        return False
+
+    target_kw = extract_degree_core_keywords(target_title, univ_name)
+    if not target_kw:
+        return True
+
+    # Extraer encabezados y título de la página
+    page_texts = []
+    if soup.title and soup.title.string:
+        page_texts.append(soup.title.string)
+
+    for h in soup.find_all(["h1", "h2", "h3"]):
+        h_text = h.get_text(separator=" ", strip=True)
+        if h_text and len(h_text) > 3:
+            page_texts.append(h_text)
+
+    for meta in soup.find_all("meta", attrs={"property": "og:title"}):
+        if meta.get("content"):
+            page_texts.append(meta["content"])
+    for meta in soup.find_all("meta", attrs={"name": "title"}):
+        if meta.get("content"):
+            page_texts.append(meta["content"])
+
+    if page_url:
+        page_texts.append(page_url)
+
+    combined_page_header = " ".join(page_texts)
+    page_kw = extract_degree_core_keywords(combined_page_header, univ_name)
+
+    if not page_kw:
+        return False
+
+    return is_section_matching(page_kw, target_kw)
 
 
 def is_valid_web_url(href) -> bool:
@@ -1069,7 +1112,7 @@ class UniversityWebCrawler:
                         if sub_html:
                             sub_soup = BeautifulSoup(sub_html, "html.parser")
                             elementos_html = extract_html_subjects(sub_soup)
-                            if len(elementos_html) >= 3:
+                            if len(elementos_html) >= 3 and is_html_page_matching_degree(sub_soup, d_title, u_name, existing_direct_url):
                                 found_curriculum = build_html_curriculum_payload(elementos_html, d_title)
                                 direct_source_url = existing_direct_url
                                 print(f"     -> [ÉXITO FAST-PATH] Encontradas {len(elementos_html)} asignaturas en URL previa: {existing_direct_url}")
@@ -1084,7 +1127,15 @@ class UniversityWebCrawler:
 
             # ESTRATEGIA 1: Escaneo priorizado de URLs obtenidas del Sitemap XML
             if not found_curriculum and sitemap_urls:
-                sitemap_matches = [url for url in sitemap_urls if any(kw.lower() in url.lower() for kw in title_keywords)]
+                sitemap_scored = []
+                for url in sitemap_urls:
+                    url_low = url.lower()
+                    kw_matches = sum(1 for kw in title_keywords if len(kw) >= 3 and kw.lower() in url_low)
+                    if kw_matches >= min(2, len(title_keywords)) or (len(title_keywords) == 1 and kw_matches >= 1):
+                        sitemap_scored.append((kw_matches, url))
+                sitemap_scored.sort(key=lambda x: x[0], reverse=True)
+                sitemap_matches = [u for _, u in sitemap_scored]
+
                 for sm_candidate_url in sitemap_matches[:5]:
                     if found_curriculum:
                         break
@@ -1101,7 +1152,7 @@ class UniversityWebCrawler:
                             sub_html = downloader.fetch_text(sm_candidate_url)
                             sub_soup = BeautifulSoup(sub_html, "html.parser")
                             elementos_html = extract_html_subjects(sub_soup)
-                            if len(elementos_html) >= 3:
+                            if len(elementos_html) >= 3 and is_html_page_matching_degree(sub_soup, d_title, u_name, sm_candidate_url):
                                 found_curriculum = build_html_curriculum_payload(elementos_html, d_title)
                                 direct_source_url = sm_candidate_url
                                 print(f"     -> Encontradas asignaturas HTML válidas desde Sitemap XML: {sm_candidate_url}")
@@ -1174,7 +1225,7 @@ class UniversityWebCrawler:
                                     except Exception:
                                         pass
                                 
-                                if len(c_elementos) >= 3 and not found_curriculum:
+                                if len(c_elementos) >= 3 and not found_curriculum and is_html_page_matching_degree(c_soup, d_title, u_name, cat_url):
                                     found_curriculum = build_html_curriculum_payload(c_elementos, d_title)
                                     direct_source_url = cat_url
                                     print(f"     -> [Hub-and-Spoke] Encontradas {len(c_elementos)} asignaturas HTML: {cat_url}")
@@ -1271,7 +1322,7 @@ class UniversityWebCrawler:
                                             html_content = downloader.fetch_text(html_fallback_url)
                                             html_soup = BeautifulSoup(html_content, "html.parser")
                                             elementos_html = extract_html_subjects(html_soup)
-                                            if len(elementos_html) >= 3:
+                                            if len(elementos_html) >= 3 and is_html_page_matching_degree(html_soup, d_title, u_name, html_fallback_url):
                                                 found_curriculum = build_html_curriculum_payload(elementos_html, d_title)
                                                 direct_source_url = html_fallback_url
                                                 break
@@ -1412,7 +1463,7 @@ class UniversityWebCrawler:
                                                         except Exception:
                                                             pass
 
-                                            if not found_curriculum and (len(elementos_html) >= 3 or extracted_pricing):
+                                            if not found_curriculum and ((len(elementos_html) >= 3 and is_html_page_matching_degree(target_soup, d_title, u_name, target_link)) or extracted_pricing):
                                                 found_curriculum = build_html_curriculum_payload(elementos_html, d_title)
                                                 if extracted_pricing.get("precio_credito_ects"):
                                                     found_curriculum["precio_credito_ects"] = extracted_pricing["precio_credito_ects"]
@@ -1473,7 +1524,7 @@ class UniversityWebCrawler:
                                         c_html = downloader.fetch_text(c_u)
                                         c_soup = BeautifulSoup(c_html, "html.parser")
                                         c_elems = extract_html_subjects(c_soup)
-                                        if len(c_elems) >= 3:
+                                        if len(c_elems) >= 3 and is_html_page_matching_degree(c_soup, d_title, u_name, c_u):
                                             found_curriculum = build_html_curriculum_payload(c_elems, d_title)
                                             direct_source_url = c_u
                                             found_curriculum["centro_adscrito"] = matched_hub_name

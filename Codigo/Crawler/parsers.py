@@ -91,19 +91,25 @@ RE_SUMMARY_LABEL = re.compile(
 def is_section_matching(sec_kw: set, target_kw: set) -> bool:
     """
     Evalúa si un conjunto de palabras clave de sección corresponde a la titulación objetivo.
+    Soporta coincidencia léxica directa y lematización/raíces de lenguas cooficiales (CA/GL/EU/EN).
     Requiere al menos 50% de coincidencia léxica o 2 términos coincidentes para evitar colisiones.
     """
     if not sec_kw or not target_kw:
         return False
     intersection = target_kw.intersection(sec_kw)
-    if not intersection:
-        return False
-    score = len(intersection) / len(target_kw)
+    if len(intersection) >= 2 or (len(target_kw) <= 2 and len(intersection) >= 1 and len(intersection) / len(target_kw) >= 0.5):
+        return True
+
+    # Coincidencia por raíz léxica (stemming 5 chars) para variantes en lenguas cooficiales
+    target_stems = {w[:5] if len(w) >= 5 else w for w in target_kw}
+    sec_stems = {w[:5] if len(w) >= 5 else w for w in sec_kw}
+    stem_intersection = target_stems.intersection(sec_stems)
+
     if len(target_kw) == 1:
-        return len(intersection) == 1
+        return len(stem_intersection) >= 1
     if len(target_kw) == 2:
-        return len(intersection) >= 1 and score >= 0.5
-    return len(intersection) >= 2 or score >= 0.5
+        return len(stem_intersection) >= 1 and (len(stem_intersection) / len(target_kw) >= 0.5)
+    return len(stem_intersection) >= 2 or (len(stem_intersection) / len(target_kw) >= 0.5)
 
 def is_doctorate_program(nivel: str = "", titulo: str = "") -> bool:
     """Determina de forma unificada si una titulación corresponde a un programa oficial de doctorado (RD 99/2011)."""

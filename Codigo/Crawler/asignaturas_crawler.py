@@ -327,6 +327,7 @@ def run_phase1_part4(max_workers: int = 4, limit_univ: int = None, limit_degrees
     cached_hits = 0
     enriched_degrees = 0
     start_time = time.time()
+    seen_univs = set()
 
     for idx, p_path in enumerate(plan_files, 1):
         if limit_degrees and idx > limit_degrees:
@@ -342,6 +343,12 @@ def run_phase1_part4(max_workers: int = 4, limit_univ: int = None, limit_degrees
         d_title = data.get("titulo", "")
         u_code = data.get("universidad_codigo", "")
         u_name = data.get("universidad_nombre", "")
+
+        if limit_univ and len(seen_univs) >= limit_univ and u_code not in seen_univs:
+            continue
+        if u_code:
+            seen_univs.add(u_code)
+
         plan = data.get("plan_estudios", {})
         elementos = plan.get("elementos_curriculares", [])
 

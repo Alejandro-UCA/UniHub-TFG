@@ -58,13 +58,14 @@ SPANISH_STOP_WORDS = {
 }
 
 RE_DEGREE_SECTION_MARKERS = [
-    # 1. ANEXO I, ANEXO II, etc.
-    re.compile(r"(?:ANEXO\s+[I|V|X\d]+|ANEXO\b)\s*[:\.\-–—]?\s*([^\n\r\(\)]+(?:\n[^\n\r\(\)]+)?)", re.IGNORECASE),
-    # 2. Plan de estudios conducente al/del título oficial de... / Título oficial de...
-    re.compile(r"(?:plan de estudios (?:conducentes?\s+)?(?:a\s+la\s+obtenci[oó]n\s+)?(?:del|al)\s+t[ií]tulo\s+(?:oficial\s+)?de\s*:?|(?:el\s+)?t[ií]tulo\s+(?:oficial\s+)?de\s*:?|denominaci[oó]n\s+del\s+t[ií]tulo\s*:?)\s*([^\n\r\(\)]+(?:\n[^\n\r\(\)]+)?)", re.IGNORECASE),
-    # 3. Numbered or direct degree headings: Graduado o Graduada en..., Máster Universitario en..., Grau en...
-    re.compile(r"(?:^|\n)\s*(?:\d+[\.\)]\s*)?(?:Plan de Estudios por Asignaturas\s*:\s*)?(?:(?:El\s+)?T[ií]tulo\s+de\s+)?(?:Grado|Graduado(?:\s*[\/\(]a[\/\)]|\s+o\s+Graduada)?|Graduada|M[aá]ster(?:\s+Universitario)?|Master|Doctorado|Bachelor|Grau)\s+(?:en|in|de|d'|del)\s+([A-ZÁÉÍÓÚÑ][^\n\r\(\)]{3,80}(?:\n[^\n\r\(\)]{3,80})?)", re.IGNORECASE)
+    # 1. ANEXO I, ANEXO II (MODIFICACIÓN), etc.
+    re.compile(r"(?:ANEXO\s+[IVX\d]+|ANEXO\b)\s*(?:\([^\)]+\))?\s*[:\.\-–—]?\s*(?:T[ií]tulo\s*:?\s*)?([^\n\r]+(?:\n[^\n\r]+)?)", re.IGNORECASE),
+    # 2. Plan de estudios conducente al/del título oficial de... / Título: Máster Universitario en...
+    re.compile(r"(?:plan de estudios (?:conducentes?\s+)?(?:a\s+la\s+obtenci[oó]n\s+)?(?:del|al)\s+t[ií]tulo\s+(?:oficial\s+)?de\s*:?|(?:el\s+)?t[ií]tulo\s*(?:\([^\)]+\))?\s*:?\s*|denominaci[oó]n\s+del\s+t[ií]tulo\s*:?)\s*([^\n\r]+(?:\n[^\n\r]+)?)", re.IGNORECASE),
+    # 3. Direct degree headings: Graduado o Graduada en..., Máster Universitario en..., Grau en...
+    re.compile(r"(?:^|\n)\s*(?:\d+[\.\)]\s*)?(?:Plan de Estudios por Asignaturas\s*:\s*)?(?:(?:El\s+)?T[ií]tulo\s+de\s+)?(?:Grado|Graduado(?:\s*[\/\(]a[\/\)]|\s+o\s+Graduada)?|Graduada|M[aá]ster(?:\s+Universitario)?|Master|Doctorado|Bachelor|Grau)\s+(?:en|in|de|d'|del)\s+([A-ZÁÉÍÓÚÑ][^\n\r]{3,120}(?:\n[^\n\r]{3,120})?)", re.IGNORECASE)
 ]
+
 
 RE_PREAMBLE_REJECTION = re.compile(r"^(?:resoluci[oó]n|acuerdo|orden|decreto|de\s+conformidad|visto\s+el)\b", re.IGNORECASE)
 RE_HEADER_GARBAGE = re.compile(r"^(?:(?:FB|OB|OP|PE|TFG|TFM|B|O)\s*)+$", re.IGNORECASE)

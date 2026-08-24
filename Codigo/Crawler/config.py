@@ -171,11 +171,6 @@ ACADEMIC_SUBPAGE_KEYWORDS = [
     "estructura", "curriculum", "syllabus", "irakasgaiak", "ikasketa-plana"
 ]
 
-# Variantes de subpestaña o sufijo para fichas de titulaciones universitarias
-DEGREE_SUBPAGE_TAB_VARIANTS = [
-    "?subjects", "?assignatures", "-plan", "/plan-de-estudios", "/pla-estudis",
-    "?tab=plan", "?p_vista=P", "/asignaturas", "/pages/docencia/guias_docentes"
-]
 
 
 # Metadatos de ficha administrativa a descartar para evitar confusión con asignaturas (Multilingüe: ES, CA, GL, EU)

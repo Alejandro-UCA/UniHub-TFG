@@ -39,8 +39,8 @@ from config import (
     HUB_ACADEMIC_KEYWORDS,
     MEMORIA_VERIFICADA_KEYWORDS,
     ACADEMIC_SUBPAGE_KEYWORDS,
-    DEGREE_SUBPAGE_TAB_VARIANTS,
     INVALID_METADATA_LABELS,
+
 
     MAX_ORGANIC_AFFILIATED_HUBS_PER_UNIV,
     ORGANIC_AFFILIATED_HUB_KEYWORDS,
@@ -1282,8 +1282,9 @@ class UniversityWebCrawler:
                                             target_soup = BeautifulSoup(target_html, "html.parser")
                                             elementos_html = extract_html_subjects(target_soup)
 
-                                            # Paso 0.5: Si HTML estático tiene < 3 asignaturas:
-                                            # 1. Extraer dinámicamente cualquier subpágina enlazada en la propia ficha (<a> tags con texto o href de plan docente)
+                                            # Paso 0.5: Si HTML estático de la ficha tiene < 3 asignaturas,
+                                            # explorar dinámicamente cualquier subpágina enlazada en el DOM de la ficha (<a> tags)
+                                            # cuyo texto o href apunte a asignaturas, guías, plan de estudios o docencia.
                                             req_ects = get_required_degree_credits(d_level, d_title)
                                             if len(elementos_html) < 3:
                                                 discovered_subpages = []
@@ -1300,7 +1301,7 @@ class UniversityWebCrawler:
                                                             seen_sub_urls.add(full_sub_url)
                                                             discovered_subpages.append(full_sub_url)
 
-                                                for sub_p_url in discovered_subpages[:5]:
+                                                for sub_p_url in discovered_subpages[:6]:
                                                     try:
                                                         sub_p_html = downloader.fetch_text(sub_p_url)
                                                         if sub_p_html:
@@ -1315,23 +1316,6 @@ class UniversityWebCrawler:
                                                     except Exception:
                                                         pass
 
-                                            # 2. Si no hay enlaces directos, explorar variantes de subpestañas por parámetros CMS (?subjects, -plan, etc.)
-                                            if len(elementos_html) < 3 and not any(q in target_link for q in ["?", "#"]):
-                                                for tab_var in DEGREE_SUBPAGE_TAB_VARIANTS:
-                                                    tab_url = target_link.rstrip("/") + tab_var if tab_var.startswith("?") or tab_var.startswith("-") or tab_var.startswith("/") else target_link + "/" + tab_var
-                                                    try:
-                                                        tab_html = downloader.fetch_text(tab_url)
-                                                        if tab_html:
-                                                            tab_soup = BeautifulSoup(tab_html, "html.parser")
-                                                            tab_elems = extract_html_subjects(tab_soup)
-                                                            if len(tab_elems) >= 3:
-                                                                elementos_html = tab_elems
-                                                                target_soup = tab_soup
-                                                                target_html = tab_html
-                                                                target_link = tab_url
-                                                                break
-                                                    except Exception:
-                                                        pass
 
 
                                             # Paso 1: Si tras variantes sigue teniendo < 3 asignaturas (contenedor SPA vacío JS), renderizar con Playwright

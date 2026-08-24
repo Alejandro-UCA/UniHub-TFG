@@ -5,7 +5,8 @@ import os
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'Crawler')))
 from univ_web_crawler import extract_html_subjects, is_valid_curricular_table
-from config import DEGREE_SUBPAGE_TAB_VARIANTS, INVALID_METADATA_LABELS
+from config import ACADEMIC_SUBPAGE_KEYWORDS, INVALID_METADATA_LABELS
+
 
 
 class TestHeaderAndTabVariants(unittest.TestCase):
@@ -127,13 +128,15 @@ class TestHeaderAndTabVariants(unittest.TestCase):
         self.assertNotIn("Places de nou ingrés", names)
         self.assertEqual(len(elems), 3)
 
-    def test_config_tab_variants_present(self):
-        """Verifica que DEGREE_SUBPAGE_TAB_VARIANTS esté correctamente configurado en config.py."""
-        self.assertTrue(len(DEGREE_SUBPAGE_TAB_VARIANTS) >= 5)
-        self.assertIn("?subjects", DEGREE_SUBPAGE_TAB_VARIANTS)
-        self.assertIn("-plan", DEGREE_SUBPAGE_TAB_VARIANTS)
-        self.assertIn("?assignatures", DEGREE_SUBPAGE_TAB_VARIANTS)
+    def test_academic_subpage_keywords_present(self):
+        """Verifica que ACADEMIC_SUBPAGE_KEYWORDS esté correctamente configurado en config.py."""
+        self.assertTrue(len(ACADEMIC_SUBPAGE_KEYWORDS) >= 5)
+        self.assertIn("plan de estudios", ACADEMIC_SUBPAGE_KEYWORDS)
+        self.assertIn("pla d'estudis", ACADEMIC_SUBPAGE_KEYWORDS)
+        self.assertIn("asignaturas", ACADEMIC_SUBPAGE_KEYWORDS)
+        self.assertIn("subjects", ACADEMIC_SUBPAGE_KEYWORDS)
 
 
 if __name__ == "__main__":
     unittest.main()
+

@@ -665,6 +665,15 @@ class UniversityWebCrawler:
 
     def _try_parse_candidate_pdf(self, downloader: RUCTDownloader, pdf_url: str, d_code: str, d_title: str, u_name: str) -> dict | None:
         """Descarga, analiza con parse_boe_pdf y limpia con seguridad el archivo PDF temporal."""
+        pdf_url_low = pdf_url.lower()
+        # Rechazar explícitamente PDFs de plantillas de Curriculum Vitae (CVN), formularios de profesorado o listados de proyectos de tesis
+        if any(bad in pdf_url_low for bad in [
+            "curriculum_modelo", "curriculum_vitae", "curriculum-vitae", "cv_normalizado", 
+            "cvn", "modelo_normalizado", "curriculum_normalizado", "proyectos_", "proyectos-grupo",
+            "proyecto_tesis", "lineas_investigacion", "modelo_cv", "cv_form"
+        ]):
+            return None
+
         temp_pdf = os.path.join(TEMP_PDF_DIR, f"web_{d_code}.pdf")
         try:
             downloader.download_file(pdf_url, temp_pdf, is_pdf=True)

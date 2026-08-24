@@ -231,7 +231,7 @@ def score_academic_candidate_url(url: str, link_text: str, academic_level: str, 
 
 def is_valid_curricular_table(table_tag) -> bool:
     """Verifica que una tabla HTML sea verdaderamente curricular y no un formulario de búsqueda, escala de notas, tabla de cookies ni baremo administrativo de convalidaciones (Multilingüe)."""
-    if table_tag.find(["input", "select", "textarea"]):
+    if table_tag.find(["input", "select", "textarea", "button", "form"]):
         return False
     txt = table_tag.get_text(separator=" ", strip=True).lower()
     
@@ -251,7 +251,9 @@ def is_valid_curricular_table(table_tag) -> bool:
         # Formación a medida / Convenios de empresas
         "formación a medida", "formacion a medida", "empresa / institución", "empresa / institucion", "entidad colaboradora",
         # Mínors y microcredenciales (si no es el grado oficial)
-        "oferta de minors", "plan de estudios del mínor"
+        "oferta de minors", "plan de estudios del mínor",
+        # Horarios y calendarios de exámenes
+        "horario de clases", "horari de classes", "calendario de exámenes", "calendari d'exàmens"
     ]
     if any(m in txt for m in discard_markers):
         return False

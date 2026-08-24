@@ -22,7 +22,8 @@ from config import (
     BOE_SPURIOUS_MARKERS,
     SPANISH_STOP_WORDS,
     REVERSED_SPANISH_MARKERS,
-    PREAMBLE_REJECTION_PATTERNS
+    PREAMBLE_REJECTION_PATTERNS,
+    INVALID_SUBJECT_KEYWORDS
 )
 
 from downloader import normalize_url
@@ -957,6 +958,10 @@ def is_spurious_or_administrative_subject(name: str, ects_val: float = 6.0, cara
         
     name_low = name_clean.lower()
     
+    # 0. Descarte inmediato por lista unificada de palabras clave prohibidas (días, horarios, notas, trámites)
+    if any(sk in name_low for sk in INVALID_SUBJECT_KEYWORDS):
+        return True
+
     # 1. Regla de créditos máximos para asignaturas estándar (<= 12 ECTS en FB/OB/OP)
     if ects_val > 30.0:
         return True
@@ -976,7 +981,8 @@ def is_spurious_or_administrative_subject(name: str, ects_val: float = 6.0, cara
         "a elegir entre", "al menos", "uno de los siguientes", "una de las siguientes",
         "oferta de optativas", "tabla de equivalencia", "reconocimiento de creditos",
         "reconocimiento de créditos", "artículo 12.8", "articulo 12.8", "normativa de",
-        "condiciones de terminación", "condiciones de terminacion", "total créditos", "total creditos"
+        "condiciones de terminación", "condiciones de terminacion", "total créditos", "total creditos",
+        "requisito de graduación", "requisito de graduacion"
     ]):
         return True
         
@@ -990,8 +996,12 @@ def is_spurious_or_administrative_subject(name: str, ects_val: float = 6.0, cara
     if re.match(r"^(?:grado|graduado|graduada|m[aá]ster|doctorado|programa\s+de\s+doctorado)\s+en\b", name_low):
         return True
         
-    # 6. Órganos universitarios o fórmulas de firma
-    if re.match(r"^(?:el\s+rector|la\s+rectora|el\s+secretario|la\s+secretaria|facultad\s+de|escuela\s+de|campus\s+de|centro\s+de)\b", name_low):
+    # 6. Órganos universitarios, departamentos, áreas o fórmulas de firma
+    if re.match(r"^(?:el\s+rector|la\s+rectora|el\s+secretario|la\s+secretaria|facultad\s+de|escuela\s+de|campus\s+de|centro\s+de|departamento\s+de|departament\s+de|secci[oó]n\s+departamental|instituto\s+universitario|[aá]rea\s+de\s+conocimiento)\b", name_low):
+        return True
+
+    # 6.5. Requisitos lingüísticos de egreso, horarios y atención a estudiantes
+    if re.match(r"^(?:acreditaci[oó]n\s+de|requisito\s+de|competencia\s+en\s+lengua|prueba\s+de\s+nivel|exigencia\s+de\s+idioma|nivel\s+[abc][12]|horario\s+de|tutor[ií]as?|atenci[oó]n\s+(?:a\s+)?alumnos?|turno\s+de)\b", name_low):
         return True
         
     # 7. Marcadores legales o boletines oficiales
@@ -1540,13 +1550,13 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
 
                 try:
                     cred_float = float(cred_val)
-                    if RE_SUMMARY_LABEL.match(subj_name) or (cred_float > 12.0 and car_str not in ["TFG", "TFM", "PE", "PEX"]):
-                        resumen_creditos[subj_name] = str(cred_val)
+                    final_car = classify_subject_caracter(car_str, default="OB")
+                    if is_spurious_or_administrative_subject(subj_name, ects_val=cred_float, caracter=final_car):
+                        if cred_float > 0 and subj_name and len(subj_name) > 2:
+                            resumen_creditos[subj_name] = str(cred_val)
                         continue
 
-                    if cred_float in [1, 1.5, 2, 3, 4, 4.5, 5, 6, 7.5, 8, 9, 10, 12]:
-
-                        final_car = classify_subject_caracter(car_str, default="OB")
+                    if cred_float in [1, 1.5, 2, 3, 4, 4.5, 5, 6, 7.5, 8, 9, 10, 12, 15, 18, 24, 30]:
                         elementos_curriculares.append({
                             "modulo": "",
                             "materia": "",

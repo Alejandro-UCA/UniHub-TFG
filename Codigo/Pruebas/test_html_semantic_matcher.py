@@ -123,5 +123,42 @@ class TestHTMLSemanticMatcher(unittest.TestCase):
         self.assertFalse(matched, "Should reject Fisica + Quimica when searching for Comunicacion Audiovisual")
 
 
+    def test_reject_teoria_politica_vs_asia_oriental(self):
+        """Rechaza Grado en Estudios de Asia Oriental cuando se busca Máster en Teoría Política."""
+        target_title = "Máster Universitario en Teoría Política y Cultura Democrática"
+        univ_name = "Universitat Autònoma de Barcelona"
+        page_url = "https://www.uab.cat/web/estudiar/llistat-de-graus/pla-d-estudis/pla-d-estudis-i-horaris/estudis-de-l-asia-oriental-1345467811493.html?param1=1223967776732"
+
+        html_asia = """
+        <html>
+        <head><title>Grau en Estudis de l'Àsia Oriental - UAB Barcelona</title></head>
+        <body><h1>Estudis de l'Àsia Oriental</h1></body>
+        </html>
+        """
+        soup_asia = BeautifulSoup(html_asia, "html.parser")
+        self.assertFalse(
+            is_html_page_matching_degree(soup_asia, target_title, univ_name, page_url),
+            "Debe rechazar Grado en Asia Oriental para Máster en Teoría Política"
+        )
+
+    def test_reject_ciencia_animal_vs_grado_fisica(self):
+        """Rechaza Grado en Física cuando se busca Máster en Ciencia Animal."""
+        target_title = "Máster Universitario en Investigación en Ciencia Animal y de la Tierra"
+        univ_name = "Universidad de Alicante"
+        page_url = "https://ciencias.ua.es/es/estudios/grados/fisica/modificacion-plan-de-estudios-grado-en-fisica.html"
+
+        html_fisica = """
+        <html>
+        <head><title>Modificación Plan de Estudios Grado en Física - Facultad de Ciencias</title></head>
+        <body><h1>Grado en Física</h1></body>
+        </html>
+        """
+        soup_fisica = BeautifulSoup(html_fisica, "html.parser")
+        self.assertFalse(
+            is_html_page_matching_degree(soup_fisica, target_title, univ_name, page_url),
+            "Debe rechazar Grado en Física para Máster en Ciencia Animal"
+        )
+
+
 if __name__ == "__main__":
     unittest.main()

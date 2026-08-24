@@ -980,6 +980,13 @@ class UniversityWebCrawler:
         missing_degrees = []
         for deg in active_degrees:
             d_code = deg.get("codigo_estudio", "")
+            d_title = deg.get("titulo", "")
+            d_level = deg.get("nivel_academico", "")
+
+            # Los programas de doctorado (RD 99/2011) no tienen asignaturas docentes regladas; consisten en investigación tutelada.
+            if is_doctorate_program(d_level, d_title):
+                continue
+
             plan_file = os.path.join(PLANES_DIR, f"{d_code}.json")
             
             needs_info = True

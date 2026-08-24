@@ -25,7 +25,9 @@ from config import (
     HTTP_POOL_MAXSIZE
 )
 
+import logging
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+logging.getLogger("urllib3").setLevel(logging.ERROR)
 
 def normalize_url(url: str, domain_mappings: dict = None) -> str:
     """Normalizes legacy domains, cleans malformed protocol prefixes, and upgrades HTTP to HTTPS for secure official portals."""

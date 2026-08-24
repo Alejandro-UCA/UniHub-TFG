@@ -2,12 +2,17 @@ import os
 import io
 import re
 import hashlib
+import logging
 import unicodedata
 from datetime import datetime
 import xlrd
 from bs4 import BeautifulSoup
 import pdfplumber
 import pypdf
+
+# Suprimir advertencias internas de bajo nivel de librerías PDF de terceros (pypdf/pdfminer)
+logging.getLogger("pypdf").setLevel(logging.ERROR)
+logging.getLogger("pdfminer").setLevel(logging.ERROR)
 from config import (
     GRADO_STANDARD_ECTS,
     MASTER_MIN_ECTS,

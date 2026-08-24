@@ -56,6 +56,8 @@ from checkpoint import CheckpointManager, atomic_json_dump, load_json_safe
 from parsers import (
     parse_boe_pdf,
     classify_subject_caracter,
+    sanitize_subject_name,
+    is_spurious_or_administrative_subject,
     is_curriculum_complete,
     get_curriculum_completeness_status,
     compute_curriculum_total_ects,
@@ -63,6 +65,7 @@ from parsers import (
     is_doctorate_program,
     RE_SUMMARY_LABEL
 )
+
 
 
 # Lista ampliada de palabras clave y sinónimos para portales académicos y planes de estudio (ES / CA / GL / EU / EN)
@@ -446,7 +449,7 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
             elif len(cols) > 0:
                 nombre_candidato = cols[0]
 
-            nombre_candidato = re.sub(r"\s+", " ", nombre_candidato).strip()
+            nombre_candidato = sanitize_subject_name(nombre_candidato)
             nombre_lower = nombre_candidato.lower()
 
             if (
@@ -455,14 +458,12 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
                 or any(sk in nombre_lower for sk in INVALID_SUBJECT_KEYWORDS)
                 or nombre_lower in INVALID_METADATA_LABELS
                 or any(lbl in nombre_lower for lbl in INVALID_METADATA_LABELS if len(lbl) > 6)
-                or RE_SUMMARY_LABEL.match(nombre_candidato.strip())
-                or not re.search(r"[a-zA-ZáéíóúñÁÉÍÓÚÑ]{3,}", nombre_candidato)
                 or len(nombre_candidato) > 150
             ):
                 continue
 
             # Normalizar nombre para deduplicación
-            norm_name = nombre_lower
+            norm_name = re.sub(r"[^\w\s]", "", nombre_lower).strip()
             if norm_name in seen_names:
                 continue
 
@@ -494,11 +495,6 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
                         except ValueError:
                             pass
 
-            # Si el crédito excede 30 ECTS (o > 12 ECTS sin ser TFG/Practicum), es una fila de resumen modular o materia agrupada, no una asignatura individual
-            if ects_val_num > 30.0 or (ects_val_num > 12.0 and not any(k in nombre_lower for k in ["trabajo", "tfg", "tfm", "practicum", "prácticas", "practicas", "tesis", "practiques", "practica"])):
-                continue
-
-
             # Buscar carácter
             caracter = "OB"
             if car_col != -1 and car_col < len(cols):
@@ -509,6 +505,10 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
                     if car:
                         caracter = car
                         break
+
+            # Validación unificada contra datos espurios, menciones y créditos ilegales
+            if is_spurious_or_administrative_subject(nombre_candidato, ects_val=ects_val_num, caracter=caracter):
+                continue
 
             # Buscar curso
             curso = ""
@@ -532,6 +532,7 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
             })
             seen_names.add(norm_name)
     return elementos
+
 
 
 def extract_private_university_pricing(soup: BeautifulSoup, page_text: str) -> dict:

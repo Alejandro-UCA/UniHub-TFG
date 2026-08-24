@@ -894,32 +894,122 @@ def normalize_curso(curso_raw: str, current_materia: str = "", ects_val: float =
 
 def sanitize_subject_name(raw_name: str) -> str:
     """
-    Limpia y normaliza el nombre de una asignatura:
-    1. Elimina texto invertido proveniente de matrices tipográficas.
-    2. Elimina puntos guía de índice y rellenos tipográficos ('......').
-    3. Separa códigos numéricos de secretaría de cabecera ('40147 - CÁLCULO I' -> 'CÁLCULO I').
-    4. Elimina espacios múltiples o caracteres invisibles (\u00a0, \u200b).
-    5. Elimina puntuación innecesaria al final (.,;:-).
+    Limpia y normaliza exhaustivamente el nombre de una asignatura:
+    1. Corrige artefactos de codificación UTF-8 rotos (Ã³, Ã¡, etc.).
+    2. Elimina texto invertido proveniente de matrices tipográficas.
+    3. Elimina caracteres invisibles y colapsa espacios/tabuladores/saltos de línea.
+    4. Elimina numeración ordinal inicial de fila de tabla ('1. ', '4. ', '14 - ', 'a) ', 'B. ').
+    5. Separa códigos numéricos o alfanuméricos de secretaría de cabecera ('40147 - CÁLCULO I' -> 'CÁLCULO I').
+    6. Elimina puntos guía de índice ('......').
+    7. Elimina llamadas a notas al pie finales (' *', ' **', ' (1)', ' [a]', ' †').
+    8. Elimina puntuación residual al inicio y al final (.,;:-_/*\\).
+    9. Elimina sufijos residuales de carácter pegados ('Gestión. OB' -> 'Gestión').
     """
     if not raw_name:
         return ""
-    name = unreverse_text(raw_name.strip())
     
-    # Eliminar caracteres invisibles y colapsar espacios múltiples
-    name = re.sub(r"[\u00a0\u200b\t]+", " ", name)
+    # 1. Corrección de distorsiones UTF-8
+    name = str(raw_name).strip()
+    name = (name.replace("Ã³", "ó").replace("Ã¡", "á").replace("Ã©", "é")
+                .replace("Ã­", "í").replace("Ãº", "ú").replace("Ã±", "ñ")
+                .replace("Ã", "í"))
+    
+    # 2. Desinvertir si viene de matriz tipográfica inversa
+    name = unreverse_text(name)
+    
+    # 3. Eliminar caracteres invisibles y colapsar espacios/tabuladores/saltos de línea
+    name = re.sub(r"[\u00a0\u200b\r\n\t]+", " ", name)
     name = re.sub(r"\s+", " ", name).strip()
     
-    # Eliminar puntos guía de índice al final o en el cuerpo ('......')
+    # 4. Eliminar numeración ordinal inicial de fila de tabla (ej: '4. Gestión de la Innovación' -> 'Gestión de la Innovación')
+    name = re.sub(r"^(?:\d{1,3}[\.\-\)]|[a-zA-Z][\.\)])\s+", "", name).strip()
+    
+    # 5. Separar códigos numéricos o alfanuméricos de secretaría iniciales (ej: '40147 - CÁLCULO I' -> 'CÁLCULO I')
+    m_code = re.match(r"^(?:\d{4,6}|[A-Z]{1,3}\d{3,5})\s*[-–—:]\s*(.+)$", name)
+    if m_code:
+        name = m_code.group(1).strip()
+        
+    # 6. Eliminar puntos guía de índice ('......')
     name = re.sub(r"\s*\.{2,}\s*", " ", name).strip()
     
-    # Separar códigos numéricos de secretaría iniciales (ej: '40147 - CÁLCULO I' -> 'CÁLCULO I')
-    m_code = re.match(r"^(\d{4,6}|[A-Z]\d{3,4})\s*[-–—]\s*(.+)$", name)
-    if m_code:
-        name = m_code.group(2).strip()
+    # 7. Eliminar llamadas a notas al pie al final (ej: ' *', ' **', ' (1)', ' (2)', ' [a]', ' †')
+    name = re.sub(r"\s*(?:[\*\†\#\^\~]+|\(\d{1,2}\)|\[[a-zA-Z\d]\])\s*$", "", name).strip()
+    
+    # 8. Eliminar puntuación residual al inicio y al final
+    name = re.sub(r"^[\(\[\*\-\.\,\;\:\/\\_]+", "", name).strip()
+    name = re.sub(r"[\*\-\.\,\;\:\/\\_]+$", "", name).strip()
+    
+    # 9. Eliminar sufijos residuales de carácter pegados (ej: 'Gestión. OB' -> 'Gestión')
+    name = re.sub(r"\s*\b(FB|FBA|OB|OBL|OP|OPT|PE|PEX|TFG|TFM|EXT|OIN|DER|HAU|MX)\s*$", "", name, flags=re.IGNORECASE).strip()
+    
+    return name.rstrip(".,;:-_ ")
+
+
+def is_spurious_or_administrative_subject(name: str, ects_val: float = 6.0, caracter: str = "OB") -> bool:
+    """
+    Evalúa si un elemento extraído corresponde a una frase administrativa, mención/itinerario agrupado,
+    cabecera de sección, pie de página o dato espurio en lugar de una asignatura docente real.
+    """
+    if not name or len(name) < 3:
+        return True
         
-    # Eliminar puntuación sobrante de cierre de párrafo
-    name = name.rstrip(".,;:- ")
-    return name
+    name_clean = sanitize_subject_name(name)
+    if len(name_clean) < 3:
+        return True
+        
+    name_low = name_clean.lower()
+    
+    # 1. Regla de créditos máximos para asignaturas estándar (<= 12 ECTS en FB/OB/OP)
+    if ects_val > 30.0:
+        return True
+    if ects_val > 12.0 and caracter not in ["TFG/TFM", "PE"] and not any(k in name_low for k in ["trabajo fin", "tfg", "tfm", "practic", "tesis"]):
+        return True
+    if ects_val <= 0.0:
+        return True
+        
+    # 2. Cabeceras de Mención, Itinerario, Especialidad u Orientación (no son asignaturas sueltas)
+    if re.match(r"^(?:menci[oó]n|itinerari[o|s]|especialidad|orientaci[oó]n|perfil)\s+(?:en|de|sobre|para)\b", name_low):
+        return True
+    if re.match(r"^(?:menci[oó]n|itinerari[o|s]|especialidad|orientaci[oó]n)$", name_low):
+        return True
+        
+    # 3. Frases de elección u optatividad administrativa
+    if any(phrase in name_low for phrase in [
+        "a elegir entre", "al menos", "uno de los siguientes", "una de las siguientes",
+        "oferta de optativas", "tabla de equivalencia", "reconocimiento de creditos",
+        "reconocimiento de créditos", "artículo 12.8", "articulo 12.8", "normativa de",
+        "condiciones de terminación", "condiciones de terminacion", "total créditos", "total creditos"
+    ]):
+        return True
+        
+    # 4. Marcadores de resumen de créditos o etiquetas de tabla
+    if caracter != "PE" and caracter != "TFG/TFM" and RE_SUMMARY_LABEL.match(name_clean):
+        return True
+    if RE_HEADER_GARBAGE.match(name_clean) or RE_TABLE_HEADER_NOISE.match(name_clean):
+        return True
+        
+    # 5. Prefijos de títulos oficiales o niveles (Grado, Máster, Doctorado)
+    if re.match(r"^(?:grado|graduado|graduada|m[aá]ster|doctorado|programa\s+de\s+doctorado)\s+en\b", name_low):
+        return True
+        
+    # 6. Órganos universitarios o fórmulas de firma
+    if re.match(r"^(?:el\s+rector|la\s+rectora|el\s+secretario|la\s+secretaria|facultad\s+de|escuela\s+de|campus\s+de|centro\s+de)\b", name_low):
+        return True
+        
+    # 7. Marcadores legales o boletines oficiales
+    if re.match(r"^(?:anexo|bolet[ií]n|b\.?o\.?e\.?|dogc|bocm|bocyl|dogv|doe|cve:|http|www\.)\b", name_low):
+        return True
+        
+    # 8. Solo dígitos o caracteres repetidos
+    if re.match(r"^\d+$", name_clean) or re.search(r"([a-zA-ZáéíóúñÁÉÍÓÚÑ])\1{3,}", name_clean):
+        return True
+        
+    # 9. Debe contener al menos una palabra de 3 letras alfabéticas
+    if not re.search(r"[a-zA-ZáéíóúñÁÉÍÓÚÑ]{3,}", name_clean):
+        return True
+        
+    return False
+
 
 
 def parse_header_schema(header_line: str) -> list:
@@ -1363,85 +1453,55 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                                 final_subject_name = clean_row[1]
 
                         final_subject_name = sanitize_subject_name(final_subject_name)
-                        # Strict validation of subject name
-                        if (
-                            final_subject_name 
-                            and len(final_subject_name) > 3 
-                            and not RE_LEGAL_NOISE.search(final_subject_name)
-                            and not RE_HEADER_GARBAGE.match(final_subject_name)
-                            and not RE_TABLE_HEADER_NOISE.match(final_subject_name)
-                            and not bool(re.search(r"^(anexo|plan de estudios|bolet[ií]n oficial|ministerio|universidad|cve:|http|p[aá]gina|total\s+cr[eé]ditos|resumen|estructura general|distribuci[oó]n|observaciones)\b", final_subject_name, re.IGNORECASE))
-                            and not bool(re.search(r"^(?:grado|graduado|graduada|máster|master|doctorado|programa\s+(?:oficial\s+)?de\s+doctorado|enseñanza)\b", final_subject_name, re.IGNORECASE))
-                            and not bool(re.search(r"^(?:centros?\s+(?:propios|adscritos|integrados|universitarios)|campus\s+de|sede\s+de|facultad\s+de|escuela\s+de)\b", final_subject_name, re.IGNORECASE))
-                            and not bool(re.search(r"^(el rector|la rectora|el secretario general|la secretaria general|por delegaci[oó]n|el decano|la decana|el director|la directora|ante m[ií]|doy fe|firmado|visto bueno|v\.º\s*b\.º)\b", final_subject_name, re.IGNORECASE))
-                            and not final_subject_name.strip().lower() in ["asignatura", "carácter", "caracter", "créditos", "creditos", "curso", "materia", "módulo", "modulo", "ects", "tipo", "total", "grau", "màster", "master", "mencion", "mención"]
-                            and not bool(re.search(r"([A-ZÁÉÍÓÚÑ])\1{2,}", final_subject_name))
-                            and bool(re.search(r"[a-zA-ZáéíóúñÁÉÍÓÚÑ]{3,}", final_subject_name))
-                            and len(final_subject_name) <= 150
-                        ):
-                            # Si no se detectó ningún número de créditos ECTS y la tabla carece de columnas curriculares, no es una tabla de plan docente
-                            if not ects_match and ects_col_idx == -1 and caracter_col_idx == -1 and curso_col_idx == -1:
-                                continue
+                        
+                        # Si no se detectó ningún número de créditos ECTS y la tabla carece de columnas curriculares, no es una tabla de plan docente
+                        if not ects_match and ects_col_idx == -1 and caracter_col_idx == -1 and curso_col_idx == -1:
+                            continue
 
-                            clean_ects = "6"
-                            if ects_match:
-                                m_ects = RE_ECTS_CLEAN.search(str(ects_match))
-                                if m_ects:
-                                    clean_ects = m_ects.group(1).replace(",", ".")
+                        clean_ects = "6"
+                        if ects_match:
+                            m_ects = RE_ECTS_CLEAN.search(str(ects_match))
+                            if m_ects:
+                                clean_ects = m_ects.group(1).replace(",", ".")
 
-                            try:
-                                ects_float = float(clean_ects)
-                            except ValueError:
-                                ects_float = 6.0
+                        try:
+                            ects_float = float(clean_ects)
+                        except ValueError:
+                            ects_float = 6.0
 
-                            # Exclusión ultra-segura de filas de resumen de créditos, módulos agrupados (> 30 ECTS o > 12 ECTS ordinarios) y filas <= 0 ECTS
-                            # En el sistema universitario español ninguna asignatura individual supera 30 ECTS (máximo legal para TFG o Prácticum anual).
-                            # Si una fila tiene > 30 ECTS, > 12 ECTS (sin ser TFG/PE), tiene <= 0 ECTS o coincide con etiquetas de resumen o totales,
-                            # se registra en resumen_creditos y NO como asignatura curricular individual.
-                            is_summary_row = False
-                            if RE_SUMMARY_LABEL.match(final_subject_name.strip()):
-                                is_summary_row = True
-                                resumen_creditos[final_subject_name] = str(clean_ects) if ects_float > 0 else "0-6"
-                            elif ects_float > 30.0:
-                                is_summary_row = True
+                        # Validación estricta y unificada contra datos espurios, materias agregadas y cabeceras administrativas
+                        if is_spurious_or_administrative_subject(final_subject_name, ects_val=ects_float, caracter=caracter):
+                            if ects_float > 0 and final_subject_name and len(final_subject_name) > 2:
                                 resumen_creditos[final_subject_name] = str(clean_ects)
-                            elif ects_float > 12.0 and caracter not in ["TFG/TFM", "PE"]:
-                                is_summary_row = True
-                                resumen_creditos[final_subject_name] = str(clean_ects)
-                            elif ects_float <= 0.0 or "reconocimiento" in final_subject_name.lower() or "artículo 12.8" in final_subject_name.lower() or "total " in final_subject_name.lower() or "total:" in final_subject_name.lower():
-                                is_summary_row = True
-                                resumen_creditos[final_subject_name] = str(clean_ects) if ects_float > 0 else "0-6"
+                            continue
 
+                        clean_curso, current_materia = normalize_curso(curso, current_materia, ects_val=ects_float)
+                        clean_cuat = normalize_cuatrimestre(cuatrimestre)
 
-                            if is_summary_row:
-                                continue
+                        norm_name = re.sub(r"[^\w\s]", "", final_subject_name).strip().lower()
+                        if norm_name in seen_subject_map:
+                            idx_ex = seen_subject_map[norm_name]
+                            if not elementos_curriculares[idx_ex]["curso"] and clean_curso:
+                                elementos_curriculares[idx_ex]["curso"] = clean_curso
+                            if not elementos_curriculares[idx_ex]["cuatrimestre"] and clean_cuat:
+                                elementos_curriculares[idx_ex]["cuatrimestre"] = clean_cuat
+                            if elementos_curriculares[idx_ex]["caracter"] == "OB" and caracter != "OB":
+                                elementos_curriculares[idx_ex]["caracter"] = caracter
+                                elementos_curriculares[idx_ex]["tipo"] = caracter
+                        else:
+                            seen_subject_map[norm_name] = len(elementos_curriculares)
+                            elementos_curriculares.append({
+                                "modulo": sanitize_string_value(current_modulo),
+                                "materia": sanitize_string_value(current_materia),
+                                "nombre_elemento": final_subject_name,
+                                "creditos": str(clean_ects),
+                                "creditos_ects": str(clean_ects),
+                                "tipo": caracter,
+                                "caracter": caracter,
+                                "curso": clean_curso,
+                                "cuatrimestre": clean_cuat
+                            })
 
-                            clean_curso, current_materia = normalize_curso(curso, current_materia, ects_val=ects_float)
-                            clean_cuat = normalize_cuatrimestre(cuatrimestre)
-
-                            norm_name = re.sub(r"[^\w\s]", "", final_subject_name).strip().lower()
-                            if norm_name in seen_subject_map:
-                                idx_ex = seen_subject_map[norm_name]
-                                if not elementos_curriculares[idx_ex]["curso"] and clean_curso:
-                                    elementos_curriculares[idx_ex]["curso"] = clean_curso
-                                if not elementos_curriculares[idx_ex]["cuatrimestre"] and clean_cuat:
-                                    elementos_curriculares[idx_ex]["cuatrimestre"] = clean_cuat
-                                if elementos_curriculares[idx_ex]["caracter"] == "OB" and caracter != "OB":
-                                    elementos_curriculares[idx_ex]["caracter"] = caracter
-                                    elementos_curriculares[idx_ex]["tipo"] = caracter
-                            else:
-                                seen_subject_map[norm_name] = len(elementos_curriculares)
-                                elementos_curriculares.append({
-                                    "modulo": sanitize_string_value(current_modulo),
-                                    "materia": sanitize_string_value(current_materia),
-                                    "nombre_elemento": final_subject_name,
-                                    "creditos": clean_ects,
-                                    "creditos_ects": clean_ects,
-                                    "tipo": caracter,
-                                    "caracter": caracter,
-                                    "curso": clean_curso,
-                                    "cuatrimestre": clean_cuat
-                                })
     except Exception as e:
         print(f"   [AVISO] pdfplumber table extraction fallback: {e}")
 

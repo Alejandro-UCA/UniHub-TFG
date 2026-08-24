@@ -26,10 +26,10 @@ def is_valid_value(val) -> bool:
         return False
     return True
 
-def atomic_json_dump(data, filepath):
+def atomic_json_dump(data, filepath, max_retries: int = 5):
     """
     Writes data to a thread-and-process-unique temporary file first 
-    and replaces target file atomically. Ensures directory exists.
+    and replaces target file atomically. Handles transient Windows file lock contention.
     """
     dir_path = os.path.dirname(os.path.abspath(filepath))
     if dir_path:
@@ -41,7 +41,15 @@ def atomic_json_dump(data, filepath):
     try:
         with open(tmp_path, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
-        os.replace(tmp_path, filepath)
+            
+        for attempt in range(max_retries):
+            try:
+                os.replace(tmp_path, filepath)
+                break
+            except (PermissionError, OSError) as pe:
+                if attempt == max_retries - 1:
+                    raise pe
+                time.sleep(0.05 * (attempt + 1))
     except Exception as e:
         if os.path.exists(tmp_path):
             try:
@@ -49,6 +57,7 @@ def atomic_json_dump(data, filepath):
             except Exception:
                 pass
         raise e
+
 
 def load_json_safe(filepath: str, default=None):
     """

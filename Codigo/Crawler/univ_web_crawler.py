@@ -466,7 +466,7 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
             if norm_name in seen_names:
                 continue
 
-            # Buscar créditos ECTS (las asignaturas individuales en España oscilan entre 1.0 y 18.0 ECTS, o hasta 30.0 ECTS para TFG/Practicum)
+            # Buscar créditos ECTS (las asignaturas individuales en España oscilan entre 1.0 y 12.0 ECTS, o hasta 30.0 ECTS para TFG/Practicum)
             creditos = "6"
             ects_val_num = 6.0
             if ects_col != -1 and ects_col < len(cols):
@@ -494,9 +494,10 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
                         except ValueError:
                             pass
 
-            # Si el crédito excede 30 ECTS (o > 18 ECTS sin ser TFG/Practicum), es una fila de resumen modular o total, no una asignatura individual
-            if ects_val_num > 30.0 or (ects_val_num > 18.0 and not any(k in nombre_lower for k in ["trabajo", "tfg", "tfm", "practicum", "prácticas", "tesis", "practiques"])):
+            # Si el crédito excede 30 ECTS (o > 12 ECTS sin ser TFG/Practicum), es una fila de resumen modular o materia agrupada, no una asignatura individual
+            if ects_val_num > 30.0 or (ects_val_num > 12.0 and not any(k in nombre_lower for k in ["trabajo", "tfg", "tfm", "practicum", "prácticas", "practicas", "tesis", "practiques", "practica"])):
                 continue
+
 
             # Buscar carácter
             caracter = "OB"

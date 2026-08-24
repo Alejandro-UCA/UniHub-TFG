@@ -1243,6 +1243,7 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
 
                         # Detect header rows to establish column mapping
                         if any(hk in row_str for hk in ["asignatura", "denominaci", "materia", "crédito", "credito", "ects", "carácter", "caracter", "curso", "módulo", "modulo"]):
+                            is_materia_summary = any(mhk in row_str for mhk in ["por materias", "resumido (por materias)", "resumen por materias", "distribución en materias", "distribucion en materias", "tipo de materia"])
                             for idx, cell_str in enumerate(clean_row):
                                 c_lower = cell_str.lower()
                                 if any(kw in c_lower for kw in ["asignatura", "denominaci", "nombre", "actividad formativa", "unidad curricular"]):
@@ -1258,9 +1259,12 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                                 elif any(kw in c_lower for kw in ["cuatrimestre", "semestre", "periodo", "temporalidad"]):
                                     cuatrimestre_col_idx = idx
 
-                            if subject_col_idx == -1 and materia_col_idx != -1:
-                                subject_col_idx = materia_col_idx
+                            # Si la tabla solo contiene la columna Materia y carece de Asignatura,
+                            # representa un desglose de materias agrupadas, no de asignaturas individuales.
+                            # Se registran en resumen_creditos / materias y no en elementos_curriculares.
                             continue
+
+
 
                         # Check if this row is a continuation fragment
                         target_subj_col = subject_col_idx if (subject_col_idx != -1 and subject_col_idx < len(clean_row)) else (1 if len(clean_row) > 1 and len(clean_row[0]) <= 4 else 0)
@@ -1338,10 +1342,16 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                         final_subject_name = ""
                         if subject_col_idx != -1 and subject_col_idx < len(clean_row):
                             final_subject_name = clean_row[subject_col_idx]
-                        elif len(clean_row) > 1 and (len(clean_row[0]) <= 4 or RE_CURSO_NUM.match(clean_row[0]) or clean_row[0].isdigit()) and len(clean_row[1]) > 3:
-                            final_subject_name = clean_row[1]
-                        elif len(clean_row) > 0:
-                            final_subject_name = clean_row[0]
+                        elif subject_col_idx == -1:
+                            # La tabla carece de columna de asignaturas individuales (es un desglose de materias o módulos agregados)
+                            # Se registra como resumen de créditos/materias y NO como asignaturas individuales docentes.
+                            if ects_match:
+                                mat_name = clean_row[materia_col_idx] if (materia_col_idx != -1 and materia_col_idx < len(clean_row)) else clean_row[0]
+                                if mat_name and len(mat_name) > 2:
+                                    resumen_creditos[sanitize_subject_name(mat_name)] = str(ects_match)
+                            continue
+
+
 
                         # If materia is in a distinct column from subject
                         if materia_col_idx != -1 and materia_col_idx != subject_col_idx and materia_col_idx < len(clean_row):
@@ -1384,9 +1394,9 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                             except ValueError:
                                 ects_float = 6.0
 
-                            # Exclusión ultra-segura de filas de resumen de créditos, módulos agrupados (> 30 ECTS o > 18 ECTS ordinarios) y filas <= 0 ECTS
+                            # Exclusión ultra-segura de filas de resumen de créditos, módulos agrupados (> 30 ECTS o > 12 ECTS ordinarios) y filas <= 0 ECTS
                             # En el sistema universitario español ninguna asignatura individual supera 30 ECTS (máximo legal para TFG o Prácticum anual).
-                            # Si una fila tiene > 30 ECTS, > 18 ECTS (sin ser TFG/PE), tiene <= 0 ECTS o coincide con etiquetas de resumen o totales,
+                            # Si una fila tiene > 30 ECTS, > 12 ECTS (sin ser TFG/PE), tiene <= 0 ECTS o coincide con etiquetas de resumen o totales,
                             # se registra en resumen_creditos y NO como asignatura curricular individual.
                             is_summary_row = False
                             if RE_SUMMARY_LABEL.match(final_subject_name.strip()):
@@ -1395,12 +1405,13 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                             elif ects_float > 30.0:
                                 is_summary_row = True
                                 resumen_creditos[final_subject_name] = str(clean_ects)
-                            elif ects_float > 18.0 and caracter not in ["TFG/TFM", "PE"]:
+                            elif ects_float > 12.0 and caracter not in ["TFG/TFM", "PE"]:
                                 is_summary_row = True
                                 resumen_creditos[final_subject_name] = str(clean_ects)
                             elif ects_float <= 0.0 or "reconocimiento" in final_subject_name.lower() or "artículo 12.8" in final_subject_name.lower() or "total " in final_subject_name.lower() or "total:" in final_subject_name.lower():
                                 is_summary_row = True
                                 resumen_creditos[final_subject_name] = str(clean_ects) if ects_float > 0 else "0-6"
+
 
                             if is_summary_row:
                                 continue
@@ -1466,11 +1477,12 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
 
                 try:
                     cred_float = float(cred_val)
-                    if RE_SUMMARY_LABEL.match(subj_name) or cred_float > 18.0:
+                    if RE_SUMMARY_LABEL.match(subj_name) or (cred_float > 12.0 and car_str not in ["TFG", "TFM", "PE", "PEX"]):
                         resumen_creditos[subj_name] = str(cred_val)
                         continue
 
-                    if cred_float in [1, 1.5, 2, 3, 4, 4.5, 5, 6, 7.5, 8, 9, 10, 12, 14, 15, 18]:
+                    if cred_float in [1, 1.5, 2, 3, 4, 4.5, 5, 6, 7.5, 8, 9, 10, 12]:
+
                         final_car = classify_subject_caracter(car_str, default="OB")
                         elementos_curriculares.append({
                             "modulo": "",

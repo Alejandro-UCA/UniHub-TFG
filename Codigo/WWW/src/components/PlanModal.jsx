@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { X, FileText, ExternalLink, Award, Layers, AlertTriangle, BookOpen, ChevronDown, ChevronUp, User, Bookmark } from 'lucide-react';
 import { apiService } from '../services/api';
+import SubjectDetailModal from './SubjectDetailModal';
 
 export default function PlanModal({ degree, onClose }) {
   const [loading, setLoading] = useState(true);
   const [planData, setPlanData] = useState(null);
   const [error, setError] = useState(null);
   const [expandedSubject, setExpandedSubject] = useState(null);
+  const [selectedSubject, setSelectedSubject] = useState(null);
 
   const isExtinct = (degree?.estado || '').toLowerCase().includes('extin') || 
                     (degree?.estado || '').toLowerCase().includes('suprim') || 
@@ -447,9 +449,34 @@ export default function PlanModal({ degree, onClose }) {
                                   ) : '-'}
                                 </td>
                                 <td style={{ padding: '0.65rem 1rem', fontWeight: 600 }}>
-                                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                                  <button
+                                    type="button"
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      setSelectedSubject(elem);
+                                    }}
+                                    aria-label={`Ver ficha docente y temario de ${elem.nombre_elemento}`}
+                                    style={{
+                                      background: 'none',
+                                      border: 'none',
+                                      padding: 0,
+                                      color: 'var(--uca-blue)',
+                                      fontWeight: 700,
+                                      fontSize: '0.88rem',
+                                      textAlign: 'left',
+                                      cursor: 'pointer',
+                                      textDecoration: 'underline',
+                                      textDecorationColor: 'rgba(0, 132, 200, 0.4)',
+                                      display: 'inline-flex',
+                                      alignItems: 'center',
+                                      gap: '0.35rem'
+                                    }}
+                                    onMouseEnter={(e) => e.currentTarget.style.color = 'var(--uca-navy)'}
+                                    onMouseLeave={(e) => e.currentTarget.style.color = 'var(--uca-blue)'}
+                                  >
                                     {elem.nombre_elemento}
-                                  </div>
+                                    <BookOpen size={13} style={{ opacity: 0.8, flexShrink: 0 }} />
+                                  </button>
                                 </td>
                                 <td style={{ padding: '0.65rem 1rem', fontWeight: 700, color: 'var(--uca-blue)' }}>{elem.creditos_ects || '-'}</td>
                                 <td style={{ padding: '0.65rem 1rem' }}>
@@ -597,6 +624,15 @@ export default function PlanModal({ degree, onClose }) {
           )}
         </div>
       </div>
+
+      {/* Modal / Tarjeta detallada de asignatura individual */}
+      {selectedSubject && (
+        <SubjectDetailModal
+          subject={selectedSubject}
+          degree={degree}
+          onClose={() => setSelectedSubject(null)}
+        />
+      )}
     </div>
   );
 }

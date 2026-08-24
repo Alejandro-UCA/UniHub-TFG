@@ -410,3 +410,18 @@ NON_OFFICIAL_COURSE_MARKERS = [
     "formacion-continua", "titulos-propios", "diploma-extension", "master-propio"
 ]
 
+# Ramas o términos paraguas que por sí solos no identifican la especialidad si van acompañados
+UMBRELLA_BRANCH_WORDS = {
+    "ingenieria", "enginyeria", "engineering",
+    "educacion", "educacio", "education",
+    "comunicacion", "comunicacio", "communication",
+    "administracion", "administracio", "administration",
+    "ciencias", "ciencies", "sciences", "science",
+    "humanidades", "humanitats", "humanities",
+    "estudios", "estudis", "studies",
+    "lengua", "lenguas", "llengua", "llengues", "language", "languages",
+    "literatura", "literatures", "literature",
+    "filologia", "filologies", "philology",
+    "artes", "arts"
+}
+

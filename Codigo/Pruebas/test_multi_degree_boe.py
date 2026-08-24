@@ -37,7 +37,7 @@ class TestMultiDegreeBOEDisambiguation(unittest.TestCase):
             "ESIC Universidad"
         )
         self.assertIn("informatica", kw_inf)
-        self.assertIn("ingenieria", kw_inf)
+        self.assertNotIn("ingenieria", kw_inf)
         self.assertNotIn("esic", kw_inf)
 
         # Caso 3: ESIC Marketing y Comunicación Digital
@@ -46,7 +46,6 @@ class TestMultiDegreeBOEDisambiguation(unittest.TestCase):
             "ESIC Universidad"
         )
         self.assertIn("marketing", kw_mkt)
-        self.assertIn("comunicacion", kw_mkt)
         self.assertIn("digital", kw_mkt)
 
     def test_02_section_markers_detection(self):

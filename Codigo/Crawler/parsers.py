@@ -23,7 +23,8 @@ from config import (
     SPANISH_STOP_WORDS,
     REVERSED_SPANISH_MARKERS,
     PREAMBLE_REJECTION_PATTERNS,
-    INVALID_SUBJECT_KEYWORDS
+    INVALID_SUBJECT_KEYWORDS,
+    UMBRELLA_BRANCH_WORDS
 )
 
 from downloader import normalize_url
@@ -54,28 +55,38 @@ RE_SUMMARY_LABEL = re.compile(
     re.IGNORECASE
 )
 
+STOP_WORDS_WITH_UMBRELLA = SPANISH_STOP_WORDS.union(UMBRELLA_BRANCH_WORDS)
+
+
 def is_section_matching(sec_kw: set, target_kw: set) -> bool:
     """
     Evalúa si un conjunto de palabras clave de sección corresponde a la titulación objetivo.
     Soporta coincidencia léxica directa y lematización/raíces de lenguas cooficiales (CA/GL/EU/EN).
-    Requiere al menos 50% de coincidencia léxica o 2 términos coincidentes para evitar colisiones.
+    Aplica restricciones de cardinalidad para evitar que una titulación simple acepte dobles grados o ramas afines.
     """
     if not sec_kw or not target_kw:
         return False
-    intersection = target_kw.intersection(sec_kw)
-    if len(intersection) >= 2 or (len(target_kw) <= 2 and len(intersection) >= 1 and len(intersection) / len(target_kw) >= 0.5):
-        return True
-
-    # Coincidencia por raíz léxica (stemming 5 chars) para variantes en lenguas cooficiales
+    
+    # 1. Coincidencia por conjunto exacto y por raíz léxica (stemming 5 chars)
     target_stems = {w[:5] if len(w) >= 5 else w for w in target_kw}
     sec_stems = {w[:5] if len(w) >= 5 else w for w in sec_kw}
     stem_intersection = target_stems.intersection(sec_stems)
 
+    # Si target tiene 1 sola disciplina clave (ej: "fisica", "quimica", "informatica", "derecho"),
+    # sec_kw NO puede contener disciplinas extra no deseadas (ej: "fisica" no debe aceptar "fisica y quimica")
     if len(target_kw) == 1:
-        return len(stem_intersection) >= 1
+        if len(sec_kw) == 1:
+            return len(stem_intersection) == 1
+        return False
+            
+    # Si target tiene 2 disciplinas (ej: "mecanica" + "industrial", "matematica" + "estadistica")
     if len(target_kw) == 2:
-        return len(stem_intersection) >= 1 and (len(stem_intersection) / len(target_kw) >= 0.5)
-    return len(stem_intersection) >= 2 or (len(stem_intersection) / len(target_kw) >= 0.5)
+        return len(stem_intersection) >= 2
+
+    # Si target tiene 3 o más palabras clave (ej: "teoria", "politica", "cultura", "democratica")
+    overlap_ratio = len(stem_intersection) / len(target_kw)
+    return len(stem_intersection) >= 2 and overlap_ratio >= 0.60
+
 
 def is_doctorate_program(nivel: str = "", titulo: str = "") -> bool:
     """Determina de forma unificada si una titulación corresponde a un programa oficial de doctorado (RD 99/2011)."""
@@ -87,7 +98,8 @@ def is_doctorate_program(nivel: str = "", titulo: str = "") -> bool:
 def extract_degree_core_keywords(title: str, univ_name: str = "") -> set:
     """
     Extrae lemas y palabras clave discriminativas de una titulación excluyendo preposiciones,
-    artículos y términos genéricos (grado, máster, universidad, plan, oficial, etc.).
+    artículos, términos genéricos (grado, máster, universidad, plan) y términos paraguas (ingeniería, educación).
+    Si el título es exclusivamente un término paraguas (ej. 'Grado en Humanidades'), mantiene el término.
     """
     if not title:
         return set()
@@ -100,6 +112,12 @@ def extract_degree_core_keywords(title: str, univ_name: str = "") -> set:
         u_norm = unicodedata.normalize('NFKD', univ_name.lower()).encode('ASCII', 'ignore').decode('utf-8')
         univ_words = set(re.findall(r'\b[a-z0-9]{3,}\b', u_norm))
     
+    # Intento 1: Filtrar con términos paraguas para aislar la especialidad pura (ej: 'mecanica', 'infantil')
+    filtered = set(w for w in words if w not in STOP_WORDS_WITH_UMBRELLA and w not in univ_words)
+    if filtered:
+        return filtered
+    
+    # Fallback si el título es solo la rama paraguas (ej: 'Grado en Humanidades' o 'Grado en Filosofía')
     return set(w for w in words if w not in SPANISH_STOP_WORDS and w not in univ_words)
 
 

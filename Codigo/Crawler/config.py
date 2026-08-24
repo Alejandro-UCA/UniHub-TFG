@@ -299,7 +299,15 @@ SPANISH_STOP_WORDS = {
     "universitat", "universitats", "universitari", "universitaris", "universitaria", "universitaries",
     "ciencies", "ciències", "socials", "juridiques", "jurídiques", "humanitats", "enginyeria", "enginyeries", "dels", "deles", "dela", "per", "amb",
     # Galician & Basque generics
-    "grao", "graos", "estudos", "estudo", "plano", "planos", "universidade", "gradua", "graduak", "masterra", "unibertsitatea"
+    "grao", "graos", "estudos", "estudo", "plano", "planos", "universidade", "gradua", "graduak", "masterra", "unibertsitatea",
+    # Adjetivos y calificadores genéricos no discriminativos (evita colisiones como Matemática Avanzada vs Arritmología Avanzada)
+    "avanzado", "avanzada", "avanzados", "avanzadas", "avancat", "avancats", "avancada", "avancades", "advanced",
+    "aplicado", "aplicada", "aplicados", "aplicadas", "aplicat", "aplicats", "applied",
+    "fundamental", "fundamentales", "basic", "basico", "basica",
+    "contemporaneo", "contemporanea", "contemporani", "contemporania", "contemporary",
+    "comparado", "comparada", "comparat", "comparats", "comparative",
+    "interdisciplinar", "interdisciplinario", "interdisciplinaria", "multidisciplinar",
+    "internacional", "international", "global", "europeo", "europea", "european"
 }
 
 # Stopwords de títulos académicos multilingües (ES / CA / GL / EU / EN)
@@ -312,7 +320,12 @@ TITLE_STOPWORDS = {
     "universidad", "universidades", "universitat", "universitats", "universidade", "unibertsitatea", "university",
     "sobre", "entre", "para", "como", "esta", "este", "estos", "estas", "del", "los", "las", "por", "con", "una", "uno", "que", "sus", "mas", "más",
     "autónoma", "autonoma", "politécnica", "politecnica", "internacional", "nacional", "distancia",
-    "en", "the", "and", "for", "of", "in", "to", "i", "de", "a", "el", "la", "l'", "d'", "els", "les", "o", "u"
+    "en", "the", "and", "for", "of", "in", "to", "i", "de", "a", "el", "la", "l'", "d'", "els", "les", "o", "u",
+    "avanzado", "avanzada", "avanzados", "avanzadas", "avancat", "avancats", "avancada", "avancades", "advanced",
+    "aplicado", "aplicada", "aplicados", "aplicadas", "aplicat", "aplicats", "applied",
+    "fundamental", "fundamentales", "basic", "basico", "basica",
+    "contemporaneo", "contemporanea", "contemporani", "contemporania", "contemporary",
+    "comparado", "comparada", "comparat", "comparats", "comparative"
 }
 
 # Cabeceras de tabla canónicas en planes de estudio multilingües (ES / CA / GL / EU / EN)

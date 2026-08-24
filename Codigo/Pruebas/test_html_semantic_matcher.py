@@ -160,5 +160,68 @@ class TestHTMLSemanticMatcher(unittest.TestCase):
         )
 
 
+    def test_reject_doctorado_literarios_vs_master_literatura(self):
+        """Rechaza Máster en Literatura Comparada cuando se busca Doctorado en Estudios Literarios."""
+        target_title = "Programa Oficial de Doctorado en Investigación en Estudios Literarios"
+        univ_name = "Universitat Autònoma de Barcelona"
+        page_url = "https://www.uab.cat/web/estudiar/l-oferta-de-masters-oficials/matricula/literatura-comparada-estudis-literaris-i-culturals-1345655869231.html"
+
+        html_master = "<html><head><title>Màster en Literatura Comparada - UAB</title></head><body><h1>Màster Universitari en Literatura Comparada</h1></body></html>"
+        soup_master = BeautifulSoup(html_master, "html.parser")
+        self.assertFalse(
+            is_html_page_matching_degree(soup_master, target_title, univ_name, page_url),
+            "Debe rechazar Máster en Literatura para Doctorado"
+        )
+
+    def test_accept_logistica_uah_genuine_match(self):
+        """Acepta el plan oficial del Máster en Logística de la UAH."""
+        target_title = "Máster Universitario en Logística y Gestión de la Cadena de Suministro"
+        univ_name = "Universidad de Alcalá"
+        page_url = "https://posgrado.uah.es/es/masteres-universitarios/asignaturas/index.html?codPlan=M206"
+
+        html_log = """
+        <html>
+        <head><title>Máster Universitario en Logística y Gestión de la Cadena de Suministro - UAH</title></head>
+        <body>
+          <h1>Máster Universitario en Logística y Gestión de la Cadena de Suministro</h1>
+          <table>
+            <tr><td>Gestión de Compras y Aprovisionamiento</td><td>6 ECTS</td></tr>
+          </table>
+        </body>
+        </html>
+        """
+        soup_log = BeautifulSoup(html_log, "html.parser")
+        self.assertTrue(
+            is_html_page_matching_degree(soup_log, target_title, univ_name, page_url),
+            "Debe aceptar el plan oficial de Logística de la UAH"
+        )
+
+    def test_reject_matematica_avanzada_vs_arritmologia(self):
+        """Rechaza Arritmología Cardíaca Avanzada cuando se busca Matemática Avanzada."""
+        target_title = "Máster Universitario en Matemática Avanzada"
+        univ_name = "Universitat Autònoma de Barcelona"
+        page_url = "https://www.uab.cat/web/postgrado/master-en-arritmologia-cardiaca-avanzada/plan-de-estudios-1206597472096.html/param1-4833_es/"
+
+        html_arrit = "<html><head><title>Máster en Arritmología Cardíaca Avanzada - UAB</title></head><body><h1>Máster en Arritmología Cardíaca Avanzada</h1></body></html>"
+        soup_arrit = BeautifulSoup(html_arrit, "html.parser")
+        self.assertFalse(
+            is_html_page_matching_degree(soup_arrit, target_title, univ_name, page_url),
+            "Debe rechazar Arritmología Cardíaca para Matemática Avanzada"
+        )
+
+    def test_reject_medicina_transfusional_vs_portal_ambito_medicina(self):
+        """Rechaza el portal general de ámbito de medicina cuando se busca Medicina Transfusional."""
+        target_title = "Máster Universitario en Medicina Transfusional y Terapias Celulares Avanzadas"
+        univ_name = "Universitat Autònoma de Barcelona"
+        page_url = "https://www.uab.cat/web/estudis/masters-i-postgraus/masters-universitaris/per-ambits/medicina-1345667194024.html"
+
+        html_portal = "<html><head><title>Màsters universitaris per àmbits: Medicina - UAB Barcelona</title></head><body><h1>Àmbit de Medicina</h1></body></html>"
+        soup_portal = BeautifulSoup(html_portal, "html.parser")
+        self.assertFalse(
+            is_html_page_matching_degree(soup_portal, target_title, univ_name, page_url),
+            "Debe rechazar el portal general de ámbito de medicina"
+        )
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -307,7 +307,11 @@ SPANISH_STOP_WORDS = {
     "contemporaneo", "contemporanea", "contemporani", "contemporania", "contemporary",
     "comparado", "comparada", "comparat", "comparats", "comparative",
     "interdisciplinar", "interdisciplinario", "interdisciplinaria", "multidisciplinar",
-    "internacional", "international", "global", "europeo", "europea", "european"
+    "internacional", "international", "global", "europeo", "europea", "european",
+    # Protocolos y artefactos web en URLs
+    "http", "https", "www", "html", "htm", "php", "asp", "aspx", "pdf", 
+    "com", "org", "net", "edu", "cat", "index", "web", "portal", "default",
+    "site", "sites", "page", "pages", "view", "link", "param", "param1", "param2", "grau", "graus"
 }
 
 # Stopwords de títulos académicos multilingües (ES / CA / GL / EU / EN)
@@ -325,7 +329,8 @@ TITLE_STOPWORDS = {
     "aplicado", "aplicada", "aplicados", "aplicadas", "aplicat", "aplicats", "applied",
     "fundamental", "fundamentales", "basic", "basico", "basica",
     "contemporaneo", "contemporanea", "contemporani", "contemporania", "contemporary",
-    "comparado", "comparada", "comparat", "comparats", "comparative"
+    "comparado", "comparada", "comparat", "comparats", "comparative",
+    "http", "https", "www", "html", "htm", "php", "asp", "aspx", "pdf", "edu", "cat", "com", "org", "net"
 }
 
 # Cabeceras de tabla canónicas en planes de estudio multilingües (ES / CA / GL / EU / EN)

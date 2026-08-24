@@ -111,6 +111,10 @@ def extract_degree_core_keywords(title: str, univ_name: str = "") -> set:
     if univ_name:
         u_norm = unicodedata.normalize('NFKD', univ_name.lower()).encode('ASCII', 'ignore').decode('utf-8')
         univ_words = set(re.findall(r'\b[a-z0-9]{3,}\b', u_norm))
+        # Acrónimo de universidad (ej. UPC, UCM, UAH, UAB)
+        u_acr = ''.join(w[0] for w in univ_name.split() if len(w) > 2).lower()
+        if len(u_acr) >= 2:
+            univ_words.add(u_acr)
     
     # Intento 1: Filtrar con términos paraguas para aislar la especialidad pura (ej: 'mecanica', 'infantil')
     filtered = set(w for w in words if w not in STOP_WORDS_WITH_UMBRELLA and w not in univ_words)

@@ -324,6 +324,8 @@ def build_html_curriculum_payload(elementos_html: list, degree_title: str) -> di
 RE_LEVEL_GRADO = re.compile(r"\b(?:grado|grados|graduado|graduada|graduados|graduadas|grau|graus|grao|graos|gradua|graduak|bachelor|undergraduate|llistat-de-graus|estudis-de-grau)\b", re.IGNORECASE)
 RE_LEVEL_MASTER = re.compile(r"\b(?:master|masters|máster|másteres|màster|màsters|masterra|masterrak|postgrado|posgrado|postgrau|posgrao|postgraduate)\b", re.IGNORECASE)
 RE_LEVEL_DOCTOR = re.compile(r"\b(?:doctor|doctora|doctorado|doctorados|doctorat|doctorats|doutoramento|doktoregoa|doctorate|doctoral|phd)\b", re.IGNORECASE)
+RE_ENGINEERING_MARKER = re.compile(r"\b(?:ingenier[ií]a|ingeniero|ingeniera|enginyeria|engineering)\b", re.IGNORECASE)
+RE_DOUBLE_DEGREE_MARKER = re.compile(r"\b(?:doble|simultaneidad|pceo|double)\b", re.IGNORECASE)
 
 
 def is_html_page_matching_degree(soup: BeautifulSoup, target_title: str, univ_name: str, page_url: str = "") -> bool:
@@ -332,7 +334,9 @@ def is_html_page_matching_degree(soup: BeautifulSoup, target_title: str, univ_na
     Comprueba:
     1. Que no sea una subpágina de cursos de extensión, títulos propios o formularios no oficiales.
     2. Consistencia estricta de Nivel Académico (3 niveles independientes: Grado, Máster y Doctorado).
-    3. Validación semántica del núcleo temático con lematización multilingüe y filtro de adjetivos genéricos.
+    3. Distinción estricta de Ingeniería vs Ciencia/Salud (evita que Ingeniería Química absorba Química).
+    4. Distinción estricta de Grado Simple vs Doble Grado.
+    5. Validación semántica del núcleo temático con lematización multilingüe y filtro de adjetivos genéricos.
     """
     if not target_title or not soup:
         return False
@@ -382,7 +386,19 @@ def is_html_page_matching_degree(soup: BeautifulSoup, target_title: str, univ_na
     if is_target_doctor and not is_page_doctor and (is_page_grado or is_page_master):
         return False
 
-    # 4. Validación semántica del núcleo temático
+    # 4. Distinción estricta de Ingeniería vs Ciencia/Salud Pura
+    is_target_eng = bool(RE_ENGINEERING_MARKER.search(target_low))
+    is_page_eng = bool(RE_ENGINEERING_MARKER.search(combined_page_header))
+    if is_target_eng != is_page_eng:
+        return False
+
+    # 5. Distinción estricta de Grado Simple vs Doble Grado
+    is_target_double = bool(RE_DOUBLE_DEGREE_MARKER.search(target_low))
+    is_page_double = bool(RE_DOUBLE_DEGREE_MARKER.search(combined_page_header))
+    if not is_target_double and is_page_double:
+        return False
+
+    # 6. Validación semántica del núcleo temático
     target_kw = extract_degree_core_keywords(target_title, univ_name)
     if not target_kw:
         return True

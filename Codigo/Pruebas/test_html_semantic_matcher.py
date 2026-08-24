@@ -223,5 +223,71 @@ class TestHTMLSemanticMatcher(unittest.TestCase):
         )
 
 
+    def test_reject_informatica_vs_doble_grado_matematicas_informatica(self):
+        """Rechaza Doble Grado en Matemáticas e Informática cuando se busca Grado en Ingeniería Informática."""
+        target_title = "Graduado o Graduada en Ingeniería Informática"
+        univ_name = "Universidad Complutense de Madrid"
+        page_url = "https://www.ucm.es/estudios/grado-doblegradomatematicasinformatica"
+
+        html_doble = "<html><head><title>Doble Grado en Matemáticas e Informática - UCM</title></head><body><h1>Doble Grado en Matemáticas e Informática</h1></body></html>"
+        soup_doble = BeautifulSoup(html_doble, "html.parser")
+        self.assertFalse(
+            is_html_page_matching_degree(soup_doble, target_title, univ_name, page_url),
+            "Debe rechazar Doble Grado cuando se busca Grado simple en Ingeniería Informática"
+        )
+
+    def test_reject_biotecnologica_vs_ciencias_biotecnologicas(self):
+        """Rechaza Ciencias Biotecnológicas o Biotecnología cuando se busca Ingeniería Biotecnológica."""
+        target_title = "Graduado o Graduada en Ingeniería Biotecnológica"
+        univ_name = "Universidad Politécnica de Madrid"
+        page_url = "https://www.upm.es/grados/biotecnologia"
+
+        html_bio = "<html><head><title>Grado en Ciencias Biotecnológicas - UPM</title></head><body><h1>Grado en Ciencias Biotecnológicas</h1></body></html>"
+        soup_bio = BeautifulSoup(html_bio, "html.parser")
+        self.assertFalse(
+            is_html_page_matching_degree(soup_bio, target_title, univ_name, page_url),
+            "Debe rechazar Ciencias Biotecnológicas cuando se busca Ingeniería Biotecnológica"
+        )
+
+    def test_reject_ingenieria_quimica_vs_quimica(self):
+        """Rechaza Grado en Química pura cuando se busca Grado en Ingeniería Química."""
+        target_title = "Graduado o Graduada en Ingeniería Química"
+        univ_name = "Universidad de Alcalá"
+        page_url = "https://www.uah.es/es/estudios/grados/Quimica/"
+
+        html_quim = "<html><head><title>Grado en Química - UAH</title></head><body><h1>Grado en Química</h1></body></html>"
+        soup_quim = BeautifulSoup(html_quim, "html.parser")
+        self.assertFalse(
+            is_html_page_matching_degree(soup_quim, target_title, univ_name, page_url),
+            "Debe rechazar Grado en Química para Ingeniería Química"
+        )
+
+    def test_reject_ingenieria_biomedica_vs_biomedicina(self):
+        """Rechaza Grado en Biomedicina cuando se busca Grado en Ingeniería Biomédica."""
+        target_title = "Graduado o Graduada en Ingeniería Biomédica"
+        univ_name = "Universidad Carlos III de Madrid"
+        page_url = "https://www.uc3m.es/grado/biomedicina"
+
+        html_med = "<html><head><title>Grado en Biomedicina - UC3M</title></head><body><h1>Grado en Biomedicina</h1></body></html>"
+        soup_med = BeautifulSoup(html_med, "html.parser")
+        self.assertFalse(
+            is_html_page_matching_degree(soup_med, target_title, univ_name, page_url),
+            "Debe rechazar Biomedicina para Ingeniería Biomédica"
+        )
+
+    def test_accept_genuine_multilingual_ingenieria_biotecnologica(self):
+        """Acepta la titulación en catalán de Enginyeria Biotecnològica."""
+        target_title = "Graduado o Graduada en Ingeniería Biotecnológica"
+        univ_name = "Universitat Politècnica de Catalunya"
+        page_url = "https://www.upc.edu/grau-enginyeria-biotecnologica"
+
+        html_upc = "<html><head><title>Grau en Enginyeria Biotecnològica - UPC</title></head><body><h1>Grau en Enginyeria Biotecnològica</h1></body></html>"
+        soup_upc = BeautifulSoup(html_upc, "html.parser")
+        self.assertTrue(
+            is_html_page_matching_degree(soup_upc, target_title, univ_name, page_url),
+            "Debe aceptar Enginyeria Biotecnològica en catalán"
+        )
+
+
 if __name__ == "__main__":
     unittest.main()

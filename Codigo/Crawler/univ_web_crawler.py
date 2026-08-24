@@ -455,12 +455,18 @@ def is_same_or_subdomain(target_url: str, base_url: str) -> bool:
 def extract_html_subjects(soup: BeautifulSoup) -> list:
     """
     Extrae elementos curriculares de tablas HTML evitando filas de cabecera (<th>),
-    palabras clave no curriculares (horarios, días, notas) y validando créditos ECTS.
-    Mejora: deduplica por nombre normalizado, detecta columnas de código/nombre y fusiona múltiples tablas.
+    filas de resumen de créditos (Totals, 1r curs...), palabras clave no curriculares
+    y soportando celdas multi-línea divididas por <br>, <p>, <div> o <li>.
     """
     elementos = []
     seen_names = set()
     tables = soup.find_all("table")
+
+    SUMMARY_ROW_MARKERS = re.compile(
+        r"^(?:totals?|totales?|total\s+cr[eé]ditos?|[1-6][º°a-z]*\s+(?:curs|curso|ano|año)|[1-6]r?\s+i\s+[1-6]t?\s+cursos?|formaci[oó]\s+b[aà]sica|optatives?|optativas?|menci[oó]\s+en\s+.*|itinerario\s+.*|menci[oó]n\s+.*)$",
+        re.IGNORECASE
+    )
+
     for t in tables:
         if not is_valid_curricular_table(t):
             continue
@@ -474,19 +480,15 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
             tds = row.find_all(["td", "th"])
             if not tds:
                 continue
-            cols = [td.get_text(separator=" ", strip=True) for td in tds]
-            if len(cols) < 2:
-                continue
 
-            row_str = " ".join(cols).lower()
+            cols_raw = [td.get_text(separator=" ", strip=True) for td in tds]
 
             # Detect header row de forma rigurosa (Multilingüe: ES / CA / GL / EU / EN)
-            # Una fila es cabecera si: todas sus celdas son <th>, o al menos 2 columnas coinciden con nombres canónicos de cabecera (o 1 en r_idx == 0)
-            matched_header_cols = sum(1 for c in cols if any(c.strip().lower() == hk for hk in HEADER_KEYWORDS))
+            matched_header_cols = sum(1 for c in cols_raw if any(c.strip().lower() == hk for hk in HEADER_KEYWORDS))
             is_header_row = (r_idx == 0 and matched_header_cols >= 1) or matched_header_cols >= 2 or all(td.name == "th" for td in tds)
 
             if is_header_row:
-                for c_i, c_val in enumerate(cols):
+                for c_i, c_val in enumerate(cols_raw):
                     c_low = c_val.lower().strip()
                     if any(w == c_low or w in c_low for w in ["asignatura", "assignatura", "asineira", "irakasgaia", "materia", "denominació", "denominacion", "denominación", "nombre", "actividad", "subject", "course", "modul", "módulo", "modulo"]):
                         subj_col = c_i
@@ -498,21 +500,94 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
                         curso_col = c_i
                 continue
 
-            # Candidate subject name
+            # Si alguna celda contiene saltos de línea (<br>, <p>, <div>, <li>), extraer cada línea individualmente
+            extracted_any_multiline = False
+            for td in tds:
+                td_soup = BeautifulSoup(str(td), "html.parser")
+                for br in td_soup.find_all(["br", "p", "div", "li"]):
+                    br.replace_with(f"\n{br.get_text()}\n")
+                lines = [l.strip() for l in td_soup.get_text().splitlines() if l.strip()]
+
+                if len(lines) >= 2:
+                    for line in lines:
+                        clean_line = re.sub(r"^[\s\-•*]+\s*", "", line).strip()
+                        clean_line = sanitize_subject_name(clean_line)
+                        if not clean_line or len(clean_line) < 4 or len(clean_line) > 120:
+                            continue
+                        clean_low = clean_line.lower()
+                        if (
+                            SUMMARY_ROW_MARKERS.match(clean_low)
+                            or any(clean_low == hk for hk in HEADER_KEYWORDS)
+                            or any(sk in clean_low for sk in INVALID_SUBJECT_KEYWORDS)
+                            or clean_low in INVALID_METADATA_LABELS
+                            or any(lbl in clean_low for lbl in INVALID_METADATA_LABELS if len(lbl) > 6)
+                            or clean_line.isdigit()
+                        ):
+                            continue
+
+                        creditos = "6"
+                        ects_val_num = 6.0
+                        m_cr = re.search(r"[/()]\s*(\d+(?:[.,]\d+)?)\s*(?:cr[eè]dits?|cr\.?|ects)", clean_line, re.IGNORECASE)
+                        if m_cr:
+                            creditos = m_cr.group(1).replace(",", ".")
+                            try:
+                                ects_val_num = float(creditos)
+                            except ValueError:
+                                pass
+                        elif any(k in clean_low for k in ["treball de final", "tfg", "tfm", "trabajo fin"]):
+                            creditos = "12"
+                            ects_val_num = 12.0
+
+                        caracter = "OB"
+                        if "optativ" in clean_low:
+                            caracter = "OP"
+                        elif any(k in clean_low for k in ["treball de final", "tfg", "tfm", "trabajo fin"]):
+                            caracter = "TFG"
+                        elif any(k in clean_low for k in ["pràctiques", "practicas", "prácticas"]):
+                            caracter = "PE"
+                        elif any(k in clean_low for k in ["bàsica", "basica"]):
+                            caracter = "FB"
+
+                        if is_spurious_or_administrative_subject(clean_line, ects_val=ects_val_num, caracter=caracter):
+                            continue
+
+                        norm_name = re.sub(r"[^\w\s]", "", clean_low).strip()
+                        if norm_name in seen_names or len(norm_name) < 4:
+                            continue
+                        seen_names.add(norm_name)
+                        elementos.append({
+                            "modulo": "",
+                            "materia": "",
+                            "nombre_elemento": clean_line,
+                            "creditos_ects": creditos,
+                            "caracter": caracter,
+                            "curso": "",
+                            "cuatrimestre": ""
+                        })
+                        extracted_any_multiline = True
+
+            if extracted_any_multiline:
+                continue
+
+            # Extracción tabular clásica (1 fila = 1 asignatura con columnas)
+            if len(cols_raw) < 2:
+                continue
+
             nombre_candidato = ""
-            if subj_col < len(cols) and len(cols[subj_col]) >= 4 and not cols[subj_col].isdigit():
-                nombre_candidato = cols[subj_col]
-            elif len(cols) > 1 and (len(cols[0]) <= 4 or cols[0].isdigit() or re.match(r"^[1-6][º°a-z]*$", cols[0].lower())) and len(cols[1]) >= 4:
-                nombre_candidato = cols[1]
-            elif len(cols) > 0:
-                nombre_candidato = cols[0]
+            if subj_col < len(cols_raw) and len(cols_raw[subj_col]) >= 4 and not cols_raw[subj_col].isdigit():
+                nombre_candidato = cols_raw[subj_col]
+            elif len(cols_raw) > 1 and (len(cols_raw[0]) <= 4 or cols_raw[0].isdigit() or re.match(r"^[1-6][º°a-z]*$", cols_raw[0].lower())) and len(cols_raw[1]) >= 4:
+                nombre_candidato = cols_raw[1]
+            elif len(cols_raw) > 0:
+                nombre_candidato = cols_raw[0]
 
             nombre_candidato = sanitize_subject_name(nombre_candidato)
             nombre_lower = nombre_candidato.lower()
 
             if (
-                len(nombre_candidato) < 4 
-                or any(nombre_lower == hk for hk in HEADER_KEYWORDS) 
+                len(nombre_candidato) < 4
+                or SUMMARY_ROW_MARKERS.match(nombre_lower)
+                or any(nombre_lower == hk for hk in HEADER_KEYWORDS)
                 or any(sk in nombre_lower for sk in INVALID_SUBJECT_KEYWORDS)
                 or nombre_lower in INVALID_METADATA_LABELS
                 or any(lbl in nombre_lower for lbl in INVALID_METADATA_LABELS if len(lbl) > 6)
@@ -520,16 +595,14 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
             ):
                 continue
 
-            # Normalizar nombre para deduplicación
             norm_name = re.sub(r"[^\w\s]", "", nombre_lower).strip()
             if norm_name in seen_names:
                 continue
 
-            # Buscar créditos ECTS (las asignaturas individuales en España oscilan entre 1.0 y 12.0 ECTS, o hasta 30.0 ECTS para TFG/Practicum)
             creditos = "6"
             ects_val_num = 6.0
-            if ects_col != -1 and ects_col < len(cols):
-                m_c = re.search(r"\b(\d+(?:[.,]\d+)?)\b", cols[ects_col])
+            if ects_col != -1 and ects_col < len(cols_raw):
+                m_c = re.search(r"\b(\d+(?:[.,]\d+)?)\b", cols_raw[ects_col])
                 if m_c:
                     raw_c = m_c.group(1).replace(",", ".")
                     try:
@@ -540,7 +613,7 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
                     except ValueError:
                         pass
             else:
-                for col in cols[1:]:
+                for col in cols_raw[1:]:
                     m = re.search(r"\b(\d+(?:[.,]\d+)?)\b", col)
                     if m:
                         val_str = m.group(1).replace(",", ".")
@@ -553,32 +626,30 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
                         except ValueError:
                             pass
 
-            # Buscar carácter
             caracter = "OB"
-            if car_col != -1 and car_col < len(cols):
-                caracter = classify_subject_caracter(cols[car_col], default="OB")
+            if car_col != -1 and car_col < len(cols_raw):
+                caracter = classify_subject_caracter(cols_raw[car_col], default="OB")
             else:
-                for col in cols:
+                for col in cols_raw:
                     car = classify_subject_caracter(col, default="")
                     if car:
                         caracter = car
                         break
 
-            # Validación unificada contra datos espurios, menciones y créditos ilegales
             if is_spurious_or_administrative_subject(nombre_candidato, ects_val=ects_val_num, caracter=caracter):
                 continue
 
-            # Buscar curso
             curso = ""
-            if curso_col != -1 and curso_col < len(cols):
-                curso = cols[curso_col]
+            if curso_col != -1 and curso_col < len(cols_raw):
+                curso = cols_raw[curso_col]
             else:
-                for col in cols[1:]:
+                for col in cols_raw[1:]:
                     col_lower = col.lower()
                     if any(c_kw in col_lower for c_kw in ["1º", "2º", "3º", "4º", "primer", "segundo", "tercer", "cuarto", "1er", "2do", "3er", "4to"]):
                         curso = col
                         break
 
+            seen_names.add(norm_name)
             elementos.append({
                 "modulo": "",
                 "materia": "",
@@ -588,9 +659,8 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
                 "curso": curso,
                 "cuatrimestre": ""
             })
-            seen_names.add(norm_name)
-    return elementos
 
+    return elementos
 
 
 def extract_private_university_pricing(soup: BeautifulSoup, page_text: str) -> dict:

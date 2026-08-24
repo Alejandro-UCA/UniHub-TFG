@@ -163,11 +163,20 @@ MEMORIA_VERIFICADA_KEYWORDS = [
     "informemod", "sgic", "calidad", "qualitat", "kalitatea"
 ]
 
+# Palabras clave para la detección dinámica de subpáginas docentes dentro de la ficha de titulación
+ACADEMIC_SUBPAGE_KEYWORDS = [
+    "plan de estudios", "plan d'estudis", "pla d'estudis", "pla de estudis", "plan", "pla",
+    "asignaturas", "assignatures", "subjects", "materias", "guia docente", "guía docente",
+    "guias docentes", "guies docents", "itinerario", "itineraris", "itinerarios", "docencia",
+    "estructura", "curriculum", "syllabus", "irakasgaiak", "ikasketa-plana"
+]
+
 # Variantes de subpestaña o sufijo para fichas de titulaciones universitarias
 DEGREE_SUBPAGE_TAB_VARIANTS = [
     "?subjects", "?assignatures", "-plan", "/plan-de-estudios", "/pla-estudis",
     "?tab=plan", "?p_vista=P", "/asignaturas", "/pages/docencia/guias_docentes"
 ]
+
 
 # Metadatos de ficha administrativa a descartar para evitar confusión con asignaturas (Multilingüe: ES, CA, GL, EU)
 INVALID_METADATA_LABELS = {

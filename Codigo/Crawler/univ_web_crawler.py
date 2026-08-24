@@ -48,7 +48,11 @@ from config import (
     SPA_SUBPAGE_FETCH_TIMEOUT,
     WEB_SEARCH_RETRY_DELAY,
     WIKIPEDIA_API_URL,
-    WIKIDATA_API_URL
+    WIKIDATA_API_URL,
+    HEADER_KEYWORDS,
+    INVALID_SUBJECT_KEYWORDS,
+    TITLE_STOPWORDS,
+    CV_EXCLUSION_MARKERS
 )
 from downloader import RUCTDownloader
 from error_logger import ErrorLogger
@@ -94,46 +98,6 @@ ACADEMIC_KEYWORDS = [
     "bachelor", "bachelors", "undergraduate", "degrees", "double-degrees",
     "study-plan", "study-plans", "curriculum", "syllabus", "courses", "subjects",
     "postgraduate", "graduate", "master-degrees", "phd", "doctorate", "doctoral-programmes"
-]
-
-HEADER_KEYWORDS = [
-    # Español
-    "asignatura", "materia", "nombre", "crédito", "credito", "ects",
-    "curso", "carácter", "caracter", "tipo", "código", "codigo", "guía", "guia", "semestre", "cuatrimestre",
-    # Català / Valencià / Balear
-    "assignatura", "credits", "curs", "tipus", "quadrimestre", "guia docent",
-    # Galego
-    "asineira", "creditos", "cuadrimestre",
-    # Euskara
-    "irakasgaia", "kredituak", "maila", "ikasturtea", "mota", "lauhilekoa",
-    # English
-    "subject", "course", "module", "credits", "type", "year", "semester", "term", "syllabus"
-]
-
-INVALID_SUBJECT_KEYWORDS = [
-    # Días de la semana y horarios (Multilingüe)
-    "lunes", "martes", "miércoles", "miercoles", "jueves", "viernes", "sábado", "sabado",
-    "dilluns", "dimarts", "dimecres", "dijous", "divendres", "dissabte",
-    "luns", "mércores", "venres",
-    "astelehena", "asteartea", "asteazkena", "osteguna", "ostirala", "larunbata",
-    "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday",
-    # Infraestructura y calendario específico (no descartar materias pedagógicas sobre 'en el aula')
-    "aula magna", "aula virtual", "número de aula", "numero de aula", "despacho",
-    "horario de clases", "horari de classes", "timetable", "schedule",
-    "calendario de exámenes", "calendari d'exàmens", "egutegia",
-    "convocatoria ordinaria", "convocatoria extraordinaria",
-    # Calificaciones, notas y trámites administrativos de secretaría (ES / CA / GL / EU / EN)
-    "suspenso", "aprobado", "notable", "sobresaliente", "matrícula de honor", "matricula de honor",
-    "calificación cualitativa", "calificacion cualitativa", "calificación numérica", "calificacion numerica",
-    "calificación estándar", "calificacion estandar", "escala de calificaciones", "tabla de equivalencias",
-    "baremo", "convalidación", "convalidacion", "reconocimiento de créditos", "reconocimiento de creditos",
-    "suspes", "suspès", "aprovat", "excel·lent", "matricula d'honor", "matricula de honor",
-    "qualificació qualitativa", "qualificacio qualitativa", "qualificació numèrica", "qualificacio numerica",
-    "escala de qualificacions", "taula d'equivalències", "taula dequivalencies", "reconeixement de crèdits", "reconeixement de credits",
-    "sobresalinte", "cualificación cualitativa", "cualificacion cualitativa", "táboa de equivalencias", "taboa de equivalencias", "recoñecemento de créditos",
-    "ez-gai", "oso ondo", "bikain", "ohorezko matrikula", "kalifikazio kualitatiboa", "kalifikazio numerikoa", "kreditu-aitorpena",
-    "grading scale", "qualitative grade", "numerical grade", "credit recognition",
-    "buscar por", "1º apellido", "2º apellido", "listado simple", "listado detallado", "cerca per", "bilatu"
 ]
 
 
@@ -667,11 +631,7 @@ class UniversityWebCrawler:
         """Descarga, analiza con parse_boe_pdf y limpia con seguridad el archivo PDF temporal."""
         pdf_url_low = pdf_url.lower()
         # Rechazar explícitamente PDFs de plantillas de Curriculum Vitae (CVN), formularios de profesorado o listados de proyectos de tesis
-        if any(bad in pdf_url_low for bad in [
-            "curriculum_modelo", "curriculum_vitae", "curriculum-vitae", "cv_normalizado", 
-            "cvn", "modelo_normalizado", "curriculum_normalizado", "proyectos_", "proyectos-grupo",
-            "proyecto_tesis", "lineas_investigacion", "modelo_cv", "cv_form"
-        ]):
+        if any(bad in pdf_url_low for bad in CV_EXCLUSION_MARKERS):
             return None
 
         temp_pdf = os.path.join(TEMP_PDF_DIR, f"web_{d_code}.pdf")

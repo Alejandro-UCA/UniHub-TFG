@@ -19,7 +19,10 @@ from config import (
     MEDICINA_ECTS,
     ESPECIALES_GRADO_ECTS,
     BOE_SCHEMA_CONCEPT_VOCABULARY,
-    BOE_SPURIOUS_MARKERS
+    BOE_SPURIOUS_MARKERS,
+    SPANISH_STOP_WORDS,
+    REVERSED_SPANISH_MARKERS,
+    PREAMBLE_REJECTION_PATTERNS
 )
 
 from downloader import normalize_url
@@ -28,39 +31,6 @@ from functools import lru_cache
 # -----------------------------------------------------------------------------
 # GLOBAL PRE-COMPILED REGEX PATTERNS (OPT-02: Pre-compilación de Regex)
 # -----------------------------------------------------------------------------
-SPANISH_STOP_WORDS = {
-    # Spanish articles, prepositions, conjunctions, generics
-    "el", "la", "los", "las", "un", "una", "unos", "unas",
-    "de", "del", "en", "a", "al", "por", "con", "sin", "sobre", "para", "entre", "hacia", "desde", "hasta", "segun", "tras", "durante", "mediante",
-    "y", "e", "o", "u", "ni", "que", "como", "donde", "cuando",
-    "graduado", "graduada", "graduados", "graduadas", "grado", "grados",
-    "master", "masteres", "máster", "másteres",
-    "doctor", "doctora", "doctorado", "doctorados",
-    "titulo", "titulos", "titulacion", "titulaciones", "título", "títulos", "titulación", "titulaciones",
-    "estudio", "estudios", "plan", "planes", "oficial", "oficiales",
-    "universidad", "universidades", "universitaria", "universitarias", "universitario", "universitarios",
-    "conducente", "conducentes", "obtencion", "obtención", "superacion", "superación",
-    "anexo", "anexos", "resolucion", "resolución", "decreto", "orden", "acuerdo",
-    "centro", "centros", "facultad", "facultades", "escuela", "escuelas",
-    "programa", "programas", "ensenanzas", "enseñanzas", "ensenanza", "enseñanza",
-    "rama", "ramas", "conocimiento", "conocimientos", "mencion", "mención", "menciones",
-    "distribucion", "distribución", "creditos", "créditos", "resumen", "estructura",
-    # Administrative & layout structural tokens
-    "apartado", "materia", "materias", "asignatura", "asignaturas", "modulo", "módulo",
-    "docon", "rector", "rectora", "secretario", "secretaria", "emilio", "lora", "tamayo",
-    "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre",
-    # English generics & connectives for bilingual resolutions (UC3M, UAB, UPF, etc.)
-    "bachelor", "bachelors", "master", "masters", "doctor", "phd", "degree", "degrees",
-    "and", "in", "of", "for", "with", "the", "an", "science", "sciences",
-    "engineering", "studies", "study", "university", "business", "management", "international",
-    "applied", "advanced", "official", "curriculum", "syllabus",
-    # Catalan / Valenciano / Balear generics & connectives
-    "grau", "graus", "estudis", "estudi", "pla", "plans", "oficial", "oficials",
-    "universitat", "universitats", "universitari", "universitaris", "universitaria", "universitaries",
-    "ciencies", "ciències", "socials", "juridiques", "jurídiques", "humanitats", "enginyeria", "enginyeries", "dels", "deles", "dela", "per", "amb",
-    # Galician & Basque generics
-    "grao", "graos", "estudos", "estudo", "plano", "planos", "universidade", "gradua", "graduak", "masterra", "unibertsitatea"
-}
 
 RE_DEGREE_SECTION_MARKERS = [
     # 1. ANEXO I, ANEXO II (MODIFICACIÓN), etc.
@@ -73,12 +43,7 @@ RE_DEGREE_SECTION_MARKERS = [
 
 
 RE_PREAMBLE_REJECTION = re.compile(
-    r"(?:resoluci[oó]n|acuerdo|orden|decreto|de\s+conformidad|visto\s+el|"
-    r"relacionados\s+a\s+continuaci[oó]n|este\s+rectorado|publicar\s+(?:el|los)\s+plan|"
-    r"aprobar\s+(?:el|los)\s+plan|haberse\s+establecido|una\s+vez\s+homologad|"
-    r"homologado\s+por|inscrito\s+en\s+el\s+registro|previa\s+homologaci[oó]n|"
-    r"consejo\s+de\s+ministros|consejo\s+de\s+gobierno|t[ií]tulos\s+oficiales\s+de\s+grado\s+siguientes|"
-    r"siguientes\s+ense[ñn]anzas|siguientes\s+planes)\b",
+    r"(?:resoluci[oó]n|acuerdo|orden|decreto|de\s+conformidad|visto\s+el|" + "|".join(PREAMBLE_REJECTION_PATTERNS) + r")\b",
     re.IGNORECASE
 )
 RE_HEADER_GARBAGE = re.compile(r"^(?:(?:FB|OB|OP|PE|TFG|TFM|B|O)\s*)+$", re.IGNORECASE)
@@ -158,11 +123,7 @@ RE_MULTIPLE_SPACES = re.compile(r"\s+")
 RE_PARENTHESES_STRIP = re.compile(r"\s*\(.*?\)")
 
 
-REVERSED_SPANISH_MARKERS = [
-    "oxena", "odnum", "airotsih", "soidutse", "sotidérc", "sotiderc", "odaudarg", "adaudarg",
-    "retsám", "retsam", "odarg", "ohcered", "aígolocisp", "acitámrofni", "aírenigneg",
-    "airenigneg", "aicneic", "lartsemes", "latot", "acisáb", "acisab", "sairotagilbo", "savitatpo", "laveidem"
-]
+
 
 
 def unreverse_text(text: str) -> str:

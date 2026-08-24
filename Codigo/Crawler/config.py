@@ -263,3 +263,131 @@ BOE_SPURIOUS_MARKERS = [
     "centro de impartición", "menciones: no tiene", "condiciones de terminación"
 ]
 
+# ==============================================================================
+# 12. VOCABULARIO ACADÉMICO, STOPWORDS Y FILTROS ANTI-ESPURIOS (CENTRALIZADO)
+# ==============================================================================
+
+# Stop words en español para extracción discriminativa de lemas en títulos de grado
+SPANISH_STOP_WORDS = {
+    # Spanish articles, prepositions, conjunctions, generics
+    "el", "la", "los", "las", "un", "una", "unos", "unas",
+    "de", "del", "en", "a", "al", "por", "con", "sin", "sobre", "para", "entre", "hacia", "desde", "hasta", "segun", "tras", "durante", "mediante",
+    "y", "e", "o", "u", "ni", "que", "como", "donde", "cuando",
+    "graduado", "graduada", "graduados", "graduadas", "grado", "grados",
+    "master", "masteres", "máster", "másteres",
+    "doctor", "doctora", "doctorado", "doctorados",
+    "titulo", "titulos", "titulacion", "titulaciones", "título", "títulos", "titulación", "titulaciones",
+    "estudio", "estudios", "plan", "planes", "oficial", "oficiales",
+    "universidad", "universidades", "universitaria", "universitarias", "universitario", "universitarios",
+    "conducente", "conducentes", "obtencion", "obtención", "superacion", "superación",
+    "anexo", "anexos", "resolucion", "resolución", "decreto", "orden", "acuerdo",
+    "centro", "centros", "facultad", "facultades", "escuela", "escuelas",
+    "programa", "programas", "ensenanzas", "enseñanzas", "ensenanza", "enseñanza",
+    "rama", "ramas", "conocimiento", "conocimientos", "mencion", "mención", "menciones",
+    "distribucion", "distribución", "creditos", "créditos", "resumen", "estructura",
+    # Administrative & layout structural tokens
+    "apartado", "materia", "materias", "asignatura", "asignaturas", "modulo", "módulo",
+    "docon", "rector", "rectora", "secretario", "secretaria", "emilio", "lora", "tamayo",
+    "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre",
+    # English generics & connectives for bilingual resolutions (UC3M, UAB, UPF, etc.)
+    "bachelor", "bachelors", "master", "masters", "doctor", "phd", "degree", "degrees",
+    "and", "in", "of", "for", "with", "the", "an", "science", "sciences",
+    "engineering", "studies", "study", "university", "business", "management", "international",
+    "applied", "advanced", "official", "curriculum", "syllabus",
+    # Catalan / Valenciano / Balear generics & connectives
+    "grau", "graus", "estudis", "estudi", "pla", "plans", "oficial", "oficials",
+    "universitat", "universitats", "universitari", "universitaris", "universitaria", "universitaries",
+    "ciencies", "ciències", "socials", "juridiques", "jurídiques", "humanitats", "enginyeria", "enginyeries", "dels", "deles", "dela", "per", "amb",
+    # Galician & Basque generics
+    "grao", "graos", "estudos", "estudo", "plano", "planos", "universidade", "gradua", "graduak", "masterra", "unibertsitatea"
+}
+
+# Stopwords de títulos académicos multilingües (ES / CA / GL / EU / EN)
+TITLE_STOPWORDS = {
+    "grado", "grados", "graduado", "graduada", "graduats", "graduades", "grau", "graus", "grao", "graos", "gradua", "graduak", "bachelor", "undergraduate",
+    "máster", "master", "másteres", "masteres", "màster", "màsters", "masterra", "masterrak", "postgrado", "posgrado", "postgrau", "posgrao", "postgraduate",
+    "doctor", "doctora", "doctorado", "doctorados", "doctorat", "doctorats", "doutoramento", "doktoregoa", "doctorate", "phd",
+    "universitario", "universitaria", "universitaris", "universitaries", "oficial", "oficials", "programa", "programas", "título", "titulo", "titulacion", "titulaciones", "titulacions",
+    "estudio", "estudios", "estudis", "estudos", "ikasketak", "enseñanza", "ensenanza", "mención", "mencion",
+    "universidad", "universidades", "universitat", "universitats", "universidade", "unibertsitatea", "university",
+    "sobre", "entre", "para", "como", "esta", "este", "estos", "estas", "del", "los", "las", "por", "con", "una", "uno", "que", "sus", "mas", "más",
+    "autónoma", "autonoma", "politécnica", "politecnica", "internacional", "nacional", "distancia",
+    "en", "the", "and", "for", "of", "in", "to", "i", "de", "a", "el", "la", "l'", "d'", "els", "les", "o", "u"
+}
+
+# Cabeceras de tabla canónicas en planes de estudio multilingües (ES / CA / GL / EU / EN)
+HEADER_KEYWORDS = [
+    # Español
+    "código", "codigo", "asignatura", "asignaturas", "materia", "materias", "denominación", "denominacion",
+    "nombre", "créditos", "creditos", "ects", "carácter", "caracter", "tipo", "curso", "cuatrimestre", "semestre", "modulo", "módulo",
+    # Català / Valencià
+    "assignatura", "assignatures", "matèria", "materies", "crèdits", "credits", "caràcter", "tipus", "curs", "quadrimestre", "modul",
+    # Galego
+    "asineira", "asineiras", "créditos", "carácter", "ano", "cuadrimestre", "módulo",
+    # Euskara
+    "irakasgaia", "irakasgaiak", "kredituak", "maila", "ikasturtea", "mota", "lauhilekoa",
+    # English
+    "subject", "subjects", "course", "courses", "module", "credits", "type", "year", "semester", "term", "syllabus"
+]
+
+# Palabras clave y metadatos no curriculares a descartar (horarios, notas, calificaciones, trámites)
+INVALID_SUBJECT_KEYWORDS = [
+    # Días de la semana y horarios (Multilingüe)
+    "lunes", "martes", "miércoles", "miercoles", "jueves", "viernes", "sábado", "sabado",
+    "dilluns", "dimarts", "dimecres", "dijous", "divendres", "dissabte",
+    "luns", "mércores", "venres",
+    "astelehena", "asteartea", "asteazkena", "osteguna", "ostirala", "larunbata",
+    "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday",
+    # Infraestructura y calendario específico
+    "aula magna", "aula virtual", "número de aula", "numero de aula", "despacho",
+    "horario de clases", "horari de classes", "timetable", "schedule",
+    "calendario de exámenes", "calendari d'exàmens", "egutegia",
+    "convocatoria ordinaria", "convocatoria extraordinaria",
+    # Calificaciones, notas y trámites administrativos de secretaría (ES / CA / GL / EU / EN)
+    "suspenso", "aprobado", "notable", "sobresaliente", "matrícula de honor", "matricula de honor",
+    "calificación cualitativa", "calificacion cualitativa", "calificación numérica", "calificacion numerica",
+    "calificación estándar", "calificacion estandar", "escala de calificaciones", "tabla de equivalencias",
+    "baremo", "convalidación", "convalidacion", "reconocimiento de créditos", "reconocimiento de creditos",
+    "suspes", "suspès", "aprovat", "excel·lent", "matricula d'honor", "matricula de honor",
+    "qualificació qualitativa", "qualificacio qualitativa", "qualificació numèrica", "qualificacio numerica",
+    "escala de qualificacions", "taula d'equivalències", "taula dequivalencies", "reconeixement de crèdits", "reconeixement de credits",
+    "sobresalinte", "cualificación cualitativa", "cualificacion cualitativa", "táboa de equivalencias", "taboa de equivalencias", "recoñecemento de créditos",
+    "ez-gai", "oso ondo", "bikain", "ohorezko matrikula", "kalifikazio kualitatiboa", "kalifikazio numerikoa", "kreditu-aitorpena",
+    "grading scale", "qualitative grade", "numerical grade", "credit recognition",
+    "buscar por", "1º apellido", "2º apellido", "listado simple", "listado detallado", "cerca per", "bilatu"
+]
+
+# Marcadores de fuentes y matrices tipográficas invertidas/espejadas en BOE antiguo (2009-2014)
+REVERSED_SPANISH_MARKERS = [
+    "oxena", "odnum", "airotsih", "soidutse", "sotidérc", "sotiderc", "odaudarg", "adaudarg",
+    "retsám", "retsam", "odarg", "ohcered", "aígolocisp", "acitámrofni", "aírenigneg",
+    "airenigneg", "aicneic", "lartsemes", "latot", "acisáb", "acisab", "sairotagilbo", "savitatpo", "laveidem"
+]
+
+# Marcadores para excluir plantillas de Curriculum Vitae (CVN), formularios de profesorado y proyectos de tesis
+CV_EXCLUSION_MARKERS = [
+    "curriculum_modelo", "curriculum_vitae", "curriculum-vitae", "cv_normalizado",
+    "cvn", "modelo_normalizado", "curriculum_normalizado", "anexo_iii_curriculum",
+    "proyectos_", "proyectos-grupo", "proyecto_tesis", "lineas_investigacion",
+    "modelo_cv", "cv_form"
+]
+
+# Patrones de preámbulo administrativo de resoluciones rectorales/ministeriales
+PREAMBLE_REJECTION_PATTERNS = [
+    r"relacionados\s+a\s+continuaci[oó]n",
+    r"este\s+rectorado\s+ha\s+resuelto",
+    r"publicar\s+(?:el|los)\s+plan(?:es)?\s+de\s+estudios",
+    r"publicaci[oó]n\s+del?\s+plan\s+de\s+estudios",
+    r"aprobar\s+(?:el|los)\s+plan",
+    r"haberse\s+establecido",
+    r"una\s+vez\s+homologad",
+    r"homologado\s+por",
+    r"inscrito\s+en\s+el\s+registro",
+    r"previa\s+homologaci[oó]n",
+    r"consejo\s+de\s+ministros",
+    r"consejo\s+de\s+gobierno",
+    r"t[ií]tulos\s+oficiales\s+de\s+grado\s+siguientes",
+    r"siguientes\s+ense[ñn]anzas",
+    r"siguientes\s+planes"
+]
+

@@ -61,6 +61,7 @@ from parsers import (
 )
 from univ_web_crawler import run_phase1_part2
 from precios_crawler import run_phase1_part3
+from asignaturas_crawler import run_phase1_part4
 
 # Ensure Windows terminal stdout handles unicode characters safely
 if sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
@@ -730,6 +731,12 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
         run_phase1_part3()
 
     # -------------------------------------------------------------------------
+    # PARTE 4 DE LA FASE 1: GUÍAS DOCENTES Y TEMARIOS DETALLADOS (EEES / BOLONIA)
+    # -------------------------------------------------------------------------
+    if 4 in run_parts:
+        run_phase1_part4(limit_univ=limit_univ, limit_degrees=limit_degrees, force=force)
+
+    # -------------------------------------------------------------------------
     # PERSISTENCIA FINAL DE MÉTRICAS Y CHECKPOINTS
     # -------------------------------------------------------------------------
     metrics.save()
@@ -753,8 +760,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Crawler UniHub para scraping de RUCT, BOE y webs oficiales de universidades.")
     parser.add_argument("--limit-univ", type=int, default=None, help="Limitar número de universidades a procesar.")
     parser.add_argument("--limit-degrees", type=int, default=None, help="Limitar número de titulaciones por universidad.")
-    parser.add_argument("--only-part", type=int, choices=[1, 2, 3], default=None, help="Ejecutar únicamente la parte seleccionada de la Fase 1 (1: RUCT/BOE, 2: Web Crawler, 3: Precios ECTS).")
-    parser.add_argument("--parts", type=int, nargs="+", choices=[1, 2, 3], default=None, help="Seleccionar partes específicas a ejecutar (ej. --parts 1 2). Por defecto ejecuta 1, 2 y 3 juntas.")
+    parser.add_argument("--only-part", type=int, choices=[1, 2, 3, 4], default=None, help="Ejecutar únicamente la parte seleccionada de la Fase 1 (1: RUCT/BOE, 2: Web Crawler, 3: Precios ECTS, 4: Guías Docentes y Temarios).")
+    parser.add_argument("--parts", type=int, nargs="+", choices=[1, 2, 3, 4], default=None, help="Seleccionar partes específicas a ejecutar (ej. --parts 1 2 4). Por defecto ejecuta 1, 2 y 3 juntas.")
     parser.add_argument("--force", action="store_true", default=False, help="Forzar re-descarga y re-procesamiento de todas las titulaciones ignorando la comprobación de fecha BOE de la caché.")
     args = parser.parse_args()
 
@@ -764,6 +771,6 @@ if __name__ == "__main__":
     elif args.parts:
         selected_parts = args.parts
     else:
-        selected_parts = [1, 2, 3] # Comportamiento normal por defecto: las 3 partes juntas
+        selected_parts = [1, 2, 3] # Comportamiento normal por defecto: las 3 partes estándar (o 1, 2, 3, 4 con --parts)
 
     run_crawler(limit_univ=args.limit_univ, limit_degrees=args.limit_degrees, run_parts=selected_parts, force=args.force)

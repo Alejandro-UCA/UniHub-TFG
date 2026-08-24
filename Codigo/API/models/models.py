@@ -83,6 +83,14 @@ class ElementoCurricular(Base):
     caracter = Column(Text, index=True)
     curso = Column(Text)
     cuatrimestre = Column(Text)
+    url_guia_docente = Column(Text)
+    temario = Column(JSON)
+    sistema_evaluacion = Column(JSON)
+    profesorado = Column(JSON)
+    bibliografia = Column(JSON)
+    idioma = Column(String(50))
+    creditos_teoria = Column(Numeric(4, 2))
+    creditos_practica = Column(Numeric(4, 2))
 
     plan_estudios = relationship("PlanEstudios", back_populates="elementos_curriculares")
 

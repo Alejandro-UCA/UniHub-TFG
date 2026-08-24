@@ -81,7 +81,15 @@ def run_etl():
                 'ALTER TABLE planes_estudio ADD COLUMN IF NOT EXISTS pdf_sha256 VARCHAR(64);',
                 'ALTER TABLE elementos_curriculares ADD COLUMN IF NOT EXISTS tipo_asistencia VARCHAR(50);',
                 'ALTER TABLE elementos_curriculares ADD COLUMN IF NOT EXISTS calificacion_minima NUMERIC(4,2);',
-                'ALTER TABLE elementos_curriculares ADD COLUMN IF NOT EXISTS departamento VARCHAR(255);'
+                'ALTER TABLE elementos_curriculares ADD COLUMN IF NOT EXISTS departamento VARCHAR(255);',
+                'ALTER TABLE elementos_curriculares ADD COLUMN IF NOT EXISTS url_guia_docente TEXT;',
+                'ALTER TABLE elementos_curriculares ADD COLUMN IF NOT EXISTS temario JSONB;',
+                'ALTER TABLE elementos_curriculares ADD COLUMN IF NOT EXISTS sistema_evaluacion JSONB;',
+                'ALTER TABLE elementos_curriculares ADD COLUMN IF NOT EXISTS profesorado JSONB;',
+                'ALTER TABLE elementos_curriculares ADD COLUMN IF NOT EXISTS bibliografia JSONB;',
+                'ALTER TABLE elementos_curriculares ADD COLUMN IF NOT EXISTS idioma VARCHAR(50);',
+                'ALTER TABLE elementos_curriculares ADD COLUMN IF NOT EXISTS creditos_teoria NUMERIC(4,2);',
+                'ALTER TABLE elementos_curriculares ADD COLUMN IF NOT EXISTS creditos_practica NUMERIC(4,2);'
             ]
             with engine_admin.connect() as _conn:
                 for _q in schema_alter_queries:
@@ -297,6 +305,15 @@ def run_etl():
                     
                 elems = pe_data.get("elementos_curriculares") or []
                 for elem in elems:
+                    guia_info = elem.get("guia_docente") or {}
+                    
+                    # Extraer créditos teóricos / prácticos si vienen en la guía
+                    cr_teoria = None
+                    cr_practica = None
+                    if guia_info.get("creditos"):
+                        cr_teoria = guia_info["creditos"].get("teoria")
+                        cr_practica = guia_info["creditos"].get("practicas")
+
                     elementos_bulk.append(ElementoCurricular(
                         plan_estudio_id=plan_obj.id,
                         modulo=elem.get("modulo"),
@@ -305,7 +322,15 @@ def run_etl():
                         creditos_ects=elem.get("creditos_ects"),
                         caracter=elem.get("caracter"),
                         curso=elem.get("curso"),
-                        cuatrimestre=elem.get("cuatrimestre")
+                        cuatrimestre=elem.get("cuatrimestre"),
+                        url_guia_docente=elem.get("url_guia_docente") or guia_info.get("url_guia_docente"),
+                        temario=guia_info.get("temario") or elem.get("temario"),
+                        sistema_evaluacion=guia_info.get("sistema_evaluacion") or elem.get("sistema_evaluacion"),
+                        profesorado=guia_info.get("profesorado") or elem.get("profesorado"),
+                        bibliografia=guia_info.get("bibliografia") or elem.get("bibliografia"),
+                        idioma=guia_info.get("idioma") or elem.get("idioma"),
+                        creditos_teoria=cr_teoria,
+                        creditos_practica=cr_practica
                     ))
 
             if resumenes_bulk:

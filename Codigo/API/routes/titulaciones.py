@@ -72,15 +72,29 @@ def get_titulacion(codigo_estudio: str, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail=f"Titulación con código '{codigo_estudio}' no encontrada.")
     return tit
 
-@router.get("/{codigo_estudio}/plan-estudios", response_model=PlanEstudiosOut, summary="Obtener plan de estudios de la titulación extraído del BOE")
+@router.get("/{codigo_estudio}/plan-estudios", response_model=PlanEstudiosOut, summary="Obtener plan de estudios de la titulación extraído del BOE / Web")
 def get_plan_estudios(codigo_estudio: str, db: Session = Depends(get_db)):
     plan = db.query(PlanEstudios).filter(PlanEstudios.codigo_estudio == codigo_estudio).first()
     if not plan:
         raise HTTPException(
             status_code=404, 
-            detail=f"Plan de estudios extraído del BOE para la titulación '{codigo_estudio}' no encontrado."
+            detail=f"Plan de estudios para la titulación '{codigo_estudio}' no encontrado."
         )
     return plan
+
+@router.get("/{codigo_estudio}/asignaturas/{elemento_id}/guia-docente", response_model=ElementoCurricularOut, summary="Obtener guía docente y temario de una asignatura específica")
+def get_asignatura_guia_docente(codigo_estudio: str, elemento_id: int, db: Session = Depends(get_db)):
+    plan = db.query(PlanEstudios).filter(PlanEstudios.codigo_estudio == codigo_estudio).first()
+    if not plan:
+        raise HTTPException(status_code=404, detail=f"Plan de estudios '{codigo_estudio}' no encontrado.")
+    
+    elem = db.query(ElementoCurricular).filter(
+        ElementoCurricular.plan_estudio_id == plan.id,
+        ElementoCurricular.id == elemento_id
+    ).first()
+    if not elem:
+        raise HTTPException(status_code=404, detail=f"Asignatura con ID {elemento_id} no encontrada en este plan.")
+    return elem
 
 @router.post("", response_model=TitulacionOut, status_code=status.HTTP_201_CREATED, summary="Crear nueva titulación (Admin)")
 def create_titulacion(data: TitulacionCreate, db: Session = Depends(get_admin_db), api_key: str = Depends(verify_api_key)):

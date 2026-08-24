@@ -78,6 +78,14 @@ class ElementoCurricularBase(BaseModel):
     caracter: Optional[str] = None
     curso: Optional[str] = None
     cuatrimestre: Optional[str] = None
+    url_guia_docente: Optional[str] = None
+    temario: Optional[Any] = None
+    sistema_evaluacion: Optional[Any] = None
+    profesorado: Optional[Any] = None
+    bibliografia: Optional[Any] = None
+    idioma: Optional[str] = None
+    creditos_teoria: Optional[float] = None
+    creditos_practica: Optional[float] = None
 
 class ElementoCurricularCreate(ElementoCurricularBase):
     pass
@@ -90,6 +98,14 @@ class ElementoCurricularUpdate(BaseModel):
     caracter: Optional[str] = None
     curso: Optional[str] = None
     cuatrimestre: Optional[str] = None
+    url_guia_docente: Optional[str] = None
+    temario: Optional[Any] = None
+    sistema_evaluacion: Optional[Any] = None
+    profesorado: Optional[Any] = None
+    bibliografia: Optional[Any] = None
+    idioma: Optional[str] = None
+    creditos_teoria: Optional[float] = None
+    creditos_practica: Optional[float] = None
 
 class ElementoCurricularOut(ElementoCurricularBase):
     id: int

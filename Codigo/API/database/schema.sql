@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS resumen_creditos (
     cantidad_creditos VARCHAR(50) NOT NULL
 );
 
--- 5. Tabla de Elementos Curriculares (Asignaturas, Módulos, Materias, Bloques)
+-- 5. Tabla de Elementos Curriculares (Asignaturas, Módulos, Materias, Bloques y Guías Docentes EEES)
 CREATE TABLE IF NOT EXISTS elementos_curriculares (
     id SERIAL PRIMARY KEY,
     plan_estudio_id INT REFERENCES planes_estudio(id) ON DELETE CASCADE,
@@ -66,7 +66,15 @@ CREATE TABLE IF NOT EXISTS elementos_curriculares (
     creditos_ects TEXT,
     caracter TEXT,
     curso TEXT,
-    cuatrimestre TEXT
+    cuatrimestre TEXT,
+    url_guia_docente TEXT,
+    temario JSONB,
+    sistema_evaluacion JSONB,
+    profesorado JSONB,
+    bibliografia JSONB,
+    idioma VARCHAR(50),
+    creditos_teoria NUMERIC(4, 2),
+    creditos_practica NUMERIC(4, 2)
 );
 
 -- 6. Tabla de Registro de Errores del Crawler

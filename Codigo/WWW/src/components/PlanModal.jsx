@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { X, FileText, ExternalLink, Award, Layers, AlertTriangle } from 'lucide-react';
+import { X, FileText, ExternalLink, Award, Layers, AlertTriangle, BookOpen, ChevronDown, ChevronUp, User, Bookmark } from 'lucide-react';
 import { apiService } from '../services/api';
 
 export default function PlanModal({ degree, onClose }) {
   const [loading, setLoading] = useState(true);
   const [planData, setPlanData] = useState(null);
   const [error, setError] = useState(null);
+  const [expandedSubject, setExpandedSubject] = useState(null);
 
   const isExtinct = (degree?.estado || '').toLowerCase().includes('extin') || 
                     (degree?.estado || '').toLowerCase().includes('suprim') || 
@@ -410,33 +411,183 @@ export default function PlanModal({ degree, onClose }) {
                           <th style={{ padding: '0.75rem 1rem' }}>Carácter</th>
                           <th style={{ padding: '0.75rem 1rem' }}>Curso</th>
                           <th style={{ padding: '0.75rem 1rem' }}>Cuatrimestre</th>
+                          <th style={{ padding: '0.75rem 1rem', textAlign: 'center' }}>Guía / Temario</th>
                         </tr>
                       </thead>
                       <tbody>
-                        {elementos.map((elem, idx) => (
-                          <tr key={idx} style={{ borderBottom: '1px solid var(--border-light)', background: idx % 2 === 0 ? 'transparent' : 'rgba(0, 132, 200, 0.03)' }}>
-                            <td style={{ padding: '0.65rem 1rem', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
-                              {elem.materia || elem.modulo ? (
-                                /menci|itinerari|especialid/i.test(elem.materia || elem.modulo) ? (
-                                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', color: 'var(--uca-blue)', fontWeight: 600 }}>
-                                    🏷️ {elem.materia || elem.modulo}
+                        {elementos.map((elem, idx) => {
+                          const guia = elem.guia_docente || {};
+                          const hasDetails = Boolean(elem.url_guia_docente || elem.temario || guia.temario || guia.sistema_evaluacion || elem.sistema_evaluacion);
+                          const isExpanded = expandedSubject === idx;
+                          const temarioList = elem.temario || guia.temario || [];
+                          const evalList = elem.sistema_evaluacion || guia.sistema_evaluacion || [];
+                          const profList = elem.profesorado || guia.profesorado || [];
+                          const bibList = elem.bibliografia || guia.bibliografia || [];
+                          const guideUrl = elem.url_guia_docente || guia.url_guia_docente;
+
+                          return (
+                            <React.Fragment key={idx}>
+                              <tr 
+                                style={{ 
+                                  borderBottom: isExpanded ? 'none' : '1px solid var(--border-light)', 
+                                  background: isExpanded ? 'rgba(0, 132, 200, 0.08)' : (idx % 2 === 0 ? 'transparent' : 'rgba(0, 132, 200, 0.03)'),
+                                  cursor: hasDetails ? 'pointer' : 'default'
+                                }}
+                                onClick={() => hasDetails && setExpandedSubject(isExpanded ? null : idx)}
+                              >
+                                <td style={{ padding: '0.65rem 1rem', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+                                  {elem.materia || elem.modulo ? (
+                                    /menci|itinerari|especialid/i.test(elem.materia || elem.modulo) ? (
+                                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', color: 'var(--uca-blue)', fontWeight: 600 }}>
+                                        🏷️ {elem.materia || elem.modulo}
+                                      </span>
+                                    ) : (
+                                      elem.materia || elem.modulo
+                                    )
+                                  ) : '-'}
+                                </td>
+                                <td style={{ padding: '0.65rem 1rem', fontWeight: 600 }}>
+                                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                                    {elem.nombre_elemento}
+                                  </div>
+                                </td>
+                                <td style={{ padding: '0.65rem 1rem', fontWeight: 700, color: 'var(--uca-blue)' }}>{elem.creditos_ects || '-'}</td>
+                                <td style={{ padding: '0.65rem 1rem' }}>
+                                  <span className="badge" style={{ background: 'rgba(0, 132, 200, 0.1)', color: 'var(--uca-cyan)' }}>
+                                    {elem.caracter || elem.tipo || 'OB'}
                                   </span>
-                                ) : (
-                                  elem.materia || elem.modulo
-                                )
-                              ) : '-'}
-                            </td>
-                            <td style={{ padding: '0.65rem 1rem', fontWeight: 600 }}>{elem.nombre_elemento}</td>
-                            <td style={{ padding: '0.65rem 1rem', fontWeight: 700, color: 'var(--uca-blue)' }}>{elem.creditos_ects || '-'}</td>
-                            <td style={{ padding: '0.65rem 1rem' }}>
-                              <span className="badge" style={{ background: 'rgba(0, 132, 200, 0.1)', color: 'var(--uca-cyan)' }}>
-                                {elem.caracter || elem.tipo || 'OB'}
-                              </span>
-                            </td>
-                            <td style={{ padding: '0.65rem 1rem' }}>{elem.curso ? `${elem.curso}º` : '-'}</td>
-                            <td style={{ padding: '0.65rem 1rem' }}>{elem.cuatrimestre || '-'}</td>
-                          </tr>
-                        ))}
+                                </td>
+                                <td style={{ padding: '0.65rem 1rem' }}>{elem.curso ? `${elem.curso}º` : '-'}</td>
+                                <td style={{ padding: '0.65rem 1rem' }}>{elem.cuatrimestre || '-'}</td>
+                                <td style={{ padding: '0.65rem 1rem', textAlign: 'center' }}>
+                                  {hasDetails ? (
+                                    <button
+                                      type="button"
+                                      aria-label="Ver temario y guía docente"
+                                      style={{
+                                        background: isExpanded ? 'var(--uca-blue)' : 'rgba(0, 132, 200, 0.12)',
+                                        color: isExpanded ? '#FFFFFF' : 'var(--uca-blue)',
+                                        border: 'none',
+                                        borderRadius: 'var(--radius-sm)',
+                                        padding: '0.3rem 0.6rem',
+                                        fontSize: '0.78rem',
+                                        fontWeight: 600,
+                                        cursor: 'pointer',
+                                        display: 'inline-flex',
+                                        alignItems: 'center',
+                                        gap: '0.3rem'
+                                      }}
+                                    >
+                                      <BookOpen size={13} />
+                                      {isExpanded ? 'Ocultar' : 'Temario'}
+                                      {isExpanded ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
+                                    </button>
+                                  ) : guideUrl ? (
+                                    <a
+                                      href={guideUrl}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                      onClick={(e) => e.stopPropagation()}
+                                      style={{ color: 'var(--uca-blue)', display: 'inline-flex', alignItems: 'center', gap: '0.2rem', fontSize: '0.78rem' }}
+                                    >
+                                      Guía <ExternalLink size={11} />
+                                    </a>
+                                  ) : (
+                                    <span style={{ color: 'var(--text-muted)', fontSize: '0.78rem' }}>-</span>
+                                  )}
+                                </td>
+                              </tr>
+
+                              {/* Accordion Drawer: Temario y Guía Docente */}
+                              {isExpanded && (
+                                <tr style={{ background: 'rgba(0, 132, 200, 0.04)', borderBottom: '1px solid var(--border-light)' }}>
+                                  <td colSpan={7} style={{ padding: '1.25rem 1.5rem' }}>
+                                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>
+                                      {/* Bloque 1: Temario Oficial */}
+                                      {temarioList.length > 0 && (
+                                        <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
+                                          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontWeight: 700, color: 'var(--uca-blue)', marginBottom: '0.6rem', fontSize: '0.9rem' }}>
+                                            <BookOpen size={16} /> Temario Oficial ({temarioList.length} bloques/temas)
+                                          </div>
+                                          <ul style={{ margin: 0, paddingLeft: '1.2rem', fontSize: '0.82rem', lineHeight: 1.5, color: 'var(--text-main)' }}>
+                                            {temarioList.map((t, tIdx) => (
+                                              <li key={tIdx} style={{ marginBottom: '0.35rem' }}>
+                                                <strong>{typeof t === 'string' ? t : (t.titulo || t.orden || `Tema ${tIdx + 1}`)}</strong>
+                                                {t.contenidos && Array.isArray(t.contenidos) && t.contenidos.length > 0 && (
+                                                  <ul style={{ paddingLeft: '1rem', marginTop: '0.2rem', color: 'var(--text-muted)', fontSize: '0.78rem' }}>
+                                                    {t.contenidos.slice(0, 3).map((sub, sIdx) => (
+                                                      <li key={sIdx}>{sub}</li>
+                                                    ))}
+                                                  </ul>
+                                                )}
+                                              </li>
+                                            ))}
+                                          </ul>
+                                        </div>
+                                      )}
+
+                                      {/* Bloque 2: Sistema de Evaluación */}
+                                      {(evalList.length > 0 || elem.criterios_evaluacion || guia.criterios_evaluacion) && (
+                                        <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
+                                          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontWeight: 700, color: 'var(--success)', marginBottom: '0.6rem', fontSize: '0.9rem' }}>
+                                            ⚖️ Sistema de Evaluación y Ponderaciones
+                                          </div>
+                                          {evalList.length > 0 ? (
+                                            <div style={{ fontSize: '0.82rem' }}>
+                                              {evalList.map((ev, evIdx) => (
+                                                <div key={evIdx} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.25rem 0', borderBottom: '1px dashed var(--border-light)' }}>
+                                                  <span>{ev.tarea || ev.instrumentos || `Prueba ${evIdx + 1}`}</span>
+                                                  <strong style={{ color: 'var(--uca-blue)' }}>{ev.ponderacion_porcentaje ? `${ev.ponderacion_porcentaje}%` : 'Ponderado'}</strong>
+                                                </div>
+                                              ))}
+                                            </div>
+                                          ) : (
+                                            <p style={{ margin: 0, fontSize: '0.8rem', color: 'var(--text-muted)', lineHeight: 1.45 }}>
+                                              {elem.criterios_evaluacion || guia.criterios_evaluacion}
+                                            </p>
+                                          )}
+                                        </div>
+                                      )}
+
+                                      {/* Bloque 3: Profesorado y Enlace */}
+                                      <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
+                                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '0.6rem', fontSize: '0.9rem' }}>
+                                          <User size={16} /> Equipo Docente e Información
+                                        </div>
+                                        {profList.length > 0 ? (
+                                          <ul style={{ margin: 0, paddingLeft: '1.2rem', fontSize: '0.82rem', color: 'var(--text-main)', marginBottom: '0.75rem' }}>
+                                            {profList.map((p, pIdx) => (
+                                              <li key={pIdx}>
+                                                {typeof p === 'string' ? p : p.nombre_completo}
+                                                {p.coordinador && <span style={{ marginLeft: '0.3rem', fontSize: '0.72rem', color: 'var(--uca-sun)', fontWeight: 700 }}>(Coordinador)</span>}
+                                              </li>
+                                            ))}
+                                          </ul>
+                                        ) : (
+                                          <p style={{ margin: '0 0 0.75rem 0', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                                            {guia.departamento ? `Departamento: ${guia.departamento}` : 'Consultar profesorado en la guía oficial.'}
+                                          </p>
+                                        )}
+
+                                        {guideUrl && (
+                                          <a
+                                            href={guideUrl}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            className="btn btn-outline"
+                                            style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.78rem', padding: '0.35rem 0.75rem' }}
+                                          >
+                                            <ExternalLink size={13} /> Ver Guía Docente Completa
+                                          </a>
+                                        )}
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                              )}
+                            </React.Fragment>
+                          );
+                        })}
                       </tbody>
                     </table>
                   </div>

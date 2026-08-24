@@ -452,11 +452,12 @@ def is_same_or_subdomain(target_url: str, base_url: str) -> bool:
         return False
 
 
-def extract_html_subjects(soup: BeautifulSoup) -> list:
+def extract_html_subjects(soup: BeautifulSoup, base_url: str = "") -> list:
     """
     Extrae elementos curriculares de tablas HTML evitando filas de cabecera (<th>),
-    filas de resumen de créditos (Totals, 1r curs...), palabras clave no curriculares
-    y soportando celdas multi-línea divididas por <br>, <p>, <div> o <li>.
+    filas de resumen de créditos (Totals, 1r curs...), palabras clave no curriculares,
+    soportando celdas multi-línea divididas por <br>, <p>, <div> o <li>, y capturando
+    el enlace saliente a la guía docente oficial (url_guia_docente).
     """
     elementos = []
     seen_names = set()
@@ -555,7 +556,18 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
                         if norm_name in seen_names or len(norm_name) < 4:
                             continue
                         seen_names.add(norm_name)
-                        elementos.append({
+
+                        # Extraer enlace si existe
+                        url_guia = ""
+                        a_tag = td.find("a", href=True)
+                        if a_tag:
+                            href_val = a_tag["href"].strip()
+                            if href_val.startswith("http"):
+                                url_guia = href_val
+                            elif base_url and not href_val.startswith("javascript:"):
+                                url_guia = urljoin(base_url, href_val)
+
+                        elem_item = {
                             "modulo": "",
                             "materia": "",
                             "nombre_elemento": clean_line,
@@ -563,7 +575,11 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
                             "caracter": caracter,
                             "curso": "",
                             "cuatrimestre": ""
-                        })
+                        }
+                        if url_guia:
+                            elem_item["url_guia_docente"] = url_guia
+
+                        elementos.append(elem_item)
                         extracted_any_multiline = True
 
             if extracted_any_multiline:
@@ -649,8 +665,18 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
                         curso = col
                         break
 
+            # Extraer enlace saliente a la guía docente si existe en la fila o celda
+            url_guia = ""
+            a_tag = row.find("a", href=True)
+            if a_tag:
+                href_val = a_tag["href"].strip()
+                if href_val.startswith("http"):
+                    url_guia = href_val
+                elif base_url and not href_val.startswith("javascript:"):
+                    url_guia = urljoin(base_url, href_val)
+
             seen_names.add(norm_name)
-            elementos.append({
+            elem_item = {
                 "modulo": "",
                 "materia": "",
                 "nombre_elemento": nombre_candidato,
@@ -658,7 +684,11 @@ def extract_html_subjects(soup: BeautifulSoup) -> list:
                 "caracter": caracter,
                 "curso": curso,
                 "cuatrimestre": ""
-            })
+            }
+            if url_guia:
+                elem_item["url_guia_docente"] = url_guia
+
+            elementos.append(elem_item)
 
     return elementos
 

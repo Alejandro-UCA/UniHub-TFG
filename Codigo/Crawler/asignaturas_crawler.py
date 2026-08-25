@@ -18,7 +18,7 @@ from config import (
     REQUEST_DELAY,
     ASYNC_PREFETCH_WORKERS
 )
-from downloader import RUCTDownloader
+from downloader import RUCTDownloader, SkipUniversityException
 from checkpoint import atomic_json_dump
 
 logger = logging.getLogger(__name__)
@@ -376,10 +376,8 @@ def run_phase1_part4(max_workers: int = 4, limit_univ: int = None, limit_degrees
 
             # 2. Descargar guía docente en vivo
             try:
-                time.sleep(REQUEST_DELAY)
-                headers = {"User-Agent": USER_AGENT}
-                resp = downloader.session.get(url_guia, headers=headers, timeout=15)
-                if resp.status_code == 200:
+                resp = downloader.get(url_guia)
+                if resp and resp.status_code == 200:
                     parsed_guide = parse_subject_guide(url_guia, resp.text)
                     cache.set(
                         url=url_guia,
@@ -391,6 +389,9 @@ def run_phase1_part4(max_workers: int = 4, limit_univ: int = None, limit_degrees
                     elem["guia_docente"] = parsed_guide
                     processed_guides += 1
                     degree_modified = True
+            except SkipUniversityException:
+                print(f" [AVISO CORTOCIRCUITO] Omitiendo guías de la universidad [{u_code}] por sobrecarga del servidor.")
+                break
             except Exception as e:
                 logger.warning(f"Error al descargar guía '{url_guia}': {e}")
 

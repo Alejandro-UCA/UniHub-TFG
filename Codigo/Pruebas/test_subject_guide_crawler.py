@@ -2,7 +2,9 @@ import unittest
 import os
 import sys
 import tempfile
+import io
 from bs4 import BeautifulSoup
+import pypdf
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
 
@@ -10,6 +12,9 @@ from asignaturas_crawler import (
     parse_uca_subject_guide,
     parse_generic_eees_subject_guide,
     parse_subject_guide,
+    parse_subject_guide_pdf_stream,
+    resolve_candidate_subject_guide_urls,
+    generate_subject_slug,
     SubjectGuideCache
 )
 
@@ -126,6 +131,22 @@ SAMPLE_GENERIC_EEES_HTML = """
 
 class TestSubjectGuideCrawler(unittest.TestCase):
 
+    def test_generate_subject_slug(self):
+        self.assertEqual(generate_subject_slug("Álgebra Lineal y Geometría"), "Algebra-Lineal-y-Geometria")
+        self.assertEqual(generate_subject_slug("Programación Orientada a Objetos"), "Programacion-Orientada-a-Objetos")
+        self.assertEqual(generate_subject_slug("Cálculo I (Grado)"), "Calculo-I-Grado")
+
+    def test_resolve_candidate_subject_guide_urls(self):
+        elem = {
+            "nombre_elemento": "Álgebra Lineal",
+            "codigo_asignatura": "350000",
+            "url_guia_docente": "https://www.uah.es/es/estudios/asignatura/Algebra-Lineal-350000/"
+        }
+        urls = resolve_candidate_subject_guide_urls(elem, u_code="002", u_web="https://www.uah.es", d_code="G350")
+        self.assertTrue(len(urls) >= 1)
+        self.assertIn("https://www.uah.es/es/estudios/asignatura/Algebra-Lineal-350000/", urls)
+        self.assertTrue(any("350000" in u for u in urls))
+
     def test_parse_uca_subject_guide(self):
         soup = BeautifulSoup(SAMPLE_UCA_HTML, "html.parser")
         res = parse_uca_subject_guide(soup, "https://asignaturas.uca.es/2025-26/21714009")
@@ -183,11 +204,16 @@ class TestSubjectGuideCrawler(unittest.TestCase):
             url = "https://asignaturas.uca.es/2025-26/21714009"
             cache.set(url=url, data=guide_data, u_code="025", asig_code="21714009", nombre="Cálculo")
 
-            # Recuperar de la base de datos WAL
-            cached = cache.get(url)
+            # 1. Recuperar por URL exacta
+            cached = cache.get(url=url)
             self.assertIsNotNone(cached)
             self.assertEqual(cached["codigo"], "21714009")
             self.assertEqual(len(cached["temario"]), 2)
+
+            # 2. Recuperar por clave compuesta (universidad + código de asignatura)
+            cached_by_code = cache.get(u_code="025", asig_code="21714009")
+            self.assertIsNotNone(cached_by_code)
+            self.assertEqual(cached_by_code["codigo"], "21714009")
 
             # URL no existente devuelve None
             self.assertIsNone(cache.get("https://asignaturas.uca.es/2025-26/99999999"))

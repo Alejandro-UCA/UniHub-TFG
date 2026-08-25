@@ -8,6 +8,7 @@ import sqlite3
 import hashlib
 import logging
 import unicodedata
+import contextlib
 from urllib.parse import urljoin, urlparse
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -44,8 +45,9 @@ class SubjectGuideCache:
 
     def _init_db(self):
         os.makedirs(os.path.dirname(self.db_path), exist_ok=True)
-        with sqlite3.connect(self.db_path) as conn:
+        with contextlib.closing(sqlite3.connect(self.db_path)) as conn:
             conn.execute("PRAGMA journal_mode=WAL;")
+            conn.execute("PRAGMA synchronous=NORMAL;")
             conn.execute("""
                 CREATE TABLE IF NOT EXISTS guias_docentes (
                     url_hash TEXT PRIMARY KEY,
@@ -63,7 +65,7 @@ class SubjectGuideCache:
 
     def get(self, url: str = None, u_code: str = None, asig_code: str = None) -> dict:
         try:
-            with sqlite3.connect(self.db_path) as conn:
+            with contextlib.closing(sqlite3.connect(self.db_path)) as conn:
                 cursor = conn.cursor()
                 if url:
                     url_hash = hashlib.sha256(url.strip().encode("utf-8")).hexdigest()
@@ -87,7 +89,7 @@ class SubjectGuideCache:
     def set(self, url: str, data: dict, u_code: str = "", asig_code: str = "", nombre: str = ""):
         url_hash = hashlib.sha256(url.strip().encode("utf-8")).hexdigest()
         try:
-            with sqlite3.connect(self.db_path) as conn:
+            with contextlib.closing(sqlite3.connect(self.db_path)) as conn:
                 conn.execute("""
                     INSERT OR REPLACE INTO guias_docentes 
                     (url_hash, url, universidad_codigo, codigo_asignatura, nombre, datos_json, fecha_extraccion)
@@ -622,7 +624,7 @@ def run_phase1_part4(max_workers: int = 4, limit_univ: int = None, limit_degrees
             # 3. Descarga y parsing híbrido en memoria (HTML / PDF stream)
             for c_url in candidate_urls:
                 try:
-                    resp = downloader.get(c_url)
+                    resp = downloader._request_with_retry(c_url)
                     if resp and resp.status_code == 200:
                         c_type = resp.headers.get("Content-Type", "")
                         parsed_guide = parse_subject_guide(c_url, resp.content, c_type)

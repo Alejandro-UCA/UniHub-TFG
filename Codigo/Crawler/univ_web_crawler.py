@@ -778,11 +778,19 @@ def extract_html_subjects(soup: BeautifulSoup, base_url: str = "") -> list:
                             if href_val.startswith("http"):
                                 url_guia = href_val
                             elif base_url and not href_val.startswith("javascript:"):
-                                url_guia = urljoin(base_url, href_val)
+                                url_guia = urllib.parse.urljoin(base_url, href_val)
+
+                        # Extraer código si viene en la celda o URL
+                        cod_asig = ""
+                        if url_guia:
+                            m_cod = re.search(r"[/?=](\d{4,8})(?:[/?&.#]|$)", url_guia)
+                            if m_cod:
+                                cod_asig = m_cod.group(1)
 
                         elem_item = {
                             "modulo": "",
                             "materia": "",
+                            "codigo_asignatura": cod_asig,
                             "nombre_elemento": clean_line,
                             "creditos_ects": creditos,
                             "caracter": caracter,
@@ -886,12 +894,25 @@ def extract_html_subjects(soup: BeautifulSoup, base_url: str = "") -> list:
                 if href_val.startswith("http"):
                     url_guia = href_val
                 elif base_url and not href_val.startswith("javascript:"):
-                    url_guia = urljoin(base_url, href_val)
+                    url_guia = urllib.parse.urljoin(base_url, href_val)
+
+            # Extraer código si existe en alguna columna o en la URL
+            codigo_asig = ""
+            for c_val in cols_raw:
+                c_val_strip = c_val.strip()
+                if re.match(r"^\d{4,8}$", c_val_strip) or re.match(r"^[A-Z]{2,4}\d{2,6}$", c_val_strip):
+                    codigo_asig = c_val_strip
+                    break
+            if not codigo_asig and url_guia:
+                m_cod = re.search(r"[/?=](\d{4,8})(?:[/?&.#]|$)", url_guia)
+                if m_cod:
+                    codigo_asig = m_cod.group(1)
 
             seen_names.add(norm_name)
             elem_item = {
                 "modulo": "",
                 "materia": "",
+                "codigo_asignatura": codigo_asig,
                 "nombre_elemento": nombre_candidato,
                 "creditos_ects": creditos,
                 "caracter": caracter,

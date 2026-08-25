@@ -461,7 +461,10 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
             metrics.errores_detectados += 1
             for p in parser_processes:
                 if p.is_alive():
-                    task_queue.put({"type": "STOP"})
+                    try:
+                        task_queue.put({"type": "STOP"}, timeout=2)
+                    except Exception:
+                        pass
                     p.join(timeout=2)
                     if p.is_alive():
                         p.terminate()
@@ -680,7 +683,10 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
         # Finalización segura del Pool de Procesos 2 (Parser CPU)
         print("\n[Finalizando Red] Enviando señal de parada al Pool de Procesos Parser CPU...")
         for _ in range(num_parser_workers):
-            task_queue.put({"type": "STOP"})
+            try:
+                task_queue.put({"type": "STOP"}, timeout=3)
+            except Exception:
+                pass
         
         # Receive metrics summary from Process 2 pool
         total_parsed = 0

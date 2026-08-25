@@ -35,7 +35,7 @@ def get_estadisticas_contenedores():
     return collect_container_physical_stats()
 
 @router.get("/crawler/checkpoint", summary="Obtener datos detallados del checkpoint de la Fase 1 (Universidades, Titulaciones, PDFs descartados y fallos)")
-def get_crawler_checkpoint():
+def get_crawler_checkpoint(api_key: str = Depends(verify_api_key)):
     """
     Lee el archivo checkpoint.json directamente del disco y expone el estado del rastreador,
     incluyendo el registro de PDFs descartados por no ser plan de estudios y fallos de descarga.
@@ -82,7 +82,7 @@ def get_crawler_checkpoint():
     return checkpoint_data
 
 @router.get("/crawler/errores_json", summary="Obtener registro completo de errores en formato JSON del crawler")
-def get_crawler_errores_json():
+def get_crawler_errores_json(api_key: str = Depends(verify_api_key)):
     """
     Lee el archivo errores_crawler.json directamente del disco de la Fase 1.
     """

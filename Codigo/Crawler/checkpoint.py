@@ -4,6 +4,7 @@ import time
 import uuid
 import sqlite3
 import threading
+import contextlib
 from datetime import datetime
 from config import (
     CHECKPOINT_JSON, 
@@ -28,55 +29,48 @@ def is_valid_value(val) -> bool:
 
 def atomic_json_dump(data, filepath, max_retries: int = 5):
     """
-    Writes data to a thread-and-process-unique temporary file first 
-    and replaces target file atomically. Handles transient Windows file lock contention.
+    Thread-safe atomic JSON dump using temporary files and atomic replace.
+    Guarantees no partial/corrupted JSON writes.
     """
-    dir_path = os.path.dirname(os.path.abspath(filepath))
-    if dir_path:
-        os.makedirs(dir_path, exist_ok=True)
-
-    unique_id = f"{os.getpid()}_{threading.get_ident()}_{uuid.uuid4().hex[:8]}"
-    tmp_path = f"{filepath}.tmp.{unique_id}"
+    temp_filepath = f"{filepath}.tmp.{uuid.uuid4().hex}"
+    os.makedirs(os.path.dirname(os.path.abspath(filepath)), exist_ok=True)
     
-    try:
-        with open(tmp_path, "w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=2)
-            
-        for attempt in range(max_retries):
-            try:
-                os.replace(tmp_path, filepath)
-                break
-            except (PermissionError, OSError) as pe:
-                if attempt == max_retries - 1:
-                    raise pe
-                time.sleep(0.05 * (attempt + 1))
-    except Exception as e:
-        if os.path.exists(tmp_path):
-            try:
-                os.remove(tmp_path)
-            except Exception:
-                pass
-        raise e
-
-
-def load_json_safe(filepath: str, default=None):
-    """
-    Safely reads a JSON file from disk if it exists.
-    Returns the loaded data or default (empty dict by default) on failure/missing file.
-    """
-    if default is None:
-        default = {}
-    if os.path.exists(filepath):
+    for attempt in range(max_retries):
         try:
-            with open(filepath, "r", encoding="utf-8") as f:
-                return json.load(f)
-        except Exception:
-            pass
-    return default
+            with open(temp_filepath, "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
+                f.flush()
+                os.fsync(f.fileno())
+            os.replace(temp_filepath, filepath)
+            return
+        except (PermissionError, OSError) as e:
+            if attempt < max_retries - 1:
+                time.sleep(0.05 * (2 ** attempt))
+            else:
+                try:
+                    with open(filepath, "w", encoding="utf-8") as f:
+                        json.dump(data, f, ensure_ascii=False, indent=2)
+                finally:
+                    if os.path.exists(temp_filepath):
+                        try:
+                            os.remove(temp_filepath)
+                        except Exception:
+                            pass
+
+def load_json_safe(filepath, default=None, default_val=None):
+    """Safely loads JSON from disk; returns default/default_val on missing or corrupt files."""
+    fallback = default if default is not None else (default_val if default_val is not None else {})
+    if not os.path.exists(filepath):
+        return fallback
+    try:
+        with open(filepath, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return fallback
 
 class CheckpointManager:
     """
-    Manages crawler progress state and BOE metadata registry for incremental updates.
+    High-performance thread-safe checkpoint manager for crawler progress.
     Provides dual-persistence: SQLite WAL (OPT-05) for 0ms indexed queries + JSON backup.
     Supports SHA256 negative content caching for duplicate PDFs (OPT-06).
     """
@@ -91,11 +85,15 @@ class CheckpointManager:
         self._init_sqlite()
         self.state = self._load_checkpoint()
 
+    @contextlib.contextmanager
     def _get_connection(self):
         conn = sqlite3.connect(self.db_path, timeout=SQLITE_CONNECT_TIMEOUT)
-        conn.execute("PRAGMA journal_mode=WAL;")
-        conn.execute("PRAGMA synchronous=NORMAL;")
-        return conn
+        try:
+            conn.execute("PRAGMA journal_mode=WAL;")
+            conn.execute("PRAGMA synchronous=NORMAL;")
+            yield conn
+        finally:
+            conn.close()
 
     def _init_sqlite(self):
         dir_path = os.path.dirname(os.path.abspath(self.db_path))

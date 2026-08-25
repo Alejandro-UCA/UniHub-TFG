@@ -193,15 +193,10 @@ def create_asignatura(codigo_estudio: str, data: ElementoCurricularCreate, db: S
         db.commit()
         db.refresh(plan)
 
+    create_dict = data.model_dump()
     new_sub = ElementoCurricular(
         plan_estudio_id=plan.id,
-        modulo=data.modulo,
-        materia=data.materia,
-        nombre_elemento=data.nombre_elemento,
-        creditos_ects=data.creditos_ects,
-        caracter=data.caracter,
-        curso=data.curso,
-        cuatrimestre=data.cuatrimestre
+        **create_dict
     )
     db.add(new_sub)
     db.commit()

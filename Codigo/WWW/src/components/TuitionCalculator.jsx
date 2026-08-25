@@ -656,6 +656,7 @@ export default function TuitionCalculator() {
                   </div>
                   <input
                     type="range"
+                    aria-label="Número total de créditos ECTS a matricular"
                     min={6}
                     max={90}
                     step={6}

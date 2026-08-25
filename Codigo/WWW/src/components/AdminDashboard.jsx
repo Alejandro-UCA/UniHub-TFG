@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { 
   ShieldCheck, BarChart3, Activity, Server, Eye, Search, MapPin, 
   Cpu, HardDrive, RefreshCw, LogOut, Plus, Edit, Trash2, Database, 
@@ -299,6 +299,23 @@ export default function AdminDashboard({ onLogout }) {
       showFeedback(`Error en la operación: ${err.message}`, true);
     }
   };
+
+  const filteredCrudUniversities = useMemo(() => {
+    return dbUniversities.filter(u => {
+      if (crudPillFilter === 'Pública') return u.tipo?.toLowerCase().includes('pública') || u.tipo?.toLowerCase().includes('publica');
+      if (crudPillFilter === 'Privada') return u.tipo?.toLowerCase().includes('privada');
+      return true;
+    });
+  }, [dbUniversities, crudPillFilter]);
+
+  const filteredCrudDegrees = useMemo(() => {
+    return dbDegrees.filter(d => {
+      if (crudPillFilter === 'Grado') return d.nivel_academico?.toLowerCase().includes('grado');
+      if (crudPillFilter === 'Máster') return d.nivel_academico?.toLowerCase().includes('máster') || d.nivel_academico?.toLowerCase().includes('master');
+      if (crudPillFilter === 'Doctorado') return d.nivel_academico?.toLowerCase().includes('doctor') || d.nivel_academico?.toLowerCase().includes('99/2011') || d.titulo?.toLowerCase().includes('doctor');
+      return true;
+    });
+  }, [dbDegrees, crudPillFilter]);
 
   const contenedoresLista = containerStats?.contenedores || [
     { nombre: 'unihub_crawler', estado: 'running', memoria_mb: 168.4, cpu_porcentaje: 8.5, fase: 'Fase 1: Crawler Multiproceso RUCT/BOE' },
@@ -624,13 +641,7 @@ export default function AdminDashboard({ onLogout }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {dbUniversities
-                    .filter(u => {
-                      if (crudPillFilter === 'Pública') return u.tipo?.toLowerCase().includes('pública') || u.tipo?.toLowerCase().includes('publica');
-                      if (crudPillFilter === 'Privada') return u.tipo?.toLowerCase().includes('privada');
-                      return true;
-                    })
-                    .map((u) => (
+                  {filteredCrudUniversities.map((u) => (
                     <tr key={u.codigo} style={{ borderBottom: '1px solid var(--border-light)' }}>
                       <td style={{ padding: '0.75rem', fontWeight: 700 }}>{u.codigo}</td>
                       <td style={{ padding: '0.75rem', fontWeight: 600 }}>{u.nombre}</td>
@@ -666,14 +677,7 @@ export default function AdminDashboard({ onLogout }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {dbDegrees
-                    .filter(d => {
-                      if (crudPillFilter === 'Grado') return d.nivel_academico?.toLowerCase().includes('grado');
-                      if (crudPillFilter === 'Máster') return d.nivel_academico?.toLowerCase().includes('máster') || d.nivel_academico?.toLowerCase().includes('master');
-                      if (crudPillFilter === 'Doctorado') return d.nivel_academico?.toLowerCase().includes('doctor') || d.nivel_academico?.toLowerCase().includes('99/2011') || d.titulo?.toLowerCase().includes('doctor');
-                      return true;
-                    })
-                    .map((d) => (
+                  {filteredCrudDegrees.map((d) => (
                     <tr key={d.codigo_estudio} style={{ borderBottom: '1px solid var(--border-light)' }}>
                       <td style={{ padding: '0.75rem', fontWeight: 700 }}>{d.codigo_estudio}</td>
                       <td style={{ padding: '0.75rem', fontWeight: 600 }}>{d.titulo}</td>

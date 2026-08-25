@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect, useCallback, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import UnivCard from './components/UnivCard';
@@ -42,10 +42,10 @@ export default function App() {
   const [selectedDegree, setSelectedDegree] = useState(null);
   const [initialDataLoaded, setInitialDataLoaded] = useState(false);
 
-  const navigateToTab = (tab) => {
+  const navigateToTab = useCallback((tab) => {
     setActiveTab(tab);
     window.history.pushState({ tab }, '', `/${tab === 'inicio' ? '' : tab}`);
-  };
+  }, []);
 
   useEffect(() => {
     const handlePopState = (event) => {
@@ -111,12 +111,12 @@ export default function App() {
     document.documentElement.setAttribute('data-theme', !isDark ? 'dark' : 'light');
   };
 
-  const handleNavClickTab = (tab) => {
+  const handleNavClickTab = useCallback((tab) => {
     if (tab === 'titulaciones' && activeTab !== 'titulaciones') {
       setSelectedUnivCodigo('');
     }
     navigateToTab(tab);
-  };
+  }, [activeTab, navigateToTab]);
 
   const loadInitialData = async () => {
     setLoading(true);
@@ -179,11 +179,11 @@ export default function App() {
     return () => { clearTimeout(delayDebounceFn); controller.abort(); };
   }, [initialDataLoaded, degreeCurrentPage, degreeItemsPerPage, searchQuery, selectedDegreeTipo, selectedCCAA, selectedUnivTipo, selectedRama, selectedUnivCodigo]);
 
-  const handleHeroSearch = (query) => {
+  const handleHeroSearch = useCallback((query) => {
     setSelectedUnivCodigo('');
     setSearchQuery(query);
     navigateToTab('titulaciones');
-  };
+  }, [navigateToTab]);
 
   // Generate unique list of CCAA for filter dropdowns
   const uniqueCCAAs = React.useMemo(() => {
@@ -232,11 +232,11 @@ export default function App() {
   // Titulaciones ya están paginadas desde el servidor
   const paginatedDegrees = degrees;
 
-  const handleViewUniversityDegrees = (univ) => {
+  const handleViewUniversityDegrees = useCallback((univ) => {
     setSearchQuery('');
     setSelectedUnivCodigo(univ.codigo);
     navigateToTab('titulaciones');
-  };
+  }, [navigateToTab]);
 
   return (
     <ErrorBoundary>

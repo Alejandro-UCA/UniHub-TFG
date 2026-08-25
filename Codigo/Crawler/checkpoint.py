@@ -30,7 +30,7 @@ def is_valid_value(val) -> bool:
 def atomic_json_dump(data, filepath, max_retries: int = 5):
     """
     Thread-safe atomic JSON dump using temporary files and atomic replace.
-    Guarantees no partial/corrupted JSON writes.
+    Guarantees no partial/corrupted JSON writes without hardware fsync stalls.
     """
     temp_filepath = f"{filepath}.tmp.{uuid.uuid4().hex}"
     os.makedirs(os.path.dirname(os.path.abspath(filepath)), exist_ok=True)
@@ -40,7 +40,6 @@ def atomic_json_dump(data, filepath, max_retries: int = 5):
             with open(temp_filepath, "w", encoding="utf-8") as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
                 f.flush()
-                os.fsync(f.fileno())
             os.replace(temp_filepath, filepath)
             return
         except (PermissionError, OSError) as e:
@@ -75,6 +74,7 @@ class CheckpointManager:
     Supports SHA256 negative content caching for duplicate PDFs (OPT-06).
     """
     _lock = threading.RLock()
+    _local = threading.local()
 
     def __init__(self, filepath=CHECKPOINT_JSON, db_path=DB_PATH):
         self.filepath = filepath
@@ -87,13 +87,22 @@ class CheckpointManager:
 
     @contextlib.contextmanager
     def _get_connection(self):
-        conn = sqlite3.connect(self.db_path, timeout=SQLITE_CONNECT_TIMEOUT)
-        try:
+        """Thread-local persistent SQLite WAL connection with in-memory page cache."""
+        conns = getattr(self._local, "connections", None)
+        if conns is None:
+            conns = {}
+            self._local.connections = conns
+
+        if self.db_path not in conns:
+            conn = sqlite3.connect(self.db_path, timeout=SQLITE_CONNECT_TIMEOUT)
             conn.execute("PRAGMA journal_mode=WAL;")
             conn.execute("PRAGMA synchronous=NORMAL;")
-            yield conn
-        finally:
-            conn.close()
+            conn.execute("PRAGMA temp_store=MEMORY;")
+            conn.execute("PRAGMA mmap_size=268435456;")
+            conn.execute("PRAGMA cache_size=-64000;")
+            conns[self.db_path] = conn
+
+        yield conns[self.db_path]
 
     def _init_sqlite(self):
         dir_path = os.path.dirname(os.path.abspath(self.db_path))

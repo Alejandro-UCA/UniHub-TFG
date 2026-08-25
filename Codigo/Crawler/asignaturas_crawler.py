@@ -7,6 +7,7 @@ import time
 import sqlite3
 import hashlib
 import logging
+import threading
 import unicodedata
 import contextlib
 from urllib.parse import urljoin, urlparse
@@ -34,68 +35,112 @@ CACHE_GUIAS_DB = os.path.join(DATA_DIR, "cache_guias_docentes.db")
 
 class SubjectGuideCache:
     """
-    Gestor de persistencia en SQLite WAL para guías docentes.
-    Garantiza deduplicación institucional (N:M): asignaturas compartidas entre grados
-    (ej. Cálculo de la UCA o Álgebra en la UAH) se descargan y analizan exactamente UNA sola vez.
+    Caché de alto rendimiento L1 (RAM) + L2 (SQLite WAL) para guías docentes.
     Permite búsqueda dual tanto por URL exacta como por clave compuesta canónica (universidad_codigo + codigo_asignatura).
     """
+    _local = threading.local()
+
     def __init__(self, db_path: str = CACHE_GUIAS_DB):
         self.db_path = db_path
+        self._l1_url_cache = {}
+        self._l1_comp_cache = {}
+        self._negative_urls = set()
         self._init_db()
+
+    def _get_conn(self):
+        conns = getattr(self._local, "guide_conns", None)
+        if conns is None:
+            conns = {}
+            self._local.guide_conns = conns
+        if self.db_path not in conns:
+            conn = sqlite3.connect(self.db_path)
+            conn.execute("PRAGMA journal_mode=WAL;")
+            conn.execute("PRAGMA synchronous=NORMAL;")
+            conn.execute("PRAGMA temp_store=MEMORY;")
+            conn.execute("PRAGMA mmap_size=268435456;")
+            conn.execute("PRAGMA cache_size=-64000;")
+            conns[self.db_path] = conn
+        return conns[self.db_path]
 
     def _init_db(self):
         os.makedirs(os.path.dirname(self.db_path), exist_ok=True)
-        with contextlib.closing(sqlite3.connect(self.db_path)) as conn:
-            conn.execute("PRAGMA journal_mode=WAL;")
-            conn.execute("PRAGMA synchronous=NORMAL;")
-            conn.execute("""
-                CREATE TABLE IF NOT EXISTS guias_docentes (
-                    url_hash TEXT PRIMARY KEY,
-                    url TEXT NOT NULL,
-                    universidad_codigo TEXT,
-                    codigo_asignatura TEXT,
-                    nombre TEXT,
-                    datos_json TEXT NOT NULL,
-                    fecha_extraccion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                );
-            """)
-            conn.execute("CREATE INDEX IF NOT EXISTS idx_guias_url ON guias_docentes(url);")
-            conn.execute("CREATE INDEX IF NOT EXISTS idx_guias_univ_asig ON guias_docentes(universidad_codigo, codigo_asignatura);")
-            conn.commit()
+        conn = self._get_conn()
+        conn.execute("""
+            CREATE TABLE IF NOT EXISTS guias_docentes (
+                url_hash TEXT PRIMARY KEY,
+                url TEXT NOT NULL,
+                universidad_codigo TEXT,
+                codigo_asignatura TEXT,
+                nombre TEXT,
+                datos_json TEXT NOT NULL,
+                fecha_extraccion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+        """)
+        conn.execute("CREATE INDEX IF NOT EXISTS idx_guias_url ON guias_docentes(url);")
+        conn.execute("CREATE INDEX IF NOT EXISTS idx_guias_univ_asig ON guias_docentes(universidad_codigo, codigo_asignatura);")
+        conn.commit()
 
     def get(self, url: str = None, u_code: str = None, asig_code: str = None) -> dict:
-        try:
-            with contextlib.closing(sqlite3.connect(self.db_path)) as conn:
-                cursor = conn.cursor()
-                if url:
-                    url_hash = hashlib.sha256(url.strip().encode("utf-8")).hexdigest()
-                    cursor.execute("SELECT datos_json FROM guias_docentes WHERE url_hash = ?", (url_hash,))
-                    row = cursor.fetchone()
-                    if row:
-                        return json.loads(row[0])
+        if url:
+            url_clean = url.strip()
+            if url_clean in self._negative_urls:
+                return None
+            if url_clean in self._l1_url_cache:
+                return self._l1_url_cache[url_clean]
 
-                if u_code and asig_code:
-                    cursor.execute(
-                        "SELECT datos_json FROM guias_docentes WHERE universidad_codigo = ? AND codigo_asignatura = ? ORDER BY fecha_extraccion DESC LIMIT 1",
-                        (str(u_code).zfill(3), str(asig_code).strip())
-                    )
-                    row = cursor.fetchone()
-                    if row:
-                        return json.loads(row[0])
+        if u_code and asig_code:
+            comp_key = f"{str(u_code).zfill(3)}:{str(asig_code).strip()}"
+            if comp_key in self._l1_comp_cache:
+                return self._l1_comp_cache[comp_key]
+
+        try:
+            conn = self._get_conn()
+            cursor = conn.cursor()
+            if url:
+                url_hash = hashlib.sha256(url.strip().encode("utf-8")).hexdigest()
+                cursor.execute("SELECT datos_json FROM guias_docentes WHERE url_hash = ?", (url_hash,))
+                row = cursor.fetchone()
+                if row:
+                    data = json.loads(row[0])
+                    self._l1_url_cache[url.strip()] = data
+                    return data
+
+            if u_code and asig_code:
+                cursor.execute(
+                    "SELECT datos_json FROM guias_docentes WHERE universidad_codigo = ? AND codigo_asignatura = ? ORDER BY fecha_extraccion DESC LIMIT 1",
+                    (str(u_code).zfill(3), str(asig_code).strip())
+                )
+                row = cursor.fetchone()
+                if row:
+                    data = json.loads(row[0])
+                    self._l1_comp_cache[comp_key] = data
+                    return data
         except Exception as e:
             logger.warning(f"Error al leer caché de guía docente: {e}")
         return None
 
+    def mark_negative(self, url: str):
+        if url:
+            self._negative_urls.add(url.strip())
+
     def set(self, url: str, data: dict, u_code: str = "", asig_code: str = "", nombre: str = ""):
+        if not data:
+            return
+        if url:
+            self._l1_url_cache[url.strip()] = data
+        if u_code and asig_code:
+            comp_key = f"{str(u_code).zfill(3)}:{str(asig_code).strip()}"
+            self._l1_comp_cache[comp_key] = data
+
         url_hash = hashlib.sha256(url.strip().encode("utf-8")).hexdigest()
         try:
-            with contextlib.closing(sqlite3.connect(self.db_path)) as conn:
-                conn.execute("""
-                    INSERT OR REPLACE INTO guias_docentes 
-                    (url_hash, url, universidad_codigo, codigo_asignatura, nombre, datos_json, fecha_extraccion)
-                    VALUES (?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
-                """, (url_hash, url, str(u_code).zfill(3) if u_code else "", str(asig_code).strip() if asig_code else "", nombre, json.dumps(data, ensure_ascii=False)))
-                conn.commit()
+            conn = self._get_conn()
+            conn.execute("""
+                INSERT OR REPLACE INTO guias_docentes 
+                (url_hash, url, universidad_codigo, codigo_asignatura, nombre, datos_json, fecha_extraccion)
+                VALUES (?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+            """, (url_hash, url, str(u_code).zfill(3) if u_code else "", str(asig_code).strip() if asig_code else "", nombre, json.dumps(data, ensure_ascii=False)))
+            conn.commit()
         except Exception as e:
             logger.warning(f"Error al escribir caché de guía docente: {e}")
 
@@ -542,7 +587,7 @@ def parse_subject_guide(url: str, content: bytes, content_type: str = "") -> dic
 # EJECUTOR PRINCIPAL DE LA FASE 1 - PARTE 4
 # =============================================================================
 
-def run_phase1_part4(max_workers: int = 4, limit_univ: int = None, limit_degrees: int = None, force: bool = False):
+def run_phase1_part4(max_workers: int = 4, limit_univ: int = None, limit_degrees: int = None, force: bool = False, target_univ_code: str = None) -> dict:
     """
     FASE 1 - PARTE 4: Extracción de temarios, evaluación y contenido de guías docentes.
     Recorre los planes de estudio en planes_estudio/*.json, resuelve URLs canónicas
@@ -570,11 +615,9 @@ def run_phase1_part4(max_workers: int = 4, limit_univ: int = None, limit_degrees
     enriched_degrees = 0
     start_time = time.time()
     seen_univs = set()
+    matching_degrees_inspected = 0
 
     for idx, p_path in enumerate(plan_files, 1):
-        if limit_degrees and idx > limit_degrees:
-            break
-
         try:
             with open(p_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
@@ -587,13 +630,21 @@ def run_phase1_part4(max_workers: int = 4, limit_univ: int = None, limit_degrees
         u_name = data.get("universidad_nombre", "")
         u_web = data.get("web", "") or data.get("web_fuente_directa_url", "")
 
+        if target_univ_code and str(u_code).zfill(3) != str(target_univ_code).zfill(3):
+            continue
+
         if limit_univ and len(seen_univs) >= limit_univ and u_code not in seen_univs:
             continue
+
+        matching_degrees_inspected += 1
+        if limit_degrees and matching_degrees_inspected > limit_degrees:
+            break
+
         if u_code:
             seen_univs.add(u_code)
 
-        plan = data.get("plan_estudios", {})
-        elementos = plan.get("elementos_curriculares", [])
+        plan = data.get("plan_estudios") or {}
+        elementos = plan.get("elementos_curriculares") or []
 
         if not elementos:
             continue
@@ -658,6 +709,12 @@ def run_phase1_part4(max_workers: int = 4, limit_univ: int = None, limit_degrees
     print("======================================================================")
     print(f" -> Titulaciones enriquecidas con temario: {enriched_degrees}")
     print(f" -> Guías docentes descargadas de la red:  {processed_guides}")
-    print(f" -> Guías recuperadas de caché (N:M):      {cached_hits}")
-    print(f" -> Tiempo total invertido:                {elapsed} seg")
-    print("======================================================================")
+    print(f" -> Aciertos en caché SQLite WAL (0ms):    {cached_hits}")
+    print(f" -> Tiempo total de procesamiento:        {elapsed}s\n")
+
+    return {
+        "enriched_degrees": enriched_degrees,
+        "processed_guides": processed_guides,
+        "cached_hits": cached_hits,
+        "elapsed_s": elapsed
+    }

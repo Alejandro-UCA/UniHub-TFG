@@ -85,8 +85,8 @@ USER_AGENT = os.getenv(
     "CRAWLER_USER_AGENT",
     "UniHubCrawler/1.0 (+https://github.com/Alejandro-UCA/UniHub-TFG; contacto@unihub)"
 )
-HTTP_POOL_CONNECTIONS = int(os.getenv("CRAWLER_HTTP_POOL_CONNECTIONS", 20))  # Tamaño del pool de hosts en caché Keep-Alive
-HTTP_POOL_MAXSIZE = int(os.getenv("CRAWLER_HTTP_POOL_MAXSIZE", 10))          # Conexiones simultáneas por host
+HTTP_POOL_CONNECTIONS = int(os.getenv("CRAWLER_HTTP_POOL_CONNECTIONS", 35))  # Tamaño del pool de hosts en caché Keep-Alive
+HTTP_POOL_MAXSIZE = int(os.getenv("CRAWLER_HTTP_POOL_MAXSIZE", 25))          # Conexiones simultáneas por host
 DOWNLOAD_CHUNK_SIZE = int(os.getenv("CRAWLER_CHUNK_SIZE", 8192))             # Bloque para descargas de PDF (bytes)
 JITTER_MIN_SECONDS = float(os.getenv("CRAWLER_JITTER_MIN", 0.10))            # Jitter aleatorio mínimo por petición (0.10s)
 JITTER_MAX_SECONDS = float(os.getenv("CRAWLER_JITTER_MAX", 0.35))            # Jitter aleatorio máximo por petición (0.35s)

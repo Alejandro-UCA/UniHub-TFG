@@ -163,6 +163,9 @@ OFFICIAL_SIIU_PRICES_CATALOG = {
     }
 }
 
+from functools import lru_cache
+
+@lru_cache(maxsize=256)
 def normalize_ccaa_name(name: str) -> str:
     """
     Normaliza de forma robusta las variantes autonómicas del RUCT y Ministerios
@@ -212,6 +215,7 @@ def normalize_ccaa_name(name: str) -> str:
     return name
 
 
+@lru_cache(maxsize=256)
 def is_public_university(tipo_univ: str) -> bool:
     """Determina si una universidad es de titularidad pública."""
     if not tipo_univ:
@@ -220,17 +224,19 @@ def is_public_university(tipo_univ: str) -> bool:
     return "pública" in t or "publica" in t
 
 
-def apply_price_info_to_degree(degree_dict: dict, price_info: dict, tipo_univ: str) -> None:
-    """Aplica de forma consistente los precios ECTS y la fuente oficial/privada al diccionario de la titulación."""
+def apply_price_info_to_degree(degree_dict: dict, price_info: dict, tipo_univ: str) -> bool:
+    """Aplica de forma consistente los precios ECTS y retorna True si hubo modificaciones reales."""
+    changed = False
     if is_public_university(tipo_univ):
-        degree_dict["precio_credito_ects"] = price_info.get("precio_credito_ects")
-        degree_dict["precio_credito_2"] = price_info.get("precio_credito_2")
-        degree_dict["precio_credito_3"] = price_info.get("precio_credito_3")
-        degree_dict["precio_credito_4"] = price_info.get("precio_credito_4")
-        degree_dict["precio_estimado_anual"] = price_info.get("precio_estimado_anual")
-        degree_dict["fuente_precio"] = price_info.get("fuente_precio")
+        for k in ["precio_credito_ects", "precio_credito_2", "precio_credito_3", "precio_credito_4", "precio_estimado_anual", "fuente_precio"]:
+            new_v = price_info.get(k)
+            if degree_dict.get(k) != new_v:
+                degree_dict[k] = new_v
+                changed = True
     elif "fuente_precio" not in degree_dict:
         degree_dict["fuente_precio"] = "Universidad Privada (Tarifas fijadas por la institución)"
+        changed = True
+    return changed
 
 
 def load_precios_ccaa() -> dict:
@@ -405,10 +411,11 @@ def run_phase1_part3():
             price_info = compute_degree_price(ccaa, tipo_univ, nivel, titulo, precios_catalogo=precios_catalogo)
             prices_cache[d_code] = (price_info, tipo_univ)
             
-            apply_price_info_to_degree(degree, price_info, tipo_univ)
-            atomic_json_dump(degree, filepath)
-                
-            updated_count += 1
+            changed = apply_price_info_to_degree(degree, price_info, tipo_univ)
+            if changed:
+                atomic_json_dump(degree, filepath)
+                updated_count += 1
+            
             if price_info.get("precio_credito_ects") is not None:
                 public_count += 1
         except Exception as e:

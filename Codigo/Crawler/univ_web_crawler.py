@@ -77,7 +77,16 @@ from parsers import (
     RE_SUMMARY_LABEL
 )
 
+try:
+    import lxml
+    BS4_PARSER = "lxml"
+except ImportError:
+    BS4_PARSER = "html.parser"
 
+_RE_SUMMARY_ROW_MARKERS = re.compile(
+    r"^(?:totals?|totales?|total\s+cr[eé]ditos?|[1-6][º°a-z]*\s+(?:curs|curso|ano|año)|[1-6]r?\s+i\s+[1-6]t?\s+cursos?|formaci[oó]\s+b[aà]sica|optatives?|optativas?|menci[oó]\s+en\s+.*|itinerario\s+.*|menci[oó]n\s+.*)$",
+    re.IGNORECASE
+)
 
 # Lista ampliada de palabras clave y sinónimos para portales académicos y planes de estudio (ES / CA / GL / EU / EN)
 ACADEMIC_KEYWORDS = [
@@ -676,11 +685,6 @@ def extract_html_subjects(soup: BeautifulSoup, base_url: str = "") -> list:
     seen_names = set()
     tables = soup.find_all("table")
 
-    SUMMARY_ROW_MARKERS = re.compile(
-        r"^(?:totals?|totales?|total\s+cr[eé]ditos?|[1-6][º°a-z]*\s+(?:curs|curso|ano|año)|[1-6]r?\s+i\s+[1-6]t?\s+cursos?|formaci[oó]\s+b[aà]sica|optatives?|optativas?|menci[oó]\s+en\s+.*|itinerario\s+.*|menci[oó]n\s+.*)$",
-        re.IGNORECASE
-    )
-
     for t in tables:
         if not is_valid_curricular_table(t):
             continue
@@ -697,11 +701,8 @@ def extract_html_subjects(soup: BeautifulSoup, base_url: str = "") -> list:
 
             cols_raw = [td.get_text(separator=" ", strip=True) for td in tds]
 
-            # Detect header row de forma rigurosa (Multilingüe: ES / CA / GL / EU / EN)
-            matched_header_cols = sum(1 for c in cols_raw if any(c.strip().lower() == hk for hk in HEADER_KEYWORDS))
-            is_header_row = (r_idx == 0 and matched_header_cols >= 1) or matched_header_cols >= 2 or all(td.name == "th" for td in tds)
-
-            if is_header_row:
+            # Detectar si la primera fila o <th> definen los índices de columnas
+            if r_idx == 0 or all(cell.name == "th" for cell in tds):
                 for c_i, c_val in enumerate(cols_raw):
                     c_low = c_val.lower().strip()
                     if any(w == c_low or w in c_low for w in ["asignatura", "assignatura", "asineira", "irakasgaia", "materia", "denominació", "denominacion", "denominación", "nombre", "actividad", "subject", "course", "modul", "módulo", "modulo"]):
@@ -717,10 +718,7 @@ def extract_html_subjects(soup: BeautifulSoup, base_url: str = "") -> list:
             # Si alguna celda contiene saltos de línea (<br>, <p>, <div>, <li>), extraer cada línea individualmente
             extracted_any_multiline = False
             for td in tds:
-                td_soup = BeautifulSoup(str(td), "html.parser")
-                for br in td_soup.find_all(["br", "p", "div", "li"]):
-                    br.replace_with(f"\n{br.get_text()}\n")
-                lines = [l.strip() for l in td_soup.get_text().splitlines() if l.strip()]
+                lines = [l.strip() for l in td.get_text(separator="\n").splitlines() if l.strip()]
 
                 if len(lines) >= 2:
                     for line in lines:
@@ -730,7 +728,7 @@ def extract_html_subjects(soup: BeautifulSoup, base_url: str = "") -> list:
                             continue
                         clean_low = clean_line.lower()
                         if (
-                            SUMMARY_ROW_MARKERS.match(clean_low)
+                            _RE_SUMMARY_ROW_MARKERS.match(clean_low)
                             or any(clean_low == hk for hk in HEADER_KEYWORDS)
                             or any(sk in clean_low for sk in INVALID_SUBJECT_KEYWORDS)
                             or clean_low in INVALID_METADATA_LABELS
@@ -823,7 +821,7 @@ def extract_html_subjects(soup: BeautifulSoup, base_url: str = "") -> list:
 
             if (
                 len(nombre_candidato) < 4
-                or SUMMARY_ROW_MARKERS.match(nombre_lower)
+                or _RE_SUMMARY_ROW_MARKERS.match(nombre_lower)
                 or any(nombre_lower == hk for hk in HEADER_KEYWORDS)
                 or any(sk in nombre_lower for sk in INVALID_SUBJECT_KEYWORDS)
                 or nombre_lower in INVALID_METADATA_LABELS
@@ -1695,7 +1693,7 @@ class UniversityWebCrawler:
                             best_url_scores[u] = sc
 
                     sorted_candidates = sorted(best_url_scores.items(), key=lambda x: x[1], reverse=True)
-                    scanned_urls = [u for u, score in sorted_candidates[:12]]
+                    scanned_urls = [u for u, score in sorted_candidates[:4]]
                     visited_targets = set()
                     
                     for candidate_page_url in scanned_urls:

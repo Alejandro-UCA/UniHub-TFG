@@ -81,10 +81,19 @@ class SPALayoutCrawler:
             )
             page = context.new_page()
 
+            # Bloqueo de recursos pesados (imágenes, medios, fuentes) para máxima velocidad
+            def _block_unneeded_resources(route):
+                if route.request.resource_type in ["image", "media", "font", "imageset"]:
+                    route.abort()
+                else:
+                    route.continue_()
+
+            page.route("**/*", _block_unneeded_resources)
+
             # Interceptar descargas automáticas forzadas por cabeceras Content-Disposition (Patrón A)
             try:
                 page.goto(target_url, timeout=self.timeout, wait_until="domcontentloaded")
-                page.wait_for_timeout(1500)
+                page.wait_for_timeout(800)
             except Exception as nav_err:
                 if "Download is starting" in str(nav_err) or "net::ERR_ABORTED" in str(nav_err):
                     try:
@@ -111,38 +120,27 @@ class SPALayoutCrawler:
                 else:
                     raise nav_err
 
-            # Expand interactive accordions, course tabs (1º a 4º curso) and specialization panels (Multilingüe)
-            accordion_selectors = [
-                "button", "a.accordion", ".tab", ".nav-link", ".panel-title", "details summary", ".accordion-header", ".ui-accordion-header", "li[role='tab']", "a[role='tab']"
-            ]
-            clicked_elements = set()
-            for sel in accordion_selectors:
-                try:
-                    elements = page.query_selector_all(sel)
-                    for elem in elements[:12]:
-                        txt = (elem.inner_text() or "").strip().lower()
-                        if not txt or txt in clicked_elements:
-                            continue
-                        course_tab_match = any(
-                            k in txt for k in [
-                                # Cursos 1º a 4º (ES, CA, GL, EU, EN)
-                                "1º", "2º", "3º", "4º", "1er", "2º", "3º", "4º", "primer curs", "segon curs", "tercer curs", "quart curs",
-                                "1r curs", "2n curs", "3r curs", "4t curs", "1. maila", "2. maila", "3. maila", "4. maila",
-                                "primeiro curso", "segundo curso", "terceiro curso", "cuarto curso", "year 1", "year 2", "year 3", "year 4",
-                                # Materias, especialidades y TFG
-                                "asignatura", "materia", "plan de estudios", "pla d'estudis", "ikasketa plana", "syllabus",
-                                "mención", "mencion", "especialidad", "optativas", "itinerari", "itinerario", "trabajo fin", "tfg", "tfm"
-                            ]
-                        )
-                        if course_tab_match:
-                            clicked_elements.add(txt)
-                            try:
-                                elem.click(timeout=1000)
-                                page.wait_for_timeout(int(SPA_ACCORDION_CLICK_DELAY * 1000))
-                            except Exception:
-                                pass
-                except Exception:
-                    pass
+            # Expand interactive accordions and tabs in a single fast in-page JS evaluation
+            try:
+                page.evaluate("""() => {
+                    const keywords = [
+                        "1º", "2º", "3º", "4º", "1er", "primer curs", "segon curs", "tercer curs", "quart curs",
+                        "1r curs", "2n curs", "3r curs", "4t curs", "1. maila", "2. maila", "3. maila", "4. maila",
+                        "primeiro curso", "segundo curso", "terceiro curso", "cuarto curso", "year 1", "year 2", "year 3", "year 4",
+                        "asignatura", "materia", "plan de estudios", "pla d'estudis", "ikasketa plana", "syllabus",
+                        "mención", "mencion", "especialidad", "optativas", "itinerari", "itinerario", "trabajo fin", "tfg", "tfm"
+                    ];
+                    const elements = Array.from(document.querySelectorAll("button, a.accordion, .tab, .nav-link, .panel-title, details summary, .accordion-header, .ui-accordion-header, li[role='tab'], a[role='tab']"));
+                    for (const elem of elements.slice(0, 16)) {
+                        const txt = (elem.innerText || "").trim().toLowerCase();
+                        if (txt && keywords.some(k => txt.includes(k))) {
+                            try { elem.click(); } catch(e) {}
+                        }
+                    }
+                }""")
+                page.wait_for_timeout(350)
+            except Exception:
+                pass
 
             rendered_html = page.content()
             return RenderResult(rendered_html)

@@ -196,6 +196,7 @@ def clean_excel_code(raw_val: str, zfill_len: int = 0) -> str:
     return val.zfill(zfill_len) if zfill_len > 0 and val else val
 
 
+@lru_cache(maxsize=4096)
 def classify_subject_caracter(text: str, default: str = "OB") -> str:
     """Clasifica de forma unificada el carácter oficial de una asignatura (FB, OP, PE, TFG/TFM, OB) en ES, CA, GL, EU y EN."""
     if not text:
@@ -826,6 +827,19 @@ def parse_degree_detail_html(html_content: str) -> dict:
     }
 
 
+_RE_UNWANTED_CHARS = re.compile(r"[\u00a0\u200b\r\n\t]+")
+_RE_MULTISPACE = re.compile(r"\s+")
+_RE_ORDINAL_START = re.compile(r"^(?:\d{1,3}[\.\-\)]|[a-zA-Z][\.\)])\s+")
+_RE_SECRETARIA_CODE = re.compile(r"^(?:\d{4,6}|[A-Z]{1,3}\d{3,5})\s*[-–—:]\s*(.+)$")
+_RE_DOT_LEADERS = re.compile(r"\s*\.{2,}\s*")
+_RE_FOOTNOTES = re.compile(r"\s*(?:[\*\†\#\^\~]+|\(\d{1,2}\)|\[[a-zA-Z\d]\])\s*$")
+_RE_PUNCT_START = re.compile(r"^[\(\[\*\-\.\,\;\:\/\\_]+")
+_RE_PUNCT_END = re.compile(r"[\*\-\.\,\;\:\/\\_]+$")
+_RE_CARACTER_SUFFIX = re.compile(r"\s*\b(FB|FBA|OB|OBL|OP|OPT|PE|PEX|TFG|TFM|EXT|OIN|DER|HAU|MX)\s*$", re.IGNORECASE)
+_RE_ISOLATED_DIGIT = re.compile(r"\b([1-6])\b")
+_RE_ALPHA_4 = re.compile(r"[a-zA-ZáéíóúñÁÉÍÓÚÑ]{4,}")
+
+@lru_cache(maxsize=2048)
 def normalize_cuatrimestre(cuat_raw: str) -> str:
     """
     Normaliza el cuatrimestre a un formato estándar legible (1C, 2C, Anual)
@@ -863,6 +877,7 @@ def normalize_cuatrimestre(cuat_raw: str) -> str:
     return str(cuat_raw).strip()
 
 
+@lru_cache(maxsize=4096)
 def normalize_curso(curso_raw: str, current_materia: str = "", ects_val: float = 6.0) -> tuple:
     """
     Normaliza el campo curso de forma estricta (1, 2, 3, 4, 5, 6 o vacío).
@@ -896,16 +911,15 @@ def normalize_curso(curso_raw: str, current_materia: str = "", ects_val: float =
         return "6", current_materia
 
     # 3. Buscar si contiene un dígito aislado 1-6
-    m = re.search(r"\b([1-6])\b", c_str)
+    m = _RE_ISOLATED_DIGIT.search(c_str)
     if m:
         c_num = int(m.group(1))
         if c_num == int(ects_val) and c_num >= 5 and not any(k in c_low for k in ["curso", "año", "curs"]):
             return "", current_materia
         return str(c_num), current_materia
 
-    # 4. Si curso_raw es un texto largo (> 3 caracteres alfabéticos) y no es un curso numérico,
-    # es un nombre de materia/módulo desalineado por la tabla del PDF
-    if re.search(r"[a-zA-ZáéíóúñÁÉÍÓÚÑ]{4,}", c_str):
+    # 4. Si curso_raw es un texto largo (> 3 caracteres alfabéticos) y no es un curso numérico
+    if _RE_ALPHA_4.search(c_str):
         if not current_materia or current_materia.strip() == "":
             current_materia = c_str
         return "", current_materia
@@ -913,18 +927,10 @@ def normalize_curso(curso_raw: str, current_materia: str = "", ects_val: float =
     return "", current_materia
 
 
+@lru_cache(maxsize=8192)
 def sanitize_subject_name(raw_name: str) -> str:
     """
-    Limpia y normaliza exhaustivamente el nombre de una asignatura:
-    1. Corrige artefactos de codificación UTF-8 rotos (Ã³, Ã¡, etc.).
-    2. Elimina texto invertido proveniente de matrices tipográficas.
-    3. Elimina caracteres invisibles y colapsa espacios/tabuladores/saltos de línea.
-    4. Elimina numeración ordinal inicial de fila de tabla ('1. ', '4. ', '14 - ', 'a) ', 'B. ').
-    5. Separa códigos numéricos o alfanuméricos de secretaría de cabecera ('40147 - CÁLCULO I' -> 'CÁLCULO I').
-    6. Elimina puntos guía de índice ('......').
-    7. Elimina llamadas a notas al pie finales (' *', ' **', ' (1)', ' [a]', ' †').
-    8. Elimina puntuación residual al inicio y al final (.,;:-_/*\\).
-    9. Elimina sufijos residuales de carácter pegados ('Gestión. OB' -> 'Gestión').
+    Limpia y normaliza exhaustivamente el nombre de una asignatura con regexes precompiladas y LRU cache.
     """
     if not raw_name:
         return ""
@@ -939,33 +945,34 @@ def sanitize_subject_name(raw_name: str) -> str:
     name = unreverse_text(name)
     
     # 3. Eliminar caracteres invisibles y colapsar espacios/tabuladores/saltos de línea
-    name = re.sub(r"[\u00a0\u200b\r\n\t]+", " ", name)
-    name = re.sub(r"\s+", " ", name).strip()
+    name = _RE_UNWANTED_CHARS.sub(" ", name)
+    name = _RE_MULTISPACE.sub(" ", name).strip()
     
-    # 4. Eliminar numeración ordinal inicial de fila de tabla (ej: '4. Gestión de la Innovación' -> 'Gestión de la Innovación')
-    name = re.sub(r"^(?:\d{1,3}[\.\-\)]|[a-zA-Z][\.\)])\s+", "", name).strip()
+    # 4. Eliminar numeración ordinal inicial de fila de tabla
+    name = _RE_ORDINAL_START.sub("", name).strip()
     
-    # 5. Separar códigos numéricos o alfanuméricos de secretaría iniciales (ej: '40147 - CÁLCULO I' -> 'CÁLCULO I')
-    m_code = re.match(r"^(?:\d{4,6}|[A-Z]{1,3}\d{3,5})\s*[-–—:]\s*(.+)$", name)
+    # 5. Separar códigos numéricos o alfanuméricos de secretaría iniciales
+    m_code = _RE_SECRETARIA_CODE.match(name)
     if m_code:
         name = m_code.group(1).strip()
         
     # 6. Eliminar puntos guía de índice ('......')
-    name = re.sub(r"\s*\.{2,}\s*", " ", name).strip()
+    name = _RE_DOT_LEADERS.sub(" ", name).strip()
     
-    # 7. Eliminar llamadas a notas al pie al final (ej: ' *', ' **', ' (1)', ' (2)', ' [a]', ' †')
-    name = re.sub(r"\s*(?:[\*\†\#\^\~]+|\(\d{1,2}\)|\[[a-zA-Z\d]\])\s*$", "", name).strip()
+    # 7. Eliminar llamadas a notas al pie al final
+    name = _RE_FOOTNOTES.sub("", name).strip()
     
     # 8. Eliminar puntuación residual al inicio y al final
-    name = re.sub(r"^[\(\[\*\-\.\,\;\:\/\\_]+", "", name).strip()
-    name = re.sub(r"[\*\-\.\,\;\:\/\\_]+$", "", name).strip()
+    name = _RE_PUNCT_START.sub("", name).strip()
+    name = _RE_PUNCT_END.sub("", name).strip()
     
-    # 9. Eliminar sufijos residuales de carácter pegados (ej: 'Gestión. OB' -> 'Gestión')
-    name = re.sub(r"\s*\b(FB|FBA|OB|OBL|OP|OPT|PE|PEX|TFG|TFM|EXT|OIN|DER|HAU|MX)\s*$", "", name, flags=re.IGNORECASE).strip()
+    # 9. Eliminar sufijos residuales de carácter pegados
+    name = _RE_CARACTER_SUFFIX.sub("", name).strip()
     
     return name.rstrip(".,;:-_ ")
 
 
+@lru_cache(maxsize=8192)
 def is_spurious_or_administrative_subject(name: str, ects_val: float = 6.0, caracter: str = "OB") -> bool:
     """
     Evalúa si un elemento extraído corresponde a una frase administrativa, mención/itinerario agrupado,

@@ -29,6 +29,13 @@ import logging
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 logging.getLogger("urllib3").setLevel(logging.ERROR)
 
+_RE_BOE_DOMAINS = re.compile(r"^(?:w{1,8}|vwww|pww|'www)\.boe\.es$")
+_RE_BOCM_DOMAINS = re.compile(r"^(?:w{1,8})\.bocm\.es$")
+_RE_BOA_DOMAINS = re.compile(r"^(?:w{1,8})\.boa\.aragon\.es$")
+_RE_DOGV_DOMAINS = re.compile(r"^(?:w{1,8})\.dogv\.gva\.es$")
+_RE_BOCYL_DOMAINS = re.compile(r"^(?:w{1,8})\.bocyl\.jcyl\.es$")
+_SECURE_DOMAINS_TUPLE = ("dogc.gencat.cat", "boe.es", "educacion.gob.es", "bocm.madrid.org", "bocyl.jcyl.es", "dogv.gva.es", "boa.aragon.es", "doe.juntaex.es")
+
 def normalize_url(url: str, domain_mappings: dict = None) -> str:
     """Normalizes legacy domains, cleans malformed protocol prefixes, and upgrades HTTP to HTTPS for secure official portals."""
     if not url:
@@ -62,54 +69,52 @@ def normalize_url(url: str, domain_mappings: dict = None) -> str:
         # Safe hostname-level mapping (prevents substring corruption like www -> wwwww)
         if netloc in domain_mappings:
             netloc = domain_mappings[netloc]
-        elif re.match(r"^(?:w{1,8}|vwww|pww|'www)\.boe\.es$", netloc):
+        elif _RE_BOE_DOMAINS.match(netloc):
             netloc = "www.boe.es"
-        elif re.match(r"^(?:w{1,8})\.bocm\.es$", netloc):
+        elif _RE_BOCM_DOMAINS.match(netloc):
             netloc = "bocm.madrid.org"
-        elif re.match(r"^(?:w{1,8})\.boa\.aragon\.es$", netloc):
+        elif _RE_BOA_DOMAINS.match(netloc):
             netloc = "boa.aragon.es"
-        elif re.match(r"^(?:w{1,8})\.dogv\.gva\.es$", netloc):
+        elif _RE_DOGV_DOMAINS.match(netloc):
             netloc = "dogv.gva.es"
-        elif re.match(r"^(?:w{1,8})\.bocyl\.jcyl\.es$", netloc):
+        elif _RE_BOCYL_DOMAINS.match(netloc):
             netloc = "bocyl.jcyl.es"
 
         scheme = parts.scheme.lower()
         # Auto-upgrade to HTTPS for regional official bulletins that reject unencrypted HTTP
-        for secure_domain in ["dogc.gencat.cat", "boe.es", "educacion.gob.es", "bocm.madrid.org", "bocyl.jcyl.es", "dogv.gva.es", "boa.aragon.es", "doe.juntaex.es"]:
+        for secure_domain in _SECURE_DOMAINS_TUPLE:
             if secure_domain in netloc:
                 scheme = "https"
                 break
 
-        url = urlunsplit((scheme, netloc, parts.path, parts.query, parts.fragment))
+        return urlunsplit((scheme, netloc, parts.path, parts.query, parts.fragment))
     except Exception:
-        pass
-
-    return url
+        return url
 
 class SkipUniversityException(Exception):
-    """Raised when consecutive connection failures exceed threshold cycles of pauses for a university."""
+    """Exception raised when a university server continues to fail and must be skipped."""
     pass
 
 class RUCTDownloader:
     """
-    Handles robust HTTP requests with rate limiting, per-domain jitter, Retry-After parsing,
-    browser headers, automatic HTTP->HTTPS fallback, and a circuit breaker for connection resilience.
+    HTTP downloader with per-domain polite rate limiting (RFC 9309 compliance), 
+    Keep-Alive connection pooling, Retry-After header parsing, and Circuit Breaker resilience.
     """
-    DOMAIN_MAPPINGS = DOMAIN_MAPPINGS
     _GLOBAL_DOMAIN_LOCKS = {}
-    _GLOBAL_DOMAIN_LOCKS_GUARD = threading.Lock()
     _GLOBAL_DOMAIN_LAST_REQUEST_TIMES = {}
+    _LOCK_CREATION_LOCK = threading.Lock()
 
     @classmethod
     def _get_domain_lock(cls, domain: str) -> threading.Lock:
         """Returns a synchronized thread lock for a specific hostname/domain."""
-        with cls._GLOBAL_DOMAIN_LOCKS_GUARD:
+        with cls._LOCK_CREATION_LOCK:
             if domain not in cls._GLOBAL_DOMAIN_LOCKS:
                 cls._GLOBAL_DOMAIN_LOCKS[domain] = threading.Lock()
             return cls._GLOBAL_DOMAIN_LOCKS[domain]
 
     def __init__(self, delay=REQUEST_DELAY, max_retries=MAX_RETRIES, timeout=HTTP_TIMEOUT, metrics_tracker=None):
         self.delay = delay
+        self.max_retries = max_retries
         self.timeout = timeout
         self.metrics_tracker = metrics_tracker
         self.session = requests.Session()
@@ -122,14 +127,9 @@ class RUCTDownloader:
             "Sec-Fetch-Site": "same-origin",
         })
         
-        retry_strategy = Retry(
-            total=max_retries,
-            backoff_factor=1.5,
-            status_forcelist=[429, 500, 502, 503, 504],
-            raise_on_status=False
-        )
+        # Desactivamos reintentos internos en urllib3 para que _request_with_retry gestione el control unificado
         adapter = HTTPAdapter(
-            max_retries=retry_strategy, 
+            max_retries=0, 
             pool_connections=HTTP_POOL_CONNECTIONS, 
             pool_maxsize=HTTP_POOL_MAXSIZE
         )
@@ -175,8 +175,9 @@ class RUCTDownloader:
         Increments failure counter for genuine network/server overloads.
         Handles 5-minute pause and 15-minute skip thresholds.
         """
-        if "404" in str(error_details):
-            print(f" [ADVERTENCIA] Recurso no encontrado (HTTP 404): {error_details}")
+        err_str = str(error_details)
+        if any(marker in err_str for marker in ["404", "NameResolutionError", "getaddrinfo failed", "ConnectionRefusedError", "InvalidURL"]):
+            print(f" [ADVERTENCIA] Enlace no disponible o no resuelto: {error_details}")
             return False
 
         self.consecutive_failures += 1
@@ -297,6 +298,7 @@ class RUCTDownloader:
                                 if chunk.strip().startswith(b"<!DOC") or chunk.strip().startswith(b"<html") or chunk.strip().startswith(b"<!doc"):
                                     print(f" ⚠️ [AVISO] Respuesta RUCT retornó HTML en lugar de binario XLS para '{url}'. Reinicializando sesión...")
                                     self._prepare_ruct_session(url)
+                                    raise ValueError("Respuesta RUCT retornó página HTML de sesión en lugar de binario XLS")
                             f.write(chunk)
         except Exception:
             if os.path.exists(destination_path):

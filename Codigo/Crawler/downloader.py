@@ -244,6 +244,7 @@ class RUCTDownloader:
                         retry_secs = int(retry_after_val) if (retry_after_val and retry_after_val.isdigit()) else HTTP_429_DEFAULT_RETRY_AFTER
                         print(f" [AVISO CORTESIA RED] HTTP 429 detectado en '{target_url}'. Pausando {retry_secs}s...")
                         time.sleep(retry_secs)
+                        last_error = requests.HTTPError(f"HTTP 429 Too Many Requests para '{target_url}'")
                         continue
                     response.raise_for_status()
                     elapsed = time.perf_counter() - t0
@@ -257,10 +258,14 @@ class RUCTDownloader:
                     last_error = e
                     print(f"     [Proceso Red] -> Falló conexión a '{target_url}': {e}")
                     continue
+            if last_error is None:
+                last_error = requests.RequestException(f"Error de conexión no especificado para '{url}'")
             should_retry = self._handle_connection_failure(str(last_error))
             if not should_retry:
                 raise last_error
             print(f" 🔄 [RESILIENCIA] Reintentando petición tras pausa para '{url}'...")
+        if last_error is None:
+            last_error = requests.RequestException(f"Error tras agotar {max_retries} intentos para '{url}'")
         raise last_error
 
     def fetch_content(self, url: str) -> bytes:

@@ -432,8 +432,15 @@ def parse_subject_guide_pdf_stream(pdf_bytes: bytes, url: str) -> dict:
             if m_dept and not res["departamento"]:
                 res["departamento"] = m_dept.group(1).strip()
 
-        # 2. Temario / Units / Blocks
+        # 2. Temario / Units / Blocks / Section-bounded Contents
+        in_contents = False
         for l in lines:
+            if re.search(r"^(?:3\.\s*)?(?:COURSE\s+)?(?:CONTENTS|CONTENIDOS|TEMARIO|PROGRAMA|SYLLABUS)", l, re.IGNORECASE):
+                in_contents = True
+                continue
+            if in_contents and re.search(r"^(?:4\.\s*)?(?:TEACHING|METODOLOGÍA|ACTIVIDADES|5\.\s*ASSESSMENT|EVALUACIÓN)", l, re.IGNORECASE):
+                in_contents = False
+
             m_unit = re.search(r"^(Unit\s+\d+|Tema\s+\d+|Bloque\s+[I|V|X\d]+|Módulo\s+\d+)[:.\-–\s]+(.+)$", l, re.IGNORECASE)
             if m_unit:
                 u_label = m_unit.group(1).strip()
@@ -444,6 +451,17 @@ def parse_subject_guide_pdf_stream(pdf_bytes: bytes, url: str) -> dict:
                         "titulo": u_title,
                         "contenidos": []
                     })
+            elif in_contents:
+                clean_topic = re.sub(r"\b\d+\s*hours?\b.*$", "", l, flags=re.IGNORECASE).strip()
+                clean_topic = re.sub(r"\b\d+\s*horas?\b.*$", "", clean_topic, flags=re.IGNORECASE).strip()
+                if 4 <= len(clean_topic) <= 120 and not any(kw in clean_topic.lower() for kw in ["contents", "total number", "credits", "approved by", "school board"]):
+                    if not is_spurious_or_administrative_subject(clean_topic):
+                        if not any(t["titulo"] == clean_topic for t in res["temario"]):
+                            res["temario"].append({
+                                "orden": f"Bloque {len(res['temario']) + 1}",
+                                "titulo": clean_topic,
+                                "contenidos": []
+                            })
 
         # 3. Evaluación
         eval_lines = []
@@ -468,9 +486,18 @@ def parse_subject_guide_pdf_stream(pdf_bytes: bytes, url: str) -> dict:
                             "instrumentos": "",
                             "ponderacion_porcentaje": pond_val
                         })
+                # Detectar instrumentos específicos (ej. PEI1, PEI2, PEF)
+                elif re.search(r"\b(PEI\d*|PEF|Continuous assessment|Examen final|Evaluación continua)\b", l, re.IGNORECASE):
+                    crit_nom = l.strip()
+                    if 4 <= len(crit_nom) <= 80 and not any(ev["tarea"] == crit_nom for ev in res["sistema_evaluacion"]):
+                        res["sistema_evaluacion"].append({
+                            "tarea": crit_nom,
+                            "instrumentos": "Criterio de evaluación oficial",
+                            "ponderacion_porcentaje": 0.0
+                        })
 
         if eval_lines and not res["criterios_evaluacion"]:
-            res["criterios_evaluacion"] = "\n".join(eval_lines[:12])
+            res["criterios_evaluacion"] = "\n".join(eval_lines[:15])
 
         # 4. Profesorado / Lecturers
         for l in lines:

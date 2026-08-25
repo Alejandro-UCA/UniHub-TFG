@@ -36,6 +36,10 @@ from config import (
     HUB_AND_SPOKE_MAX_HUBS,
     HUB_AND_SPOKE_MAX_DEPTH,
     HUB_AND_SPOKE_MAX_HOPS,
+    DYNAMIC_HUB_MIN_SIBLINGS,
+    DYNAMIC_HUB_MIN_TITLE_WORDS,
+    DYNAMIC_HUB_MAX_TITLE_WORDS,
+    SPIDER_TRAP_PATH_MARKERS,
     HUB_ACADEMIC_KEYWORDS,
     MEMORIA_VERIFICADA_KEYWORDS,
     ACADEMIC_SUBPAGE_KEYWORDS,
@@ -452,6 +456,215 @@ def is_same_or_subdomain(target_url: str, base_url: str) -> bool:
         return False
 
 
+def is_spider_trap_or_spurious_url(url: str, text: str = "") -> bool:
+    """
+    Filtro defensivo para descartar calendarios, agendas, noticias, blogs, tags, feeds,
+    avisos legales y trampas de rastreo infinitas que no son catálogos académicos.
+    """
+    url_low = url.lower()
+    text_low = text.lower().strip()
+    
+    # 1. Marcadores de ruta de spider traps
+    if any(trap in url_low for trap in SPIDER_TRAP_PATH_MARKERS):
+        return True
+        
+    # 2. Parámetros de ordenación/filtro de calendarios
+    parsed = urllib.parse.urlparse(url_low)
+    qs = parsed.query
+    if any(p in qs for p in ["month=", "year=", "calendar=", "event_date=", "view_mode="]):
+        return True
+        
+    # 3. Textos genéricos no académicos de 1 sola palabra
+    if text_low in {"inicio", "home", "twitter", "facebook", "instagram", "linkedin", "youtube", "rss", "feed", "aviso legal", "privacidad", "cookies", "login", "acceder", "contacto", "mapa web"}:
+        return True
+        
+    return False
+
+
+def is_dynamic_academic_hub(
+    soup: BeautifulSoup, 
+    link_tag, 
+    full_url: str, 
+    base_univ_url: str
+) -> bool:
+    """
+    Motor Heurístico Autónomo de 6 Capas para clasificar si un enlace interno es un HUB de catálogo:
+    1. Filtro anti-spider traps.
+    2. Pertenencia a contenedor de navegación semántica DOM (<nav>, <header>, role="navigation").
+    3. Heurística de Uniformidad de Enlaces Hermanos (Sibling Link Uniformity >= 6 enlaces con misma ruta padre).
+    4. Criterio de longitud del texto del enlace (2 a 10 palabras representativas de ramas/estudios).
+    """
+    if is_spider_trap_or_spurious_url(full_url, link_tag.get_text(strip=True)):
+        return False
+        
+    if not is_same_or_subdomain(full_url, base_univ_url):
+        return False
+        
+    text = link_tag.get_text(strip=True)
+    words = text.split()
+    
+    # Capa 1: ¿Está dentro de un landmark de navegación semántica DOM?
+    nav_parent = link_tag.find_parent(["nav", "header"])
+    if nav_parent or link_tag.find_parent(attrs={"role": lambda r: r and "navigation" in r}):
+        if 1 <= len(words) <= 8 and not is_spurious_or_administrative_subject(text):
+            return True
+
+    # Capa 2: Uniformidad de Enlaces Hermanos en listas/tablas (Sibling Uniformity)
+    parent_container = link_tag.find_parent(["ul", "ol", "div", "tbody"])
+    if parent_container:
+        siblings = parent_container.find_all("a", href=True)
+        valid_academic_siblings = 0
+        parsed_target = urllib.parse.urlparse(full_url)
+        target_parent_path = "/".join(parsed_target.path.strip("/").split("/")[:-1])
+        
+        for sib in siblings:
+            sib_href = sib["href"].strip()
+            sib_full = urllib.parse.urljoin(full_url, sib_href)
+            sib_text = sib.get_text(strip=True)
+            sib_words = sib_text.split()
+            if (
+                DYNAMIC_HUB_MIN_TITLE_WORDS <= len(sib_words) <= DYNAMIC_HUB_MAX_TITLE_WORDS
+                and not is_spider_trap_or_spurious_url(sib_full, sib_text)
+                and not is_spurious_or_administrative_subject(sib_text)
+            ):
+                sib_parsed = urllib.parse.urlparse(sib_full)
+                sib_parent_path = "/".join(sib_parsed.path.strip("/").split("/")[:-1])
+                if sib_parent_path == target_parent_path or len(sib_words) >= 3:
+                    valid_academic_siblings += 1
+                    
+        if valid_academic_siblings >= DYNAMIC_HUB_MIN_SIBLINGS:
+            return True
+            
+    # Capa 3: Fallback semántico (soporta palabras clave si están presentes, sin depender exclusivamente de ellas)
+    t_low = text.lower()
+    h_low = full_url.lower()
+    if any(k in t_low or k in h_low for k in HUB_ACADEMIC_KEYWORDS):
+        return True
+        
+    return False
+
+
+def extract_breadcrumb_parent_hubs(soup: BeautifulSoup, current_url: str, base_univ_url: str) -> list:
+    """
+    Capa 3: Ascenso Jerárquico por Migas de Pan (Breadcrumbs).
+    Extrae los nodos padre y abuelo en <ol class="breadcrumb"> o <nav aria-label="breadcrumb">.
+    """
+    discovered_hubs = []
+    bc_container = soup.find(attrs={"class": lambda c: c and "breadcrumb" in c.lower()}) or soup.find(attrs={"aria-label": lambda a: a and "breadcrumb" in a.lower()})
+    if bc_container:
+        for a in bc_container.find_all("a", href=True):
+            h = a["href"].strip()
+            full_link = urllib.parse.urljoin(current_url, h)
+            if is_same_or_subdomain(full_link, base_univ_url) and not is_spider_trap_or_spurious_url(full_link, a.get_text(strip=True)):
+                if full_link.rstrip("/") != current_url.rstrip("/") and full_link.rstrip("/") != base_univ_url.rstrip("/"):
+                    discovered_hubs.append(full_link)
+    return discovered_hubs
+
+
+def extract_hydration_payload_degrees(soup: BeautifulSoup, current_url: str) -> list:
+    """
+    Capa 4: Extracción de Cargas de Hidratación Embebidas (JSON-LD / Next.js __NEXT_DATA__).
+    Permite recuperar catálogos de grados en SPAs sin renderizado de navegador.
+    """
+    results = []
+    # 1. JSON-LD (Schema.org)
+    for script in soup.find_all("script", type="application/ld+json"):
+        try:
+            raw = script.string or script.get_text()
+            if not raw:
+                continue
+            data = json.loads(raw)
+            items = []
+            if isinstance(data, list):
+                items = data
+            elif isinstance(data, dict):
+                items = data.get("itemListElement") or data.get("hasCourse") or data.get("subEvent") or [data]
+                
+            for it in items:
+                if isinstance(it, dict):
+                    name = it.get("name") or it.get("item", {}).get("name")
+                    url = it.get("url") or it.get("item", {}).get("url") or it.get("item", {}).get("@id")
+                    if name and url:
+                        full_u = urllib.parse.urljoin(current_url, str(url))
+                        results.append((full_u, str(name).strip()))
+        except Exception:
+            continue
+            
+    # 2. Next.js __NEXT_DATA__
+    next_data_script = soup.find("script", id="__NEXT_DATA__")
+    if next_data_script and next_data_script.string:
+        try:
+            data = json.loads(next_data_script.string)
+            page_props = data.get("props", {}).get("pageProps", {})
+            for k, v in page_props.items():
+                if isinstance(v, list):
+                    for item in v:
+                        if isinstance(item, dict):
+                            title = item.get("title") or item.get("name") or item.get("nombre")
+                            slug = item.get("slug") or item.get("url") or item.get("path")
+                            if title and slug:
+                                full_u = urllib.parse.urljoin(current_url, str(slug))
+                                results.append((full_u, str(title).strip()))
+        except Exception:
+            pass
+            
+    return results
+
+
+def extract_form_select_academic_options(soup: BeautifulSoup, current_url: str) -> list:
+    """
+    Capa 5: Extractor de Desplegables de Formularios (<select> & <option>).
+    Resuelve portales basados en formularios interactivos donde las carreras están en <option>.
+    """
+    results = []
+    for select in soup.find_all("select"):
+        options = select.find_all("option")
+        if len(options) >= 5:
+            s_name = (select.get("name") or select.get("id") or "").lower()
+            parent_form = select.find_parent("form")
+            action_url = current_url
+            if parent_form and parent_form.get("action"):
+                action_url = urllib.parse.urljoin(current_url, parent_form["action"])
+                
+            for opt in options:
+                val = opt.get("value", "").strip()
+                label = opt.get_text(strip=True)
+                words = label.split()
+                if val and DYNAMIC_HUB_MIN_TITLE_WORDS <= len(words) <= DYNAMIC_HUB_MAX_TITLE_WORDS:
+                    if not any(stop in label.lower() for stop in ["seleccione", "selecciona", "todos los", "todas las", "elegir"]):
+                        param_name = s_name or "asig"
+                        sep = "&" if "?" in action_url else "?"
+                        target_url = f"{action_url}{sep}{param_name}={urllib.parse.quote(val)}"
+                        results.append((target_url, label))
+    return results
+
+
+def extract_js_event_links(soup: BeautifulSoup, current_url: str) -> list:
+    """
+    Capa 6: Desofuscador de Eventos JavaScript (onclick, data-url, data-href).
+    """
+    results = []
+    for elem in soup.find_all(attrs={"onclick": True}):
+        oc = elem["onclick"]
+        m = re.search(r"(?:location\.href\s*=\s*['\"]|window\.open\(['\"]|['\"])(/[^'\"]+|https?://[^'\"]+)", oc)
+        if m:
+            target_h = m.group(1).strip()
+            full_u = urllib.parse.urljoin(current_url, target_h)
+            txt = elem.get_text(strip=True)
+            if txt and len(txt) >= 4:
+                results.append((full_u, txt))
+                
+    for elem in soup.find_all(lambda tag: tag.has_attr("data-url") or tag.has_attr("data-href") or tag.has_attr("data-link")):
+        target_h = elem.get("data-url") or elem.get("data-href") or elem.get("data-link")
+        if target_h:
+            full_u = urllib.parse.urljoin(current_url, str(target_h).strip())
+            txt = elem.get_text(strip=True)
+            if txt and len(txt) >= 4:
+                results.append((full_u, txt))
+                
+    return results
+
+
 def extract_html_subjects(soup: BeautifulSoup, base_url: str = "") -> list:
     """
     Extrae elementos curriculares de tablas HTML evitando filas de cabecera (<th>),
@@ -845,14 +1058,13 @@ class UniversityWebCrawler:
         max_hops: int = HUB_AND_SPOKE_MAX_HOPS
     ) -> dict:
         """
-        Patrón Hub-and-Spoke Catalog Indexing con exploración BFS multinivel (hasta max_hops saltos).
+        Patrón Hub-and-Spoke Catalog Indexing Autónomo (6 Capas) con exploración BFS multinivel.
         Descarga de forma secuencial y cortés (respetando REQUEST_DELAY y robots.txt)
-        los catálogos maestros, facultades y sub-hubs de la universidad (grados, másteres, ramas),
-        descubre orgánicamente portales de centros adscritos y alianzas europeas sin URLs preescritas,
-        y mapea las URLs directas a las titulaciones en tiempo constante O(1).
+        los catálogos maestros y sub-hubs descubiertos dinámicamente mediante topología DOM,
+        densidad de enlaces hermanos, cargas de hidratación (JSON-LD/Next.js), desplegables de formularios
+        y migas de pan, sin dependencia obligatoria de diccionarios de palabras fijas.
         """
         catalog_map = defaultdict(list)
-        hub_keywords = HUB_ACADEMIC_KEYWORDS
         seen_hubs = {web_url.rstrip("/")}
         seen_deg_urls = set()
         seen_organic_domains = set()
@@ -872,6 +1084,39 @@ class UniversityWebCrawler:
                     continue
                 soup = BeautifulSoup(html_content, "html.parser")
                 
+                # Capa 3: Ascenso Jerárquico por Migas de Pan (Breadcrumbs)
+                if current_hop < max_hops:
+                    for bc_hub in extract_breadcrumb_parent_hubs(soup, current_hub, web_url):
+                        norm_bc = bc_hub.rstrip("/")
+                        if norm_bc not in seen_hubs and len(seen_hubs) < max_hubs * 2:
+                            seen_hubs.add(norm_bc)
+                            queue.append((bc_hub, current_hop + 1))
+
+                # Capa 4, 5 y 6: Extracción de fuentes dinámicas (JSON-LD, Formularios Select y Eventos JS)
+                dynamic_candidates = []
+                dynamic_candidates.extend(extract_hydration_payload_degrees(soup, current_hub))
+                dynamic_candidates.extend(extract_form_select_academic_options(soup, current_hub))
+                dynamic_candidates.extend(extract_js_event_links(soup, current_hub))
+
+                for dyn_url, dyn_title in dynamic_candidates:
+                    norm_dyn = dyn_url.rstrip("/")
+                    if norm_dyn not in seen_deg_urls and is_valid_web_url(dyn_url) and is_same_or_subdomain(dyn_url, web_url):
+                        seen_deg_urls.add(norm_dyn)
+                        raw_toks = re.findall(r'\b[a-zA-ZáéíóúñÁÉÍÓÚÑ]{4,}\b', dyn_title + " " + dyn_url)
+                        all_toks = set()
+                        for w in raw_toks:
+                            w_low = w.lower()
+                            all_toks.add(w_low)
+                            w_norm = unicodedata.normalize('NFKD', w_low).encode('ASCII', 'ignore').decode('utf-8')
+                            all_toks.add(w_norm)
+                            if w_norm.endswith('s') and len(w_norm) > 4:
+                                all_toks.add(w_norm[:-1])
+                            if w_norm.endswith('es') and len(w_norm) > 5:
+                                all_toks.add(w_norm[:-2])
+                        for tok in all_toks:
+                            catalog_map[tok].append((dyn_url, dyn_title))
+
+                # Capa 1 y 2: Enlaces hipertexto estándar con evaluación heurística de HUB y Sibling Uniformity
                 for a in soup.find_all("a", href=True):
                     h = a["href"].strip()
                     if not is_valid_web_url(h):
@@ -884,7 +1129,7 @@ class UniversityWebCrawler:
                     h_low = h.lower()
                     
                     if not is_same_or_subdomain(full_link, web_url):
-                        # Descubrimiento orgánico de Centros Adscritos y Alianzas Europeas (Patrones 1 y 3)
+                        # Descubrimiento orgánico de Centros Adscritos y Alianzas Europeas
                         if full_link.startswith("http") and any(k in t_low or k in h_low for k in ORGANIC_AFFILIATED_HUB_KEYWORDS):
                             parsed_ext = urllib.parse.urlparse(full_link)
                             ext_domain = f"{parsed_ext.scheme}://{parsed_ext.netloc}"
@@ -894,14 +1139,14 @@ class UniversityWebCrawler:
                                 organic_hubs[ext_domain] = (full_link, hub_name)
                         continue
                         
-                    # 1. ¿Es un sub-hub académico navegable y aún tenemos margen de saltos?
-                    if current_hop < max_hops and any(k in t_low or k in h_low for k in hub_keywords):
+                    # 1. Detección dinámica de Sub-HUBs de catálogo (Capa 1, 2 y fallback)
+                    if current_hop < max_hops and is_dynamic_academic_hub(soup, a, full_link, web_url):
                         if norm_link not in seen_hubs and len(seen_hubs) < max_hubs * 2:
                             seen_hubs.add(norm_link)
                             queue.append((full_link, current_hop + 1))
                             
-                    # 2. ¿Es un enlace a titulación o plan docente? Indexar en catalog_map
-                    if len(t_text) >= 4:
+                    # 2. Indexación en catalog_map de páginas de titulación y planes docentes
+                    if len(t_text) >= 4 and not is_spider_trap_or_spurious_url(full_link, t_text):
                         parsed_u = urllib.parse.urlparse(h)
                         depth = len([p for p in parsed_u.path.strip("/").split("/") if p])
                         if depth <= max_depth and norm_link not in seen_deg_urls:
@@ -911,7 +1156,6 @@ class UniversityWebCrawler:
                             for w in raw_toks:
                                 w_low = w.lower()
                                 all_toks.add(w_low)
-                                # Token normalizado sin acentos
                                 w_norm = unicodedata.normalize('NFKD', w_low).encode('ASCII', 'ignore').decode('utf-8')
                                 all_toks.add(w_norm)
                                 if w_norm.endswith('s') and len(w_norm) > 4:
@@ -1449,7 +1693,9 @@ class UniversityWebCrawler:
                                         lazy_scanned_pages_cache[candidate_page_url] = (sub_html, sub_soup)
                                 except Exception as fetch_err:
                                     lazy_scanned_pages_cache[candidate_page_url] = (None, None)
-                                    raise fetch_err
+                                    if isinstance(fetch_err, SkipUniversityException):
+                                        raise
+                                    continue
 
                             if not sub_html or not sub_soup:
                                 continue

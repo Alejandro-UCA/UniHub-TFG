@@ -147,6 +147,19 @@ WEB_SEARCH_RETRY_DELAY = float(os.getenv("CRAWLER_WEB_SEARCH_DELAY", 0.4))      
 HUB_AND_SPOKE_MAX_HUBS = int(os.getenv("CRAWLER_HUB_MAX_HUBS", 45))             # Catálogos maestros, facultades y calidad a pre-indexar
 HUB_AND_SPOKE_MAX_DEPTH = int(os.getenv("CRAWLER_HUB_MAX_DEPTH", 7))            # Cota máxima de profundidad en segmentos URL
 HUB_AND_SPOKE_MAX_HOPS = int(os.getenv("CRAWLER_HUB_MAX_HOPS", 6))              # Cota máxima de saltos BFS entre sub-hubs de catálogo
+
+# Parámetros del Motor Autónomo de Descubrimiento de HUBs Curriculares (6 Capas)
+DYNAMIC_HUB_MIN_SIBLINGS = int(os.getenv("CRAWLER_HUB_MIN_SIBLINGS", 6))        # Mínimo de enlaces hermanos homogéneos para clasificar como HUB
+DYNAMIC_HUB_MIN_TITLE_WORDS = 2                                                  # Mínimo de palabras en ancla para titulación académica
+DYNAMIC_HUB_MAX_TITLE_WORDS = 10                                                 # Máximo de palabras en ancla para titulación académica
+SPIDER_TRAP_PATH_MARKERS = [
+    "/agenda/", "/calendario/", "/calendar/", "/eventos/", "/events/", 
+    "/noticias/", "/news/", "/actualidad/", "/tag/", "/category/", 
+    "/etiqueta/", "/autor/", "/author/", "/login", "/signin", 
+    "/user/login", "/search/node", "/comentarios/", "/feed", "/rss",
+    "/aviso-legal", "/politica-privacidad", "/cookies", "/mapa-web"
+]
+
 HUB_ACADEMIC_KEYWORDS = [
     "grados", "graus", "graos", "graduak", "bachelor",
     "masteres", "masters", "màsters", "posgrado", "postgrado", "postgrau", "posgrao",

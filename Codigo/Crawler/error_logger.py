@@ -10,14 +10,24 @@ class ErrorLogger:
 
     def __init__(self, filepath=ERRORES_JSON):
         self.filepath = filepath
+        self._last_mtime = 0.0
         self.errors = self._load_errors()
 
     def _load_errors(self):
         if os.path.exists(self.filepath):
             try:
+                mtime = os.path.getmtime(self.filepath)
+                if hasattr(self, "errors") and self.errors and mtime == self._last_mtime:
+                    return self.errors
                 with open(self.filepath, "r", encoding="utf-8") as f:
-                    return json.load(f)
-            except Exception:
+                    data = json.load(f)
+                    if isinstance(data, list):
+                        self._last_mtime = mtime
+                        return data
+            except Exception as e:
+                # Si falla la lectura transitoria, preservar los errores que ya tenemos en memoria
+                if hasattr(self, "errors") and isinstance(self.errors, list) and self.errors:
+                    return self.errors
                 return []
         return []
 
@@ -34,9 +44,23 @@ class ErrorLogger:
             "detalles_excepcion": exception_details or ""
         }
         with ErrorLogger._lock:
-            self.errors = self._load_errors()
+            # Sincronizar si hubo cambios externos por mtime
+            if os.path.exists(self.filepath):
+                try:
+                    curr_mtime = os.path.getmtime(self.filepath)
+                    if curr_mtime != self._last_mtime:
+                        fresh = self._load_errors()
+                        if fresh:
+                            self.errors = fresh
+                except Exception:
+                    pass
             self.errors.append(entry)
             self._save_errors()
 
     def _save_errors(self):
         atomic_json_dump(self.errors, self.filepath)
+        try:
+            if os.path.exists(self.filepath):
+                self._last_mtime = os.path.getmtime(self.filepath)
+        except Exception:
+            pass

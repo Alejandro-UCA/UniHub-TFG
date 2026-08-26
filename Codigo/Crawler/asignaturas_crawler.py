@@ -41,6 +41,8 @@ class SubjectGuideCache:
     """
     _local = threading.local()
 
+    MAX_L1_ENTRIES = 5000
+
     def __init__(self, db_path: str = CACHE_GUIAS_DB):
         self.db_path = db_path
         self._lock = threading.RLock()
@@ -48,6 +50,19 @@ class SubjectGuideCache:
         self._l1_comp_cache = {}
         self._negative_urls = set()
         self._init_db()
+
+    def _prune_l1_caches(self):
+        """Poda las cachés en RAM cuando exceden MAX_L1_ENTRIES para evitar consumo excesivo de memoria."""
+        if len(self._l1_url_cache) > self.MAX_L1_ENTRIES:
+            keys_to_remove = list(self._l1_url_cache.keys())[:self.MAX_L1_ENTRIES // 2]
+            for k in keys_to_remove:
+                self._l1_url_cache.pop(k, None)
+        if len(self._l1_comp_cache) > self.MAX_L1_ENTRIES:
+            keys_to_remove = list(self._l1_comp_cache.keys())[:self.MAX_L1_ENTRIES // 2]
+            for k in keys_to_remove:
+                self._l1_comp_cache.pop(k, None)
+        if len(self._negative_urls) > self.MAX_L1_ENTRIES:
+            self._negative_urls = set(list(self._negative_urls)[self.MAX_L1_ENTRIES // 2:])
 
     def _get_conn(self):
         conns = getattr(self._local, "guide_conns", None)
@@ -110,6 +125,7 @@ class SubjectGuideCache:
                     data = json.loads(row[0])
                     with self._lock:
                         self._l1_url_cache[url.strip()] = data
+                        self._prune_l1_caches()
                     return data
 
             if u_code and asig_code:
@@ -123,6 +139,7 @@ class SubjectGuideCache:
                     data = json.loads(row[0])
                     with self._lock:
                         self._l1_comp_cache[comp_key] = data
+                        self._prune_l1_caches()
                     return data
         except Exception as e:
             logger.warning(f"Error al leer caché de guía docente: {e}")
@@ -132,6 +149,7 @@ class SubjectGuideCache:
         if url:
             with self._lock:
                 self._negative_urls.add(url.strip())
+                self._prune_l1_caches()
 
     def set(self, url: str, data: dict, u_code: str = "", asig_code: str = "", nombre: str = ""):
         if not data:
@@ -142,6 +160,7 @@ class SubjectGuideCache:
             if u_code and asig_code:
                 comp_key = f"{str(u_code).zfill(3)}:{str(asig_code).strip()}"
                 self._l1_comp_cache[comp_key] = data
+            self._prune_l1_caches()
 
         url_hash = hashlib.sha256(url.strip().encode("utf-8")).hexdigest()
         try:
@@ -708,6 +727,10 @@ def run_phase1_part4(max_workers: int = None, limit_univ: int = None, limit_degr
 
     cache = SubjectGuideCache()
     downloader = RUCTDownloader()
+
+    if not os.path.exists(PLANES_DIR):
+        print(f" -> [AVISO] Directorio de planes {PLANES_DIR} no existe en disco. Omitiendo enriquecimiento.")
+        return {"total_planes_inspeccionados": 0, "asignaturas_enriquecidas": 0}
 
     plan_files = [
         os.path.join(PLANES_DIR, f)

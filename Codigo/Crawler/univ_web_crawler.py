@@ -1485,6 +1485,14 @@ class UniversityWebCrawler:
         # 4. Acceso previo al Sitemap XML del portal académico (respetando retardo oficial)
         downloader = RUCTDownloader(delay=effective_delay, timeout=15, metrics_tracker=self.metrics_tracker)
         downloader.reset_university_context(u_code)
+        try:
+            return self._crawl_university_degrees(downloader, u_code, u_name, web_url, missing_degrees, stats)
+        finally:
+            downloader.close()
+
+    def _crawl_university_degrees(self, downloader: RUCTDownloader, u_code: str, u_name: str, 
+                                 web_url: str, missing_degrees: list, stats: dict) -> dict:
+        """Recorre y extrae los planes de estudio de las titulaciones de una universidad."""
         sitemap_urls = self.extract_sitemap_candidate_urls(web_url, missing_degrees=missing_degrees)
         if sitemap_urls:
             print(f"     -> {len(sitemap_urls)} URLs académicas indexadas extraídas del Sitemap XML de la universidad.")
@@ -2081,7 +2089,6 @@ class UniversityWebCrawler:
             else:
                 print(f"     -> No se encontró plan de estudios en la web oficial para [{d_code}].")
 
-        downloader.close()
         return stats
 
 

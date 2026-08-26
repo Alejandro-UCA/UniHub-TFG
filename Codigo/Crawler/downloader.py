@@ -277,8 +277,18 @@ class RUCTDownloader:
                     self._handle_connection_success()
                     return response
                 except SkipUniversityException:
+                    if 'response' in locals() and response is not None:
+                        try:
+                            response.close()
+                        except Exception:
+                            pass
                     raise
                 except Exception as e:
+                    if 'response' in locals() and response is not None:
+                        try:
+                            response.close()
+                        except Exception:
+                            pass
                     last_error = e
                     print(f"     [Proceso Red] -> Falló conexión a '{target_url}': {e}")
                     continue

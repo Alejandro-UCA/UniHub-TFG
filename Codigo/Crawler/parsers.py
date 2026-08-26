@@ -55,6 +55,14 @@ RE_SUMMARY_LABEL = re.compile(
     r"^(?:formaci[oó]n\s+b[aá]sica|b[aá]sic[ao]s?|obligatori[ao]s?|optativ[ao]s?|cr[eé]ditos\s+(?:b[aá]sicos|obligatorios|optativos)|materias\s+(?:b[aá]sicas|obligatorias|optativas)|asignaturas\s+(?:b[aá]sicas|obligatorias|optativas)|cr[eé]ditos\s+totales|total\s+(?:de\s+)?cr[eé]ditos|total|reconocimiento\s+(?:de\s+)?cr[eé]ditos|actividades\s+art[ií]culo\s+12\.8.*|pr[aá]cticas\s+acad[eé]micas\s+externas\s+optativas)\s*(?:\([a-z0-9\s]+\))?$",
     re.IGNORECASE
 )
+_RE_DYNAMIC_TIPO_FIRST = re.compile(
+    r"^(?:(?P<mod>[A-ZÁÉÍÓÚÑ][^.\n\t]+?)\.\s+)?(?P<name>[A-ZÁÉÍÓÚÑ][^.\n\t]+?(?:\.|\b))\s*(?P<car>FBA|FB|OBL|OB|OPT|OP|PE|PEX|TFG|TFM|EXT|OIN|DER|HAU)\s+(?P<ects>\d+(?:[.,]\d+)?)(?:\s+(?P<extra>.*))?$",
+    re.IGNORECASE
+)
+_RE_DYNAMIC_CRED_FIRST = re.compile(
+    r"^(?:(?P<mod>[A-ZÁÉÍÓÚÑ][^.\n\t]+?)\.\s+)?(?P<name>[A-ZÁÉÍÓÚÑ][^.\n\t]+?(?:\.|\b))\s*(?P<ects>\d+(?:[.,]\d+)?)\s+(?P<car>FBA|FB|OBL|OB|OPT|OP|PE|PEX|TFG|TFM|EXT|OIN|DER|HAU)(?:\s+(?P<extra>.*))?$",
+    re.IGNORECASE
+)
 
 STOP_WORDS_WITH_UMBRELLA = SPANISH_STOP_WORDS.union(UMBRELLA_BRANCH_WORDS)
 
@@ -1224,16 +1232,7 @@ def parse_boe_text_curriculum_dynamic(full_text: str, degree_title: str = "", le
     cred_idx = schema.index("creditos") if "creditos" in schema else -1
     tipo_before_cred = (tipo_idx != -1 and cred_idx != -1 and tipo_idx < cred_idx)
     
-    if tipo_before_cred:
-        re_pattern = re.compile(
-            r"^(?:(?P<mod>[A-ZÁÉÍÓÚÑ][^.\n\t]+?)\.\s+)?(?P<name>[A-ZÁÉÍÓÚÑ][^.\n\t]+?(?:\.|\b))\s*(?P<car>FBA|FB|OBL|OB|OPT|OP|PE|PEX|TFG|TFM|EXT|OIN|DER|HAU)\s+(?P<ects>\d+(?:[.,]\d+)?)(?:\s+(?P<extra>.*))?$",
-            re.IGNORECASE
-        )
-    else:
-        re_pattern = re.compile(
-            r"^(?:(?P<mod>[A-ZÁÉÍÓÚÑ][^.\n\t]+?)\.\s+)?(?P<name>[A-ZÁÉÍÓÚÑ][^.\n\t]+?(?:\.|\b))\s*(?P<ects>\d+(?:[.,]\d+)?)\s+(?P<car>FBA|FB|OBL|OB|OPT|OP|PE|PEX|TFG|TFM|EXT|OIN|DER|HAU)(?:\s+(?P<extra>.*))?$",
-            re.IGNORECASE
-        )
+    re_pattern = _RE_DYNAMIC_TIPO_FIRST if tipo_before_cred else _RE_DYNAMIC_CRED_FIRST
         
     seen_names = set()
     

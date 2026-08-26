@@ -3,6 +3,7 @@ import os
 import time
 import uuid
 import sqlite3
+import logging
 import threading
 import contextlib
 from datetime import datetime
@@ -13,6 +14,7 @@ from config import (
     SQLITE_CONNECT_TIMEOUT
 )
 
+logger = logging.getLogger("CheckpointManager")
 DB_PATH = CACHE_DB_PATH
 
 def is_valid_value(val) -> bool:
@@ -69,7 +71,7 @@ def load_json_safe(filepath, default=None, default_val=None):
 
 class CheckpointManager:
     """
-    High-performance thread-safe checkpoint manager for crawler progress.
+    High-performance thread-safe and multi-process consistent checkpoint manager for crawler progress.
     Provides dual-persistence: SQLite WAL (OPT-05) for 0ms indexed queries + JSON backup.
     Supports SHA256 negative content caching for duplicate PDFs (OPT-06).
     """
@@ -105,56 +107,82 @@ class CheckpointManager:
         conn = conns[self.db_path]
         try:
             yield conn
-        except Exception:
+        except Exception as e:
             try:
                 conn.rollback()
             except Exception:
                 pass
+            logger.debug(f"Error en transacción SQLite checkpoint: {e}")
             raise
 
     def _init_sqlite(self):
         dir_path = os.path.dirname(os.path.abspath(self.db_path))
         if dir_path:
             os.makedirs(dir_path, exist_ok=True)
-        with self._get_connection() as conn:
-            conn.execute("""
-                CREATE TABLE IF NOT EXISTS processed_degrees (
-                    degree_code TEXT PRIMARY KEY,
-                    boe_url TEXT,
-                    boe_fecha TEXT,
-                    last_updated TEXT
-                )
-            """)
-            conn.execute("""
-                CREATE TABLE IF NOT EXISTS non_study_plan_pdfs (
-                    pdf_url TEXT PRIMARY KEY
-                )
-            """)
-            conn.execute("""
-                CREATE TABLE IF NOT EXISTS non_study_plan_hashes (
-                    pdf_sha256 TEXT PRIMARY KEY,
-                    reason TEXT,
-                    timestamp TEXT
-                )
-            """)
-            conn.execute("""
-                CREATE TABLE IF NOT EXISTS unreachable_urls (
-                    url TEXT PRIMARY KEY
-                )
-            """)
-            conn.execute("""
-                CREATE TABLE IF NOT EXISTS extinct_degrees (
-                    degree_code TEXT PRIMARY KEY,
-                    motivo TEXT,
-                    timestamp TEXT
-                )
-            """)
-            conn.execute("""
-                CREATE TABLE IF NOT EXISTS processed_universities (
-                    univ_code TEXT PRIMARY KEY
-                )
-            """)
-            conn.commit()
+        try:
+            with self._get_connection() as conn:
+                conn.execute("""
+                    CREATE TABLE IF NOT EXISTS processed_degrees (
+                        degree_code TEXT PRIMARY KEY,
+                        boe_url TEXT,
+                        boe_fecha TEXT,
+                        last_updated TEXT
+                    )
+                """)
+                conn.execute("""
+                    CREATE TABLE IF NOT EXISTS non_study_plan_pdfs (
+                        pdf_url TEXT PRIMARY KEY
+                    )
+                """)
+                conn.execute("""
+                    CREATE TABLE IF NOT EXISTS non_study_plan_hashes (
+                        pdf_sha256 TEXT PRIMARY KEY,
+                        reason TEXT,
+                        timestamp TEXT
+                    )
+                """)
+                conn.execute("""
+                    CREATE TABLE IF NOT EXISTS unreachable_urls (
+                        url TEXT PRIMARY KEY
+                    )
+                """)
+                conn.execute("""
+                    CREATE TABLE IF NOT EXISTS extinct_degrees (
+                        degree_code TEXT PRIMARY KEY,
+                        motivo TEXT,
+                        timestamp TEXT
+                    )
+                """)
+                conn.execute("""
+                    CREATE TABLE IF NOT EXISTS processed_universities (
+                        univ_code TEXT PRIMARY KEY
+                    )
+                """)
+                conn.execute("""
+                    CREATE TABLE IF NOT EXISTS failed_pdf_downloads (
+                        url TEXT PRIMARY KEY,
+                        degree_code TEXT,
+                        reason TEXT,
+                        timestamp TEXT
+                    )
+                """)
+                conn.execute("""
+                    CREATE TABLE IF NOT EXISTS robots_denied_universities (
+                        univ_code TEXT PRIMARY KEY,
+                        web_url TEXT,
+                        reason TEXT,
+                        timestamp TEXT
+                    )
+                """)
+                conn.execute("""
+                    CREATE TABLE IF NOT EXISTS app_metadata (
+                        key TEXT PRIMARY KEY,
+                        value TEXT
+                    )
+                """)
+                conn.commit()
+        except Exception as e:
+            logger.warning(f"Error al inicializar tablas SQLite de checkpoint: {e}")
 
     def _load_checkpoint(self):
         if os.path.exists(self.filepath):
@@ -199,6 +227,12 @@ class CheckpointManager:
     def mark_universities_downloaded(self):
         with CheckpointManager._lock:
             self.state["universities_downloaded"] = True
+            try:
+                with self._get_connection() as conn:
+                    conn.execute("INSERT OR REPLACE INTO app_metadata VALUES (?, ?)", ("universities_downloaded", "1"))
+                    conn.commit()
+            except Exception as e:
+                logger.warning(f"Error al registrar universities_downloaded en SQLite: {e}")
             self._save(force=True)
 
     def _is_item_registered(self, table: str, column: str, state_key: str, value: str) -> bool:
@@ -211,8 +245,8 @@ class CheckpointManager:
                     cur = conn.execute(f"SELECT 1 FROM {table} WHERE {column} = ?", (value,))
                     if cur.fetchone():
                         return True
-            except Exception:
-                pass
+            except Exception as e:
+                logger.debug(f"Error al consultar tabla {table} en SQLite: {e}")
             items = self.state.get(state_key, [])
             return value in items if isinstance(items, (list, dict, set)) else False
 
@@ -229,8 +263,8 @@ class CheckpointManager:
                 with self._get_connection() as conn:
                     conn.execute(f"INSERT OR REPLACE INTO {table} VALUES (?)", (value,))
                     conn.commit()
-            except Exception:
-                pass
+            except Exception as e:
+                logger.warning(f"Error al registrar en tabla {table} en SQLite: {e}")
             self._save(force=force_save)
 
     def is_university_processed(self, univ_code: str) -> bool:
@@ -253,8 +287,8 @@ class CheckpointManager:
                         conn.execute("INSERT OR REPLACE INTO non_study_plan_hashes VALUES (?, ?, ?)", 
                                      (pdf_sha256, "NO_PLAN_ESTUDIOS", datetime.now().isoformat()))
                         conn.commit()
-                except Exception:
-                    pass
+                except Exception as e:
+                    logger.warning(f"Error al registrar hash en SQLite: {e}")
                 if "non_study_plan_hashes" not in self.state:
                     self.state["non_study_plan_hashes"] = []
                 if pdf_sha256 not in self.state["non_study_plan_hashes"]:
@@ -276,11 +310,19 @@ class CheckpointManager:
         with CheckpointManager._lock:
             if "failed_pdf_downloads" not in self.state:
                 self.state["failed_pdf_downloads"] = {}
+            now_iso = datetime.now().isoformat()
             self.state["failed_pdf_downloads"][pdf_url] = {
                 "codigo_estudio": degree_code,
                 "motivo_fallo": reason,
-                "timestamp": datetime.now().isoformat()
+                "timestamp": now_iso
             }
+            try:
+                with self._get_connection() as conn:
+                    conn.execute("INSERT OR REPLACE INTO failed_pdf_downloads VALUES (?, ?, ?, ?)",
+                                 (pdf_url, degree_code, reason, now_iso))
+                    conn.commit()
+            except Exception as e:
+                logger.warning(f"Error al registrar fallo de descarga PDF en SQLite: {e}")
             self.mark_unreachable_url(pdf_url)
 
     def get_degree_record(self, degree_code: str) -> dict:
@@ -293,8 +335,8 @@ class CheckpointManager:
                     row = cur.fetchone()
                     if row:
                         return {"boe_url": row[0], "boe_fecha": row[1], "last_updated": row[2]}
-            except Exception:
-                pass
+            except Exception as e:
+                logger.debug(f"Error al consultar degree record en SQLite: {e}")
             processed = self.state.get("processed_degrees", {})
             if isinstance(processed, dict):
                 return processed.get(degree_code)
@@ -339,8 +381,8 @@ class CheckpointManager:
                     conn.execute("INSERT OR REPLACE INTO processed_degrees VALUES (?, ?, ?, ?)",
                                  (degree_code, final_url, final_fecha, last_updated))
                     conn.commit()
-            except Exception:
-                pass
+            except Exception as e:
+                logger.warning(f"Error al registrar processed_degrees en SQLite: {e}")
             self._save(force=False)
 
     def mark_extinct_degree(self, degree_code: str, reason: str = "Extinguida"):
@@ -359,8 +401,8 @@ class CheckpointManager:
                     conn.execute("INSERT OR REPLACE INTO extinct_degrees VALUES (?, ?, ?)",
                                  (degree_code, reason, timestamp))
                     conn.commit()
-            except Exception:
-                pass
+            except Exception as e:
+                logger.warning(f"Error al registrar extinct_degrees en SQLite: {e}")
             self._save(force=False)
 
     def is_extinct_degree(self, degree_code: str) -> bool:
@@ -372,31 +414,106 @@ class CheckpointManager:
         with CheckpointManager._lock:
             if "robots_denied_universities" not in self.state or not isinstance(self.state.get("robots_denied_universities"), dict):
                 self.state["robots_denied_universities"] = {}
+            now_iso = datetime.now().isoformat()
             self.state["robots_denied_universities"][univ_code] = {
                 "web_url": web_url,
                 "motivo": reason,
-                "timestamp": datetime.now().isoformat()
+                "timestamp": now_iso
             }
+            try:
+                with self._get_connection() as conn:
+                    conn.execute("INSERT OR REPLACE INTO robots_denied_universities VALUES (?, ?, ?, ?)",
+                                 (univ_code, web_url, reason, now_iso))
+                    conn.commit()
+            except Exception as e:
+                logger.warning(f"Error al registrar robots_denied_universities en SQLite: {e}")
             self._save(force=False)
 
     def is_robots_denied_university(self, univ_code: str) -> bool:
         if not is_valid_value(univ_code):
             return False
         with CheckpointManager._lock:
+            try:
+                with self._get_connection() as conn:
+                    cur = conn.execute("SELECT 1 FROM robots_denied_universities WHERE univ_code = ?", (univ_code,))
+                    if cur.fetchone():
+                        return True
+            except Exception:
+                pass
             denied = self.state.get("robots_denied_universities", {})
             return univ_code in denied if isinstance(denied, dict) else False
+
+    def _consolidate_state_from_sqlite(self) -> dict:
+        """Consolida el estado global leyendo directamente de SQLite WAL para consistencia multi-proceso."""
+        state = dict(self.state)
+        try:
+            with self._get_connection() as conn:
+                # 1. processed_universities
+                cur = conn.execute("SELECT univ_code FROM processed_universities")
+                state["processed_universities"] = [r[0] for r in cur.fetchall()]
+                
+                # 2. processed_degrees
+                cur = conn.execute("SELECT degree_code, boe_url, boe_fecha, last_updated FROM processed_degrees")
+                state["processed_degrees"] = {
+                    r[0]: {"boe_url": r[1], "boe_fecha": r[2], "last_updated": r[3]}
+                    for r in cur.fetchall()
+                }
+                
+                # 3. non_study_plan_pdfs
+                cur = conn.execute("SELECT pdf_url FROM non_study_plan_pdfs")
+                state["non_study_plan_pdfs"] = [r[0] for r in cur.fetchall()]
+                
+                # 4. non_study_plan_hashes
+                cur = conn.execute("SELECT pdf_sha256 FROM non_study_plan_hashes")
+                state["non_study_plan_hashes"] = [r[0] for r in cur.fetchall()]
+                
+                # 5. unreachable_urls
+                cur = conn.execute("SELECT url FROM unreachable_urls")
+                state["unreachable_urls"] = [r[0] for r in cur.fetchall()]
+                
+                # 6. extinct_degrees
+                cur = conn.execute("SELECT degree_code, motivo, timestamp FROM extinct_degrees")
+                state["extinct_degrees"] = {
+                    r[0]: {"motivo": r[1], "timestamp": r[2]}
+                    for r in cur.fetchall()
+                }
+                
+                # 7. failed_pdf_downloads
+                cur = conn.execute("SELECT url, degree_code, reason, timestamp FROM failed_pdf_downloads")
+                state["failed_pdf_downloads"] = {
+                    r[0]: {"codigo_estudio": r[1], "motivo_fallo": r[2], "timestamp": r[3]}
+                    for r in cur.fetchall()
+                }
+                
+                # 8. robots_denied_universities
+                cur = conn.execute("SELECT univ_code, web_url, reason, timestamp FROM robots_denied_universities")
+                state["robots_denied_universities"] = {
+                    r[0]: {"web_url": r[1], "motivo": r[2], "timestamp": r[3]}
+                    for r in cur.fetchall()
+                }
+                
+                # 9. app_metadata
+                cur = conn.execute("SELECT key, value FROM app_metadata")
+                for k, v in cur.fetchall():
+                    if k == "universities_downloaded":
+                        state["universities_downloaded"] = (v == "1" or v.lower() == "true")
+        except Exception as e:
+            logger.warning(f"Error al consolidar estado desde SQLite: {e}")
+        return state
 
     def _save(self, force: bool = False):
         """
         Saves checkpoint state to checkpoint.json.
         If force=False, throttles disk writes to at most once every 30 seconds.
         If force=True (e.g. at end of each university or final shutdown), saves immediately.
+        Consolidates state from SQLite WAL to guarantee multi-process consistency.
         """
         with CheckpointManager._lock:
             now = time.time()
             if not force and (now - self._last_save_time) < CHECKPOINT_FLUSH_INTERVAL_SECONDS:
                 return
-            atomic_json_dump(self.state, self.filepath)
+            consolidated = self._consolidate_state_from_sqlite()
+            atomic_json_dump(consolidated, self.filepath)
             self._last_save_time = now
 
     def flush(self):

@@ -464,7 +464,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
             err_msg = "Error crítico al descargar el catálogo general de universidades"
             print(f" [ERROR CRÍTICO] {err_msg}: {e}")
             logger.log_error("paso_1_universidades", "ALL", URL_UNIVERSIDADES_LIST, err_msg, str(e))
-            metrics.errores_detectados += 1
+            metrics.inc_errores()
             for p in parser_processes:
                 if p.is_alive():
                     try:
@@ -492,10 +492,11 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
                 titulaciones_por_universidad = {}
 
         for u_idx, univ in enumerate(universities, 1):
-            metrics.universidades_inspeccionadas += 1
+            metrics.inc_universidades()
             u_code = univ["codigo"]
             u_name = univ["nombre"]
             u_tipo = univ.get("tipo", "Desconocido")
+            univ_completed_cleanly = True
 
             downloader.reset_university_context(u_code)
             print(f"({u_idx}/{len(universities)}) Procesando Universidad [{u_code}] ({u_tipo}): {u_name}")
@@ -515,13 +516,13 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
                 err_msg = f"Problemas de conexion continuados en la universidad [{u_code}] {u_name}"
                 print(f"     -> [CORTOCIRCUITO] {err_msg}")
                 logger.log_error("paso_2_titulaciones_univ", u_code, degrees_url, "Problemas de conexion continuados", str(conn_exc))
-                metrics.errores_detectados += 1
+                metrics.inc_errores()
                 continue
             except Exception as e:
                 err_msg = f"Error al procesar la lista de titulaciones de la universidad [{u_code}]"
                 print(f"     -> [ERROR NO BLOQUEANTE] {err_msg}: {e}")
                 logger.log_error("paso_2_titulaciones_univ", u_code, degrees_url, err_msg, str(e))
-                metrics.errores_detectados += 1
+                metrics.inc_errores()
                 continue
 
             print(f"     -> {len(active_degrees)} titulaciones VIGENTES/RENOVADAS identificadas.")
@@ -543,7 +544,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
 
             # Inspect each degree for latest BOE and download PDF candidates in Process 1
             for d_idx, deg in enumerate(degrees_to_process, 1):
-                metrics.titulaciones_inspeccionadas += 1
+                metrics.inc_titulaciones()
                 d_code = deg.get("codigo_estudio", "")
                 d_title = deg.get("titulo", "")
                 print(f"   [{d_idx}/{len(degrees_to_process)}] Titulación [{d_code}]: {d_title[:65]}...")
@@ -586,7 +587,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
                 
                     # Check if degree is already up to date (bypassed if --force is active)
                     if not force and os.path.exists(plan_file) and checkpoint.is_degree_up_to_date(d_code, latest_boe_url, latest_boe_fecha):
-                        metrics.titulaciones_al_dia += 1
+                        metrics.inc_titulaciones_al_dia()
                         print(f"     -> Información al día (BOE {latest_boe_fecha or 'coincide'}). Sin cambios necesarios.")
                         continue
 
@@ -644,21 +645,16 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
                             checkpoint.record_pdf_download_failure(cand_url, d_code, str(download_err))
                             return None
 
-                    with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
-                        futures = [executor.submit(fetch_single_candidate, (c_idx, c)) for c_idx, c in enumerate(target_candidates, 1)]
-                        for future in concurrent.futures.as_completed(futures):
-                            try:
-                                item_res = future.result()
+                    # Descarga cortés secuencial de candidatos BOE priorizados
+                    for c_idx, c_cand in enumerate(target_candidates, 1):
+                        try:
+                            res_item = fetch_single_candidate((c_idx, c_cand))
+                            if res_item:
+                                downloaded_pdf_items.append(res_item)
+                        except SkipUniversityException:
+                            raise
                         except Exception as e:
-                            logger.log_error("paso_3_descarga_pdf", d_code, cand_url, "Fallo al descargar PDF candidato", str(e))
-                            return None
-
-                    # Limitar concurrencia de descarga
-                    cands_to_fetch = candidates[:MAX_BOE_CANDIDATES_PER_DEGREE]
-                    for c_cand in cands_to_fetch:
-                        res_item = fetch_single_candidate(c_cand)
-                        if res_item:
-                            downloaded_pdf_items.append(res_item)
+                            logger.log_error("paso_3_descarga_pdf", d_code, c_cand.get("url", ""), "Fallo al descargar PDF candidato", str(e))
 
                     if not downloaded_pdf_items:
                         continue
@@ -681,14 +677,14 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
                     err_msg = f"Problemas de conexion continuados en la universidad [{u_code}] {u_name}"
                     print(f"     -> [CORTOCIRCUITO] {err_msg}")
                     logger.log_error("paso_3_conexion_fallida", u_code, detail_url, "Problemas de conexion continuados", str(conn_exc))
-                    metrics.errores_detectados += 1
+                    metrics.inc_errores()
                     univ_completed_cleanly = False
                     break
                 except Exception as e:
                     err_msg = f"Error al procesar la titulación [{d_code}]"
                     print(f"     -> [ERROR NO BLOQUEANTE] {err_msg}: {e}")
                     logger.log_error("paso_3_boe_pdf", d_code, detail_url, err_msg, traceback.format_exc())
-                    metrics.errores_detectados += 1
+                    metrics.inc_errores()
                     continue
 
             metrics.save()

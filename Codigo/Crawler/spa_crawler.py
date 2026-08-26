@@ -1,6 +1,7 @@
 import sys
 import time
 import os
+import re
 import tempfile
 import threading
 from bs4 import BeautifulSoup

@@ -21,7 +21,8 @@ from config import (
     DATA_DIR,
     USER_AGENT,
     REQUEST_DELAY,
-    ASYNC_PREFETCH_WORKERS
+    ASYNC_PREFETCH_WORKERS,
+    WEB_CRAWLER_WORKERS
 )
 from downloader import RUCTDownloader, SkipUniversityException, normalize_url
 from checkpoint import atomic_json_dump
@@ -63,7 +64,10 @@ class SubjectGuideCache:
         return conns[self.db_path]
 
     def _init_db(self):
-        os.makedirs(os.path.dirname(self.db_path), exist_ok=True)
+        if self.db_path and self.db_path != ":memory:":
+            dir_path = os.path.dirname(os.path.abspath(self.db_path))
+            if dir_path:
+                os.makedirs(dir_path, exist_ok=True)
         conn = self._get_conn()
         conn.execute("""
             CREATE TABLE IF NOT EXISTS guias_docentes (
@@ -584,65 +588,25 @@ def parse_subject_guide(url: str, content: bytes, content_type: str = "") -> dic
 
 
 # =============================================================================
-# EJECUTOR PRINCIPAL DE LA FASE 1 - PARTE 4
+# PROCESAMIENTO SECUENCIAL POR UNIVERSIDAD (CORTESÍA ÉTICA)
 # =============================================================================
 
-def run_phase1_part4(max_workers: int = 4, limit_univ: int = None, limit_degrees: int = None, force: bool = False, target_univ_code: str = None) -> dict:
+def _process_single_university_guides(u_code: str, degree_items: list, cache: SubjectGuideCache, downloader: RUCTDownloader, force: bool = False) -> dict:
     """
-    FASE 1 - PARTE 4: Extracción de temarios, evaluación y contenido de guías docentes.
-    Recorre los planes de estudio en planes_estudio/*.json, resuelve URLs canónicas
-    con Fast-Path universal, descarga las guías docentes mediante deduplicación dual en SQLite WAL
-    y almacena el contenido estructurado.
+    Procesa de forma 100% secuencial y cortés todas las titulaciones de una única universidad.
+    Garantiza que ningún dominio universitario reciba peticiones simultáneas.
     """
-    print("\n" + "=" * 70)
-    print("      INICIANDO FASE 1 - PARTE 4: GUÍAS DOCENTES Y TEMARIOS EEES")
-    print("======================================================================")
+    stats = {
+        "enriched_degrees": 0,
+        "processed_guides": 0,
+        "cached_hits": 0
+    }
 
-    cache = SubjectGuideCache()
-    downloader = RUCTDownloader()
-
-    plan_files = [
-        os.path.join(PLANES_DIR, f)
-        for f in os.listdir(PLANES_DIR)
-        if f.endswith(".json")
-    ]
-
-    total_degrees = len(plan_files)
-    print(f" -> {total_degrees} planes de estudio a inspeccionar en disco.")
-
-    processed_guides = 0
-    cached_hits = 0
-    enriched_degrees = 0
-    start_time = time.time()
-    seen_univs = set()
-    matching_degrees_inspected = 0
-
-    for idx, p_path in enumerate(plan_files, 1):
-        try:
-            with open(p_path, "r", encoding="utf-8") as f:
-                data = json.load(f)
-        except Exception as e:
-            continue
-
+    for item in degree_items:
+        p_path = item["p_path"]
+        data = item["data"]
         d_code = data.get("codigo_estudio", "")
-        d_title = data.get("titulo", "")
-        u_code = data.get("universidad_codigo", "")
-        u_name = data.get("universidad_nombre", "")
         u_web = data.get("web", "") or data.get("web_fuente_directa_url", "")
-
-        if target_univ_code and str(u_code).zfill(3) != str(target_univ_code).zfill(3):
-            continue
-
-        if limit_univ and len(seen_univs) >= limit_univ and u_code not in seen_univs:
-            continue
-
-        matching_degrees_inspected += 1
-        if limit_degrees and matching_degrees_inspected > limit_degrees:
-            break
-
-        if u_code:
-            seen_univs.add(u_code)
-
         plan = data.get("plan_estudios") or {}
         elementos = plan.get("elementos_curriculares") or []
 
@@ -660,7 +624,7 @@ def run_phase1_part4(max_workers: int = 4, limit_univ: int = None, limit_degrees
             cached_data = cache.get(url=url_directa, u_code=u_code, asig_code=asig_code)
             if cached_data and not force:
                 elem["guia_docente"] = cached_data
-                cached_hits += 1
+                stats["cached_hits"] += 1
                 degree_modified = True
                 continue
 
@@ -679,7 +643,7 @@ def run_phase1_part4(max_workers: int = 4, limit_univ: int = None, limit_degrees
                     if resp and resp.status_code == 200:
                         c_type = resp.headers.get("Content-Type", "")
                         parsed_guide = parse_subject_guide(c_url, resp.content, c_type)
-                        
+
                         final_asig_code = parsed_guide.get("codigo_asignatura") or asig_code or ""
                         cache.set(
                             url=c_url,
@@ -690,7 +654,7 @@ def run_phase1_part4(max_workers: int = 4, limit_univ: int = None, limit_degrees
                         )
                         elem["guia_docente"] = parsed_guide
                         elem["url_guia_docente"] = c_url
-                        processed_guides += 1
+                        stats["processed_guides"] += 1
                         degree_modified = True
                         break
                 except SkipUniversityException:
@@ -701,7 +665,97 @@ def run_phase1_part4(max_workers: int = 4, limit_univ: int = None, limit_degrees
 
         if degree_modified:
             atomic_json_dump(data, p_path)
-            enriched_degrees += 1
+            stats["enriched_degrees"] += 1
+
+    return stats
+
+
+# =============================================================================
+# EJECUTOR PRINCIPAL DE LA FASE 1 - PARTE 4
+# =============================================================================
+
+def run_phase1_part4(max_workers: int = None, limit_univ: int = None, limit_degrees: int = None, force: bool = False, target_univ_code: str = None) -> dict:
+    """
+    FASE 1 - PARTE 4: Extracción de temarios, evaluación y contenido de guías docentes.
+    Agrupa los planes de estudio por universidad y los procesa en paralelo (hasta max_workers universidades a la vez),
+    manteniendo estricta cortesía secuencial por dominio.
+    """
+    print("\n" + "=" * 70)
+    print("      INICIANDO FASE 1 - PARTE 4: GUÍAS DOCENTES Y TEMARIOS EEES")
+    print("======================================================================")
+
+    if max_workers is None:
+        max_workers = WEB_CRAWLER_WORKERS
+
+    cache = SubjectGuideCache()
+    downloader = RUCTDownloader()
+
+    plan_files = [
+        os.path.join(PLANES_DIR, f)
+        for f in os.listdir(PLANES_DIR)
+        if f.endswith(".json")
+    ]
+
+    total_degrees = len(plan_files)
+    print(f" -> {total_degrees} planes de estudio a inspeccionar en disco.")
+
+    # Agrupar titulaciones por universidad para procesamiento concurrente seguro
+    univ_groups = {}
+    seen_univs = set()
+    total_enqueued = 0
+
+    for p_path in plan_files:
+        try:
+            with open(p_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except Exception:
+            continue
+
+        u_code = data.get("universidad_codigo", "000")
+
+        if target_univ_code and str(u_code).zfill(3) != str(target_univ_code).zfill(3):
+            continue
+
+        if limit_univ and len(seen_univs) >= limit_univ and u_code not in seen_univs:
+            continue
+
+        if limit_degrees and total_enqueued >= limit_degrees:
+            break
+
+        if u_code:
+            seen_univs.add(u_code)
+
+        if u_code not in univ_groups:
+            univ_groups[u_code] = []
+
+        univ_groups[u_code].append({
+            "p_path": p_path,
+            "data": data
+        })
+        total_enqueued += 1
+
+    print(f" -> {len(univ_groups)} universidades agrupadas para procesamiento en paralelo con {max_workers} trabajadores.")
+
+    processed_guides = 0
+    cached_hits = 0
+    enriched_degrees = 0
+    start_time = time.time()
+
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = {
+            executor.submit(_process_single_university_guides, u_code, items, cache, downloader, force): u_code
+            for u_code, items in univ_groups.items()
+        }
+
+        for future in as_completed(futures):
+            u_code = futures[future]
+            try:
+                res = future.result()
+                processed_guides += res.get("processed_guides", 0)
+                cached_hits += res.get("cached_hits", 0)
+                enriched_degrees += res.get("enriched_degrees", 0)
+            except Exception as exc:
+                print(f" [ERROR PARTE 4] Excepción en universidad [{u_code}]: {exc}")
 
     elapsed = round(time.time() - start_time, 2)
     print("\n" + "=" * 70)

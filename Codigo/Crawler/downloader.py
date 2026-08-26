@@ -147,9 +147,11 @@ class RUCTDownloader:
         self.consecutive_failures = 0
         self.pause_count_univ = 0
 
+    DOMAIN_MAPPINGS = DOMAIN_MAPPINGS
+
     def _normalize_url(self, url: str) -> str:
         """Normalizes legacy domains and cleans malformed protocol prefixes."""
-        return normalize_url(url, self.DOMAIN_MAPPINGS)
+        return normalize_url(url, DOMAIN_MAPPINGS)
 
     def _apply_delay(self, url: str = ""):
         """Enforces per-domain rate limiting delay with random jitter and cross-thread domain synchronization."""

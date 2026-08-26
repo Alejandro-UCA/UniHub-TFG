@@ -125,7 +125,7 @@ CIRCUIT_BREAKER_MAX_PAUSES = int(os.getenv("CRAWLER_CB_MAX_PAUSES", 3))         
 # ==============================================================================
 CPU_WORKERS_COUNT = int(os.getenv("CRAWLER_CPU_WORKERS", max(1, min(4, os.cpu_count() or 4))))  # Pool multiproceso PDF/OCR
 ASYNC_PREFETCH_WORKERS = int(os.getenv("CRAWLER_PREFETCH_WORKERS", 4))                           # Hilos precarga RUCT
-WEB_CRAWLER_WORKERS = int(os.getenv("CRAWLER_WEB_WORKERS", 4))                                   # Hilos escaneo web oficial
+WEB_CRAWLER_WORKERS = int(os.getenv("CRAWLER_WEB_WORKERS", 12))                                   # Hilos escaneo web oficial
 TASK_QUEUE_MAXSIZE = int(os.getenv("CRAWLER_TASK_QUEUE_MAXSIZE", 200))                           # Tamaño máximo cola multiproceso
 TASK_QUEUE_GET_TIMEOUT = int(os.getenv("CRAWLER_TASK_QUEUE_TIMEOUT", 5))                          # Timeout de lectura en cola (5s)
 
@@ -385,7 +385,10 @@ INVALID_SUBJECT_KEYWORDS = [
     "sobresalinte", "cualificación cualitativa", "cualificacion cualitativa", "táboa de equivalencias", "taboa de equivalencias", "recoñecemento de créditos",
     "ez-gai", "oso ondo", "bikain", "ohorezko matrikula", "kalifikazio kualitatiboa", "kalifikazio numerikoa", "kreditu-aitorpena",
     "grading scale", "qualitative grade", "numerical grade", "credit recognition",
-    "buscar por", "1º apellido", "2º apellido", "listado simple", "listado detallado", "cerca per", "bilatu"
+    "buscar por", "1º apellido", "2º apellido", "listado simple", "listado detallado", "cerca per", "bilatu",
+    # Oferta de plazas, notas de corte y precios administrativos
+    "plazas ofertadas", "plazas de nuevo ingreso", "plazas disponibles", "places de nou ingrés", "prazas",
+    "nota de corte", "notas de corte", "nota de tall", "ebaki nota", "precios públicos", "prezo por crédito"
 ]
 
 # Marcadores de fuentes y matrices tipográficas invertidas/espejadas en BOE antiguo (2009-2014)

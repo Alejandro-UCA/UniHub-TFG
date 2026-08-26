@@ -291,7 +291,9 @@ def compute_curriculum_total_ects(elementos_curriculares: list) -> float:
                 cleaned = str(raw_val).strip().replace(",", ".")
                 m = re.search(r"\d+(?:\.\d+)?", cleaned)
                 if m:
-                    total += float(m.group(0))
+                    ects_f = float(m.group(0))
+                    if 0.0 < ects_f <= 60.0:
+                        total += ects_f
             except ValueError:
                 pass
     return round(total, 2)
@@ -856,9 +858,9 @@ def normalize_cuatrimestre(cuat_raw: str) -> str:
     
     # 2. Primer Cuatrimestre / Semestres impares (1, 3, 5, 7)
     if (
-        c_str in ["1", "1º", "1.º", "1c", "1s", "1er", "primer", "primero", "1.er", "3", "5", "7", "s1", "c1"]
+        c_str in ["1", "1º", "1.º", "1c", "1s", "1er", "primer", "primero", "primero.", "1.er", "1.er semestre", "1.er semestre.", "1er semestre", "1er semestre.", "3", "5", "7", "s1", "c1", "1 sem", "sem 1", "semestre 1", "cuatrimestre 1"]
         or "1er" in c_str or "1º cuat" in c_str or "1.º cuat" in c_str or "1.º sem" in c_str 
-        or "1er sem" in c_str or "primer cuat" in c_str or "primer sem" in c_str
+        or "1er sem" in c_str or "primer cuat" in c_str or "primer sem" in c_str or "1.er sem" in c_str
         or "semestre 1" in c_str or "semestre 3" in c_str or "semestre 5" in c_str or "semestre 7" in c_str
         or "cuatrimestre 1" in c_str or "cuatrimestre 3" in c_str or "cuatrimestre 5" in c_str or "cuatrimestre 7" in c_str
     ):
@@ -866,8 +868,8 @@ def normalize_cuatrimestre(cuat_raw: str) -> str:
         
     # 3. Segundo Cuatrimestre / Semestres pares (2, 4, 6, 8)
     if (
-        c_str in ["2", "2º", "2.º", "2c", "2s", "2do", "2º cuat", "2.º cuat", "2.º sem", "2do sem", "segundo", "segundo cuat", "segundo sem", "4", "6", "8", "s2", "c2"]
-        or "2º" in c_str or "2do" in c_str or "segundo" in c_str
+        c_str in ["2", "2º", "2.º", "2c", "2s", "2do", "2n", "2º cuat", "2.º cuat", "2.º sem", "2.º semestre.", "2.º semestre", "2do sem", "segundo", "segundo.", "segon", "segundo cuat", "segundo sem", "4", "6", "8", "s2", "c2", "2 sem", "sem 2", "semestre 2", "cuatrimestre 2"]
+        or "2º" in c_str or "2do" in c_str or "segundo" in c_str or "2.º sem" in c_str or "2.º semestre" in c_str or "segon sem" in c_str
         or "semestre 2" in c_str or "semestre 4" in c_str or "semestre 6" in c_str or "semestre 8" in c_str
         or "cuatrimestre 2" in c_str or "cuatrimestre 4" in c_str or "cuatrimestre 6" in c_str or "cuatrimestre 8" in c_str
     ):
@@ -890,6 +892,10 @@ def normalize_curso(curso_raw: str, current_materia: str = "", ects_val: float =
     c_str = str(curso_raw).strip()
     c_low = c_str.lower()
     
+    # 0. Si el texto es una denominación de semestre o cuatrimestre (ej. 'Primer Semestre'), vaciar curso
+    if any(k in c_low for k in ["primer semestre", "segundo semestre", "primer cuatrimestre", "segundo cuatrimestre", "1er semestre", "2do semestre", "1.er semestre", "2.º semestre"]):
+        return "", current_materia
+
     # 1. Comprobar desalineación de créditos ECTS (ej. si curso_raw es simplemente "6" o "5" igual a ects_val)
     if c_str.isdigit():
         c_val_int = int(c_str)
@@ -987,7 +993,15 @@ def is_spurious_or_administrative_subject(name: str, ects_val: float = 6.0, cara
         
     name_low = name_clean.lower()
     
-    # 0. Descarte inmediato por lista unificada de palabras clave prohibidas (días, horarios, notas, trámites)
+    # 0. Descarte inmediato por URLs completas
+    if name_low.startswith("http://") or name_low.startswith("https://") or "www." in name_low:
+        return True
+
+    # 0.1 Descarte por patrones taquigráficos de columnas pegadas (ej. 'OB 6 2')
+    if re.match(r"^(?:FBA|FB|OBL|OB|OPT|OP|PE|PEX|TFG|TFM|EXT|OIN|DER|HAU)\s+\d+\s+\d+$", name_clean, re.IGNORECASE):
+        return True
+
+    # 0.2 Descarte inmediato por lista unificada de palabras clave prohibidas (días, horarios, notas, trámites)
     if any(sk in name_low for sk in INVALID_SUBJECT_KEYWORDS):
         return True
 

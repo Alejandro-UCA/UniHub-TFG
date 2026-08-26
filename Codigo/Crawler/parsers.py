@@ -197,21 +197,39 @@ def clean_excel_code(raw_val: str, zfill_len: int = 0) -> str:
     return val.zfill(zfill_len) if zfill_len > 0 and val else val
 
 
+_RE_CARACTER_WORDS_FB = re.compile(r"\b(?:fb|fba|b[aáà]sica|oinarrizko|basic|core|formaci[oóò]n?\s+b[aáà]sica)\b", re.IGNORECASE)
+_RE_CARACTER_WORDS_OP = re.compile(r"\b(?:op|opt|optativ[ao]s?|optatiu[s]?|hautazko|optional|elective)\b", re.IGNORECASE)
+_RE_CARACTER_WORDS_PE = re.compile(r"\b(?:pe|pex|pr[aáà]cticas?\s*(?:externas?)?|pr[aáà]ctiques?\s*(?:externes?)?|kanpoko\s+praktikak|internship|placement)\b", re.IGNORECASE)
+_RE_CARACTER_WORDS_TFG = re.compile(r"\b(?:tfg|tfm|trabajo\s+(?:de\s+)?fin|trabajo\s+final|treball\s+fi(?:nal)?|gral|master\s+amaierako|bachelor\s+thesis|master\s+thesis)\b", re.IGNORECASE)
+_RE_CARACTER_WORDS_OB = re.compile(r"\b(?:ob|obl|obligatori[ao]s?|obligat[oò]ri[ao]s?|derrigorrezko|compulsory|mandatory)\b", re.IGNORECASE)
+
 @lru_cache(maxsize=4096)
 def classify_subject_caracter(text: str, default: str = "OB") -> str:
     """Clasifica de forma unificada el carácter oficial de una asignatura (FB, OP, PE, TFG/TFM, OB) en ES, CA, GL, EU y EN."""
     if not text:
         return default
-    t = text.lower().strip()
-    if any(k in t for k in ["básica", "basica", "bàsica", "fb", "oinarrizko", "basic", "core", "formació bàsica", "formacion basica"]):
+    t = text.strip()
+    t_low = t.lower()
+    if t_low in {"fb", "fba", "básica", "basica", "bàsica", "formación básica", "formacio basica", "basic", "core"}:
         return "FB"
-    if any(k in t for k in ["optativa", "optatiu", "op", "hautazko", "optional", "elective"]):
+    if t_low in {"op", "opt", "optativa", "optatiu", "optativas", "optatius", "elective", "optional", "hautazko"}:
         return "OP"
-    if any(k in t for k in ["práctica", "practica", "pràctica", "pe", "externa", "externes", "kanpoko praktikak", "internship", "placement"]):
+    if t_low in {"pe", "pex", "prácticas externas", "practicas externas", "pràctiques externes", "prácticas", "practicas", "internship"}:
         return "PE"
-    if any(k in t for k in ["tfg", "tfm", "trabajo fin", "trabajo de fin", "trabajo final", "treball final", "treball fi", "gral", "master amaierako", "bachelor thesis", "master thesis"]):
+    if t_low in {"tfg", "tfm", "tfg/tfm", "trabajo fin de grado", "trabajo fin de máster", "treball fi de grau", "gral"}:
         return "TFG/TFM"
-    if any(k in t for k in ["obligatoria", "obligatòria", "ob", "derrigorrezko", "compulsory", "mandatory"]):
+    if t_low in {"ob", "obl", "obligatoria", "obligatòria", "obligatorias", "obligatòries", "compulsory", "mandatory", "derrigorrezko"}:
+        return "OB"
+
+    if _RE_CARACTER_WORDS_TFG.search(t):
+        return "TFG/TFM"
+    if _RE_CARACTER_WORDS_FB.search(t):
+        return "FB"
+    if _RE_CARACTER_WORDS_OP.search(t):
+        return "OP"
+    if _RE_CARACTER_WORDS_PE.search(t):
+        return "PE"
+    if _RE_CARACTER_WORDS_OB.search(t):
         return "OB"
     return default
 
@@ -934,6 +952,17 @@ def normalize_curso(curso_raw: str, current_materia: str = "", ects_val: float =
     return "", current_materia
 
 
+_MOJIBAKE_MAPPINGS = [
+    # 2-byte UTF-8 mojibake mappings for standard Spanish
+    ("Ã¡", "á"), ("Ã©", "é"), ("Ã­", "í"), ("Ã³", "ó"), ("Ãº", "ú"),
+    ("Ã±", "ñ"), ("Ã", "Á"), ("Ã‰", "É"), ("Ã", "Í"), ("Ã“", "Ó"),
+    ("Ãš", "Ú"), ("Ã‘", "Ñ"),
+    # Co-official languages (Catalan / Valencian / Galician / Basque)
+    ("Ã ", "à"), ("Ã¨", "è"), ("Ã²", "ò"), ("Ã§", "ç"), ("Ã¯", "ï"),
+    ("Ã¼", "ü"), ("Ã€", "À"), ("Ãˆ", "È"), ("Ã’", "Ò"), ("Ã‡", "Ç"),
+    ("Ã", "Ï"), ("Ãœ", "Ü"), ("Â·", "·"),
+]
+
 @lru_cache(maxsize=8192)
 def sanitize_subject_name(raw_name: str) -> str:
     """
@@ -942,11 +971,11 @@ def sanitize_subject_name(raw_name: str) -> str:
     if not raw_name:
         return ""
     
-    # 1. Corrección de distorsiones UTF-8
+    # 1. Corrección de distorsiones UTF-8 preservando lenguas cooficiales
     name = str(raw_name).strip()
-    name = (name.replace("Ã³", "ó").replace("Ã¡", "á").replace("Ã©", "é")
-                .replace("Ã­", "í").replace("Ãº", "ú").replace("Ã±", "ñ")
-                .replace("Ã", "í"))
+    for bad_seq, good_char in _MOJIBAKE_MAPPINGS:
+        if bad_seq in name:
+            name = name.replace(bad_seq, good_char)
     
     # 2. Desinvertir si viene de matriz tipográfica inversa
     name = unreverse_text(name)
@@ -1006,10 +1035,10 @@ def is_spurious_or_administrative_subject(name: str, ects_val: float = 6.0, cara
     if any(sk in name_low for sk in INVALID_SUBJECT_KEYWORDS):
         return True
 
-    # 1. Regla de créditos máximos para asignaturas estándar (<= 12 ECTS en FB/OB/OP)
+    # 1. Regla de créditos máximos para asignaturas estándar (<= 12 ECTS en FB/OB/OP estándar)
     if ects_val > 30.0:
         return True
-    if ects_val > 12.0 and caracter not in ["TFG/TFM", "PE"] and not any(k in name_low for k in ["trabajo fin", "tfg", "tfm", "practic", "tesis"]):
+    if ects_val > 12.0 and caracter not in ["TFG/TFM", "PE"] and not any(k in name_low for k in ["trabajo fin", "tfg", "tfm", "practic", "tesis", "practica", "pràctica", "externa", "proyecto"]):
         return True
     if ects_val <= 0.0:
         return True
@@ -1641,6 +1670,10 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                                 "curso": clean_curso,
                                 "cuatrimestre": clean_cuat
                             })
+                try:
+                    page.flush_cache()
+                except Exception:
+                    pass
 
     except Exception as e:
         print(f"   [AVISO] pdfplumber table extraction fallback: {e}")

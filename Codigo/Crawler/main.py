@@ -382,7 +382,11 @@ def trigger_api_etl_sync():
     print(" -> Nota: La Fase 1 ha finalizado. La Fase 2 se sincronizará cuando el servicio API esté disponible o se ejecute el ETL.")
 
 
+_GLOBAL_CHECKPOINT = None
+_GLOBAL_METRICS = None
+
 def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: list = None, force: bool = False):
+    global _GLOBAL_CHECKPOINT, _GLOBAL_METRICS
     if run_parts is None:
         run_parts = [1, 2, 3]
 
@@ -390,10 +394,12 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
     print("      INICIANDO FASE 1 UNIHUB (PARTES SELECCIONADAS: " + ", ".join(f"Parte {p}" for p in run_parts) + ")")
     print("======================================================================")
 
-    downloader = RUCTDownloader()
+    metrics = PerformanceTracker()
+    _GLOBAL_METRICS = metrics
+    downloader = RUCTDownloader(metrics_tracker=metrics)
     logger = ErrorLogger()
     checkpoint = CheckpointManager()
-    metrics = PerformanceTracker()
+    _GLOBAL_CHECKPOINT = checkpoint
 
     # Ajuste Docker: limitar workers al número de CPUs disponibles en el contenedor
     cpu_count = os.cpu_count() or 1
@@ -643,14 +649,21 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
                         for future in concurrent.futures.as_completed(futures):
                             try:
                                 item_res = future.result()
-                                if item_res:
-                                    downloaded_pdf_items.append(item_res)
-                            except SkipUniversityException:
-                                raise
-                            except Exception:
-                                pass
+                        except Exception as e:
+                            logger.log_error("paso_3_descarga_pdf", d_code, cand_url, "Fallo al descargar PDF candidato", str(e))
+                            return None
 
-                    # Send task item to Producer-Consumer queue for Process 2 parsing
+                    # Limitar concurrencia de descarga
+                    cands_to_fetch = candidates[:MAX_BOE_CANDIDATES_PER_DEGREE]
+                    for c_cand in cands_to_fetch:
+                        res_item = fetch_single_candidate(c_cand)
+                        if res_item:
+                            downloaded_pdf_items.append(res_item)
+
+                    if not downloaded_pdf_items:
+                        continue
+
+                    # Encolar la titulación hacia el Pool de Procesos 2 (Consumidores de CPU)
                     task_queue.put({
                         "type": "PARSE_DEGREE_PDFS",
                         "d_code": d_code,
@@ -669,6 +682,7 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
                     print(f"     -> [CORTOCIRCUITO] {err_msg}")
                     logger.log_error("paso_3_conexion_fallida", u_code, detail_url, "Problemas de conexion continuados", str(conn_exc))
                     metrics.errores_detectados += 1
+                    univ_completed_cleanly = False
                     break
                 except Exception as e:
                     err_msg = f"Error al procesar la titulación [{d_code}]"
@@ -678,7 +692,10 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
                     continue
 
             metrics.save()
-            checkpoint.mark_university_processed(u_code)
+            if univ_completed_cleanly:
+                checkpoint.mark_university_processed(u_code)
+            else:
+                print(f" ⚠️ [AVISO] Universidad [{u_code}] no completada por problemas de conexión. Se mantiene pendiente en checkpoint.")
 
         # Finalización segura del Pool de Procesos 2 (Parser CPU)
         print("\n[Finalizando Red] Enviando señal de parada al Pool de Procesos Parser CPU...")
@@ -757,7 +774,18 @@ def run_crawler(limit_univ: int = None, limit_degrees: int = None, run_parts: li
 
 
 def _handle_sigterm(signum, frame):
-    print("\n[SIGNAL] Señal de terminación recibida. Cerrando limpiamente...")
+    print("\n[SIGNAL] Señal de terminación recibida. Vaciando checkpoints y métricas a disco...")
+    global _GLOBAL_CHECKPOINT, _GLOBAL_METRICS
+    if _GLOBAL_CHECKPOINT:
+        try:
+            _GLOBAL_CHECKPOINT.flush()
+        except Exception:
+            pass
+    if _GLOBAL_METRICS:
+        try:
+            _GLOBAL_METRICS.save()
+        except Exception:
+            pass
     sys.exit(0)
 
 if __name__ == "__main__":

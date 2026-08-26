@@ -1014,6 +1014,7 @@ class UniversityWebCrawler:
         self.logger = ErrorLogger()
         self.checkpoint = CheckpointManager()
         self.univ_file_lock = threading.Lock()
+        self.organic_lock = threading.Lock()
         self.organic_affiliated_hubs = defaultdict(dict)
         self.organic_affiliated_cache = {}
 
@@ -1194,7 +1195,8 @@ class UniversityWebCrawler:
                 continue
                 
         if organic_hubs:
-            self.organic_affiliated_hubs[web_url].update(organic_hubs)
+            with self.organic_lock:
+                self.organic_affiliated_hubs[web_url].update(organic_hubs)
         return catalog_map
 
     def rescue_university_url(self, univ_name: str) -> str:
@@ -1767,6 +1769,7 @@ class UniversityWebCrawler:
                                         try:
                                             target_html = downloader.fetch_text(target_link)
                                             target_soup = BeautifulSoup(target_html, "html.parser")
+                                            elementos_html = extract_html_subjects(target_soup, target_link)
                                             # Paso 0.5: Si HTML estático de la ficha tiene < 3 asignaturas,
                                             # explorar dinámicamente cualquier subpágina enlazada en el DOM de la ficha (<a> tags)
                                             # priorizando subrutas directas del grado y enlaces a portales institucionales de gestión (2-Hop).
@@ -1973,11 +1976,16 @@ class UniversityWebCrawler:
                 if matched_hub_url:
                     try:
                         print(f"     -> [Centro Adscrito Orgánico] Descubierto '{matched_hub_name}' ({matched_hub_url})")
-                        if matched_hub_url not in self.organic_affiliated_cache:
-                            self.organic_affiliated_cache[matched_hub_url] = self._build_academic_catalog_map(
+                        with self.organic_lock:
+                            has_cached = matched_hub_url in self.organic_affiliated_cache
+                        if not has_cached:
+                            built_map = self._build_academic_catalog_map(
                                 downloader, matched_hub_url, max_depth=5, max_hubs=8, max_hops=3
                             )
-                        center_map = self.organic_affiliated_cache[matched_hub_url]
+                            with self.organic_lock:
+                                self.organic_affiliated_cache[matched_hub_url] = built_map
+                        with self.organic_lock:
+                            center_map = self.organic_affiliated_cache.get(matched_hub_url)
                         if center_map:
                             center_candidates = []
                             for kw in title_keywords:

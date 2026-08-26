@@ -5,7 +5,7 @@ import random
 import threading
 import requests
 import urllib3
-from urllib.parse import urlparse, urlsplit, urlunsplit
+from urllib.parse import urlparse, urlsplit, urlunsplit, urljoin
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 from config import (
@@ -38,7 +38,7 @@ _RE_DOGV_DOMAINS = re.compile(r"^(?:w{1,8})\.dogv\.gva\.es$")
 _RE_BOCYL_DOMAINS = re.compile(r"^(?:w{1,8})\.bocyl\.jcyl\.es$")
 _SECURE_DOMAINS_TUPLE = ("dogc.gencat.cat", "boe.es", "educacion.gob.es", "bocm.madrid.org", "bocyl.jcyl.es", "dogv.gva.es", "boa.aragon.es", "doe.juntaex.es")
 
-def normalize_url(url: str, domain_mappings: dict = None) -> str:
+def normalize_url(url: str, domain_mappings: dict = None, base_url: str = None) -> str:
     """Normalizes legacy domains, cleans malformed protocol prefixes, and upgrades HTTP to HTTPS for secure official portals."""
     if not url:
         return ""
@@ -56,6 +56,8 @@ def normalize_url(url: str, domain_mappings: dict = None) -> str:
     if not url.startswith("http://") and not url.startswith("https://"):
         if url.startswith("//"):
             url = "https:" + url
+        elif base_url:
+            url = urljoin(base_url, url)
         elif url.startswith("/"):
             url = "https://www.boe.es" + url
         else:
@@ -164,7 +166,8 @@ class RUCTDownloader:
         try:
             last_time = self._GLOBAL_DOMAIN_LAST_REQUEST_TIMES.get(domain, 0)
             elapsed = time.time() - last_time
-            base_delay = self._GLOBAL_DOMAIN_DELAYS.get(domain, self.delay)
+            with self._LOCK_CREATION_LOCK:
+                base_delay = self._GLOBAL_DOMAIN_DELAYS.get(domain, self.delay)
             effective_delay = base_delay + random.uniform(JITTER_MIN_SECONDS, JITTER_MAX_SECONDS)
             if elapsed < effective_delay:
                 time.sleep(effective_delay - elapsed)
@@ -211,21 +214,25 @@ class RUCTDownloader:
         Esto previene que el servidor devuelva la página HTML del formulario (Expected BOF record; found <!DOC).
         """
         try:
+            self._apply_delay("https://www.educacion.gob.es")
             if "listauniversidades" in url and "export=1" in url:
-                self.session.get("https://www.educacion.gob.es/ruct/listauniversidades.action?actual=universidades", timeout=self.timeout)
-                self.session.get("https://www.educacion.gob.es/ruct/listauniversidades?actual=universidades&cccaa=&tipo_univ=&codigoUniversidad=&consulta=1", timeout=self.timeout)
+                r1 = self.session.get("https://www.educacion.gob.es/ruct/listauniversidades.action?actual=universidades", timeout=self.timeout)
+                r1.close()
+                r2 = self.session.get("https://www.educacion.gob.es/ruct/listauniversidades?actual=universidades&cccaa=&tipo_univ=&codigoUniversidad=&consulta=1", timeout=self.timeout)
+                r2.close()
             elif "listaestudiosuniversidad" in url and "export=1" in url:
                 m = re.search(r"codigoUniversidad=([^&]+)", url)
                 if m:
                     u_code = m.group(1)
-                    self.session.get(f"https://www.educacion.gob.es/ruct/listaestudiosuniversidad?actual=universidades&codigoUniversidad={u_code}", timeout=self.timeout)
-        except Exception:
-            pass
+                    r = self.session.get(f"https://www.educacion.gob.es/ruct/listaestudiosuniversidad?actual=universidades&codigoUniversidad={u_code}", timeout=self.timeout)
+                    r.close()
+        except Exception as e:
+            print(f" [AVISO] Inicialización de sesión RUCT: {e}")
 
     def _request_with_retry(self, url: str, stream: bool = False) -> requests.Response:
         """
         Executes an HTTP GET request with connection resilience, Retry-After header parsing,
-        automatic HTTP->HTTPS fallback, and Circuit Breaker error management.
+        automatic HTTP->HTTPS fallback, exponential backoff and Circuit Breaker error management.
         """
         url = self._normalize_url(url)
         if "export=1" in url and ("listauniversidades" in url or "listaestudiosuniversidad" in url):
@@ -247,10 +254,16 @@ class RUCTDownloader:
                     verify_ssl = True
                     response = self.session.get(target_url, stream=stream, timeout=self.timeout, verify=verify_ssl)
                     if response.status_code == 429:
+                        if stream:
+                            try:
+                                response.close()
+                            except Exception:
+                                pass
                         domain = urlparse(target_url).netloc.lower() if target_url else "default"
-                        curr_delay = self._GLOBAL_DOMAIN_DELAYS.get(domain, self.delay)
-                        new_delay = min(curr_delay * ADAPTIVE_BACKOFF_MULTIPLIER, ADAPTIVE_BACKOFF_MAX_DELAY)
-                        self._GLOBAL_DOMAIN_DELAYS[domain] = new_delay
+                        with self._LOCK_CREATION_LOCK:
+                            curr_delay = self._GLOBAL_DOMAIN_DELAYS.get(domain, self.delay)
+                            new_delay = min(curr_delay * ADAPTIVE_BACKOFF_MULTIPLIER, ADAPTIVE_BACKOFF_MAX_DELAY)
+                            self._GLOBAL_DOMAIN_DELAYS[domain] = new_delay
                         retry_after_val = response.headers.get("Retry-After")
                         retry_secs = int(retry_after_val) if (retry_after_val and retry_after_val.isdigit()) else HTTP_429_DEFAULT_RETRY_AFTER
                         print(f" [AVISO CORTESIA RED] HTTP 429 detectado en '{target_url}'. Retardo adaptativo para '{domain}' ajustado a {new_delay:.2f}s. Pausando {retry_secs}s...")
@@ -269,12 +282,23 @@ class RUCTDownloader:
                     last_error = e
                     print(f"     [Proceso Red] -> Falló conexión a '{target_url}': {e}")
                     continue
+
             if last_error is None:
                 last_error = requests.RequestException(f"Error de conexión no especificado para '{url}'")
-            should_retry = self._handle_connection_failure(str(last_error))
-            if not should_retry:
+
+            # Check if this error is an unresolvable URL / 404
+            err_str = str(last_error)
+            if any(marker in err_str for marker in ["404", "NameResolutionError", "getaddrinfo failed", "ConnectionRefusedError", "InvalidURL"]):
                 raise last_error
-            print(f" 🔄 [RESILIENCIA] Reintentando petición tras pausa para '{url}'...")
+
+            # Handle connection failure for circuit breaker monitoring
+            self._handle_connection_failure(str(last_error))
+
+            if attempt < max_retries:
+                backoff_wait = (2 ** (attempt - 1)) * 0.5
+                time.sleep(backoff_wait)
+                print(f" 🔄 [RESILIENCIA] Reintentando petición ({attempt + 1}/{max_retries}) para '{url}'...")
+
         if last_error is None:
             last_error = requests.RequestException(f"Error tras agotar {max_retries} intentos para '{url}'")
         raise last_error

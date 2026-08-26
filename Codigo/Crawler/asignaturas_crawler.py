@@ -43,6 +43,7 @@ class SubjectGuideCache:
 
     def __init__(self, db_path: str = CACHE_GUIAS_DB):
         self.db_path = db_path
+        self._lock = threading.RLock()
         self._l1_url_cache = {}
         self._l1_comp_cache = {}
         self._negative_urls = set()
@@ -54,48 +55,49 @@ class SubjectGuideCache:
             conns = {}
             self._local.guide_conns = conns
         if self.db_path not in conns:
-            conn = sqlite3.connect(self.db_path)
+            if self.db_path and self.db_path != ":memory:":
+                dir_path = os.path.dirname(os.path.abspath(self.db_path))
+                if dir_path:
+                    os.makedirs(dir_path, exist_ok=True)
+            conn = sqlite3.connect(self.db_path, timeout=30.0)
             conn.execute("PRAGMA journal_mode=WAL;")
             conn.execute("PRAGMA synchronous=NORMAL;")
             conn.execute("PRAGMA temp_store=MEMORY;")
             conn.execute("PRAGMA mmap_size=268435456;")
             conn.execute("PRAGMA cache_size=-64000;")
+            conn.execute("""
+                CREATE TABLE IF NOT EXISTS guias_docentes (
+                    url_hash TEXT PRIMARY KEY,
+                    url TEXT NOT NULL,
+                    universidad_codigo TEXT,
+                    codigo_asignatura TEXT,
+                    nombre TEXT,
+                    datos_json TEXT NOT NULL,
+                    fecha_extraccion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                );
+            """)
+            conn.execute("CREATE INDEX IF NOT EXISTS idx_guias_url ON guias_docentes(url);")
+            conn.execute("CREATE INDEX IF NOT EXISTS idx_guias_univ_asig ON guias_docentes(universidad_codigo, codigo_asignatura);")
+            conn.commit()
             conns[self.db_path] = conn
         return conns[self.db_path]
 
     def _init_db(self):
-        if self.db_path and self.db_path != ":memory:":
-            dir_path = os.path.dirname(os.path.abspath(self.db_path))
-            if dir_path:
-                os.makedirs(dir_path, exist_ok=True)
-        conn = self._get_conn()
-        conn.execute("""
-            CREATE TABLE IF NOT EXISTS guias_docentes (
-                url_hash TEXT PRIMARY KEY,
-                url TEXT NOT NULL,
-                universidad_codigo TEXT,
-                codigo_asignatura TEXT,
-                nombre TEXT,
-                datos_json TEXT NOT NULL,
-                fecha_extraccion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            );
-        """)
-        conn.execute("CREATE INDEX IF NOT EXISTS idx_guias_url ON guias_docentes(url);")
-        conn.execute("CREATE INDEX IF NOT EXISTS idx_guias_univ_asig ON guias_docentes(universidad_codigo, codigo_asignatura);")
-        conn.commit()
+        self._get_conn()
 
     def get(self, url: str = None, u_code: str = None, asig_code: str = None) -> dict:
-        if url:
-            url_clean = url.strip()
-            if url_clean in self._negative_urls:
-                return None
-            if url_clean in self._l1_url_cache:
-                return self._l1_url_cache[url_clean]
+        with self._lock:
+            if url:
+                url_clean = url.strip()
+                if url_clean in self._negative_urls:
+                    return None
+                if url_clean in self._l1_url_cache:
+                    return self._l1_url_cache[url_clean]
 
-        if u_code and asig_code:
-            comp_key = f"{str(u_code).zfill(3)}:{str(asig_code).strip()}"
-            if comp_key in self._l1_comp_cache:
-                return self._l1_comp_cache[comp_key]
+            if u_code and asig_code:
+                comp_key = f"{str(u_code).zfill(3)}:{str(asig_code).strip()}"
+                if comp_key in self._l1_comp_cache:
+                    return self._l1_comp_cache[comp_key]
 
         try:
             conn = self._get_conn()
@@ -106,10 +108,12 @@ class SubjectGuideCache:
                 row = cursor.fetchone()
                 if row:
                     data = json.loads(row[0])
-                    self._l1_url_cache[url.strip()] = data
+                    with self._lock:
+                        self._l1_url_cache[url.strip()] = data
                     return data
 
             if u_code and asig_code:
+                comp_key = f"{str(u_code).zfill(3)}:{str(asig_code).strip()}"
                 cursor.execute(
                     "SELECT datos_json FROM guias_docentes WHERE universidad_codigo = ? AND codigo_asignatura = ? ORDER BY fecha_extraccion DESC LIMIT 1",
                     (str(u_code).zfill(3), str(asig_code).strip())
@@ -117,7 +121,8 @@ class SubjectGuideCache:
                 row = cursor.fetchone()
                 if row:
                     data = json.loads(row[0])
-                    self._l1_comp_cache[comp_key] = data
+                    with self._lock:
+                        self._l1_comp_cache[comp_key] = data
                     return data
         except Exception as e:
             logger.warning(f"Error al leer caché de guía docente: {e}")
@@ -125,16 +130,18 @@ class SubjectGuideCache:
 
     def mark_negative(self, url: str):
         if url:
-            self._negative_urls.add(url.strip())
+            with self._lock:
+                self._negative_urls.add(url.strip())
 
     def set(self, url: str, data: dict, u_code: str = "", asig_code: str = "", nombre: str = ""):
         if not data:
             return
-        if url:
-            self._l1_url_cache[url.strip()] = data
-        if u_code and asig_code:
-            comp_key = f"{str(u_code).zfill(3)}:{str(asig_code).strip()}"
-            self._l1_comp_cache[comp_key] = data
+        with self._lock:
+            if url:
+                self._l1_url_cache[url.strip()] = data
+            if u_code and asig_code:
+                comp_key = f"{str(u_code).zfill(3)}:{str(asig_code).strip()}"
+                self._l1_comp_cache[comp_key] = data
 
         url_hash = hashlib.sha256(url.strip().encode("utf-8")).hexdigest()
         try:
@@ -143,10 +150,10 @@ class SubjectGuideCache:
                 INSERT OR REPLACE INTO guias_docentes 
                 (url_hash, url, universidad_codigo, codigo_asignatura, nombre, datos_json, fecha_extraccion)
                 VALUES (?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
-            """, (url_hash, url, str(u_code).zfill(3) if u_code else "", str(asig_code).strip() if asig_code else "", nombre, json.dumps(data, ensure_ascii=False)))
+            """, (url_hash, url.strip(), str(u_code).zfill(3) if u_code else "", str(asig_code).strip() if asig_code else "", nombre, json.dumps(data, ensure_ascii=False)))
             conn.commit()
         except Exception as e:
-            logger.warning(f"Error al escribir caché de guía docente: {e}")
+            logger.warning(f"Error al escribir en caché SQLite de guías docentes: {e}")
 
 
 # =============================================================================
@@ -192,7 +199,6 @@ def resolve_candidate_subject_guide_urls(
 
     asig_code = elem.get("codigo_asignatura") or elem.get("codigo")
     asig_nombre = elem.get("nombre_elemento", "")
-    slug = generate_subject_slug(asig_nombre)
 
     # Inferir código numérico de asignatura si está embebido en el nombre
     if not asig_code:
@@ -201,6 +207,7 @@ def resolve_candidate_subject_guide_urls(
             asig_code = m_code.group(1)
             asig_nombre = m_code.group(2).strip()
 
+    slug = generate_subject_slug(asig_nombre)
     u_code_padded = str(u_code).zfill(3)
 
     # 2. Patrones Generales del Sistema Universitario Español (SUE)
@@ -221,23 +228,24 @@ def resolve_candidate_subject_guide_urls(
         domain = parsed_domain
 
     if domain:
+        clean_domain = re.sub(r"^www\.", "", domain)
         # Patrón General A: Portal centralizado de programas docentes
         if asig_code:
-            _add_url(f"https://asignaturas.{domain}/{academic_year}/{asig_code}")
-            _add_url(f"https://guias.{domain}/{academic_year}/{asig_code}")
-            _add_url(f"https://secretaria.{domain}/docencia/guia/{asig_code}")
-            _add_url(f"https://cv1.cpd.{domain}/ConsPlanesEstudio/cvFichaAsigRedir.asp?asig={asig_code}")
+            _add_url(f"https://asignaturas.{clean_domain}/{academic_year}/{asig_code}")
+            _add_url(f"https://guias.{clean_domain}/{academic_year}/{asig_code}")
+            _add_url(f"https://secretaria.{clean_domain}/docencia/guia/{asig_code}")
+            _add_url(f"https://cv1.cpd.{clean_domain}/ConsPlanesEstudio/cvFichaAsigRedir.asp?asig={asig_code}")
 
         # Patrón General B: Portal de estudios por slug y código
         if slug and asig_code:
-            _add_url(f"https://www.{domain}/es/estudios/estudios-oficiales/grados/asignatura/{slug}-{asig_code}/")
-            _add_url(f"https://www.{domain}/estudios/asignatura/{slug}-{asig_code}/")
+            _add_url(f"https://www.{clean_domain}/es/estudios/estudios-oficiales/grados/asignatura/{slug}-{asig_code}/")
+            _add_url(f"https://www.{clean_domain}/estudios/asignatura/{slug}-{asig_code}/")
 
         # Patrón General C: Repositorio de descargas PDF oficiales de facultad
         if asig_code and d_code:
-            _add_url(f"https://www.{domain}/shared/es/estudios/estudios-oficiales/grados/.galleries/Programs-En/{asig_code}_{d_code}_{academic_year}_en.pdf")
-            _add_url(f"https://www.{domain}/shared/es/estudios/estudios-oficiales/grados/.galleries/Programs-Es/{asig_code}_{d_code}_{academic_year}_es.pdf")
-            _add_url(f"https://www.{domain}/descargas/guias/{asig_code}.pdf")
+            _add_url(f"https://www.{clean_domain}/shared/es/estudios/estudios-oficiales/grados/.galleries/Programs-En/{asig_code}_{d_code}_{academic_year}_en.pdf")
+            _add_url(f"https://www.{clean_domain}/shared/es/estudios/estudios-oficiales/grados/.galleries/Programs-Es/{asig_code}_{d_code}_{academic_year}_es.pdf")
+            _add_url(f"https://www.{clean_domain}/descargas/guias/{asig_code}.pdf")
 
     return candidates
 
@@ -643,6 +651,17 @@ def _process_single_university_guides(u_code: str, degree_items: list, cache: Su
                     if resp and resp.status_code == 200:
                         c_type = resp.headers.get("Content-Type", "")
                         parsed_guide = parse_subject_guide(c_url, resp.content, c_type)
+                        
+                        has_content = (
+                            len(parsed_guide.get("temario", [])) > 0 or
+                            len(parsed_guide.get("sistema_evaluacion", [])) > 0 or
+                            len(parsed_guide.get("profesorado", [])) > 0 or
+                            len(parsed_guide.get("competencias", [])) > 0 or
+                            bool(parsed_guide.get("resumen"))
+                        )
+                        if not has_content:
+                            cache.mark_negative(c_url)
+                            continue
 
                         final_asig_code = parsed_guide.get("codigo_asignatura") or asig_code or ""
                         cache.set(

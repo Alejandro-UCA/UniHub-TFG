@@ -308,12 +308,20 @@ def compute_degree_price(ccaa: str, tipo_univ: str, nivel_academico: str, titulo
     if "doctorado" in nivel_lower or "560" in nivel_lower or "900" in nivel_lower or "doctor" in titulo_lower:
         cat = "Doctorado"
     elif "máster" in nivel_lower or "master" in nivel_lower or "431" in nivel_lower:
-        # Másteres que habilitan para el ejercicio de profesiones reguladas en España
+        # Másteres que habilitan para el ejercicio de profesiones reguladas en España (soporte multilingüe ES, CA, GL, EU)
         habilitantes = [
-            "abogacía", "abogacia", "profesorado", "profesor", "secundaria", 
-            "ingeniería de caminos", "ingeniería industrial", "ingeniería de telecomunicación",
-            "ingeniería aeronáutica", "ingeniería agronómica", "ingeniería naval", "ingeniería de montes",
-            "arquitectura", "psicología general sanitaria", "psicologia general sanitaria"
+            "abogacía", "abogacia", "advocacia", "advocacia i procura", "procura",
+            "profesorado", "profesor", "secundaria", "formació del professorat", "formacion del profesorado", "formacion do profesorado", "irakasleen prestakuntza",
+            "ingeniería de caminos", "enginyeria de camins", "enxeñaría de camiños",
+            "ingeniería industrial", "enginyeria industrial", "enxeñaría industrial", "industria ingeniaritza",
+            "ingeniería de telecomunicación", "enginyeria de telecomunicació", "enxeñaría de telecomunicación", "telekomunikazio ingeniaritza",
+            "ingeniería aeronáutica", "enginyeria aeronàutica", "enxeñaría aeronáutica", "aeronautika ingeniaritza",
+            "ingeniería agronómica", "enginyeria agronòmica", "enxeñaría agronómica", "nekazaritza ingeniaritza",
+            "ingeniería naval", "enginyeria naval", "enxeñaría naval",
+            "ingeniería de montes", "enginyeria de forests", "enxeñaría de montes",
+            "ingeniería de minas", "enginyeria de mines", "enxeñaría de minas",
+            "arquitectura", "arkitektura",
+            "psicología general sanitaria", "psicologia general sanitaria", "psicologia general sanitària", "osasun psikologia orokorra"
         ]
         if any(h in titulo_lower for h in habilitantes):
             cat = "Máster Habilitante"
@@ -427,7 +435,16 @@ def run_phase1_part3():
         try:
             tit_data = load_json_safe(tit_json_path)
                 
-            for u_code, u_info in tit_data.items():
+            if isinstance(tit_data, dict):
+                items_to_iter = tit_data.items()
+            elif isinstance(tit_data, list):
+                items_to_iter = [(u.get("codigo", ""), u) for u in tit_data if isinstance(u, dict)]
+            else:
+                items_to_iter = []
+                
+            for u_code, u_info in items_to_iter:
+                if not isinstance(u_info, dict):
+                    continue
                 univ = univ_map.get(u_code, {})
                 ccaa = univ.get("comunidad_autonoma") or ""
                 tipo_univ = univ.get("tipo") or ""

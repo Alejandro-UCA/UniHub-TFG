@@ -42,6 +42,13 @@ class SPALayoutCrawler:
             cls._local.instance = SPALayoutCrawler(timeout=timeout)
         return cls._local.instance
 
+    @classmethod
+    def close_thread_instance(cls):
+        """Cleanly terminates the thread-local browser instance."""
+        if hasattr(cls._local, "instance") and cls._local.instance is not None:
+            cls._local.instance.close()
+            cls._local.instance = None
+
     def __init__(self, timeout=HTTP_TIMEOUT):
         self.timeout = timeout * 1000  # ms for Playwright
         self._pw = None
@@ -50,13 +57,18 @@ class SPALayoutCrawler:
     def _ensure_browser(self):
         if not PLAYWRIGHT_AVAILABLE:
             return None
-        if self._browser is None or not self._browser.is_connected():
+        if self._browser is not None and not self._browser.is_connected():
+            self.close()
+        if self._browser is None:
             try:
                 self._pw = sync_playwright().start()
-                self._browser = self._pw.chromium.launch(headless=True)
+                self._browser = self._pw.chromium.launch(
+                    headless=True,
+                    args=["--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu"]
+                )
             except Exception as e:
                 print(f"   [SPA Crawler] Error al arrancar Chromium: {e}")
-                self._browser = None
+                self.close()
         return self._browser
 
     def render_spa_page(self, target_url: str) -> RenderResult:
@@ -103,7 +115,8 @@ class SPALayoutCrawler:
                             except Exception:
                                 pass
                         dl = dl_info.value
-                        temp_f = tempfile.NamedTemporaryFile(delete=False, suffix="_" + dl.suggested_filename)
+                        safe_filename = re.sub(r'[^\w.-]', '_', dl.suggested_filename or "document.pdf")
+                        temp_f = tempfile.NamedTemporaryFile(delete=False, suffix="_" + safe_filename)
                         temp_f.close()
                         dl.save_as(temp_f.name)
                         with open(temp_f.name, "rb") as f_in:
@@ -112,8 +125,8 @@ class SPALayoutCrawler:
                             os.remove(temp_f.name)
                         except Exception:
                             pass
-                        print(f"   [SPA Crawler] Descarga binaria interceptada con éxito ({len(dl_bytes)} bytes): '{dl.suggested_filename}'")
-                        return RenderResult("", is_download=True, content_bytes=dl_bytes, filename=dl.suggested_filename)
+                        print(f"   [SPA Crawler] Descarga binaria interceptada con éxito ({len(dl_bytes)} bytes): '{safe_filename}'")
+                        return RenderResult("", is_download=True, content_bytes=dl_bytes, filename=safe_filename)
                     except Exception as dl_err:
                         print(f"   [SPA Crawler] Fallo al capturar descarga de '{target_url}': {dl_err}")
                         return RenderResult("")
@@ -131,11 +144,12 @@ class SPALayoutCrawler:
                         "mención", "mencion", "especialidad", "optativas", "itinerari", "itinerario", "trabajo fin", "tfg", "tfm"
                     ];
                     const elements = Array.from(document.querySelectorAll("button, a.accordion, .tab, .nav-link, .panel-title, details summary, .accordion-header, .ui-accordion-header, li[role='tab'], a[role='tab']"));
-                    for (const elem of elements.slice(0, 16)) {
+                    const matching = elements.filter(elem => {
                         const txt = (elem.innerText || "").trim().toLowerCase();
-                        if (txt && keywords.some(k => txt.includes(k))) {
-                            try { elem.click(); } catch(e) {}
-                        }
+                        return txt && keywords.some(k => txt.includes(k));
+                    });
+                    for (const elem of matching.slice(0, 25)) {
+                        try { elem.click(); } catch(e) {}
                     }
                 }""")
                 page.wait_for_timeout(350)
@@ -168,3 +182,9 @@ class SPALayoutCrawler:
             except Exception:
                 pass
             self._pw = None
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.close()

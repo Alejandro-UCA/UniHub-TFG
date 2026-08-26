@@ -102,7 +102,15 @@ class CheckpointManager:
             conn.execute("PRAGMA cache_size=-64000;")
             conns[self.db_path] = conn
 
-        yield conns[self.db_path]
+        conn = conns[self.db_path]
+        try:
+            yield conn
+        except Exception:
+            try:
+                conn.rollback()
+            except Exception:
+                pass
+            raise
 
     def _init_sqlite(self):
         dir_path = os.path.dirname(os.path.abspath(self.db_path))

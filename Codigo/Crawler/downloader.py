@@ -20,6 +20,8 @@ from config import (
     JITTER_MIN_SECONDS,
     JITTER_MAX_SECONDS,
     HTTP_429_DEFAULT_RETRY_AFTER,
+    ADAPTIVE_BACKOFF_MULTIPLIER,
+    ADAPTIVE_BACKOFF_MAX_DELAY,
     DOWNLOAD_CHUNK_SIZE,
     HTTP_POOL_CONNECTIONS,
     HTTP_POOL_MAXSIZE
@@ -102,6 +104,7 @@ class RUCTDownloader:
     """
     _GLOBAL_DOMAIN_LOCKS = {}
     _GLOBAL_DOMAIN_LAST_REQUEST_TIMES = {}
+    _GLOBAL_DOMAIN_DELAYS = {}
     _LOCK_CREATION_LOCK = threading.Lock()
 
     @classmethod
@@ -154,14 +157,15 @@ class RUCTDownloader:
         return normalize_url(url, DOMAIN_MAPPINGS)
 
     def _apply_delay(self, url: str = ""):
-        """Enforces per-domain rate limiting delay with random jitter and cross-thread domain synchronization."""
+        """Enforces per-domain rate limiting delay with random jitter, adaptive backoff and cross-thread domain synchronization."""
         domain = urlparse(url).netloc.lower() if url else "default"
         domain_lock = self._get_domain_lock(domain)
         domain_lock.acquire()
         try:
             last_time = self._GLOBAL_DOMAIN_LAST_REQUEST_TIMES.get(domain, 0)
             elapsed = time.time() - last_time
-            effective_delay = self.delay + random.uniform(JITTER_MIN_SECONDS, JITTER_MAX_SECONDS)
+            base_delay = self._GLOBAL_DOMAIN_DELAYS.get(domain, self.delay)
+            effective_delay = base_delay + random.uniform(JITTER_MIN_SECONDS, JITTER_MAX_SECONDS)
             if elapsed < effective_delay:
                 time.sleep(effective_delay - elapsed)
             self._GLOBAL_DOMAIN_LAST_REQUEST_TIMES[domain] = time.time()
@@ -243,9 +247,13 @@ class RUCTDownloader:
                     verify_ssl = True
                     response = self.session.get(target_url, stream=stream, timeout=self.timeout, verify=verify_ssl)
                     if response.status_code == 429:
+                        domain = urlparse(target_url).netloc.lower() if target_url else "default"
+                        curr_delay = self._GLOBAL_DOMAIN_DELAYS.get(domain, self.delay)
+                        new_delay = min(curr_delay * ADAPTIVE_BACKOFF_MULTIPLIER, ADAPTIVE_BACKOFF_MAX_DELAY)
+                        self._GLOBAL_DOMAIN_DELAYS[domain] = new_delay
                         retry_after_val = response.headers.get("Retry-After")
                         retry_secs = int(retry_after_val) if (retry_after_val and retry_after_val.isdigit()) else HTTP_429_DEFAULT_RETRY_AFTER
-                        print(f" [AVISO CORTESIA RED] HTTP 429 detectado en '{target_url}'. Pausando {retry_secs}s...")
+                        print(f" [AVISO CORTESIA RED] HTTP 429 detectado en '{target_url}'. Retardo adaptativo para '{domain}' ajustado a {new_delay:.2f}s. Pausando {retry_secs}s...")
                         time.sleep(retry_secs)
                         last_error = requests.HTTPError(f"HTTP 429 Too Many Requests para '{target_url}'")
                         continue

@@ -4,6 +4,7 @@ import re
 import hashlib
 import logging
 import unicodedata
+import urllib.parse
 from datetime import datetime
 import xlrd
 from bs4 import BeautifulSoup
@@ -1060,6 +1061,89 @@ def is_spurious_or_administrative_subject(name: str, ects_val: float = 6.0, cara
         return True
         
     return False
+
+
+def extract_subjects_from_card_blocks(text_or_soup, base_url: str = "") -> list:
+    """
+    Parser Universal de Asignaturas en Tarjetas Semánticas y Bloques de Texto.
+    Extrae elementos curriculares de portales modernos (React, Angular, Web Components, SIA, Apps)
+    donde las asignaturas no residen en <table> sino en bloques/tarjetas de texto estructurado:
+    [Código] - [Nombre Asignatura]
+    [Curso] - [Semestre] - [Carácter]
+    [Créditos ECTS]
+    """
+    if hasattr(text_or_soup, "get_text"):
+        lines = [l.strip() for l in text_or_soup.get_text(separator="\n").splitlines() if l.strip()]
+    elif isinstance(text_or_soup, str):
+        lines = [l.strip() for l in text_or_soup.splitlines() if l.strip()]
+    else:
+        return []
+
+    elementos = []
+    seen_names = set()
+    idx = 0
+
+    while idx < len(lines):
+        line = lines[idx].strip()
+
+        # Patrón cabecera de tarjeta: "[CODE] - [NAME]" o "[CODE] : [NAME]"
+        m_head = re.match(r"^([A-Z0-9]{2,12})\s*[-–—:]\s*([A-ZÁÉÍÓÚÀÈÒÇÑa-záéíóúàèòçñ0-9\s,()/'\"-]{4,120})$", line)
+        if m_head:
+            asig_code = m_head.group(1).strip()
+            asig_name = sanitize_subject_name(m_head.group(2).strip())
+
+            curso = ""
+            cuatrimestre = ""
+            caracter = "OB"
+            creditos = "6"
+
+            for offset in range(1, 7):
+                if idx + offset >= len(lines):
+                    break
+                next_line = lines[idx + offset].strip()
+                if not next_line:
+                    continue
+                # Si la siguiente línea es otra cabecera de asignatura, terminar lookahead
+                if re.match(r"^[A-Z0-9]{2,12}\s*[-–—:]\s*[A-Za-z]", next_line) and offset > 1:
+                    break
+
+                if any(k in next_line.lower() for k in ["curs", "curso", "year", "semestre", "cuatrimestre", "bàsica", "basica", "obligat", "optat"]):
+                    c_n, _ = normalize_curso(next_line)
+                    if c_n:
+                        curso = c_n
+                    cuat_n = normalize_cuatrimestre(next_line)
+                    if cuat_n:
+                        cuatrimestre = cuat_n
+                    caracter = classify_subject_caracter(next_line, default="OB")
+
+                m_cr = re.match(r"^(\d+(?:[.,]\d+)?)(?:\t|\s+|$)", next_line)
+                if m_cr:
+                    val_c = m_cr.group(1).replace(",", ".")
+                    try:
+                        f_c = float(val_c)
+                        if 1.0 <= f_c <= 30.0:
+                            creditos = str(int(f_c)) if f_c.is_integer() else str(f_c)
+                    except ValueError:
+                        pass
+
+            if asig_name and len(asig_name) >= 4 and not is_spurious_or_administrative_subject(asig_name):
+                norm_key = re.sub(r"[^\w\s]", "", asig_name.lower()).strip()
+                if norm_key not in seen_names:
+                    seen_names.add(norm_key)
+                    elementos.append({
+                        "modulo": "",
+                        "materia": "",
+                        "codigo_asignatura": asig_code,
+                        "nombre_elemento": asig_name,
+                        "creditos_ects": creditos,
+                        "caracter": caracter,
+                        "curso": curso,
+                        "cuatrimestre": cuatrimestre
+                    })
+        idx += 1
+
+    return elementos
+
 
 
 

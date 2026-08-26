@@ -91,6 +91,9 @@ DOWNLOAD_CHUNK_SIZE = int(os.getenv("CRAWLER_CHUNK_SIZE", 8192))             # B
 JITTER_MIN_SECONDS = float(os.getenv("CRAWLER_JITTER_MIN", 0.10))            # Jitter aleatorio mínimo por petición (0.10s)
 JITTER_MAX_SECONDS = float(os.getenv("CRAWLER_JITTER_MAX", 0.35))            # Jitter aleatorio máximo por petición (0.35s)
 HTTP_429_DEFAULT_RETRY_AFTER = int(os.getenv("CRAWLER_429_RETRY_AFTER", 30)) # Retardo fallback para HTTP 429 (30s)
+ADAPTIVE_BACKOFF_MULTIPLIER = float(os.getenv("CRAWLER_ADAPTIVE_BACKOFF_MULTIPLIER", 2.0)) # Multiplicador de retardo adaptativo por dominio tras 429
+ADAPTIVE_BACKOFF_MAX_DELAY = float(os.getenv("CRAWLER_ADAPTIVE_BACKOFF_MAX_DELAY", 5.0))   # Retardo adaptativo máximo por dominio (5.0s)
+
 
 # Mapeo de dominios autonómicos obsoletos a dominios oficiales activos
 DOMAIN_MAPPINGS = {
@@ -179,9 +182,15 @@ MEMORIA_VERIFICADA_KEYWORDS = [
 # Palabras clave para la detección dinámica de subpáginas docentes dentro de la ficha de titulación
 ACADEMIC_SUBPAGE_KEYWORDS = [
     "plan de estudios", "plan d'estudis", "pla d'estudis", "pla de estudis", "plan", "pla",
+    "seccions/pla-estudis", "seccions/plan-estudios", "seccions", "malla", "malla-curricular",
     "asignaturas", "assignatures", "subjects", "materias", "guia docente", "guía docente",
     "guias docentes", "guies docents", "itinerario", "itineraris", "itinerarios", "docencia",
-    "estructura", "curriculum", "syllabus", "irakasgaiak", "ikasketa-plana"
+    "estructura", "curriculum", "syllabus", "irakasgaiak", "ikasketa-plana", "courses", "sia", "apps"
+]
+
+# Palabras clave y subdominios institucionales de portales de gestión docente
+INSTITUTIONAL_PORTAL_KEYWORDS = [
+    "apps", "sia", "secretaria", "portal", "sies", "cvnet", "guias", "gestion", "ujiapps", "academico", "estudis"
 ]
 
 

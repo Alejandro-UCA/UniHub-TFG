@@ -57,7 +57,8 @@ from config import (
     INVALID_SUBJECT_KEYWORDS,
     TITLE_STOPWORDS,
     CV_EXCLUSION_MARKERS,
-    NON_OFFICIAL_COURSE_MARKERS
+    NON_OFFICIAL_COURSE_MARKERS,
+    INSTITUTIONAL_PORTAL_KEYWORDS
 )
 from downloader import RUCTDownloader
 from error_logger import ErrorLogger
@@ -74,6 +75,7 @@ from parsers import (
     is_doctorate_program,
     extract_degree_core_keywords,
     is_section_matching,
+    extract_subjects_from_card_blocks,
     RE_SUMMARY_LABEL
 )
 
@@ -922,6 +924,11 @@ def extract_html_subjects(soup: BeautifulSoup, base_url: str = "") -> list:
 
             elementos.append(elem_item)
 
+    if len(elementos) < 3:
+        card_elems = extract_subjects_from_card_blocks(soup, base_url)
+        if len(card_elems) > len(elementos):
+            return card_elems
+
     return elementos
 
 
@@ -1760,18 +1767,19 @@ class UniversityWebCrawler:
                                         try:
                                             target_html = downloader.fetch_text(target_link)
                                             target_soup = BeautifulSoup(target_html, "html.parser")
-                                            elementos_html = extract_html_subjects(target_soup)
-
                                             # Paso 0.5: Si HTML estático de la ficha tiene < 3 asignaturas,
                                             # explorar dinámicamente cualquier subpágina enlazada en el DOM de la ficha (<a> tags)
-                                            # cuyo texto o href apunte a asignaturas, guías, plan de estudios o docencia.
+                                            # priorizando subrutas directas del grado y enlaces a portales institucionales de gestión (2-Hop).
                                             req_ects = get_required_degree_credits(d_level, d_title)
                                             if len(elementos_html) < 3:
                                                 discovered_subpages = []
                                                 seen_sub_urls = {target_link}
+                                                parsed_target = urllib.parse.urlparse(target_link)
+                                                target_path_prefix = parsed_target.path.rstrip("/")
+
                                                 for a_tag in target_soup.find_all("a", href=True):
                                                     h_sub = a_tag["href"].strip()
-                                                    if not h_sub or h_sub.startswith("javascript:") or h_sub.startswith("mailto:") or h_sub.startswith("#"):
+                                                    if not h_sub or h_sub.startswith(("javascript:", "mailto:", "tel:", "#")):
                                                         continue
                                                     t_sub = a_tag.get_text(" ", strip=True).lower()
                                                     h_sub_low = h_sub.lower()
@@ -1779,14 +1787,49 @@ class UniversityWebCrawler:
                                                         full_sub_url = urllib.parse.urljoin(target_link, h_sub)
                                                         if full_sub_url not in seen_sub_urls and is_same_or_subdomain(full_sub_url, web_url):
                                                             seen_sub_urls.add(full_sub_url)
-                                                            discovered_subpages.append(full_sub_url)
+                                                            parsed_sub = urllib.parse.urlparse(full_sub_url)
+                                                            is_child = 1 if (target_path_prefix and parsed_sub.path.startswith(target_path_prefix)) else 0
+                                                            has_pla = 1 if any(k in full_sub_url.lower() or k in t_sub for k in ["pla-estudis", "plan-estudios", "malla", "asignaturas", "assignatures", "docencia"]) else 0
+                                                            priority = (is_child * 10) + (has_pla * 5)
+                                                            discovered_subpages.append((priority, full_sub_url))
 
-                                                for sub_p_url in discovered_subpages[:6]:
+                                                discovered_subpages.sort(key=lambda x: x[0], reverse=True)
+                                                sorted_subpages = [u for _, u in discovered_subpages]
+
+                                                for sub_p_url in sorted_subpages[:6]:
                                                     try:
                                                         sub_p_html = downloader.fetch_text(sub_p_url)
                                                         if sub_p_html:
                                                             sub_p_soup = BeautifulSoup(sub_p_html, "html.parser")
-                                                            sub_p_elems = extract_html_subjects(sub_p_soup)
+                                                            sub_p_elems = extract_html_subjects(sub_p_soup, sub_p_url)
+
+                                                            # Comprobar si la subpágina apunta a un portal institucional de gestión docente (SIA, Apps, etc.)
+                                                            portal_links = []
+                                                            for a_p in sub_p_soup.find_all("a", href=True):
+                                                                hp_val = a_p["href"].strip()
+                                                                tp_val = a_p.get_text(strip=True).lower()
+                                                                if any(kw in hp_val.lower() for kw in INSTITUTIONAL_PORTAL_KEYWORDS) or any(kw in tp_val for kw in INSTITUTIONAL_PORTAL_KEYWORDS):
+                                                                    full_portal_url = urllib.parse.urljoin(sub_p_url, hp_val)
+                                                                    if is_same_or_subdomain(full_portal_url, web_url) and any(seg in full_portal_url.lower() for seg in ["/estudio/", "/plan/", "/asignatura/", "/grau/", "/grado/"]):
+                                                                        portal_links.append(full_portal_url)
+
+                                                            target_eval_urls = portal_links if portal_links else ([sub_p_url] if len(sub_p_elems) < 3 else [])
+
+                                                            for tr_url in target_eval_urls:
+                                                                try:
+                                                                    from spa_crawler import SPALayoutCrawler
+                                                                    spa_c = SPALayoutCrawler.get_shared_instance()
+                                                                    rendered_sub = spa_c.render_spa_page(tr_url)
+                                                                    if rendered_sub:
+                                                                        r_soup = BeautifulSoup(rendered_sub, "html.parser")
+                                                                        r_elems = extract_html_subjects(r_soup, tr_url)
+                                                                        if len(r_elems) > len(sub_p_elems):
+                                                                            sub_p_elems = r_elems
+                                                                            sub_p_url = tr_url
+                                                                            sub_p_soup = r_soup
+                                                                except Exception:
+                                                                    pass
+
                                                             if len(sub_p_elems) >= 3:
                                                                 elementos_html = sub_p_elems
                                                                 target_soup = sub_p_soup
@@ -1817,7 +1860,7 @@ class UniversityWebCrawler:
                                                                     break
                                                         else:
                                                             spa_soup = BeautifulSoup(rendered_html, "html.parser")
-                                                            spa_elementos = extract_html_subjects(spa_soup)
+                                                            spa_elementos = extract_html_subjects(spa_soup, target_link)
                                                             if len(spa_elementos) > len(elementos_html):
                                                                 elementos_html = spa_elementos
                                                                 target_soup = spa_soup

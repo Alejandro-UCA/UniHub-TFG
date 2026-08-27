@@ -6,26 +6,23 @@ class UsageTracker {
 
   loadEvents() {
     try {
-      if (typeof localStorage === 'undefined') throw new Error('localStorage not available');
+      if (typeof localStorage === 'undefined') return this._defaultEvents();
       const data = localStorage.getItem(this.storageKey);
-      return data ? JSON.parse(data) : {
-        pageViews: 0,
-        searches: [],
-        universityViews: {},
-        degreeViews: {},
-        nearbySearches: 0,
-        recentEvents: []
-      };
-    } catch (e) {
-      return {
-        pageViews: 0,
-        searches: [],
-        universityViews: {},
-        degreeViews: {},
-        nearbySearches: 0,
-        recentEvents: []
-      };
+      return data ? JSON.parse(data) : this._defaultEvents();
+    } catch {
+      return this._defaultEvents();
     }
+  }
+
+  _defaultEvents() {
+    return {
+      pageViews: 0,
+      searches: [],
+      universityViews: {},
+      degreeViews: {},
+      nearbySearches: 0,
+      recentEvents: []
+    };
   }
 
   // Agregamos el método para podar los mapas

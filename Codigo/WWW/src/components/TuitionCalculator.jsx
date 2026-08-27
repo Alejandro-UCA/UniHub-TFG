@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { Calculator, Building2, GraduationCap, CheckSquare, Square, RefreshCw, AlertCircle, Sparkles, Receipt, Layers } from 'lucide-react';
 import { apiService } from '../services/api';
 import usageTracker from '../analytics/usageTracker';
@@ -23,7 +23,7 @@ export default function TuitionCalculator() {
   const [customTier, setCustomTier] = useState(1);
 
   // 1. Fetch All Universities (Public & Private)
-  const fetchAllUnivs = async () => {
+  const fetchAllUnivs = useCallback(async () => {
     setLoadingUnivs(true);
     setApiError(null);
     try {
@@ -31,7 +31,7 @@ export default function TuitionCalculator() {
       const allUnivs = data || [];
       setUniversities(allUnivs);
       if (allUnivs.length > 0) {
-        setSelectedUnivCode(allUnivs[0].codigo);
+        setSelectedUnivCode(prev => prev || allUnivs[0].codigo);
       }
     } catch (err) {
       console.error('Error cargando universidades en calculadora:', err);
@@ -39,11 +39,11 @@ export default function TuitionCalculator() {
     } finally {
       setLoadingUnivs(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchAllUnivs();
-  }, []);
+  }, [fetchAllUnivs]);
 
   // 2. Fetch Degrees when University Changes (Public & Private)
   useEffect(() => {
@@ -124,7 +124,7 @@ export default function TuitionCalculator() {
   }, [universities, selectedUnivCode]);
 
   // Get real ECTS price by tier from database
-  const getEctsPrice = (tier) => {
+  const getEctsPrice = useCallback((tier) => {
     if (!degreeDetail) return 16.80;
     const base = parseFloat(degreeDetail.precio_credito_ects) || 16.80;
     if (tier === 1) return base;
@@ -132,13 +132,16 @@ export default function TuitionCalculator() {
     if (tier === 3) return parseFloat(degreeDetail.precio_credito_3) || (base * 3.0);
     if (tier >= 4) return parseFloat(degreeDetail.precio_credito_4) || (base * 4.5);
     return base;
-  };
+  }, [degreeDetail]);
   
   const baseEctsPrice = getEctsPrice(1);
-  const adminFees = parseFloat(import.meta.env.VITE_ADMIN_FEES || "45.00"); // Tasas administrativas de secretaría y carné
+  const rawAdminFees = parseFloat(import.meta.env.VITE_ADMIN_FEES || "45.00");
+  const adminFees = isNaN(rawAdminFees) ? 45.00 : rawAdminFees; // Tasas administrativas de secretaría y carné
 
-  // Elements list
-  const elements = degreeDetail?.plan_estudios?.elementos_curriculares || [];
+  // Elements list (Stable memoized)
+  const elements = useMemo(() => {
+    return degreeDetail?.plan_estudios?.elementos_curriculares || [];
+  }, [degreeDetail]);
 
   // Group elements by course
   const groupedByCourse = useMemo(() => {
@@ -319,7 +322,7 @@ export default function TuitionCalculator() {
       adminFees: finalAdminFees,
       grandTotal
     };
-  }, [elements, subjectSelections, baseEctsPrice, discountType, isPrivada, degreeDetail, customEcts, customTier]);
+  }, [elements, subjectSelections, baseEctsPrice, discountType, isPrivada, degreeDetail, customEcts, customTier, adminFees, getEctsPrice]);
 
   return (
     <div style={{ padding: '2rem 0', maxWidth: '1280px', margin: '0 auto' }}>
@@ -348,6 +351,36 @@ export default function TuitionCalculator() {
           </div>
         </div>
       </div>
+
+      {/* API Error Alert Banner */}
+      {apiError && (
+        <div style={{
+          background: 'rgba(239, 68, 68, 0.12)',
+          border: '1px solid #EF4444',
+          color: '#EF4444',
+          padding: '1rem 1.25rem',
+          borderRadius: 'var(--radius-md)',
+          marginBottom: '1.5rem',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: '0.75rem'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <AlertCircle size={20} />
+            <span>{apiError}</span>
+          </div>
+          <button 
+            type="button" 
+            className="btn btn-outline" 
+            onClick={fetchAllUnivs}
+            style={{ color: '#EF4444', borderColor: '#EF4444', padding: '0.35rem 0.85rem', fontSize: '0.82rem' }}
+          >
+            <RefreshCw size={14} /> Reintentar
+          </button>
+        </div>
+      )}
 
       {/* Selectors Bar */}
       <div className="glass-panel" style={{ padding: '1.5rem', marginBottom: '2rem', borderRadius: '12px' }}>

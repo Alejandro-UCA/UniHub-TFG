@@ -1,0 +1,168 @@
+Este capítulo cubre el análisis conceptual, funcional y dinámico del sistema de información \textbf{UniHub}, haciendo uso del lenguaje de modelado UML y modelos de comportamiento formalizados.
+
+\section{Modelo Conceptual y de Dominio}
+El modelo conceptual identifica las entidades centrales del dominio universitario y sus asociaciones estructurales:
+\begin{itemize}
+    \item \textbf{Universidad:} Representa cada centro universitario público o privado registrado en el RUCT (código oficial, nombre, tipo de centro, comunidad autónoma, municipio, provincia, URL web oficial, email de contacto y teléfono institucional).
+    \item \textbf{Titulacion:} Representa una titulación oficial vigente de Grado, Máster o Doctorado (código de estudio, denominación oficial, nivel académico, estado de vigencia y rama de conocimiento). Se relaciona mediante agregación con Universidad (1:N).
+    \item \textbf{PlanEstudios:} Contiene la metainformación del plan de estudios (URL del BOE, fecha de publicación, fecha de procesado, procedencia de la fuente y diagnóstico de completitud matemática). Se relaciona 1:1 con Titulacion.
+    \item \textbf{ResumenCreditos:} Almacena la distribución oficial de créditos ECTS (formación básica, obligatoria, optativa, TFG/TFM, prácticas externas y créditos totales exigidos). Relación N:1 con PlanEstudios.
+    \item \textbf{ElementoCurricular:} Almacena el desglose estructurado de asignaturas, módulos, materias, créditos ECTS, carácter (Básica, Obligatoria, Optativa), curso y cuatrimestre. Relación N:1 con PlanEstudios.
+    \item \textbf{TarifaECTS:} Almacena la estructura de precios públicos por crédito ECTS (1\textordfeminine{} a 4\textordfeminine{} matrícula) e importes estimados anuales procedentes del SIIU y decretos autonómicos. Relación N:1 con Titulacion.
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[
+        classbox/.style={rectangle, draw=black!70, fill=blue!5, rounded corners=2pt, font=\small, text width=4.5cm, align=left, inner sep=5pt, drop shadow},
+        assoc/.style={-{Stealth[length=5pt]}, thick, draw=black!70}
+    ]
+        % Clases
+        \node[classbox] (univ) at (0, 4.5) {
+            \textbf{\centering Universidad}\\[2pt]
+            \hrule\vspace{2pt}
+            + codigo: String [PK]\\
+            + nombre: String\\
+            + tipo: Enum(Publica, Privada)\\
+            + comunidad\_autonoma: String\\
+            + web\_oficial: String
+        };
+
+        \node[classbox] (tit) at (7, 4.5) {
+            \textbf{\centering Titulacion}\\[2pt]
+            \hrule\vspace{2pt}
+            + codigo\_estudio: String [PK]\\
+            + titulo: String\\
+            + nivel\_academico: String\\
+            + rama: String\\
+            + precio\_credito\_ects: Float
+        };
+
+        \node[classbox] (plan) at (7, 0.5) {
+            \textbf{\centering PlanEstudios}\\[2pt]
+            \hrule\vspace{2pt}
+            + boe\_url: String\\
+            + plan\_completo: Boolean\\
+            + ects\_totales\_detectados: Float\\
+            + ects\_exigidos: Float\\
+            + origen\_fuente: String
+        };
+
+        \node[classbox] (elem) at (0, 0.5) {
+            \textbf{\centering ElementoCurricular}\\[2pt]
+            \hrule\vspace{2pt}
+            + id: Integer [PK]\\
+            + nombre\_elemento: String\\
+            + creditos\_ects: Float\\
+            + caracter: String\\
+            + curso: Integer (1..6)\\
+            + cuatrimestre: String (1C, 2C, Anual)
+        };
+
+        % Asociaciones
+        \draw[assoc] (univ) -- node[above, font=\footnotesize] {1 \quad oferta \quad N} (tit);
+        \draw[assoc] (tit) -- node[right, font=\footnotesize] {1 \quad define \quad 1} (plan);
+        \draw[assoc] (plan) -- node[above, font=\footnotesize] {1 \quad desglosa \quad N} (elem);
+    \end{tikzpicture}
+    \caption{Diagrama de Clases del Modelo de Dominio de UniHub (UML)}
+    \label{fig:diagrama_dominio_uml}
+\end{figure}
+
+\section{Modelo de Casos de Uso}
+Se identifican tres actores que interactúan con el sistema según su perfil de permisos:
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[
+        actor/.style={circle, draw=black!80, fill=yellow!10, minimum size=0.8cm, font=\bfseries\footnotesize, drop shadow},
+        usecase/.style={ellipse, draw=blue!70!black, fill=blue!8, text width=3.8cm, align=center, font=\footnotesize, minimum height=0.9cm, drop shadow},
+        conn/.style={draw=black!70, thick}
+    ]
+        % Actores
+        \node[actor, label=below:{\shortstack{Usuario Público\\(Estudiante)}}] (user) at (-5.5, 0) {User};
+        \node[actor, label=below:{\shortstack{Administrador\\(Gestor Web)}}] (admin) at (5.5, 2.5) {Admin};
+        \node[actor, label=below:{\shortstack{Motor Crawler\\(Fase 1 - Sistema)}}] (crawler) at (5.5, -2.5) {System};
+
+        % Casos de Uso Publico
+        \node[usecase] (cu1) at (-0.5, 3.5) {CU-01: Buscar y filtrar universidades (Públicas/Privadas, CCAA)};
+        \node[usecase] (cu2) at (-0.5, 2.0) {CU-02: Consultar catálogo y modal curricular BOE};
+        \node[usecase] (cu3) at (-0.5, 0.5) {CU-03: Simular coste de matrícula con exenciones y repeticiones};
+        \node[usecase] (cu4) at (-0.5, -1.0) {CU-04: Buscar centros por geolocalización Haversine};
+
+        % Casos de Uso Admin & Crawler
+        \node[usecase] (cu5) at (-0.5, -2.5) {CU-05: Gestión CRUD de universidades y materias};
+        \node[usecase] (cu6) at (-0.5, -4.0) {CU-06: Monitoreo Docker, Green IT y exportación CSV/JSON};
+        \node[usecase] (cu7) at (2.5, -5.5) {CU-07: Ingesta RUCT, priorización BOE y validación $\sum \text{ECTS}$};
+
+        % Conexiones
+        \draw[conn] (user) -- (cu1);
+        \draw[conn] (user) -- (cu2);
+        \draw[conn] (user) -- (cu3);
+        \draw[conn] (user) -- (cu4);
+
+        \draw[conn] (admin) -- (cu5);
+        \draw[conn] (admin) -- (cu6);
+
+        \draw[conn] (crawler) -- (cu7);
+    \end{tikzpicture}
+    \caption{Diagrama General de Casos de Uso de UniHub (UML)}
+    \label{fig:diagrama_casos_uso_uml}
+\end{figure}
+
+\section{Modelo de Comportamiento Dinámico}
+El comportamiento del sistema se describe a través de dos modelos de interacción fundamentales:
+
+\subsection{Modelo de Comportamiento del Rastreador y Validación Curricular (Fase 1)}
+El flujo de ejecución del rastreador combina la priorización contextual de enlaces HTML en RUCT con la validación matemática de completitud curricular:
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[
+        node distance=1.2cm and 1.5cm,
+        startstop/.style={rectangle, rounded corners=10pt, draw=black!80, fill=green!15, font=\bfseries\footnotesize, minimum height=0.7cm, drop shadow},
+        process/.style={rectangle, draw=blue!70!black, fill=blue!10, text width=5.2cm, align=center, font=\footnotesize, minimum height=0.8cm, drop shadow},
+        decision/.style={diamond, draw=orange!80!black, fill=orange!15, text width=2.8cm, align=center, font=\scriptsize, aspect=2, drop shadow},
+        arrow/.style={thick, -{Stealth[length=5pt]}, draw=black!70}
+    ]
+        \node[startstop] (start) {Inicio: Titulación Activa RUCT};
+        \node[process, below=0.8cm of start] (fetch_html) {Descarga HTML de Ficha RUCT y Extracción de Enlaces BOE};
+        \node[process, below=0.8cm of fetch_html] (rank_links) {Clasificación Contextual Semántica (Corrección 100, Plan 90, Acuerdo 10)};
+        \node[process, below=0.8cm of rank_links] (download_pdf) {Descarga y Parsing de PDF prioritario (pdfplumber / PyPDF)};
+        \node[decision, below=0.9cm of download_pdf] (check_complete) {$\sum \text{ECTS} \ge \text{ECTS}_{\text{exigidos}}$?};
+        \node[process, right=1.2cm of check_complete, text width=3.8cm] (more_boes) {Iterar siguiente BOE del fieldset (Multi-BOE)};
+        \node[process, below=1.0cm of check_complete] (mark_ok) {Marcar Plan Completo y Persistir en JSON / SQLite WAL};
+        \node[process, left=1.2cm of check_complete, text width=3.8cm] (rescue_web) {Fase 1 Parte 2: Rastrear Web Oficial de la Universidad};
+        \node[startstop, below=0.8cm of mark_ok] (end) {Fin: Plan de Estudios Verificado};
+
+        \draw[arrow] (start) -- (fetch_html);
+        \draw[arrow] (fetch_html) -- (rank_links);
+        \draw[arrow] (rank_links) -- (download_pdf);
+        \draw[arrow] (download_pdf) -- (check_complete);
+        \draw[arrow] (check_complete) -- node[above, font=\scriptsize] {No (Parcial)} (more_boes);
+        \draw[arrow] (more_boes) |- (download_pdf);
+        \draw[arrow] (check_complete) -- node[right, font=\scriptsize] {Sí (Completo)} (mark_ok);
+        \draw[arrow] (check_complete) -- node[above, font=\scriptsize] {Sin BOE/0 ECTS} (rescue_web);
+        \draw[arrow] (rescue_web) |- (mark_ok);
+        \draw[arrow] (mark_ok) -- (end);
+    \end{tikzpicture}
+    \caption{Diagrama de Actividad: Ingesta Inteligente y Validación Matemática de Completitud Curricular}
+    \label{fig:diagrama_actividad_crawler}
+\end{figure}
+
+\subsection{Modelo de Secuencia: Simulación Financiera en Calculadora de Matrícula}
+En la Fase 3, el usuario interactúa dinámicamente con la calculadora de matrícula:
+\begin{enumerate}
+    \item El estudiante selecciona una titulación oficial; la aplicación React recupera el desglose de asignaturas del plan de estudios y la tarifa oficial SIIU por crédito ECTS desde la API REST.
+    \item El usuario marca las asignaturas que desea matricular e indica el número de matrícula (1\textordfeminine{}, 2\textordfeminine{}, 3\textordfeminine{} o 4\textordfeminine{} repetición).
+    \item El motor de cálculo aplica los coeficientes multiplicadores ($1.0\times, 1.5\times, 3.0\times, 4.5\times$), deduce las bonificaciones sociales seleccionadas (Beca MEC, Familia Numerosa, Bonificación 99\% autonómica) y genera el recibo de liquidación en tiempo real ($<1\text{ ms}$).
+\end{enumerate}
+
+\section{Modelo de Interfaz de Usuario}
+El diseño de interfaz SPA se estructura en componentes modulares React con soporte nativo de la History API:
+\begin{itemize}
+    \item \textbf{Barra de Navegación Nivel Superior (\texttt{Navbar}):} Logotipo UniHub, pestañas de navegación (Inicio, Universidades, Titulaciones, Calculadora, Cercanía, Sobre Nosotros) y selector de modo oscuro.
+    \item \textbf{Pantalla de Inicio (\texttt{Hero}):} Banner corporativo estilo UCA, métricas globales dinámicas y grilla interactiva de "Universidades Destacadas".
+    \item \textbf{Grilla de Tarjetas con Paginación (\texttt{UnivCard} / \texttt{DegreeCard}):} Vista de fichas con ocultación de códigos internos, distancias en kilómetros integradas y distintivo visual de plan completo verificado.
+    \item \textbf{Modal de Plan de Estudios (\texttt{PlanModal}):} Cuadro de diálogo flotante con desenfoque de fondo (*glassmorphism*) que lista la estructura curricular, itinerarios de mención y enlace al PDF oficial del BOE.
+    \item \textbf{Panel de Administración Aislado (\texttt{AdminDashboard}):} Vista de acceso seguro vía URL manual \texttt{/admin} con monitoreo en tiempo real de contenedores Docker, semáforos Core Web Vitals, telemetría Green IT y tablas CRUD interactivas con exportación CSV/JSON protegida.
+\end{itemize}

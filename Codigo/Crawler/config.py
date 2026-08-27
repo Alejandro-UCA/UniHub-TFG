@@ -9,6 +9,11 @@ BASE_DIR = os.getenv("CRAWLER_BASE_DIR", os.path.dirname(os.path.abspath(__file_
 # Carpeta donde se almacenan todos los datos persistidos (JSONs, SQLite, estadísticas)
 DATA_DIR = os.getenv("CRAWLER_DATA_DIR", os.path.join(BASE_DIR, "Datos"))
 
+# Directorio de logs auxiliares de la Fase 1. El registro estructurado principal
+# continúa almacenándose en ERRORES_JSON, pero el orquestador necesita una ruta
+# común para salidas de procesos y futuras rotaciones.
+LOGS_DIR = os.getenv("CRAWLER_LOGS_DIR", os.path.join(DATA_DIR, "logs"))
+
 # Subcarpeta donde se guardan los archivos JSON individuales de cada titulación/plan de estudio
 PLANES_DIR = os.getenv("CRAWLER_PLANES_DIR", os.path.join(DATA_DIR, "planes_estudio"))
 
@@ -19,6 +24,34 @@ TEMP_PDF_DIR = os.getenv("CRAWLER_TEMP_PDF_DIR", os.path.join(BASE_DIR, "temp_pd
 os.makedirs(DATA_DIR, exist_ok=True)
 os.makedirs(PLANES_DIR, exist_ok=True)
 os.makedirs(TEMP_PDF_DIR, exist_ok=True)
+os.makedirs(LOGS_DIR, exist_ok=True)
+
+def get_plan_filepath(u_code: str, d_code: str, partitioned: bool = True, ensure_dirs: bool = True) -> str:
+    """
+    Retorna la ruta del archivo JSON para una titulación.
+    Si partitioned=True, organiza en subcarpeta por universidad: Datos/planes_estudio/{u_code}/{d_code}.json
+    Si partitioned=False, retorna la ruta plana histórica: Datos/planes_estudio/{d_code}.json
+    """
+    if partitioned and u_code:
+        u_folder = os.path.join(PLANES_DIR, str(u_code).zfill(3))
+        if ensure_dirs:
+            os.makedirs(u_folder, exist_ok=True)
+        return os.path.join(u_folder, f"{d_code}.json")
+    return os.path.join(PLANES_DIR, f"{d_code}.json")
+
+def find_plan_filepath(u_code: str, d_code: str) -> str:
+    """
+    Busca la ruta existente del plan de estudio, priorizando la ruta particionada
+    y haciendo fallback automático a la ruta plana histórica.
+    """
+    if u_code:
+        part_path = os.path.join(PLANES_DIR, str(u_code).zfill(3), f"{d_code}.json")
+        if os.path.exists(part_path):
+            return part_path
+    flat_path = os.path.join(PLANES_DIR, f"{d_code}.json")
+    if os.path.exists(flat_path):
+        return flat_path
+    return get_plan_filepath(u_code, d_code, partitioned=True, ensure_dirs=False)
 
 # ==============================================================================
 # 2. ARCHIVOS DE PERSISTENCIA Y CACHÉ DUAL (JSON & SQLITE WAL)
@@ -38,11 +71,43 @@ CHECKPOINT_JSON = os.getenv("CRAWLER_CHECKPOINT_JSON", os.path.join(DATA_DIR, "c
 # Archivo JSON con métricas de Green IT, tiempos de CPU, esperas de red y consumo de RAM
 ESTADISTICAS_JSON = os.getenv("CRAWLER_ESTADISTICAS_JSON", os.path.join(DATA_DIR, "estadisticas_rendimiento.json"))
 
+# Estado de progreso consumido por el panel de administración.
+PROGRESS_JSON = os.getenv("CRAWLER_PROGRESS_JSON", os.path.join(DATA_DIR, "progreso_en_vivo.json"))
+
 # Archivo JSON con los precios oficiales por crédito ECTS de los 18 decretos autonómicos
 PRECIOS_CCAA_JSON = os.getenv("CRAWLER_PRECIOS_CCAA_JSON", os.path.join(DATA_DIR, "precios_ccaa.json"))
 
 # Base de datos transaccional SQLite WAL para indexación ultrarrápida (0ms) y firmas SHA-256 de PDFs
 CACHE_DB_PATH = os.getenv("CRAWLER_CACHE_DB_PATH", os.path.join(DATA_DIR, "unihub_cache.sqlite3"))
+
+# Caché persistente de guías docentes de la Parte 4.
+SUBJECT_GUIDE_CACHE_DB = os.getenv(
+    "CRAWLER_SUBJECT_GUIDE_CACHE_DB",
+    os.path.join(DATA_DIR, "cache_guias_docentes.db"),
+)
+
+# Caché persistente de cuerpos HTTP para peticiones condicionales (ETag/Last-Modified).
+HTTP_CACHE_DIR = os.getenv("CRAWLER_HTTP_CACHE_DIR", os.path.join(DATA_DIR, "http_cache"))
+HTTP_CACHE_TTL_SECONDS = int(os.getenv("CRAWLER_HTTP_CACHE_TTL", str(7 * 24 * 3600)))
+HTTP_CACHE_MAX_BYTES = int(os.getenv("CRAWLER_HTTP_CACHE_MAX_BYTES", str(1024 * 1024 * 1024)))
+os.makedirs(HTTP_CACHE_DIR, exist_ok=True)
+
+# Política de ejecución de la Fase 1. En una ejecución nacional normal se
+# vuelven a descubrir las URLs y se revalidan todas las fuentes conocidas.
+# Los límites explícitos de universidades/titulaciones siguen permitiendo
+# ejecuciones parciales para diagnóstico o recuperación.
+FULL_REVALIDATION = os.getenv("CRAWLER_FULL_REVALIDATION", "1").strip().lower() not in {"0", "false", "no"}
+REDISCOVER_URLS_EVERY_RUN = os.getenv("CRAWLER_REDISCOVER_URLS", "1").strip().lower() not in {"0", "false", "no"}
+_target_codes_raw = os.getenv("CRAWLER_UNIVERSITY_CODES", "")
+TARGET_UNIVERSITY_CODES = tuple(sorted({code.strip().zfill(3) for code in _target_codes_raw.split(",") if code.strip()}))
+
+# Integración con la Fase 2. Estas variables viven en la configuración central
+# para evitar URLs y secretos repetidos en el orquestador y el emisor de progreso.
+API_SYNC_URL = os.getenv("API_SYNC_URL", "http://api:8000/api/v1/admin/sync-etl")
+API_PROGRESS_URL = os.getenv("API_PROGRESS_URL", "")
+ADMIN_API_KEY = os.getenv("ADMIN_API_KEY", "")
+API_SYNC_TIMEOUT_SECONDS = float(os.getenv("CRAWLER_API_SYNC_TIMEOUT", "5"))
+PROGRESS_POST_TIMEOUT_SECONDS = float(os.getenv("CRAWLER_PROGRESS_POST_TIMEOUT", "0.15"))
 
 # ==============================================================================
 # 3. ENDPOINTS Y PLANTILLAS OFICIALES DEL RUCT (MINISTERIO DE EDUCACIÓN)
@@ -91,6 +156,22 @@ DOWNLOAD_CHUNK_SIZE = int(os.getenv("CRAWLER_CHUNK_SIZE", 8192))             # B
 JITTER_MIN_SECONDS = float(os.getenv("CRAWLER_JITTER_MIN", 0.10))            # Jitter aleatorio mínimo por petición (0.10s)
 JITTER_MAX_SECONDS = float(os.getenv("CRAWLER_JITTER_MAX", 0.35))            # Jitter aleatorio máximo por petición (0.35s)
 HTTP_429_DEFAULT_RETRY_AFTER = int(os.getenv("CRAWLER_429_RETRY_AFTER", 30)) # Retardo fallback para HTTP 429 (30s)
+HTTP_429_MAX_RETRY_AFTER = int(os.getenv("CRAWLER_429_MAX_RETRY_AFTER", 300))
+MAX_RESPONSE_SIZE_BYTES = int(os.getenv("CRAWLER_MAX_RESPONSE_BYTES", 50 * 1024 * 1024))
+MAX_TEXT_RESPONSE_SIZE_BYTES = int(os.getenv("CRAWLER_MAX_TEXT_BYTES", 10 * 1024 * 1024))
+RESPECT_ROBOTS = os.getenv("CRAWLER_RESPECT_ROBOTS", "1").strip().lower() not in {"0", "false", "no"}
+ROBOTS_FAIL_CLOSED = os.getenv("CRAWLER_ROBOTS_FAIL_CLOSED", "1").strip().lower() not in {"0", "false", "no"}
+# Orígenes cuyos responsables han confirmado expresamente que no publican
+# robots.txt. Esta lista NO desactiva robots: solo permite continuar si la
+# consulta de robots falla a nivel de red. Es una excepción manual que debe
+# retirarse si el origen empieza a publicar reglas. Se expresa como una lista
+# de hosts.
+ROBOTS_CONFIRMED_NO_FILE_HOSTS = frozenset(
+    host.strip().lower()
+    for host in os.getenv("CRAWLER_ROBOTS_CONFIRMED_NO_FILE_HOSTS", "www.educacion.gob.es").split(",")
+    if host.strip()
+)
+NEGATIVE_CACHE_TTL_SECONDS = int(os.getenv("CRAWLER_NEGATIVE_CACHE_TTL", "86400"))
 ADAPTIVE_BACKOFF_MULTIPLIER = float(os.getenv("CRAWLER_ADAPTIVE_BACKOFF_MULTIPLIER", 2.0)) # Multiplicador de retardo adaptativo por dominio tras 429
 ADAPTIVE_BACKOFF_MAX_DELAY = float(os.getenv("CRAWLER_ADAPTIVE_BACKOFF_MAX_DELAY", 5.0))   # Retardo adaptativo máximo por dominio (5.0s)
 
@@ -127,10 +208,22 @@ CIRCUIT_BREAKER_MAX_PAUSES = int(os.getenv("CRAWLER_CB_MAX_PAUSES", 3))         
 # 6. PARALELISMO Y MULTIPROCESAMIENTO (OPT-01 & OPT-03)
 # ==============================================================================
 CPU_WORKERS_COUNT = int(os.getenv("CRAWLER_CPU_WORKERS", max(1, min(4, os.cpu_count() or 4))))  # Pool multiproceso PDF/OCR
-ASYNC_PREFETCH_WORKERS = int(os.getenv("CRAWLER_PREFETCH_WORKERS", 4))                           # Hilos precarga RUCT
+ENABLE_RUCT_ASYNC_PREFETCH = os.getenv("CRAWLER_ENABLE_RUCT_PREFETCH", "1").strip().lower() not in {"0", "false", "no"} # Activar precarga adelantada RUCT
+ASYNC_PREFETCH_WORKERS = int(os.getenv("CRAWLER_PREFETCH_WORKERS", 2))                           # Hilos concurrentes de precarga acotada
+RUCT_PREFETCH_LOOKAHEAD = int(os.getenv("CRAWLER_RUCT_PREFETCH_LOOKAHEAD", 3))                   # Ventana de titulaciones adelantadas en cola
 WEB_CRAWLER_WORKERS = int(os.getenv("CRAWLER_WEB_WORKERS", 12))                                   # Hilos escaneo web oficial
 TASK_QUEUE_MAXSIZE = int(os.getenv("CRAWLER_TASK_QUEUE_MAXSIZE", 40))                            # Tamaño máximo acotado de cola multiproceso (seguridad RAM Docker)
 TASK_QUEUE_GET_TIMEOUT = int(os.getenv("CRAWLER_TASK_QUEUE_TIMEOUT", 5))                          # Timeout de lectura en cola (5s)
+WORKER_RESULT_QUEUE_TIMEOUT = float(os.getenv("CRAWLER_WORKER_RESULT_QUEUE_TIMEOUT", 3.0))
+WORKER_STOP_QUEUE_TIMEOUT = float(os.getenv("CRAWLER_WORKER_STOP_QUEUE_TIMEOUT", 3.0))
+WORKER_RESULT_COLLECTION_TIMEOUT = float(os.getenv("CRAWLER_WORKER_RESULT_COLLECTION_TIMEOUT", 15.0))
+WORKER_JOIN_TIMEOUT = float(os.getenv("CRAWLER_WORKER_JOIN_TIMEOUT", 5.0))
+WORKER_TERMINATE_JOIN_TIMEOUT = float(os.getenv("CRAWLER_WORKER_TERMINATE_JOIN_TIMEOUT", 2.0))
+WORKER_TASK_PUT_TIMEOUT = float(os.getenv("CRAWLER_WORKER_TASK_PUT_TIMEOUT", 5.0))
+MAX_IN_MEMORY_PDF_BYTES = int(os.getenv("CRAWLER_MAX_IN_MEMORY_PDF_BYTES", str(5 * 1024 * 1024)))  # Umbral híbrido RAM vs Disco (5 MB)
+ENABLE_HTTP2 = os.getenv("CRAWLER_ENABLE_HTTP2", "1").strip().lower() not in {"0", "false", "no"}  # Activar conexiones multiplexadas HTTP/2
+HTTP2_MAX_CONNECTIONS = int(os.getenv("CRAWLER_HTTP2_MAX_CONNECTIONS", 20))                         # Máximo de conexiones en pool HTTP/2
+HTTP2_MAX_KEEPALIVE_CONNECTIONS = int(os.getenv("CRAWLER_HTTP2_MAX_KEEPALIVE", 10))                # Conexiones Keep-Alive retenidas en pool
 
 # ==============================================================================
 # 7. PARÁMETROS DEL RASTREADOR WEB OFICIAL Y SITEMAPS (FASE 1 PARTE 2)
@@ -139,6 +232,9 @@ WEB_ROBOTS_FALLBACK_DELAY = float(os.getenv("CRAWLER_ROBOTS_DELAY", 0.5))      #
 ROBOTS_CHECK_TIMEOUT = int(os.getenv("CRAWLER_ROBOTS_TIMEOUT", 10))             # Timeout para lectura de robots.txt
 ROBOTS_CACHE_TTL_SECONDS = int(os.getenv("CRAWLER_ROBOTS_CACHE_TTL", 86400))    # TTL de caché robots.txt (24h RFC 9309)
 SITEMAP_FETCH_TIMEOUT = int(os.getenv("CRAWLER_SITEMAP_TIMEOUT", 4))            # Timeout por candidato de Sitemap XML
+WEB_CONNECTIVITY_TIMEOUT = float(os.getenv("CRAWLER_WEB_CONNECTIVITY_TIMEOUT", 10.0))
+WEB_CONTENT_TIMEOUT = float(os.getenv("CRAWLER_WEB_CONTENT_TIMEOUT", 15.0))
+WEB_PROBE_DELAY = float(os.getenv("CRAWLER_WEB_PROBE_DELAY", 0.1))
 WEB_SEARCH_SUBPAGES_LIMIT = int(os.getenv("CRAWLER_SUBPAGES_LIMIT", 12))       # Subpáginas máximas a inspeccionar
 WEB_SEARCH_SUBPAGES_DEPTH = int(os.getenv("CRAWLER_SUBPAGES_DEPTH", 6))        # Coincidencias máximas del Sitemap
 LAZY_SCANNED_PAGES_CACHE_LIMIT = int(os.getenv("CRAWLER_LAZY_LIMIT", 25))      # Páginas escaneadas en caché RAM
@@ -249,11 +345,23 @@ MEDICINA_ECTS = int(os.getenv("CRAWLER_MEDICINA_ECTS", 360))                    
 ESPECIALES_GRADO_ECTS = int(os.getenv("CRAWLER_ESPECIALES_GRADO_ECTS", 300))         # ECTS de Grados de 5 años (Farmacia, Odontología, Veterinaria, Arquitectura)
 MAX_BOE_CANDIDATES_PER_DEGREE = int(os.getenv("CRAWLER_MAX_BOE_CANDIDATES", 8))       # Límite máximo de seguridad de BOEs candidatos a procesar por titulación
 
+# Aliases canónicos para validación curricular
+CREDITOS_TOTALES_GRADO = GRADO_STANDARD_ECTS
+CREDITOS_TOTALES_GRADO_MIN = GRADO_STANDARD_ECTS
+CREDITOS_TOTALES_MASTER_HABILITANTE = 90
+CREDITOS_TOTALES_MASTER_ESTANDAR = MASTER_MIN_ECTS
+CREDITOS_TOTALES_MASTER_ANUAL = MASTER_MIN_ECTS
+CREDITOS_TOTALES_MASTER_MIN = MASTER_MIN_ECTS
+CREDITOS_TOTALES_ARQUITECTURA_MEDICINA = MEDICINA_ECTS
+CREDITOS_TOTALES_VETERINARIA_ODONTOLOGIA = ESPECIALES_GRADO_ECTS
+CREDITOS_TOTALES_DOBLE_GRADO_MIN = 300
+
 # ==============================================================================
 # 9. PERSISTENCIA, CHECKPOINTS Y BASES DE DATOS
 # ==============================================================================
 CHECKPOINT_FLUSH_INTERVAL_SECONDS = float(os.getenv("CRAWLER_CHECKPOINT_INTERVAL", 30.0)) # Intervalo salvaguarda JSON (segundos)
 SQLITE_CONNECT_TIMEOUT = float(os.getenv("CRAWLER_SQLITE_TIMEOUT", 30.0))                  # Timeout conexión SQLite WAL (segundos)
+SUBJECT_GUIDE_CACHE_LIMIT = int(os.getenv("CRAWLER_SUBJECT_GUIDE_CACHE_LIMIT", 5000))
 
 # ==============================================================================
 # 10. SERVICIOS EXTERNOS Y APIS PÚBLICAS
@@ -397,7 +505,13 @@ INVALID_SUBJECT_KEYWORDS = [
     "buscar por", "1º apellido", "2º apellido", "listado simple", "listado detallado", "cerca per", "bilatu",
     # Oferta de plazas, notas de corte y precios administrativos
     "plazas ofertadas", "plazas de nuevo ingreso", "plazas disponibles", "places de nou ingrés", "prazas",
-    "nota de corte", "notas de corte", "nota de tall", "ebaki nota", "precios públicos", "prezo por crédito"
+    "nota de corte", "notas de corte", "nota de tall", "ebaki nota", "precios públicos", "prezo por crédito",
+    # Privacidad, RGPD y Políticas de Cookies
+    "política de cookies", "politica de cookies", "política de privacidad", "politica de privacidad",
+    "protección de datos", "proteccion de datos", "datos de carácter personal", "datos de caracter personal",
+    "responsable del tratamiento", "delegado de protección", "delegado de proteccion", "dpo",
+    "derechos de los interesados", "base jurídica", "base juridica", "ejercicio de derechos",
+    "cookie", "cookies", "google analytics", "_ga", "_gid", "_fbp", "consentimiento", "duración de la cookie"
 ]
 
 # Marcadores de fuentes y matrices tipográficas invertidas/espejadas en BOE antiguo (2009-2014)

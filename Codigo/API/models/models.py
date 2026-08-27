@@ -1,6 +1,11 @@
-from sqlalchemy import Column, Integer, String, Text, Date, DateTime, Numeric, ForeignKey, func, Boolean
+from sqlalchemy import Column, Integer, String, Text, Date, DateTime, Numeric, ForeignKey, func, Boolean, JSON
+from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import relationship
-from database.connection import Base
+
+try:
+    from API.database.connection import Base
+except (ImportError, AttributeError):
+    from database.connection import Base
 
 class Universidad(Base):
     __tablename__ = "universidades"
@@ -84,13 +89,16 @@ class ElementoCurricular(Base):
     curso = Column(Text)
     cuatrimestre = Column(Text)
     url_guia_docente = Column(Text)
-    temario = Column(JSON)
-    sistema_evaluacion = Column(JSON)
-    profesorado = Column(JSON)
-    bibliografia = Column(JSON)
-    idioma = Column(String(50))
-    creditos_teoria = Column(Numeric(4, 2))
-    creditos_practica = Column(Numeric(4, 2))
+    temario = Column(JSON().with_variant(JSONB, "postgresql"), nullable=True)
+    sistema_evaluacion = Column(JSON().with_variant(JSONB, "postgresql"), nullable=True)
+    profesorado = Column(JSON().with_variant(JSONB, "postgresql"), nullable=True)
+    bibliografia = Column(JSON().with_variant(JSONB, "postgresql"), nullable=True)
+    idioma = Column(String(50), nullable=True)
+    creditos_teoria = Column(Numeric(4, 2), nullable=True)
+    creditos_practica = Column(Numeric(4, 2), nullable=True)
+    tipo_asistencia = Column(String(50), nullable=True)
+    calificacion_minima = Column(Numeric(4, 2), nullable=True)
+    departamento = Column(String(255), nullable=True)
 
     plan_estudios = relationship("PlanEstudios", back_populates="elementos_curriculares")
 

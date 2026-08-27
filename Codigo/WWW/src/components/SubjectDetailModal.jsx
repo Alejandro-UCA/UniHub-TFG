@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, BookOpen, User, ExternalLink, Award, Clock, FileText, CheckCircle2, Bookmark, Globe } from 'lucide-react';
+import { X, BookOpen, User, ExternalLink, Bookmark, Globe } from 'lucide-react';
 
 export default function SubjectDetailModal({ subject, degree, onClose }) {
   // Manejo de la tecla Escape para accesibilidad
@@ -11,7 +11,21 @@ export default function SubjectDetailModal({ subject, degree, onClose }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [onClose]);
 
+  // Lock body scroll safely
+  useEffect(() => {
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = prevOverflow; };
+  }, []);
+
   if (!subject) return null;
+
+  const getSafeUrl = (url) => {
+    if (!url) return null;
+    const clean = url.trim();
+    if (/^https?:\/\//i.test(clean)) return clean;
+    return null;
+  };
 
   const guia = subject.guia_docente || {};
   const temarioList = subject.temario || guia.temario || [];
@@ -19,7 +33,7 @@ export default function SubjectDetailModal({ subject, degree, onClose }) {
   const profList = subject.profesorado || guia.profesorado || [];
   const bibList = subject.bibliografia || guia.bibliografia || [];
   const criteriosEval = subject.criterios_evaluacion || guia.criterios_evaluacion;
-  const guideUrl = subject.url_guia_docente || guia.url_guia_docente;
+  const guideUrl = getSafeUrl(subject.url_guia_docente || guia.url_guia_docente);
   const idioma = subject.idioma || guia.idioma || 'Castellano';
   const departamento = subject.departamento || guia.departamento || (subject.materia || subject.modulo || 'No especificado');
   const area = guia.area_conocimiento;
@@ -369,7 +383,7 @@ export default function SubjectDetailModal({ subject, degree, onClose }) {
               <a
                 href={guideUrl}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="btn btn-outline"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.82rem' }}
               >

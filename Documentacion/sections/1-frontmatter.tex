@@ -1,0 +1,23 @@
+
+
+
+    \input{sections/frontmatter/externalcover}
+    \input{sections/frontmatter/internalcover}
+    \input{sections/frontmatter/statement}
+    \input{sections/frontmatter/acknowledgments}
+    \input{sections/frontmatter/summary}
+    
+    % Índice del documento y de figuras
+    \begingroup
+    % Los enlaces son normalmente azules, pero en los índices se configuran a negro
+    % para que no aparezca todo azul
+    \hypersetup{linkcolor=black}
+    \newpage{\ }
+    \thispagestyle{empty}
+    \tableofcontents
+    \listoffigures
+    \listoftables
+    \endgroup
+    
+    \newpage{\ }
+    \cleardoublepage

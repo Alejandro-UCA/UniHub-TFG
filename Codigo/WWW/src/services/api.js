@@ -2,22 +2,33 @@ import perfTracker from '../analytics/perfTracker';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1';
 
-async function fetchAPI(endpoint, options = {}) {
+const sleep = (ms) => new Promise(res => setTimeout(res, ms));
+
+async function fetchAPI(endpoint, options = {}, retryCount = 0) {
   const url = `${API_BASE_URL}${endpoint}`;
   const startTime = performance.now();
-  
+  const MAX_RETRIES = 3;
+  const BASE_DELAY = 300;
+
   try {
-    const adminApiKey = sessionStorage.getItem('adminApiKey');
+    const adminApiKey = typeof sessionStorage !== 'undefined' ? sessionStorage.getItem('adminApiKey') : null;
     const headers = {
       'Content-Type': 'application/json',
       ...(adminApiKey ? { 'X-API-Key': adminApiKey } : {}),
       ...options.headers,
     };
 
+    const controller = options.signal ? null : new AbortController();
+    const signal = options.signal || controller?.signal;
+    const timeoutId = controller ? setTimeout(() => controller.abort(), 15000) : null;
+
     const response = await fetch(url, {
       ...options,
       headers,
+      signal,
     });
+
+    if (timeoutId) clearTimeout(timeoutId);
 
     const elapsed = performance.now() - startTime;
     perfTracker.recordAPILatency(endpoint, elapsed);
@@ -30,11 +41,15 @@ async function fetchAPI(endpoint, options = {}) {
       const errData = await response.json().catch(() => ({}));
       let errorMsg = errData.detail;
       
-      // Manejar formato de errores de validación de FastAPI (Pydantic) que devuelven un Array
       if (Array.isArray(errorMsg)) {
         errorMsg = errorMsg.map(e => `${e.loc?.join('.') || 'Campo'}: ${e.msg}`).join(' | ');
       }
       
+      const isRetryable = response.status >= 500 || response.status === 429;
+      if (isRetryable && retryCount < MAX_RETRIES) {
+        await sleep(BASE_DELAY * Math.pow(2, retryCount));
+        return fetchAPI(endpoint, options, retryCount + 1);
+      }
       throw new Error(errorMsg || `Error API (${response.status}): ${response.statusText}`);
     }
 
@@ -52,6 +67,11 @@ async function fetchAPI(endpoint, options = {}) {
     }
     const elapsed = performance.now() - startTime;
     perfTracker.recordAPILatency(endpoint, elapsed, true);
+    const isRetryable = error.name === 'TypeError' || error.message.includes('Failed to fetch') || error.message.includes('network');
+    if (isRetryable && retryCount < MAX_RETRIES) {
+      await sleep(BASE_DELAY * Math.pow(2, retryCount));
+      return fetchAPI(endpoint, options, retryCount + 1);
+    }
     console.warn(`API call error for ${endpoint}:`, error.message);
     throw error;
   }
@@ -64,38 +84,41 @@ export const apiService = {
     if (params.tipo && params.tipo !== 'todos') query.append('tipo', params.tipo);
     if (params.ccaa && params.ccaa !== 'todas') query.append('ccaa', params.ccaa);
     if (params.nombre) query.append('nombre', params.nombre);
-    if (params.skip !== undefined) query.append('skip', params.skip);
-    if (params.limit !== undefined) query.append('limit', params.limit);
+    if (params.skip !== undefined && params.skip !== null) query.append('skip', String(params.skip));
+    if (params.limit !== undefined && params.limit !== null) query.append('limit', String(params.limit));
 
     const queryString = query.toString() ? `?${query.toString()}` : '';
     return fetchAPI(`/universidades${queryString}`, options);
   },
 
-  async getUniversityByCode(codigo) {
-    return fetchAPI(`/universidades/${codigo}`);
+  async getUniversityByCode(codigo, options = {}) {
+    return fetchAPI(`/universidades/${encodeURIComponent(codigo)}`, options);
   },
 
-  async getUniversityDegrees(codigo) {
-    return fetchAPI(`/universidades/${codigo}/titulaciones`);
+  async getUniversityDegrees(codigo, options = {}) {
+    return fetchAPI(`/universidades/${encodeURIComponent(codigo)}/titulaciones`, options);
   },
 
   // Universities CRUD (Admin)
-  async createUniversity(data) {
+  async createUniversity(data, options = {}) {
     return fetchAPI('/universidades', {
+      ...options,
       method: 'POST',
       body: JSON.stringify(data)
     });
   },
 
-  async updateUniversity(codigo, data) {
-    return fetchAPI(`/universidades/${codigo}`, {
+  async updateUniversity(codigo, data, options = {}) {
+    return fetchAPI(`/universidades/${encodeURIComponent(codigo)}`, {
+      ...options,
       method: 'PUT',
       body: JSON.stringify(data)
     });
   },
 
-  async deleteUniversity(codigo) {
-    return fetchAPI(`/universidades/${codigo}`, {
+  async deleteUniversity(codigo, options = {}) {
+    return fetchAPI(`/universidades/${encodeURIComponent(codigo)}`, {
+      ...options,
       method: 'DELETE'
     });
   },
@@ -109,106 +132,114 @@ export const apiService = {
     if (params.ccaa && params.ccaa !== 'todas') query.append('ccaa', params.ccaa);
     if (params.tipo_universidad && params.tipo_universidad !== 'todos') query.append('tipo_universidad', params.tipo_universidad);
     if (params.rama && params.rama !== 'todas') query.append('rama', params.rama);
-    if (params.con_plan !== undefined && params.con_plan !== null) query.append('con_plan', params.con_plan);
-    if (params.skip !== undefined) query.append('skip', params.skip);
-    if (params.limit !== undefined) query.append('limit', params.limit);
+    if (params.con_plan !== undefined && params.con_plan !== null) query.append('con_plan', String(params.con_plan));
+    if (params.skip !== undefined && params.skip !== null) query.append('skip', String(params.skip));
+    if (params.limit !== undefined && params.limit !== null) query.append('limit', String(params.limit));
 
     const queryString = query.toString() ? `?${query.toString()}` : '';
     return fetchAPI(`/titulaciones${queryString}`, options);
   },
 
-  async getDegreeByCode(codigoEstudio) {
-    return fetchAPI(`/titulaciones/${codigoEstudio}`);
+  async getDegreeByCode(codigoEstudio, options = {}) {
+    return fetchAPI(`/titulaciones/${encodeURIComponent(codigoEstudio)}`, options);
   },
 
-  async getDegreeCurriculum(codigoEstudio) {
-    return fetchAPI(`/titulaciones/${codigoEstudio}/plan-estudios`);
+  async getDegreeCurriculum(codigoEstudio, options = {}) {
+    return fetchAPI(`/titulaciones/${encodeURIComponent(codigoEstudio)}/plan-estudios`, options);
   },
 
   // Degrees CRUD (Admin)
-  async createDegree(data) {
+  async createDegree(data, options = {}) {
     return fetchAPI('/titulaciones', {
+      ...options,
       method: 'POST',
       body: JSON.stringify(data)
     });
   },
 
-  async updateDegree(codigoEstudio, data) {
-    return fetchAPI(`/titulaciones/${codigoEstudio}`, {
+  async updateDegree(codigoEstudio, data, options = {}) {
+    return fetchAPI(`/titulaciones/${encodeURIComponent(codigoEstudio)}`, {
+      ...options,
       method: 'PUT',
       body: JSON.stringify(data)
     });
   },
 
-  async deleteDegree(codigoEstudio) {
-    return fetchAPI(`/titulaciones/${codigoEstudio}`, {
+  async deleteDegree(codigoEstudio, options = {}) {
+    return fetchAPI(`/titulaciones/${encodeURIComponent(codigoEstudio)}`, {
+      ...options,
       method: 'DELETE'
     });
   },
 
   // Subjects CRUD (Admin)
-  async getDegreeSubjects(codigoEstudio) {
-    return fetchAPI(`/titulaciones/${codigoEstudio}/asignaturas`);
+  async getDegreeSubjects(codigoEstudio, options = {}) {
+    return fetchAPI(`/titulaciones/${encodeURIComponent(codigoEstudio)}/asignaturas`, options);
   },
 
-  async createDegreeSubject(codigoEstudio, data) {
-    return fetchAPI(`/titulaciones/${codigoEstudio}/asignaturas`, {
+  async createDegreeSubject(codigoEstudio, data, options = {}) {
+    return fetchAPI(`/titulaciones/${encodeURIComponent(codigoEstudio)}/asignaturas`, {
+      ...options,
       method: 'POST',
       body: JSON.stringify(data)
     });
   },
 
-  async updateDegreeSubject(asignaturaId, data) {
-    return fetchAPI(`/titulaciones/asignaturas/${asignaturaId}`, {
+  async updateDegreeSubject(asignaturaId, data, options = {}) {
+    return fetchAPI(`/titulaciones/asignaturas/${encodeURIComponent(asignaturaId)}`, {
+      ...options,
       method: 'PUT',
       body: JSON.stringify(data)
     });
   },
 
-  async deleteDegreeSubject(asignaturaId) {
-    return fetchAPI(`/titulaciones/asignaturas/${asignaturaId}`, {
+  async deleteDegreeSubject(asignaturaId, options = {}) {
+    return fetchAPI(`/titulaciones/asignaturas/${encodeURIComponent(asignaturaId)}`, {
+      ...options,
       method: 'DELETE'
     });
   },
 
   // Crawler Stats, Physical Container Stats & Error Logs
-  async getCrawlerStats() {
-    return fetchAPI('/estadisticas');
+  async getCrawlerStats(options = {}) {
+    return fetchAPI('/estadisticas', options);
   },
 
-  async getCrawlerErrors() {
-    return fetchAPI('/errores');
+  async getCrawlerErrors(options = {}) {
+    return fetchAPI('/errores', options);
   },
 
-  async getContainerPhysicalStats() {
-    return fetchAPI('/estadisticas/contenedores');
+  async getContainerPhysicalStats(options = {}) {
+    return fetchAPI('/estadisticas/contenedores', options);
   },
 
-  async getCrawlerCheckpoint() {
-    return fetchAPI('/crawler/checkpoint');
+  async getCrawlerCheckpoint(options = {}) {
+    return fetchAPI('/crawler/checkpoint', options);
   },
 
-  async getCrawlerErrorsLog() {
-    return fetchAPI('/crawler/errores_json');
+  async getCrawlerErrorsLog(options = {}) {
+    return fetchAPI('/crawler/errores_json', options);
   },
 
-  async getApiDocsInfo() {
-    return fetchAPI('/api_docs_info');
+  async getApiDocsInfo(options = {}) {
+    return fetchAPI('/api_docs_info', options);
   },
 
-  async getCurriculumCoverage() {
-    return fetchAPI('/estadisticas/cobertura');
+  async getCurriculumCoverage(options = {}) {
+    return fetchAPI('/estadisticas/cobertura', options);
   },
 
-  async triggerEtlSync() {
+  async triggerEtlSync(options = {}) {
     return fetchAPI('/etl/sync', {
+      ...options,
       method: 'POST'
     });
   },
 
-  async verifyAdminAuth(apiKey) {
+  async verifyAdminAuth(apiKey, options = {}) {
     return fetchAPI('/auth/verify', {
-      headers: { 'X-API-Key': apiKey }
+      ...options,
+      headers: { 'X-API-Key': apiKey, ...options.headers }
     });
   }
 };

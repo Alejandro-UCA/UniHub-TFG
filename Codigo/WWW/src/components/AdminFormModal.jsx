@@ -58,6 +58,14 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
     }
   }, [initialData, type, isOpen]);
 
+  // Bloquear scroll del body mientras el modal está abierto
+  useEffect(() => {
+    if (!isOpen) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = prevOverflow; };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   const handleChange = (e) => {
@@ -94,7 +102,13 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
   };
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
+    <div 
+      className="modal-overlay" 
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="admin-form-modal-title"
+    >
       <div className="modal-content" style={{ maxWidth: '600px' }} onClick={(e) => e.stopPropagation()}>
         {/* Header */}
         <div style={{
@@ -115,11 +129,16 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
             ) : (
               <Layers size={22} color="var(--uca-gold)" />
             )}
-            <h3 style={{ fontSize: '1.15rem', fontWeight: 700 }}>
+            <h3 id="admin-form-modal-title" style={{ fontSize: '1.15rem', fontWeight: 700 }}>
               {isEdit ? `Editar ${getTypeLabel()}` : `Añadir Nueva ${getTypeLabel()}`}
             </h3>
           </div>
-          <button onClick={onClose} style={{ background: 'transparent', border: 'none', color: '#FFFFFF', cursor: 'pointer' }}>
+          <button 
+            type="button"
+            onClick={onClose} 
+            aria-label="Cerrar modal de administración"
+            style={{ background: 'transparent', border: 'none', color: '#FFFFFF', cursor: 'pointer' }}
+          >
             <X size={20} />
           </button>
         </div>
@@ -127,18 +146,21 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
         {/* Form Body */}
         <form onSubmit={handleSubmit} style={{ padding: '1.5rem' }}>
           {error && (
-            <div style={{
-              background: 'rgba(239, 68, 68, 0.1)',
-              border: '1px solid rgba(239, 68, 68, 0.3)',
-              padding: '0.75rem 1rem',
-              borderRadius: 'var(--radius-sm)',
-              color: '#EF4444',
-              fontSize: '0.85rem',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              marginBottom: '1.25rem'
-            }}>
+            <div 
+              role="alert"
+              style={{
+                background: 'rgba(239, 68, 68, 0.1)',
+                border: '1px solid rgba(239, 68, 68, 0.3)',
+                padding: '0.75rem 1rem',
+                borderRadius: 'var(--radius-sm)',
+                color: '#EF4444',
+                fontSize: '0.85rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                marginBottom: '1.25rem'
+              }}
+            >
               <AlertCircle size={18} />
               <span>{error}</span>
             </div>

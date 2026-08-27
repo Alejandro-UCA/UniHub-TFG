@@ -15,8 +15,9 @@ class PerformanceTracker:
     """
     _lock = threading.Lock()
 
-    def __init__(self, filepath=ESTADISTICAS_JSON):
-        self.filepath = filepath
+    def __init__(self, filepath=None):
+        import config
+        self.filepath = filepath or config.ESTADISTICAS_JSON
         self.process = psutil.Process(os.getpid())
         
         # Timing start points
@@ -103,6 +104,14 @@ class PerformanceTracker:
             self.pdfs_parseados += 1
             self._update_peak_memory()
 
+    def merge_worker_stats(self, parsed_count: int = 0, updated_count: int = 0, parse_time: float = 0.0):
+        """Consolida de forma atómica las métricas devueltas por procesos CPU."""
+        with PerformanceTracker._lock:
+            self.pdfs_parseados += max(0, int(parsed_count or 0))
+            self.titulaciones_descargadas_actualizadas += max(0, int(updated_count or 0))
+            self.total_pdf_parsing_time += max(0.0, float(parse_time or 0.0))
+            self._update_peak_memory()
+
     def generate_report(self) -> dict:
         """Genera un informe completo de métricas de rendimiento y sostenibilidad."""
         with PerformanceTracker._lock:
@@ -182,3 +191,9 @@ class PerformanceTracker:
         """Saves current metrics report atomically to estadisticas_rendimiento.json."""
         report = self.generate_report()
         atomic_json_dump(report, self.filepath)
+        return report
+
+
+# Nombre usado durante la migración. Se conserva como alias para que los nuevos
+# módulos y cualquier integración externa no dependan de un cambio de clase.
+MetricsTracker = PerformanceTracker

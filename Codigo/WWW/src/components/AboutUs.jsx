@@ -2,6 +2,8 @@ import React from 'react';
 import { GraduationCap, Award, BookOpen, Database, ExternalLink, Server, Zap, Globe, DollarSign } from 'lucide-react';
 
 export default function AboutUs() {
+  const swaggerUrl = (import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api/v1').replace(/\/api\/v1\/?$/, '/docs');
+
   return (
     <div className="container" style={{ padding: '3rem 1.5rem 4rem 1.5rem', maxWidth: '1000px' }}>
       {/* Header Banner */}
@@ -151,7 +153,7 @@ export default function AboutUs() {
           <a 
             href="https://www.educacion.gob.es/ruct/home" 
             target="_blank" 
-            rel="noreferrer" 
+            rel="noopener noreferrer" 
             className="btn btn-outline"
             style={{ fontSize: '0.88rem' }}
           >
@@ -160,7 +162,7 @@ export default function AboutUs() {
           <a 
             href="https://www.boe.es" 
             target="_blank" 
-            rel="noreferrer" 
+            rel="noopener noreferrer" 
             className="btn btn-outline"
             style={{ fontSize: '0.88rem' }}
           >
@@ -169,16 +171,16 @@ export default function AboutUs() {
           <a 
             href="https://www.uca.es" 
             target="_blank" 
-            rel="noreferrer" 
+            rel="noopener noreferrer" 
             className="btn btn-outline"
             style={{ fontSize: '0.88rem', color: 'var(--uca-cyan)', borderColor: 'var(--uca-cyan)' }}
           >
             Universidad de Cádiz (UCA) <ExternalLink size={14} />
           </a>
           <a 
-            href={(import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api/v1').replace('/api/v1', '/docs')} 
+            href={swaggerUrl} 
             target="_blank" 
-            rel="noreferrer" 
+            rel="noopener noreferrer" 
             className="btn btn-gold"
             style={{ fontSize: '0.88rem' }}
           >

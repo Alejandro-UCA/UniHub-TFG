@@ -1,0 +1,76 @@
+Este capítulo recoge la arquitectura física planteada para el sistema \textbf{UniHub}, las instrucciones para su despliegue y las instrucciones para la operación y mantenimiento del nivel de servicio.
+
+\section{Arquitectura Física}
+La arquitectura física del sistema se basa en la virtualización liviana mediante contenedores Docker sobre un servidor anfitrión con sistema operativo Linux o Windows con soporte para Docker Engine. La infraestructura se compone de 4 contenedores aislados que se comunican en una red puente virtualizada (\texttt{unihub\_network}):
+\begin{enumerate}
+    \item \textbf{Servidor de Base de Datos (\texttt{unihub\_db}):} Contenedor PostgreSQL 15 escuchando en el puerto 5432 con volumen nominado \texttt{unihub\_postgres\_data} y prueba de salud (\emph{healthcheck}) configurada con \texttt{start\_period: 20s} y 10 reintentos para tolerar la carga DDL inicial en instalaciones limpias.
+    \item \textbf{Servidor de API REST (\texttt{unihub\_api}):} Contenedor Python 3.12 / FastAPI escuchando en el puerto 8000 con soporte para sincronización ETL reactiva (\texttt{/api/v1/admin/sync-etl}).
+    \item \textbf{Servidor Web Nginx (\texttt{unihub\_www}):} Contenedor Nginx escuchando en los puertos 80 y 5173 sirviendo la SPA compilada en React.
+    \item \textbf{Contenedor de Ingesta (\texttt{unihub\_crawler}):} Contenedor Python para ejecuciones del rastreador con demonio Cron (\texttt{0 2 1 * *}) y montaje directo en la carpeta del host \texttt{Codigo/Crawler/Datos}.
+\end{enumerate}
+
+\section{Instrucciones de despliegue}
+
+\subsection{Requisitos previos}
+\begin{itemize}
+    \item Docker Engine 20.10+ y Docker Compose v2.
+    \item Al menos 2 GB de memoria RAM libre y 5 GB de espacio en disco.
+\end{itemize}
+
+\subsection{Inventario de componentes}
+Los artefactos del despliegue se ubican en \texttt{Codigo/Docker/}:
+\begin{itemize}
+    \item \texttt{docker-compose.yml}
+    \item \texttt{crawler/Dockerfile} y \texttt{crawler/entrypoint.sh}
+    \item \texttt{api/Dockerfile} y \texttt{api/entrypoint.sh}
+    \item \texttt{www/Dockerfile} y \texttt{www/nginx.conf}
+    \item \texttt{.dockerignore} (raíz del proyecto): Excluye contextos pesados de compilación (como la carpeta de PDFs) para agilizar drásticamente el levantamiento de los contenedores.
+    \item Scripts de puesta en marcha en la raíz: \texttt{iniciar\_proyecto.bat} y \texttt{detener\_proyecto.bat} (Windows).
+\end{itemize}
+
+\subsection{Procedimientos de instalación}
+Para desplegar el sistema contenerizado se dispone de dos modalidades:
+
+\subsubsection{Modalidad A: Mediante Script Automatizado (Recomendado)}
+Ejecutar desde la raíz del proyecto el script de conveniencia:
+\begin{lstlisting}[language=bash]
+iniciar_proyecto.bat
+\end{lstlisting}
+Dicho script verifica los puertos del sistema, compila las imágenes Docker y levanta los 4 contenedores automáticamente.
+
+\subsubsection{Modalidad B: Despliegue General con Docker Compose}
+\begin{enumerate}
+    \item Navegar a la carpeta del entorno Docker desde la raíz del proyecto:
+        \begin{lstlisting}[language=bash]
+cd Codigo/Docker
+        \end{lstlisting}
+    \item Construir y levantar todos los servicios en segundo plano:
+        \begin{lstlisting}[language=bash]
+docker compose up --build -d
+        \end{lstlisting}
+    \item Alternativamente, para un despliegue selectivo (sin el crawler de la Fase 1):
+        \begin{lstlisting}[language=bash]
+docker compose up -d db api www
+        \end{lstlisting}
+\end{enumerate}
+
+\subsubsection{Construcción de Imágenes y Variables de Entorno}
+La compilación del contenedor Frontend (\texttt{unihub\_www}) utiliza un Dockerfile de dos fases (\emph{Multi-stage build}) basado en \texttt{node:20-alpine} y \texttt{nginx:1.25-alpine}. Durante la fase de construcción de Node.js, se inyecta dinámicamente la variable de entorno \texttt{VITE\_API\_URL} mediante argumentos de compilación (\texttt{ARG}) definidos en el archivo \texttt{docker-compose.yml}. Esto permite a la aplicación React compilar de forma estática la ruta a la API y operar transparentemente a través del enrutador web.
+
+\subsection{Pruebas de implantación}
+Acceder desde el navegador web a las siguientes direcciones de verificación:
+\begin{itemize}
+    \item Portal Web Frontend UniHub: \url{http://localhost} (producción Nginx) o \url{http://localhost:5173} (servidor de desarrollo Vite).
+    \item Documentación API Swagger: \url{http://localhost:8000/docs}
+    \item Documentación ReDoc: \url{http://localhost:8000/redoc}
+    \item Panel de Administración (Acceso Aislado): \url{http://localhost/admin}
+\end{itemize}
+
+\section{Instrucciones para la operación del sistema y mantenimiento del nivel de servicio}
+Para garantizar la continuidad de servicio y la persistencia de los datos:
+\begin{itemize}
+    \item \textbf{Chequeo de Logs:} Monitorear la salud de los servicios con \texttt{docker compose logs -f}.
+    \item \textbf{Telemetría cgroup y Green IT:} La API expone en \texttt{/api/v1/estadisticas/contenedores} la monitorización de RAM RSS/Peak, uso de CPU \%, espacio en disco y estimación de Huella de Carbono ($gCO_2$).
+    \item \textbf{Copia de Seguridad de la BD:} Exportar backup mediante \texttt{docker compose exec db pg\_dump -U postgres unihub\_db > backup.sql}.
+    \item \textbf{Copia de Seguridad de Archivos JSON:} La carpeta \texttt{Codigo/Crawler/Datos} en el host mantiene los 13.653 archivos JSON estructurados a salvo en disco.
+\end{itemize}

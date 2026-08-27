@@ -8,7 +8,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 
 import { apiService } from './services/api';
 import usageTracker from './analytics/usageTracker';
-import { Search, Filter } from 'lucide-react';
+import { Search, Filter, AlertCircle, RefreshCw, X } from 'lucide-react';
 
 const Geolocation = React.lazy(() => import('./components/Geolocation'));
 const AdminLogin = React.lazy(() => import('./components/AdminLogin'));
@@ -76,6 +76,7 @@ export default function App() {
   const [universities, setUniversities] = useState(MOCK_UNIVERSITIES);
   const [degrees, setDegrees] = useState(MOCK_DEGREES);
   const [loading, setLoading] = useState(false);
+  const [apiError, setApiError] = useState(null);
 
   // Estados de búsqueda y filtros
   const [searchQuery, setSearchQuery] = useState('');
@@ -93,11 +94,43 @@ export default function App() {
   const [degreeItemsPerPage, setDegreeItemsPerPage] = useState(20);
   const [degreeTotalItems, setDegreeTotalItems] = useState(MOCK_DEGREES.length);
 
+  const loadInitialData = useCallback(async () => {
+    setLoading(true);
+    setApiError(null);
+    try {
+      const [univRes, degRes] = await Promise.allSettled([
+        apiService.getUniversities({ limit: 500 }, { returnWithTotal: true }),
+        apiService.getDegrees({ limit: degreeItemsPerPage, skip: 0 }, { returnWithTotal: true })
+      ]);
+      
+      const univFailed = univRes.status !== 'fulfilled';
+      const degFailed = degRes.status !== 'fulfilled';
+      
+      if (univFailed || degFailed) {
+        setApiError('No se pudo conectar con el servidor API. Se muestra el conjunto de datos de muestra sin conexión.');
+      }
+      
+      if (univRes.status === 'fulfilled' && univRes.value?.data) {
+        setUniversities(univRes.value.data);
+      }
+      if (degRes.status === 'fulfilled' && degRes.value?.data) {
+        setDegrees(degRes.value.data);
+        setDegreeTotalItems(degRes.value.totalCount || degRes.value.data.length);
+      }
+    } catch (err) {
+      setApiError('Error al cargar datos iniciales. Se muestra el conjunto de datos de muestra sin conexión.');
+      console.warn('API REST loading fallback active. Showing offline sample dataset.', err);
+    } finally {
+      setLoading(false);
+      setInitialDataLoaded(true);
+    }
+  }, [degreeItemsPerPage]);
+
   // Registrar vista inicial de página y cargar datos
   useEffect(() => {
     usageTracker.trackPageView('home');
     loadInitialData();
-  }, []);
+  }, [loadInitialData]);
 
   // Reiniciar paginación al cambiar filtros
   useEffect(() => {
@@ -118,30 +151,7 @@ export default function App() {
     navigateToTab(tab);
   }, [activeTab, navigateToTab]);
 
-  const loadInitialData = async () => {
-    setLoading(true);
-    try {
-      const [univRes, degRes] = await Promise.allSettled([
-        apiService.getUniversities({ limit: 500 }, { returnWithTotal: true }),
-        apiService.getDegrees({ limit: degreeItemsPerPage, skip: 0 }, { returnWithTotal: true })
-      ]);
-      
-      if (univRes.status === 'fulfilled' && univRes.value?.data) {
-        setUniversities(univRes.value.data);
-      }
-      if (degRes.status === 'fulfilled' && degRes.value?.data) {
-        setDegrees(degRes.value.data);
-        setDegreeTotalItems(degRes.value.totalCount || degRes.value.data.length);
-      }
-    } catch (e) {
-      console.warn('API REST loading fallback active. Showing offline sample dataset.');
-    } finally {
-      setLoading(false);
-      setInitialDataLoaded(true);
-    }
-  };
-
-  const fetchDegreesPage = async (page, signal) => {
+  const fetchDegreesPage = useCallback(async (page, signal) => {
     setLoading(true);
     try {
       const skip = (page - 1) * degreeItemsPerPage;
@@ -161,11 +171,13 @@ export default function App() {
         setDegreeTotalItems(res.totalCount || res.data.length);
       }
     } catch (e) {
-      console.warn('Error fetching degrees page', e);
+      if (e?.name !== 'AbortError') {
+        console.warn('Error fetching degrees page', e);
+      }
     } finally {
       setLoading(false);
     }
-  };
+  }, [degreeItemsPerPage, searchQuery, selectedDegreeTipo, selectedCCAA, selectedUnivTipo, selectedRama, selectedUnivCodigo]);
 
   // Escuchar cambios en filtros o paginación de titulaciones para refrescar datos en vivo
   useEffect(() => {
@@ -177,7 +189,7 @@ export default function App() {
     }, 300);
 
     return () => { clearTimeout(delayDebounceFn); controller.abort(); };
-  }, [initialDataLoaded, degreeCurrentPage, degreeItemsPerPage, searchQuery, selectedDegreeTipo, selectedCCAA, selectedUnivTipo, selectedRama, selectedUnivCodigo]);
+  }, [initialDataLoaded, degreeCurrentPage, fetchDegreesPage]);
 
   const handleHeroSearch = useCallback((query) => {
     setSelectedUnivCodigo('');
@@ -216,10 +228,6 @@ export default function App() {
     return map;
   }, [universities]);
 
-  // Filtered & Sorted degrees (including Doctorados and CCAA filter)
-  // Ya no filtramos en memoria las titulaciones, la API lo hace por nosotros
-  const filteredDegrees = degrees;
-
   // Top 6 Most Visited Universities for Featured Section
   const topVisitedUnivs = React.useMemo(() => usageTracker.getTopVisitedUniversities(universities, 6), [universities]);
 
@@ -249,6 +257,49 @@ export default function App() {
             isDark={isDark}
             toggleTheme={toggleTheme}
           />
+
+          {/* Offline/API Fallback Alert Banner */}
+          {apiError && (
+            <div 
+              role="alert"
+              style={{
+                background: 'rgba(243, 167, 18, 0.12)',
+                borderBottom: '1px solid rgba(243, 167, 18, 0.35)',
+                padding: '0.75rem 1.5rem',
+                color: 'var(--text-main)',
+                fontSize: '0.88rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                gap: '0.75rem'
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <AlertCircle size={18} color="var(--uca-gold)" />
+                <span>{apiError}</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <button
+                  type="button"
+                  onClick={loadInitialData}
+                  className="btn btn-outline"
+                  style={{ padding: '0.25rem 0.65rem', fontSize: '0.78rem', borderRadius: '6px' }}
+                >
+                  <RefreshCw size={12} className={loading ? 'animate-spin' : ''} />
+                  Reintentar conexión
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setApiError(null)}
+                  aria-label="Cerrar aviso de desconexión"
+                  style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', display: 'flex', padding: '0.2rem' }}
+                >
+                  <X size={16} />
+                </button>
+              </div>
+            </div>
+          )}
 
           {/* Main Content Areas */}
           <main style={{ flex: 1 }}>
@@ -560,8 +611,20 @@ export default function App() {
             </div>
 
             {/* Degrees Grid */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.5rem' }}>
-              {paginatedDegrees.length === 0 ? (
+            <div style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', 
+              gap: '1.5rem',
+              opacity: loading ? 0.6 : 1,
+              transition: 'opacity 0.2s ease'
+            }}>
+              {loading && paginatedDegrees.length === 0 ? (
+                <div className="glass-panel" style={{ padding: '3.5rem 2rem', textAlign: 'center', borderRadius: '12px', gridColumn: '1 / -1' }}>
+                  <div style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--text-muted)' }}>
+                    Cargando titulaciones oficiales...
+                  </div>
+                </div>
+              ) : paginatedDegrees.length === 0 ? (
                 <div className="glass-panel" style={{ padding: '3.5rem 2rem', textAlign: 'center', borderRadius: '12px', gridColumn: '1 / -1' }}>
                   <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>🔍</div>
                   <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.5rem', color: 'var(--text-main)' }}>
@@ -571,6 +634,7 @@ export default function App() {
                     Prueba a modificar los términos de búsqueda, el nivel académico o restablecer los filtros.
                   </p>
                   <button
+                    type="button"
                     onClick={() => {
                       setSearchQuery('');
                       setSelectedDegreeTipo('todos');

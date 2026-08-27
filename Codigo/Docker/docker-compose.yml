@@ -19,7 +19,7 @@ services:
   db:
     image: postgres:15-alpine
     container_name: unihub_db
-    restart: always
+    restart: unless-stopped
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-unihub_db}
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
@@ -31,12 +31,12 @@ services:
       - ../API/database/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
       - ../API/database/02_security.sh:/docker-entrypoint-initdb.d/02_security.sh:ro
     ports:
-      - "5432:5432"
+      - "${POSTGRES_PORT:-5432}:5432"
     networks:
       - unihub_network
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-unihub_db}"]
-      interval: 3s
+      interval: 5s
       timeout: 5s
       retries: 10
       start_period: 20s
@@ -49,16 +49,27 @@ services:
       context: ../..
       dockerfile: Codigo/Docker/crawler/Dockerfile
     container_name: unihub_crawler
-    restart: always
+    restart: unless-stopped
     environment:
-      - PYTHONUNBUFFERED=1
-      - CRAWLER_CRON_SCHEDULE=${CRAWLER_CRON_SCHEDULE:-0 2 1 * *}
-      - CRAWLER_REQUEST_DELAY=${CRAWLER_REQUEST_DELAY:-1.0}
-      - ADMIN_API_KEY=${ADMIN_API_KEY:-unihub_super_secret_admin_key_2026}
+      PYTHONUNBUFFERED: "1"
+      CRAWLER_CRON_SCHEDULE: ${CRAWLER_CRON_SCHEDULE:-0 2 1 * *}
+      CRAWLER_REQUEST_DELAY: ${CRAWLER_REQUEST_DELAY:-1.0}
+      CRAWLER_RUN_ON_STARTUP: ${CRAWLER_RUN_ON_STARTUP:-true}
+      ADMIN_API_KEY: ${ADMIN_API_KEY:-unihub_super_secret_admin_key_2026}
+      API_SYNC_URL: ${API_SYNC_URL:-http://api:8000/api/v1/admin/sync-etl}
     volumes:
       - ../Crawler/Datos:/app/Datos
     networks:
       - unihub_network
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "ps aux | grep -v grep | grep cron || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
 
   # ----------------------------------------------------------------------------
   # CONTENEDOR 3: API REST Python / FastAPI (Fase 2)
@@ -68,8 +79,9 @@ services:
       context: ../..
       dockerfile: Codigo/Docker/api/Dockerfile
     container_name: unihub_api
-    restart: always
+    restart: unless-stopped
     environment:
+      ENVIRONMENT: ${ENVIRONMENT:-production}
       POSTGRES_HOST: db
       POSTGRES_PORT: 5432
       POSTGRES_DB: ${POSTGRES_DB:-unihub_db}
@@ -88,11 +100,11 @@ services:
       db:
         condition: service_healthy
     healthcheck:
-      test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://localhost:8000/api/v1/salud')\" || exit 1"]
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/api/v1/salud || exit 1"]
       interval: 5s
       timeout: 5s
-      retries: 5
-      start_period: 10s
+      retries: 6
+      start_period: 15s
 
   # ----------------------------------------------------------------------------
   # CONTENEDOR 4: Portal Web Frontend Nginx + React (Fase 3)
@@ -107,7 +119,7 @@ services:
         VITE_ADMIN_FEES: ${VITE_ADMIN_FEES:-45.00}
         VITE_BECA_MEC_REFERENCE_PRICE: ${VITE_BECA_MEC_REFERENCE_PRICE:-1008}
     container_name: unihub_www
-    restart: always
+    restart: unless-stopped
     ports:
       - "${WEB_PORT:-80}:80"
       - "${WEB_ALT_PORT:-5173}:80"
@@ -116,3 +128,10 @@ services:
     depends_on:
       api:
         condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://127.0.0.1:80/ || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+

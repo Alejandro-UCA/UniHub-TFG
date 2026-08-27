@@ -110,6 +110,7 @@ export default function Geolocation({ universities, onViewDegrees }) {
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.82rem', color: '#CBD5E1' }}>
             <span>O selecciona ciudad:</span>
             <select 
+              aria-label="Seleccionar ciudad de referencia para cálculo de distancias"
               value={selectedCity} 
               onChange={(e) => setSelectedCity(e.target.value)}
               style={{
@@ -135,7 +136,10 @@ export default function Geolocation({ universities, onViewDegrees }) {
 
       {/* Active Location Info & Error Messages */}
       {error && (
-        <div style={{ background: 'rgba(243, 167, 18, 0.12)', border: '1px solid var(--uca-gold)', padding: '1rem 1.25rem', borderRadius: 'var(--radius-md)', color: 'var(--text-main)', marginBottom: '2rem', fontSize: '0.9rem' }}>
+        <div 
+          role="alert"
+          style={{ background: 'rgba(243, 167, 18, 0.12)', border: '1px solid var(--uca-gold)', padding: '1rem 1.25rem', borderRadius: 'var(--radius-md)', color: 'var(--text-main)', marginBottom: '2rem', fontSize: '0.9rem' }}
+        >
           ⚠️ {error}
         </div>
       )}

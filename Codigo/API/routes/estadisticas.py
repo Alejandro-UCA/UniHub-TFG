@@ -1,13 +1,26 @@
+import logging
 from typing import List
 from fastapi import APIRouter, Depends, Query, BackgroundTasks
 from sqlalchemy.orm import Session
 
-from database.connection import get_db
-from models.models import EstadisticaRendimiento, ErrorCrawler
-from schemas.schemas import EstadisticaRendimientoOut, ErrorCrawlerOut
-from metrics.container_metrics import collect_container_physical_stats
-from database.etl_loader import run_etl
-from security import verify_api_key
+logger = logging.getLogger("unihub_api.estadisticas")
+
+try:
+    from API.config import settings
+    from API.database.connection import get_db
+    from API.models.models import EstadisticaRendimiento, ErrorCrawler, Titulacion, PlanEstudios, Universidad
+    from API.schemas.schemas import EstadisticaRendimientoOut, ErrorCrawlerOut
+    from API.metrics.container_metrics import collect_container_physical_stats
+    from API.database.etl_loader import run_etl
+    from API.security import verify_api_key
+except (ImportError, AttributeError):
+    from config import settings
+    from database.connection import get_db
+    from models.models import EstadisticaRendimiento, ErrorCrawler, Titulacion, PlanEstudios, Universidad
+    from schemas.schemas import EstadisticaRendimientoOut, ErrorCrawlerOut
+    from metrics.container_metrics import collect_container_physical_stats
+    from database.etl_loader import run_etl
+    from security import verify_api_key
 
 router = APIRouter(prefix="/api/v1", tags=["Métricas y Salud del Crawler"])
 
@@ -42,9 +55,8 @@ def get_crawler_checkpoint(api_key: str = Depends(verify_api_key)):
     """
     import os, json
     possible_paths = [
-        "/app/Datos/checkpoint.json",
-        "d:/Proyecto/Codigo/Crawler/Datos/checkpoint.json",
-        "Codigo/Crawler/Datos/checkpoint.json"
+        settings.CHECKPOINT_PATH,
+        os.path.join(settings.CRAWLER_DATA_DIR, "checkpoint.json")
     ]
     checkpoint_data = {
         "universities_downloaded": False,
@@ -78,7 +90,7 @@ def get_crawler_checkpoint(api_key: str = Depends(verify_api_key)):
                         "failed_pdf_downloads": failed
                     }
             except Exception as e:
-                print(f"Error al leer checkpoint.json en {p}: {e}")
+                logger.error(f"Error al leer checkpoint.json en {p}: {e}")
     return checkpoint_data
 
 @router.get("/crawler/errores_json", summary="Obtener registro completo de errores en formato JSON del crawler")
@@ -88,17 +100,16 @@ def get_crawler_errores_json(api_key: str = Depends(verify_api_key)):
     """
     import os, json
     possible_paths = [
-        "/app/Datos/errores_crawler.json",
-        "d:/Proyecto/Codigo/Crawler/Datos/errores_crawler.json",
-        "Codigo/Crawler/Datos/errores_crawler.json"
+        os.path.join(settings.CRAWLER_DATA_DIR, "errores_crawler.json"),
+        "/app/Datos/errores_crawler.json"
     ]
     for p in possible_paths:
         if os.path.exists(p):
             try:
                 with open(p, "r", encoding="utf-8") as f:
                     return json.load(f)
-            except Exception:
-                pass
+            except Exception as e:
+                logger.error(f"Error al leer errores_crawler.json en {p}: {e}")
     return []
 
 @router.get("/api_docs_info", summary="Obtener mapa interactivo de capacidades y documentación Swagger/ReDoc de la API REST")
@@ -200,7 +211,6 @@ def get_estadisticas_cobertura(db: Session = Depends(get_db)):
     e indicadores de sostenibilidad Green IT y eficiencia de caché.
     """
     import os, tempfile
-    from models.models import Titulacion, PlanEstudios, Universidad
     from sqlalchemy import func
 
     total_titulaciones = db.query(Titulacion).count()

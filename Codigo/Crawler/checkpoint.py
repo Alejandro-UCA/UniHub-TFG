@@ -11,7 +11,8 @@ from config import (
     CHECKPOINT_JSON, 
     CACHE_DB_PATH,
     CHECKPOINT_FLUSH_INTERVAL_SECONDS,
-    SQLITE_CONNECT_TIMEOUT
+    SQLITE_CONNECT_TIMEOUT,
+    NEGATIVE_CACHE_TTL_SECONDS,
 )
 
 logger = logging.getLogger("CheckpointManager")
@@ -42,21 +43,19 @@ def atomic_json_dump(data, filepath, max_retries: int = 5):
             with open(temp_filepath, "w", encoding="utf-8") as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
                 f.flush()
+                os.fsync(f.fileno())
             os.replace(temp_filepath, filepath)
             return
         except (PermissionError, OSError) as e:
             if attempt < max_retries - 1:
                 time.sleep(0.05 * (2 ** attempt))
             else:
-                try:
-                    with open(filepath, "w", encoding="utf-8") as f:
-                        json.dump(data, f, ensure_ascii=False, indent=2)
-                finally:
-                    if os.path.exists(temp_filepath):
-                        try:
-                            os.remove(temp_filepath)
-                        except Exception:
-                            pass
+                if os.path.exists(temp_filepath):
+                    try:
+                        os.remove(temp_filepath)
+                    except Exception:
+                        pass
+                raise
 
 def load_json_safe(filepath, default=None, default_val=None):
     """Safely loads JSON from disk; returns default/default_val on missing or corrupt files."""
@@ -66,8 +65,27 @@ def load_json_safe(filepath, default=None, default_val=None):
     try:
         with open(filepath, "r", encoding="utf-8") as f:
             return json.load(f)
-    except Exception:
+    except Exception as e:
+        logger.warning(f"Error loading JSON from {filepath}: {e}")
         return fallback
+
+_STATIC_SELECT_QUERIES = {
+    ("processed_universities", "univ_code"): "SELECT 1 FROM processed_universities WHERE univ_code = ?",
+    ("non_study_plan_pdfs", "pdf_url"): "SELECT 1 FROM non_study_plan_pdfs WHERE pdf_url = ?",
+    ("non_study_plan_hashes", "pdf_sha256"): "SELECT 1 FROM non_study_plan_hashes WHERE pdf_sha256 = ?",
+    ("unreachable_urls", "url"): "SELECT 1 FROM unreachable_urls WHERE url = ?",
+    ("extinct_degrees", "degree_code"): "SELECT 1 FROM extinct_degrees WHERE degree_code = ?",
+    ("failed_pdf_downloads", "url"): "SELECT 1 FROM failed_pdf_downloads WHERE url = ?",
+    ("robots_denied_universities", "univ_code"): "SELECT 1 FROM robots_denied_universities WHERE univ_code = ?",
+}
+
+_STATIC_INSERT_QUERIES = {
+    "processed_universities": "INSERT OR REPLACE INTO processed_universities (univ_code) VALUES (?)",
+    "non_study_plan_pdfs": "INSERT OR REPLACE INTO non_study_plan_pdfs (pdf_url) VALUES (?)",
+    "non_study_plan_hashes": "INSERT OR REPLACE INTO non_study_plan_hashes (pdf_sha256) VALUES (?)",
+    "unreachable_urls": "INSERT OR REPLACE INTO unreachable_urls (url) VALUES (?)",
+    "robots_denied_universities": "INSERT OR REPLACE INTO robots_denied_universities (univ_code) VALUES (?)",
+}
 
 class CheckpointManager:
     """
@@ -78,9 +96,10 @@ class CheckpointManager:
     _lock = threading.RLock()
     _local = threading.local()
 
-    def __init__(self, filepath=CHECKPOINT_JSON, db_path=DB_PATH):
-        self.filepath = filepath
-        self.db_path = db_path
+    def __init__(self, filepath=None, db_path=None):
+        import config
+        self.filepath = filepath or config.CHECKPOINT_JSON
+        self.db_path = db_path or config.CACHE_DB_PATH
         self._last_mtime = 0
         self._last_save_time = 0.0
         self._cached_state = None
@@ -143,9 +162,14 @@ class CheckpointManager:
                 """)
                 conn.execute("""
                     CREATE TABLE IF NOT EXISTS unreachable_urls (
-                        url TEXT PRIMARY KEY
+                        url TEXT PRIMARY KEY,
+                        marked_at TEXT
                     )
                 """)
+                try:
+                    conn.execute("ALTER TABLE unreachable_urls ADD COLUMN marked_at TEXT")
+                except sqlite3.OperationalError:
+                    pass
                 conn.execute("""
                     CREATE TABLE IF NOT EXISTS extinct_degrees (
                         degree_code TEXT PRIMARY KEY,
@@ -239,10 +263,13 @@ class CheckpointManager:
         """Generic check for item presence in SQLite WAL with memory fallback."""
         if not is_valid_value(value):
             return False
+        query = _STATIC_SELECT_QUERIES.get((table, column))
+        if not query:
+            raise ValueError(f"Consulta estática no definida para tabla='{table}', columna='{column}'.")
         with CheckpointManager._lock:
             try:
                 with self._get_connection() as conn:
-                    cur = conn.execute(f"SELECT 1 FROM {table} WHERE {column} = ?", (value,))
+                    cur = conn.execute(query, (value,))
                     if cur.fetchone():
                         return True
             except Exception as e:
@@ -254,6 +281,9 @@ class CheckpointManager:
         """Generic atomic registration of a single item into SQLite WAL and memory list."""
         if not is_valid_value(value):
             return
+        query = _STATIC_INSERT_QUERIES.get(table)
+        if not query:
+            raise ValueError(f"Sentencia INSERT estática no definida para tabla='{table}'.")
         with CheckpointManager._lock:
             if state_key not in self.state or not isinstance(self.state[state_key], list):
                 self.state[state_key] = []
@@ -261,7 +291,7 @@ class CheckpointManager:
                 self.state[state_key].append(value)
             try:
                 with self._get_connection() as conn:
-                    conn.execute(f"INSERT OR REPLACE INTO {table} VALUES (?)", (value,))
+                    conn.execute(query, (value,))
                     conn.commit()
             except Exception as e:
                 logger.warning(f"Error al registrar en tabla {table} en SQLite: {e}")
@@ -299,10 +329,40 @@ class CheckpointManager:
         return self._is_item_registered("non_study_plan_hashes", "pdf_sha256", "non_study_plan_hashes", pdf_sha256)
 
     def is_unreachable_url(self, pdf_url: str) -> bool:
-        return self._is_item_registered("unreachable_urls", "url", "unreachable_urls", pdf_url)
+        if not is_valid_value(pdf_url):
+            return False
+        with CheckpointManager._lock:
+            try:
+                with self._get_connection() as conn:
+                    row = conn.execute("SELECT marked_at FROM unreachable_urls WHERE url = ?", (pdf_url,)).fetchone()
+                    if row:
+                        if not row[0]:
+                            return False
+                        try:
+                            age = time.time() - datetime.fromisoformat(row[0]).timestamp()
+                            return age < NEGATIVE_CACHE_TTL_SECONDS
+                        except (TypeError, ValueError, OSError):
+                            return False
+            except Exception:
+                pass
+            # Sin marca temporal fiable se fuerza un nuevo intento.
+            return False
 
     def mark_unreachable_url(self, pdf_url: str):
-        self._register_simple_item("unreachable_urls", "unreachable_urls", pdf_url, force_save=False)
+        if not is_valid_value(pdf_url):
+            return
+        now = datetime.now().isoformat()
+        with CheckpointManager._lock:
+            items = self.state.setdefault("unreachable_urls", [])
+            if pdf_url not in items:
+                items.append(pdf_url)
+            try:
+                with self._get_connection() as conn:
+                    conn.execute("INSERT OR REPLACE INTO unreachable_urls (url, marked_at) VALUES (?, ?)", (pdf_url, now))
+                    conn.commit()
+            except Exception as exc:
+                logger.warning("Error al registrar URL inalcanzable: %s", exc)
+            self._save(force=False)
 
     def record_pdf_download_failure(self, pdf_url: str, degree_code: str, reason: str):
         if not is_valid_value(pdf_url):
@@ -344,7 +404,7 @@ class CheckpointManager:
 
     def is_degree_up_to_date(self, degree_code: str, current_boe_url: str, current_boe_fecha: str) -> bool:
         if not is_valid_value(current_boe_url) and not is_valid_value(current_boe_fecha):
-            return True
+            return False
 
         record = self.get_degree_record(degree_code)
         if not record:
@@ -519,3 +579,24 @@ class CheckpointManager:
     def flush(self):
         """Forces an immediate atomic disk flush of checkpoint.json."""
         self._save(force=True)
+
+    def close(self):
+        """Closes thread-local SQLite connections and flushes pending state."""
+        try:
+            self.flush()
+        except Exception:
+            pass
+        conns = getattr(self._local, "connections", None)
+        if conns:
+            for conn in list(conns.values()):
+                try:
+                    conn.close()
+                except Exception:
+                    pass
+            conns.clear()
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.close()

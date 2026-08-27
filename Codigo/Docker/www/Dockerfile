@@ -9,14 +9,14 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Copy package files and install dependencies
+# Copiar archivos de dependencias e instalación limpia y determinista
 COPY Codigo/WWW/package*.json ./
-RUN npm ci
+RUN npm ci --prefer-offline --no-audit
 
-# Copy web source code
+# Copiar código fuente del portal web
 COPY Codigo/WWW ./
 
-# Inject Dynamic Configs via ARG & ENV
+# Inyección de configuraciones dinámicas vía ARG & ENV en compilación de Vite
 ARG VITE_API_URL
 ENV VITE_API_URL=$VITE_API_URL
 
@@ -29,23 +29,29 @@ ENV VITE_ADMIN_FEES=$VITE_ADMIN_FEES
 ARG VITE_BECA_MEC_REFERENCE_PRICE
 ENV VITE_BECA_MEC_REFERENCE_PRICE=$VITE_BECA_MEC_REFERENCE_PRICE
 
-# Build production bundle
+# Compilar bundle de producción optimizado
 RUN npm run build
 
 # ------------------------------------------------------------------------------
-# ETAPA 2: Servidor Nginx de producción
+# ETAPA 2: Servidor Web Nginx de Producción
 # ------------------------------------------------------------------------------
 FROM nginx:1.25-alpine AS production
 
-# Remove default nginx static assets
+# Limpiar archivos estáticos por defecto de Nginx
 RUN rm -rf /usr/share/nginx/html/*
 
-# Copy custom Nginx configuration
+# Copiar configuración personalizada y securizada de Nginx
 COPY Codigo/Docker/www/nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copy compiled SPA static assets from builder stage
+# Copiar artefactos estáticos compilados desde la etapa builder
 COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Asegurar permisos adecuados de lectura
+RUN chmod -R 755 /usr/share/nginx/html
 
 EXPOSE 80
 
+STOPSIGNAL SIGQUIT
+
 CMD ["nginx", "-g", "daemon off;"]
+

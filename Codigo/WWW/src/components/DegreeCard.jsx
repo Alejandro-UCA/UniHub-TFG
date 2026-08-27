@@ -3,6 +3,8 @@ import { CheckCircle2, ChevronRight } from 'lucide-react';
 import usageTracker from '../analytics/usageTracker';
 
 export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
+  if (!degree) return null;
+
   const isMaster = (degree.nivel_academico || '').toLowerCase().includes('máster') || (degree.nivel_academico || '').toLowerCase().includes('master');
   const isDoctor = (degree.nivel_academico || '').toLowerCase().includes('doctor') || 
                    (degree.nivel_academico || '').toLowerCase().includes('99/2011') ||
@@ -23,8 +25,12 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
                     (degree.estado || '').toLowerCase().includes('no vigente');
 
   const handleClick = () => {
-    usageTracker.trackDegreeView(degree.codigo_estudio, degree.titulo);
-    onSelectDegree(degree);
+    if (degree.codigo_estudio) {
+      usageTracker.trackDegreeView(degree.codigo_estudio, degree.titulo || 'Titulación');
+    }
+    if (onSelectDegree) {
+      onSelectDegree(degree);
+    }
   };
 
   const handleKeyDown = (e) => {
@@ -34,11 +40,19 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
     }
   };
 
+  // Safe numerical calculations for pricing
+  const numAnnual = parseFloat(degree.precio_estimado_anual);
+  const numEcts = parseFloat(degree.precio_credito_ects);
+  const hasValidEcts = !isNaN(numEcts) && numEcts > 0;
+  const hasValidAnnual = !isNaN(numAnnual) && numAnnual > 0;
+  const estimatedPrice = hasValidAnnual ? Math.round(numAnnual) : (hasValidEcts ? Math.round(numEcts * 60 + 45) : null);
+
   return (
     <div 
       className="glass-panel" 
       tabIndex={0}
       role="article"
+      aria-label={`Titulación: ${degree.titulo || 'Sin título'}`}
       onKeyDown={handleKeyDown}
       style={{
         padding: '1.35rem',
@@ -82,7 +96,7 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
         </div>
 
         <h3 style={{ fontSize: '1.05rem', fontWeight: 700, lineHeight: 1.35, marginBottom: '0.5rem' }}>
-          {degree.titulo}
+          {degree.titulo || 'Titulación Oficial'}
         </h3>
 
         {degree.universidad_nombre && (
@@ -91,8 +105,8 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
           </p>
         )}
 
-        {/* ECTS Credit Price & Estimated Annual Tuition Badge (Phase 1 Part 3 & Phase 2) */}
-        {(degree.precio_credito_ects || degree.precio_estimado_anual) && (
+        {/* ECTS Credit Price & Estimated Annual Tuition Badge */}
+        {estimatedPrice !== null && (
           <div style={{
             background: 'rgba(16, 185, 129, 0.08)',
             border: '1px solid rgba(16, 185, 129, 0.25)',
@@ -104,8 +118,8 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.2rem' }}>
               <span style={{ color: 'var(--success)', fontWeight: 700 }}>💶 1ª Matrícula:</span>
               <span style={{ fontWeight: 800, color: 'var(--text-main)' }}>
-                ~{Math.round(parseFloat(degree.precio_estimado_anual) || ((parseFloat(degree.precio_credito_ects) || 0) * 60 + 45))} €/año
-                {degree.precio_credito_ects && (
+                ~{estimatedPrice} €/año
+                {hasValidEcts && (
                   <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontWeight: 400, marginLeft: '0.35rem' }}>
                     ({degree.precio_credito_ects} €/c)
                   </span>
@@ -145,7 +159,9 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
         </div>
 
         <button 
+          type="button"
           onClick={handleClick}
+          aria-label={`Ver ${isDoctor ? 'Estructura Investigadora' : 'Plan de Estudios'} de ${degree.titulo || 'esta titulación'}`}
           className="btn btn-secondary" 
           style={{ padding: '0.4rem 0.85rem', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '0.25rem' }}
         >

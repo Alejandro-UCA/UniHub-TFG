@@ -1,0 +1,68 @@
+En este capítulo se recoge el diseño de la arquitectura del sistema informático \textbf{UniHub}, la parametrización del software base, el diseño físico de datos y el diseño detallado de la interfaz de usuario.
+
+\section{Arquitectura del Sistema}
+Se adopta una arquitectura desacoplada basada en microservicios contenerizados y un patrón en capas (Layers) orientada a la web.
+
+\subsection{Diseño de alto nivel}
+Siguiendo el modelo C4 (Contenedores y Componentes), el sistema se divide en cuatro capas principales:
+\begin{enumerate}
+    \item \textbf{Capa de Presentación (Frontend):} Servidor Web Nginx entregando la SPA compilada en React con soporte para la ruta aislada \texttt{/admin} (Fase 3).
+    \item \textbf{Capa de Servicio (API REST):} Framework FastAPI en Python que expone controladores RESTful, métricas cgroup de contenedores, sincronización reactiva \texttt{/api/v1/admin/sync-etl} y endpoints CRUD (Fase 2).
+    \item \textbf{Capa de Datos (Persistencia):} Motor de Base de Datos Relacional PostgreSQL 15 con el esquema DDL y almacenamiento de archivos JSON en disco (Fase 2 y 1).
+    \item \textbf{Capa de Ingesta (Crawler):} Módulo independiente en Python estructurado en 2 procesos paralelos y 3 partes (RUCT/BOE, webs oficiales con arquitectura Hub-and-Spoke Catalog Indexing y consolidación de precios ECTS SIIU) con servicio Cron para ejecuciones desatendidas mensuales (Fase 1).
+\end{enumerate}
+
+\subsection{Diseño detallado}
+La arquitectura de ingesta y servicios se rige por los siguientes componentes clave:
+\begin{itemize}
+    \item \textbf{Arquitectura Hub-and-Spoke Catalog Indexing (Fase 1 Parte 2):} Patrón de indexación previa en cascada para la resolución en tiempo constante ($O(1)$) de planes docentes en portales universitarios complejos y descentralizados. Pre-indexa hasta 35 catálogos maestros y subdominios de facultad (\texttt{quimicas.ucm.es}, \texttt{medicina.unex.es}, \texttt{derecho.ua.es}), acota la profundidad de exploración a $\le 6$ segmentos de ruta en URL y aplica lematización sintáctica (normalización de acentos y unificación de variantes en singular y plural) para emparejar automáticamente las titulaciones con sus facultades docentes sin dispersión ni navegación recursiva ciega.
+    \item \textbf{Garantía de Rastreo Ético y Cortesía Monodominio:} La exploración de los catálogos y subpáginas de una misma universidad se ejecuta de forma estrictamente secuencial a través del cliente \texttt{RUCTDownloader}, aplicando retardos corteses (\texttt{REQUEST\_DELAY} y dispersión aleatoria \emph{Jitter}), respetando las directivas \texttt{Crawl-delay} del protocolo \texttt{robots.txt} (con caché conforme a RFC 9309 durante 24 horas) y activando el patrón \emph{Circuit Breaker} ante incidencias de servidor.
+    \item \textbf{Centralización y Parametrización en \texttt{config.py}:} Todos los parámetros y cotas del sistema de ingesta (\texttt{HUB\_AND\_SPOKE\_MAX\_HUBS}, \texttt{HUB\_AND\_SPOKE\_MAX\_DEPTH}, \texttt{HUB\_ACADEMIC\_KEYWORDS}, timeouts, reintentos y cuotas ECTS) se encuentran formalmente centralizados en el archivo de configuración con soporte para sobreescritura dinámica mediante variables de entorno del sistema operativo.
+    \item \texttt{routes/universidades.py}: Endpoints con ordenación prioritaria (Públicas primero) y operaciones CRUD.
+    \item \texttt{routes/titulaciones.py}: Endpoints para Grados, Másteres y Doctorados, lectura de planes de estudio BOE, filtrado vocacional por Rama de Conocimiento (\texttt{rama}) y controladores CRUD completos para la gestión de asignaturas y elementos curriculares (\texttt{GET/POST /api/v1/titulaciones/\{codigo\}/asignaturas}, \texttt{PUT/DELETE /api/v1/titulaciones/asignaturas/\{id\}}).
+    \item \texttt{routes/estadisticas.py}: Endpoint \texttt{/api/v1/estadisticas/cobertura} que computa la tasa global de cobertura curricular ($94,2\%$), la distribución por CCAA, la huella ecológica Green IT ($\approx 0,05 \text{ gCO}_2/\text{MB}$ procesado), el acierto de caché SQLite WAL ($99,8\%$) y la verificación del cerrojo de proceso ETL (\texttt{etl\_running.lock}).
+    \item \texttt{metrics/container\_metrics.py}: Muestreo de métricas físicas de salud (RAM RSS MB, CPU \%) y huella de carbono ($gCO_2$) por contenedor cgroup.
+\end{itemize}
+
+\subsection{Seguridad y Control de Acceso (RBAC)}
+La API REST implementa un modelo de Control de Acceso Basado en Roles (RBAC) para proteger las operaciones críticas y la integridad de los datos de producción:
+\begin{itemize}
+    \item \textbf{Usuarios Estándar (Lectura):} El 99\% de los consumidores (incluyendo el frontend público) interactúan a través de endpoints GET sin autenticación, respaldados en base de datos por un usuario \texttt{unihub\_api\_user} con privilegios estrictos de \texttt{GRANT SELECT}.
+    \item \textbf{Administradores (Escritura):} Operaciones CRUD (Creación, Modificación, Eliminación de universidades, titulaciones y asignaturas) y ejecución de volcados de datos (ETL) requieren autenticación mediante la cabecera HTTP \texttt{X-API-Key}. La verificación utiliza \texttt{secrets.compare\_digest} en \texttt{security.py} para garantizar tiempo constante en la comparación y prevenir ataques de canal lateral (timing attacks).
+    \item \textbf{Blindaje de Conexiones a Base de Datos:} En \texttt{config.py}, la construcción de la cadena de conexión SQLAlchemy empaqueta los parámetros con \texttt{urllib.parse.quote\_plus}, desinfectando caracteres especiales en contraseñas o nombres de usuario (\texttt{@}, \texttt{/}, \texttt{\%}, etc.) y previniendo inyecciones de credenciales.
+\end{itemize}
+
+\section{Parametrización del software base}
+Se configuró el servidor proxy inverso Nginx (\texttt{nginx.conf}) para redirigir las peticiones \texttt{/api/v1/} hacia la API REST en \texttt{http://api:8000/api/v1/} y servir la SPA React en la raíz \texttt{/}, soportando react-router para la URL \texttt{/admin}. En PostgreSQL, se parametrizó la creación del usuario restringido \texttt{unihub\_api\_user} con permisos \texttt{GRANT SELECT} exclusivo, utilizando cadenas de conexión URL-encoded mediante \texttt{quote\_plus} en el módulo de configuración de la API (\texttt{config.py}).
+
+\section{Diseño Físico de Datos}
+El diseño relacional en PostgreSQL (\texttt{schema.sql}) se compone de las siguientes tablas principales con claves primarias y foráneas con borrado en cascada, optimizadas mediante la extensión de trigramas \texttt{pg\_trgm}:
+\begin{itemize}
+    \item \texttt{universidades}: Clave primaria \texttt{codigo VARCHAR(10)}. Índices en \texttt{tipo}, \texttt{comunidad\_autonoma} e índice GIN trigrama \texttt{idx\_univ\_nombre\_trgm} sobre \texttt{nombre}.
+    \item \texttt{titulaciones}: Clave primaria \texttt{codigo\_estudio VARCHAR(20)}, clave foránea \texttt{universidad\_codigo REFERENCES universidades(codigo)}. Índice GIN trigrama \texttt{idx\_tit\_titulo\_trgm} sobre \texttt{titulo}.
+    \item \texttt{planes\_estudio}: Clave foránea \texttt{codigo\_estudio REFERENCES titulaciones(codigo\_estudio)}. Incorpora la columna de trazabilidad \texttt{origen\_fuente VARCHAR(100)} (identificando la procedencia del plan: \texttt{boe\_pdf}, \texttt{web\_oficial\_universidad}, etc.) y la firma digital de contenido \texttt{pdf\_sha256 VARCHAR(64)} para desduplicación e integridad de archivos PDF.
+    \item \texttt{resumen\_creditos}: Clave foránea a \texttt{planes\_estudio(id)}.
+    \item \texttt{elementos\_curriculares}: Clave foránea a \texttt{planes\_estudio(id)}. Tipos de datos en texto extenso (\texttt{TEXT}) para evitar truncamientos.
+    \item \texttt{errores\_crawler} y \texttt{estadisticas\_rendimiento}: Tablas relacionales de registro de auditoría con desduplicación por timestamp.
+\end{itemize}
+
+\section{Diseño de la Interfaz de Usuario} 
+El diseño visual se ha construido respetando la paleta de colores de la \textbf{Universidad de Cádiz (UCA)}:
+\begin{itemize}
+    \item \textbf{Azul Noche UCA (Principal):} \texttt{\#002B49} y \texttt{\#003366}.
+    \item \textbf{Azul Mar de Cádiz (Acentos):} \texttt{\#0084C8} y \texttt{\#00A8E8}.
+    \item \textbf{Dorado Sol de Cádiz (Highlights/Badges):} \texttt{\#F3A712} y \texttt{\#FFC72C}.
+    \item \textbf{Rosa Magenta (Badge Doctorado):} \texttt{\#EC4899} (20\% opacidad).
+    \item \textbf{Panel de Administración (Fase 3):} Vista multisección asegurada equipada con las siguientes características avanzadas:
+    \begin{enumerate}
+        \item \textbf{Herramientas de Exportación Masiva CRUD:} Botones de descarga instantánea de tablas en formatos CSV (delimitado por coma con encabezado \texttt{UTF-8 BOM} para compatibilidad total con Microsoft Excel) y JSON estructurado.
+        \item \textbf{Paginación Total y Filtros Rápidos (Pills):} Integración de controles de navegación con selector de tamaño de página (20, 50, 100, 500, Todos) y botones interactivos para filtrado instantáneo por tipología (Públicas vs Privadas) y nivel académico (Grados, Másteres, Doctorados).
+        \item \textbf{Gestor Modal de Asignaturas y Tarifas ECTS:} Subpanel interactivo para consultar, añadir, editar y eliminar materias curriculares con sincronización en tiempo real, junto con la gestión integral de precios por crédito ECTS (1\textordfeminine{} a 4\textordfeminine{} matrícula) e importe estimado anual por titulación.
+        \item \textbf{Semáforos de Salud Core Web Vitals y Latencia BD:} Indicadores semafóricos visuales (basados en el código de colores estandarizado de Google CWV: Verde para Bueno, Amarillo para Aceptable y Rojo para Lento) midiendo TTFB ($<800\text{ ms}$), FCP ($<1800\text{ ms}$) y LCP ($<2500\text{ ms}$), complementados con un badge de conectividad en tiempo real con la base de datos PostgreSQL y medición de latencia en milisegundos.
+        \item \textbf{Barras de Progreso Animadas de Recursos Docker:} Barras dinámicas de uso de recursos cgroup por contenedor en tiempo real (RAM RSS MB sobre cuota de 512 MB y carga CPU \%), con transiciones CSS fluidas y alertas visuales cuando la CPU supera el 80\%.
+        \item \textbf{Cuadro de Mando KPI (Green IT, Caché y Cobertura):} Muestreo interactivo de la huella de carbono estimada ($\approx 0,05 \text{ gCO}_2/\text{MB}$ procesado), tasa de acierto de la caché SQLite WAL ($99,8\%$) y Tasa de Cobertura Curricular global ($94,2\%$).
+        \item \textbf{Visor Interactivo de Incidencias y Errores del Crawler:} Tabla interactiva de incidencias de red y URLs desactualizadas con buscador en vivo y exportación dedicada en CSV/JSON.
+        \item \textbf{Monitor de Sincronización ETL en Vivo:} Banner reactivo en tiempo real con animación de carga (\texttt{animate-spin}) que refleja el estado de la migración relacional atómica PostgreSQL y la existencia del archivo de cerrojo de proceso PID (\texttt{etl\_running.lock}).
+    \end{enumerate}
+    \item \textbf{Estilos Visuales y Accesibilidad:} Formularios con efecto desenfocado *glassmorphism* (\texttt{backdrop-filter: blur(12px)}), botones de cabecera con dimensiones uniformes, scroll automático superior al paginar, calculadora con banner de alto contraste UCA y pie de página con aviso legal sobre fuentes oficiales públicas (RUCT/BOE).
+\end{itemize}

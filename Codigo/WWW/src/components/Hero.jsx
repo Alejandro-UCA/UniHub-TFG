@@ -13,6 +13,13 @@ export default function Hero({ onSearch, setActiveTab, totalUnivs, totalDegrees 
     setActiveTab('titulaciones');
   };
 
+  const handleGeoKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setActiveTab('cercania');
+    }
+  };
+
   return (
     <section style={{
       background: 'linear-gradient(135deg, var(--uca-navy) 0%, var(--uca-blue) 60%, #004B87 100%)',
@@ -77,6 +84,7 @@ export default function Hero({ onSearch, setActiveTab, totalUnivs, totalDegrees 
           <input 
             type="text" 
             placeholder="Busca titulación (ej. Derecho, Inteligencia Artificial, Informática...)"
+            aria-label="Buscar titulaciones oficiales por nombre"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             style={{
@@ -89,7 +97,7 @@ export default function Hero({ onSearch, setActiveTab, totalUnivs, totalDegrees 
               padding: '0.75rem 0.5rem'
             }}
           />
-          <button type="submit" className="btn btn-primary" style={{ padding: '0.75rem 1.75rem', fontSize: '0.95rem' }}>
+          <button type="submit" aria-label="Buscar titulaciones" className="btn btn-primary" style={{ padding: '0.75rem 1.75rem', fontSize: '0.95rem' }}>
             Buscar
           </button>
         </form>
@@ -113,9 +121,13 @@ export default function Hero({ onSearch, setActiveTab, totalUnivs, totalDegrees 
           </div>
 
           <div 
+            role="button"
+            tabIndex={0}
+            aria-label="Ir a búsqueda por cercanía geográfica"
             className="glass-panel" 
             style={{ padding: '1.25rem', background: 'rgba(255, 255, 255, 0.08)', borderColor: 'rgba(255, 255, 255, 0.15)', cursor: 'pointer' }}
             onClick={() => setActiveTab('cercania')}
+            onKeyDown={handleGeoKeyDown}
           >
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', color: 'var(--uca-sun)', marginBottom: '0.25rem' }}>
               <MapPin size={22} />

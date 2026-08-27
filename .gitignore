@@ -22,9 +22,11 @@ Codigo/Crawler/Datos/*.json
 Codigo/Crawler/Datos/planes_estudio/
 Codigo/Crawler/Datos/Planes/
 Codigo/Crawler/Datos/Temp/
+Codigo/Crawler/Datos/http_cache/
 Codigo/Crawler/Datos/auditoria_exhaustiva/
 Codigo/Crawler/temp_pdfs/
 Codigo/API/Datos/
+Codigo/Pruebas/reporte_*.json
 *.sqlite3*
 *.db*
 
@@ -35,14 +37,13 @@ Codigo/API/Datos/
 
 # OS
 Thumbs.db
-Desktop.ini
-
-# Documentation
-*.tex
-*.pdf
+# LaTeX build artifacts
 *.aux
 *.lof
 *.lot
 *.out
 *.toc
 *.log
+*.fls
+*.fdb_latexmk
+*.synctex.gz

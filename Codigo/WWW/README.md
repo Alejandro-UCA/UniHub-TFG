@@ -1,16 +1,65 @@
-# React + Vite
+# UniHub Web — Portal Web Interactivo y Calculadora (Fase 3)
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+**UniHub Web** es una Single Page Application (SPA) construida con **React 18** y **Vite 8** que proporciona acceso interactivo al catálogo oficial de educación superior en España, simulación financiera de matrícula universitaria, geolocalización de campus y panel de control administrativo.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Características Principales
 
-## React Compiler
+1. **Buscador Vocacional y Filtros Avanzados**:
+   - Búsqueda en tiempo real por titulación, universidad, comunidad autónoma, provincia, tipo de centro (público/privado) y **Rama de Conocimiento** (*Ciencias Sociales y Jurídicas, Ingeniería y Arquitectura, Ciencias de la Salud, Artes y Humanidades, Ciencias*).
+   - Enrutamiento SPA sincronizado con la **History API** del navegador (`popstate` / `pushState`) para navegación fluida y soporte de botones atrás/adelante.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2. **Visualizador Curricular Oficial ([`PlanModal.jsx`](file:///d:/Proyecto/Codigo/WWW/src/components/PlanModal.jsx))**:
+   - Desglose interactivo de planes de estudio organizados por curso académico y cuatrimestre (`1C`, `2C`, `Anual`).
+   - Resaltado visual de **Menciones Curriculares e Itinerarios Oficiales** (`[Mención en...]`).
+   - Tarjeta específica para programas de doctorado bajo el **RD 99/2011** (líneas de investigación y tutela académica anual).
 
-## Expanding the Oxlint configuration
+3. **Simulador Financiero "Calcula tu Matrícula" ([`TuitionCalculator.jsx`](file:///d:/Proyecto/Codigo/WWW/src/components/TuitionCalculator.jsx))**:
+   - Cómputo exacto basado en decretos oficiales de precios públicos autonómicos (SIIU) y aranceles privados.
+   - Multiplicadores por repetición de asignatura ($1.0\times, 1.5\times, 3.0\times, 4.5\times$).
+   - Sistema completo de exenciones y bonificaciones sociales: **Beca MEC**, **Familia Numerosa**, **Discapacidad $\ge 33\%$**, **Bonificación 99\% CCAA** y **Matrículas de Honor**.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+4. **Geolocalización y Cercanía ([`Geolocation.jsx`](file:///d:/Proyecto/Codigo/WWW/src/components/Geolocation.jsx))**:
+   - Cálculo de distancias mediante fórmula Haversine a más de 50 capitales y ciudades españolas o mediante GPS del navegador.
+
+5. **Banner Interactivo de Estado de Conexión**:
+   - Detección automática en tiempo real de caídas del backend o pérdida de conectividad, con alerta visual y botón de reintento inmediato.
+
+6. **Panel de Control Administrativo ([`AdminDashboard.jsx`](file:///d:/Proyecto/Codigo/WWW/src/components/AdminDashboard.jsx))**:
+   - Acceso asegurado mediante token `X-API-Key`.
+   - Exportación masiva CSV (con UTF-8 BOM y desinfección anti CSV Injection) y JSON.
+   - Semáforos Core Web Vitals (LCP, FID, CLS), telemetría de recursos Docker cgroup (RAM RSS / CPU %) y monitor de sincronización ETL en vivo.
+
+---
+
+## 🛠️ Stack Tecnológico
+
+- **Framework**: React 18
+- **Bundler & Dev Server**: Vite 8
+- **Linter & Análisis Estático**: Oxlint
+- **Iconografía**: Lucide React
+- **Estilos**: CSS3 moderno con variables corporativas de la Universidad de Cádiz (UCA), diseño *glassmorphism* y scrollbars estándar multiplataforma.
+- **Servidor Web Producción**: Nginx 1.25-alpine (Dockerizado multi-etapa).
+
+---
+
+## 📦 Scripts Disponibles
+
+```bash
+# Instalar dependencias
+npm install
+
+# Iniciar servidor de desarrollo local (HMR)
+npm run dev
+
+# Compilar para producción
+npm run build
+
+# Previsualizar el build de producción
+npm run preview
+
+# Ejecutar análisis de código con Oxlint
+npm run lint
+```
+

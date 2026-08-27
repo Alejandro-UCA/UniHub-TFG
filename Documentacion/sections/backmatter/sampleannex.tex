@@ -1,0 +1,41 @@
+% ------------------------------------------------------------------------------
+% Anexo C: Glosario de Términos y Acrónimos Técnicos
+% ------------------------------------------------------------------------------
+
+Este anexo recopila y define los principales conceptos técnicos, patrones de diseño arquitectónico y acrónimos utilizados a lo largo del desarrollo de la plataforma \textbf{UniHub}.
+
+\section{Glosario de Conceptos y Patrones de Diseño}
+
+\begin{description}
+    \item[\textit{AbortController}:] Interfaz estándar de la API Fetch del navegador que permite abortar y cancelar peticiones HTTP asíncronas en curso. En UniHub se utiliza para cancelar peticiones obsoletas en búsquedas con \emph{debounce} y evitar condiciones de carrera (\emph{race conditions}) en la actualización del estado.
+
+    \item[\textit{Bulk Save / Bulk Insert}:] Estrategia de inserción masiva a nivel de ORM (SQLAlchemy) y base de datos que agrupa miles de registros en una única transacción e instrucción SQL compuesta, reduciendo el tiempo de carga ETL de 15 segundos a menos de 1,5 segundos.
+
+    \item[\textit{Circuit Breaker (Cortocircuito)}:] Patrón de diseño de resiliencia y estabilidad que detecta fallos consecutivos de conexión hacia servidores remotos (RUCT/BOE). Si se superan 10 errores seguidos, abre el circuito pausando el proceso durante 5 minutos para permitir la recuperación del servidor destino, abortando la universidad tras 15 minutos acumulados de caída continuada.
+
+    \item[\textit{Code Splitting}:] Técnica de optimización web soportada por Vite y Webpack que divide el bundle de JavaScript en múltiples fragmentos más pequeños que se descargan bajo demanda mediante importaciones dinámicas (\texttt{React.lazy}), acelerando el tiempo de carga inicial de la página.
+
+    \item[\textit{Core Web Vitals (CWV)}:] Conjunto de métricas estandarizadas por Google (LCP, INP, CLS) para cuantificar la experiencia del usuario en términos de velocidad de renderizado, interactividad y estabilidad visual.
+
+    \item[\textit{ErrorBoundary}:] Patrón de componente React que intercepta excepciones JavaScript no controladas en cualquier parte de su subárbol de componentes hijos, registrando el error y mostrando una interfaz gráfica de contingencia sin romper toda la aplicación.
+
+    \item[\textit{Green IT (Tecnologías de la Información Verdes)}:] Enfoque de ingeniería de software orientado a minimizar la huella de carbono y el consumo energético de la infraestructura computacional. En UniHub se modela a través de la telemetría de procesamiento ($\approx 0{,}05\text{ gCO}_2/\text{MB}$) y el aprovechamiento de caché ($99{,}8\%$ de aciertos).
+
+    \item[\textit{Healthcheck}:] Mecanismo de sondeo periódico configurado en Docker Compose que monitoriza el estado de operatividad de un contenedor (ej. PostgreSQL respondiendo a \texttt{pg\_isready}) antes de permitir que servicios dependientes (como la API o el Crawler) comiencen a emitir peticiones.
+
+    \item[\textit{Multi-stage build}:] Método de construcción de imágenes Docker que utiliza múltiples directivas \texttt{FROM} intermedias para compilar dependencias pesadas y copiar únicamente los binarios estáticos finales a una imagen mínima en producción (\texttt{alpine}), reduciendo el peso de cientos de megabytes a menos de 25 MB.
+
+    \item[\textit{Patrón Productor-Consumidor}:] Arquitectura de concurrencia desacoplada donde un proceso productor (descarga de red multihilo I/O) introduce tareas en una cola thread-safe (\texttt{multiprocessing.Queue}) y un conjunto de procesos consumidores (trabajadores CPU) procesan el parseo sintáctico de los PDFs en paralelo.
+
+    \item[\textit{React.lazy y Suspense}:] APIs nativas de React para carga perezosa de componentes que permiten diferir la importación de vistas pesadas (como el panel de administración o el simulador financiero) hasta el momento exacto en que el usuario navega a dichas secciones.
+
+    \item[\textit{Robots Exclusion Protocol (RFC 9309)}:] Estándar web que regula las directivas de acceso de los rastreadores automatizados mediante el archivo \texttt{robots.txt} y el parámetro de cortesía \texttt{Crawl-delay}.
+
+    \item[\textit{SQLite WAL (Write-Ahead Logging)}:] Modo de diario transaccional de SQLite implementado en \texttt{unihub\_cache.sqlite3} que permite lecturas concurrentes instantáneas ($<0{,}1\text{ ms}$) sin ser bloqueadas por operaciones de escritura simultáneas.
+
+    \item[\textit{UseMemo y UseCallback}:] Ganchos (\emph{hooks}) de optimización en React que memorizan cálculos computacionalmente pesados y referencias de funciones para prevenir re-renderizados innecesarios del árbol del DOM.
+\end{description}
+
+  
+
+

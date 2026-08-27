@@ -22,17 +22,22 @@ export default function Pagination({ currentPage, totalItems, itemsPerPage, onPa
   };
 
   return (
-    <div className="glass-panel" style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      flexWrap: 'wrap',
-      gap: '1rem',
-      padding: '0.85rem 1.25rem',
-      marginTop: '1.75rem'
-    }}>
+    <nav 
+      role="navigation"
+      aria-label="Paginación de resultados"
+      className="glass-panel" 
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        gap: '1rem',
+        padding: '0.85rem 1.25rem',
+        marginTop: '1.75rem'
+      }}
+    >
       {/* Items Count Summary */}
-      <div style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
+      <div style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }} aria-live="polite">
         Mostrando <strong style={{ color: 'var(--text-main)' }}>{startItem}-{endItem}</strong> de <strong style={{ color: 'var(--text-main)' }}>{totalItems}</strong> resultados
       </div>
 
@@ -55,6 +60,8 @@ export default function Pagination({ currentPage, totalItems, itemsPerPage, onPa
       {/* Navigation Buttons */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
         <button
+          type="button"
+          aria-label="Ir a página anterior"
           className="btn btn-outline"
           style={{ padding: '0.4rem 0.65rem', borderRadius: '8px', fontSize: '0.85rem' }}
           disabled={currentPage === 1}
@@ -68,6 +75,8 @@ export default function Pagination({ currentPage, totalItems, itemsPerPage, onPa
         </span>
 
         <button
+          type="button"
+          aria-label="Ir a página siguiente"
           className="btn btn-outline"
           style={{ padding: '0.4rem 0.65rem', borderRadius: '8px', fontSize: '0.85rem' }}
           disabled={currentPage >= totalPages}
@@ -76,6 +85,6 @@ export default function Pagination({ currentPage, totalItems, itemsPerPage, onPa
           Siguiente <ChevronRight size={16} />
         </button>
       </div>
-    </div>
+    </nav>
   );
 }

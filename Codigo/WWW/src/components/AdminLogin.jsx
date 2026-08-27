@@ -24,8 +24,10 @@ export default function AdminLogin({ onLoginSuccess }) {
     try {
       // Validar la clave de administrador directamente contra el backend
       await apiService.verifyAdminAuth(cleanKey);
-      sessionStorage.setItem('adminApiKey', cleanKey);
-      sessionStorage.setItem('adminUser', cleanUser);
+      if (typeof sessionStorage !== 'undefined') {
+        sessionStorage.setItem('adminApiKey', cleanKey);
+        sessionStorage.setItem('adminUser', cleanUser);
+      }
       onLoginSuccess();
     } catch (err) {
       console.warn('Fallo en autenticación de administrador:', err.message);
@@ -54,7 +56,7 @@ export default function AdminLogin({ onLoginSuccess }) {
           <div style={{ display: 'inline-flex', padding: '0.75rem', background: 'rgba(255, 255, 255, 0.15)', borderRadius: '12px', color: 'var(--uca-sun)', marginBottom: '0.85rem' }}>
             <ShieldCheck size={32} />
           </div>
-          <h3 style={{ fontSize: '1.4rem', fontWeight: 800 }}>Acceso de Administrador</h3>
+          <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#FFFFFF', margin: 0 }}>Acceso de Administrador</h2>
           <p style={{ fontSize: '0.85rem', color: '#CBD5E1', marginTop: '0.35rem' }}>UniHub - Panel Interno de Rendimiento</p>
         </div>
 
@@ -65,18 +67,21 @@ export default function AdminLogin({ onLoginSuccess }) {
           </div>
 
           {error && (
-            <div style={{
-              background: 'rgba(239, 68, 68, 0.1)',
-              border: '1px solid rgba(239, 68, 68, 0.3)',
-              padding: '0.85rem 1rem',
-              borderRadius: 'var(--radius-sm)',
-              color: '#EF4444',
-              fontSize: '0.85rem',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              marginBottom: '1.25rem'
-            }}>
+            <div 
+              role="alert"
+              style={{
+                background: 'rgba(239, 68, 68, 0.1)',
+                border: '1px solid rgba(239, 68, 68, 0.3)',
+                padding: '0.85rem 1rem',
+                borderRadius: 'var(--radius-sm)',
+                color: '#EF4444',
+                fontSize: '0.85rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                marginBottom: '1.25rem'
+              }}
+            >
               <AlertCircle size={18} />
               <span>{error}</span>
             </div>
@@ -84,13 +89,15 @@ export default function AdminLogin({ onLoginSuccess }) {
 
           {/* Username Input */}
           <div style={{ marginBottom: '1.25rem' }}>
-            <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '0.4rem' }}>
+            <label htmlFor="admin-username" style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '0.4rem' }}>
               Usuario Administrador
             </label>
             <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
               <User size={18} color="var(--text-light)" style={{ position: 'absolute', left: '12px' }} />
               <input 
+                id="admin-username"
                 type="text"
+                autoComplete="username"
                 placeholder="Introduce tu usuario"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
@@ -111,13 +118,15 @@ export default function AdminLogin({ onLoginSuccess }) {
 
           {/* Password Input */}
           <div style={{ marginBottom: '1.5rem' }}>
-            <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '0.4rem' }}>
+            <label htmlFor="admin-password" style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '0.4rem' }}>
               Clave de Administrador (API Key)
             </label>
             <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
               <Lock size={18} color="var(--text-light)" style={{ position: 'absolute', left: '12px' }} />
               <input 
+                id="admin-password"
                 type="password"
+                autoComplete="current-password"
                 placeholder="Introduce tu clave de administrador"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}

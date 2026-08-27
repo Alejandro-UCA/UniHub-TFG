@@ -3,10 +3,16 @@ from fastapi import APIRouter, Depends, HTTPException, Query, status, Response
 from sqlalchemy.orm import Session
 from sqlalchemy import case
 
-from database.connection import get_db, get_admin_db
-from models.models import Universidad, Titulacion
-from schemas.schemas import UniversidadOut, UniversidadCreate, UniversidadUpdate, TitulacionOut
-from security import verify_api_key
+try:
+    from API.database.connection import get_db, get_admin_db
+    from API.models.models import Universidad, Titulacion
+    from API.schemas.schemas import UniversidadOut, UniversidadCreate, UniversidadUpdate, TitulacionOut
+    from API.security import verify_api_key
+except (ImportError, AttributeError):
+    from database.connection import get_db, get_admin_db
+    from models.models import Universidad, Titulacion
+    from schemas.schemas import UniversidadOut, UniversidadCreate, UniversidadUpdate, TitulacionOut
+    from security import verify_api_key
 
 router = APIRouter(prefix="/api/v1/universidades", tags=["Universidades"])
 
@@ -21,12 +27,12 @@ def list_universidades(
     db: Session = Depends(get_db)
 ):
     query = db.query(Universidad)
-    if tipo:
-        query = query.filter(Universidad.tipo.ilike(f"%{tipo}%"))
-    if ccaa:
-        query = query.filter(Universidad.comunidad_autonoma.ilike(f"%{ccaa}%"))
-    if nombre:
-        query = query.filter(Universidad.nombre.ilike(f"%{nombre}%"))
+    if tipo and tipo.strip():
+        query = query.filter(Universidad.tipo.ilike(f"%{tipo.strip()}%"))
+    if ccaa and ccaa.strip():
+        query = query.filter(Universidad.comunidad_autonoma.ilike(f"%{ccaa.strip()}%"))
+    if nombre and nombre.strip():
+        query = query.filter(Universidad.nombre.ilike(f"%{nombre.strip()}%"))
         
     query = query.order_by(
         case((Universidad.tipo.ilike("%públic%"), 0), (Universidad.tipo.ilike("%public%"), 0), else_=1),
@@ -41,19 +47,20 @@ def list_universidades(
 
 @router.get("/{codigo}", response_model=UniversidadOut, summary="Obtener detalle de una universidad")
 def get_universidad(codigo: str, db: Session = Depends(get_db)):
-    univ = db.query(Universidad).filter(Universidad.codigo == codigo.zfill(3)).first()
+    clean_code = codigo.strip()
+    univ = db.query(Universidad).filter(Universidad.codigo == clean_code.zfill(3)).first()
     if not univ:
-        univ = db.query(Universidad).filter(Universidad.codigo == codigo).first()
+        univ = db.query(Universidad).filter(Universidad.codigo == clean_code).first()
     if not univ:
         raise HTTPException(status_code=404, detail=f"Universidad con código '{codigo}' no encontrada.")
     return univ
 
 @router.get("/{codigo}/titulaciones", response_model=List[TitulacionOut], summary="Obtener titulaciones vigentes de una universidad")
 def get_titulaciones_universidad(codigo: str, db: Session = Depends(get_db)):
-    univ_code = codigo.zfill(3)
-    univ = db.query(Universidad).filter(Universidad.codigo == univ_code).first()
+    clean_code = codigo.strip()
+    univ = db.query(Universidad).filter(Universidad.codigo == clean_code.zfill(3)).first()
     if not univ:
-        univ = db.query(Universidad).filter(Universidad.codigo == codigo).first()
+        univ = db.query(Universidad).filter(Universidad.codigo == clean_code).first()
     if not univ:
         raise HTTPException(status_code=404, detail=f"Universidad con código '{codigo}' no encontrada.")
         
@@ -61,21 +68,21 @@ def get_titulaciones_universidad(codigo: str, db: Session = Depends(get_db)):
 
 @router.post("", response_model=UniversidadOut, status_code=status.HTTP_201_CREATED, summary="Crear nueva universidad (Admin)")
 def create_universidad(data: UniversidadCreate, db: Session = Depends(get_admin_db), api_key: str = Depends(verify_api_key)):
-    code_formatted = data.codigo.zfill(3)
+    code_formatted = data.codigo.strip().zfill(3)
     existing = db.query(Universidad).filter(Universidad.codigo == code_formatted).first()
     if existing:
         raise HTTPException(status_code=400, detail=f"La universidad con código '{code_formatted}' ya existe.")
 
     new_univ = Universidad(
         codigo=code_formatted,
-        nombre=data.nombre,
-        tipo=data.tipo,
-        comunidad_autonoma=data.comunidad_autonoma,
-        municipio=data.municipio,
-        provincia=data.provincia,
-        web=data.web,
-        email=data.email,
-        telefono=data.telefono,
+        nombre=data.nombre.strip(),
+        tipo=data.tipo.strip() if data.tipo else None,
+        comunidad_autonoma=data.comunidad_autonoma.strip() if data.comunidad_autonoma else None,
+        municipio=data.municipio.strip() if data.municipio else None,
+        provincia=data.provincia.strip() if data.provincia else None,
+        web=data.web.strip() if data.web else None,
+        email=data.email.strip() if data.email else None,
+        telefono=data.telefono.strip() if data.telefono else None,
         gestionado_por_admin=True
     )
     db.add(new_univ)
@@ -85,10 +92,10 @@ def create_universidad(data: UniversidadCreate, db: Session = Depends(get_admin_
 
 @router.put("/{codigo}", response_model=UniversidadOut, summary="Actualizar universidad existente (Admin)")
 def update_universidad(codigo: str, data: UniversidadUpdate, db: Session = Depends(get_admin_db), api_key: str = Depends(verify_api_key)):
-    univ_code = codigo.zfill(3)
-    univ = db.query(Universidad).filter(Universidad.codigo == univ_code).first()
+    clean_code = codigo.strip()
+    univ = db.query(Universidad).filter(Universidad.codigo == clean_code.zfill(3)).first()
     if not univ:
-        univ = db.query(Universidad).filter(Universidad.codigo == codigo).first()
+        univ = db.query(Universidad).filter(Universidad.codigo == clean_code).first()
     if not univ:
         raise HTTPException(status_code=404, detail=f"Universidad con código '{codigo}' no encontrada.")
 
@@ -97,8 +104,11 @@ def update_universidad(codigo: str, data: UniversidadUpdate, db: Session = Depen
     if "nombre" in update_dict:
         if not update_dict["nombre"] or not update_dict["nombre"].strip():
             raise HTTPException(status_code=422, detail="El nombre de la universidad no puede ser nulo ni vacío.")
+        update_dict["nombre"] = update_dict["nombre"].strip()
             
     for field, value in update_dict.items():
+        if isinstance(value, str):
+            value = value.strip()
         setattr(univ, field, value)
     
     univ.gestionado_por_admin = True
@@ -109,10 +119,10 @@ def update_universidad(codigo: str, data: UniversidadUpdate, db: Session = Depen
 
 @router.delete("/{codigo}", status_code=status.HTTP_204_NO_CONTENT, summary="Eliminar universidad (Admin)")
 def delete_universidad(codigo: str, db: Session = Depends(get_admin_db), api_key: str = Depends(verify_api_key)):
-    univ_code = codigo.zfill(3)
-    univ = db.query(Universidad).filter(Universidad.codigo == univ_code).first()
+    clean_code = codigo.strip()
+    univ = db.query(Universidad).filter(Universidad.codigo == clean_code.zfill(3)).first()
     if not univ:
-        univ = db.query(Universidad).filter(Universidad.codigo == codigo).first()
+        univ = db.query(Universidad).filter(Universidad.codigo == clean_code).first()
     if not univ:
         raise HTTPException(status_code=404, detail=f"Universidad con código '{codigo}' no encontrada.")
 

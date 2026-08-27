@@ -4,6 +4,11 @@ import psutil
 import shutil
 from datetime import datetime
 
+try:
+    from API.config import settings
+except (ImportError, AttributeError):
+    from config import settings
+
 def get_dir_size_bytes(path: str) -> int:
     """Calcula el espacio total en disco utilizado por un directorio en bytes."""
     total = 0
@@ -83,9 +88,7 @@ def collect_container_physical_stats() -> dict:
     current_vsz_mb = round(mem_info.vms / (1024 * 1024), 2)
 
     # Disk Space metrics
-    datos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "Crawler", "Datos"))
-    if not os.path.exists(datos_dir):
-        datos_dir = "/app/Datos"
+    datos_dir = settings.CRAWLER_DATA_DIR
 
     disk_used_bytes = get_dir_size_bytes(datos_dir)
     disk_used_mb = round(disk_used_bytes / (1024 * 1024), 2)

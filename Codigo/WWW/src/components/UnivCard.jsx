@@ -3,11 +3,17 @@ import { MapPin, Globe, Mail, BookOpen, ExternalLink } from 'lucide-react';
 import usageTracker from '../analytics/usageTracker';
 
 export default React.memo(function UnivCard({ univ, onViewDegrees, distanceKm }) {
-  const isPrivada = (univ.tipo || '').toLowerCase().includes('privada');
+  const isPrivada = (univ?.tipo || '').toLowerCase().includes('privada');
+  const univName = univ?.nombre || 'Universidad sin nombre';
+  const univCode = univ?.codigo || '';
 
   const handleClick = () => {
-    usageTracker.trackUniversityView(univ.codigo, univ.nombre);
-    onViewDegrees(univ);
+    if (univCode) {
+      usageTracker.trackUniversityView(univCode, univName);
+    }
+    if (onViewDegrees) {
+      onViewDegrees(univ);
+    }
   };
 
   const handleKeyDown = (e) => {
@@ -17,11 +23,23 @@ export default React.memo(function UnivCard({ univ, onViewDegrees, distanceKm })
     }
   };
 
+  // Safe external URL helper preventing javascript: and data: URIs
+  const getSafeWebUrl = (url) => {
+    if (!url) return null;
+    const clean = url.trim();
+    if (/^https?:\/\//i.test(clean)) return clean;
+    if (/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/i.test(clean)) return `https://${clean}`;
+    return null;
+  };
+
+  const safeWebUrl = getSafeWebUrl(univ?.web);
+
   return (
     <div 
       className="glass-panel card-hover" 
       tabIndex={0}
       role="article"
+      aria-label={`Ficha de ${univName}`}
       onKeyDown={handleKeyDown}
       style={{
         padding: '1.5rem',
@@ -47,37 +65,45 @@ export default React.memo(function UnivCard({ univ, onViewDegrees, distanceKm })
 
         {/* University Name */}
         <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '0.75rem', lineHeight: 1.3 }}>
-          {univ.nombre}
+          {univName}
         </h3>
 
         {/* Location & Details */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '1.25rem' }}>
-          {univ.comunidad_autonoma && (
+          {univ?.comunidad_autonoma && (
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <MapPin size={16} color="var(--uca-cyan)" />
               <span>{univ.municipio ? `${univ.municipio}, ` : ''}{univ.comunidad_autonoma}</span>
             </div>
           )}
 
-          {univ.web && (
+          {safeWebUrl && (
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <Globe size={16} color="var(--uca-azure)" />
               <a 
-                href={univ.web.startsWith('http') ? univ.web : `http://${univ.web}`} 
+                href={safeWebUrl} 
                 target="_blank" 
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 style={{ color: 'var(--uca-cyan)', textDecoration: 'none' }}
                 onClick={(e) => e.stopPropagation()}
+                aria-label={`Visitar sitio web oficial de ${univName}`}
               >
                 {univ.web.replace(/^https?:\/\//, '')}
               </a>
             </div>
           )}
 
-          {univ.email && (
+          {univ?.email && (
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <Mail size={16} color="var(--text-light)" />
-              <span style={{ fontSize: '0.82rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{univ.email}</span>
+              <a 
+                href={`mailto:${univ.email}`}
+                style={{ fontSize: '0.82rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', color: 'inherit', textDecoration: 'none' }}
+                onClick={(e) => e.stopPropagation()}
+                aria-label={`Enviar correo a ${univ.email}`}
+              >
+                {univ.email}
+              </a>
             </div>
           )}
         </div>
@@ -95,7 +121,7 @@ export default React.memo(function UnivCard({ univ, onViewDegrees, distanceKm })
           <span style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--uca-cyan)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
             <BookOpen size={15} /> Ver titulaciones vigentes
           </span>
-          {univ.gestionado_por_admin && (
+          {univ?.gestionado_por_admin && (
             <div title="Registro bloqueado y administrado manualmente (No sobrescribible por ETL)" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.72rem', color: 'var(--uca-gold)', background: 'rgba(243, 167, 18, 0.1)', padding: '0.15rem 0.35rem', borderRadius: '4px' }}>
               <span>Bloqueado</span>
             </div>

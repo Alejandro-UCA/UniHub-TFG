@@ -74,7 +74,10 @@ CREATE TABLE IF NOT EXISTS elementos_curriculares (
     bibliografia JSONB,
     idioma VARCHAR(50),
     creditos_teoria NUMERIC(4, 2),
-    creditos_practica NUMERIC(4, 2)
+    creditos_practica NUMERIC(4, 2),
+    tipo_asistencia VARCHAR(50),
+    calificacion_minima NUMERIC(4, 2),
+    departamento VARCHAR(255)
 );
 
 -- 6. Tabla de Registro de Errores del Crawler
@@ -117,6 +120,8 @@ CREATE INDEX IF NOT EXISTS idx_tit_nivel ON titulaciones(nivel_academico);
 CREATE INDEX IF NOT EXISTS idx_tit_titulo_trgm ON titulaciones USING gin (titulo gin_trgm_ops);
 CREATE INDEX IF NOT EXISTS idx_elem_plan ON elementos_curriculares(plan_estudio_id);
 CREATE INDEX IF NOT EXISTS idx_elem_caracter ON elementos_curriculares(caracter);
+CREATE INDEX IF NOT EXISTS idx_elem_nombre ON elementos_curriculares(nombre_elemento);
+CREATE INDEX IF NOT EXISTS idx_planes_codigo ON planes_estudio(codigo_estudio);
 
 -- =====================================================================
 -- SEGURIDAD:

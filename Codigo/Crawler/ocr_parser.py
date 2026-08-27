@@ -1,38 +1,98 @@
 import os
+import io
 import re
+import logging
+
+logger = logging.getLogger("ocr_parser")
 
 OCR_AVAILABLE = False
+HAS_PDF2IMAGE = False
+HAS_PYPDFIUM2 = False
+HAS_PYTESSERACT = False
+
 try:
-    from pdf2image import convert_from_path
-    import pytesseract
-    OCR_AVAILABLE = True
+    import pdf2image
+    HAS_PDF2IMAGE = True
 except ImportError:
-    OCR_AVAILABLE = False
+    pass
+
+try:
+    import pypdfium2
+    HAS_PYPDFIUM2 = True
+except ImportError:
+    pass
+
+try:
+    import pytesseract
+    HAS_PYTESSERACT = True
+except ImportError:
+    pass
+
+OCR_AVAILABLE = (HAS_PDF2IMAGE or HAS_PYPDFIUM2) and HAS_PYTESSERACT
+
 
 class OCRPDFParser:
     """
-    Local OCR parser for historical scanned BOE PDFs (2008-2012)
-    that lack vector text layers. Reconstructs text layer via tesseract OCR.
+    Extractor OCR asistido y liviano para resoluciones escaneadas antiguas del BOE o boletines
+    autonómicos que carecen de capa de texto nativa vectorial.
+    Soporta flujos directos en memoria RAM (bytes / BytesIO) y rutas en disco, con degradación elegante.
     """
-    def __init__(self, dpi=200):
+    def __init__(self, dpi: int = 200, max_pages: int = 5, lang: str = "spa"):
         self.dpi = dpi
+        self.max_pages = max_pages
+        self.lang = lang
 
-    def extract_text_via_ocr(self, pdf_filepath: str) -> str:
+    def extract_text_via_ocr(self, pdf_input) -> str:
         """
-        Converts PDF pages to images and runs local Tesseract OCR.
-        Safe fallback returning empty string if OCR engine or Tesseract binary is unavailable.
+        Convierte las primeras páginas del PDF a imágenes y aplica Tesseract OCR en memoria.
+        Si las librerías o los binarios de OCR del sistema no están instalados,
+        retorna cadena vacía sin interrumpir ni bloquear el rastreador.
         """
-        if not OCR_AVAILABLE or not os.path.exists(pdf_filepath):
+        if not OCR_AVAILABLE or pdf_input is None:
             return ""
 
         try:
-            images = convert_from_path(pdf_filepath, dpi=self.dpi, first_page=1, last_page=5)
-            ocr_text_parts = []
+            images = []
+            if isinstance(pdf_input, (bytes, bytearray)):
+                if HAS_PDF2IMAGE:
+                    images = pdf2image.convert_from_bytes(pdf_input, dpi=self.dpi, first_page=1, last_page=self.max_pages)
+                elif HAS_PYPDFIUM2:
+                    pdf_doc = pypdfium2.PdfDocument(io.BytesIO(pdf_input))
+                    for i in range(min(len(pdf_doc), self.max_pages)):
+                        page = pdf_doc.get_page(i)
+                        pil_img = page.render(scale=self.dpi / 72).to_pil()
+                        images.append(pil_img)
+            elif isinstance(pdf_input, io.BytesIO):
+                raw_bytes = pdf_input.getvalue()
+                if HAS_PDF2IMAGE:
+                    images = pdf2image.convert_from_bytes(raw_bytes, dpi=self.dpi, first_page=1, last_page=self.max_pages)
+                elif HAS_PYPDFIUM2:
+                    pdf_doc = pypdfium2.PdfDocument(pdf_input)
+                    for i in range(min(len(pdf_doc), self.max_pages)):
+                        page = pdf_doc.get_page(i)
+                        pil_img = page.render(scale=self.dpi / 72).to_pil()
+                        images.append(pil_img)
+            elif isinstance(pdf_input, str) and os.path.exists(pdf_input):
+                if HAS_PDF2IMAGE:
+                    images = pdf2image.convert_from_path(pdf_input, dpi=self.dpi, first_page=1, last_page=self.max_pages)
+                elif HAS_PYPDFIUM2:
+                    pdf_doc = pypdfium2.PdfDocument(pdf_input)
+                    for i in range(min(len(pdf_doc), self.max_pages)):
+                        page = pdf_doc.get_page(i)
+                        pil_img = page.render(scale=self.dpi / 72).to_pil()
+                        images.append(pil_img)
+
+            if not images:
+                return ""
+
+            ocr_parts = []
             for img in images:
-                txt = pytesseract.image_to_string(img, lang="spa")
-                if txt:
-                    ocr_text_parts.append(txt)
-            return "\n".join(ocr_text_parts)
+                txt = pytesseract.image_to_string(img, lang=self.lang)
+                if txt and len(txt.strip()) > 10:
+                    ocr_parts.append(txt.strip())
+
+            return "\n".join(ocr_parts)
+
         except Exception as err:
-            print(f"   [OCR Fallback] Local OCR notice for '{pdf_filepath}': {err}")
+            logger.debug(f"[OCR Fallback Info] Intento de OCR no disponible o sin binario Tesseract: {err}")
             return ""

@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, ShieldCheck, Scale, Info } from 'lucide-react';
+import { GraduationCap, Scale } from 'lucide-react';
 
 export default function Footer({ onNavigate }) {
   return (

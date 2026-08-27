@@ -1,6 +1,8 @@
 import json
 import os
 import threading
+import time
+import contextlib
 from datetime import datetime
 from config import ERRORES_JSON
 from checkpoint import atomic_json_dump
@@ -8,8 +10,9 @@ from checkpoint import atomic_json_dump
 class ErrorLogger:
     _lock = threading.Lock()
 
-    def __init__(self, filepath=ERRORES_JSON):
-        self.filepath = filepath
+    def __init__(self, filepath=None):
+        import config
+        self.filepath = filepath or config.ERRORES_JSON
         self._last_mtime = 0.0
         self.errors = self._load_errors()
 
@@ -43,7 +46,7 @@ class ErrorLogger:
             "motivo_fallo": reason,
             "detalles_excepcion": exception_details or ""
         }
-        with ErrorLogger._lock:
+        with ErrorLogger._lock, self._interprocess_lock():
             # Sincronizar si hubo cambios externos por mtime
             if os.path.exists(self.filepath):
                 try:
@@ -56,6 +59,30 @@ class ErrorLogger:
                     pass
             self.errors.append(entry)
             self._save_errors()
+
+    @contextlib.contextmanager
+    def _interprocess_lock(self, timeout: float = 15.0):
+        """Bloqueo por archivo para que varios procesos no pierdan errores."""
+        lock_path = self.filepath + ".lock"
+        deadline = time.monotonic() + timeout
+        acquired = False
+        while time.monotonic() < deadline:
+            try:
+                fd = os.open(lock_path, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+                os.close(fd)
+                acquired = True
+                break
+            except FileExistsError:
+                time.sleep(0.05)
+        if not acquired:
+            raise TimeoutError(f"No se pudo adquirir bloqueo de errores: {lock_path}")
+        try:
+            yield
+        finally:
+            try:
+                os.remove(lock_path)
+            except OSError:
+                pass
 
     def _save_errors(self):
         atomic_json_dump(self.errors, self.filepath)

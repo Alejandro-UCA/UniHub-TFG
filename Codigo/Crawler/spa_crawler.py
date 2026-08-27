@@ -1,11 +1,19 @@
-import sys
-import time
+import json
+import logging
 import os
 import re
+import sys
 import tempfile
 import threading
+import time
+import urllib.parse
 from bs4 import BeautifulSoup
-from config import USER_AGENT, HTTP_TIMEOUT, SPA_ACCORDION_CLICK_DELAY
+import requests
+
+from config import USER_AGENT, HTTP_TIMEOUT, SPA_ACCORDION_CLICK_DELAY, RESPECT_ROBOTS, ROBOTS_CHECK_TIMEOUT
+from robots_policy import RobotsPolicy
+
+logger = logging.getLogger("spa_crawler")
 
 PLAYWRIGHT_AVAILABLE = False
 try:
@@ -33,6 +41,7 @@ class SPALayoutCrawler:
     Renders dynamic SPA university websites (React/Vue/Angular/AJAX)
     using Playwright headless Chromium, automatically expanding accordions and tabs.
     Thread-local architecture ensures full thread-safety in multi-worker pools.
+    Provides intelligent static fallback if Playwright or Chromium is unavailable.
     """
     _local = threading.local()
     _lock = threading.Lock()
@@ -54,6 +63,7 @@ class SPALayoutCrawler:
         self.timeout = timeout * 1000  # ms for Playwright
         self._pw = None
         self._browser = None
+        self._robots_policy = RobotsPolicy(timeout=ROBOTS_CHECK_TIMEOUT)
 
     def _ensure_browser(self):
         if not PLAYWRIGHT_AVAILABLE:
@@ -72,6 +82,148 @@ class SPALayoutCrawler:
                 self.close()
         return self._browser
 
+    def _extract_subjects_from_json_tree(self, node, accumulator: list[dict], depth: int = 0):
+        """Recorre recursivamente un árbol JSON de hidratación buscando arrays y objetos de asignaturas."""
+        if depth > 10 or len(accumulator) >= 120:
+            return
+        if isinstance(node, dict):
+            name_val = node.get("nombre") or node.get("name") or node.get("nom") or node.get("asignatura") or node.get("assignatura") or node.get("title")
+            ects_val = node.get("creditos") or node.get("credits") or node.get("ects") or node.get("creditos_ects")
+            if isinstance(name_val, str) and len(name_val.strip()) >= 4:
+                ects_num = 6.0
+                has_valid_ects = False
+                if ects_val is not None:
+                    try:
+                        ects_num = float(str(ects_val).replace(",", "."))
+                        if 1.0 <= ects_num <= 30.0:
+                            has_valid_ects = True
+                    except ValueError:
+                        pass
+
+                car_val = node.get("caracter") or node.get("tipo") or node.get("type") or "OB"
+                cur_val = str(node.get("curso") or node.get("course") or node.get("year") or "")
+                cod_val = str(node.get("codigo") or node.get("code") or node.get("id") or "")
+
+                if has_valid_ects or any(k in node for k in ["asignatura", "assignatura", "materia", "subject"]):
+                    accumulator.append({
+                        "codigo": cod_val,
+                        "nombre": name_val.strip(),
+                        "creditos": str(int(ects_num)) if ects_num.is_integer() else str(ects_num),
+                        "caracter": str(car_val),
+                        "curso": cur_val
+                    })
+
+            for v in node.values():
+                self._extract_subjects_from_json_tree(v, accumulator, depth + 1)
+        elif isinstance(node, list):
+            for item in node:
+                self._extract_subjects_from_json_tree(item, accumulator, depth + 1)
+
+    def _static_fallback_render(self, target_url: str) -> RenderResult:
+        """
+        Fallback estático avanzado cuando Playwright o Chromium no están disponibles:
+        1. Descarga el HTML estático de la página.
+        2. Desempaqueta y normaliza componentes ocultos (<details>, aria-hidden="true", class="collapse").
+        3. Analiza scripts de hidratación (__NEXT_DATA__, __NUXT_DATA__, JSON-LD, window.__INITIAL_STATE__)
+           para sintetizar tablas de asignaturas legibles por el parser HTML.
+        """
+        if RESPECT_ROBOTS:
+            allowed, _ = self._robots_policy.check(target_url)
+            if not allowed:
+                return RenderResult("")
+
+        try:
+            timeout_sec = int(self.timeout / 1000) if self.timeout else HTTP_TIMEOUT
+            resp = requests.get(
+                target_url,
+                headers={"User-Agent": USER_AGENT, "Accept": "text/html,application/xhtml+xml,application/pdf"},
+                timeout=timeout_sec
+            )
+            if resp.status_code != 200 or not resp.content:
+                return RenderResult("")
+
+            content_type = resp.headers.get("Content-Type", "").lower()
+            if "application/pdf" in content_type or resp.content.startswith(b"%PDF-"):
+                filename = os.path.basename(urllib.parse.urlparse(target_url).path) or "plan_estudios.pdf"
+                return RenderResult("", is_download=True, content_bytes=resp.content, filename=filename)
+
+            html_text = resp.text
+            soup = BeautifulSoup(html_text, "html.parser")
+
+            # 1. Expandir <details> y elementos ocultos en el DOM
+            for dt in soup.find_all(["details"]):
+                dt["open"] = "open"
+            for hidden_el in soup.find_all(attrs={"aria-hidden": "true"}):
+                hidden_el["aria-hidden"] = "false"
+            for collapsed in soup.find_all(class_=re.compile(r"\b(collapse|collapsed|hide|hidden|tab-pane)\b")):
+                cls_list = collapsed.get("class", [])
+                collapsed["class"] = [c for c in cls_list if c not in ["collapse", "collapsed", "hide", "hidden"]]
+                collapsed["style"] = "display: block !important;"
+
+            # 2. Extraer datos estructurados de asignaturas en scripts de hidratación
+            synthetic_subjects = []
+            for script in soup.find_all("script"):
+                stype = script.get("type", "").lower()
+                sid = script.get("id", "").lower()
+                stext = script.string or script.get_text() or ""
+                if not stext or len(stext) < 20:
+                    continue
+
+                if sid in ["__next_data__", "__nuxt_data__"] or "json" in stype or "window.__initial_state__" in stext.lower() or "window.__preloaded_state__" in stext.lower():
+                    json_str = ""
+                    if sid in ["__next_data__", "__nuxt_data__"] or "json" in stype:
+                        json_str = stext.strip()
+                    else:
+                        m_json = re.search(r"=\s*(\{.*\}|\[.*\])\s*;?", stext, re.DOTALL)
+                        if m_json:
+                            json_str = m_json.group(1)
+
+                    if json_str:
+                        try:
+                            data = json.loads(json_str)
+                            self._extract_subjects_from_json_tree(data, synthetic_subjects)
+                        except Exception:
+                            pass
+
+            if synthetic_subjects:
+                table_tag = soup.new_tag("table", attrs={"class": "tabla-plan-estudios synthetic-spa"})
+                tr_header = soup.new_tag("tr")
+                for h_name in ["Código", "Asignatura", "Créditos ECTS", "Carácter", "Curso"]:
+                    th = soup.new_tag("th")
+                    th.string = h_name
+                    tr_header.append(th)
+                table_tag.append(tr_header)
+
+                for subj in synthetic_subjects:
+                    tr = soup.new_tag("tr")
+                    td_cod = soup.new_tag("td")
+                    td_cod.string = str(subj.get("codigo") or "")
+                    td_nom = soup.new_tag("td")
+                    td_nom.string = str(subj.get("nombre") or "")
+                    td_ects = soup.new_tag("td")
+                    td_ects.string = str(subj.get("creditos") or "6")
+                    td_car = soup.new_tag("td")
+                    td_car.string = str(subj.get("caracter") or "OB")
+                    td_cur = soup.new_tag("td")
+                    td_cur.string = str(subj.get("curso") or "1")
+
+                    tr.append(td_cod)
+                    tr.append(td_nom)
+                    tr.append(td_ects)
+                    tr.append(td_car)
+                    tr.append(td_cur)
+                    table_tag.append(tr)
+
+                if soup.body:
+                    soup.body.append(table_tag)
+                else:
+                    soup.append(table_tag)
+
+            return RenderResult(str(soup))
+        except Exception as exc:
+            logger.debug(f"Fallo en fallback estático SPA: {exc}")
+            return RenderResult("")
+
     def render_spa_page(self, target_url: str) -> RenderResult:
         """
         Renders target_url in headless Chromium, clicks accordion/tab elements,
@@ -79,13 +231,18 @@ class SPALayoutCrawler:
         Safe fallback if Playwright is unavailable.
         """
         if not PLAYWRIGHT_AVAILABLE:
-            return RenderResult("")
+            return self._static_fallback_render(target_url)
+
+        if RESPECT_ROBOTS:
+            allowed, _ = self._robots_policy.check(target_url)
+            if not allowed:
+                return RenderResult("")
 
         context = None
         try:
             browser = self._ensure_browser()
             if not browser:
-                return RenderResult("")
+                return self._static_fallback_render(target_url)
 
             context = browser.new_context(
                 user_agent=USER_AGENT,
@@ -161,7 +318,7 @@ class SPALayoutCrawler:
             return RenderResult(rendered_html)
         except Exception as err:
             print(f"   [SPA Crawler] Headless browser fallback notice for '{target_url}': {err}")
-            return RenderResult("")
+            return self._static_fallback_render(target_url)
         finally:
             if context:
                 try:

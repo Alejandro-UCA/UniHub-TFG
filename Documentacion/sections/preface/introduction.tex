@@ -1,0 +1,43 @@
+% ------------------------------------------------------------------------------
+% Este fichero es parte de la plantilla LaTeX para la realización de Proyectos
+% Final de Grado, protegido bajo los términos de la licencia GFDL.
+% ------------------------------------------------------------------------------
+
+A continuación, se describe la motivación del proyecto **UniHub** y su alcance. También se incluye un glosario de términos y la organización del resto de la presente documentación.
+
+\section{Motivación}
+El catálogo de la oferta universitaria de enseñanza superior en España almacena la información de titulaciones oficiales. Sin embargo, la consulta integrada de universidades públicas y privadas, la verificación de planes de estudio vigentes modificados en el Boletín Oficial del Estado (BOE) y la clasificación de Grados, Másteres y Doctorados resultaba compleja y fragmentada.
+
+La motivación principal de este proyecto es construir **UniHub**, un sistema informático moderno, robusto y automatizado que rastree, homogenice, persista y exponga de forma interactiva la totalidad de universidades públicas y privadas de España, sus titulaciones oficiales vigentes (Grados, Másteres y Doctorados), facilitando la visualización detallada de asignaturas, módulos y créditos ECTS.
+
+\section{Alcance y Objetivos} 
+El alcance del proyecto abarca cuatro fases de ingeniería de software independientes pero integradas:
+\begin{enumerate}
+    \item \textbf{Desarrollo de un Rastreador (Crawler) en Python (Fase 1):} Capaz de obtener los catálogos oficiales, aplicar filtrado estricto de titulaciones vigentes y autorizadas (descartando extinguidas o no vigentes), clasificar Doctorados, inspeccionar todos los candidatos a PDF del BOE, aplicar resiliencia ante fallos de conexión (pausas de 5 min y cortocircuito a los 15 min), registrar métricas y notificar a la API REST tras completar la recolección.
+    \item \textbf{Diseño de Base de Datos y API REST en Python (Fase 2):} Creación de un esquema relacional en PostgreSQL con control de acceso por roles (\texttt{ruct\_api\_user} de solo lectura), pipeline de ingesta ETL, ordenación prioritaria (públicas primero, luego privadas) y construcción de una API REST en FastAPI con métricas físicas de contenedores cgroup.
+    \item \textbf{Desarrollo del Portal Web Interactivo (Fase 3):} Aplicación SPA en Vite + React con el sistema de diseño visual de la Universidad de Cádiz (UCA), paginación configurable (5, 10, 20, 50, 100 elementos por página), geolocalización por fórmula de Haversine con distancias integradas en tarjetas, sección de universidades destacadas (top 6 más visitadas), apartado "Sobre Nosotros" (TFG Alejandro Ramos Rodríguez, UCA) y panel de administración aislado en la ruta manual \texttt{/admin}.
+    \item \textbf{Sistemas de Contenerización y Orquestación Docker (Fase 4):} Despliegue independiente de 4 contenedores (\texttt{ruct\_db}, \texttt{ruct\_crawler}, \texttt{ruct\_api}, \texttt{ruct\_www}) en una red privada virtualizada con persistencia garantizada de datos.
+\end{enumerate}
+
+\section{Glosario de términos} 
+\begin{description}
+    \item[UniHub:] Nombre oficial de la plataforma web y sistema distribuido objeto de este Trabajo Fin de Grado.
+    \item[RUCT:] Registro oficial de origen de datos de Universidades, Centros y Títulos.
+    \item[BOE:] Boletín Oficial del Estado.
+    \item[ECTS:] European Credit Transfer and Accumulation System (Sistema Europeo de Transferencia y Acumulación de Créditos).
+    \item[API REST:] Representational State Transfer Application Programming Interface.
+    \item[SPA:] Single Page Application (Aplicación de Página Única).
+    \item[UCA:] Universidad de Cádiz.
+    \item[ETL:] Extract, Transform and Load (Extracción, Transformación y Carga).
+    \item[Web Vitals:] Métricas de rendimiento de la experiencia de usuario en la web (FCP, LCP, TTFB).
+    \item[Haversine:] Fórmula matemática para calcular distancias entre dos puntos en una esfera a partir de sus coordenadas geográficas.
+\end{description}
+
+\section{Organización del documento}
+La presente memoria se estructura en las siguientes secciones principales:
+\begin{itemize}
+    \item \textbf{Prolegómeno:} Introducción, antecedentes del dominio universitario y plan de gestión de proyecto.
+    \item \textbf{Desarrollo:} Catálogo de requisitos, análisis UML, diseño arquitectónico (patrón C4/capas), implementación en código de cada fase, pruebas ejecutadas y despliegue del sistema Docker.
+    \item \textbf{Epílogo:} Conclusiones generales, lecciones aprendidas y líneas de trabajo futuro.
+    \item \textbf{Anexos:} Manuales de usuario, guía de desarrollador y ejemplos de tablas e imágenes.
+\end{itemize}

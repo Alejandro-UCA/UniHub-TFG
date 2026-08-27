@@ -1,0 +1,35 @@
+En este último capítulo se detallan los objetivos alcanzados en el proyecto \textbf{UniHub}, las lecciones aprendidas tras el desarrollo y se identifican las oportunidades de mejora sobre el software desarrollado.
+
+\section{Objetivos alcanzados}
+Se han alcanzado con éxito el 100\% de los objetivos marcados para el proyecto a lo largo de sus cuatro fases de ingeniería:
+\begin{enumerate}
+    \item Construcción de un rastreador modular en Python (Fase 1) estructurado en 2 procesos paralelos (Productor de red I/O y Consumidor de análisis CPU) y 2 partes (RUCT/BOE y rastreo de webs oficiales con \texttt{robots.txt}, Sitemap XML y sinónimos), capaz de procesar el catálogo oficial, clasificar Doctorados (RD 99/2011), aplicar filtro estricto de vigencia, escanear todos los PDFs candidatos del BOE, guardar URLs directas en \texttt{web\_fuente\_directa\_url}, aplicar resiliencia de conexión (5m/15m cortocircuito), medir rendimiento y notificar automáticamente a la API REST.
+    \item Implementación de un modelo relacional en PostgreSQL (Fase 2) con control de acceso basado en roles (RBAC) aislando al usuario público (\texttt{unihub\_api\_user}), protección de operaciones críticas mediante \texttt{X-API-Key}, pipeline ETL, ordenación prioritaria (Públicas primero, Privadas después), soporte de métricas físicas de contenedores cgroup y servicio REST en FastAPI.
+    \item Creación de una aplicación web SPA en React (Fase 3) bajo el sistema de diseño e identidad visual de la Universidad de Cádiz (UCA). Incluye paginación configurable, geolocalización por fórmula de Haversine, un \textbf{Motor de Simulación Financiera (Calculadora de Matrícula)} con soporte para leyes de precios públicos autonómicos y becas, y un panel de administración asegurado para la monitorización ETL y Docker.
+    \item Orquestación completa en contenedores Docker independientes (Fase 4) optimizada mediante \emph{multi-stage builds} e inyección dinámica de variables de compilación (\texttt{VITE\_API\_URL}), reduciendo drásticamente el peso de imagen (vía \texttt{.dockerignore}) y garantizando la persistencia mediante volúmenes nominados.
+\end{enumerate}
+
+\subsection{Resultados Cuantitativos y Métricas Clave}
+La ejecución y validación de la plataforma sobre el ecosistema universitario español ha arrojado los siguientes resultados consolidados:
+\begin{itemize}
+    \item \textbf{Cobertura del Sistema Universitario:} Ingesta completa de \textbf{109 universidades} (50 públicas y 59 privadas), \textbf{13.657 titulaciones oficiales} de Grado, Máster y Doctorado, y más de \textbf{915.696 asignaturas} estructuradas con 100\% de integridad relacional (0 huérfanas).
+    \item \textbf{Tasa de Cobertura Curricular:} Resolución y desglose curricular del \textbf{94,2\%} de las titulaciones activas mediante la acción combinada del parser del BOE (Fase 1 Parte 1) y el rastreador web oficial (Fase 1 Parte 2).
+    \item \textbf{Eficiencia y Sostenibilidad Green IT:} Calificación A+ de eficiencia energética algorítmica con un consumo total de solo \textbf{0,2353 kWh} y una huella de carbono global de \textbf{42,35 gCO$_2$} (apenas \textbf{3,1 mgCO$_2$} por carrera universitaria), alcanzando un \textbf{Cache Hit Ratio del 99,8\%} en ejecuciones sucesivas y una latencia media de respuesta en la API REST inferior a \textbf{45 ms}.
+\end{itemize}
+
+\section{Lecciones aprendidas}
+Entre las principales lecciones aprendidas destacan:
+\begin{itemize}
+    \item \textbf{Tolerancia a Fallos y Resiliencia en Scraping Web:} La importancia de aislar excepciones por registro e implementar pausas estratégicas de resiliencia (5m tras 10 fallos y cortocircuito a los 15m) con registro estructurado en \texttt{errores\_crawler.json}.
+    \item \textbf{Gestión Estricta de la Integridad de Datos:} La necesidad de filtrar titulaciones extinguidas y descartar valores indeterminados (\texttt{""}, \texttt{"undefined"}) para prevenir la corrupción del repositorio histórico de datos.
+    \item \textbf{Diseño Orientado al Usuario y Accesibilidad:} El uso de un sistema de diseño estructurado (colores corporativos UCA, badge rosa para Doctorados) y elementos modulados de paginación para ofrecer una experiencia intuitiva.
+    \item \textbf{Arquitectura de Contenerización Aislada:} La configuración adecuada de redes puente virtualizadas y volúmenes nominados para asegurar el desacoplamiento de servicios y la persistencia de datos.
+\end{itemize}
+
+\section{Trabajo futuro}
+Como líneas de desarrollo futuro se proponen:
+\begin{itemize}
+    \item Incorporar modelos de lenguaje (LLMs) para el análisis semántico avanzado de competencias en las guías docentes del BOE.
+    \item Implementar notificaciones automáticas por correo electrónico cuando una titulación sufra una modificación oficial publicada en el BOE.
+    \item Ampliar las analíticas del panel de administración con comparativas interuniversitarias de notas de corte y empleabilidad.
+\end{itemize}

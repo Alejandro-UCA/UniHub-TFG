@@ -1,10 +1,10 @@
 from typing import List, Optional, Any, Dict, Union
 from datetime import datetime, date
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 class UniversidadBase(BaseModel):
     codigo: str = Field(..., max_length=10)
-    nombre: str = Field(..., max_length=500)
+    nombre: str = Field(..., min_length=1, max_length=500)
     tipo: Optional[str] = Field(None, max_length=50)
     comunidad_autonoma: Optional[str] = Field(None, max_length=100)
     municipio: Optional[str] = Field(None, max_length=100)
@@ -14,11 +14,28 @@ class UniversidadBase(BaseModel):
     telefono: Optional[str] = Field(None, max_length=50)
     gestionado_por_admin: Optional[bool] = False
 
+    @field_validator("codigo")
+    @classmethod
+    def strip_and_format_codigo(cls, v: str) -> str:
+        if v:
+            return v.strip()
+        return v
+
+    @field_validator("nombre")
+    @classmethod
+    def strip_nombre(cls, v: str) -> str:
+        if v is not None:
+            v_str = v.strip()
+            if not v_str:
+                raise ValueError("El nombre no puede estar vacío.")
+            return v_str
+        return v
+
 class UniversidadCreate(UniversidadBase):
     pass
 
 class UniversidadUpdate(BaseModel):
-    nombre: Optional[str] = Field(None, max_length=500)
+    nombre: Optional[str] = Field(None, min_length=1, max_length=500)
     tipo: Optional[str] = Field(None, max_length=50)
     comunidad_autonoma: Optional[str] = Field(None, max_length=100)
     municipio: Optional[str] = Field(None, max_length=100)
@@ -26,6 +43,16 @@ class UniversidadUpdate(BaseModel):
     web: Optional[str] = Field(None, max_length=500)
     email: Optional[str] = Field(None, max_length=255)
     telefono: Optional[str] = Field(None, max_length=50)
+
+    @field_validator("nombre")
+    @classmethod
+    def strip_nombre(cls, v: Optional[str]) -> Optional[str]:
+        if v is not None:
+            v_str = v.strip()
+            if not v_str:
+                raise ValueError("El nombre no puede estar vacío.")
+            return v_str
+        return v
 
 class UniversidadOut(UniversidadBase):
     id: int
@@ -36,7 +63,7 @@ class UniversidadOut(UniversidadBase):
 
 class TitulacionBase(BaseModel):
     codigo_estudio: str = Field(..., max_length=20)
-    titulo: str
+    titulo: str = Field(..., min_length=1)
     nivel_academico: Optional[str] = Field(None, max_length=200)
     estado: Optional[str] = Field(None, max_length=200)
     universidad_codigo: str = Field(..., max_length=10)
@@ -48,11 +75,28 @@ class TitulacionBase(BaseModel):
     fuente_precio: Optional[str] = Field(None, max_length=255)
     gestionado_por_admin: Optional[bool] = False
 
+    @field_validator("codigo_estudio", "universidad_codigo")
+    @classmethod
+    def strip_codigos(cls, v: str) -> str:
+        if v:
+            return v.strip()
+        return v
+
+    @field_validator("titulo")
+    @classmethod
+    def strip_titulo(cls, v: str) -> str:
+        if v is not None:
+            v_str = v.strip()
+            if not v_str:
+                raise ValueError("El título no puede estar vacío.")
+            return v_str
+        return v
+
 class TitulacionCreate(TitulacionBase):
     pass
 
 class TitulacionUpdate(BaseModel):
-    titulo: Optional[str] = None
+    titulo: Optional[str] = Field(None, min_length=1)
     nivel_academico: Optional[str] = Field(None, max_length=200)
     estado: Optional[str] = Field(None, max_length=200)
     universidad_codigo: Optional[str] = Field(None, max_length=10)
@@ -62,6 +106,16 @@ class TitulacionUpdate(BaseModel):
     precio_credito_4: Optional[float] = None
     precio_estimado_anual: Optional[float] = None
     fuente_precio: Optional[str] = Field(None, max_length=255)
+
+    @field_validator("titulo")
+    @classmethod
+    def strip_titulo(cls, v: Optional[str]) -> Optional[str]:
+        if v is not None:
+            v_str = v.strip()
+            if not v_str:
+                raise ValueError("El título no puede estar vacío.")
+            return v_str
+        return v
 
 class TitulacionOut(TitulacionBase):
     id: int
@@ -73,7 +127,7 @@ class TitulacionOut(TitulacionBase):
 class ElementoCurricularBase(BaseModel):
     modulo: Optional[str] = None
     materia: Optional[str] = None
-    nombre_elemento: str
+    nombre_elemento: Optional[str] = Field("Materia sin especificar")
     creditos_ects: Optional[str] = None
     caracter: Optional[str] = None
     curso: Optional[str] = None
@@ -86,14 +140,35 @@ class ElementoCurricularBase(BaseModel):
     idioma: Optional[str] = None
     creditos_teoria: Optional[float] = None
     creditos_practica: Optional[float] = None
+    tipo_asistencia: Optional[str] = None
+    calificacion_minima: Optional[float] = None
+    departamento: Optional[str] = None
+
+    @field_validator("nombre_elemento")
+    @classmethod
+    def strip_nombre_elem(cls, v: Optional[str]) -> Optional[str]:
+        if v is not None:
+            v_str = v.strip()
+            return v_str or "Materia sin especificar"
+        return "Materia sin especificar"
 
 class ElementoCurricularCreate(ElementoCurricularBase):
-    pass
+    nombre_elemento: str = Field(..., min_length=1)
+
+    @field_validator("nombre_elemento")
+    @classmethod
+    def validate_create_nombre(cls, v: str) -> str:
+        if v is not None:
+            v_str = v.strip()
+            if not v_str:
+                raise ValueError("El nombre del elemento curricular no puede estar vacío.")
+            return v_str
+        raise ValueError("El nombre del elemento curricular no puede estar vacío.")
 
 class ElementoCurricularUpdate(BaseModel):
     modulo: Optional[str] = None
     materia: Optional[str] = None
-    nombre_elemento: Optional[str] = None
+    nombre_elemento: Optional[str] = Field(None, min_length=1)
     creditos_ects: Optional[str] = None
     caracter: Optional[str] = None
     curso: Optional[str] = None
@@ -106,6 +181,19 @@ class ElementoCurricularUpdate(BaseModel):
     idioma: Optional[str] = None
     creditos_teoria: Optional[float] = None
     creditos_practica: Optional[float] = None
+    tipo_asistencia: Optional[str] = None
+    calificacion_minima: Optional[float] = None
+    departamento: Optional[str] = None
+
+    @field_validator("nombre_elemento")
+    @classmethod
+    def strip_nombre_elem(cls, v: Optional[str]) -> Optional[str]:
+        if v is not None:
+            v_str = v.strip()
+            if not v_str:
+                raise ValueError("El nombre del elemento curricular no puede estar vacío.")
+            return v_str
+        return v
 
 class ElementoCurricularOut(ElementoCurricularBase):
     id: int

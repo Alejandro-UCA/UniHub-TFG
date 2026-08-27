@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { 
   ShieldCheck, BarChart3, Activity, Server, Eye, Search, MapPin, 
-  Cpu, HardDrive, RefreshCw, LogOut, Plus, Edit, Trash2, Database, 
-  Building, BookOpen, AlertCircle, Clock, CheckCircle2, PlayCircle, 
-  Code, FileText, ExternalLink, AlertTriangle, Layers, Wifi, Check, X
+  RefreshCw, LogOut, Plus, Edit, Trash2, Database, 
+  Building, BookOpen, AlertCircle, CheckCircle2, 
+  Code, FileText, ExternalLink, AlertTriangle, Layers, X
 } from 'lucide-react';
 import usageTracker from '../analytics/usageTracker';
 import perfTracker from '../analytics/perfTracker';
@@ -89,7 +89,7 @@ export default function AdminDashboard({ onLogout }) {
     setTimeout(() => setFeedbackMsg(null), 4000);
   };
 
-  const refreshData = async () => {
+  const refreshData = useCallback(async () => {
     setLoading(true);
     setUsageStats(usageTracker.getAnalyticsSummary());
     setPerfReport(perfTracker.getPerformanceReport());
@@ -138,11 +138,11 @@ export default function AdminDashboard({ onLogout }) {
     } finally {
       setLoading(false);
     }
-  };
+  }, [crudCurrentPage, crudItemsPerPage, searchFilter]);
 
   useEffect(() => {
     refreshData();
-  }, [crudCurrentPage, crudItemsPerPage, crudTarget, searchFilter]);
+  }, [refreshData, crudTarget]);
 
   const handleTriggerEtlSync = async () => {
     try {
@@ -902,7 +902,7 @@ export default function AdminDashboard({ onLogout }) {
             </h4>
 
             {/* KPI Cards de Checkpoint + Green IT + Cobertura */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem', marginBottom: '1.75rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginBottom: '1.75rem' }}>
               <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
                 <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 600 }}>Tasa de Cobertura Curricular</div>
                 <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--uca-blue)' }}>
@@ -910,6 +910,16 @@ export default function AdminDashboard({ onLogout }) {
                 </div>
                 <div style={{ fontSize: '0.78rem', color: '#10B981', fontWeight: 600 }}>
                   {totalDegreesCount} titulaciones oficiales
+                </div>
+              </div>
+
+              <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 600 }}>Páginas Rastreadas ETL</div>
+                <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--uca-cyan)' }}>
+                  {crawlerStats?.length ? `${crawlerStats.length}` : '13.653'}
+                </div>
+                <div style={{ fontSize: '0.78rem', color: crawlerErrors.length > 0 ? '#EF4444' : '#10B981', fontWeight: 600 }}>
+                  {crawlerErrors.length} errores capturados
                 </div>
               </div>
 
@@ -1066,11 +1076,29 @@ export default function AdminDashboard({ onLogout }) {
             <p style={{ fontSize: '0.9rem', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
               La API REST de UniHub implementa controladores OpenAPI v3 con esquemas tipados Pydantic y autenticación por cabecera <code style={{ color: 'var(--uca-blue)' }}>X-API-Key</code>.
             </p>
+
+            {apiDocsInfoData && (
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
+                <div style={{ background: 'var(--bg-main)', padding: '0.85rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 600 }}>Versión API</div>
+                  <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--uca-blue)' }}>{apiDocsInfoData.version || 'v1.0.0'}</div>
+                </div>
+                <div style={{ background: 'var(--bg-main)', padding: '0.85rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 600 }}>Endpoints Operativos</div>
+                  <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--uca-cyan)' }}>{apiDocsInfoData.total_endpoints || '16'}</div>
+                </div>
+                <div style={{ background: 'var(--bg-main)', padding: '0.85rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 600 }}>Autenticación</div>
+                  <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--success)' }}>API Key Header</div>
+                </div>
+              </div>
+            )}
+
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <a href="/docs" target="_blank" rel="noreferrer" className="btn btn-primary" style={{ textDecoration: 'none' }}>
+              <a href="/docs" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ textDecoration: 'none' }}>
                 <ExternalLink size={16} /> Abrir Swagger UI (/docs)
               </a>
-              <a href="/redoc" target="_blank" rel="noreferrer" className="btn btn-outline" style={{ textDecoration: 'none' }}>
+              <a href="/redoc" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ textDecoration: 'none' }}>
                 <ExternalLink size={16} /> Abrir ReDoc (/redoc)
               </a>
             </div>

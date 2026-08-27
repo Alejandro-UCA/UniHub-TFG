@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { X, FileText, ExternalLink, Award, Layers, AlertTriangle, BookOpen, ChevronDown, ChevronUp, User, Bookmark } from 'lucide-react';
+import React, { useEffect, useState, useCallback } from 'react';
+import { X, FileText, ExternalLink, Award, Layers, AlertTriangle, BookOpen, ChevronDown, ChevronUp, User } from 'lucide-react';
 import { apiService } from '../services/api';
 import SubjectDetailModal from './SubjectDetailModal';
 
 export default function PlanModal({ degree, onClose }) {
   const [loading, setLoading] = useState(true);
   const [planData, setPlanData] = useState(null);
-  const [error, setError] = useState(null);
   const [expandedSubject, setExpandedSubject] = useState(null);
   const [selectedSubject, setSelectedSubject] = useState(null);
 
@@ -30,33 +29,43 @@ export default function PlanModal({ degree, onClose }) {
     return () => { document.body.style.overflow = prevOverflow; };
   }, []);
 
-  useEffect(() => {
-    async function loadCurriculum() {
-      if (!degree || !degree.codigo_estudio) return;
-      setLoading(true);
-      setError(null);
+  const loadCurriculum = useCallback(async (signal) => {
+    if (!degree || !degree.codigo_estudio) return;
+    setLoading(true);
 
-      try {
-        const data = await apiService.getDegreeCurriculum(degree.codigo_estudio);
-        setPlanData(data || {});
-      } catch (err) {
+    try {
+      const data = await apiService.getDegreeCurriculum(degree.codigo_estudio, { signal });
+      setPlanData(data || {});
+    } catch (err) {
+      if (err.name !== 'AbortError') {
         console.info('Plan curricular desglosado no disponible en API. Mostrando ficha oficial:', err.message);
         // Si el plan no tiene tabla desglosada en BOE o es de universidad privada, mostramos la ficha oficial sin romper el modal
         setPlanData({ plan_estudios: { elementos_curriculares: [], resumen_creditos: {} } });
-      } finally {
-        setLoading(false);
       }
+    } finally {
+      setLoading(false);
     }
-
-    loadCurriculum();
   }, [degree]);
 
+  useEffect(() => {
+    const controller = new AbortController();
+    loadCurriculum(controller.signal);
+    return () => controller.abort();
+  }, [loadCurriculum]);
+
   if (!degree) return null;
+
+  const getSafeUrl = (url) => {
+    if (!url) return null;
+    const clean = url.trim();
+    if (/^https?:\/\//i.test(clean)) return clean;
+    return null;
+  };
 
   const curriculum = planData?.plan_estudios ? planData.plan_estudios : (planData || {});
   const elementos = Array.isArray(curriculum.elementos_curriculares) ? curriculum.elementos_curriculares : [];
   const resumen = (curriculum.resumen_creditos && typeof curriculum.resumen_creditos === 'object' && !Array.isArray(curriculum.resumen_creditos)) ? curriculum.resumen_creditos : {};
-  const boeUrl = planData?.boe_url || degree.boe_url;
+  const boeUrl = getSafeUrl(planData?.boe_url || degree.boe_url);
   const boeFecha = planData?.boe_fecha || degree.boe_fecha;
 
   const isMaster = (degree.nivel_academico || '').toLowerCase().includes('máster') || (degree.nivel_academico || '').toLowerCase().includes('master');
@@ -65,8 +74,11 @@ export default function PlanModal({ degree, onClose }) {
                    (degree.titulo || '').toLowerCase().includes('doctor');
   const isPrivada = (degree.universidad_tipo || '').toLowerCase().includes('privad');
 
-  const annualPrice = parseFloat(degree.precio_estimado_anual) || 
-                      (degree.precio_credito_ects ? Math.round((parseFloat(degree.precio_credito_ects) || 0) * 60 + 45) : null);
+  const numAnnual = parseFloat(degree.precio_estimado_anual);
+  const numEcts = parseFloat(degree.precio_credito_ects);
+  const annualPrice = (!isNaN(numAnnual) && numAnnual > 0) 
+    ? Math.round(numAnnual) 
+    : ((!isNaN(numEcts) && numEcts > 0) ? Math.round(numEcts * 60 + 45) : null);
 
   return (
     <div className="modal-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="modal-title">
@@ -425,7 +437,8 @@ export default function PlanModal({ degree, onClose }) {
                           const evalList = elem.sistema_evaluacion || guia.sistema_evaluacion || [];
                           const profList = elem.profesorado || guia.profesorado || [];
                           const bibList = elem.bibliografia || guia.bibliografia || [];
-                          const guideUrl = elem.url_guia_docente || guia.url_guia_docente;
+                          const rawGuideUrl = elem.url_guia_docente || guia.url_guia_docente;
+                          const guideUrl = getSafeUrl(rawGuideUrl);
 
                           return (
                             <React.Fragment key={idx}>
@@ -455,7 +468,7 @@ export default function PlanModal({ degree, onClose }) {
                                       e.stopPropagation();
                                       setSelectedSubject(elem);
                                     }}
-                                    aria-label={`Ver ficha docente y temario de ${elem.nombre_elemento}`}
+                                    aria-label={`Ver ficha docente y temario de ${elem.nombre_elemento || 'esta asignatura'}`}
                                     style={{
                                       background: 'none',
                                       border: 'none',
@@ -513,7 +526,7 @@ export default function PlanModal({ degree, onClose }) {
                                     <a
                                       href={guideUrl}
                                       target="_blank"
-                                      rel="noreferrer"
+                                      rel="noopener noreferrer"
                                       onClick={(e) => e.stopPropagation()}
                                       style={{ color: 'var(--uca-blue)', display: 'inline-flex', alignItems: 'center', gap: '0.2rem', fontSize: '0.78rem' }}
                                     >
@@ -596,16 +609,24 @@ export default function PlanModal({ degree, onClose }) {
                                           </p>
                                         )}
 
+                                        {bibList.length > 0 && (
+                                          <div style={{ marginTop: '0.5rem', paddingTop: '0.5rem', borderTop: '1px dashed var(--border-light)', fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+                                            <strong>Bibliografía básica:</strong> {bibList.slice(0, 2).map(b => typeof b === 'string' ? b : (b.titulo || b.referencia || '')).join(' · ')}
+                                          </div>
+                                        )}
+
                                         {guideUrl && (
-                                          <a
-                                            href={guideUrl}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            className="btn btn-outline"
-                                            style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.78rem', padding: '0.35rem 0.75rem' }}
-                                          >
-                                            <ExternalLink size={13} /> Ver Guía Docente Completa
-                                          </a>
+                                          <div style={{ marginTop: '0.75rem' }}>
+                                            <a
+                                              href={guideUrl}
+                                              target="_blank"
+                                              rel="noopener noreferrer"
+                                              className="btn btn-outline"
+                                              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.78rem', padding: '0.35rem 0.75rem' }}
+                                            >
+                                              <ExternalLink size={13} /> Ver Guía Docente Completa
+                                            </a>
+                                          </div>
                                         )}
                                       </div>
                                     </div>

@@ -11,24 +11,31 @@ echo "[INFO] Configurando Seguridad Dinámica para PostgreSQL (Fase 2)"
 API_USER=$API_DB_USER
 API_PASSWORD=$API_DB_PASSWORD
 
+HOST_OPTS=""
+if [ -n "$POSTGRES_HOST" ]; then
+    HOST_OPTS="--host $POSTGRES_HOST --port ${POSTGRES_PORT:-5432}"
+fi
+
+SAFE_USER=$(echo "$API_USER" | sed "s/'/''/g")
+SAFE_PASSWORD=$(echo "$API_PASSWORD" | sed "s/'/''/g")
+
 psql -v ON_ERROR_STOP=1 \
-    -v api_user="$API_USER" \
-    -v api_password="$API_PASSWORD" \
+    $HOST_OPTS \
     --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
     DO \$\$
     BEGIN
-        IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = :'api_user') THEN
-            EXECUTE format('CREATE ROLE %I WITH LOGIN PASSWORD %L', :'api_user', :'api_password');
+        IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = '${SAFE_USER}') THEN
+            EXECUTE format('CREATE ROLE %I WITH LOGIN PASSWORD %L', '${SAFE_USER}', '${SAFE_PASSWORD}');
         ELSE
-            EXECUTE format('ALTER ROLE %I WITH LOGIN PASSWORD %L', :'api_user', :'api_password');
+            EXECUTE format('ALTER ROLE %I WITH LOGIN PASSWORD %L', '${SAFE_USER}', '${SAFE_PASSWORD}');
         END IF;
-        EXECUTE format('GRANT CONNECT ON DATABASE %I TO %I', current_database(), :'api_user');
+        EXECUTE format('GRANT CONNECT ON DATABASE %I TO %I', current_database(), '${SAFE_USER}');
     END
     \$\$;
 
-    GRANT USAGE ON SCHEMA public TO :"api_user";
-    GRANT SELECT ON ALL TABLES IN SCHEMA public TO :"api_user";
-    ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO :"api_user";
+    GRANT USAGE ON SCHEMA public TO "${SAFE_USER}";
+    GRANT SELECT ON ALL TABLES IN SCHEMA public TO "${SAFE_USER}";
+    ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO "${SAFE_USER}";
 EOSQL
 
 echo "[INFO] Rol de solo lectura '$API_USER' configurado con éxito."

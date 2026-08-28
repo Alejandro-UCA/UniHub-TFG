@@ -17,18 +17,14 @@ scratch/
 *.log
 
 # Project Generated Data (Crawler & API Data)
-Codigo/Crawler/Datos/*.json
-!Codigo/Crawler/Datos/precios_ccaa.json
-Codigo/Crawler/Datos/planes_estudio/
-Codigo/Crawler/Datos/Planes/
-Codigo/Crawler/Datos/Temp/
-Codigo/Crawler/Datos/http_cache/
-Codigo/Crawler/Datos/auditoria_exhaustiva/
-Codigo/Crawler/temp_pdfs/
-Codigo/API/Datos/
-Codigo/Pruebas/reporte_*.json
 *.sqlite3*
 *.db*
+Codigo/Crawler/Datos/*.json
+!Codigo/Crawler/Datos/precios_ccaa.json
+Codigo/Crawler/Datos/http_cache/
+Codigo/Crawler/Datos/run_manifests/
+Codigo/Crawler/Datos/planes_estudio/
+Codigo/Pruebas/reporte_*.json
 
 # Secretos y configuración local
 .env

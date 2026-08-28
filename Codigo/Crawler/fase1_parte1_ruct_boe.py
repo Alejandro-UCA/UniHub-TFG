@@ -375,6 +375,7 @@ def run_phase1_part1(
     phase_error = None
     worker_incomplete = False
     worker_result_count = 0
+    prefetch_executor = None
 
     try:
         print(" [Paso 1/3] Obteniendo lista oficial de universidades desde RUCT...")
@@ -411,6 +412,12 @@ def run_phase1_part1(
         catalog = load_json_safe(TITULACIONES_JSON, default={})
         if not isinstance(catalog, dict):
             catalog = {}
+
+        if ENABLE_RUCT_ASYNC_PREFETCH and ASYNC_PREFETCH_WORKERS > 0:
+            prefetch_executor = concurrent.futures.ThreadPoolExecutor(
+                max_workers=max(1, int(ASYNC_PREFETCH_WORKERS)),
+                thread_name_prefix="RUCTPrefetch"
+            )
 
         print(" [Paso 2/3] Rastreo de titulaciones y resoluciones BOE por universidad...")
         for university_index, university in enumerate(universities, 1):
@@ -462,13 +469,7 @@ def run_phase1_part1(
                 if limit_degrees is not None:
                     degrees_to_process = degrees_to_process[:max(0, limit_degrees)]
 
-                prefetch_executor = None
                 prefetch_futures = {}
-                if ENABLE_RUCT_ASYNC_PREFETCH and ASYNC_PREFETCH_WORKERS > 0:
-                    prefetch_executor = concurrent.futures.ThreadPoolExecutor(
-                        max_workers=max(1, min(ASYNC_PREFETCH_WORKERS, 4)),
-                        thread_name_prefix=f"RUCTPrefetch-{university_code}"
-                    )
 
                 def _fetch_degree_detail_worker(d_cod):
                     d_url = format_ruct_url(URL_DETALLE_ESTUDIO_TEMPLATE, d_cod, degree=True)
@@ -697,9 +698,7 @@ def run_phase1_part1(
                             metrics.inc_errores()
                             continue
                 finally:
-                    if prefetch_executor is not None:
-                        prefetch_executor.shutdown(wait=False, cancel_futures=True)
-                        prefetch_futures.clear()
+                    prefetch_futures.clear()
 
                 if completed_cleanly:
                     # Persiste la clasificación de matrícula obtenida de la
@@ -738,6 +737,8 @@ def run_phase1_part1(
             traceback.format_exc(),
         )
     finally:
+        if prefetch_executor is not None:
+            prefetch_executor.shutdown(wait=False, cancel_futures=True)
         for _ in consumer_pool:
             try:
                 task_queue.put({"type": "STOP"}, timeout=WORKER_STOP_QUEUE_TIMEOUT)

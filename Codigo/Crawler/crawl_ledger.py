@@ -28,9 +28,13 @@ class CrawlLedger:
                 dir_path = os.path.dirname(os.path.abspath(self.db_path))
                 if dir_path:
                     os.makedirs(dir_path, exist_ok=True)
-            conn = sqlite3.connect(self.db_path, timeout=SQLITE_CONNECT_TIMEOUT)
-            conn.execute("PRAGMA synchronous=NORMAL")
-            self._local.connection = conn
+            try:
+                conn = sqlite3.connect(self.db_path, timeout=SQLITE_CONNECT_TIMEOUT)
+                conn.execute("PRAGMA synchronous=NORMAL")
+                self._local.connection = conn
+            except sqlite3.OperationalError as err:
+                logger.debug("No se pudo abrir conexion SQLite para crawl_ledger: %s", err)
+                return None
         return conn
 
     def _init_db(self):
@@ -40,55 +44,65 @@ class CrawlLedger:
                 if dir_path:
                     os.makedirs(dir_path, exist_ok=True)
             conn = self._connection()
+            if conn is None:
+                return
             try:
                 conn.execute("PRAGMA journal_mode=WAL")
             except Exception:
                 pass
-            conn.execute(
-                """CREATE TABLE IF NOT EXISTS crawl_ledger (
-                    url TEXT PRIMARY KEY,
-                    phase TEXT,
-                    university_code TEXT,
-                    degree_code TEXT,
-                    status TEXT NOT NULL,
-                    attempts INTEGER NOT NULL DEFAULT 0,
-                    http_status INTEGER,
-                    content_type TEXT,
-                    content_length INTEGER,
-                    content_sha256 TEXT,
-                    cache_path TEXT,
-                    etag TEXT,
-                    last_modified TEXT,
-                    robots_allowed INTEGER,
-                    error TEXT,
-                    first_seen TEXT NOT NULL,
-                    last_attempt TEXT,
-                    next_retry TEXT
-                )"""
-            )
-            conn.execute("CREATE INDEX IF NOT EXISTS idx_crawl_ledger_status ON crawl_ledger(status, next_retry)")
             try:
-                conn.execute("ALTER TABLE crawl_ledger ADD COLUMN cache_path TEXT")
-            except sqlite3.OperationalError:
-                pass
-            conn.execute("CREATE INDEX IF NOT EXISTS idx_crawl_ledger_entity ON crawl_ledger(university_code, degree_code)")
-            conn.commit()
+                conn.execute(
+                    """CREATE TABLE IF NOT EXISTS crawl_ledger (
+                        url TEXT PRIMARY KEY,
+                        phase TEXT,
+                        university_code TEXT,
+                        degree_code TEXT,
+                        status TEXT NOT NULL,
+                        attempts INTEGER NOT NULL DEFAULT 0,
+                        http_status INTEGER,
+                        content_type TEXT,
+                        content_length INTEGER,
+                        content_sha256 TEXT,
+                        cache_path TEXT,
+                        etag TEXT,
+                        last_modified TEXT,
+                        robots_allowed INTEGER,
+                        error TEXT,
+                        first_seen TEXT NOT NULL,
+                        last_attempt TEXT,
+                        next_retry TEXT
+                    )"""
+                )
+                conn.execute("CREATE INDEX IF NOT EXISTS idx_crawl_ledger_status ON crawl_ledger(status, next_retry)")
+                try:
+                    conn.execute("ALTER TABLE crawl_ledger ADD COLUMN cache_path TEXT")
+                except sqlite3.OperationalError:
+                    pass
+                conn.execute("CREATE INDEX IF NOT EXISTS idx_crawl_ledger_entity ON crawl_ledger(university_code, degree_code)")
+                conn.commit()
+            except sqlite3.OperationalError as err:
+                logger.debug("No se pudo inicializar esquema crawl_ledger: %s", err)
 
     def record_attempt(self, url: str, *, phase: str = "", university_code: str = "", degree_code: str = ""):
         if not url:
             return
         now = datetime.now(timezone.utc).isoformat()
         with self._lock:
-            conn = self._connection()
-            conn.execute(
-                """INSERT INTO crawl_ledger(url, phase, university_code, degree_code, status, attempts, first_seen, last_attempt)
-                   VALUES (?, ?, ?, ?, 'processing', 1, ?, ?)
-                   ON CONFLICT(url) DO UPDATE SET phase=excluded.phase,
-                     university_code=excluded.university_code, degree_code=excluded.degree_code,
-                     status='processing', attempts=crawl_ledger.attempts+1, last_attempt=excluded.last_attempt""",
-                (url, phase, str(university_code or ""), str(degree_code or ""), now, now),
-            )
-            conn.commit()
+            try:
+                conn = self._connection()
+                if conn is None:
+                    return
+                conn.execute(
+                    """INSERT INTO crawl_ledger(url, phase, university_code, degree_code, status, attempts, first_seen, last_attempt)
+                       VALUES (?, ?, ?, ?, 'processing', 1, ?, ?)
+                       ON CONFLICT(url) DO UPDATE SET phase=excluded.phase,
+                         university_code=excluded.university_code, degree_code=excluded.degree_code,
+                         status='processing', attempts=crawl_ledger.attempts+1, last_attempt=excluded.last_attempt""",
+                    (url, phase, str(university_code or ""), str(degree_code or ""), now, now),
+                )
+                conn.commit()
+            except sqlite3.OperationalError as err:
+                logger.debug("No se pudo registrar intento en crawl_ledger: %s", err)
 
     def record_response(self, url: str, response=None, *, content: bytes | None = None, status: str | None = None, error: str | None = None, cache_path: str | None = None):
         if not url:
@@ -103,39 +117,64 @@ class CrawlLedger:
         if final_status == "failed":
             retry_at = (datetime.now(timezone.utc) + timedelta(hours=1)).isoformat()
         with self._lock:
-            conn = self._connection()
-            conn.execute(
-                """UPDATE crawl_ledger SET status=?, http_status=?, content_type=?, content_length=?,
-                   content_sha256=COALESCE(?, content_sha256), cache_path=COALESCE(?, cache_path),
-                   etag=COALESCE(?, etag), last_modified=COALESCE(?, last_modified), error=?, last_attempt=?, next_retry=? WHERE url=?""",
-                (final_status, status_code, content_type, len(content) if content else None,
-                 digest, cache_path, headers.get("ETag"), headers.get("Last-Modified"), error, now, retry_at, url),
-            )
-            conn.commit()
+            try:
+                conn = self._connection()
+                if conn is None:
+                    return
+                conn.execute(
+                    """UPDATE crawl_ledger SET status=?, http_status=?, content_type=?, content_length=?,
+                       content_sha256=COALESCE(?, content_sha256), cache_path=COALESCE(?, cache_path),
+                       etag=COALESCE(?, etag), last_modified=COALESCE(?, last_modified), error=?, last_attempt=?, next_retry=? WHERE url=?""",
+                    (final_status, status_code, content_type, len(content) if content else None,
+                     digest, cache_path, headers.get("ETag"), headers.get("Last-Modified"), error, now, retry_at, url),
+                )
+                conn.commit()
+            except sqlite3.OperationalError as err:
+                logger.debug("No se pudo registrar respuesta en crawl_ledger: %s", err)
 
     def validators(self, url: str) -> dict:
-        with self._lock:
-            row = self._connection().execute(
-                "SELECT etag, last_modified, cache_path FROM crawl_ledger WHERE url=?", (url,)
-            ).fetchone()
-        if not row:
+        if not url:
             return {}
-        return {"etag": row[0], "last_modified": row[1], "cache_path": row[2]}
+        with self._lock:
+            try:
+                conn = self._connection()
+                if conn is None:
+                    return {}
+                row = conn.execute(
+                    "SELECT etag, last_modified, cache_path FROM crawl_ledger WHERE url=?", (url,)
+                ).fetchone()
+                if not row:
+                    return {}
+                return {"etag": row[0], "last_modified": row[1], "cache_path": row[2]}
+            except sqlite3.OperationalError as err:
+                logger.debug("No se pudo consultar validadores en crawl_ledger: %s", err)
+                return {}
 
     def mark_cached(self, url: str):
         now = datetime.now(timezone.utc).isoformat()
         with self._lock:
-            self._connection().execute(
-                "UPDATE crawl_ledger SET status='success', error=NULL, last_attempt=?, next_retry=NULL WHERE url=?",
-                (now, url),
-            )
-            self._connection().commit()
+            try:
+                conn = self._connection()
+                if conn is None:
+                    return
+                conn.execute(
+                    "UPDATE crawl_ledger SET status='success', error=NULL, last_attempt=?, next_retry=NULL WHERE url=?",
+                    (now, url),
+                )
+                conn.commit()
+            except sqlite3.OperationalError as err:
+                logger.debug("No se pudo marcar caché en crawl_ledger: %s", err)
 
     def mark_robots(self, url: str, allowed: bool):
         with self._lock:
-            conn = self._connection()
-            conn.execute("UPDATE crawl_ledger SET robots_allowed=? WHERE url=?", (1 if allowed else 0, url))
-            conn.commit()
+            try:
+                conn = self._connection()
+                if conn is None:
+                    return
+                conn.execute("UPDATE crawl_ledger SET robots_allowed=? WHERE url=?", (1 if allowed else 0, url))
+                conn.commit()
+            except sqlite3.OperationalError as err:
+                logger.debug("No se pudo actualizar robots en crawl_ledger: %s", err)
 
     def pending(self, *, phase: str | None = None, limit: int = 100) -> list[dict]:
         now = datetime.now(timezone.utc).isoformat()
@@ -147,9 +186,16 @@ class CrawlLedger:
         query += " ORDER BY last_attempt IS NOT NULL, last_attempt LIMIT ?"
         args.append(max(1, int(limit)))
         with self._lock:
-            rows = self._connection().execute(query, args).fetchall()
-        keys = ("url", "phase", "university_code", "degree_code", "status", "attempts", "next_retry")
-        return [dict(zip(keys, row)) for row in rows]
+            try:
+                conn = self._connection()
+                if conn is None:
+                    return []
+                rows = conn.execute(query, args).fetchall()
+                keys = ("url", "phase", "university_code", "degree_code", "status", "attempts", "next_retry")
+                return [dict(zip(keys, row)) for row in rows]
+            except sqlite3.OperationalError as err:
+                logger.debug("No se pudo consultar pendientes en crawl_ledger: %s", err)
+                return []
 
     def close(self):
         conn = getattr(self._local, "connection", None)

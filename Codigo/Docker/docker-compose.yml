@@ -56,6 +56,7 @@ services:
       ADMIN_API_KEY: ${ADMIN_API_KEY:-}
       ADMIN_API_KEYS: ${ADMIN_API_KEYS:-}
       API_SYNC_URL: ${API_SYNC_URL:-http://api:8000/api/v1/admin/sync-etl}
+      CRAWLER_API_SYNC_TIMEOUT: ${CRAWLER_API_SYNC_TIMEOUT:-600}
     volumes:
       - ../Crawler/Datos:/app/Datos
     networks:
@@ -118,7 +119,6 @@ services:
       dockerfile: Codigo/Docker/www/Dockerfile
       args:
         VITE_API_URL: ${VITE_API_URL:-/api/v1}
-        VITE_ADMIN_USER: ${VITE_ADMIN_USER:-admin}
         VITE_ADMIN_FEES: ${VITE_ADMIN_FEES:?VITE_ADMIN_FEES debe configurarse}
         VITE_BECA_MEC_REFERENCE_PRICE: ${VITE_BECA_MEC_REFERENCE_PRICE:?VITE_BECA_MEC_REFERENCE_PRICE debe configurarse}
     container_name: unihub_www

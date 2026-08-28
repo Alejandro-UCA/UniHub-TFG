@@ -27,7 +27,7 @@ CRON_SCHEDULE="$*"
 
 # Las variables se escriben como asignaciones propias de crontab. No se genera
 # ni se carga código shell a partir de printenv o de valores externos.
-for value in "${ADMIN_API_KEY:-}" "${ADMIN_API_KEYS:-}" "${API_SYNC_URL:-}" "${CRAWLER_REQUEST_DELAY:-}"; do
+for value in "${ADMIN_API_KEY:-}" "${ADMIN_API_KEYS:-}" "${API_SYNC_URL:-}" "${CRAWLER_REQUEST_DELAY:-}" "${CRAWLER_API_SYNC_TIMEOUT:-}"; do
     if ! printf '%s' "$value" | awk 'NR > 1 { exit 1 }'; then
         echo "[ERROR] Las variables del crawler no pueden contener saltos de línea." >&2
         exit 1
@@ -42,6 +42,7 @@ CRAWLER_USER=crawler
     printf '%s\n' "ADMIN_API_KEY=${ADMIN_API_KEY:-}"
     printf '%s\n' "ADMIN_API_KEYS=${ADMIN_API_KEYS:-}"
     printf '%s\n' "API_SYNC_URL=${API_SYNC_URL:-}"
+    printf '%s\n' "CRAWLER_API_SYNC_TIMEOUT=${CRAWLER_API_SYNC_TIMEOUT:-600}"
     printf '%s\n' "$CRON_SCHEDULE cd /app && $PYTHON_BIN /app/main.py >> /var/log/crawler_cron.log 2>&1"
 } | crontab -u "$CRAWLER_USER" -
 

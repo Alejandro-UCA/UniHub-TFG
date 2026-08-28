@@ -225,6 +225,10 @@ class PlanEstudiosOut(BaseModel):
     boe_fecha: Optional[date] = None
     origen_fuente: Optional[str] = None
     pdf_sha256: Optional[str] = None
+    estado_calidad: str
+    motivos_calidad: Optional[Dict[str, Any]] = None
+    fuente_verificada_url: Optional[str] = None
+    verificado_en: Optional[datetime] = None
     fecha_procesado: Optional[datetime] = None
     resumen_creditos: List[ResumenCreditosOut] = []
     elementos_curriculares: List[ElementoCurricularOut] = []

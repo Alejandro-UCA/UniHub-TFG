@@ -42,9 +42,8 @@ export default function PlanModal({ degree, onClose }) {
       setPlanData(data || {});
     } catch (err) {
       if (err.name !== 'AbortError') {
-        console.info('Plan curricular desglosado no disponible en API. Mostrando ficha oficial:', err.message);
-        // Si el plan no tiene tabla desglosada en BOE o es de universidad privada, mostramos la ficha oficial sin romper el modal
-        setPlanData({ plan_estudios: { elementos_curriculares: [], resumen_creditos: {} } });
+        console.info('Plan curricular verificado no disponible en API:', err.message);
+        setPlanData({ estado_calidad: 'sin_datos_verificados' });
       }
     } finally {
       setLoading(false);
@@ -71,6 +70,7 @@ export default function PlanModal({ degree, onClose }) {
   const resumen = (curriculum.resumen_creditos && typeof curriculum.resumen_creditos === 'object' && !Array.isArray(curriculum.resumen_creditos)) ? curriculum.resumen_creditos : {};
   const boeUrl = getSafeUrl(planData?.boe_url || degree.boe_url);
   const boeFecha = planData?.boe_fecha || degree.boe_fecha;
+  const isVerifiedPlan = ['verificado_boe', 'verificado_universidad', 'verificado_administracion'].includes(planData?.estado_calidad);
 
   const isMaster = (degree.nivel_academico || '').toLowerCase().includes('máster') || (degree.nivel_academico || '').toLowerCase().includes('master');
   const isDoctor = (degree.nivel_academico || '').toLowerCase().includes('doctor') || 
@@ -237,6 +237,24 @@ export default function PlanModal({ degree, onClose }) {
               <div style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '0.5rem' }}>Cargando información del plan de estudios...</div>
               <div style={{ fontSize: '0.85rem' }}>Analizando asignaturas, créditos ECTS y estructura oficial...</div>
             </div>
+          ) : !isVerifiedPlan ? (
+            <div style={{
+              padding: '1.5rem',
+              background: 'rgba(245, 158, 11, 0.10)',
+              border: '1px solid rgba(245, 158, 11, 0.35)',
+              borderRadius: 'var(--radius-md)',
+              color: 'var(--text-main)'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                <AlertTriangle size={22} color="#B45309" style={{ flexShrink: 0, marginTop: '2px' }} />
+                <div>
+                  <h3 style={{ fontSize: '1rem', fontWeight: 800, marginBottom: '0.4rem' }}>Plan de estudios no verificado</h3>
+                  <p style={{ margin: 0, fontSize: '0.9rem', lineHeight: 1.55 }}>
+                    No mostramos asignaturas, ECTS ni una estructura curricular porque no se ha localizado una fuente oficial suficiente para validarlos.
+                  </p>
+                </div>
+              </div>
+            </div>
           ) : (
             <>
               {/* Credit Summaries */}
@@ -259,10 +277,10 @@ export default function PlanModal({ degree, onClose }) {
               {/* Subjects & Modules Breakdown */}
               <div>
                 <h3 style={{ fontSize: '1.05rem', fontWeight: 700, marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <Layers size={18} color="var(--uca-cyan)" /> {curriculum.tipo_estructura === 'programa_doctorado_investigacion' || (degree.nivel_academico || '').toLowerCase().includes('doctor') ? 'Estructura Investigadora y Formativa (RD 99/2011)' : `Estructura de Asignaturas, Módulos y Materias (${elementos.length})`}
+                  <Layers size={18} color="var(--uca-cyan)" /> {curriculum.tipo_estructura === 'programa_doctorado_investigacion' ? 'Estructura Investigadora y Formativa (RD 99/2011)' : `Estructura de Asignaturas, Módulos y Materias (${elementos.length})`}
                 </h3>
 
-                {curriculum.tipo_estructura === 'programa_doctorado_investigacion' || (degree.nivel_academico || '').toLowerCase().includes('doctor') ? (
+                {curriculum.tipo_estructura === 'programa_doctorado_investigacion' ? (
                   <div style={{
                     padding: '2rem 1.75rem',
                     background: 'linear-gradient(135deg, rgba(0, 132, 200, 0.05) 0%, rgba(15, 23, 42, 0.02) 100%)',
@@ -319,7 +337,7 @@ export default function PlanModal({ degree, onClose }) {
                       </a>
                     )}
                   </div>
-                ) : (curriculum.tipo_estructura === 'consorcio_europeo_erasmus_mundus' || degree.es_alianza_europea || (degree.titulo || '').toLowerCase().includes('erasmus mundus') || (degree.titulo || '').toLowerCase().includes('sea-eu')) ? (
+                ) : curriculum.tipo_estructura === 'consorcio_europeo_erasmus_mundus' ? (
                   <div style={{
                     padding: '2rem 1.75rem',
                     background: 'linear-gradient(135deg, rgba(14, 165, 233, 0.08) 0%, rgba(99, 102, 241, 0.05) 100%)',

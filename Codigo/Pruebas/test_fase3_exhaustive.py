@@ -148,6 +148,23 @@ class TestPhase3FrontendExhaustive(unittest.TestCase):
         self.assertNotIn("ADMIN_API_KEY", content, "La clave no debe estar expuesta en el componente de login")
         self.assertNotIn("Clave por defecto", content, "No debe haber pistas de credenciales en el texto")
 
+    def test_10b_admin_login_uses_only_the_server_verified_api_key(self):
+        login_path = os.path.join(self.COMPONENTS_DIR, "AdminLogin.jsx")
+        with open(login_path, encoding="utf-8") as handle:
+            content = handle.read()
+        self.assertIn("verifyAdminAuth(cleanKey)", content)
+        self.assertNotIn("admin-username", content)
+        self.assertNotIn("VITE_ADMIN_USER", content)
+
+    def test_10c_dashboard_reports_synchronous_etl_completion(self):
+        dashboard_path = os.path.join(self.COMPONENTS_DIR, "AdminDashboard.jsx")
+        with open(dashboard_path, encoding="utf-8") as handle:
+            content = handle.read()
+        self.assertIn("Sincronización ETL relacional completada correctamente.", content)
+        self.assertIn("await refreshData();", content)
+        self.assertNotIn("iniciada en segundo plano", content)
+        self.assertNotIn("refreshTimerRef", content)
+
     def test_11_subjects_crud_and_full_catalog_pagination(self):
         """Verifica la gestión de asignaturas y la integración de paginación total en el Admin Dashboard."""
         admin_path = os.path.join(self.COMPONENTS_DIR, "AdminDashboard.jsx")

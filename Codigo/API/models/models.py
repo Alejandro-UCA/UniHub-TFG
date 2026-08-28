@@ -57,6 +57,10 @@ class PlanEstudios(Base):
     boe_fecha = Column(Date)
     origen_fuente = Column(String(100))
     pdf_sha256 = Column(String(64))
+    estado_calidad = Column(String(64), nullable=False, default="pendiente_revision", index=True)
+    motivos_calidad = Column(JSON().with_variant(JSONB, "postgresql"), nullable=True)
+    fuente_verificada_url = Column(Text)
+    verificado_en = Column(DateTime)
     fecha_procesado = Column(DateTime)
     creado_en = Column(DateTime, default=func.now())
 

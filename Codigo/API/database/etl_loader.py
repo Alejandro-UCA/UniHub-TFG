@@ -10,6 +10,12 @@ from sqlalchemy.orm import sessionmaker
 
 logger = logging.getLogger("unihub_etl")
 
+PUBLISHABLE_PLAN_QUALITY_STATUSES = frozenset({
+    "verificado_boe",
+    "verificado_universidad",
+    "verificado_administracion",
+})
+
 
 def _update_if_present(instance, attribute: str, payload: dict, key: str) -> None:
     """Actualiza un campo solo cuando la fuente aporta un valor explícito."""
@@ -18,6 +24,18 @@ def _update_if_present(instance, attribute: str, payload: dict, key: str) -> Non
     if isinstance(payload[key], str) and not payload[key].strip():
         return
     setattr(instance, attribute, payload[key])
+
+
+def _has_authoritative_plan_snapshot(plan_data: object, quality_status: object = None) -> bool:
+    """Indica si la fuente aporta una instantánea curricular apta para sustituir datos.
+
+    Además de la estructura, exige un estado de calidad publicable. Un ``null``,
+    un objeto vacío o un candidato pendiente expresa ausencia de detalle
+    confirmado: la ETL conserva los elementos ya verificados en la base de datos.
+    """
+    return str(quality_status or "").strip().lower() in PUBLISHABLE_PLAN_QUALITY_STATUSES and isinstance(plan_data, dict) and any(
+        key in plan_data for key in ("resumen_creditos", "elementos_curriculares")
+    )
 
 # Añadir el directorio padre de la API a la ruta de importación
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -148,6 +166,11 @@ def run_etl() -> bool:
                     'ALTER TABLE titulaciones ADD COLUMN IF NOT EXISTS gestionado_por_admin BOOLEAN DEFAULT FALSE;',
                     'ALTER TABLE planes_estudio ADD COLUMN IF NOT EXISTS origen_fuente VARCHAR(100);',
                     'ALTER TABLE planes_estudio ADD COLUMN IF NOT EXISTS pdf_sha256 VARCHAR(64);',
+                    "ALTER TABLE planes_estudio ADD COLUMN IF NOT EXISTS estado_calidad VARCHAR(64) NOT NULL DEFAULT 'pendiente_revision';",
+                    'ALTER TABLE planes_estudio ADD COLUMN IF NOT EXISTS motivos_calidad JSONB;',
+                    'ALTER TABLE planes_estudio ADD COLUMN IF NOT EXISTS fuente_verificada_url TEXT;',
+                    'ALTER TABLE planes_estudio ADD COLUMN IF NOT EXISTS verificado_en TIMESTAMP;',
+                    'CREATE INDEX IF NOT EXISTS idx_planes_estado_calidad ON planes_estudio(estado_calidad);',
                     'ALTER TABLE elementos_curriculares ADD COLUMN IF NOT EXISTS tipo_asistencia VARCHAR(50);',
                     'ALTER TABLE elementos_curriculares ADD COLUMN IF NOT EXISTS calificacion_minima NUMERIC(4,2);',
                     'ALTER TABLE elementos_curriculares ADD COLUMN IF NOT EXISTS departamento VARCHAR(255);',
@@ -397,30 +420,51 @@ def run_etl() -> bool:
                         except ValueError:
                             pass
 
+                    raw_plan_data = p_data.get("plan_estudios")
+                    quality_status = str(p_data.get("estado_calidad") or "").strip().lower()
+                    has_plan_snapshot = _has_authoritative_plan_snapshot(raw_plan_data, quality_status)
+                    quality_metadata = p_data.get("calidad_datos") if isinstance(p_data.get("calidad_datos"), dict) else None
                     plan_obj = existing_plans_dict.get(d_code)
                     if not plan_obj:
                         plan_obj = PlanEstudios(
                             codigo_estudio=d_code,
-                            boe_url=p_data.get("boe_url"),
-                            boe_fecha=boe_date_val,
-                            origen_fuente=p_data.get("origen_fuente"),
-                            pdf_sha256=p_data.get("pdf_sha256"),
-                            fecha_procesado=datetime.now()
+                            boe_url=p_data.get("boe_url") if has_plan_snapshot else None,
+                            boe_fecha=boe_date_val if has_plan_snapshot else None,
+                            origen_fuente=p_data.get("origen_fuente") if has_plan_snapshot else None,
+                            pdf_sha256=p_data.get("pdf_sha256") if has_plan_snapshot else None,
+                            estado_calidad=quality_status or "sin_datos_verificados",
+                            motivos_calidad=quality_metadata,
+                            fuente_verificada_url=(quality_metadata or {}).get("fuente_url") if has_plan_snapshot else None,
+                            verificado_en=datetime.now() if has_plan_snapshot else None,
+                            fecha_procesado=datetime.now(),
                         )
                         db.add(plan_obj)
                         db.flush()
                         existing_plans_dict[d_code] = plan_obj
                     else:
-                        plan_obj.boe_url = p_data.get("boe_url") or plan_obj.boe_url
-                        plan_obj.boe_fecha = boe_date_val or plan_obj.boe_fecha
-                        plan_obj.origen_fuente = p_data.get("origen_fuente") or plan_obj.origen_fuente
-                        plan_obj.pdf_sha256 = p_data.get("pdf_sha256") or plan_obj.pdf_sha256
-                        plan_obj.fecha_procesado = datetime.now()
-                        db.query(ResumenCreditos).filter(ResumenCreditos.plan_estudio_id == plan_obj.id).delete()
-                        db.query(ElementoCurricular).filter(ElementoCurricular.plan_estudio_id == plan_obj.id).delete()
+                        if has_plan_snapshot:
+                            plan_obj.boe_url = p_data.get("boe_url") or plan_obj.boe_url
+                            plan_obj.boe_fecha = boe_date_val or plan_obj.boe_fecha
+                            plan_obj.origen_fuente = p_data.get("origen_fuente") or plan_obj.origen_fuente
+                            plan_obj.pdf_sha256 = p_data.get("pdf_sha256") or plan_obj.pdf_sha256
+                            plan_obj.estado_calidad = quality_status
+                            plan_obj.motivos_calidad = quality_metadata
+                            plan_obj.fuente_verificada_url = (quality_metadata or {}).get("fuente_url")
+                            plan_obj.verificado_en = datetime.now()
+                            plan_obj.fecha_procesado = datetime.now()
+                            db.query(ResumenCreditos).filter(ResumenCreditos.plan_estudio_id == plan_obj.id).delete()
+                            db.query(ElementoCurricular).filter(ElementoCurricular.plan_estudio_id == plan_obj.id).delete()
+                        else:
+                            if plan_obj.estado_calidad not in PUBLISHABLE_PLAN_QUALITY_STATUSES:
+                                plan_obj.estado_calidad = quality_status or "sin_datos_verificados"
+                                plan_obj.motivos_calidad = quality_metadata
+                            logger.warning(
+                                "Plan %s sin instantánea curricular publicable; se conservan los datos existentes.",
+                                d_code,
+                            )
 
                     # Acumular en lote para inserción masiva
-                    pe_data = p_data.get("plan_estudios") or {}
+                    pe_data = raw_plan_data if has_plan_snapshot else {}
                     res_cred = pe_data.get("resumen_creditos") or {}
                     for k, v in res_cred.items():
                         resumenes_bulk.append(ResumenCreditos(plan_estudio_id=plan_obj.id, tipo_credito=str(k), cantidad_creditos=str(v)))

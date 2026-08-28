@@ -51,6 +51,16 @@ ALTER TABLE IF EXISTS titulaciones
 ALTER TABLE IF EXISTS planes_estudio
     ALTER COLUMN codigo_estudio SET NOT NULL;
 
+-- Los registros históricos no se consideran verificados automáticamente: su
+-- publicación queda bloqueada hasta que el crawler los vuelva a clasificar.
+ALTER TABLE IF EXISTS planes_estudio
+    ADD COLUMN IF NOT EXISTS estado_calidad VARCHAR(64) NOT NULL DEFAULT 'pendiente_revision',
+    ADD COLUMN IF NOT EXISTS motivos_calidad JSONB,
+    ADD COLUMN IF NOT EXISTS fuente_verificada_url TEXT,
+    ADD COLUMN IF NOT EXISTS verificado_en TIMESTAMP;
+
+CREATE INDEX IF NOT EXISTS idx_planes_estado_calidad ON planes_estudio(estado_calidad);
+
 ALTER TABLE IF EXISTS resumen_creditos
     ALTER COLUMN plan_estudio_id SET NOT NULL,
     ALTER COLUMN tipo_credito SET NOT NULL,

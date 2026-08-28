@@ -63,7 +63,6 @@ from parsers import (
     parse_degrees_xls,
     parse_degree_detail_html,
     parse_boe_pdf,
-    is_doctorate_program,
     is_curriculum_complete,
     get_curriculum_completeness_status
 )
@@ -129,20 +128,8 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue = None, shu
                 except Exception as e:
                     pass
 
-            is_doctorado = is_doctorate_program(nivel_academico, d_title)
-
             if task_type == "DEGREE_NO_BOE":
                 plan_doc = None
-                if is_doctorado:
-                    plan_doc = {
-                        "tipo_estructura": "programa_doctorado_investigacion",
-                        "normativa": "Real Decreto 99/2011",
-                        "descripcion_plan": "Programa Oficial de Doctorado centrado en la investigación avanzada, elaboración y defensa de Tesis Doctoral conforme al Real Decreto 99/2011.",
-                        "actividades_formativas": "Seminarios de investigación, estancias internacionales, publicaciones científicas y tutela académica anual.",
-                        "fuente_estado": "sin_resolucion_boe",
-                        "total_elementos": 0,
-                        "elementos_curriculares": []
-                    }
                 save_degree_payload(
                     plan_file=plan_file,
                     d_code=d_code,
@@ -284,15 +271,6 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue = None, shu
                     final_plan_doc["plan_completo"] = completeness["is_complete"]
                     final_plan_doc["ects_totales_detectados"] = completeness["total_ects_obtained"]
                     final_plan_doc["ects_exigidos"] = completeness["required_ects"]
-                elif is_doctorado:
-                    final_plan_doc = {
-                        "tipo_estructura": "programa_doctorado_investigacion",
-                        "normativa": "Real Decreto 99/2011",
-                        "fuente_estado": "sin_resolucion_boe",
-                        "total_elementos": 0,
-                        "elementos_curriculares": []
-                    }
-
                 save_degree_payload(
                     plan_file=plan_file,
                     d_code=d_code,

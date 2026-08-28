@@ -21,12 +21,16 @@ from config import (
 logger = logging.getLogger("boe_pdf_parser")
 
 RE_CREDIT_SUMMARY = [
-    ("Formación Básica", re.compile(r"(?:Formaci[oó]n\s+B[aá]sica|FB)\s*[:.\-]?\s*(\d+(?:[.,]\d+)?)", re.IGNORECASE)),
-    ("Obligatorias", re.compile(r"(?:Obligatorias?|OB)\s*[:.\-]?\s*(\d+(?:[.,]\d+)?)", re.IGNORECASE)),
-    ("Optativas", re.compile(r"(?:Optativas?|OP)\s*[:.\-]?\s*(\d+(?:[.,]\d+)?)", re.IGNORECASE)),
-    ("Prácticas Externas", re.compile(r"(?:Pr[aá]cticas\s+Externas?|PE)\s*[:.\-]?\s*(\d+(?:[.,]\d+)?)", re.IGNORECASE)),
-    ("Trabajo Fin de Grado / Máster", re.compile(r"(?:Trabajo\s+Fin\s+de\s+(?:Grado|M[aá]ster)|TFG|TFM)\s*[:.\-]?\s*(\d+(?:[.,]\d+)?)", re.IGNORECASE)),
-    ("Créditos Totales", re.compile(r"(?:Cr[eé]ditos\s+Totales?|Total)\s*[:.\-]?\s*(\d+(?:[.,]\d+)?)", re.IGNORECASE))
+    ("Formación Básica", re.compile(r"(?:Formaci[oó]n\s+B[aá]sica|FB)\s*(?:\([^)]*\))?\s*[:.\-]?\s*(\d+(?:[.,]\d+)?)", re.IGNORECASE)),
+    ("Obligatorias", re.compile(r"(?:Obligatorias?|OB)\s*(?:\([^)]*\))?\s*[:.\-]?\s*(\d+(?:[.,]\d+)?)", re.IGNORECASE)),
+    ("Optativas", re.compile(r"(?:Optativas?|OP)\s*(?:\([^)]*\))?\s*[:.\-]?\s*(\d+(?:[.,]\d+)?)", re.IGNORECASE)),
+    ("Prácticas Externas", re.compile(r"(?:Pr[aá]cticas\s+Externas?|PE)\s*(?:\([^)]*\))?\s*[:.\-]?\s*(\d+(?:[.,]\d+)?)", re.IGNORECASE)),
+    ("Trabajo Fin de Grado / Máster", re.compile(r"(?:Trabajo\s+Fin\s+de\s+(?:Grado|M[aá]ster)|TFG|TFM)\s*(?:\([^)]*\))?\s*[:.\-]?\s*(\d+(?:[.,]\d+)?)", re.IGNORECASE)),
+    ("Créditos Totales", re.compile(
+        r"(?:cr[eé]ditos?\s+totales?|total(?:\s+(?:de\s+)?cr[eé]ditos?)?(?:\s+ects)?"
+        r"(?:\s+(?:del|de\s+la)\s+t[ií]tulo)?)\s*[:.\-]?\s*(\d+(?:[.,]\d+)?)",
+        re.IGNORECASE,
+    ))
 ]
 
 RE_DEGREE_SECTION_MARKERS = [
@@ -69,6 +73,7 @@ _RE_DYNAMIC_CRED_FIRST = re.compile(
 from sanitizers import (
     unreverse_text,
     sanitize_subject_name,
+    curriculum_element_key,
     is_spurious_or_administrative_subject,
     classify_subject_caracter,
     normalize_curso,
@@ -78,6 +83,91 @@ from sanitizers import (
 
 RE_MULTIPLE_SPACES = re.compile(r"[ \t]+")
 STOP_WORDS_WITH_UMBRELLA = SPANISH_STOP_WORDS.union(UMBRELLA_BRANCH_WORDS)
+
+
+def clean_curricular_elements(elements: list) -> list:
+    """Descarta ruido de tabla y duplicados tipográficos de un plan BOE.
+
+    Se aplica después de combinar las rutas tabular y textual: así no depende
+    de cómo haya segmentado el PDF sus columnas y siempre conserva la primera
+    ocurrencia (la tabla curricular principal precede normalmente a la de
+    temporalidad).
+    """
+    if not isinstance(elements, list):
+        return []
+
+    cleaned = []
+    seen = set()
+    for element in elements:
+        if not isinstance(element, dict):
+            continue
+        name = sanitize_subject_name(element.get("nombre_elemento", ""))
+        if is_spurious_or_administrative_subject(name):
+            continue
+        key = curriculum_element_key(name)
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        normalized = dict(element)
+        normalized["nombre_elemento"] = name
+        cleaned.append(normalized)
+    return cleaned
+
+
+def extract_credit_summary(full_text: str) -> dict:
+    """Extrae la tabla/resumen de ECTS sin asumir una única etiqueta BOE."""
+    summary = {}
+    for label, pattern in RE_CREDIT_SUMMARY:
+        match = pattern.search(full_text or "")
+        if match:
+            summary[label] = match.group(1).replace(",", ".")
+    return summary
+
+
+def detect_curricular_table_header(clean_row: list[str]) -> dict:
+    """Devuelve columnas curriculares sólo si la fila es una cabecera real.
+
+    La detección anterior buscaba subcadenas en toda la fila. Eso convertía
+    ``Ciclos de los materiales`` en una cabecera por contener ``materia`` y
+    hacía desaparecer una asignatura válida. Exigimos dos o más etiquetas de
+    columna completas, con límites de palabra.
+    """
+    columns = {}
+    for idx, cell in enumerate(clean_row):
+        text = str(cell or "").lower()
+        if re.search(r"\b(?:asignaturas?|denominaci[oó]n|nombre|actividad\s+formativa|unidad\s+curricular)\b", text):
+            columns.setdefault("subject", idx)
+        if re.search(r"\b(?:materias?|m[oó]dulos?)\b", text):
+            columns.setdefault("materia", idx)
+        if re.search(r"\b(?:cr[eé]ditos?|ects)\b", text):
+            columns.setdefault("ects", idx)
+        if re.search(r"\b(?:car[aá]cter|tipo|tipus)\b", text):
+            columns.setdefault("caracter", idx)
+        if re.search(r"\b(?:curso|curs|a[nñ]o)\b", text):
+            columns.setdefault("curso", idx)
+        if re.search(r"\b(?:cuatrimestre|semestre|periodo|per[ií]odo|quadrimestre)\b", text):
+            columns.setdefault("cuatrimestre", idx)
+    return columns if len(columns) >= 2 else {}
+
+
+def first_page_curricular_search_text(page_text: str) -> str:
+    """Elimina el preámbulo administrativo sin perder el título del anexo.
+
+    Algunos BOE sitúan el encabezado del plan inmediatamente antes de ``ANEXO
+    I``. Recortar desde esa palabra eliminaba precisamente la única referencia
+    a la titulación y hacía fallar la desambiguación multi-plan. La firma del
+    rector delimita el preámbulo de forma más fiable; si no existe, se conserva
+    el texto para que las reglas de rechazo evalúen cada coincidencia.
+    """
+    text = page_text or ""
+    signature_pattern = re.compile(
+        r"(?:El Rector|La Rectora|El Secretario General|La Secretaria General|El Director|La Directora)\b",
+        re.IGNORECASE,
+    )
+    signatures = list(signature_pattern.finditer(text))
+    if signatures:
+        return text[signatures[-1].end():]
+    return text
 
 
 def extract_degree_core_keywords(title: str, univ_name: str = "") -> set:
@@ -113,9 +203,11 @@ def is_section_matching(sec_kw: set, target_kw: set) -> bool:
     stem_intersection = target_stems.intersection(sec_stems)
 
     if len(target_kw) == 1:
-        if len(sec_kw) == 1:
-            return len(stem_intersection) == 1
-        return False
+        # Un título con una única palabra distintiva (p. ej. «Biomédica»)
+        # puede aparecer acompañado en el anexo por rama, ámbito o texto de
+        # contexto. La coincidencia de esa palabra es suficiente; exigir que
+        # la sección no tenga más términos descartaba planes válidos.
+        return bool(stem_intersection)
             
     if len(target_kw) == 2:
         return len(stem_intersection) >= 2
@@ -209,10 +301,14 @@ def parse_boe_text_curriculum_dynamic(full_text: str, degree_title: str = "", le
         })
 
     is_degree = "grado" in (degree_title or level or "").lower()
+    summary = extract_credit_summary(full_text)
+    if "Créditos Totales" not in summary:
+        # El valor reglamentario es sólo un fallback; una declaración explícita
+        # del BOE (por ejemplo, 90 ECTS) siempre debe prevalecer.
+        summary["Créditos Totales"] = str(GRADO_STANDARD_ECTS if is_degree else MASTER_MIN_ECTS)
+    extracted = clean_curricular_elements(extracted)
     return {
-        "resumen_creditos": {
-            "Créditos Totales": str(GRADO_STANDARD_ECTS if is_degree else MASTER_MIN_ECTS)
-        },
+        "resumen_creditos": summary,
         "total_elementos": len(extracted),
         "elementos_curriculares": extracted,
     }
@@ -304,13 +400,7 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
     for page_idx, p_text in enumerate(raw_text_parts):
         text_to_search = p_text
         if page_idx == 0:
-            m_anexo = re.search(r"\bANEXO\b", p_text, re.IGNORECASE)
-            if m_anexo:
-                text_to_search = p_text[m_anexo.start():]
-            else:
-                m_sig = re.search(r"(?:El Rector|La Rectora|El Secretario General|La Secretaria General|El Director|La Directora)\b", p_text, re.IGNORECASE)
-                if m_sig:
-                    text_to_search = p_text[m_sig.end():]
+            text_to_search = first_page_curricular_search_text(p_text)
 
         for pattern in RE_DEGREE_SECTION_MARKERS:
             for match in pattern.finditer(text_to_search):
@@ -358,10 +448,7 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
 
     # 1. Resumen de Créditos
     relevant_text = "\n".join([raw_text_parts[i] for i in range(len(raw_text_parts)) if i < len(page_inclusion_mask) and page_inclusion_mask[i]]) or full_text
-    for label, pattern in RE_CREDIT_SUMMARY:
-        match = pattern.search(relevant_text)
-        if match:
-            resumen_creditos[label] = match.group(1)
+    resumen_creditos.update(extract_credit_summary(relevant_text))
 
     # 1.1 Pre-filtrado Inteligente de Páginas con Continuidad y Red de Seguridad
     total_pages = len(raw_text_parts)
@@ -462,23 +549,15 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                             continue
 
                         clean_row = [unreverse_text(RE_MULTIPLE_SPACES.sub(" ", str(cell).strip())) if cell else "" for cell in row]
-                        row_str = " ".join(clean_row).lower()
 
-                        if any(hk in row_str for hk in ["asignatura", "denominaci", "materia", "crédito", "credito", "ects", "carácter", "caracter", "curso", "módulo", "modulo"]):
-                            for idx, cell_str in enumerate(clean_row):
-                                c_lower = cell_str.lower()
-                                if any(kw in c_lower for kw in ["asignatura", "denominaci", "nombre", "actividad formativa", "unidad curricular"]):
-                                    subject_col_idx = idx
-                                elif any(kw in c_lower for kw in ["materia", "modulo", "módulo"]):
-                                    materia_col_idx = idx
-                                elif any(kw in c_lower for kw in ["crédito", "credito", "ects"]):
-                                    ects_col_idx = idx
-                                elif any(kw in c_lower for kw in ["carácter", "caracter", "tipo", "tipus"]):
-                                    caracter_col_idx = idx
-                                elif any(kw in c_lower for kw in ["curso", "curs", "ano", "año"]):
-                                    curso_col_idx = idx
-                                elif any(kw in c_lower for kw in ["cuatrimestre", "semestre", "periodo", "quadrimestre"]):
-                                    cuatrimestre_col_idx = idx
+                        header_columns = detect_curricular_table_header(clean_row)
+                        if header_columns:
+                            subject_col_idx = header_columns.get("subject", subject_col_idx)
+                            materia_col_idx = header_columns.get("materia", materia_col_idx)
+                            ects_col_idx = header_columns.get("ects", ects_col_idx)
+                            caracter_col_idx = header_columns.get("caracter", caracter_col_idx)
+                            curso_col_idx = header_columns.get("curso", curso_col_idx)
+                            cuatrimestre_col_idx = header_columns.get("cuatrimestre", cuatrimestre_col_idx)
                             continue
 
                         if subject_col_idx == -1 and len(clean_row) >= 3:
@@ -579,6 +658,7 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                             "idioma": detect_academic_language(nom_asig)
                         })
 
+    elementos_curriculares = clean_curricular_elements(elementos_curriculares)
     return {
         "resumen_creditos": resumen_creditos,
         "total_elementos": len(elementos_curriculares),

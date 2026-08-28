@@ -44,6 +44,10 @@ CREATE TABLE IF NOT EXISTS planes_estudio (
     boe_fecha DATE,
     origen_fuente VARCHAR(100),
     pdf_sha256 VARCHAR(64),
+    estado_calidad VARCHAR(64) NOT NULL DEFAULT 'pendiente_revision',
+    motivos_calidad JSONB,
+    fuente_verificada_url TEXT,
+    verificado_en TIMESTAMP,
     fecha_procesado TIMESTAMP,
     creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -122,6 +126,7 @@ CREATE INDEX IF NOT EXISTS idx_elem_plan ON elementos_curriculares(plan_estudio_
 CREATE INDEX IF NOT EXISTS idx_elem_caracter ON elementos_curriculares(caracter);
 CREATE INDEX IF NOT EXISTS idx_elem_nombre ON elementos_curriculares(nombre_elemento);
 CREATE INDEX IF NOT EXISTS idx_planes_codigo ON planes_estudio(codigo_estudio);
+CREATE INDEX IF NOT EXISTS idx_planes_estado_calidad ON planes_estudio(estado_calidad);
 
 -- =====================================================================
 -- SEGURIDAD:

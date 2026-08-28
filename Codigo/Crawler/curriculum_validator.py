@@ -107,11 +107,27 @@ def compute_curriculum_total_ects(elementos: list) -> float:
     return round(total, 2)
 
 
+def get_declared_curriculum_total_ects(resumen_creditos: dict) -> float | None:
+    """Devuelve el total oficial declarado en el BOE, si es verosímil."""
+    if not isinstance(resumen_creditos, dict):
+        return None
+    raw_value = (
+        resumen_creditos.get("Créditos Totales")
+        or resumen_creditos.get("Creditos Totales")
+        or resumen_creditos.get("Total")
+        or resumen_creditos.get("total")
+    )
+    value = _parse_credit_number(raw_value)
+    return value if value is not None and value >= 30 else None
+
+
 def get_curriculum_completeness_status(degree_dict: dict) -> dict:
     """Devuelve un diagnóstico estable y apto para persistencia/API."""
     empty = {
         "is_complete": False,
         "total_ects_obtained": 0.0,
+        "total_ects_listed": 0.0,
+        "total_ects_declared": None,
         "required_ects": float(GRADO_STANDARD_ECTS),
         "total_elementos": 0,
         "total_subjects": 0,
@@ -136,6 +152,8 @@ def get_curriculum_completeness_status(degree_dict: dict) -> dict:
         return {
             "is_complete": has_structure,
             "total_ects_obtained": 0.0,
+            "total_ects_listed": 0.0,
+            "total_ects_declared": None,
             "required_ects": 0.0,
             "total_elementos": total_elements,
             "total_subjects": total_elements,
@@ -154,15 +172,21 @@ def get_curriculum_completeness_status(degree_dict: dict) -> dict:
     total_elements = len(elements)
     summary = plan.get("resumen_creditos") or {}
     required = get_required_degree_credits(level, title or plan.get("nombre_plan", ""), summary)
-    obtained = compute_curriculum_total_ects(elements)
+    listed_total = compute_curriculum_total_ects(elements)
+    declared_total = get_declared_curriculum_total_ects(summary)
+    # Las tablas BOE pueden listar todas las optativas posibles, cuya suma
+    # supera el itinerario que debe cursar el estudiante. Para informar y
+    # persistir la carga del plan, prevalece el total declarado por el BOE;
+    # la suma de filas se conserva para decidir si hay detalle suficiente.
+    obtained = declared_total if total_elements and declared_total is not None else listed_total
 
     if plan.get("es_alianza_europea") or plan.get("tipo_estructura") == "consorcio_europeo_erasmus_mundus":
-        complete = bool(total_elements and obtained >= required)
+        complete = bool(total_elements and listed_total >= required)
         status = "consorcio_estructural" if complete else "consorcio_sin_detalle"
     elif total_elements == 0:
         complete = False
         status = "solo_resumen" if summary else "sin_asignaturas"
-    elif obtained >= required:
+    elif listed_total >= required:
         complete = True
         status = "completo"
     else:
@@ -172,6 +196,8 @@ def get_curriculum_completeness_status(degree_dict: dict) -> dict:
     return {
         "is_complete": complete,
         "total_ects_obtained": obtained,
+        "total_ects_listed": listed_total,
+        "total_ects_declared": declared_total,
         "required_ects": required,
         "total_elementos": total_elements,
         "total_subjects": total_elements,

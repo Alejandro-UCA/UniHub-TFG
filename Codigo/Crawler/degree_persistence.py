@@ -8,7 +8,7 @@ from datetime import datetime
 from checkpoint import atomic_json_dump
 from config import get_plan_filepath, find_plan_filepath
 from parsers import detect_academic_language
-from data_quality import source_record
+from data_quality import apply_plan_quality, source_record
 
 logger = logging.getLogger(__name__)
 
@@ -43,11 +43,6 @@ def save_degree_payload(plan_file: str, d_code: str, d_title: str, u_code: str, 
         "boe_url": boe_url if boe_url else payload.get("boe_url"),
         "boe_fecha": boe_fecha if boe_fecha else payload.get("boe_fecha")
     })
-    if plan_estudios is not None:
-        payload["plan_estudios"] = plan_estudios
-    elif "plan_estudios" not in payload:
-        payload["plan_estudios"] = None
-        
     if all_boe_urls:
         payload["all_boe_urls"] = all_boe_urls
     if source_status:
@@ -70,7 +65,14 @@ def save_degree_payload(plan_file: str, d_code: str, d_title: str, u_code: str, 
             fuentes[:] = [item for item in fuentes if item.get("url") != record["url"]]
             fuentes.append(record)
 
+    # La persistencia es el último punto común antes de escribir el JSON:
+    # ninguna ruta de RUCT/BOE puede publicar un candidato sin esta evaluación.
+    apply_plan_quality(payload, plan_estudios, origen_fuente)
+
     # Guardar en la ruta destino indicada
+    parent_dir = os.path.dirname(os.path.abspath(plan_file))
+    if parent_dir:
+        os.makedirs(parent_dir, exist_ok=True)
     atomic_json_dump(payload, plan_file)
 
     # Si la ruta es plana, guardar también en la ruta particionada para organización limpia del catálogo

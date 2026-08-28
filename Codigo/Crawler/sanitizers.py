@@ -50,6 +50,12 @@ RE_TABLE_HEADER_NOISE = re.compile(
     r"^(?:n[º°\.]*\s*ctos|n[º°\.]*\s*cr[eé]ditos|c[oó]digo|ects|car[aá]cter|curso|cuatrimestre|semestre)\b",
     re.IGNORECASE,
 )
+RE_TEMPORALITY_HEADING = re.compile(
+    r"^(?:(?:primer|segundo|tercer|cuarto|quinto|sexto|1(?:er|º|a)?|2(?:do|º|a)?|3(?:er|º|a)?|4(?:to|º|a)?|5(?:to|º|a)?|6(?:to|º|a)?)\s+"
+    r"(?:semestre|cuatrimestre)|temporalidad(?:\s+de\s+las?\s+asignaturas?)?|"
+    r"distribuci[oó]n\s+temporal(?:\s+de\s+las?\s+asignaturas?)?)$",
+    re.IGNORECASE,
+)
 
 _RE_UNWANTED_CHARS = re.compile(r"[\u00a0\u200b\r\n\t]+")
 _RE_MULTISPACE = re.compile(r"\s+")
@@ -242,6 +248,21 @@ def sanitize_subject_name(name: str) -> str:
     return normalized.rstrip(".,;:-_ ")
 
 
+def curriculum_element_key(name: str) -> str:
+    """Genera una clave conservadora para deduplicar nombres curriculares.
+
+    Algunas resoluciones del BOE repiten la misma asignatura en una tabla de
+    temporalidad, con artículos opcionales (por ejemplo, ``en Ingeniería`` /
+    ``en la Ingeniería``). Se eliminan sólo conectores gramaticales; se
+    preservan los términos académicos y los números que distinguen materias.
+    """
+    normalized = unicodedata.normalize("NFKD", sanitize_subject_name(name).lower())
+    normalized = normalized.encode("ascii", "ignore").decode("ascii")
+    tokens = re.findall(r"[a-z0-9]+", normalized)
+    grammatical_connectors = {"a", "al", "de", "del", "el", "en", "la", "las", "los", "y"}
+    return " ".join(token for token in tokens if token not in grammatical_connectors)
+
+
 def is_spurious_or_administrative_subject(text: str, ects_val: float = None, caracter: str = "OB") -> bool:
     """
     Identifica si una línea es ruido administrativo, pie de página, escala de notas o texto de formulario.
@@ -277,6 +298,8 @@ def is_spurious_or_administrative_subject(text: str, ects_val: float = None, car
 
     if any(t_low == hk for hk in HEADER_KEYWORDS):
         return True
+    if RE_TEMPORALITY_HEADING.match(t_clean):
+        return True
     if any(sk in t_low for sk in INVALID_SUBJECT_KEYWORDS):
         return True
     if t_low in INVALID_METADATA_LABELS and normalized_character not in {"PE", "TFG", "TFM", "TFG/TFM"}:
@@ -286,6 +309,7 @@ def is_spurious_or_administrative_subject(text: str, ects_val: float = None, car
         r"^(?:anexo|bolet[ií]n|b\.?o\.?e\.?|resoluci[oó]n|p[aá]gina|cve:|boe-a-)",
         r"^(?:total|totales|suma|cr[eé]ditos\s+totales|distribuci[oó]n)",
         r"^(?:curso\s+[1-6]|primer\s+curso|segundo\s+curso|tercer\s+curso|cuarto\s+curso)",
+        r"^\d+\s+optativas?(?:\s+de\s+(?:menci[oó]n|itinerario))?$",
         r"^(?:menci[oó]n|itinerarios?|especialidad|orientaci[oó]n|perfil)(?:\s+(?:en|de|sobre|para)\b|\s*:|$)",
         r"(?:se\s+ofertar[aá]n|car[aá]cter\s+optativo|a\s+elegir\s+entre|oferta\s+de\s+optativas)",
         r"^(?:grado|graduado|graduada|m[aá]ster|doctorado|programa\s+de\s+doctorado)\s+en\b",

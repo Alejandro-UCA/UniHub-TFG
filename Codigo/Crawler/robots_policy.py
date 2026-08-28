@@ -31,7 +31,9 @@ class RobotsPolicy:
 
     _lock = threading.RLock()
     _cache: dict[str, tuple[float, urllib.robotparser.RobotFileParser]] = {}
-    _fetch_locks: dict[str, threading.Lock] = {}
+    # El fallback HTTP -> HTTPS vuelve a cargar la política del mismo origen;
+    # el candado debe permitir esa reentrada sin relajar la exclusión entre hilos.
+    _fetch_locks: dict[str, threading.RLock] = {}
     _last_fetch: dict[str, float] = {}
     # Motivo de la última evaluación por origen. Se mantiene separado de la
     # decisión booleana para poder distinguir ``robots.txt inexistente`` de
@@ -69,7 +71,7 @@ class RobotsPolicy:
                 with self._lock:
                     self._last_outcome[origin] = "cacheado"
                 return cached[1]
-            fetch_lock = self._fetch_locks.setdefault(origin, threading.Lock())
+            fetch_lock = self._fetch_locks.setdefault(origin, threading.RLock())
 
         with fetch_lock:
             with self._lock:
@@ -126,23 +128,11 @@ class RobotsPolicy:
                         continue
                     if current_url.startswith("http://"):
                         https_url = "https://" + current_url[7:]
-                        try:
-                            response = requests.get(
-                                https_url,
-                                headers={
-                                    "User-Agent": self.user_agent,
-                                    "Accept": "text/plain",
-                                    "Connection": "close",
-                                    "Accept-Encoding": "identity",
-                                },
-                                timeout=self.timeout,
-                                allow_redirects=True,
-                            )
-                        except requests.RequestException as error:
-                            logger.debug("No se pudo consultar robots.txt para %s: %s", robots_url, error, exc_info=True)
-                            with self._lock:
-                                self._last_outcome[origin] = f"error_red_{type(exc).__name__}: {exc}"
-                            return None
+                        # Reintentar HTTPS recorre exactamente la misma lógica
+                        # de redirecciones manuales y de validación de origen.
+                        # ``allow_redirects=True`` aquí permitiría aceptar una
+                        # política robots de un host ajeno.
+                        return self._load(origin, https_url)
                     else:
                         with self._lock:
                             self._last_outcome[origin] = f"error_red_{type(exc).__name__}: {exc}"

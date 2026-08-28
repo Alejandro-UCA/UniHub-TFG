@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { ShieldCheck, Lock, User, AlertCircle, RefreshCw } from 'lucide-react';
+import { ShieldCheck, Lock, AlertCircle, RefreshCw } from 'lucide-react';
 import { apiService } from '../services/api';
 
 export default function AdminLogin({ onLoginSuccess }) {
-  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -12,11 +11,10 @@ export default function AdminLogin({ onLoginSuccess }) {
     e.preventDefault();
     setError('');
 
-    const cleanUser = username.trim();
     const cleanKey = password.trim();
 
-    if (!cleanUser || !cleanKey) {
-      setError('Debes introducir un usuario y una API Key de administrador.');
+    if (!cleanKey) {
+      setError('Debes introducir una API Key de administrador.');
       return;
     }
 
@@ -83,35 +81,6 @@ export default function AdminLogin({ onLoginSuccess }) {
               <span>{error}</span>
             </div>
           )}
-
-          {/* Username Input */}
-          <div style={{ marginBottom: '1.25rem' }}>
-            <label htmlFor="admin-username" style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '0.4rem' }}>
-              Usuario Administrador
-            </label>
-            <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
-              <User size={18} color="var(--text-light)" style={{ position: 'absolute', left: '12px' }} />
-              <input 
-                id="admin-username"
-                type="text"
-                autoComplete="username"
-                placeholder="Introduce tu usuario"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-                style={{
-                  width: '100%',
-                  padding: '0.75rem 0.75rem 0.75rem 2.5rem',
-                  borderRadius: 'var(--radius-sm)',
-                  border: '1px solid var(--border-light)',
-                  background: 'var(--bg-main)',
-                  color: 'var(--text-main)',
-                  outline: 'none',
-                  fontSize: '0.95rem'
-                }}
-              />
-            </div>
-          </div>
 
           {/* Password Input */}
           <div style={{ marginBottom: '1.5rem' }}>

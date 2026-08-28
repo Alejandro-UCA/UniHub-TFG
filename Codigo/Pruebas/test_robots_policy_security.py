@@ -23,7 +23,12 @@ class _Response:
 class TestRobotsPolicySecurity(unittest.TestCase):
     def setUp(self):
         robots_policy.RobotsPolicy.clear_cache()
+        self._request_delay = robots_policy.REQUEST_DELAY
+        robots_policy.REQUEST_DELAY = 0
         self.policy = robots_policy.RobotsPolicy(timeout=0.01)
+
+    def tearDown(self):
+        robots_policy.REQUEST_DELAY = self._request_delay
 
     def test_http_network_failure_is_fail_closed_without_name_error(self):
         with patch.object(robots_policy.requests, "get", side_effect=requests.RequestException("network down")):
@@ -37,6 +42,18 @@ class TestRobotsPolicySecurity(unittest.TestCase):
         self.assertFalse(allowed)
         self.assertEqual(get.call_count, 1)
         self.assertEqual(self.policy.explain("https://example.edu/path"), "robots_redireccion_fuera_del_origen")
+
+    def test_http_to_https_fallback_keeps_same_origin_redirect_policy(self):
+        network_down = requests.RequestException("HTTP unavailable")
+        with patch.object(
+            robots_policy.requests,
+            "get",
+            side_effect=[network_down, network_down, network_down, _Response()],
+        ) as get:
+            allowed, _ = self.policy.check("http://example.edu/path")
+        self.assertFalse(allowed)
+        self.assertEqual(get.call_count, 4)
+        self.assertEqual(self.policy.explain("http://example.edu/path"), "robots_redireccion_fuera_del_origen")
 
 
 if __name__ == "__main__":

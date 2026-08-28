@@ -28,7 +28,6 @@ const formatMetricValue = (value, suffix = '') => {
 
 export default function AdminDashboard({ onLogout }) {
   const feedbackTimerRef = useRef(null);
-  const refreshTimerRef = useRef(null);
   const [activeSubTab, setActiveSubTab] = useState('uso'); // 'uso', 'crud', 'rendimiento', 'sistema', 'api_docs'
   const [crudTarget, setCrudTarget] = useState('universidades'); // 'universidades', 'titulaciones'
 
@@ -112,7 +111,6 @@ export default function AdminDashboard({ onLogout }) {
 
   useEffect(() => () => {
     if (feedbackTimerRef.current) clearTimeout(feedbackTimerRef.current);
-    if (refreshTimerRef.current) clearTimeout(refreshTimerRef.current);
   }, []);
 
   const refreshData = useCallback(async () => {
@@ -178,12 +176,8 @@ export default function AdminDashboard({ onLogout }) {
     try {
       setLoading(true);
       await apiService.triggerEtlSync();
-      showFeedback('Sincronización ETL relacional iniciada en segundo plano en PostgreSQL.');
-      if (refreshTimerRef.current) clearTimeout(refreshTimerRef.current);
-      refreshTimerRef.current = setTimeout(() => {
-        refreshTimerRef.current = null;
-        refreshData();
-      }, 5000);
+      showFeedback('Sincronización ETL relacional completada correctamente.');
+      await refreshData();
     } catch (err) {
       showFeedback(`Error al desencadenar sincronización ETL: ${err.message}`, true);
     } finally {

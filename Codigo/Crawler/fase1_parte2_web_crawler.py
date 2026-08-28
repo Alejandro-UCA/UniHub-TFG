@@ -93,7 +93,7 @@ from config import (
 from downloader import RUCTDownloader, is_same_or_subdomain as downloader_is_same_or_subdomain
 from robots_policy import RobotsPolicy
 from crawl_ledger import CrawlLedger
-from data_quality import source_record, validate_plan_identity
+from data_quality import apply_plan_quality, source_record
 from error_logger import ErrorLogger
 from checkpoint import CheckpointManager, atomic_json_dump, load_json_safe
 from phase_common import iter_plan_files
@@ -103,7 +103,6 @@ from parsers import (
     sanitize_subject_name,
     is_spurious_or_administrative_subject,
     is_curriculum_complete,
-    get_curriculum_completeness_status,
     compute_curriculum_total_ects,
     get_required_degree_credits,
     is_doctorate_program,
@@ -2067,7 +2066,6 @@ class UniversityWebCrawler:
             # ESTRATEGIA 3: Modelado de Alianzas Universitarias Europeas y Erasmus Mundus (Patrón 3)
             is_european_program = any(k in d_title.lower() for k in EUROPEAN_ALLIANCES_KEYWORDS)
             if is_european_program and (not found_curriculum or len(found_curriculum.get("elementos_curriculares", [])) == 0):
-                req_ects = get_required_degree_credits(d_level, d_title)
                 discovered_alliance_url = None
                 discovered_hubs = self.organic_affiliated_hubs.get(web_url, {})
                 for ext_dom, (hub_url, hub_name) in discovered_hubs.items():
@@ -2075,24 +2073,12 @@ class UniversityWebCrawler:
                         discovered_alliance_url = hub_url
                         break
                         
-                found_curriculum = {
-                    "tipo_estructura": "consorcio_europeo_erasmus_mundus",
-                    "nombre_plan": d_title,
-                    "total_elementos": 0,
-                    "elementos_curriculares": [],
-                    "es_alianza_europea": True,
-                    "plan_completo": False,
-                    "ects_exigidos": req_ects,
-                    "ects_totales_detectados": 0,
-                    "descripcion_consorcio": "Programa Conjunto de Excelencia Internacional (Erasmus Mundus / Alianza Universitaria Europea). La docencia e itinerario curricular se imparten en consorcio internacional en lengua inglesa a través de los campus europeos asociados."
-                }
                 direct_source_url = discovered_alliance_url or existing_direct_url or deg.get("boe_url") or web_url
-                print(f"     -> [Alianza Europea / Erasmus Mundus Orgánico] Ficha de consorcio internacional ({req_ects} ECTS) -> {direct_source_url}")
+                print(f"     -> [Alianza Europea / Erasmus Mundus] Fuente localizada sin estructura curricular verificable -> {direct_source_url}")
 
             # Guardar el plan y la URL directa donde se ha encontrado
             if found_curriculum and direct_source_url:
-                print(f"     [ÉXITO PARTE 2] Encontrado plan de estudios en la web oficial: '{direct_source_url}'")
-                stats["resolved_degrees_count"] += 1
+                print(f"     [CANDIDATO PARTE 2] Plan localizado en web oficial: '{direct_source_url}'")
                 
                 degree_data = load_json_safe(plan_file)
                 degree_data["codigo_estudio"] = d_code
@@ -2101,7 +2087,7 @@ class UniversityWebCrawler:
                 degree_data["universidad_codigo"] = u_code
                 degree_data["universidad_nombre"] = u_name
                 degree_data["fecha_procesado"] = datetime.now().isoformat()
-                degree_data["estado_fuente"] = "verificada"
+                degree_data["estado_fuente"] = "encontrada_pendiente_validacion"
                 degree_data["fecha_ultima_comprobacion_fuente"] = datetime.now().isoformat()
                 degree_data["web_fuente_directa_url"] = direct_source_url
                 
@@ -2122,8 +2108,6 @@ class UniversityWebCrawler:
                 degree_data["precio_estimado_anual"] = found_curriculum.get("precio_estimado_anual") or deg.get("precio_estimado_anual")
                 degree_data["fuente_precio"] = found_curriculum.get("fuente_precio") or deg.get("fuente_precio")
                 
-                # Diagnosticar completitud curricular del plan obtenido
-                degree_data["plan_estudios"] = found_curriculum
                 source = source_record(
                     direct_source_url,
                     "WEB_OFICIAL_UNIVERSIDAD",
@@ -2135,11 +2119,16 @@ class UniversityWebCrawler:
                     degree_data["fuentes"] = fuentes
                 fuentes[:] = [item for item in fuentes if item.get("url") != source["url"]]
                 fuentes.append(source)
-                degree_data["calidad_datos"] = {"errores_identidad": validate_plan_identity(degree_data)}
-                comp_status = get_curriculum_completeness_status(degree_data)
-                found_curriculum["plan_completo"] = comp_status["is_complete"]
-                found_curriculum["ects_totales_detectados"] = comp_status["total_ects_obtained"]
-                found_curriculum["ects_exigidos"] = comp_status["required_ects"]
+                quality = apply_plan_quality(degree_data, found_curriculum, degree_data["origen_fuente"])
+                found_curriculum["plan_completo"] = quality["plan_completo"]
+                found_curriculum["ects_totales_detectados"] = quality["ects_totales_detectados"]
+                found_curriculum["ects_exigidos"] = quality["ects_exigidos"]
+                degree_data["estado_fuente"] = "verificada" if quality["publicable"] else "candidata_no_publicable"
+                if quality["publicable"]:
+                    stats["resolved_degrees_count"] += 1
+                    print(f"     [VERIFICADO PARTE 2] Plan publicado con estado {quality['estado']}.")
+                else:
+                    print(f"     [CUARENTENA PARTE 2] Plan no publicado: {quality['estado']} ({', '.join(quality['errores']) or quality['completitud']}).")
                 
                 atomic_json_dump(degree_data, plan_file)
                 self.checkpoint.update_degree_record(d_code, direct_source_url, datetime.now().strftime("%Y-%m-%d"), datetime.now().isoformat())
@@ -2222,23 +2211,6 @@ def propagate_interuniversity_and_shared_boe_plans(planes_dir: str = PLANES_DIR)
             stats["interuniv_shared_rescued"] += 1
 
         is_european = any(k in d.get("titulo", "").lower() for k in EUROPEAN_ALLIANCES_KEYWORDS)
-        if not matched_plan and is_european:
-            req_c = get_required_degree_credits(d.get("nivel_academico", ""), d.get("titulo", ""))
-            matched_plan = {
-                "tipo_estructura": "consorcio_europeo_erasmus_mundus",
-                "nombre_plan": d.get("titulo", ""),
-                "total_elementos": 0,
-                "elementos_curriculares": [],
-                "es_alianza_europea": True,
-                "plan_completo": False,
-                "ects_exigidos": req_c,
-                "ects_totales_detectados": 0,
-                "descripcion_consorcio": "Programa Conjunto de Excelencia Internacional (Erasmus Mundus / Alianza Universitaria Europea). La docencia e itinerario curricular se imparten en consorcio internacional en lengua inglesa a través de los campus europeos asociados."
-            }
-            origen = "alianza_europea_erasmus_mundus"
-            source_url = d.get("web_fuente_directa_url") or d.get("boe_url") or "https://erasmus-plus.ec.europa.eu"
-            stats["interuniv_shared_rescued"] += 1
-
         if matched_plan:
             d["plan_estudios"] = matched_plan
             d["origen_fuente"] = origen

@@ -192,7 +192,7 @@ def run_phase1(
     finally:
         try:
             CrawlLedger.prune_http_cache(HTTP_CACHE_DIR, HTTP_CACHE_MAX_BYTES)
-        except Exception:
+        except (OSError, IOError):
             logger.exception("No se pudo podar la caché HTTP")
         checkpoint.flush()
         metrics.save()

@@ -128,6 +128,42 @@ class SPALayoutCrawler:
             for item in node:
                 self._extract_subjects_from_json_tree(item, accumulator, depth + 1)
 
+    def _extract_json_object(self, text: str, start_pos: int) -> str:
+        """Extrae un objeto o array JSON contando llaves/corchetes a partir de start_pos."""
+        match = re.search(r'[{[]', text[start_pos:])
+        if not match:
+            return ""
+        
+        start_idx = start_pos + match.start()
+        open_char = text[start_idx]
+        close_char = '}' if open_char == '{' else ']'
+        
+        depth = 0
+        in_string = False
+        escape = False
+        
+        for i in range(start_idx, len(text)):
+            char = text[i]
+            
+            if in_string:
+                if escape:
+                    escape = False
+                elif char == '\\':
+                    escape = True
+                elif char == '"':
+                    in_string = False
+            else:
+                if char == '"':
+                    in_string = True
+                elif char == open_char:
+                    depth += 1
+                elif char == close_char:
+                    depth -= 1
+                    if depth == 0:
+                        return text[start_idx:i+1]
+                        
+        return ""
+
     def _static_fallback_render(self, target_url: str) -> RenderResult:
         """
         Fallback estático avanzado cuando Playwright o Chromium no están disponibles:
@@ -199,9 +235,9 @@ class SPALayoutCrawler:
                     if sid in ["__next_data__", "__nuxt_data__"] or "json" in stype:
                         json_str = stext.strip()
                     else:
-                        m_json = re.search(r"=\s*(\{.*\}|\[.*\])\s*;?", stext, re.DOTALL)
-                        if m_json:
-                            json_str = m_json.group(1)
+                        m_start = re.search(r'=\s*([{\[])', stext)
+                        if m_start:
+                            json_str = self._extract_json_object(stext, m_start.start())
 
                     if json_str:
                         try:
@@ -331,6 +367,7 @@ class SPALayoutCrawler:
                                 page.goto(target_url, timeout=self.timeout)
                             except Exception as navigation_retry_error:
                                 logger.debug("Reintento de navegación para descarga fallido: %s", navigation_retry_error)
+                                raise
                         dl = dl_info.value
                         safe_filename = re.sub(r'[^\w.-]', '_', dl.suggested_filename or "document.pdf")
                         temp_f = tempfile.NamedTemporaryFile(delete=False, suffix="_" + safe_filename)

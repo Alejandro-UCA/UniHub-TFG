@@ -344,7 +344,7 @@ class CheckpointManager:
                         except (TypeError, ValueError, OSError):
                             return False
             except Exception as error:
-                logger.warning("No se pudo consultar el registro de robots.txt denegados: %s", error, exc_info=True)
+                logger.warning("No se pudo consultar el registro de URLs inalcanzables: %s", error, exc_info=True)
             # Sin marca temporal fiable se fuerza un nuevo intento.
             return False
 

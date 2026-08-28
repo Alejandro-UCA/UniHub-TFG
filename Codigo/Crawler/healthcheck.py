@@ -10,6 +10,13 @@ import sys
 import time
 
 
+def safe_getmtime(path: str) -> float:
+    try:
+        return os.path.getmtime(path)
+    except (FileNotFoundError, OSError):
+        return 0.0
+
+
 def main() -> int:
     manifests_dir = os.getenv("CRAWLER_RUN_MANIFESTS_DIR", "/app/Datos/run_manifests")
     manifests = glob.glob(os.path.join(manifests_dir, "*.json"))
@@ -18,7 +25,7 @@ def main() -> int:
         # evaluar; Docker ya comprueba que el proceso cron siga vivo.
         return 0
 
-    latest = max(manifests, key=os.path.getmtime)
+    latest = max(manifests, key=safe_getmtime)
     try:
         with open(latest, "r", encoding="utf-8") as handle:
             manifest = json.load(handle)

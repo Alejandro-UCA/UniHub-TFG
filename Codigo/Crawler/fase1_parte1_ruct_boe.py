@@ -98,15 +98,6 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue = None, shu
         try:
             task = task_queue.get(timeout=TASK_QUEUE_GET_TIMEOUT)
             if task is None or (isinstance(task, dict) and task.get("type") == "STOP"):
-                if result_queue is not None:
-                    try:
-                        result_queue.put({
-                            "parsed_count": parsed_count,
-                            "updated_degrees_count": updated_degrees_count,
-                            "total_parse_time": total_parse_time
-                        }, timeout=WORKER_RESULT_QUEUE_TIMEOUT)
-                    except Exception as res_err:
-                        err_logger.log_error("pdf_parser_result_queue", "ALL", "result_queue", "Error al enviar métricas finales", str(res_err))
                 break
         except queue.Empty:
             continue
@@ -324,6 +315,16 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue = None, shu
 
         except Exception as task_err:
             err_logger.log_error("pdf_parser_task", task.get("u_code", "ALL"), task.get("d_code", "ALL"), "Error al procesar tarea en consumidor", str(task_err))
+
+    if result_queue is not None:
+        try:
+            result_queue.put({
+                "parsed_count": parsed_count,
+                "updated_degrees_count": updated_degrees_count,
+                "total_parse_time": total_parse_time
+            }, timeout=WORKER_RESULT_QUEUE_TIMEOUT)
+        except Exception as res_err:
+            err_logger.log_error("pdf_parser_result_queue", "ALL", "result_queue", "Error al enviar métricas finales", str(res_err))
 
 
 def run_phase1_part1(
@@ -545,15 +546,23 @@ def run_phase1_part1(
                                 continue
 
                             if not candidates:
-                                task_queue.put({
+                                payload = {
                                     "type": "DEGREE_NO_BOE",
                                     "d_code": degree_code,
                                     "d_title": degree_title,
                                     "u_code": university_code,
                                     "u_name": university_name,
                                     "nivel_academico": degree_level,
-                                }, timeout=WORKER_TASK_PUT_TIMEOUT)
-                                total_enqueued += 1
+                                }
+                                while True:
+                                    try:
+                                        task_queue.put(payload, timeout=WORKER_TASK_PUT_TIMEOUT)
+                                        total_enqueued += 1
+                                        break
+                                    except queue.Full:
+                                        if shutdown_event.is_set():
+                                            raise
+                                        logger.warning("Cola llena, reintentando encolar titulación %s...", degree_code)
                                 continue
 
                             high_priority = [item for item in candidates if item.get("priority", 0) >= 90]
@@ -582,13 +591,22 @@ def run_phase1_part1(
                                         else:
                                             # Estrategia 2: Spill-to-Disk temporal para PDFs > 5 MB
                                             temp_pdf_path = os.path.join(TEMP_PDF_DIR, f"boe_{os.getpid()}_{university_code}_{degree_code}_{candidate_index}.pdf")
-                                            with open(temp_pdf_path, "wb") as f_pdf:
-                                                f_pdf.write(content)
-                                            pdf_items.append({
-                                                "cand_url": candidate_url,
-                                                "cand_date": candidate.get("boe_date"),
-                                                "pdf_path": temp_pdf_path,
-                                            })
+                                            try:
+                                                with open(temp_pdf_path, "wb") as f_pdf:
+                                                    f_pdf.write(content)
+                                                pdf_items.append({
+                                                    "cand_url": candidate_url,
+                                                    "cand_date": candidate.get("boe_date"),
+                                                    "pdf_path": temp_pdf_path,
+                                                })
+                                            except OSError as os_err:
+                                                if os.path.exists(temp_pdf_path):
+                                                    try:
+                                                        os.remove(temp_pdf_path)
+                                                    except OSError:
+                                                        pass
+                                                error_logger.log_error("pdf_write", university_code, candidate_url, "Error al escribir PDF temporal al disco", str(os_err))
+                                                continue
                                 except SkipUniversityException:
                                     raise
                                 except Exception as download_error:
@@ -609,7 +627,7 @@ def run_phase1_part1(
                                             pass
 
                             if pdf_items:
-                                task_queue.put({
+                                payload = {
                                     "type": "PARSE_DEGREE_PDFS",
                                     "d_code": degree_code,
                                     "d_title": degree_title,
@@ -620,8 +638,16 @@ def run_phase1_part1(
                                     "latest_boe_fecha": latest_date,
                                     "all_boe_urls": [item.get("url") for item in candidates if item.get("url")],
                                     "pdf_items": pdf_items,
-                                }, timeout=WORKER_TASK_PUT_TIMEOUT)
-                                total_enqueued += 1
+                                }
+                                while True:
+                                    try:
+                                        task_queue.put(payload, timeout=WORKER_TASK_PUT_TIMEOUT)
+                                        total_enqueued += 1
+                                        break
+                                    except queue.Full:
+                                        if shutdown_event.is_set():
+                                            raise
+                                        logger.warning("Cola llena, reintentando encolar titulación %s...", degree_code)
                         except queue.Full as queue_error:
                             for itm in pdf_items:
                                 p_clean = itm.get("pdf_path")

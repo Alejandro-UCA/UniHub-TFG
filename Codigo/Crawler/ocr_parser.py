@@ -58,10 +58,13 @@ class OCRPDFParser:
                     images = pdf2image.convert_from_bytes(pdf_input, dpi=self.dpi, first_page=1, last_page=self.max_pages)
                 elif HAS_PYPDFIUM2:
                     pdf_doc = pypdfium2.PdfDocument(io.BytesIO(pdf_input))
-                    for i in range(min(len(pdf_doc), self.max_pages)):
-                        page = pdf_doc.get_page(i)
-                        pil_img = page.render(scale=self.dpi / 72).to_pil()
-                        images.append(pil_img)
+                    try:
+                        for i in range(min(len(pdf_doc), self.max_pages)):
+                            page = pdf_doc.get_page(i)
+                            pil_img = page.render(scale=self.dpi / 72).to_pil()
+                            images.append(pil_img)
+                    finally:
+                        pdf_doc.close()
             elif isinstance(pdf_input, io.BytesIO):
                 raw_bytes = pdf_input.getvalue()
                 if HAS_PDF2IMAGE:

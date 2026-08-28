@@ -48,6 +48,7 @@ class SubjectGuideCache:
     Permite búsqueda dual tanto por URL exacta como por clave compuesta canónica (universidad_codigo + codigo_asignatura).
     """
     _local = threading.local()
+    _schema_initialized_paths: set = set()
 
     MAX_L1_ENTRIES = SUBJECT_GUIDE_CACHE_LIMIT
 
@@ -88,19 +89,21 @@ class SubjectGuideCache:
             conn.execute("PRAGMA temp_store=MEMORY;")
             conn.execute("PRAGMA mmap_size=268435456;")
             conn.execute("PRAGMA cache_size=-64000;")
-            conn.execute("""
-                CREATE TABLE IF NOT EXISTS guias_docentes (
-                    url_hash TEXT PRIMARY KEY,
-                    url TEXT NOT NULL,
-                    universidad_codigo TEXT,
-                    codigo_asignatura TEXT,
-                    nombre TEXT,
-                    datos_json TEXT NOT NULL,
-                    fecha_extraccion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                );
-            """)
-            conn.execute("CREATE INDEX IF NOT EXISTS idx_guias_url ON guias_docentes(url);")
-            conn.execute("CREATE INDEX IF NOT EXISTS idx_guias_univ_asig ON guias_docentes(universidad_codigo, codigo_asignatura);")
+            if self.db_path == ":memory:" or self.db_path not in type(self)._schema_initialized_paths:
+                conn.execute("""
+                    CREATE TABLE IF NOT EXISTS guias_docentes (
+                        url_hash TEXT PRIMARY KEY,
+                        url TEXT NOT NULL,
+                        universidad_codigo TEXT,
+                        codigo_asignatura TEXT,
+                        nombre TEXT,
+                        datos_json TEXT NOT NULL,
+                        fecha_extraccion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                    );
+                """)
+                conn.execute("CREATE INDEX IF NOT EXISTS idx_guias_url ON guias_docentes(url);")
+                conn.execute("CREATE INDEX IF NOT EXISTS idx_guias_univ_asig ON guias_docentes(universidad_codigo, codigo_asignatura);")
+                type(self)._schema_initialized_paths.add(self.db_path)
             conn.commit()
             conns[self.db_path] = conn
         return conns[self.db_path]
@@ -189,7 +192,7 @@ class SubjectGuideCache:
             for conn in list(conns.values()):
                 try:
                     conn.close()
-                except OSError as close_error:
+                except Exception as close_error:
                     logger.warning("No se pudo cerrar una conexión de caché de guías: %s", close_error, exc_info=True)
             conns.clear()
 
@@ -436,13 +439,22 @@ def parse_uca_subject_guide(soup: BeautifulSoup, url: str) -> dict:
             res["idioma"] = m_idioma.group(1).strip().capitalize()
         m_ct = re.search(r"Créd\.\s*Teoría:\s*([\d,]+)", text_info)
         if m_ct:
-            res["creditos"]["teoria"] = float(m_ct.group(1).replace(",", "."))
+            try:
+                res["creditos"]["teoria"] = float(m_ct.group(1).replace(",", "."))
+            except ValueError:
+                pass
         m_cp = re.search(r"Créd\.\s*Prácticas:\s*([\d,]+)", text_info)
         if m_cp:
-            res["creditos"]["practicas"] = float(m_cp.group(1).replace(",", "."))
+            try:
+                res["creditos"]["practicas"] = float(m_cp.group(1).replace(",", "."))
+            except ValueError:
+                pass
         m_ects = re.search(r"Créd\.\s*ECTS:\s*([\d,]+)", text_info)
         if m_ects:
-            res["creditos"]["total_ects"] = float(m_ects.group(1).replace(",", "."))
+            try:
+                res["creditos"]["total_ects"] = float(m_ects.group(1).replace(",", "."))
+            except ValueError:
+                pass
 
     # Temario (Tabla id="temario")
     temario_table = soup.find("table", id="temario")

@@ -162,6 +162,8 @@ def parse_boe_text_curriculum_dynamic(full_text: str, degree_title: str = "", le
 
     tipo_idx = schema.index("tipo") if "tipo" in schema else -1
     credit_idx = schema.index("creditos") if "creditos" in schema else -1
+    if tipo_idx == -1 and credit_idx == -1:
+        logger.debug("Ambos índices (tipo y créditos) son -1; aplicando fallback por defecto (_RE_DYNAMIC_CRED_FIRST) al no poder inferir el esquema.")
     pattern = _RE_DYNAMIC_TIPO_FIRST if 0 <= tipo_idx < credit_idx else _RE_DYNAMIC_CRED_FIRST
     extracted = []
     current_module = ""

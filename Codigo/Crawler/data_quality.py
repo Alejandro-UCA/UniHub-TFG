@@ -34,7 +34,7 @@ def validate_plan_identity(payload: dict) -> list[str]:
     issues: list[str] = []
     if not isinstance(payload, dict):
         return ["payload_no_objeto"]
-    if not re.fullmatch(r"[A-Z0-9_-]{4,32}", str(payload.get("codigo_estudio", ""))):
+    if not re.fullmatch(r"[A-Z0-9_-]{4,32}", str(payload.get("codigo_estudio") or "")):
         issues.append("codigo_estudio_invalido")
     if not str(payload.get("titulo", "")).strip():
         issues.append("titulo_vacio")

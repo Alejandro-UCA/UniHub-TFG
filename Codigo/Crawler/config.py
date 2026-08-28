@@ -1,5 +1,18 @@
 import os
 
+def _safe_int(env_var: str, default: int) -> int:
+    try:
+        return int(os.getenv(env_var, str(default)))
+    except (ValueError, TypeError):
+        return default
+
+def _safe_float(env_var: str, default: float) -> float:
+    try:
+        return float(os.getenv(env_var, str(default)))
+    except (ValueError, TypeError):
+        return default
+
+
 # ==============================================================================
 # 1. DIRECTORIOS Y RUTAS BASE DE SISTEMA
 # ==============================================================================
@@ -88,8 +101,8 @@ SUBJECT_GUIDE_CACHE_DB = os.getenv(
 
 # Caché persistente de cuerpos HTTP para peticiones condicionales (ETag/Last-Modified).
 HTTP_CACHE_DIR = os.getenv("CRAWLER_HTTP_CACHE_DIR", os.path.join(DATA_DIR, "http_cache"))
-HTTP_CACHE_TTL_SECONDS = int(os.getenv("CRAWLER_HTTP_CACHE_TTL", str(7 * 24 * 3600)))
-HTTP_CACHE_MAX_BYTES = int(os.getenv("CRAWLER_HTTP_CACHE_MAX_BYTES", str(1024 * 1024 * 1024)))
+HTTP_CACHE_TTL_SECONDS = _safe_int("CRAWLER_HTTP_CACHE_TTL", str(7 * 24 * 3600))
+HTTP_CACHE_MAX_BYTES = _safe_int("CRAWLER_HTTP_CACHE_MAX_BYTES", str(1024 * 1024 * 1024))
 os.makedirs(HTTP_CACHE_DIR, exist_ok=True)
 
 # Política de ejecución de la Fase 1. En una ejecución nacional normal se
@@ -115,8 +128,8 @@ ADMIN_API_KEYS = tuple(_admin_api_keys)
 ADMIN_API_KEY = ADMIN_API_KEYS[0] if ADMIN_API_KEYS else ""
 # La ETL es transaccional y puede procesar miles de planes; este límite cubre
 # una ejecución completa en vez de confundir una respuesta aún en curso con un fallo.
-API_SYNC_TIMEOUT_SECONDS = float(os.getenv("CRAWLER_API_SYNC_TIMEOUT", "600"))
-PROGRESS_POST_TIMEOUT_SECONDS = float(os.getenv("CRAWLER_PROGRESS_POST_TIMEOUT", "0.15"))
+API_SYNC_TIMEOUT_SECONDS = _safe_float("CRAWLER_API_SYNC_TIMEOUT", "600")
+PROGRESS_POST_TIMEOUT_SECONDS = _safe_float("CRAWLER_PROGRESS_POST_TIMEOUT", "0.15")
 
 # ==============================================================================
 # 3. ENDPOINTS Y PLANTILLAS OFICIALES DEL RUCT (MINISTERIO DE EDUCACIÓN)
@@ -152,22 +165,22 @@ URL_VERIFICACION_ESTADO_TEMPLATE = os.getenv(
 # ==============================================================================
 # 4. CONFIGURACIÓN DE RED, CLIENTE HTTP Y BUENAS PRÁCTICAS DE CRAWLING
 # ==============================================================================
-REQUEST_DELAY = float(os.getenv("CRAWLER_REQUEST_DELAY", 0.35))  # Retardo cortés entre peticiones (0.35s)
-MAX_RETRIES = int(os.getenv("CRAWLER_MAX_RETRIES", 3))           # Intentos máximos por reconexión
-HTTP_TIMEOUT = int(os.getenv("CRAWLER_HTTP_TIMEOUT", 30))         # Timeout de conexión HTTP en segundos
+REQUEST_DELAY = _safe_float("CRAWLER_REQUEST_DELAY", 0.35)  # Retardo cortés entre peticiones (0.35s)
+MAX_RETRIES = _safe_int("CRAWLER_MAX_RETRIES", 3)           # Intentos máximos por reconexión
+HTTP_TIMEOUT = _safe_int("CRAWLER_HTTP_TIMEOUT", 30)         # Timeout de conexión HTTP en segundos
 USER_AGENT = os.getenv(
     "CRAWLER_USER_AGENT",
     "UniHubCrawler/1.0 (+https://github.com/Alejandro-UCA/UniHub-TFG; contacto@unihub)"
 )
-HTTP_POOL_CONNECTIONS = int(os.getenv("CRAWLER_HTTP_POOL_CONNECTIONS", 35))  # Tamaño del pool de hosts en caché Keep-Alive
-HTTP_POOL_MAXSIZE = int(os.getenv("CRAWLER_HTTP_POOL_MAXSIZE", 25))          # Conexiones simultáneas por host
-DOWNLOAD_CHUNK_SIZE = int(os.getenv("CRAWLER_CHUNK_SIZE", 8192))             # Bloque para descargas de PDF (bytes)
-JITTER_MIN_SECONDS = float(os.getenv("CRAWLER_JITTER_MIN", 0.10))            # Jitter aleatorio mínimo por petición (0.10s)
-JITTER_MAX_SECONDS = float(os.getenv("CRAWLER_JITTER_MAX", 0.35))            # Jitter aleatorio máximo por petición (0.35s)
-HTTP_429_DEFAULT_RETRY_AFTER = int(os.getenv("CRAWLER_429_RETRY_AFTER", 30)) # Retardo fallback para HTTP 429 (30s)
-HTTP_429_MAX_RETRY_AFTER = int(os.getenv("CRAWLER_429_MAX_RETRY_AFTER", 300))
-MAX_RESPONSE_SIZE_BYTES = int(os.getenv("CRAWLER_MAX_RESPONSE_BYTES", 50 * 1024 * 1024))
-MAX_TEXT_RESPONSE_SIZE_BYTES = int(os.getenv("CRAWLER_MAX_TEXT_BYTES", 10 * 1024 * 1024))
+HTTP_POOL_CONNECTIONS = _safe_int("CRAWLER_HTTP_POOL_CONNECTIONS", 35)  # Tamaño del pool de hosts en caché Keep-Alive
+HTTP_POOL_MAXSIZE = _safe_int("CRAWLER_HTTP_POOL_MAXSIZE", 25)          # Conexiones simultáneas por host
+DOWNLOAD_CHUNK_SIZE = _safe_int("CRAWLER_CHUNK_SIZE", 8192)             # Bloque para descargas de PDF (bytes)
+JITTER_MIN_SECONDS = _safe_float("CRAWLER_JITTER_MIN", 0.10)            # Jitter aleatorio mínimo por petición (0.10s)
+JITTER_MAX_SECONDS = _safe_float("CRAWLER_JITTER_MAX", 0.35)            # Jitter aleatorio máximo por petición (0.35s)
+HTTP_429_DEFAULT_RETRY_AFTER = _safe_int("CRAWLER_429_RETRY_AFTER", 30) # Retardo fallback para HTTP 429 (30s)
+HTTP_429_MAX_RETRY_AFTER = _safe_int("CRAWLER_429_MAX_RETRY_AFTER", 300)
+MAX_RESPONSE_SIZE_BYTES = _safe_int("CRAWLER_MAX_RESPONSE_BYTES", 50 * 1024 * 1024)
+MAX_TEXT_RESPONSE_SIZE_BYTES = _safe_int("CRAWLER_MAX_TEXT_BYTES", 10 * 1024 * 1024)
 RESPECT_ROBOTS = os.getenv("CRAWLER_RESPECT_ROBOTS", "1").strip().lower() not in {"0", "false", "no"}
 ROBOTS_FAIL_CLOSED = os.getenv("CRAWLER_ROBOTS_FAIL_CLOSED", "1").strip().lower() not in {"0", "false", "no"}
 # Orígenes cuyos responsables han confirmado expresamente que no publican
@@ -180,9 +193,9 @@ ROBOTS_CONFIRMED_NO_FILE_HOSTS = frozenset(
     for host in os.getenv("CRAWLER_ROBOTS_CONFIRMED_NO_FILE_HOSTS", "www.educacion.gob.es").split(",")
     if host.strip()
 )
-NEGATIVE_CACHE_TTL_SECONDS = int(os.getenv("CRAWLER_NEGATIVE_CACHE_TTL", "86400"))
-ADAPTIVE_BACKOFF_MULTIPLIER = float(os.getenv("CRAWLER_ADAPTIVE_BACKOFF_MULTIPLIER", 2.0)) # Multiplicador de retardo adaptativo por dominio tras 429
-ADAPTIVE_BACKOFF_MAX_DELAY = float(os.getenv("CRAWLER_ADAPTIVE_BACKOFF_MAX_DELAY", 5.0))   # Retardo adaptativo máximo por dominio (5.0s)
+NEGATIVE_CACHE_TTL_SECONDS = _safe_int("CRAWLER_NEGATIVE_CACHE_TTL", "86400")
+ADAPTIVE_BACKOFF_MULTIPLIER = _safe_float("CRAWLER_ADAPTIVE_BACKOFF_MULTIPLIER", 2.0) # Multiplicador de retardo adaptativo por dominio tras 429
+ADAPTIVE_BACKOFF_MAX_DELAY = _safe_float("CRAWLER_ADAPTIVE_BACKOFF_MAX_DELAY", 5.0)   # Retardo adaptativo máximo por dominio (5.0s)
 
 
 # Mapeo de dominios autonómicos obsoletos a dominios oficiales activos
@@ -209,55 +222,55 @@ DOMAIN_MAPPINGS = {
 # ==============================================================================
 # 5. PATRÓN CIRCUIT BREAKER (RESILIENCIA ANTE CAÍDAS DE RED/SERVIDOR)
 # ==============================================================================
-CIRCUIT_BREAKER_FAILURES_THRESHOLD = int(os.getenv("CRAWLER_CB_FAILURES_THRESHOLD", 10))  # Fallos seguidos para activar pausa
-CIRCUIT_BREAKER_PAUSE_SECONDS = int(os.getenv("CRAWLER_CB_PAUSE_SECONDS", 300))           # Duración de la pausa (5 minutos)
-CIRCUIT_BREAKER_MAX_PAUSES = int(os.getenv("CRAWLER_CB_MAX_PAUSES", 3))                    # Pausas máximas antes de omitir (15 min)
+CIRCUIT_BREAKER_FAILURES_THRESHOLD = _safe_int("CRAWLER_CB_FAILURES_THRESHOLD", 10)  # Fallos seguidos para activar pausa
+CIRCUIT_BREAKER_PAUSE_SECONDS = _safe_int("CRAWLER_CB_PAUSE_SECONDS", 300)           # Duración de la pausa (5 minutos)
+CIRCUIT_BREAKER_MAX_PAUSES = _safe_int("CRAWLER_CB_MAX_PAUSES", 3)                    # Pausas máximas antes de omitir (15 min)
 
 # ==============================================================================
 # 6. PARALELISMO Y MULTIPROCESAMIENTO (OPT-01 & OPT-03)
 # ==============================================================================
 CPU_WORKERS_COUNT = int(os.getenv("CRAWLER_CPU_WORKERS", max(1, min(4, os.cpu_count() or 4))))  # Pool multiproceso PDF/OCR
 ENABLE_RUCT_ASYNC_PREFETCH = os.getenv("CRAWLER_ENABLE_RUCT_PREFETCH", "1").strip().lower() not in {"0", "false", "no"} # Activar precarga adelantada RUCT
-ASYNC_PREFETCH_WORKERS = int(os.getenv("CRAWLER_PREFETCH_WORKERS", 2))                           # Hilos concurrentes de precarga acotada
-RUCT_PREFETCH_LOOKAHEAD = int(os.getenv("CRAWLER_RUCT_PREFETCH_LOOKAHEAD", 3))                   # Ventana de titulaciones adelantadas en cola
-WEB_CRAWLER_WORKERS = int(os.getenv("CRAWLER_WEB_WORKERS", 12))                                   # Hilos escaneo web oficial
-TASK_QUEUE_MAXSIZE = int(os.getenv("CRAWLER_TASK_QUEUE_MAXSIZE", 40))                            # Tamaño máximo acotado de cola multiproceso (seguridad RAM Docker)
-TASK_QUEUE_GET_TIMEOUT = int(os.getenv("CRAWLER_TASK_QUEUE_TIMEOUT", 5))                          # Timeout de lectura en cola (5s)
-WORKER_RESULT_QUEUE_TIMEOUT = float(os.getenv("CRAWLER_WORKER_RESULT_QUEUE_TIMEOUT", 3.0))
-WORKER_STOP_QUEUE_TIMEOUT = float(os.getenv("CRAWLER_WORKER_STOP_QUEUE_TIMEOUT", 3.0))
-WORKER_RESULT_COLLECTION_TIMEOUT = float(os.getenv("CRAWLER_WORKER_RESULT_COLLECTION_TIMEOUT", 15.0))
-WORKER_JOIN_TIMEOUT = float(os.getenv("CRAWLER_WORKER_JOIN_TIMEOUT", 5.0))
-WORKER_TERMINATE_JOIN_TIMEOUT = float(os.getenv("CRAWLER_WORKER_TERMINATE_JOIN_TIMEOUT", 2.0))
-WORKER_TASK_PUT_TIMEOUT = float(os.getenv("CRAWLER_WORKER_TASK_PUT_TIMEOUT", 5.0))
-MAX_IN_MEMORY_PDF_BYTES = int(os.getenv("CRAWLER_MAX_IN_MEMORY_PDF_BYTES", str(5 * 1024 * 1024)))  # Umbral híbrido RAM vs Disco (5 MB)
+ASYNC_PREFETCH_WORKERS = _safe_int("CRAWLER_PREFETCH_WORKERS", 2)                           # Hilos concurrentes de precarga acotada
+RUCT_PREFETCH_LOOKAHEAD = _safe_int("CRAWLER_RUCT_PREFETCH_LOOKAHEAD", 3)                   # Ventana de titulaciones adelantadas en cola
+WEB_CRAWLER_WORKERS = _safe_int("CRAWLER_WEB_WORKERS", 12)                                   # Hilos escaneo web oficial
+TASK_QUEUE_MAXSIZE = _safe_int("CRAWLER_TASK_QUEUE_MAXSIZE", 40)                            # Tamaño máximo acotado de cola multiproceso (seguridad RAM Docker)
+TASK_QUEUE_GET_TIMEOUT = _safe_int("CRAWLER_TASK_QUEUE_TIMEOUT", 5)                          # Timeout de lectura en cola (5s)
+WORKER_RESULT_QUEUE_TIMEOUT = _safe_float("CRAWLER_WORKER_RESULT_QUEUE_TIMEOUT", 3.0)
+WORKER_STOP_QUEUE_TIMEOUT = _safe_float("CRAWLER_WORKER_STOP_QUEUE_TIMEOUT", 3.0)
+WORKER_RESULT_COLLECTION_TIMEOUT = _safe_float("CRAWLER_WORKER_RESULT_COLLECTION_TIMEOUT", 15.0)
+WORKER_JOIN_TIMEOUT = _safe_float("CRAWLER_WORKER_JOIN_TIMEOUT", 5.0)
+WORKER_TERMINATE_JOIN_TIMEOUT = _safe_float("CRAWLER_WORKER_TERMINATE_JOIN_TIMEOUT", 2.0)
+WORKER_TASK_PUT_TIMEOUT = _safe_float("CRAWLER_WORKER_TASK_PUT_TIMEOUT", 5.0)
+MAX_IN_MEMORY_PDF_BYTES = _safe_int("CRAWLER_MAX_IN_MEMORY_PDF_BYTES", str(5 * 1024 * 1024))  # Umbral híbrido RAM vs Disco (5 MB)
 ENABLE_HTTP2 = os.getenv("CRAWLER_ENABLE_HTTP2", "1").strip().lower() not in {"0", "false", "no"}  # Activar conexiones multiplexadas HTTP/2
-HTTP2_MAX_CONNECTIONS = int(os.getenv("CRAWLER_HTTP2_MAX_CONNECTIONS", 20))                         # Máximo de conexiones en pool HTTP/2
-HTTP2_MAX_KEEPALIVE_CONNECTIONS = int(os.getenv("CRAWLER_HTTP2_MAX_KEEPALIVE", 10))                # Conexiones Keep-Alive retenidas en pool
+HTTP2_MAX_CONNECTIONS = _safe_int("CRAWLER_HTTP2_MAX_CONNECTIONS", 20)                         # Máximo de conexiones en pool HTTP/2
+HTTP2_MAX_KEEPALIVE_CONNECTIONS = _safe_int("CRAWLER_HTTP2_MAX_KEEPALIVE", 10)                # Conexiones Keep-Alive retenidas en pool
 
 # ==============================================================================
 # 7. PARÁMETROS DEL RASTREADOR WEB OFICIAL Y SITEMAPS (FASE 1 PARTE 2)
 # ==============================================================================
-WEB_ROBOTS_FALLBACK_DELAY = float(os.getenv("CRAWLER_ROBOTS_DELAY", 0.5))      # Retardo por defecto si no hay Crawl-delay
-ROBOTS_CHECK_TIMEOUT = int(os.getenv("CRAWLER_ROBOTS_TIMEOUT", 10))             # Timeout para lectura de robots.txt
-ROBOTS_CACHE_TTL_SECONDS = int(os.getenv("CRAWLER_ROBOTS_CACHE_TTL", 86400))    # TTL de caché robots.txt (24h RFC 9309)
-SITEMAP_FETCH_TIMEOUT = int(os.getenv("CRAWLER_SITEMAP_TIMEOUT", 4))            # Timeout por candidato de Sitemap XML
-WEB_CONNECTIVITY_TIMEOUT = float(os.getenv("CRAWLER_WEB_CONNECTIVITY_TIMEOUT", 10.0))
-WEB_CONTENT_TIMEOUT = float(os.getenv("CRAWLER_WEB_CONTENT_TIMEOUT", 15.0))
-WEB_PROBE_DELAY = float(os.getenv("CRAWLER_WEB_PROBE_DELAY", 0.1))
-WEB_SEARCH_SUBPAGES_LIMIT = int(os.getenv("CRAWLER_SUBPAGES_LIMIT", 12))       # Subpáginas máximas a inspeccionar
-WEB_SEARCH_SUBPAGES_DEPTH = int(os.getenv("CRAWLER_SUBPAGES_DEPTH", 6))        # Coincidencias máximas del Sitemap
-LAZY_SCANNED_PAGES_CACHE_LIMIT = int(os.getenv("CRAWLER_LAZY_LIMIT", 25))      # Páginas escaneadas en caché RAM
-SPA_ACCORDION_CLICK_DELAY = float(os.getenv("CRAWLER_SPA_CLICK_DELAY", 0.35))   # Pausa tras desplegar acordeón (s)
-SPA_SUBPAGE_FETCH_TIMEOUT = int(os.getenv("CRAWLER_SPA_FETCH_TIMEOUT", 15))     # Timeout para descarga de subpáginas SPA (s)
-WEB_SEARCH_RETRY_DELAY = float(os.getenv("CRAWLER_WEB_SEARCH_DELAY", 0.4))      # Pausa cortés entre búsquedas de subpáginas (s)
+WEB_ROBOTS_FALLBACK_DELAY = _safe_float("CRAWLER_ROBOTS_DELAY", 0.5)      # Retardo por defecto si no hay Crawl-delay
+ROBOTS_CHECK_TIMEOUT = _safe_int("CRAWLER_ROBOTS_TIMEOUT", 10)             # Timeout para lectura de robots.txt
+ROBOTS_CACHE_TTL_SECONDS = _safe_int("CRAWLER_ROBOTS_CACHE_TTL", 86400)    # TTL de caché robots.txt (24h RFC 9309)
+SITEMAP_FETCH_TIMEOUT = _safe_int("CRAWLER_SITEMAP_TIMEOUT", 4)            # Timeout por candidato de Sitemap XML
+WEB_CONNECTIVITY_TIMEOUT = _safe_float("CRAWLER_WEB_CONNECTIVITY_TIMEOUT", 10.0)
+WEB_CONTENT_TIMEOUT = _safe_float("CRAWLER_WEB_CONTENT_TIMEOUT", 15.0)
+WEB_PROBE_DELAY = _safe_float("CRAWLER_WEB_PROBE_DELAY", 0.1)
+WEB_SEARCH_SUBPAGES_LIMIT = _safe_int("CRAWLER_SUBPAGES_LIMIT", 12)       # Subpáginas máximas a inspeccionar
+WEB_SEARCH_SUBPAGES_DEPTH = _safe_int("CRAWLER_SUBPAGES_DEPTH", 6)        # Coincidencias máximas del Sitemap
+LAZY_SCANNED_PAGES_CACHE_LIMIT = _safe_int("CRAWLER_LAZY_LIMIT", 25)      # Páginas escaneadas en caché RAM
+SPA_ACCORDION_CLICK_DELAY = _safe_float("CRAWLER_SPA_CLICK_DELAY", 0.35)   # Pausa tras desplegar acordeón (s)
+SPA_SUBPAGE_FETCH_TIMEOUT = _safe_int("CRAWLER_SPA_FETCH_TIMEOUT", 15)     # Timeout para descarga de subpáginas SPA (s)
+WEB_SEARCH_RETRY_DELAY = _safe_float("CRAWLER_WEB_SEARCH_DELAY", 0.4)      # Pausa cortés entre búsquedas de subpáginas (s)
 
 # Parámetros del Patrón Hub-and-Spoke Catalog Indexing (Fase 1 Parte 2)
-HUB_AND_SPOKE_MAX_HUBS = int(os.getenv("CRAWLER_HUB_MAX_HUBS", 45))             # Catálogos maestros, facultades y calidad a pre-indexar
-HUB_AND_SPOKE_MAX_DEPTH = int(os.getenv("CRAWLER_HUB_MAX_DEPTH", 7))            # Cota máxima de profundidad en segmentos URL
-HUB_AND_SPOKE_MAX_HOPS = int(os.getenv("CRAWLER_HUB_MAX_HOPS", 6))              # Cota máxima de saltos BFS entre sub-hubs de catálogo
+HUB_AND_SPOKE_MAX_HUBS = _safe_int("CRAWLER_HUB_MAX_HUBS", 45)             # Catálogos maestros, facultades y calidad a pre-indexar
+HUB_AND_SPOKE_MAX_DEPTH = _safe_int("CRAWLER_HUB_MAX_DEPTH", 7)            # Cota máxima de profundidad en segmentos URL
+HUB_AND_SPOKE_MAX_HOPS = _safe_int("CRAWLER_HUB_MAX_HOPS", 6)              # Cota máxima de saltos BFS entre sub-hubs de catálogo
 
 # Parámetros del Motor Autónomo de Descubrimiento de HUBs Curriculares (6 Capas)
-DYNAMIC_HUB_MIN_SIBLINGS = int(os.getenv("CRAWLER_HUB_MIN_SIBLINGS", 6))        # Mínimo de enlaces hermanos homogéneos para clasificar como HUB
+DYNAMIC_HUB_MIN_SIBLINGS = _safe_int("CRAWLER_HUB_MIN_SIBLINGS", 6)        # Mínimo de enlaces hermanos homogéneos para clasificar como HUB
 DYNAMIC_HUB_MIN_TITLE_WORDS = 2                                                  # Mínimo de palabras en ancla para titulación académica
 DYNAMIC_HUB_MAX_TITLE_WORDS = 10                                                 # Máximo de palabras en ancla para titulación académica
 SPIDER_TRAP_PATH_MARKERS = [
@@ -324,7 +337,7 @@ INVALID_METADATA_LABELS = {
 
 
 # Parámetros para Descubrimiento Orgánico de Centros Adscritos y Alianzas Europeas (Patrones 1 y 3)
-MAX_ORGANIC_AFFILIATED_HUBS_PER_UNIV = int(os.getenv("CRAWLER_MAX_ORGANIC_HUBS", 12))
+MAX_ORGANIC_AFFILIATED_HUBS_PER_UNIV = _safe_int("CRAWLER_MAX_ORGANIC_HUBS", 12)
 ORGANIC_AFFILIATED_HUB_KEYWORDS = [
     "adscrit", "adscrito", "adscrita", "centres adscrits", "centros adscritos",
     "escuela adscrita", "instituto adscrito", "escola", "escuela", "institut", "instituto",
@@ -337,22 +350,22 @@ EUROPEAN_ALLIANCES_KEYWORDS = [
     "circle u", "unite!", "enlight", "4eu+", "una europa", "eureca-pro", "ingenium"
 ]
 
-PRIVATE_ECTS_MIN = float(os.getenv("CRAWLER_PRIVATE_ECTS_MIN", 15.0))          # Umbral mínimo precio ECTS privada (€)
-PRIVATE_ECTS_MAX = float(os.getenv("CRAWLER_PRIVATE_ECTS_MAX", 500.0))         # Umbral máximo precio ECTS privada (€)
-PRIVATE_ANNUAL_MIN = float(os.getenv("CRAWLER_PRIVATE_ANNUAL_MIN", 1000.0))    # Umbral mínimo matrícula anual privada (€)
-PRIVATE_ANNUAL_MAX = float(os.getenv("CRAWLER_PRIVATE_ANNUAL_MAX", 45000.0))   # Umbral máximo matrícula anual privada (€)
+PRIVATE_ECTS_MIN = _safe_float("CRAWLER_PRIVATE_ECTS_MIN", 15.0)          # Umbral mínimo precio ECTS privada (€)
+PRIVATE_ECTS_MAX = _safe_float("CRAWLER_PRIVATE_ECTS_MAX", 500.0)         # Umbral máximo precio ECTS privada (€)
+PRIVATE_ANNUAL_MIN = _safe_float("CRAWLER_PRIVATE_ANNUAL_MIN", 1000.0)    # Umbral mínimo matrícula anual privada (€)
+PRIVATE_ANNUAL_MAX = _safe_float("CRAWLER_PRIVATE_ANNUAL_MAX", 45000.0)   # Umbral máximo matrícula anual privada (€)
 
 # ==============================================================================
 # 8. CÁLCULO DE TARIFAS PÚBLICAS SIIU Y PARÁMETROS ACADÉMICOS (FASE 1 PARTE 3)
 # ==============================================================================
-DOCTORATE_TUTELA_CREDITS = int(os.getenv("CRAWLER_DOCTORATE_TUTELA_CREDITS", 10))   # ECTS tutela anual en Doctorado
-STANDARD_YEAR_ECTS_CREDITS = int(os.getenv("CRAWLER_STANDARD_YEAR_ECTS", 60))       # ECTS de curso universitario estándar
-DEFAULT_SUBJECT_ECTS = float(os.getenv("CRAWLER_DEFAULT_SUBJECT_ECTS", 6.0))        # Créditos ECTS estándar por asignatura
-GRADO_STANDARD_ECTS = int(os.getenv("CRAWLER_GRADO_STANDARD_ECTS", 240))             # ECTS oficiales de un Grado estándar (4 años)
-MASTER_MIN_ECTS = int(os.getenv("CRAWLER_MASTER_MIN_ECTS", 60))                      # ECTS mínimos oficiales de un Máster
-MEDICINA_ECTS = int(os.getenv("CRAWLER_MEDICINA_ECTS", 360))                         # ECTS oficiales de Grado en Medicina (6 años)
-ESPECIALES_GRADO_ECTS = int(os.getenv("CRAWLER_ESPECIALES_GRADO_ECTS", 300))         # ECTS de Grados de 5 años (Farmacia, Odontología, Veterinaria, Arquitectura)
-MAX_BOE_CANDIDATES_PER_DEGREE = int(os.getenv("CRAWLER_MAX_BOE_CANDIDATES", 8))       # Límite máximo de seguridad de BOEs candidatos a procesar por titulación
+DOCTORATE_TUTELA_CREDITS = _safe_int("CRAWLER_DOCTORATE_TUTELA_CREDITS", 10)   # ECTS tutela anual en Doctorado
+STANDARD_YEAR_ECTS_CREDITS = _safe_int("CRAWLER_STANDARD_YEAR_ECTS", 60)       # ECTS de curso universitario estándar
+DEFAULT_SUBJECT_ECTS = _safe_float("CRAWLER_DEFAULT_SUBJECT_ECTS", 6.0)        # Créditos ECTS estándar por asignatura
+GRADO_STANDARD_ECTS = _safe_int("CRAWLER_GRADO_STANDARD_ECTS", 240)             # ECTS oficiales de un Grado estándar (4 años)
+MASTER_MIN_ECTS = _safe_int("CRAWLER_MASTER_MIN_ECTS", 60)                      # ECTS mínimos oficiales de un Máster
+MEDICINA_ECTS = _safe_int("CRAWLER_MEDICINA_ECTS", 360)                         # ECTS oficiales de Grado en Medicina (6 años)
+ESPECIALES_GRADO_ECTS = _safe_int("CRAWLER_ESPECIALES_GRADO_ECTS", 300)         # ECTS de Grados de 5 años (Farmacia, Odontología, Veterinaria, Arquitectura)
+MAX_BOE_CANDIDATES_PER_DEGREE = _safe_int("CRAWLER_MAX_BOE_CANDIDATES", 8)       # Límite máximo de seguridad de BOEs candidatos a procesar por titulación
 
 # Aliases canónicos para validación curricular
 CREDITOS_TOTALES_GRADO = GRADO_STANDARD_ECTS
@@ -368,9 +381,9 @@ CREDITOS_TOTALES_DOBLE_GRADO_MIN = 300
 # ==============================================================================
 # 9. PERSISTENCIA, CHECKPOINTS Y BASES DE DATOS
 # ==============================================================================
-CHECKPOINT_FLUSH_INTERVAL_SECONDS = float(os.getenv("CRAWLER_CHECKPOINT_INTERVAL", 30.0)) # Intervalo salvaguarda JSON (segundos)
-SQLITE_CONNECT_TIMEOUT = float(os.getenv("CRAWLER_SQLITE_TIMEOUT", 30.0))                  # Timeout conexión SQLite WAL (segundos)
-SUBJECT_GUIDE_CACHE_LIMIT = int(os.getenv("CRAWLER_SUBJECT_GUIDE_CACHE_LIMIT", 5000))
+CHECKPOINT_FLUSH_INTERVAL_SECONDS = _safe_float("CRAWLER_CHECKPOINT_INTERVAL", 30.0) # Intervalo salvaguarda JSON (segundos)
+SQLITE_CONNECT_TIMEOUT = _safe_float("CRAWLER_SQLITE_TIMEOUT", 30.0)                  # Timeout conexión SQLite WAL (segundos)
+SUBJECT_GUIDE_CACHE_LIMIT = _safe_int("CRAWLER_SUBJECT_GUIDE_CACHE_LIMIT", 5000)
 
 # ==============================================================================
 # 10. SERVICIOS EXTERNOS Y APIS PÚBLICAS

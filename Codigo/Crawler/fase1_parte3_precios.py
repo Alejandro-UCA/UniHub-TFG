@@ -370,10 +370,32 @@ def compute_degree_price(ccaa: str, tipo_univ: str, nivel_academico: str, titulo
             "fuente_precio": f"Precio no disponible en decreto de {canonical_ccaa}"
         }
 
-    precio_ects = float(precio_ects)
-    precio_2 = float(precio_2) if precio_2 is not None else None
-    precio_3 = float(precio_3) if precio_3 is not None else None
-    precio_4 = float(precio_4) if precio_4 is not None else None
+    import logging
+    logger = logging.getLogger(__name__)
+
+    try:
+        precio_ects = float(precio_ects)
+    except (ValueError, TypeError):
+        logger.warning(f"Dato de precio_ects malformado en catálogo: {precio_ects}")
+        precio_ects = None
+
+    try:
+        precio_2 = float(precio_2) if precio_2 is not None else None
+    except (ValueError, TypeError):
+        logger.warning(f"Dato de precio_2 malformado en catálogo: {precio_2}")
+        precio_2 = None
+
+    try:
+        precio_3 = float(precio_3) if precio_3 is not None else None
+    except (ValueError, TypeError):
+        logger.warning(f"Dato de precio_3 malformado en catálogo: {precio_3}")
+        precio_3 = None
+
+    try:
+        precio_4 = float(precio_4) if precio_4 is not None else None
+    except (ValueError, TypeError):
+        logger.warning(f"Dato de precio_4 malformado en catálogo: {precio_4}")
+        precio_4 = None
         
     tasas_admin = float(ccaa_data.get("tasas_admin", 0.0))
     decreto_fuente = ccaa_data.get("decreto_oficial", f"Decreto de Precios Públicos de {canonical_ccaa}")

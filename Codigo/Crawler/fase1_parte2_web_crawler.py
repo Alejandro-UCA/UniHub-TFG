@@ -13,9 +13,10 @@ from bs4 import BeautifulSoup
 import concurrent.futures
 import unicodedata
 from datetime import datetime
-from collections import defaultdict
+from collections import defaultdict, deque
 
 logger = logging.getLogger("unihub_web_crawler")
+_MAX_PDF_PAGES_EXTRACT = 80
 
 
 def _annotate_plan_source_status(degrees: list, university_code: str, status: str) -> None:
@@ -1075,7 +1076,9 @@ class UniversityWebCrawler:
                     try:
                         import pypdf
                         reader = pypdf.PdfReader(temp_pdf)
-                        pdf_text_full = " ".join([page.extract_text() or "" for page in reader.pages])
+                        if len(reader.pages) > _MAX_PDF_PAGES_EXTRACT:
+                            logger.warning("PDF en %s excede límite de %d páginas (%d), truncando.", pdf_url, _MAX_PDF_PAGES_EXTRACT, len(reader.pages))
+                        pdf_text_full = " ".join([page.extract_text() or "" for page in reader.pages[:_MAX_PDF_PAGES_EXTRACT]])
                     except Exception as exc:
                         logger.debug(f"Excepción controlada en crawling: {exc}")
                         pass
@@ -1134,11 +1137,11 @@ class UniversityWebCrawler:
         organic_hubs = {}
         
         # Cola BFS: tuplas de (url_hub, nivel_salto_actual)
-        queue = [(web_url, 0)]
+        queue = deque([(web_url, 0)])
         visited_hubs_count = 0
 
         while queue and visited_hubs_count < max_hubs:
-            current_hub, current_hop = queue.pop(0)
+            current_hub, current_hop = queue.popleft()
             visited_hubs_count += 1
             
             try:
@@ -1248,14 +1251,9 @@ class UniversityWebCrawler:
         
         rescue_downloader = RUCTDownloader(delay=REQUEST_DELAY, timeout=min(self.timeout, 15), ledger=self.ledger, phase="fase1_parte2_rescue")
         def get_json(base_url, params):
-            response = None
-            try:
-                query_url = base_url + ("&" if "?" in base_url else "?") + urllib.parse.urlencode(params)
-                response = rescue_downloader._request_with_retry(query_url)
-                return response.json()
-            finally:
-                if response is not None:
-                    response.close()
+            query_url = base_url + ("&" if "?" in base_url else "?") + urllib.parse.urlencode(params)
+            content = rescue_downloader.fetch_content(query_url)
+            return json.loads(content) if content else {}
         try:
             data = get_json(search_url, search_params)
             if not data.get("query", {}).get("search"):

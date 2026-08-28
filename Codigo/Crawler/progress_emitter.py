@@ -2,6 +2,7 @@ import time
 import logging
 import requests
 import threading
+import queue
 from datetime import datetime
 from config import (
     ADMIN_API_KEY,
@@ -61,6 +62,40 @@ class ProgressEmitter:
         }
         self._last_emit_time = 0.0
         self._emit_interval = 0.3
+
+        self._queue = queue.Queue(maxsize=16)
+        self._worker_thread = threading.Thread(target=self._worker_loop, daemon=True)
+        self._worker_thread.start()
+
+    def _worker_loop(self):
+        while True:
+            payload = self._queue.get()
+            if payload is None:
+                break
+            
+            api_key = ADMIN_API_KEY
+            headers = {'Content-Type': 'application/json'}
+            if api_key:
+                headers['X-API-Key'] = api_key
+            for target_url in self.api_sync_urls:
+                try:
+                    resp = requests.post(
+                        target_url,
+                        json=payload,
+                        headers=headers,
+                        timeout=PROGRESS_POST_TIMEOUT_SECONDS,
+                    )
+                    if resp.ok:
+                        break
+                except Exception as error:
+                    logger.debug("No se pudo publicar el progreso en la API: %s", error, exc_info=True)
+
+    def close(self):
+        try:
+            self._queue.put(None)
+            self._worker_thread.join(timeout=2.0)
+        except Exception as e:
+            logger.debug(f"Error al cerrar worker de progress emitter: {e}")
 
     def update_part(self, part_num: int, description: str):
         with self._lock:
@@ -166,23 +201,8 @@ class ProgressEmitter:
             logger.debug(f'Error al persistir progreso en vivo: {e}')
 
         # 2. Notificación HTTP no bloqueante opcional a la API REST
-        def _notify_async():
-            api_key = ADMIN_API_KEY
-            headers = {'Content-Type': 'application/json'}
-            if api_key:
-                headers['X-API-Key'] = api_key
-            for target_url in self.api_sync_urls:
-                try:
-                    resp = requests.post(
-                        target_url,
-                        json=snapshot,
-                        headers=headers,
-                        timeout=PROGRESS_POST_TIMEOUT_SECONDS,
-                    )
-                    if resp.ok:
-                        break
-                except Exception as error:
-                    logger.debug("No se pudo publicar el progreso en la API: %s", error, exc_info=True)
-
-        t = threading.Thread(target=_notify_async, daemon=True)
-        t.start()
+        if self.api_sync_urls:
+            try:
+                self._queue.put_nowait(snapshot)
+            except queue.Full:
+                pass

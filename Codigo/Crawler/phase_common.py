@@ -119,13 +119,12 @@ def cleanup_temporary_files(
     if not os.path.isdir(directory):
         return 0
     removed = 0
-    for name in os.listdir(directory):
-        path = os.path.join(directory, name)
-        if os.path.isfile(path) and name.lower().endswith(tuple(suffixes)):
+    for entry in os.scandir(directory):
+        if entry.is_file() and entry.name.lower().endswith(tuple(suffixes)):
             try:
-                if max_age_seconds is not None and time.time() - os.path.getmtime(path) < max_age_seconds:
+                if max_age_seconds is not None and time.time() - entry.stat().st_mtime < max_age_seconds:
                     continue
-                os.remove(path)
+                os.remove(entry.path)
                 removed += 1
             except OSError:
                 pass

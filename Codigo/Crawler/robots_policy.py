@@ -37,6 +37,17 @@ class RobotsPolicy:
     # decisión booleana para poder distinguir ``robots.txt inexistente`` de
     # ``robots.txt no verificable`` en los diagnósticos del crawler.
     _last_outcome: dict[str, str] = {}
+    _MAX_CACHE_SIZE = 512
+
+    @classmethod
+    def _evict_if_needed(cls):
+        if len(cls._cache) > cls._MAX_CACHE_SIZE:
+            if cls._last_fetch:
+                oldest_origin = min(cls._last_fetch.keys(), key=lambda k: cls._last_fetch[k])
+                cls._cache.pop(oldest_origin, None)
+                cls._fetch_locks.pop(oldest_origin, None)
+                cls._last_fetch.pop(oldest_origin, None)
+                cls._last_outcome.pop(oldest_origin, None)
 
     def __init__(self, user_agent: str = USER_AGENT, timeout: float = ROBOTS_CHECK_TIMEOUT):
         self.user_agent = user_agent
@@ -125,14 +136,17 @@ class RobotsPolicy:
                                     "Accept-Encoding": "identity",
                                 },
                                 timeout=self.timeout,
-                                allow_redirects=False,
+                                allow_redirects=True,
                             )
-                            break
                         except requests.RequestException as error:
                             logger.debug("No se pudo consultar robots.txt para %s: %s", robots_url, error, exc_info=True)
-                    with self._lock:
-                        self._last_outcome[origin] = f"error_red_{type(exc).__name__}: {exc}"
-                    return None
+                            with self._lock:
+                                self._last_outcome[origin] = f"error_red_{type(exc).__name__}: {exc}"
+                            return None
+                    else:
+                        with self._lock:
+                            self._last_outcome[origin] = f"error_red_{type(exc).__name__}: {exc}"
+                        return None
 
             try:
                 if response is None:
@@ -143,6 +157,7 @@ class RobotsPolicy:
                         parser.parse([])
                         with self._lock:
                             self._cache[origin] = (time.time(), parser)
+                            self._evict_if_needed()
                             suffix = f"_tras_{redirect_count}_redirecciones" if redirect_count else ""
                             self._last_outcome[origin] = f"robots_inexistente_http_{response.status_code}{suffix}"
                         return parser
@@ -151,6 +166,7 @@ class RobotsPolicy:
                         parser.parse(["User-agent: *", "Disallow: /"])
                         with self._lock:
                             self._cache[origin] = (time.time(), parser)
+                            self._evict_if_needed()
                             suffix = f"_tras_{redirect_count}_redirecciones" if redirect_count else ""
                             self._last_outcome[origin] = f"robots_acceso_restringido_http_{response.status_code}{suffix}"
                         return parser
@@ -167,6 +183,7 @@ class RobotsPolicy:
                 parser.parse(response.text.splitlines())
                 with self._lock:
                     self._cache[origin] = (time.time(), parser)
+                    self._evict_if_needed()
                     suffix = f"_tras_{redirect_count}_redirecciones" if redirect_count else ""
                     self._last_outcome[origin] = f"robots_ok_http_200{suffix}"
                 return parser
@@ -204,6 +221,7 @@ class RobotsPolicy:
                 parser.parse([])
                 with self._lock:
                     self._cache[origin] = (time.time(), parser)
+                    self._evict_if_needed()
                     self._last_outcome[origin] = "robots_confirmado_ausente_por_configuracion_tras_error_red"
             else:
                 return (False if ROBOTS_FAIL_CLOSED else True), None

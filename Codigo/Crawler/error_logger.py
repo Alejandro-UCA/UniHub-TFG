@@ -68,6 +68,11 @@ class ErrorLogger:
     def _interprocess_lock(self, timeout: float = 15.0):
         """Bloqueo por archivo para que varios procesos no pierdan errores."""
         lock_path = self.filepath + ".lock"
+        try:
+            if os.path.exists(lock_path) and time.time() - os.path.getmtime(lock_path) > 60:
+                os.remove(lock_path)
+        except OSError:
+            pass
         deadline = time.monotonic() + timeout
         acquired = False
         while time.monotonic() < deadline:

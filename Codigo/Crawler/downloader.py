@@ -430,17 +430,18 @@ class RUCTDownloader:
                             r.close()
                 except Exception as error:
                     logger.debug("No se pudo preparar una sesión auxiliar RUCT: %s", error, exc_info=True)
-            if "listauniversidades" in url and "export=1" in url:
-                r1 = self.session.get("https://www.educacion.gob.es/ruct/listauniversidades.action?actual=universidades", timeout=self.timeout)
-                r1.close()
-                r2 = self.session.get("https://www.educacion.gob.es/ruct/listauniversidades?actual=universidades&cccaa=&tipo_univ=&codigoUniversidad=&consulta=1", timeout=self.timeout)
-                r2.close()
-            elif "listaestudiosuniversidad" in url and "export=1" in url:
-                m = re.search(r"codigoUniversidad=([^&]+)", url)
-                if m:
-                    u_code = m.group(1)
-                    r = self.session.get(f"https://www.educacion.gob.es/ruct/listaestudiosuniversidad?actual=universidades&codigoUniversidad={u_code}", timeout=self.timeout)
-                    r.close()
+            else:
+                if "listauniversidades" in url and "export=1" in url:
+                    r1 = self.session.get("https://www.educacion.gob.es/ruct/listauniversidades.action?actual=universidades", timeout=self.timeout)
+                    r1.close()
+                    r2 = self.session.get("https://www.educacion.gob.es/ruct/listauniversidades?actual=universidades&cccaa=&tipo_univ=&codigoUniversidad=&consulta=1", timeout=self.timeout)
+                    r2.close()
+                elif "listaestudiosuniversidad" in url and "export=1" in url:
+                    m = re.search(r"codigoUniversidad=([^&]+)", url)
+                    if m:
+                        u_code = m.group(1)
+                        r = self.session.get(f"https://www.educacion.gob.es/ruct/listaestudiosuniversidad?actual=universidades&codigoUniversidad={u_code}", timeout=self.timeout)
+                        r.close()
         except Exception as e:
             print(f" [AVISO] Inicialización de sesión RUCT: {e}")
 
@@ -469,7 +470,9 @@ class RUCTDownloader:
                     logger.warning("No se pudo registrar el intento de descarga en el ledger: %s", error, exc_info=True)
             t0 = time.perf_counter()
             last_error = None
+            had_429 = False
             for target_url in urls_to_try:
+                response = None
                 try:
                     request_headers = {}
                     if self.ledger is not None and not target_url.rstrip('/').lower().endswith('/robots.txt'):
@@ -554,7 +557,8 @@ class RUCTDownloader:
                         print(f" [AVISO CORTESIA RED] HTTP 429 detectado en '{target_url}'. Retardo adaptativo para '{domain}' ajustado a {new_delay:.2f}s. Pausando {retry_secs}s...")
                         time.sleep(retry_secs)
                         last_error = requests.HTTPError(f"HTTP 429 Too Many Requests para '{target_url}'")
-                        continue
+                        had_429 = True
+                        break
                     response.raise_for_status()
                     if self.ledger is not None and getattr(response, "_unihub_cached", False) is not True:
                         try:
@@ -607,8 +611,9 @@ class RUCTDownloader:
             self._handle_connection_failure(str(last_error))
 
             if attempt < max_retries:
-                backoff_wait = (2 ** (attempt - 1)) * 0.5
-                time.sleep(backoff_wait)
+                if not had_429:
+                    backoff_wait = (2 ** (attempt - 1)) * 0.5
+                    time.sleep(backoff_wait)
                 print(f" 🔄 [RESILIENCIA] Reintentando petición ({attempt + 1}/{max_retries}) para '{url}'...")
 
         if last_error is None:

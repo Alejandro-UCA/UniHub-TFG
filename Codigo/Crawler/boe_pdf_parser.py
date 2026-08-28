@@ -232,13 +232,16 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
     seen_elements = set()
     raw_text_parts = []
 
-    if isinstance(pdf_filepath, bytes):
+    is_valid_pdf = False
+    if isinstance(pdf_filepath, (bytes, bytearray)):
         pdf_stream = io.BytesIO(pdf_filepath)
         pdf_sha256 = hashlib.sha256(pdf_filepath).hexdigest()
+        is_valid_pdf = pdf_filepath.startswith(b"%PDF")
     elif isinstance(pdf_filepath, io.BytesIO):
         pdf_stream = pdf_filepath
         pdf_bytes = pdf_filepath.getvalue()
         pdf_sha256 = hashlib.sha256(pdf_bytes).hexdigest()
+        is_valid_pdf = pdf_bytes.startswith(b"%PDF")
     else:
         pdf_stream = pdf_filepath
         pdf_sha256 = None
@@ -246,11 +249,27 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
             try:
                 h = hashlib.sha256()
                 with open(pdf_filepath, "rb") as f:
+                    head = f.read(5)
+                    is_valid_pdf = head.startswith(b"%PDF")
+                    f.seek(0)
                     for chunk in iter(lambda: f.read(8192), b""):
                         h.update(chunk)
                 pdf_sha256 = h.hexdigest()
             except OSError as error:
                 logger.warning("No se pudo calcular el SHA-256 de %s: %s", pdf_filepath, error)
+
+    if not is_valid_pdf:
+        logger.info(
+            "El recurso '%s' no contiene la cabecera mágica %%PDF (es probablemente HTML/portal web). Se omite el análisis.",
+            pdf_filepath if isinstance(pdf_filepath, str) else "stream",
+        )
+        return {
+            "resumen_creditos": {},
+            "total_elementos": 0,
+            "elementos_curriculares": [],
+            "pdf_sha256": pdf_sha256,
+            "idioma_predominante": "es",
+        }
 
     try:
         reader = pypdf.PdfReader(pdf_stream)
@@ -259,7 +278,7 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
             if text:
                 raw_text_parts.append(unreverse_text(text))
     except Exception as error:
-        logger.warning("No se pudo extraer texto del PDF: %s", error, exc_info=True)
+        logger.warning("No se pudo extraer texto del PDF: %s", error)
 
     full_text = "\n".join(raw_text_parts)
 

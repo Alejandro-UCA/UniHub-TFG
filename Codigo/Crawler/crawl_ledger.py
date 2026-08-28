@@ -24,15 +24,26 @@ class CrawlLedger:
     def _connection(self):
         conn = getattr(self._local, "connection", None)
         if conn is None:
+            if self.db_path and self.db_path != ":memory:":
+                dir_path = os.path.dirname(os.path.abspath(self.db_path))
+                if dir_path:
+                    os.makedirs(dir_path, exist_ok=True)
             conn = sqlite3.connect(self.db_path, timeout=SQLITE_CONNECT_TIMEOUT)
-            conn.execute("PRAGMA journal_mode=WAL")
             conn.execute("PRAGMA synchronous=NORMAL")
             self._local.connection = conn
         return conn
 
     def _init_db(self):
         with self._lock:
+            if self.db_path and self.db_path != ":memory:":
+                dir_path = os.path.dirname(os.path.abspath(self.db_path))
+                if dir_path:
+                    os.makedirs(dir_path, exist_ok=True)
             conn = self._connection()
+            try:
+                conn.execute("PRAGMA journal_mode=WAL")
+            except Exception:
+                pass
             conn.execute(
                 """CREATE TABLE IF NOT EXISTS crawl_ledger (
                     url TEXT PRIMARY KEY,

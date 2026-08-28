@@ -116,7 +116,6 @@ class CheckpointManager:
 
         if self.db_path not in conns:
             conn = sqlite3.connect(self.db_path, timeout=SQLITE_CONNECT_TIMEOUT)
-            conn.execute("PRAGMA journal_mode=WAL;")
             conn.execute("PRAGMA synchronous=NORMAL;")
             conn.execute("PRAGMA temp_store=MEMORY;")
             conn.execute("PRAGMA mmap_size=268435456;")
@@ -140,6 +139,10 @@ class CheckpointManager:
             os.makedirs(dir_path, exist_ok=True)
         try:
             with self._get_connection() as conn:
+                try:
+                    conn.execute("PRAGMA journal_mode=WAL;")
+                except Exception:
+                    pass
                 conn.execute("""
                     CREATE TABLE IF NOT EXISTS processed_degrees (
                         degree_code TEXT PRIMARY KEY,

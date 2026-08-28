@@ -161,9 +161,11 @@ def run_phase1(
 
         completed_count = len(results["parts"]) - len(failed_parts) - len(skipped_parts)
         if sync_etl and not failed_parts and not partial_parts and completed_count > 0:
-            results["etl_sync"] = trigger_api_etl_sync()
+            etl_succeeded = trigger_api_etl_sync()
+            results["etl_sync"] = {"status": "completed" if etl_succeeded else "failed"}
         else:
             results["etl_sync"] = {"status": "skipped"}
+        manifest.record_etl_sync(results["etl_sync"])
 
         if failed_parts:
             final_status = "failed" if len(failed_parts) == len(results["parts"]) else "partial"
@@ -171,6 +173,11 @@ def run_phase1(
         elif skipped_parts or partial_parts:
             final_status = "skipped" if skipped_parts and len(skipped_parts) == len(results["parts"]) else "partial"
             progress.set_failed(f"Partes incompletas/omitidas: partial={partial_parts}, skipped={skipped_parts}")
+        elif results["etl_sync"]["status"] == "failed":
+            # Los ficheros del crawler aún no se han cargado en la API: la
+            # campaña no puede declararse completada hasta que eso ocurra.
+            final_status = "partial"
+            progress.set_failed("Las partes terminaron, pero falló la sincronización ETL con la API")
         else:
             final_status = "completed"
             progress.set_finished()

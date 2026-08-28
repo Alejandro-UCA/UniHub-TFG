@@ -1,4 +1,5 @@
 import json
+import logging
 import os
 import threading
 import time
@@ -6,6 +7,8 @@ import contextlib
 from datetime import datetime
 from config import ERRORES_JSON
 from checkpoint import atomic_json_dump
+
+logger = logging.getLogger("crawler_error_logger")
 
 class ErrorLogger:
     _lock = threading.Lock()
@@ -29,6 +32,7 @@ class ErrorLogger:
                         return data
             except Exception as e:
                 # Si falla la lectura transitoria, preservar los errores que ya tenemos en memoria
+                logger.warning("No se pudo leer el registro de errores %s: %s", self.filepath, e)
                 if hasattr(self, "errors") and isinstance(self.errors, list) and self.errors:
                     return self.errors
                 return []
@@ -55,8 +59,8 @@ class ErrorLogger:
                         fresh = self._load_errors()
                         if fresh:
                             self.errors = fresh
-                except Exception:
-                    pass
+                except Exception as sync_error:
+                    logger.debug("No se pudo resincronizar el registro de errores: %s", sync_error, exc_info=True)
             self.errors.append(entry)
             self._save_errors()
 
@@ -81,13 +85,13 @@ class ErrorLogger:
         finally:
             try:
                 os.remove(lock_path)
-            except OSError:
-                pass
+            except OSError as cleanup_error:
+                logger.debug("No se pudo eliminar el lock de errores %s: %s", lock_path, cleanup_error)
 
     def _save_errors(self):
         atomic_json_dump(self.errors, self.filepath)
         try:
             if os.path.exists(self.filepath):
                 self._last_mtime = os.path.getmtime(self.filepath)
-        except Exception:
-            pass
+        except OSError as stat_error:
+            logger.debug("No se pudo actualizar el mtime del registro de errores: %s", stat_error)

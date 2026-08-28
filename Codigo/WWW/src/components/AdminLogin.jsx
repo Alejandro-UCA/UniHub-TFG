@@ -24,10 +24,7 @@ export default function AdminLogin({ onLoginSuccess }) {
     try {
       // Validar la clave de administrador directamente contra el backend
       await apiService.verifyAdminAuth(cleanKey);
-      if (typeof sessionStorage !== 'undefined') {
-        sessionStorage.setItem('adminApiKey', cleanKey);
-        sessionStorage.setItem('adminUser', cleanUser);
-      }
+      apiService.setAdminApiKey(cleanKey);
       onLoginSuccess();
     } catch (err) {
       console.warn('Fallo en autenticación de administrador:', err.message);

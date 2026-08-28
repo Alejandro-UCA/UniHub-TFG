@@ -83,6 +83,6 @@ Toda esta información se visualiza gráficamente en el **Panel de Administraci�
 
 4. **Acceso al Portal Web e Interfaz**:
    - Portal Web SPA (Fase 3): `http://localhost` o `http://localhost:5173`
-   - API REST & Documentación Swagger (Fase 2): `http://localhost:8000/docs`
-   - Documentación ReDoc: `http://localhost:8000/redoc`
-   - Login Administrador: `admin` / `unihub_super_secret_admin_key_2026`
+   - API REST & Documentación Swagger (Fase 2): `http://localhost/docs`
+   - Documentación ReDoc: `http://localhost/redoc`
+   - Login Administrador: configure `ADMIN_API_KEY` in your local `.env`; during rotation, `ADMIN_API_KEYS` may contain several keys separated by commas. No credential is bundled with the project.

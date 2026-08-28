@@ -56,7 +56,7 @@ export default React.memo(function UnivCard({ univ, onViewDegrees, distanceKm })
           <span className={`badge ${isPrivada ? 'badge-privada' : 'badge-publica'}`}>
             {isPrivada ? 'Privada' : 'Pública'}
           </span>
-          {distanceKm !== undefined && (
+          {distanceKm !== undefined && distanceKm !== null && (
             <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--uca-sun)', background: 'rgba(243, 167, 18, 0.15)', padding: '0.2rem 0.6rem', borderRadius: '6px', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
               <MapPin size={14} /> {distanceKm} km
             </span>

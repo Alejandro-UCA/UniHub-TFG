@@ -45,14 +45,18 @@ WORKDIR /app
 # Copiar dependencias precompiladas desde la etapa builder
 COPY --from=builder /install /install
 
-# Copiar código fuente y datos
+# Copiar únicamente el código fuente. Los datos se montan como volumen en runtime.
 COPY Codigo/API /app
-COPY Codigo/Crawler/Datos /app/Datos
 
 COPY Codigo/Docker/api/entrypoint.sh /app/entrypoint.sh
-RUN chmod +x /app/entrypoint.sh
+RUN addgroup --system app \
+    && adduser --system --ingroup app app \
+    && mkdir -p /app/Datos \
+    && chown -R app:app /app \
+    && chmod +x /app/entrypoint.sh
+
+USER app
 
 EXPOSE 8000
 
 ENTRYPOINT ["/app/entrypoint.sh"]
-

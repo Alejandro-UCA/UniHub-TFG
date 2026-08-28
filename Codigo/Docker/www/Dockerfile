@@ -41,6 +41,7 @@ FROM nginx:1.25-alpine AS production
 RUN rm -rf /usr/share/nginx/html/*
 
 # Copiar configuración personalizada y securizada de Nginx
+COPY Codigo/Docker/www/nginx-main.conf /etc/nginx/nginx.conf
 COPY Codigo/Docker/www/nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copiar artefactos estáticos compilados desde la etapa builder
@@ -54,4 +55,3 @@ EXPOSE 80
 STOPSIGNAL SIGQUIT
 
 CMD ["nginx", "-g", "daemon off;"]
-

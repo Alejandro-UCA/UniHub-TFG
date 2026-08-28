@@ -140,14 +140,14 @@ class TestCurriculumCompletenessValidation(unittest.TestCase):
         self.assertTrue(is_curriculum_complete(deg_60))
 
     def test_09_doctorado_structural_validation(self):
-        """Los Doctorados (RD 99/2011) son completos estructuralmente sin asignaturas ECTS."""
+        """Un Doctorado solo es estructuralmente completo si aporta elementos verificables."""
         deg_doc = {
             "titulo": "Programa de Doctorado en Ciencias de la Computación",
             "nivel_academico": "Doctorado - RD 99/2011",
             "plan_estudios": {
                 "tipo_estructura": "programa_doctorado_investigacion",
                 "normativa": "Real Decreto 99/2011",
-                "resumen_creditos": {"Tutela Académica Anual": "60 ECTS Equiv."}
+                "elementos_curriculares": [{"nombre_elemento": "Actividad de investigación"}]
             }
         }
         self.assertTrue(is_curriculum_complete(deg_doc))

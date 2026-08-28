@@ -48,8 +48,12 @@ COPY Codigo/Crawler /app
 COPY Codigo/Docker/crawler/entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
 
-# Asegurar la existencia de los directorios de almacenamiento de datos
-RUN mkdir -p /app/Datos /app/Datos/Planes /app/Datos/Temp
+# El daemon cron conserva privilegios mínimos para planificar tareas, pero el
+# crawler y los datos se ejecutan con un usuario dedicado sin privilegios.
+RUN addgroup --system crawler \
+    && adduser --system --ingroup crawler crawler \
+    && mkdir -p /app/Datos /app/Datos/Planes /app/Datos/Temp \
+    && touch /var/log/crawler_cron.log \
+    && chown -R crawler:crawler /app /var/log/crawler_cron.log
 
 ENTRYPOINT ["/app/entrypoint.sh"]
-

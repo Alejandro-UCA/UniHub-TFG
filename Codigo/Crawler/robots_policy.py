@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import threading
 import time
+import logging
 import urllib.parse
 import urllib.robotparser
 
@@ -16,6 +17,8 @@ from config import (
     USER_AGENT,
     REQUEST_DELAY,
 )
+
+logger = logging.getLogger("robots_policy")
 
 
 class RobotsPolicy:
@@ -98,7 +101,12 @@ class RobotsPolicy:
                             with self._lock:
                                 self._last_outcome[origin] = "robots_redireccion_excesiva_o_invalida"
                             return None
-                        current_url = urllib.parse.urljoin(current_url, location)
+                        redirected_url = urllib.parse.urljoin(current_url, location)
+                        if not self._is_safe_robots_redirect(redirected_url, origin):
+                            with self._lock:
+                                self._last_outcome[origin] = "robots_redireccion_fuera_del_origen"
+                            return None
+                        current_url = redirected_url
                         redirect_count += 1
                     break
                 except requests.RequestException as exc:
@@ -120,8 +128,8 @@ class RobotsPolicy:
                                 allow_redirects=False,
                             )
                             break
-                        except Exception:
-                            pass
+                        except requests.RequestException as error:
+                            logger.debug("No se pudo consultar robots.txt para %s: %s", robots_url, error, exc_info=True)
                     with self._lock:
                         self._last_outcome[origin] = f"error_red_{type(exc).__name__}: {exc}"
                     return None
@@ -165,6 +173,17 @@ class RobotsPolicy:
             finally:
                 if response is not None:
                     response.close()
+
+    @staticmethod
+    def _is_safe_robots_redirect(target_url: str, origin: str) -> bool:
+        """Los robots sólo pueden redirigir dentro de su mismo host institucional."""
+        target = urllib.parse.urlparse(target_url)
+        expected = urllib.parse.urlparse(origin)
+        return (
+            target.scheme in {"http", "https"}
+            and bool(target.hostname)
+            and target.hostname.lower() == expected.hostname.lower()
+        )
 
     def check(self, url: str) -> tuple[bool, float | None]:
         resolved = self._origin(url)

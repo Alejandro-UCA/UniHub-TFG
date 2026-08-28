@@ -89,7 +89,7 @@ from config import (
     REDISCOVER_URLS_EVERY_RUN,
     TARGET_UNIVERSITY_CODES
 )
-from downloader import RUCTDownloader, is_same_or_subdomain
+from downloader import RUCTDownloader, is_same_or_subdomain as downloader_is_same_or_subdomain
 from robots_policy import RobotsPolicy
 from crawl_ledger import CrawlLedger
 from data_quality import source_record, validate_plan_identity
@@ -386,9 +386,10 @@ def parse_price_value(val_str: str, min_val: float, max_val: float) -> float | N
 
 def build_html_curriculum_payload(elementos_html: list, degree_title: str) -> dict:
     """Construye la estructura estándar de plan de estudios a partir de asignaturas extraídas de HTML."""
-    is_grado = "grado" in (degree_title or "").lower()
     return {
-        "resumen_creditos": {"Créditos Totales": "240" if is_grado else "60"},
+        # No inferir el total reglamentario a partir del tipo de título: el
+        # nivel puede ser un máster de 60/90/120 ECTS u otro programa.
+        "resumen_creditos": {},
         "total_elementos": len(elementos_html),
         "elementos_curriculares": elementos_html
     }
@@ -494,36 +495,8 @@ def is_valid_web_url(href) -> bool:
 
 
 def is_same_or_subdomain(target_url: str, base_url: str) -> bool:
-    """
-    Verifica si target_url pertenece al mismo dominio institucional, subdominio hermano
-    (ej. quimicas.ub.edu vs web.ub.edu) o equivalente autonómico (.gal, .cat, .eus, .es, .edu).
-    """
-    try:
-        t_netloc = urllib.parse.urlparse(target_url).netloc.lower().replace("www.", "").split(":")[0]
-        b_netloc = urllib.parse.urlparse(base_url).netloc.lower().replace("www.", "").split(":")[0]
-        if not t_netloc or not b_netloc:
-            return False
-        
-        if t_netloc == b_netloc or t_netloc.endswith("." + b_netloc) or b_netloc.endswith("." + t_netloc):
-            return True
-        
-        t_parts = t_netloc.split(".")
-        b_parts = b_netloc.split(".")
-        if len(t_parts) >= 2 and len(b_parts) >= 2:
-            # Comparar dominio organizacional base (ej. ub.edu, unex.es, usc.es, uib.es)
-            t_root = ".".join(t_parts[-2:])
-            b_root = ".".join(b_parts[-2:])
-            if t_root == b_root:
-                return True
-            # Soporte para migraciones de TLDs autonómicos (.gal / .cat / .eus / .es / .edu / .eu / .org)
-            if t_parts[-2] == b_parts[-2] and len(t_parts[-2]) >= 2:
-                valid_tlds = {"es", "gal", "cat", "eus", "edu", "org", "eu"}
-                if t_parts[-1] in valid_tlds and b_parts[-1] in valid_tlds:
-                    return True
-        return False
-    except Exception as exc:
-        logger.debug(f"Excepción controlada en crawling: {exc}")
-        return False
+    """Reutiliza la política centralizada de dominios del descargador."""
+    return downloader_is_same_or_subdomain(target_url, base_url)
 
 
 def is_spider_trap_or_spurious_url(url: str, text: str = "") -> bool:
@@ -800,8 +773,8 @@ def extract_html_subjects(soup: BeautifulSoup, base_url: str = "") -> list:
                         ):
                             continue
 
-                        creditos = "6"
-                        ects_val_num = 6.0
+                        creditos = None
+                        ects_val_num = None
                         m_cr = re.search(r"[/()]\s*(\d+(?:[.,]\d+)?)\s*(?:cr[eè]dits?|cr\.?|ects)", clean_line, re.IGNORECASE)
                         if m_cr:
                             creditos = m_cr.group(1).replace(",", ".")
@@ -809,9 +782,6 @@ def extract_html_subjects(soup: BeautifulSoup, base_url: str = "") -> list:
                                 ects_val_num = float(creditos)
                             except ValueError:
                                 pass
-                        elif any(k in clean_low for k in ["treball de final", "tfg", "tfm", "trabajo fin"]):
-                            creditos = "12"
-                            ects_val_num = 12.0
 
                         caracter = "OB"
                         if "optativ" in clean_low:
@@ -898,8 +868,8 @@ def extract_html_subjects(soup: BeautifulSoup, base_url: str = "") -> list:
             if norm_name in seen_names:
                 continue
 
-            creditos = "6"
-            ects_val_num = 6.0
+            creditos = None
+            ects_val_num = None
             if ects_col != -1 and ects_col < len(cols_raw):
                 m_c = re.search(r"\b(\d+(?:[.,]\d+)?)\b", cols_raw[ects_col])
                 if m_c:
@@ -2099,7 +2069,7 @@ class UniversityWebCrawler:
             # ESTRATEGIA 3: Modelado de Alianzas Universitarias Europeas y Erasmus Mundus (Patrón 3)
             is_european_program = any(k in d_title.lower() for k in EUROPEAN_ALLIANCES_KEYWORDS)
             if is_european_program and (not found_curriculum or len(found_curriculum.get("elementos_curriculares", [])) == 0):
-                req_ects = get_required_degree_credits(d_level, d_title) or 60
+                req_ects = get_required_degree_credits(d_level, d_title)
                 discovered_alliance_url = None
                 discovered_hubs = self.organic_affiliated_hubs.get(web_url, {})
                 for ext_dom, (hub_url, hub_name) in discovered_hubs.items():
@@ -2115,7 +2085,7 @@ class UniversityWebCrawler:
                     "es_alianza_europea": True,
                     "plan_completo": False,
                     "ects_exigidos": req_ects,
-                    "ects_totales_detectados": req_ects,
+                    "ects_totales_detectados": 0,
                     "descripcion_consorcio": "Programa Conjunto de Excelencia Internacional (Erasmus Mundus / Alianza Universitaria Europea). La docencia e itinerario curricular se imparten en consorcio internacional en lengua inglesa a través de los campus europeos asociados."
                 }
                 direct_source_url = discovered_alliance_url or existing_direct_url or deg.get("boe_url") or web_url
@@ -2255,7 +2225,7 @@ def propagate_interuniversity_and_shared_boe_plans(planes_dir: str = PLANES_DIR)
 
         is_european = any(k in d.get("titulo", "").lower() for k in EUROPEAN_ALLIANCES_KEYWORDS)
         if not matched_plan and is_european:
-            req_c = get_required_degree_credits(d.get("nivel_academico", ""), d.get("titulo", "")) or 60
+            req_c = get_required_degree_credits(d.get("nivel_academico", ""), d.get("titulo", ""))
             matched_plan = {
                 "tipo_estructura": "consorcio_europeo_erasmus_mundus",
                 "nombre_plan": d.get("titulo", ""),
@@ -2264,7 +2234,7 @@ def propagate_interuniversity_and_shared_boe_plans(planes_dir: str = PLANES_DIR)
                 "es_alianza_europea": True,
                 "plan_completo": False,
                 "ects_exigidos": req_c,
-                "ects_totales_detectados": req_c,
+                "ects_totales_detectados": 0,
                 "descripcion_consorcio": "Programa Conjunto de Excelencia Internacional (Erasmus Mundus / Alianza Universitaria Europea). La docencia e itinerario curricular se imparten en consorcio internacional en lengua inglesa a través de los campus europeos asociados."
             }
             origen = "alianza_europea_erasmus_mundus"
@@ -2367,8 +2337,8 @@ def run_phase1_part2(
     try:
         crawler.checkpoint.close()
         crawler.ledger.close()
-    except Exception:
-        pass
+    except Exception as close_error:
+        logger.warning("No se pudieron cerrar los recursos de la Parte 2: %s", close_error, exc_info=True)
     print(f" -> Titulaciones propagadas por BOE/Consorcio: {prop_stats.get('total_propagated', 0)}")
 
     print("\n" + "=" * 70)

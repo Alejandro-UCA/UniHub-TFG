@@ -14,7 +14,12 @@ class Settings:
     )
     
     # CORS Configuration
-    CORS_ORIGINS: str = os.getenv("CORS_ORIGINS", "*")
+    # En producción debe declararse explícitamente. No usar '*' por defecto.
+    CORS_ORIGINS: str = os.getenv(
+        "CORS_ORIGINS",
+        "" if os.getenv("ENVIRONMENT", os.getenv("ENV", "development")).lower() in ["production", "prod"]
+        else "http://localhost:5173,http://localhost:3000"
+    )
 
     @property
     def CORS_ORIGINS_LIST(self) -> list:
@@ -24,17 +29,32 @@ class Settings:
 
     # Configuración de PostgreSQL
     POSTGRES_USER: str = os.getenv("POSTGRES_USER", "postgres")
-    POSTGRES_PASSWORD: str = os.getenv("POSTGRES_PASSWORD", "" if os.getenv("ENVIRONMENT", os.getenv("ENV", "development")).lower() in ["production", "prod"] else "admin")
+    POSTGRES_PASSWORD: str = os.getenv("POSTGRES_PASSWORD", "")
     POSTGRES_HOST: str = os.getenv("POSTGRES_HOST", "localhost")
     POSTGRES_PORT: str = os.getenv("POSTGRES_PORT", "5432")
     POSTGRES_DB: str = os.getenv("POSTGRES_DB", "unihub_db")
     
     # Rol de Solo Lectura para Acceso Restringido de la API REST
     API_DB_USER: str = os.getenv("API_DB_USER", "unihub_api_user")
-    API_DB_PASSWORD: str = os.getenv("API_DB_PASSWORD", "" if os.getenv("ENVIRONMENT", os.getenv("ENV", "development")).lower() in ["production", "prod"] else "unihub_api_password_sec2026")
+    API_DB_PASSWORD: str = os.getenv("API_DB_PASSWORD", "")
 
     # Clave de Administración para Operaciones CRUD y Sincronización ETL
-    ADMIN_API_KEY: str = os.getenv("ADMIN_API_KEY", "" if os.getenv("ENVIRONMENT", os.getenv("ENV", "development")).lower() in ["production", "prod"] else "unihub_super_secret_admin_key_2026")
+    ADMIN_API_KEY: str = os.getenv("ADMIN_API_KEY", "")
+
+    # El contenedor API no se publica directamente en producción: Nginx es el
+    # único proxy de entrada y añade X-Real-IP. Mantenerlo desactivado por
+    # defecto evita confiar en cabeceras que un cliente directo pueda falsificar.
+    TRUST_PROXY_HEADERS: bool = os.getenv("TRUST_PROXY_HEADERS", "false").lower() in {"1", "true", "yes"}
+    TRUSTED_PROXY_NETWORKS: str = os.getenv("TRUSTED_PROXY_NETWORKS", "")
+
+    @property
+    def ADMIN_API_KEYS(self) -> tuple[str, ...]:
+        """Claves válidas durante una rotación controlada de credenciales."""
+        configured = os.getenv("ADMIN_API_KEYS", "")
+        values = [value.strip() for value in configured.split(",") if value.strip()]
+        if self.ADMIN_API_KEY.strip() and self.ADMIN_API_KEY.strip() not in values:
+            values.insert(0, self.ADMIN_API_KEY.strip())
+        return tuple(values)
 
     # Parámetros del Pool de Conexiones SQLAlchemy
     DB_READONLY_POOL_SIZE: int = int(os.getenv("DB_READONLY_POOL_SIZE", "15"))
@@ -78,17 +98,17 @@ class Settings:
     def validate_production_security(self):
         """Valida que no se utilicen credenciales ni configuraciones inseguras en entornos de producción."""
         if self.ENVIRONMENT in ["production", "prod"]:
-            insecure_defaults = [
-                (self.POSTGRES_PASSWORD, "admin", "POSTGRES_PASSWORD"),
-                (self.API_DB_PASSWORD, "unihub_api_password_sec2026", "API_DB_PASSWORD"),
-                (self.ADMIN_API_KEY, "unihub_super_secret_admin_key_2026", "ADMIN_API_KEY")
+            required_secrets = [
+                (self.POSTGRES_PASSWORD, "POSTGRES_PASSWORD"),
+                (self.API_DB_PASSWORD, "API_DB_PASSWORD"),
+                (self.ADMIN_API_KEYS, "ADMIN_API_KEY o ADMIN_API_KEYS"),
             ]
-            for current_val, default_val, var_name in insecure_defaults:
-                if not current_val or current_val == default_val:
-                    raise ValueError(f"ERROR CRÍTICO DE SEGURIDAD: La variable {var_name} no puede estar vacía ni usar el valor por defecto en producción. Configure una clave segura.")
+            for current_val, var_name in required_secrets:
+                if not current_val or (isinstance(current_val, str) and not current_val.strip()):
+                    raise ValueError(f"ERROR CRÍTICO DE SEGURIDAD: La variable {var_name} es obligatoria en producción.")
             
-            if self.CORS_ORIGINS.strip() == "*":
-                raise ValueError("ERROR CRÍTICO DE SEGURIDAD: CORS_ORIGINS no puede ser '*' en entorno de producción. Especifique los dominios autorizados.")
+            if not self.CORS_ORIGINS.strip() or self.CORS_ORIGINS.strip() == "*":
+                raise ValueError("ERROR CRÍTICO DE SEGURIDAD: CORS_ORIGINS debe declarar dominios autorizados en producción.")
 
 settings = Settings()
 settings.validate_production_security()

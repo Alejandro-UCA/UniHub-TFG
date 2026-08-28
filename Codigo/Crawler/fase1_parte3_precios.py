@@ -14,9 +14,11 @@ from config import (
 from checkpoint import atomic_json_dump, load_json_safe
 from phase_common import iter_plan_files
 
+PRICE_CATALOG_ACADEMIC_YEAR = os.getenv("CRAWLER_PRICE_CATALOG_ACADEMIC_YEAR", "no especificado")
+
 # ==============================================================================
-# CATÁLOGO OFICIAL SIIU / MINISTERIO DE CIENCIA, INNOVACIÓN Y UNIVERSIDADES
-# Precios oficiales de matrícula por crédito ECTS (€) y tasas administrativas por CCAA
+# Catálogo local de tarifas SIIU/decretos autonómicos configurado por el proyecto.
+# La vigencia debe verificarse para cada curso académico antes de publicar importes.
 # ==============================================================================
 OFFICIAL_SIIU_PRICES_CATALOG = {
     "Andalucía": {
@@ -249,10 +251,7 @@ def apply_price_info_to_degree(degree_dict: dict, price_info: dict, tipo_univ: s
 
 
 def load_precios_ccaa() -> dict:
-    """
-    Carga el catálogo de precios por CCAA. Si no existe en disco o está vacío,
-    lo genera y guarda atómicamente a partir del catálogo oficial SIIU inmutable.
-    """
+    """Carga el catálogo local de precios por CCAA, si existe y no está vacío."""
     catalog = load_json_safe(PRECIOS_CCAA_JSON, default={})
     if not catalog:
         catalog = OFFICIAL_SIIU_PRICES_CATALOG
@@ -272,9 +271,9 @@ def load_universidades_map() -> dict:
 
 
 def compute_degree_price(ccaa: str, tipo_univ: str, nivel_academico: str, titulo: str, precios_catalogo: dict = None) -> dict:
-    """
-    Calcula el precio oficial del crédito ECTS (1ª, 2ª, 3ª, 4ª matrícula) y la matrícula anual
-    para universidades públicas de España según los decretos autonómicos vigentes (SIIU).
+    """Calcula una estimación a partir del catálogo local configurado por CCAA.
+
+    El año académico y la vigencia deben verificarse fuera de este módulo.
     """
     if not is_public_university(tipo_univ):
         return {
@@ -391,7 +390,10 @@ def compute_degree_price(ccaa: str, tipo_univ: str, nivel_academico: str, titulo
         "precio_credito_3": round(precio_3, 2) if precio_3 is not None else None,
         "precio_credito_4": round(precio_4, 2) if precio_4 is not None else None,
         "precio_estimado_anual": round(precio_anual, 2),
-        "fuente_precio": f"Oficial SIIU / {decreto_fuente}"
+        "fuente_precio": (
+            f"Catálogo local SIIU ({PRICE_CATALOG_ACADEMIC_YEAR}) / {decreto_fuente}; "
+            "verificar vigencia"
+        )
     }
 
 
@@ -404,7 +406,7 @@ def run_phase1_part3(
     progress_emitter=None,
 ) -> dict:
     """
-    Fase 1 - Parte 3: Asigna los precios ECTS oficiales y estima las matrículas
+    Fase 1 - Parte 3: Asigna tarifas catalogadas y estima las matrículas
     anuales de las titulaciones de universidades públicas.
     """
     print("\n======================================================================")

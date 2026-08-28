@@ -23,12 +23,14 @@ if %ERRORLEVEL% NEQ 0 (
 )
 
 echo [INFO] Iniciando ejecucion de la Parte 1...
-if "%~1"=="" (
-    echo [INFO] Parametros: Modo estandar (Todas las universidades y titulaciones)
-    python main.py --only-part 1
-) else (
-    echo [INFO] Parametros adicionales detectados: %*
-    python main.py --only-part 1 %*
+echo [INFO] Parametros adicionales detectados: %*
+python main_fase_1.py --parte 1 %*
+set "EXIT_CODE=%ERRORLEVEL%"
+if not "%EXIT_CODE%"=="0" (
+    echo.
+    echo [ERROR] La Fase 1 Parte 1 termino con codigo %EXIT_CODE%.
+    pause
+    exit /b %EXIT_CODE%
 )
 
 echo.
@@ -37,3 +39,4 @@ echo       FASE 1 PARTE 1 FINALIZADA
 echo ======================================================================
 echo.
 pause
+exit /b 0

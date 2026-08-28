@@ -10,7 +10,16 @@ import urllib.parse
 from bs4 import BeautifulSoup
 import requests
 
-from config import USER_AGENT, HTTP_TIMEOUT, SPA_ACCORDION_CLICK_DELAY, RESPECT_ROBOTS, ROBOTS_CHECK_TIMEOUT
+from config import (
+    USER_AGENT,
+    HTTP_TIMEOUT,
+    SPA_ACCORDION_CLICK_DELAY,
+    RESPECT_ROBOTS,
+    ROBOTS_CHECK_TIMEOUT,
+    MAX_RESPONSE_SIZE_BYTES,
+    MAX_TEXT_RESPONSE_SIZE_BYTES,
+    DOWNLOAD_CHUNK_SIZE,
+)
 from robots_policy import RobotsPolicy
 
 logger = logging.getLogger("spa_crawler")
@@ -132,22 +141,38 @@ class SPALayoutCrawler:
             if not allowed:
                 return RenderResult("")
 
+        resp = None
         try:
             timeout_sec = int(self.timeout / 1000) if self.timeout else HTTP_TIMEOUT
-            resp = requests.get(
-                target_url,
-                headers={"User-Agent": USER_AGENT, "Accept": "text/html,application/xhtml+xml,application/pdf"},
-                timeout=timeout_sec
-            )
-            if resp.status_code != 200 or not resp.content:
+            resp, final_url = self._safe_static_get(target_url, timeout_sec)
+            if resp is None or resp.status_code != 200:
                 return RenderResult("")
 
             content_type = resp.headers.get("Content-Type", "").lower()
-            if "application/pdf" in content_type or resp.content.startswith(b"%PDF-"):
-                filename = os.path.basename(urllib.parse.urlparse(target_url).path) or "plan_estudios.pdf"
-                return RenderResult("", is_download=True, content_bytes=resp.content, filename=filename)
+            max_size = MAX_RESPONSE_SIZE_BYTES if "application/pdf" in content_type else MAX_TEXT_RESPONSE_SIZE_BYTES
+            declared_size = resp.headers.get("Content-Length")
+            if declared_size and int(declared_size) > max_size:
+                logger.warning("Respuesta SPA descartada por Content-Length excesivo: %s", final_url)
+                return RenderResult("")
 
-            html_text = resp.text
+            content = bytearray()
+            for chunk in resp.iter_content(chunk_size=DOWNLOAD_CHUNK_SIZE):
+                if not chunk:
+                    continue
+                content.extend(chunk)
+                if len(content) > max_size:
+                    logger.warning("Respuesta SPA descartada por exceder el límite de tamaño: %s", final_url)
+                    return RenderResult("")
+            if not content:
+                return RenderResult("")
+            content = bytes(content)
+
+            if "application/pdf" in content_type or content.startswith(b"%PDF-"):
+                filename = os.path.basename(urllib.parse.urlparse(final_url).path) or "plan_estudios.pdf"
+                return RenderResult("", is_download=True, content_bytes=content, filename=filename)
+
+            encoding = resp.encoding or "utf-8"
+            html_text = content.decode(encoding, errors="replace")
             soup = BeautifulSoup(html_text, "html.parser")
 
             # 1. Expandir <details> y elementos ocultos en el DOM
@@ -182,8 +207,8 @@ class SPALayoutCrawler:
                         try:
                             data = json.loads(json_str)
                             self._extract_subjects_from_json_tree(data, synthetic_subjects)
-                        except Exception:
-                            pass
+                        except Exception as json_error:
+                            logger.debug("Bloque JSON SPA no válido: %s", json_error)
 
             if synthetic_subjects:
                 table_tag = soup.new_tag("table", attrs={"class": "tabla-plan-estudios synthetic-spa"})
@@ -201,7 +226,7 @@ class SPALayoutCrawler:
                     td_nom = soup.new_tag("td")
                     td_nom.string = str(subj.get("nombre") or "")
                     td_ects = soup.new_tag("td")
-                    td_ects.string = str(subj.get("creditos") or "6")
+                    td_ects.string = str(subj.get("creditos") or "")
                     td_car = soup.new_tag("td")
                     td_car.string = str(subj.get("caracter") or "OB")
                     td_cur = soup.new_tag("td")
@@ -223,6 +248,40 @@ class SPALayoutCrawler:
         except Exception as exc:
             logger.debug(f"Fallo en fallback estático SPA: {exc}")
             return RenderResult("")
+        finally:
+            if resp is not None:
+                resp.close()
+
+    @staticmethod
+    def _is_allowed_redirect(target_url: str, original_url: str) -> bool:
+        """Acepta sólo el dominio institucional inicial y sus subdominios."""
+        target = urllib.parse.urlsplit(target_url)
+        original = urllib.parse.urlsplit(original_url)
+        if target.scheme not in {"http", "https"} or not target.hostname or not original.hostname:
+            return False
+        original_host = re.sub(r"^(?:www\d*\.)+", "", original.hostname.lower())
+        target_host = re.sub(r"^(?:www\d*\.)+", "", target.hostname.lower())
+        return target_host == original_host or target_host.endswith("." + original_host)
+
+    def _safe_static_get(self, target_url: str, timeout_sec: int):
+        """Sigue pocos redireccionamientos validados y deja el cuerpo en streaming."""
+        current_url = target_url
+        headers = {"User-Agent": USER_AGENT, "Accept": "text/html,application/xhtml+xml,application/pdf"}
+        for _ in range(6):
+            if not self._is_allowed_redirect(current_url, target_url):
+                logger.warning("Redirección SPA fuera del dominio institucional descartada: %s", current_url)
+                return None, current_url
+            response = requests.get(current_url, headers=headers, timeout=timeout_sec, stream=True, allow_redirects=False)
+            if response.is_redirect or response.is_permanent_redirect:
+                location = response.headers.get("Location")
+                response.close()
+                if not location:
+                    return None, current_url
+                current_url = urllib.parse.urljoin(current_url, location)
+                continue
+            return response, current_url
+        logger.warning("Demasiadas redirecciones en fallback SPA: %s", target_url)
+        return None, current_url
 
     def render_spa_page(self, target_url: str) -> RenderResult:
         """
@@ -270,8 +329,8 @@ class SPALayoutCrawler:
                         with page.expect_download(timeout=self.timeout) as dl_info:
                             try:
                                 page.goto(target_url, timeout=self.timeout)
-                            except Exception:
-                                pass
+                            except Exception as navigation_retry_error:
+                                logger.debug("Reintento de navegación para descarga fallido: %s", navigation_retry_error)
                         dl = dl_info.value
                         safe_filename = re.sub(r'[^\w.-]', '_', dl.suggested_filename or "document.pdf")
                         temp_f = tempfile.NamedTemporaryFile(delete=False, suffix="_" + safe_filename)
@@ -281,8 +340,8 @@ class SPALayoutCrawler:
                             dl_bytes = f_in.read()
                         try:
                             os.remove(temp_f.name)
-                        except Exception:
-                            pass
+                        except OSError as cleanup_error:
+                            logger.warning("No se pudo eliminar el temporal descargado %s: %s", temp_f.name, cleanup_error)
                         print(f"   [SPA Crawler] Descarga binaria interceptada con éxito ({len(dl_bytes)} bytes): '{safe_filename}'")
                         return RenderResult("", is_download=True, content_bytes=dl_bytes, filename=safe_filename)
                     except Exception as dl_err:
@@ -311,8 +370,8 @@ class SPALayoutCrawler:
                     }
                 }""")
                 page.wait_for_timeout(350)
-            except Exception:
-                pass
+            except Exception as expansion_error:
+                logger.debug("No se pudieron expandir todos los controles de la SPA: %s", expansion_error)
 
             rendered_html = page.content()
             return RenderResult(rendered_html)
@@ -323,22 +382,22 @@ class SPALayoutCrawler:
             if context:
                 try:
                     context.close()
-                except Exception:
-                    pass
+                except Exception as close_error:
+                    logger.debug("No se pudo cerrar el contexto Playwright: %s", close_error, exc_info=True)
 
     def close(self):
         """Cleanly terminates the browser instance."""
         if self._browser:
             try:
                 self._browser.close()
-            except Exception:
-                pass
+            except Exception as close_error:
+                logger.debug("No se pudo cerrar el navegador Playwright: %s", close_error, exc_info=True)
             self._browser = None
         if self._pw:
             try:
                 self._pw.stop()
-            except Exception:
-                pass
+            except Exception as stop_error:
+                logger.debug("No se pudo detener Playwright: %s", stop_error, exc_info=True)
             self._pw = None
 
     def __enter__(self):

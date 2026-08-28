@@ -3,6 +3,7 @@ import re
 import io
 import hashlib
 import unicodedata
+import logging
 from functools import lru_cache
 import pypdf
 import pdfplumber
@@ -16,6 +17,8 @@ from config import (
     SPANISH_STOP_WORDS,
     UMBRELLA_BRANCH_WORDS
 )
+
+logger = logging.getLogger("boe_pdf_parser")
 
 RE_CREDIT_SUMMARY = [
     ("Formación Básica", re.compile(r"(?:Formaci[oó]n\s+B[aá]sica|FB)\s*[:.\-]?\s*(\d+(?:[.,]\d+)?)", re.IGNORECASE)),
@@ -244,8 +247,8 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                     for chunk in iter(lambda: f.read(8192), b""):
                         h.update(chunk)
                 pdf_sha256 = h.hexdigest()
-            except Exception:
-                pass
+            except OSError as error:
+                logger.warning("No se pudo calcular el SHA-256 de %s: %s", pdf_filepath, error)
 
     try:
         reader = pypdf.PdfReader(pdf_stream)
@@ -253,8 +256,8 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
             text = page.extract_text()
             if text:
                 raw_text_parts.append(unreverse_text(text))
-    except Exception as e:
-        pass
+    except Exception as error:
+        logger.warning("No se pudo extraer texto del PDF: %s", error, exc_info=True)
 
     full_text = "\n".join(raw_text_parts)
 
@@ -268,8 +271,8 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
             if len(ocr_text.strip()) >= 50:
                 full_text = ocr_text
                 raw_text_parts = [full_text]
-        except Exception:
-            pass
+        except Exception as error:
+            logger.info("No se pudo aplicar el fallback OCR al PDF: %s", error)
 
     # -------------------------------------------------------------------------
     # MOTOR DE DESAMBIGUACIÓN MULTI-GRADO:
@@ -464,7 +467,7 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                         if subject_col_idx != -1 and subject_col_idx < len(clean_row):
                             subj_raw = clean_row[subject_col_idx]
                             materia_raw = clean_row[materia_col_idx] if (materia_col_idx != -1 and materia_col_idx < len(clean_row)) else ""
-                            ects_raw = clean_row[ects_col_idx] if (ects_col_idx != -1 and ects_col_idx < len(clean_row)) else "6"
+                            ects_raw = clean_row[ects_col_idx] if (ects_col_idx != -1 and ects_col_idx < len(clean_row)) else ""
                             caracter_raw = clean_row[caracter_col_idx] if (caracter_col_idx != -1 and caracter_col_idx < len(clean_row)) else ""
                             curso_raw = clean_row[curso_col_idx] if (curso_col_idx != -1 and curso_col_idx < len(clean_row)) else ""
                             cuat_raw = clean_row[cuatrimestre_col_idx] if (cuatrimestre_col_idx != -1 and cuatrimestre_col_idx < len(clean_row)) else ""
@@ -477,13 +480,13 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                                 continue
 
                             # Validación numérica de créditos ECTS
-                            ects_num = 6.0
+                            ects_num = None
                             m_cr = re.search(r"(\d+(?:[.,]\d+)?)", ects_raw)
                             if m_cr:
                                 try:
                                     ects_num = float(m_cr.group(1).replace(",", "."))
                                 except ValueError:
-                                    pass
+                                    ects_num = None
 
                             norm_key = re.sub(r"[^\w\s]", "", subj_clean.lower()).strip()
                             if norm_key in seen_elements:
@@ -507,8 +510,8 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                                 "cuatrimestre": cuat_norm,
                                 "idioma": lang_code
                             })
-    except Exception:
-        pass
+    except Exception as error:
+        logger.warning("Falló el análisis tabular del PDF BOE: %s", error, exc_info=True)
 
     # 3. Fallback dinámico para texto tabulado sin estructura PDF detectable.
     if len(elementos_curriculares) < 3:
@@ -534,7 +537,7 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
                 try:
                     cr_val = float(m_ects.group(1).replace(",", "."))
                 except ValueError:
-                    cr_val = 6.0
+                    cr_val = None
                 
                 nom_asig = sanitize_subject_name(line[:m_ects.start()].strip())
                 if nom_asig and len(nom_asig) >= 4 and not is_spurious_or_administrative_subject(nom_asig):

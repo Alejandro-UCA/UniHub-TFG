@@ -3,6 +3,10 @@ import { X, FileText, ExternalLink, Award, Layers, AlertTriangle, BookOpen, Chev
 import { apiService } from '../services/api';
 import SubjectDetailModal from './SubjectDetailModal';
 
+const getSubjectKey = (subject, index) => String(
+  subject.id ?? subject.codigo ?? `${subject.nombre_elemento || 'elemento'}|${subject.curso || ''}|${subject.cuatrimestre || ''}|${subject.creditos_ects || ''}|${index}`
+);
+
 export default function PlanModal({ degree, onClose }) {
   const [loading, setLoading] = useState(true);
   const [planData, setPlanData] = useState(null);
@@ -242,8 +246,8 @@ export default function PlanModal({ degree, onClose }) {
                     <Award size={18} color="var(--uca-gold)" /> Resumen de Créditos ECTS
                   </h3>
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '0.85rem' }}>
-                    {Object.entries(resumen).map(([k, v], idx) => (
-                      <div key={idx} style={{ background: 'var(--bg-main)', padding: '0.85rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
+                    {Object.entries(resumen).map(([k, v]) => (
+                      <div key={k} style={{ background: 'var(--bg-main)', padding: '0.85rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
                         <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>{k}</div>
                         <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--uca-blue)' }}>{v} ECTS</div>
                       </div>
@@ -347,7 +351,7 @@ export default function PlanModal({ degree, onClose }) {
                           Carga Docente Oficial
                         </div>
                         <div style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--uca-blue)' }}>
-                          {curriculum.ects_exigidos || 60} ECTS Verificados
+                          {curriculum.ects_exigidos ?? 'N/D'} ECTS Verificados
                         </div>
                       </div>
                       <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
@@ -430,9 +434,10 @@ export default function PlanModal({ degree, onClose }) {
                       </thead>
                       <tbody>
                         {elementos.map((elem, idx) => {
+                          const subjectKey = getSubjectKey(elem, idx);
                           const guia = elem.guia_docente || {};
                           const hasDetails = Boolean(elem.url_guia_docente || elem.temario || guia.temario || guia.sistema_evaluacion || elem.sistema_evaluacion);
-                          const isExpanded = expandedSubject === idx;
+                          const isExpanded = expandedSubject === subjectKey;
                           const temarioList = elem.temario || guia.temario || [];
                           const evalList = elem.sistema_evaluacion || guia.sistema_evaluacion || [];
                           const profList = elem.profesorado || guia.profesorado || [];
@@ -441,14 +446,14 @@ export default function PlanModal({ degree, onClose }) {
                           const guideUrl = getSafeUrl(rawGuideUrl);
 
                           return (
-                            <React.Fragment key={idx}>
+                            <React.Fragment key={subjectKey}>
                               <tr 
                                 style={{ 
                                   borderBottom: isExpanded ? 'none' : '1px solid var(--border-light)', 
                                   background: isExpanded ? 'rgba(0, 132, 200, 0.08)' : (idx % 2 === 0 ? 'transparent' : 'rgba(0, 132, 200, 0.03)'),
                                   cursor: hasDetails ? 'pointer' : 'default'
                                 }}
-                                onClick={() => hasDetails && setExpandedSubject(isExpanded ? null : idx)}
+                                onClick={() => hasDetails && setExpandedSubject(isExpanded ? null : subjectKey)}
                               >
                                 <td style={{ padding: '0.65rem 1rem', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
                                   {elem.materia || elem.modulo ? (

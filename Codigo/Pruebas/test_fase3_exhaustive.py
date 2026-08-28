@@ -145,7 +145,7 @@ class TestPhase3FrontendExhaustive(unittest.TestCase):
             content = f.read()
 
         self.assertNotIn("Autocompletar", content, "No debe existir botón de autocompletar en Login")
-        self.assertNotIn("unihub_super_secret_admin_key_2026", content, "La clave no debe estar expuesta en el componente de login")
+        self.assertNotIn("ADMIN_API_KEY", content, "La clave no debe estar expuesta en el componente de login")
         self.assertNotIn("Clave por defecto", content, "No debe haber pistas de credenciales en el texto")
 
     def test_11_subjects_crud_and_full_catalog_pagination(self):

@@ -130,8 +130,8 @@ class TestPhase2APISecurityAndDatabase(unittest.TestCase):
 
     def test_02_constant_time_comparison(self):
         import secrets
-        admin_key = "unihub_super_secret_admin_key_2026"
-        self.assertTrue(secrets.compare_digest(admin_key, "unihub_super_secret_admin_key_2026"))
+        admin_key = "test-admin-key"
+        self.assertTrue(secrets.compare_digest(admin_key, "test-admin-key"))
         self.assertFalse(secrets.compare_digest("wrong_key", admin_key))
 
     def test_03_etl_loader_structure_and_safety_guard(self):
@@ -140,8 +140,9 @@ class TestPhase2APISecurityAndDatabase(unittest.TestCase):
         with open(etl_file, "r", encoding="utf-8") as f:
             content = f.read()
         
-        # Verify safety guard on deletions
-        self.assertIn("len(active_titulaciones_codes) >= 100", content)
+        # Las eliminaciones deben requerir opt-in explícito además de cobertura.
+        self.assertIn("ETL_ALLOW_DELETIONS", content)
+        self.assertIn("db.commit()", content)
         # Verify bulk save objects
         self.assertIn("bulk_save_objects", content)
         # Verify lock file

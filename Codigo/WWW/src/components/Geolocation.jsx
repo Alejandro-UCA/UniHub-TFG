@@ -34,11 +34,12 @@ export default function Geolocation({ universities, onViewDegrees }) {
         };
         setUserLocation(coords);
         setLoading(false);
-        usageTracker.trackNearbySearch(coords);
+        usageTracker.trackNearbySearch();
       },
       (err) => {
         console.warn('Geolocation denied or failed:', err);
-        setError('No se pudo acceder a tu ubicación exacta. Se ha activado la estimación por ciudad (Cádiz).');
+        const fallbackCity = SPANISH_CITIES_COORDS[selectedCity]?.name || selectedCity;
+        setError(`No se pudo acceder a tu ubicación exacta. Se ha activado la estimación por ciudad (${fallbackCity}).`);
         setLoading(false);
         setUserLocation(SPANISH_CITIES_COORDS[selectedCity]);
       },
@@ -55,11 +56,11 @@ export default function Geolocation({ universities, onViewDegrees }) {
   const univsWithDistance = React.useMemo(() => {
     return universities.map((u) => {
       const coords = getUniversityCoords(u);
-      const dist = userLocation
+      const dist = userLocation && coords
         ? calculateHaversineDistance(userLocation.lat, userLocation.lng, coords.lat, coords.lng)
-        : 0;
-      return { ...u, distanceKm: dist, targetCity: coords.name };
-    }).sort((a, b) => a.distanceKm - b.distanceKm);
+        : null;
+      return { ...u, distanceKm: dist, targetCity: coords?.name || 'Ubicación no disponible' };
+    }).sort((a, b) => (a.distanceKm ?? Infinity) - (b.distanceKm ?? Infinity));
   }, [universities, userLocation]);
 
   // Paginated Slice

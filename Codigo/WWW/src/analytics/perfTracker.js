@@ -133,11 +133,11 @@ class WebPerformanceTracker {
 
     return {
       webVitals: {
-        fcp: this.webVitals.fcp || 180,
-        lcp: this.webVitals.lcp || 350,
-        domContentLoaded: this.webVitals.domContentLoaded || 220,
-        loadComplete: this.webVitals.loadComplete || 450,
-        ttfb: this.webVitals.ttfb || 45
+        fcp: this.webVitals.fcp ?? null,
+        lcp: this.webVitals.lcp ?? null,
+        domContentLoaded: this.webVitals.domContentLoaded ?? null,
+        loadComplete: this.webVitals.loadComplete ?? null,
+        ttfb: this.webVitals.ttfb ?? null
       },
       memory: memoryInfo,
       apiStats: {

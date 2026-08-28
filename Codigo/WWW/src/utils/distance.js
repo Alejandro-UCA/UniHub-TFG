@@ -92,6 +92,6 @@ export function getUniversityCoords(univ) {
     }
   }
   
-  // Default to Madrid if unknown
-  return SPANISH_CITIES_COORDS["madrid"];
+  // No inventar una ubicación para universidades no reconocidas.
+  return null;
 }

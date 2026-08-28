@@ -53,8 +53,8 @@ def atomic_json_dump(data, filepath, max_retries: int = 5):
                 if os.path.exists(temp_filepath):
                     try:
                         os.remove(temp_filepath)
-                    except Exception:
-                        pass
+                    except OSError as cleanup_error:
+                        logger.warning("No se pudo eliminar el temporal del checkpoint %s: %s", temp_filepath, cleanup_error)
                 raise
 
 def load_json_safe(filepath, default=None, default_val=None):
@@ -129,8 +129,8 @@ class CheckpointManager:
         except Exception as e:
             try:
                 conn.rollback()
-            except Exception:
-                pass
+            except Exception as error:
+                logger.warning("No se pudo leer el checkpoint SQLite/JSON; se usará el estado seguro por defecto: %s", error)
             logger.debug(f"Error en transacción SQLite checkpoint: {e}")
             raise
 
@@ -232,8 +232,8 @@ class CheckpointManager:
                     self._last_mtime = mtime
                     self._cached_state = data
                     return data
-            except Exception:
-                pass
+            except Exception as error:
+                logger.debug("No se pudo consultar la caché de URLs inaccesibles: %s", error, exc_info=True)
         default_state = {
             "universities_downloaded": False,
             "processed_universities": [],
@@ -343,8 +343,8 @@ class CheckpointManager:
                             return age < NEGATIVE_CACHE_TTL_SECONDS
                         except (TypeError, ValueError, OSError):
                             return False
-            except Exception:
-                pass
+            except Exception as error:
+                logger.warning("No se pudo consultar el registro de robots.txt denegados: %s", error, exc_info=True)
             # Sin marca temporal fiable se fuerza un nuevo intento.
             return False
 
@@ -413,12 +413,15 @@ class CheckpointManager:
         recorded_url = record.get("boe_url")
         recorded_fecha = record.get("boe_fecha")
         
-        if is_valid_value(current_boe_url) and is_valid_value(recorded_url) and current_boe_url == recorded_url:
-            return True
-        if is_valid_value(current_boe_fecha) and is_valid_value(recorded_fecha) and current_boe_fecha == recorded_fecha:
-            return True
-            
-        return False
+        comparisons = []
+        if is_valid_value(current_boe_url):
+            comparisons.append(is_valid_value(recorded_url) and current_boe_url == recorded_url)
+        if is_valid_value(current_boe_fecha):
+            comparisons.append(is_valid_value(recorded_fecha) and current_boe_fecha == recorded_fecha)
+
+        # Cuando se conocen ambos identificadores, ambos deben coincidir. Así
+        # no se omite una actualización por conservar solo una URL o una fecha.
+        return bool(comparisons) and all(comparisons)
 
     def update_degree_record(self, degree_code: str, boe_url: str, boe_fecha: str, last_updated: str):
         if not is_valid_value(degree_code):
@@ -498,8 +501,8 @@ class CheckpointManager:
                     cur = conn.execute("SELECT 1 FROM robots_denied_universities WHERE univ_code = ?", (univ_code,))
                     if cur.fetchone():
                         return True
-            except Exception:
-                pass
+            except Exception as error:
+                logger.warning("No se pudo consultar robots_denied_universities para %s: %s", univ_code, error, exc_info=True)
             denied = self.state.get("robots_denied_universities", {})
             return univ_code in denied if isinstance(denied, dict) else False
 
@@ -584,15 +587,15 @@ class CheckpointManager:
         """Closes thread-local SQLite connections and flushes pending state."""
         try:
             self.flush()
-        except Exception:
-            pass
+        except Exception as error:
+            logger.error("No se pudo cerrar/volcar el checkpoint: %s", error, exc_info=True)
         conns = getattr(self._local, "connections", None)
         if conns:
             for conn in list(conns.values()):
                 try:
                     conn.close()
-                except Exception:
-                    pass
+                except Exception as error:
+                    logger.warning("No se pudo cerrar una conexión SQLite del checkpoint: %s", error, exc_info=True)
             conns.clear()
 
     def __enter__(self):

@@ -118,12 +118,12 @@ class TestPhase1Part3Strict(unittest.TestCase):
             "precio_credito_3": 55.37,
             "precio_credito_4": 76.90,
             "precio_estimado_anual": 952.00,
-            "fuente_precio": "Oficial SIIU / Decret Valencia"
+            "fuente_precio": "Catálogo local SIIU (no especificado) / Decret Valencia; verificar vigencia"
         }
         apply_price_info_to_degree(deg_pub, price_info_pub, "Pública")
         self.assertEqual(deg_pub["precio_credito_ects"], 15.10)
         self.assertEqual(deg_pub["precio_credito_2"], 25.67)
-        self.assertEqual(deg_pub["fuente_precio"], "Oficial SIIU / Decret Valencia")
+        self.assertIn("Catálogo local SIIU", deg_pub["fuente_precio"])
 
         deg_priv = {"titulo": "Grado en Bioquímica"}
         apply_price_info_to_degree(deg_priv, {}, "Privada")

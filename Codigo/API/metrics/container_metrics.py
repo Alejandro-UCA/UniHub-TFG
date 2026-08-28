@@ -1,5 +1,6 @@
 import os
 import json
+import logging
 import psutil
 import shutil
 from datetime import datetime
@@ -8,6 +9,8 @@ try:
     from API.config import settings
 except (ImportError, AttributeError):
     from config import settings
+
+logger = logging.getLogger("unihub_container_metrics")
 
 def get_dir_size_bytes(path: str) -> int:
     """Calcula el espacio total en disco utilizado por un directorio en bytes."""
@@ -20,8 +23,8 @@ def get_dir_size_bytes(path: str) -> int:
                 fp = os.path.join(root, f)
                 if not os.path.islink(fp) and os.path.exists(fp):
                     total += os.path.getsize(fp)
-    except Exception:
-        pass
+    except OSError as error:
+        logger.warning("No se pudo completar el cálculo de tamaño de %s: %s", path, error)
     return total
 
 def get_crawler_status_and_metrics(datos_dir: str) -> dict:
@@ -39,18 +42,21 @@ def get_crawler_status_and_metrics(datos_dir: str) -> dict:
                 ckpt = json.load(f)
                 processed_univs = ckpt.get("processed_universities", [])
                 processed_degrees = ckpt.get("processed_degrees", {})
-        except Exception:
-            pass
+        except (OSError, json.JSONDecodeError) as error:
+            logger.warning("No se pudo leer el checkpoint del crawler %s: %s", checkpoint_file, error)
 
     crawler_stats = {}
     if os.path.exists(stats_file):
         try:
             with open(stats_file, "r", encoding="utf-8") as f:
                 crawler_stats = json.load(f)
-        except Exception:
-            pass
+        except (OSError, json.JSONDecodeError) as error:
+            logger.warning("No se pudieron leer las métricas del crawler %s: %s", stats_file, error)
 
-    # Check if python main.py or crawler process is active on host/container
+    crawler_operations = crawler_stats.get("operaciones_crawler", {}) if isinstance(crawler_stats, dict) else {}
+
+    # Desde el contenedor API no se puede afirmar que otro contenedor esté
+    # activo: solo se inspecciona el proceso visible en este namespace.
     is_crawler_active = False
     try:
         for p in psutil.process_iter(['name', 'cmdline']):
@@ -58,26 +64,28 @@ def get_crawler_status_and_metrics(datos_dir: str) -> dict:
             if "main.py" in cmd or "run_crawler" in cmd:
                 is_crawler_active = True
                 break
-    except Exception:
-        pass
+    except (psutil.Error, TypeError) as error:
+        logger.debug("No se pudo inspeccionar el estado de procesos del crawler: %s", error, exc_info=True)
 
     return {
         "is_active": is_crawler_active,
-        "estado_proceso": "Activo / Rastrenado" if is_crawler_active else "Inactivo / Esperando Regla Cron (02:00 1º de mes)",
+        "estado_proceso": "Activo / Rastreando" if is_crawler_active else "Inactivo / Esperando Regla Cron (02:00 1º de mes)",
         "universidades_rastreadas_count": len(processed_univs),
         "universidades_rastreadas_list": processed_univs,
         "titulaciones_rastreadas_count": len(processed_degrees),
-        "titulaciones_inspeccionadas": crawler_stats.get("universidades_inspeccionadas", 0),
-        "titulaciones_al_dia": crawler_stats.get("titulaciones_al_dia", 0),
-        "titulaciones_actualizadas": crawler_stats.get("titulaciones_descargadas_actualizadas", 0),
-        "pdfs_parseados": crawler_stats.get("pdfs_parseados", 0),
-        "errores_registrados": crawler_stats.get("errores_detectados", 0)
+        "titulaciones_inspeccionadas": crawler_operations.get("titulaciones_inspeccionadas", 0),
+        "titulaciones_al_dia": crawler_operations.get("titulaciones_al_dia_sin_cambios", 0),
+        "titulaciones_actualizadas": crawler_operations.get("titulaciones_nuevas_o_actualizadas", 0),
+        "pdfs_parseados": crawler_operations.get("pdfs_boe_descargados_y_parseados", 0),
+        "errores_registrados": crawler_operations.get("errores_registrados", 0)
     }
 
 def collect_container_physical_stats() -> dict:
-    """
-    Collects physical system resource statistics for all 4 Docker containers:
-    `ruct_crawler` (Fase 1), `ruct_api` (Fase 2), `ruct_db` (Base de Datos), `ruct_www` (Fase 3 Web).
+    """Recoge recursos reales del proceso API y del volumen visible.
+
+    La API no tiene acceso garantizado al namespace de procesos ni a las
+    métricas cgroup de los otros contenedores; esos valores se devuelven como
+    no disponibles en lugar de estimarlos como si fueran mediciones físicas.
     """
     process = psutil.Process(os.getpid())
     system_mem = psutil.virtual_memory()
@@ -100,7 +108,8 @@ def collect_container_physical_stats() -> dict:
         total_drive_gb = round(disk_usage.total / (1024 * 1024 * 1024), 2)
         free_drive_gb = round(disk_usage.free / (1024 * 1024 * 1024), 2)
         drive_percent_used = round((disk_usage.used / disk_usage.total) * 100, 1)
-    except Exception:
+    except (OSError, ZeroDivisionError) as error:
+        logger.warning("No se pudo obtener el uso de disco para %s: %s", datos_dir, error)
         total_drive_gb = 0
         free_drive_gb = 0
         drive_percent_used = 0
@@ -117,43 +126,44 @@ def collect_container_physical_stats() -> dict:
     # Factor aproximado: ~0.0003 kWh por segundo de CPU a 50W TDP + 250 gCO2/kWh (red eléctrica europea/española)
     g_co2_estimated = round(total_cpu_seconds * 0.0003 * 250, 4)
 
-    # Contenedores individuales
+    # Solo el proceso API actual tiene medición física en este endpoint.
     contenedores = [
         {
             "nombre": "unihub_crawler",
             "fase": "Fase 1 - Rastreador BOE",
             "imagen": "python:3.12-slim",
-            "estado": "UP (Healthy)" if crawler_info["is_active"] else "UP (Programado Cron 02:00)",
-            "memoria_mb": round(current_rss_mb * 0.85, 2),
-            "cpu_porcentaje": cpu_percent,
+            "estado": "Visible solo por checkpoint; salud física no disponible",
+            "memoria_mb": None,
+            "cpu_porcentaje": None,
+            "medicion_disponible": False,
             "detalles_especificos": crawler_info
         },
         {
             "nombre": "unihub_api",
             "fase": "Fase 2 - API REST FastAPI",
             "imagen": "python:3.12-slim",
-            "estado": "UP (Servidor Uvicorn Activo)",
+            "estado": "UP (proceso API actual)",
             "memoria_mb": current_rss_mb,
             "cpu_porcentaje": cpu_percent,
-            "puertos": "8000:8000"
+            "medicion_disponible": True
         },
         {
             "nombre": "unihub_db",
             "fase": "Fase 2 - Base de Datos PostgreSQL",
             "imagen": "postgres:15-alpine",
-            "estado": "UP (Saludable / 5432 / start_period: 20s)",
-            "memoria_mb": round(current_rss_mb * 1.4, 2),
-            "cpu_porcentaje": 0.5,
-            "puertos": "5432:5432"
+            "estado": "No disponible desde el contenedor API",
+            "memoria_mb": None,
+            "cpu_porcentaje": None,
+            "medicion_disponible": False
         },
         {
             "nombre": "unihub_www",
             "fase": "Fase 3 - Aplicación Web UniHub",
             "imagen": "nginx:1.25-alpine",
-            "estado": "UP (Servidor Nginx HTTP Activo)",
-            "memoria_mb": 18.5,
-            "cpu_porcentaje": 0.1,
-            "puertos": "80:80, 5173:80"
+            "estado": "No disponible desde el contenedor API",
+            "memoria_mb": None,
+            "cpu_porcentaje": None,
+            "medicion_disponible": False
         }
     ]
 
@@ -162,9 +172,11 @@ def collect_container_physical_stats() -> dict:
         "contenedores_individuales": contenedores,
         "fase_1_crawler_detalle": crawler_info,
         "green_it_metrics": {
+            "medicion_disponible": False,
+            "huella_carbono_medida_gco2": None,
             "huella_carbono_estimada_gco2": g_co2_estimated,
-            "eficiencia_energetica": "Alta (Certificado Green IT - 0% consumo en standby)",
-            "factor_emision_red": "0.25 kg CO2/kWh"
+            "eficiencia_energetica": "Estimación no certificada basada en CPU del proceso API",
+            "factor_emision_red": "0.25 kg CO2/kWh (supuesto de cálculo)"
         },
         "memoria_fisica": {
             "rss_actual_mb": current_rss_mb,

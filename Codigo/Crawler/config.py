@@ -74,7 +74,7 @@ ESTADISTICAS_JSON = os.getenv("CRAWLER_ESTADISTICAS_JSON", os.path.join(DATA_DIR
 # Estado de progreso consumido por el panel de administración.
 PROGRESS_JSON = os.getenv("CRAWLER_PROGRESS_JSON", os.path.join(DATA_DIR, "progreso_en_vivo.json"))
 
-# Archivo JSON con los precios oficiales por crédito ECTS de los 18 decretos autonómicos
+# Archivo JSON con tarifas catalogadas por crédito ECTS; requieren verificación de vigencia.
 PRECIOS_CCAA_JSON = os.getenv("CRAWLER_PRECIOS_CCAA_JSON", os.path.join(DATA_DIR, "precios_ccaa.json"))
 
 # Base de datos transaccional SQLite WAL para indexación ultrarrápida (0ms) y firmas SHA-256 de PDFs
@@ -105,8 +105,17 @@ TARGET_UNIVERSITY_CODES = tuple(sorted({code.strip().zfill(3) for code in _targe
 # para evitar URLs y secretos repetidos en el orquestador y el emisor de progreso.
 API_SYNC_URL = os.getenv("API_SYNC_URL", "http://api:8000/api/v1/admin/sync-etl")
 API_PROGRESS_URL = os.getenv("API_PROGRESS_URL", "")
-ADMIN_API_KEY = os.getenv("ADMIN_API_KEY", "")
-API_SYNC_TIMEOUT_SECONDS = float(os.getenv("CRAWLER_API_SYNC_TIMEOUT", "5"))
+_admin_api_keys = [value.strip() for value in os.getenv("ADMIN_API_KEYS", "").split(",") if value.strip()]
+_legacy_admin_api_key = os.getenv("ADMIN_API_KEY", "").strip()
+if _legacy_admin_api_key and _legacy_admin_api_key not in _admin_api_keys:
+    _admin_api_keys.insert(0, _legacy_admin_api_key)
+ADMIN_API_KEYS = tuple(_admin_api_keys)
+# El crawler necesita enviar una clave activa; se usa la primera para facilitar
+# la rotación sin mantener secretos duplicados en su configuración.
+ADMIN_API_KEY = ADMIN_API_KEYS[0] if ADMIN_API_KEYS else ""
+# La ETL es transaccional y puede procesar miles de planes; este límite cubre
+# una ejecución completa en vez de confundir una respuesta aún en curso con un fallo.
+API_SYNC_TIMEOUT_SECONDS = float(os.getenv("CRAWLER_API_SYNC_TIMEOUT", "600"))
 PROGRESS_POST_TIMEOUT_SECONDS = float(os.getenv("CRAWLER_PROGRESS_POST_TIMEOUT", "0.15"))
 
 # ==============================================================================

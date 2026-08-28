@@ -181,8 +181,8 @@ class ProgressEmitter:
                     )
                     if resp.ok:
                         break
-                except Exception:
-                    pass
+                except Exception as error:
+                    logger.debug("No se pudo publicar el progreso en la API: %s", error, exc_info=True)
 
         t = threading.Thread(target=_notify_async, daemon=True)
         t.start()

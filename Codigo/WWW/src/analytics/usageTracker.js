@@ -1,12 +1,15 @@
 class UsageTracker {
   constructor() {
-    this.storageKey = 'unihub_web_usage_analytics_v1';
+    this.storageKey = 'unihub_web_usage_analytics_v2';
     this.events = this.loadEvents();
   }
 
   loadEvents() {
     try {
       if (typeof localStorage === 'undefined') return this._defaultEvents();
+      // La versión anterior conservaba búsquedas y GPS exacto; se elimina en
+      // cuanto se carga la aplicación para no prolongar su retención local.
+      localStorage.removeItem('unihub_web_usage_analytics_v1');
       const data = localStorage.getItem(this.storageKey);
       return data ? JSON.parse(data) : this._defaultEvents();
     } catch {
@@ -55,14 +58,13 @@ class UsageTracker {
   trackSearch(query, category = 'all') {
     if (!query || query.trim().length < 2) return;
     this.events.searches.push({
-      term: query.trim(),
       category,
       timestamp: new Date().toISOString()
     });
     if (this.events.searches.length > 200) {
       this.events.searches = this.events.searches.slice(-200);
     }
-    this.addRecentEvent('SEARCH', { term: query, category });
+    this.addRecentEvent('SEARCH', { category });
     this.saveEvents();
   }
 
@@ -80,9 +82,9 @@ class UsageTracker {
     this.saveEvents();
   }
 
-  trackNearbySearch(coords) {
+  trackNearbySearch() {
     this.events.nearbySearches += 1;
-    this.addRecentEvent('GEOLOCATION', { coords });
+    this.addRecentEvent('GEOLOCATION', { precision: 'not_stored' });
     this.saveEvents();
   }
 
@@ -110,7 +112,8 @@ class UsageTracker {
   getAnalyticsSummary() {
     const termCounts = {};
     this.events.searches.forEach(s => {
-      termCounts[s.term] = (termCounts[s.term] || 0) + 1;
+      const label = s.category === 'all' ? 'Búsquedas generales' : `Categoría: ${s.category}`;
+      termCounts[label] = (termCounts[label] || 0) + 1;
     });
     const topSearches = Object.entries(termCounts)
       .sort((a, b) => b[1] - a[1])

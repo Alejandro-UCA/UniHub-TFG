@@ -1,9 +1,16 @@
-from typing import List, Optional, Any, Dict, Union
+from typing import List, Optional, Any, Dict, Union, Annotated
 from datetime import datetime, date
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
+
+# Los límites reflejan los NUMERIC de PostgreSQL y evitan que `NaN` o `inf`
+# lleguen a la persistencia, donde generan errores menos comprensibles.
+PrecioCredito = Annotated[Optional[float], Field(default=None, ge=0, le=9999.99, allow_inf_nan=False)]
+PrecioAnual = Annotated[Optional[float], Field(default=None, ge=0, le=999999.99, allow_inf_nan=False)]
+CreditoDetalle = Annotated[Optional[float], Field(default=None, ge=0, le=99.99, allow_inf_nan=False)]
+
 class UniversidadBase(BaseModel):
-    codigo: str = Field(..., max_length=10)
+    codigo: str = Field(..., min_length=1, max_length=10)
     nombre: str = Field(..., min_length=1, max_length=500)
     tipo: Optional[str] = Field(None, max_length=50)
     comunidad_autonoma: Optional[str] = Field(None, max_length=100)
@@ -17,9 +24,10 @@ class UniversidadBase(BaseModel):
     @field_validator("codigo")
     @classmethod
     def strip_and_format_codigo(cls, v: str) -> str:
-        if v:
-            return v.strip()
-        return v
+        value = v.strip() if v else v
+        if not value:
+            raise ValueError("El código no puede estar vacío.")
+        return value
 
     @field_validator("nombre")
     @classmethod
@@ -62,25 +70,26 @@ class UniversidadOut(UniversidadBase):
 
 
 class TitulacionBase(BaseModel):
-    codigo_estudio: str = Field(..., max_length=20)
+    codigo_estudio: str = Field(..., min_length=1, max_length=20)
     titulo: str = Field(..., min_length=1)
     nivel_academico: Optional[str] = Field(None, max_length=200)
     estado: Optional[str] = Field(None, max_length=200)
-    universidad_codigo: str = Field(..., max_length=10)
-    precio_credito_ects: Optional[float] = None
-    precio_credito_2: Optional[float] = None
-    precio_credito_3: Optional[float] = None
-    precio_credito_4: Optional[float] = None
-    precio_estimado_anual: Optional[float] = None
+    universidad_codigo: str = Field(..., min_length=1, max_length=10)
+    precio_credito_ects: PrecioCredito = None
+    precio_credito_2: PrecioCredito = None
+    precio_credito_3: PrecioCredito = None
+    precio_credito_4: PrecioCredito = None
+    precio_estimado_anual: PrecioAnual = None
     fuente_precio: Optional[str] = Field(None, max_length=255)
     gestionado_por_admin: Optional[bool] = False
 
     @field_validator("codigo_estudio", "universidad_codigo")
     @classmethod
     def strip_codigos(cls, v: str) -> str:
-        if v:
-            return v.strip()
-        return v
+        value = v.strip() if v else v
+        if not value:
+            raise ValueError("El código no puede estar vacío.")
+        return value
 
     @field_validator("titulo")
     @classmethod
@@ -100,11 +109,11 @@ class TitulacionUpdate(BaseModel):
     nivel_academico: Optional[str] = Field(None, max_length=200)
     estado: Optional[str] = Field(None, max_length=200)
     universidad_codigo: Optional[str] = Field(None, max_length=10)
-    precio_credito_ects: Optional[float] = None
-    precio_credito_2: Optional[float] = None
-    precio_credito_3: Optional[float] = None
-    precio_credito_4: Optional[float] = None
-    precio_estimado_anual: Optional[float] = None
+    precio_credito_ects: PrecioCredito = None
+    precio_credito_2: PrecioCredito = None
+    precio_credito_3: PrecioCredito = None
+    precio_credito_4: PrecioCredito = None
+    precio_estimado_anual: PrecioAnual = None
     fuente_precio: Optional[str] = Field(None, max_length=255)
 
     @field_validator("titulo")
@@ -138,10 +147,10 @@ class ElementoCurricularBase(BaseModel):
     profesorado: Optional[Any] = None
     bibliografia: Optional[Any] = None
     idioma: Optional[str] = None
-    creditos_teoria: Optional[float] = None
-    creditos_practica: Optional[float] = None
+    creditos_teoria: CreditoDetalle = None
+    creditos_practica: CreditoDetalle = None
     tipo_asistencia: Optional[str] = None
-    calificacion_minima: Optional[float] = None
+    calificacion_minima: CreditoDetalle = None
     departamento: Optional[str] = None
 
     @field_validator("nombre_elemento")
@@ -179,10 +188,10 @@ class ElementoCurricularUpdate(BaseModel):
     profesorado: Optional[Any] = None
     bibliografia: Optional[Any] = None
     idioma: Optional[str] = None
-    creditos_teoria: Optional[float] = None
-    creditos_practica: Optional[float] = None
+    creditos_teoria: CreditoDetalle = None
+    creditos_practica: CreditoDetalle = None
     tipo_asistencia: Optional[str] = None
-    calificacion_minima: Optional[float] = None
+    calificacion_minima: CreditoDetalle = None
     departamento: Optional[str] = None
 
     @field_validator("nombre_elemento")

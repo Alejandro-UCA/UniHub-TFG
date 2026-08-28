@@ -102,10 +102,10 @@ class TestPhase1Part2Fixes(unittest.TestCase):
         elements = [{"nombre_elemento": "Matemáticas", "creditos_ects": "6", "caracter": "FB"}]
         payload_grado = build_html_curriculum_payload(elements, "Grado en Ingeniería Informática")
         self.assertEqual(payload_grado["total_elementos"], 1)
-        self.assertEqual(payload_grado["resumen_creditos"]["Créditos Totales"], "240")
+        self.assertEqual(payload_grado["resumen_creditos"], {})
 
         payload_master = build_html_curriculum_payload(elements, "Máster en Ciberseguridad")
-        self.assertEqual(payload_master["resumen_creditos"]["Créditos Totales"], "60")
+        self.assertEqual(payload_master["resumen_creditos"], {})
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

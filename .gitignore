@@ -30,9 +30,16 @@ Codigo/Pruebas/reporte_*.json
 *.sqlite3*
 *.db*
 
+# Secretos y configuración local
+.env
+*.env
+!.env.example
+Codigo/Docker/.env
+
 # IDE
 .idea/
 .vscode/
+.pytest_cache/
 *.swp
 
 # OS

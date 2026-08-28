@@ -1,6 +1,6 @@
 # UniHub Web — Portal Web Interactivo y Calculadora (Fase 3)
 
-**UniHub Web** es una Single Page Application (SPA) construida con **React 18** y **Vite 8** que proporciona acceso interactivo al catálogo oficial de educación superior en España, simulación financiera de matrícula universitaria, geolocalización de campus y panel de control administrativo.
+**UniHub Web** es una Single Page Application (SPA) construida con **React 19** y **Vite 8** que proporciona acceso interactivo al catálogo oficial de educación superior en España, estimación financiera de matrícula, geolocalización de campus y panel de control administrativo.
 
 ---
 
@@ -16,7 +16,7 @@
    - Tarjeta específica para programas de doctorado bajo el **RD 99/2011** (líneas de investigación y tutela académica anual).
 
 3. **Simulador Financiero "Calcula tu Matrícula" ([`TuitionCalculator.jsx`](file:///d:/Proyecto/Codigo/WWW/src/components/TuitionCalculator.jsx))**:
-   - Cómputo exacto basado en decretos oficiales de precios públicos autonómicos (SIIU) y aranceles privados.
+   - Estimación basada en las tarifas disponibles, con indicación de fuente y sin inventar valores ausentes.
    - Multiplicadores por repetición de asignatura ($1.0\times, 1.5\times, 3.0\times, 4.5\times$).
    - Sistema completo de exenciones y bonificaciones sociales: **Beca MEC**, **Familia Numerosa**, **Discapacidad $\ge 33\%$**, **Bonificación 99\% CCAA** y **Matrículas de Honor**.
 
@@ -35,7 +35,7 @@
 
 ## 🛠️ Stack Tecnológico
 
-- **Framework**: React 18
+- **Framework**: React 19
 - **Bundler & Dev Server**: Vite 8
 - **Linter & Análisis Estático**: Oxlint
 - **Iconografía**: Lucide React
@@ -62,4 +62,3 @@ npm run preview
 # Ejecutar análisis de código con Oxlint
 npm run lint
 ```
-

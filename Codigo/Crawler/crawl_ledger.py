@@ -128,7 +128,7 @@ class CrawlLedger:
 
     def pending(self, *, phase: str | None = None, limit: int = 100) -> list[dict]:
         now = datetime.now(timezone.utc).isoformat()
-        query = "SELECT url, phase, university_code, degree_code, status, attempts, next_retry FROM crawl_ledger WHERE (next_retry IS NULL OR next_retry <= ?)"
+        query = "SELECT url, phase, university_code, degree_code, status, attempts, next_retry FROM crawl_ledger WHERE status IN ('processing', 'failed') AND (next_retry IS NULL OR next_retry <= ?)"
         args: list = [now]
         if phase:
             query += " AND phase=?"

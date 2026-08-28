@@ -146,20 +146,21 @@ def is_same_or_subdomain(target_url: str, base_url: str) -> bool:
         if t_clean.endswith("." + b_clean) or b_clean.endswith("." + t_clean):
             return True
 
-        t_parts = t_clean.split(".")
-        b_parts = b_clean.split(".")
-        if len(t_parts) >= 2 and len(b_parts) >= 2:
-            t_root = ".".join(t_parts[-2:])
-            b_root = ".".join(b_parts[-2:])
-            if t_root == b_root:
-                return True
-            if t_parts[-2] == b_parts[-2] and len(t_parts[-2]) >= 2:
-                valid_tlds = {"es", "gal", "cat", "eus", "edu", "org", "eu", "com", "net"}
-                if t_parts[-1] in valid_tlds and b_parts[-1] in valid_tlds:
-                    return True
-        return False
+        return _institutional_root(t_clean) == _institutional_root(b_clean)
     except Exception:
         return False
+
+
+def _institutional_root(hostname: str) -> str:
+    """Obtiene una raíz conservadora sin aceptar cambios de TLD como equivalentes."""
+    parts = [part for part in hostname.lower().split(".") if part]
+    if len(parts) < 2:
+        return hostname.lower()
+    # Sufijos compuestos frecuentes en dominios institucionales españoles y
+    # británicos. Para el resto se conserva el último dominio + TLD.
+    compound_suffixes = {("edu", "es"), ("gob", "es"), ("com", "es"), ("org", "es"), ("ac", "uk")}
+    root_size = 3 if tuple(parts[-2:]) in compound_suffixes and len(parts) >= 3 else 2
+    return ".".join(parts[-root_size:])
 
 class SkipUniversityException(Exception):
     """Exception raised when a university server continues to fail and must be skipped."""
@@ -197,8 +198,8 @@ class HTTP2ResponseWrapper:
     def close(self):
         try:
             self._resp.close()
-        except Exception:
-            pass
+        except Exception as error:
+            logger.debug("No se pudo cerrar la respuesta HTTP/2: %s", error, exc_info=True)
 
     def __enter__(self):
         return self
@@ -427,8 +428,8 @@ class RUCTDownloader:
                             u_code = m.group(1)
                             r = self.httpx_client.get(f"https://www.educacion.gob.es/ruct/listaestudiosuniversidad?actual=universidades&codigoUniversidad={u_code}")
                             r.close()
-                except Exception:
-                    pass
+                except Exception as error:
+                    logger.debug("No se pudo preparar una sesión auxiliar RUCT: %s", error, exc_info=True)
             if "listauniversidades" in url and "export=1" in url:
                 r1 = self.session.get("https://www.educacion.gob.es/ruct/listauniversidades.action?actual=universidades", timeout=self.timeout)
                 r1.close()
@@ -464,8 +465,8 @@ class RUCTDownloader:
             if self.ledger is not None:
                 try:
                     self.ledger.record_attempt(url, phase=self.phase, university_code=self.current_univ_code, degree_code=self.current_degree_code)
-                except Exception:
-                    pass
+                except Exception as error:
+                    logger.warning("No se pudo registrar el intento de descarga en el ledger: %s", error, exc_info=True)
             t0 = time.perf_counter()
             last_error = None
             for target_url in urls_to_try:
@@ -479,15 +480,15 @@ class RUCTDownloader:
                                     request_headers["If-None-Match"] = meta["etag"]
                                 if meta.get("last_modified"):
                                     request_headers["If-Modified-Since"] = meta["last_modified"]
-                        except Exception:
-                            pass
+                        except Exception as error:
+                            logger.debug("No se pudo leer metadata de caché para %s: %s", target_url, error, exc_info=True)
                     if self.respect_robots and not target_url.rstrip('/').lower().endswith('/robots.txt'):
                         allowed, crawl_delay = self.robots_policy.check(target_url)
                         if self.ledger is not None:
                             try:
                                 self.ledger.mark_robots(target_url, allowed)
-                            except Exception:
-                                pass
+                            except Exception as error:
+                                logger.debug("No se pudo registrar la decisión de robots para %s: %s", target_url, error, exc_info=True)
                         if not allowed:
                             reason = self.robots_policy.explain(target_url)
                             raise PermissionError(
@@ -523,8 +524,8 @@ class RUCTDownloader:
                         if self.ledger is not None:
                             try:
                                 self.ledger.mark_cached(target_url)
-                            except Exception:
-                                pass
+                            except Exception as error:
+                                logger.debug("No se pudo registrar una respuesta cacheada para %s: %s", target_url, error, exc_info=True)
                     # Protección contra descargas masivas no deseadas
                     if stream:
                         content_length = response.headers.get('Content-Length')
@@ -540,8 +541,8 @@ class RUCTDownloader:
                         if stream:
                             try:
                                 response.close()
-                            except Exception:
-                                pass
+                            except Exception as error:
+                                logger.debug("No se pudo cerrar la respuesta HTTP 429: %s", error, exc_info=True)
                         domain = urlparse(target_url).netloc.lower() if target_url else "default"
                         with self._LOCK_CREATION_LOCK:
                             curr_delay = self._GLOBAL_DOMAIN_DELAYS.get(domain, self.delay)
@@ -558,8 +559,8 @@ class RUCTDownloader:
                     if self.ledger is not None and getattr(response, "_unihub_cached", False) is not True:
                         try:
                             self.ledger.record_response(target_url, response=response, status="success")
-                        except Exception:
-                            pass
+                        except Exception as error:
+                            logger.debug("No se pudo registrar una respuesta exitosa en el ledger: %s", error, exc_info=True)
                     elapsed = time.perf_counter() - t0
                     if self.metrics_tracker:
                         self.metrics_tracker.record_io_time(elapsed)
@@ -569,28 +570,28 @@ class RUCTDownloader:
                     if 'response' in locals() and response is not None:
                         try:
                             response.close()
-                        except Exception:
-                            pass
+                        except Exception as error:
+                            logger.debug("No se pudo cerrar la respuesta tras redirección no permitida: %s", error, exc_info=True)
                     raise
                 except SkipUniversityException:
                     if 'response' in locals() and response is not None:
                         try:
                             response.close()
-                        except Exception:
-                            pass
+                        except Exception as error:
+                            logger.debug("No se pudo cerrar la respuesta tras circuito abierto: %s", error, exc_info=True)
                     raise
                 except Exception as e:
                     if 'response' in locals() and response is not None:
                         try:
                             response.close()
-                        except Exception:
-                            pass
+                        except Exception as error:
+                            logger.debug("No se pudo cerrar la respuesta tras error de red: %s", error, exc_info=True)
                     last_error = e
                     if self.ledger is not None:
                         try:
                             self.ledger.record_response(target_url, response=locals().get("response"), status="failed", error=str(e))
-                        except Exception:
-                            pass
+                        except Exception as ledger_error:
+                            logger.warning("No se pudo registrar el fallo de descarga en el ledger: %s", ledger_error, exc_info=True)
                     print(f"     [Proceso Red] -> Falló conexión a '{target_url}': {e}")
                     continue
 
@@ -699,21 +700,21 @@ class RUCTDownloader:
             if os.path.exists(destination_path):
                 try:
                     os.remove(destination_path)
-                except Exception:
-                    pass
+                except OSError as cleanup_error:
+                    logger.warning("No se pudo eliminar la descarga parcial %s: %s", destination_path, cleanup_error)
             raise
 
     def close(self):
         """Closes the underlying requests session and releases open socket pool resources."""
         try:
             self.session.close()
-        except Exception:
-            pass
+        except Exception as error:
+            logger.debug("No se pudo cerrar la sesión requests: %s", error, exc_info=True)
         if self.httpx_client is not None:
             try:
                 self.httpx_client.close()
-            except Exception:
-                pass
+            except Exception as error:
+                logger.debug("No se pudo cerrar el cliente HTTP/2: %s", error, exc_info=True)
 
     def __enter__(self):
         return self

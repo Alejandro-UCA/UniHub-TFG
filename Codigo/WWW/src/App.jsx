@@ -18,27 +18,10 @@ const TuitionCalculator = React.lazy(() => import('./components/TuitionCalculato
 const Pagination = React.lazy(() => import('./components/Pagination'));
 const Footer = React.lazy(() => import('./components/Footer'));
 
-const MOCK_UNIVERSITIES = [
-  { codigo: "015", nombre: "Universidad Complutense de Madrid", tipo: "Pública", comunidad_autonoma: "Comunidad de Madrid", municipio: "Madrid", provincia: "Madrid", web: "www.ucm.es", email: "infocom@ucm.es" },
-  { codigo: "005", nombre: "Universidad de Sevilla", tipo: "Pública", comunidad_autonoma: "Comunidad de Andalucía", municipio: "Sevilla", provincia: "Sevilla", web: "www.us.es", email: "info@us.es" },
-  { codigo: "023", nombre: "Universidad de Cádiz (UCA)", tipo: "Pública", comunidad_autonoma: "Comunidad de Andalucía", municipio: "Cádiz", provincia: "Cádiz", web: "www.uca.es", email: "atencion.usuario@uca.es" },
-  { codigo: "003", nombre: "Universidad Autónoma de Madrid", tipo: "Pública", comunidad_autonoma: "Comunidad de Madrid", municipio: "Madrid", provincia: "Madrid", web: "www.uam.es", email: "informacion@uam.es" },
-  { codigo: "089", nombre: "CUNEF Universidad", tipo: "Privada", comunidad_autonoma: "Comunidad de Madrid", municipio: "Madrid", provincia: "Madrid", web: "www.cunef.edu", email: "info@cunef.edu" },
-  { codigo: "057", nombre: "IE Universidad", tipo: "Privada", comunidad_autonoma: "Comunidad de Castilla y León", municipio: "Segovia", provincia: "Segovia", web: "www.ie.edu/universidad", email: "universidad@ie.edu" }
-];
-
-const MOCK_DEGREES = [
-  { codigo_estudio: "2500021", titulo: "Graduado o Graduada en Ingeniería Informática por la Universidad de Cádiz", nivel_academico: "Grado - RD 1393/2007 (1)", estado: "Publicado en B.O.E.", universidad_codigo: "023", universidad_nombre: "Universidad de Cádiz", boe_url: "http://www.boe.es" },
-  { codigo_estudio: "5601512", titulo: "Programa de Doctorado en Didáctica de las Ciencias Experimentales por la Universidad de Cádiz", nivel_academico: "Doctor - RD 99/2011 (0)", estado: "Publicado en B.O.E.", universidad_codigo: "023", universidad_nombre: "Universidad de Cádiz", boe_url: "http://www.boe.es" },
-  { codigo_estudio: "2504059", titulo: "Graduado o Graduada en Administración y Dirección de Empresas por la CUNEF Universidad", nivel_academico: "Grado - RD 822/2021 (2)", estado: "Publicado en B.O.E.", universidad_codigo: "089", universidad_nombre: "CUNEF Universidad", boe_url: "http://www.boe.es/boe/dias/2025/01/16/pdfs/BOE-A-2025-708.pdf", boe_fecha: "2025-01-16" },
-  { codigo_estudio: "2504639", titulo: "Graduado o Graduada en Ciencia de Datos / Bachelor in Data Science por la CUNEF Universidad", nivel_academico: "Grado - RD 822/2021 (2)", estado: "Publicado en B.O.E.", universidad_codigo: "089", universidad_nombre: "CUNEF Universidad", boe_url: "http://www.boe.es/boe/dias/2024/06/10/pdfs/BOE-A-2024-11800.pdf", boe_fecha: "2024-06-10" },
-  { codigo_estudio: "4317230", titulo: "Máster Universitario en Ciencia de Datos e Inteligencia Artificial por la CUNEF Universidad", nivel_academico: "Máster - RD 822/2021 (3)", estado: "Publicado en B.O.E.", universidad_codigo: "089", universidad_nombre: "CUNEF Universidad" }
-];
-
 export default function App() {
   const [activeTab, setActiveTab] = useState('inicio');
   const [isDark, setIsDark] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(() => Boolean(sessionStorage.getItem('adminApiKey')));
+  const [isAdmin, setIsAdmin] = useState(() => apiService.hasAdminSession());
   const [selectedDegree, setSelectedDegree] = useState(null);
   const [initialDataLoaded, setInitialDataLoaded] = useState(false);
 
@@ -63,7 +46,7 @@ export default function App() {
   useEffect(() => {
     const path = window.location.pathname;
     if (path === '/admin' || path === '/admin/' || path === '/admin/login') {
-      if (sessionStorage.getItem('adminApiKey')) {
+      if (apiService.hasAdminSession()) {
         setIsAdmin(true);
         setActiveTab('admin');
       } else {
@@ -73,8 +56,8 @@ export default function App() {
   }, []);
 
   // Estados de datos
-  const [universities, setUniversities] = useState(MOCK_UNIVERSITIES);
-  const [degrees, setDegrees] = useState(MOCK_DEGREES);
+  const [universities, setUniversities] = useState([]);
+  const [degrees, setDegrees] = useState([]);
   const [loading, setLoading] = useState(false);
   const [apiError, setApiError] = useState(null);
 
@@ -92,43 +75,33 @@ export default function App() {
 
   const [degreeCurrentPage, setDegreeCurrentPage] = useState(1);
   const [degreeItemsPerPage, setDegreeItemsPerPage] = useState(20);
-  const [degreeTotalItems, setDegreeTotalItems] = useState(MOCK_DEGREES.length);
+  const [degreeTotalItems, setDegreeTotalItems] = useState(0);
+  const [degreeReloadToken, setDegreeReloadToken] = useState(0);
 
   const loadInitialData = useCallback(async () => {
     setLoading(true);
     setApiError(null);
     try {
-      const [univRes, degRes] = await Promise.allSettled([
-        apiService.getUniversities({ limit: 500 }, { returnWithTotal: true }),
-        apiService.getDegrees({ limit: degreeItemsPerPage, skip: 0 }, { returnWithTotal: true })
-      ]);
+      const univRes = await apiService.getAllUniversities();
       
-      const univFailed = univRes.status !== 'fulfilled';
-      const degFailed = degRes.status !== 'fulfilled';
-      
-      if (univFailed || degFailed) {
-        setApiError('No se pudo conectar con el servidor API. Se muestra el conjunto de datos de muestra sin conexión.');
-      }
-      
-      if (univRes.status === 'fulfilled' && univRes.value?.data) {
-        setUniversities(univRes.value.data);
-      }
-      if (degRes.status === 'fulfilled' && degRes.value?.data) {
-        setDegrees(degRes.value.data);
-        setDegreeTotalItems(degRes.value.totalCount || degRes.value.data.length);
-      }
+      setUniversities(univRes || []);
     } catch (err) {
-      setApiError('Error al cargar datos iniciales. Se muestra el conjunto de datos de muestra sin conexión.');
-      console.warn('API REST loading fallback active. Showing offline sample dataset.', err);
+      setApiError('Error al cargar los datos iniciales desde el servidor API.');
+      console.warn('API REST loading failed.', err);
     } finally {
       setLoading(false);
       setInitialDataLoaded(true);
+      setDegreeReloadToken(token => token + 1);
     }
-  }, [degreeItemsPerPage]);
+  }, []);
 
-  // Registrar vista inicial de página y cargar datos
+  // Registrar la visita una única vez; cambios de paginación no son visitas.
   useEffect(() => {
     usageTracker.trackPageView('home');
+  }, []);
+
+  // La carga de universidades no depende de la paginación de titulaciones.
+  useEffect(() => {
     loadInitialData();
   }, [loadInitialData]);
 
@@ -189,7 +162,7 @@ export default function App() {
     }, 300);
 
     return () => { clearTimeout(delayDebounceFn); controller.abort(); };
-  }, [initialDataLoaded, degreeCurrentPage, fetchDegreesPage]);
+  }, [initialDataLoaded, degreeCurrentPage, fetchDegreesPage, degreeReloadToken]);
 
   const handleHeroSearch = useCallback((query) => {
     setSelectedUnivCodigo('');
@@ -698,8 +671,7 @@ export default function App() {
         {activeTab === 'admin' && isAdmin && (
           <AdminDashboard 
             onLogout={() => {
-              sessionStorage.removeItem('adminApiKey');
-              sessionStorage.removeItem('adminUser');
+              apiService.clearAdminApiKey();
               setIsAdmin(false);
               navigateToTab('inicio');
             }}

@@ -56,7 +56,13 @@ def get_universidad(codigo: str, db: Session = Depends(get_db)):
     return univ
 
 @router.get("/{codigo}/titulaciones", response_model=List[TitulacionOut], summary="Obtener titulaciones vigentes de una universidad")
-def get_titulaciones_universidad(codigo: str, db: Session = Depends(get_db)):
+def get_titulaciones_universidad(
+    codigo: str,
+    response: Response,
+    skip: int = Query(0, ge=0),
+    limit: int = Query(100, ge=1, le=500),
+    db: Session = Depends(get_db),
+):
     clean_code = codigo.strip()
     univ = db.query(Universidad).filter(Universidad.codigo == clean_code.zfill(3)).first()
     if not univ:
@@ -64,7 +70,10 @@ def get_titulaciones_universidad(codigo: str, db: Session = Depends(get_db)):
     if not univ:
         raise HTTPException(status_code=404, detail=f"Universidad con código '{codigo}' no encontrada.")
         
-    return db.query(Titulacion).filter(Titulacion.universidad_codigo == univ.codigo).all()
+    query = db.query(Titulacion).filter(Titulacion.universidad_codigo == univ.codigo)
+    response.headers["X-Total-Count"] = str(query.count())
+    response.headers["Access-Control-Expose-Headers"] = "X-Total-Count"
+    return query.order_by(Titulacion.titulo.asc()).offset(skip).limit(limit).all()
 
 @router.post("", response_model=UniversidadOut, status_code=status.HTTP_201_CREATED, summary="Crear nueva universidad (Admin)")
 def create_universidad(data: UniversidadCreate, db: Session = Depends(get_admin_db), api_key: str = Depends(verify_api_key)):

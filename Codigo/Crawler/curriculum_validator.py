@@ -127,15 +127,19 @@ def get_curriculum_completeness_status(degree_dict: dict) -> dict:
         plan = degree_dict
 
     if is_doctorate_program(level, title):
-        has_structure = isinstance(plan, dict)
-        total_elements = len(plan.get("elementos_curriculares", [])) if has_structure else 0
+        elements = plan.get("elementos_curriculares") if isinstance(plan, dict) else None
+        total_elements = len(elements) if isinstance(elements, list) else 0
+        # Un diccionario vacío o una plantilla normativa no demuestra que el
+        # programa tenga un plan verificable. El Doctorado no se valida por un
+        # total ECTS fijo, pero sí necesita elementos académicos observables.
+        has_structure = total_elements > 0
         return {
             "is_complete": has_structure,
             "total_ects_obtained": 0.0,
             "required_ects": 0.0,
             "total_elementos": total_elements,
             "total_subjects": total_elements,
-            "status": "doctorado_estructural" if has_structure else "sin_plan",
+            "status": "doctorado_estructural" if has_structure else "doctorado_sin_detalle",
         }
 
     required = get_required_degree_credits(level, title)

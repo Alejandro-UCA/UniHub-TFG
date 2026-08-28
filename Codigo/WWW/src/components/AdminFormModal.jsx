@@ -21,8 +21,8 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
         setFormData({
           codigo: '',
           nombre: '',
-          tipo: 'Pública',
-          comunidad_autonoma: 'Comunidad de Madrid',
+          tipo: '',
+          comunidad_autonoma: '',
           municipio: '',
           provincia: '',
           web: '',
@@ -34,8 +34,8 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
         setFormData({
           codigo_estudio: '',
           titulo: '',
-          nivel_academico: 'Grado - RD 822/2021 (2)',
-          estado: 'Publicado en B.O.E.',
+          nivel_academico: '',
+          estado: '',
           universidad_codigo: '',
           precio_credito_ects: '',
           precio_credito_2: '',
@@ -47,10 +47,10 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
       } else if (type === 'asignatura') {
         setFormData({
           nombre_elemento: '',
-          creditos_ects: '6',
-          caracter: 'OB',
-          curso: '1',
-          cuatrimestre: '1C',
+          creditos_ects: '',
+          caracter: '',
+          curso: '',
+          cuatrimestre: '',
           modulo: '',
           materia: ''
         });
@@ -201,10 +201,11 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
                   <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: '0.3rem' }}>Tipo</label>
                   <select
                     name="tipo"
-                    value={formData.tipo || 'Pública'}
+                    value={formData.tipo || ''}
                     onChange={handleChange}
                     style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
                   >
+                    <option value="">Sin especificar</option>
                     <option value="Pública">Pública</option>
                     <option value="Privada">Privada</option>
                   </select>
@@ -323,10 +324,11 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
                   <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: '0.3rem' }}>Nivel Académico</label>
                   <select
                     name="nivel_academico"
-                    value={formData.nivel_academico || 'Grado - RD 822/2021 (2)'}
+                    value={formData.nivel_academico || ''}
                     onChange={handleChange}
                     style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
                   >
+                    <option value="">Sin especificar</option>
                     <option value="Grado - RD 822/2021 (2)">Grado - RD 822/2021</option>
                     <option value="Máster Universitario - RD 822/2021 (2)">Máster Universitario - RD 822/2021</option>
                     <option value="Doctorado - RD 99/2011">Doctorado - RD 99/2011</option>
@@ -351,7 +353,7 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
                 <input
                   type="text"
                   name="estado"
-                  value={formData.estado || 'Publicado en B.O.E.'}
+                  value={formData.estado || ''}
                   onChange={handleChange}
                   placeholder="Publicado en B.O.E."
                   style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
@@ -462,9 +464,9 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
                   <input
                     type="text"
                     name="creditos_ects"
-                    value={formData.creditos_ects || '6'}
+                    value={formData.creditos_ects || ''}
                     onChange={handleChange}
-                    placeholder="6"
+                    placeholder="Ej. 6"
                     style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
                   />
                 </div>
@@ -472,10 +474,11 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
                   <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: '0.3rem' }}>Carácter</label>
                   <select
                     name="caracter"
-                    value={formData.caracter || 'OB'}
+                    value={formData.caracter || ''}
                     onChange={handleChange}
                     style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
                   >
+                    <option value="">Sin especificar</option>
                     <option value="FB">Formación Básica (FB)</option>
                     <option value="OB">Obligatoria (OB)</option>
                     <option value="OP">Optativa (OP)</option>
@@ -488,10 +491,11 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
                   <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: '0.3rem' }}>Curso</label>
                   <select
                     name="curso"
-                    value={formData.curso || '1'}
+                    value={formData.curso || ''}
                     onChange={handleChange}
                     style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
                   >
+                    <option value="">Sin especificar</option>
                     <option value="1">1º Curso</option>
                     <option value="2">2º Curso</option>
                     <option value="3">3º Curso</option>
@@ -507,10 +511,11 @@ export default function AdminFormModal({ isOpen, mode, type, initialData, onClos
                   <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: '0.3rem' }}>Cuatrimestre</label>
                   <select
                     name="cuatrimestre"
-                    value={formData.cuatrimestre || '1C'}
+                    value={formData.cuatrimestre || ''}
                     onChange={handleChange}
                     style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--border-light)' }}
                   >
+                    <option value="">Sin especificar</option>
                     <option value="1C">Primer Cuatrimestre (1C)</option>
                     <option value="2C">Segundo Cuatrimestre (2C)</option>
                     <option value="Anual">Anual</option>

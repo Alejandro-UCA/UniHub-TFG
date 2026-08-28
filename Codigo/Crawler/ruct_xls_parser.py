@@ -1,11 +1,14 @@
 import re
 import unicodedata
+import logging
 from datetime import datetime
 from bs4 import BeautifulSoup
 import xlrd
 
 from sanitizers import sanitize_string_value
 from downloader import normalize_url
+
+logger = logging.getLogger("ruct_xls_parser")
 
 
 def clean_excel_code(val, zfill_len: int = 0) -> str:
@@ -70,8 +73,8 @@ def parse_universities_xls(filepath: str) -> list[dict]:
                 parsed_html = parse_universities_from_html(html_text)
                 if parsed_html:
                     return parsed_html
-        except Exception:
-            pass
+        except Exception as html_error:
+            logger.debug("Fallback HTML de universidades no disponible para %s: %s", filepath, html_error)
         raise xl_err
 
     if sheet.nrows == 0:
@@ -167,6 +170,8 @@ def classify_degree_lifecycle(status_text: str) -> str:
     obsoletas o extinguidas.
     """
     state = normalize_lifecycle_text(status_text)
+    if not state:
+        return "estado_desconocido"
     definitively_obsolete = (
         "extinguida", "extinguido", "extinta", "extinto", "baja definitiva",
         "derogada", "derogado", "cancelada", "cancelado", "eliminada", "eliminado",
@@ -202,8 +207,8 @@ def parse_degrees_xls(filepath: str) -> list[dict]:
             if "<table" in html_text.lower():
                 html_raw_rows = parse_degrees_from_html(html_text)
                 is_html_fallback = True
-        except Exception:
-            pass
+        except Exception as html_error:
+            logger.debug("Fallback HTML de titulaciones no disponible para %s: %s", filepath, html_error)
         if not is_html_fallback:
             raise xl_err
 
@@ -246,11 +251,6 @@ def parse_degrees_xls(filepath: str) -> list[dict]:
         "archivo definitivo"
     ]
 
-    whitelist = [
-        "vigente", "impartiendose", "autorizad", "renovad",
-        "acreditad", "alta", "publicad", "b.o.e", "boe", "inscrit"
-    ]
-
     legacy_levels = ["solo segundo ciclo", "ciclo corto", "ciclo largo", "primer ciclo", "primer y segundo ciclo", "pre-bolonia", "rd 56/2005"]
     legacy_title_prefixes = ["licenciado", "licenciada", "diplomado", "diplomada", "ingeniero tecnico", "ingeniera tecnica", "arquitecto tecnico", "arquitecta tecnica"]
 
@@ -265,13 +265,12 @@ def parse_degrees_xls(filepath: str) -> list[dict]:
         title_norm = normalize_lifecycle_text(title)
 
         has_blacklist = any(term in estado_norm for term in blacklist)
-        has_whitelist = any(term in estado_norm for term in whitelist)
         is_legacy_level = any(leg in nivel_norm for leg in legacy_levels)
         is_legacy_title = any(title_norm.startswith(prefix) for prefix in legacy_title_prefixes)
 
         lifecycle = classify_degree_lifecycle(estado)
         if (
-            code and title and has_whitelist and not has_blacklist
+            code and title and not has_blacklist
             and lifecycle != "obsoleta" and not is_legacy_level and not is_legacy_title
         ):
             raw_active_degrees.append({
@@ -292,7 +291,12 @@ def parse_degrees_xls(filepath: str) -> list[dict]:
         if c_code not in by_code:
             by_code[c_code] = deg
         else:
-            if deg.get("situacion_matriculacion") == "activa" and by_code[c_code].get("situacion_matriculacion") != "activa":
+            lifecycle_priority = {
+                "vigente_matriculable": 3,
+                "vigente_no_matriculable": 2,
+                "estado_desconocido": 1,
+            }
+            if lifecycle_priority.get(deg.get("situacion_matriculacion"), 0) > lifecycle_priority.get(by_code[c_code].get("situacion_matriculacion"), 0):
                 by_code[c_code] = deg
 
     # 2. Deduplicar únicamente si el título completo normalizado y el nivel son exactamente idénticos

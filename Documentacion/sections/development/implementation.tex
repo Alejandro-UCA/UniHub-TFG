@@ -11,7 +11,7 @@ El marco tecnológico de construcción incluye:
     \item \textbf{Entorno de Desarrollo (IDE):} Visual Studio Code / Antigravity Agent.
     \item \textbf{Lenguajes:} Python 3.12, JavaScript (ES6+ / JSX), SQL (PostgreSQL), HTML5, CSS3.
     \item \textbf{Librerías y Módulos Python:} FastAPI, Uvicorn, SQLAlchemy, Pydantic v2, \texttt{httpx[http2]}, \texttt{h2}, \texttt{requests}, \texttt{psycopg2-binary}, \texttt{xlrd}, \texttt{BeautifulSoup4}, \texttt{pdfplumber}, \texttt{pypdf}, \texttt{psutil}, \texttt{multiprocessing}, \texttt{concurrent.futures}, \texttt{urllib.robotparser}.
-    \item \textbf{Librerías y Herramientas JavaScript:} React 18, Vite 8, Oxlint, Lucide React (iconografía UCA), \texttt{usageTracker} analytics, \texttt{perfTracker} performance telemetry.
+    \item \textbf{Librerías y Herramientas JavaScript:} React 19, Vite 8, Oxlint, Lucide React (iconografía UCA), \texttt{usageTracker} analytics, \texttt{perfTracker} performance telemetry.
     \item \textbf{Control de Versiones y Despliegue:} Git, Docker Engine, Docker Compose v2, Nginx 1.25-alpine.
 \end{itemize}
 
@@ -81,7 +81,7 @@ El sistema de ingesta de la Fase 1 se estructura en tres partes desacopladas y e
 \subsubsection{Fase 1 - Parte 3: Consolidación de Precios Públicos ECTS (SIIU)}
 \begin{itemize}
     \item \texttt{precios\_crawler.py}: Asigna de forma automatizada los precios públicos por crédito ECTS e importes estimados de primera matrícula para universidades públicas basándose en los decretos autonómicos procedentes del Sistema Integrado de Información Universitaria (SIIU) del Ministerio, eliminando cualquier valor por defecto arbitrario.
-    \item Dispone del catálogo oficial pre-cargado \texttt{OFFICIAL\_SIIU\_PRICES\_CATALOG} para las 17 Comunidades Autónomas más la UNED, garantizando precios exactos incluso en ausencia de conexión a los portales regionales.
+    \item Dispone de un catálogo local pre-cargado \texttt{OFFICIAL\_SIIU\_PRICES\_CATALOG} para las 17 Comunidades Autónomas más la UNED. Sus importes deben verificarse contra la normativa vigente antes de una liquidación real.
     \item Implementa discriminación por categoría (\emph{Grado, Máster Habilitante, Máster No Habilitante y Doctorado}) con la fórmula anual base $\text{Coste} = (60 \text{ ECTS} \times \text{Precio ECTS}) + \text{Tasas Admin}$.
     \item Incorpora \textbf{cacheo en memoria RAM} del catálogo \texttt{precios\_ccaa.json} para reducir en un 99.9\% las lecturas de disco, y volcado atómico mediante \texttt{atomic\_json\_dump} sobre \texttt{planes\_estudio/*.json} y \texttt{titulaciones\_universidad.json}.
 \end{itemize}
@@ -89,7 +89,7 @@ El sistema de ingesta de la Fase 1 se estructura en tres partes desacopladas y e
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.92\textwidth]{figures/fase1_parte3_diagram.jpg}
-    \caption{Algoritmo de cómputo tarifario oficial SIIU, cacheo en memoria RAM y sincronización atómica de la Fase 1 Parte 3}
+    \caption{Algoritmo de cómputo tarifario a partir del catálogo local, cacheo en memoria RAM y sincronización de la Fase 1 Parte 3}
     \label{fig:fase1_parte3_diagram}
 \end{figure}
 
@@ -221,7 +221,7 @@ BEGIN
    IF NOT EXISTS (
       SELECT FROM pg_catalog.pg_roles
       WHERE  rolname = 'unihub_api_user') THEN
-      CREATE ROLE unihub_api_user WITH LOGIN PASSWORD 'unihub_api_password_sec2026';
+      CREATE ROLE unihub_api_user WITH LOGIN PASSWORD '${POSTGRES_API_PASSWORD}';
    END IF;
 END
 $do$;

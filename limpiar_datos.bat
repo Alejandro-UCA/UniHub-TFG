@@ -32,6 +32,8 @@ set "DATOS_DIR=%~dp0Codigo\Crawler\Datos"
 set "PLANES_DIR=%~dp0Codigo\Crawler\Datos\planes_estudio"
 set "TEMP_DIR=%~dp0Codigo\Crawler\Datos\Temp"
 set "TEMP_PDFS=%~dp0Codigo\Crawler\temp_pdfs"
+set "HTTP_CACHE_DIR=%DATOS_DIR%\http_cache"
+set "LOGS_DIR=%DATOS_DIR%\logs"
 
 echo.
 echo [1/5] Eliminando archivos JSON de planes de estudio individuales...
@@ -45,15 +47,15 @@ echo   - Carpeta 'planes_estudio/' vaciada y recreada.
 echo [2/5] Eliminando catalogos consolidados y archivos JSON globales...
 if exist "%DATOS_DIR%" (
     del /f /q "%DATOS_DIR%\*.json" >nul 2>&1
+    del /f /q "%DATOS_DIR%\*.db*" >nul 2>&1
+    del /f /q "%DATOS_DIR%\*.sqlite3*" >nul 2>&1
 )
-echo   - Todos los archivos JSON en 'Datos/' eliminados.
+echo   - Catalogos JSON y bases SQLite en 'Datos/' eliminados.
 
 echo [3/5] Eliminando base de datos SQLite WAL y caches persistentes...
-if exist "%DATOS_DIR%\unihub_cache.sqlite3" del /f /q "%DATOS_DIR%\unihub_cache.sqlite3" >nul 2>&1
-if exist "%DATOS_DIR%\unihub_cache.sqlite3-wal" del /f /q "%DATOS_DIR%\unihub_cache.sqlite3-wal" >nul 2>&1
-if exist "%DATOS_DIR%\unihub_cache.sqlite3-shm" del /f /q "%DATOS_DIR%\unihub_cache.sqlite3-shm" >nul 2>&1
-if exist "%DATOS_DIR%\*.sqlite3*" del /f /q "%DATOS_DIR%\*.sqlite3*" >nul 2>&1
-echo   - Base de datos SQLite y memoria compartida eliminadas.
+if exist "%HTTP_CACHE_DIR%" rd /s /q "%HTTP_CACHE_DIR%" >nul 2>&1
+if exist "%LOGS_DIR%" rd /s /q "%LOGS_DIR%" >nul 2>&1
+echo   - Bases SQLite, cache HTTP y logs persistentes eliminados.
 
 echo [4/5] Limpiando carpetas temporales de descargas y PDFs...
 if exist "%TEMP_DIR%" (
@@ -74,15 +76,16 @@ if not exist "%DATOS_DIR%" mkdir "%DATOS_DIR%" >nul 2>&1
 if not exist "%PLANES_DIR%" mkdir "%PLANES_DIR%" >nul 2>&1
 if not exist "%TEMP_DIR%" mkdir "%TEMP_DIR%" >nul 2>&1
 if not exist "%TEMP_PDFS%" mkdir "%TEMP_PDFS%" >nul 2>&1
+if not exist "%HTTP_CACHE_DIR%" mkdir "%HTTP_CACHE_DIR%" >nul 2>&1
 
 echo.
 echo ======================================================================
-echo       LIMPIEZA TOTAL COMPLETADA CON EXITO (0 ARCHIVOS RESIDUALES)
+echo       LIMPIEZA DE DATOS SOLICITADA COMPLETADA
 echo ======================================================================
 echo.
 echo El entorno ha quedado completamente virgen:
-echo   - 0 JSONs residuales.
-echo   - 0 Bases de datos residuales.
-echo   - Directorios limpios y preparados para una ejecucion completa.
+echo   - Catalogos, planes, caches y temporales del crawler reinicializados.
+echo   - Los secretos y archivos fuera de Datos/ no se han modificado.
+echo   - Directorios de trabajo recreados para una ejecucion completa.
 echo.
 if "%AUTO_CONFIRM%"=="0" pause

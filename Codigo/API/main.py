@@ -2,7 +2,7 @@ import sys
 import os
 import logging
 from contextlib import asynccontextmanager
-from fastapi import FastAPI, BackgroundTasks, Depends, Request, status
+from fastapi import FastAPI, Depends, Request, status, HTTPException
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
@@ -91,20 +91,21 @@ def root():
     }
 
 @app.get("/salud", tags=["General"])
-@app.get("/api/v1/salud", tags=["General"])
 def health():
-    return {"status": "ok", "service": "unihub_api"}
+    return {"status": "ok", "service": "unihub_api", "database": "not_checked"}
 
 @app.post("/api/v1/admin/sync-etl", tags=["Administración"])
-def trigger_etl_sync(background_tasks: BackgroundTasks, api_key: str = Depends(verify_api_key)):
+def trigger_etl_sync(api_key: str = Depends(verify_api_key)):
     """
     Sincronización reactiva en caliente: desencadena la migración ETL desde JSONs de la Fase 1
-    hacia PostgreSQL en segundo plano sin reiniciar servicios.
+    hacia PostgreSQL. La respuesta sólo confirma éxito cuando la transacción
+    completa ha finalizado, para que el crawler no publique falsos positivos.
     """
-    background_tasks.add_task(run_etl)
+    if not run_etl():
+        raise HTTPException(status_code=503, detail="La sincronización ETL no pudo completarse.")
     return {
         "status": "SUCCESS",
-        "mensaje": "Migración ETL desencadenada con éxito en segundo plano."
+        "mensaje": "Migración ETL completada correctamente."
     }
 
 if __name__ == "__main__":

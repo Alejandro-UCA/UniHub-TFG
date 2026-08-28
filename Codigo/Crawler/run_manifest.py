@@ -59,11 +59,28 @@ class RunManifest:
         result = result if isinstance(result, dict) else {}
         self.data["parts"][f"parte{part}"] = result
         coverage = self.data["coverage"]
-        coverage["universities_attempted"] += int(result.get("universities_processed", 0) or 0)
-        coverage["degrees_discovered"] += int(result.get("missing_degrees", 0) or 0)
-        coverage["degrees_resolved"] += int(result.get("resolved_degrees", 0) or 0)
+        coverage["universities_attempted"] += self._non_negative_int(result.get("universities_processed"))
+        # ``missing_degrees`` es el número de titulaciones pendientes antes de
+        # la Parte 2; no representa titulaciones descubiertas por el crawler.
+        coverage["degrees_pending_resolution"] = coverage.get("degrees_pending_resolution", 0) + self._non_negative_int(
+            result.get("missing_degrees")
+        )
+        coverage["degrees_resolved"] += self._non_negative_int(result.get("resolved_degrees"))
         if result.get("status") in {"partial", "failed", "skipped"} and part not in coverage["partial_or_failed_parts"]:
             coverage["partial_or_failed_parts"].append(part)
+        self._persist()
+
+    @staticmethod
+    def _non_negative_int(value) -> int:
+        """Convierte métricas externas sin permitir que un dato inválido rompa el manifiesto."""
+        try:
+            return max(0, int(value or 0))
+        except (TypeError, ValueError, OverflowError):
+            return 0
+
+    def record_etl_sync(self, result: dict):
+        """Registra la sincronización posterior para que el manifiesto sea fiel al pipeline."""
+        self.data["etl_sync"] = result if isinstance(result, dict) else {"status": "failed"}
         self._persist()
 
     def finish(self, status: str, *, error: str | None = None):

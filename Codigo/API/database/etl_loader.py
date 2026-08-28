@@ -10,6 +10,15 @@ from sqlalchemy.orm import sessionmaker
 
 logger = logging.getLogger("unihub_etl")
 
+
+def _update_if_present(instance, attribute: str, payload: dict, key: str) -> None:
+    """Actualiza un campo solo cuando la fuente aporta un valor explícito."""
+    if key not in payload or payload[key] is None:
+        return
+    if isinstance(payload[key], str) and not payload[key].strip():
+        return
+    setattr(instance, attribute, payload[key])
+
 # Añadir el directorio padre de la API a la ruta de importación
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -56,11 +65,12 @@ def etl_lock_context():
                 with os.fdopen(lock_fd, 'w') as f:
                     f.write(str(os.getpid()))
                 acquired = True
-            except Exception:
+            except OSError as cleanup_error:
                 try:
                     os.close(lock_fd)
-                except Exception:
-                    pass
+                except OSError as close_error:
+                    logger.warning("No se pudo cerrar el descriptor del lock ETL: %s", close_error)
+                logger.warning("No se pudo completar la escritura del lock ETL: %s", cleanup_error)
                 raise
         except FileExistsError:
             try:
@@ -80,11 +90,12 @@ def etl_lock_context():
                         with os.fdopen(lock_fd, 'w') as f:
                             f.write(str(os.getpid()))
                         acquired = True
-                    except Exception:
+                    except OSError as cleanup_error:
                         try:
                             os.close(lock_fd)
-                        except Exception:
-                            pass
+                        except OSError as close_error:
+                            logger.warning("No se pudo cerrar el descriptor del lock ETL recreado: %s", close_error)
+                        logger.warning("No se pudo completar la escritura del lock ETL recreado: %s", cleanup_error)
                         raise
                 except Exception as e:
                     logger.error(f"[ERROR] No se pudo recrear el lock file de forma atómica: {e}")
@@ -180,12 +191,16 @@ def run_etl() -> bool:
                     code = str(u.get("codigo", "")).strip().zfill(3)
                     if not code or code == "000":
                         continue
+                    nombre = str(u.get("nombre") or "").strip()
+                    if not nombre:
+                        logger.error("Universidad %s omitida: falta el nombre en la fuente.", code)
+                        continue
                     existing = existing_univs.get(code) or existing_univs.get(str(u.get("codigo", "")).strip())
                     if not existing:
                         univ_obj = Universidad(
                             codigo=code,
-                            nombre=u.get("nombre") or f"Universidad {code}",
-                            tipo=u.get("tipo", "Desconocido"),
+                            nombre=nombre,
+                            tipo=u.get("tipo"),
                             comunidad_autonoma=u.get("comunidad_autonoma", ""),
                             municipio=u.get("municipio", ""),
                             provincia=u.get("provincia", ""),
@@ -195,7 +210,7 @@ def run_etl() -> bool:
                         )
                         db.add(univ_obj)
                         existing_univs[code] = univ_obj
-                db.commit()
+                db.flush()
                 logger.info("Universidades migradas con éxito.")
 
             # 2. Migrar Titulaciones
@@ -240,24 +255,31 @@ def run_etl() -> bool:
                         else:
                             if not existing.gestionado_por_admin:
                                 existing.titulo = t.get("titulo") or existing.titulo
-                                existing.nivel_academico = t.get("nivel_academico")
-                                existing.estado = t.get("estado")
-                                existing.precio_credito_ects = t.get("precio_credito_ects") or existing.precio_credito_ects
-                                existing.precio_credito_2 = t.get("precio_credito_2") or existing.precio_credito_2
-                                existing.precio_credito_3 = t.get("precio_credito_3") or existing.precio_credito_3
-                                existing.precio_credito_4 = t.get("precio_credito_4") or existing.precio_credito_4
-                                existing.precio_estimado_anual = t.get("precio_estimado_anual") or existing.precio_estimado_anual
-                                existing.fuente_precio = t.get("fuente_precio") or existing.fuente_precio
+                                _update_if_present(existing, "nivel_academico", t, "nivel_academico")
+                                _update_if_present(existing, "estado", t, "estado")
+                                _update_if_present(existing, "precio_credito_ects", t, "precio_credito_ects")
+                                _update_if_present(existing, "precio_credito_2", t, "precio_credito_2")
+                                _update_if_present(existing, "precio_credito_3", t, "precio_credito_3")
+                                _update_if_present(existing, "precio_credito_4", t, "precio_credito_4")
+                                _update_if_present(existing, "precio_estimado_anual", t, "precio_estimado_anual")
+                                _update_if_present(existing, "fuente_precio", t, "fuente_precio")
 
-                # Eliminar las titulaciones en BD que ya no están vigentes en el JSON (solo si el conjunto es representativo)
+                # Las eliminaciones son destructivas y el JSON no contiene por sí
+                # solo una prueba de cobertura completa. Requieren opt-in explícito.
                 deleted_count = 0
-                if active_titulaciones_codes and len(active_titulaciones_codes) >= 100:
+                allow_deletions = os.getenv("ETL_ALLOW_DELETIONS", "false").lower() == "true"
+                if allow_deletions and active_titulaciones_codes and len(active_titulaciones_codes) >= 100:
                     deleted_count = db.query(Titulacion).filter(
                         ~Titulacion.codigo_estudio.in_(active_titulaciones_codes),
                         Titulacion.gestionado_por_admin == False
                     ).delete(synchronize_session=False)
+                elif active_titulaciones_codes:
+                    logger.warning(
+                        "Se omiten eliminaciones ETL: requieren ETL_ALLOW_DELETIONS=true "
+                        "y una validación de cobertura independiente."
+                    )
 
-                db.commit()
+                db.flush()
                 logger.info(f"{total_tits} titulaciones vigentes migradas con éxito. {deleted_count} titulaciones extintas borradas.")
 
             # 3. Migrar Planes de Estudio y Elementos Curriculares (Optimizado con Bulk Save)
@@ -319,18 +341,34 @@ def run_etl() -> bool:
                         univ_code = str(p_data.get("universidad_codigo", "000")).strip().zfill(3)
                         univ_obj = existing_univs_dict.get(univ_code)
                         if not univ_obj:
+                            univ_name = str(p_data.get("universidad_nombre") or "").strip()
+                            if not univ_name:
+                                logger.error(
+                                    "Plan %s omitido: no existe la universidad %s y falta su nombre.",
+                                    d_code,
+                                    univ_code,
+                                )
+                                continue
                             univ_obj = Universidad(
                                 codigo=univ_code,
-                                nombre=p_data.get("universidad_nombre") or f"Universidad {univ_code}",
-                                tipo=p_data.get("tipo", "Desconocido")
+                                nombre=univ_name,
+                                tipo=p_data.get("tipo")
                             )
                             db.add(univ_obj)
                             db.flush()
                             existing_univs_dict[univ_code] = univ_obj
 
+                        degree_title = str(p_data.get("titulo") or "").strip()
+                        if not degree_title:
+                            logger.error(
+                                "Plan %s omitido: falta el título de la titulación y no se generará un nombre sintético.",
+                                d_code,
+                            )
+                            continue
+
                         tit_obj = Titulacion(
                             codigo_estudio=d_code,
-                            titulo=p_data.get("titulo") or f"Estudio {d_code}",
+                            titulo=degree_title,
                             nivel_academico=p_data.get("nivel_academico", ""),
                             estado=p_data.get("estado"),
                             universidad_codigo=univ_code,
@@ -345,12 +383,12 @@ def run_etl() -> bool:
                         db.flush()
                         existing_tits_dict[d_code] = tit_obj
                     else:
-                        tit_obj.precio_credito_ects = p_data.get("precio_credito_ects") or tit_obj.precio_credito_ects
-                        tit_obj.precio_credito_2 = p_data.get("precio_credito_2") or tit_obj.precio_credito_2
-                        tit_obj.precio_credito_3 = p_data.get("precio_credito_3") or tit_obj.precio_credito_3
-                        tit_obj.precio_credito_4 = p_data.get("precio_credito_4") or tit_obj.precio_credito_4
-                        tit_obj.precio_estimado_anual = p_data.get("precio_estimado_anual") or tit_obj.precio_estimado_anual
-                        tit_obj.fuente_precio = p_data.get("fuente_precio") or tit_obj.fuente_precio
+                        _update_if_present(tit_obj, "precio_credito_ects", p_data, "precio_credito_ects")
+                        _update_if_present(tit_obj, "precio_credito_2", p_data, "precio_credito_2")
+                        _update_if_present(tit_obj, "precio_credito_3", p_data, "precio_credito_3")
+                        _update_if_present(tit_obj, "precio_credito_4", p_data, "precio_credito_4")
+                        _update_if_present(tit_obj, "precio_estimado_anual", p_data, "precio_estimado_anual")
+                        _update_if_present(tit_obj, "fuente_precio", p_data, "fuente_precio")
 
                     boe_date_val = None
                     if p_data.get("boe_fecha"):
@@ -428,14 +466,14 @@ def run_etl() -> bool:
                         if elementos_bulk:
                             db.bulk_save_objects(elementos_bulk)
                             elementos_bulk.clear()
-                        db.commit()
+                        db.flush()
 
                 if resumenes_bulk:
                     db.bulk_save_objects(resumenes_bulk)
                 if elementos_bulk:
                     db.bulk_save_objects(elementos_bulk)
 
-                db.commit()
+                db.flush()
                 logger.info("Planes de estudio y asignaturas migradas en lote con éxito.")
 
             # 4. Migrar Registro de Errores con Desduplicación
@@ -448,8 +486,8 @@ def run_etl() -> bool:
                     if err.get("timestamp"):
                         try:
                             ts = datetime.fromisoformat(err["timestamp"])
-                        except Exception:
-                            pass
+                        except ValueError as parse_error:
+                            logger.warning("Timestamp de error crawler inválido: %r (%s)", err.get("timestamp"), parse_error)
 
                     id_ent = err.get("id_entidad")
                     motivo = err.get("motivo_fallo")
@@ -468,7 +506,7 @@ def run_etl() -> bool:
                             motivo_fallo=motivo,
                             detalles_excepcion=err.get("detalles_excepcion")
                         ))
-                db.commit()
+                db.flush()
                 logger.info("Registro de errores migrado con éxito (desduplicado).")
 
             # 5. Migrar Estadísticas de Rendimiento con Desduplicación
@@ -485,8 +523,8 @@ def run_etl() -> bool:
                 if st.get("timestamp_reporte"):
                     try:
                         ts_rep = datetime.fromisoformat(st["timestamp_reporte"])
-                    except Exception:
-                        pass
+                    except ValueError as parse_error:
+                        logger.warning("Timestamp de estadísticas inválido: %r (%s)", st.get("timestamp_reporte"), parse_error)
 
                 existing_stat = None
                 if ts_rep:
@@ -510,8 +548,10 @@ def run_etl() -> bool:
                         pdfs_parseados=ops.get("pdfs_boe_descargados_y_parseados"),
                         errores_registrados=ops.get("errores_registrados")
                     ))
-                    db.commit()
+                    db.flush()
                     logger.info("Estadísticas de rendimiento migradas con éxito (desduplicadas).")
+            # Publicar todo el snapshot en una sola transacción de sesión.
+            db.commit()
             etl_success = True
 
         except Exception as e:
@@ -520,14 +560,14 @@ def run_etl() -> bool:
             if db is not None:
                 try:
                     db.rollback()
-                except Exception:
-                    pass
+                except Exception as rollback_error:
+                    logger.error("No se pudo hacer rollback de la ETL: %s", rollback_error, exc_info=True)
         finally:
             if db is not None:
                 try:
                     db.close()
-                except Exception:
-                    pass
+                except Exception as close_error:
+                    logger.error("No se pudo cerrar la sesión de la ETL: %s", close_error, exc_info=True)
             if etl_success:
                 logger.info("PROCESO ETL FINALIZADO CON ÉXITO")
             else:

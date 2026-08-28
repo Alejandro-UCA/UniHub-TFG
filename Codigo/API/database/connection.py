@@ -15,6 +15,9 @@ db_readonly_url = settings.API_READONLY_DATABASE_URL
 db_admin_url = settings.DATABASE_URL
 use_sqlite = os.getenv("USE_SQLITE_FALLBACK", "false").lower() == "true"
 
+if use_sqlite and settings.ENVIRONMENT in {"production", "prod"}:
+    raise RuntimeError("USE_SQLITE_FALLBACK no está permitido en producción.")
+
 if use_sqlite:
     sqlite_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "unihub_fallback.db")
     os.makedirs(os.path.dirname(sqlite_path), exist_ok=True)
@@ -52,13 +55,11 @@ else:
             pool_recycle=settings.DB_POOL_RECYCLE
         )
     except Exception as e:
-        logger.warning(f"No se pudo inicializar el motor PostgreSQL ({e}). Usando motor SQLite fallback.")
-        sqlite_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "unihub_fallback.db")
-        os.makedirs(os.path.dirname(sqlite_path), exist_ok=True)
-        db_readonly_url = f"sqlite:///{sqlite_path}"
-        db_admin_url = f"sqlite:///{sqlite_path}"
-        engine_readonly = create_engine(db_readonly_url, connect_args={"check_same_thread": False})
-        engine_admin = create_engine(db_admin_url, connect_args={"check_same_thread": False})
+        logger.critical(
+            "No se pudo inicializar el motor PostgreSQL y no se permite fallback implícito a SQLite: %s",
+            e,
+        )
+        raise
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine_readonly)
 SessionAdmin = sessionmaker(autocommit=False, autoflush=False, bind=engine_admin)

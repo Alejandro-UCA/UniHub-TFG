@@ -3,6 +3,20 @@ import { Calculator, Building2, GraduationCap, CheckSquare, Square, RefreshCw, A
 import { apiService } from '../services/api';
 import usageTracker from '../analytics/usageTracker';
 
+const parsePositiveNumber = (value) => {
+  const parsed = Number.parseFloat(value);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : null;
+};
+
+const parseNonNegativeNumber = (value) => {
+  const parsed = Number.parseFloat(value);
+  return Number.isFinite(parsed) && parsed >= 0 ? parsed : null;
+};
+
+const getSubjectKey = (subject, index) => String(
+  subject.id ?? subject.codigo ?? `${subject.nombre_elemento || 'elemento'}|${subject.curso || ''}|${subject.cuatrimestre || ''}|${subject.creditos_ects || ''}|${index}`
+);
+
 export default function TuitionCalculator() {
   const [universities, setUniversities] = useState([]);
   const [selectedUnivCode, setSelectedUnivCode] = useState('');
@@ -27,7 +41,7 @@ export default function TuitionCalculator() {
     setLoadingUnivs(true);
     setApiError(null);
     try {
-      const data = await apiService.getUniversities({ limit: 300 });
+      const data = await apiService.getAllUniversities();
       const allUnivs = data || [];
       setUniversities(allUnivs);
       if (allUnivs.length > 0) {
@@ -55,7 +69,7 @@ export default function TuitionCalculator() {
     setSubjectSelections({});
 
     const controller = new AbortController();
-    apiService.getDegrees({ universidad_codigo: selectedUnivCode, limit: 500 }, { signal: controller.signal })
+    apiService.getAllDegrees({ universidad_codigo: selectedUnivCode }, { signal: controller.signal })
       .then(data => {
         setDegrees(data || []);
         if (data && data.length > 0) {
@@ -90,18 +104,19 @@ export default function TuitionCalculator() {
           const initialMap = {};
           let preselectedEcts = 0;
           elems.forEach((elem, idx) => {
-            const ects = parseFloat(elem.creditos_ects) || 6;
+            const ects = parsePositiveNumber(elem.creditos_ects);
             let isSelected = false;
-            if (hasAnyCourse) {
-              isSelected = String(elem.curso || '').includes('1');
-            } else {
+            if (ects !== null && hasAnyCourse) {
+              const courseNumber = String(elem.curso || '').match(/\d+/)?.[0];
+              isSelected = courseNumber === '1';
+            } else if (ects !== null) {
               // Si no hay etiquetas de curso en el BOE, preseleccionar básicas/obligatorias hasta 60 ECTS
               if (preselectedEcts + ects <= 60 && (elem.caracter === 'FB' || elem.caracter === 'OB' || !elem.caracter)) {
                 isSelected = true;
                 preselectedEcts += ects;
               }
             }
-            initialMap[idx] = {
+            initialMap[getSubjectKey(elem, idx)] = {
               selected: isSelected,
               tier: 1 // 1ª matrícula
             };
@@ -125,18 +140,27 @@ export default function TuitionCalculator() {
 
   // Get real ECTS price by tier from database
   const getEctsPrice = useCallback((tier) => {
-    if (!degreeDetail) return 16.80;
-    const base = parseFloat(degreeDetail.precio_credito_ects) || 16.80;
+    if (!degreeDetail) return null;
+    const base = parsePositiveNumber(degreeDetail.precio_credito_ects);
+    if (base === null) return null;
     if (tier === 1) return base;
-    if (tier === 2) return parseFloat(degreeDetail.precio_credito_2) || (base * 1.5);
-    if (tier === 3) return parseFloat(degreeDetail.precio_credito_3) || (base * 3.0);
-    if (tier >= 4) return parseFloat(degreeDetail.precio_credito_4) || (base * 4.5);
+    if (tier === 2) return parsePositiveNumber(degreeDetail.precio_credito_2);
+    if (tier === 3) return parsePositiveNumber(degreeDetail.precio_credito_3);
+    if (tier >= 4) return parsePositiveNumber(degreeDetail.precio_credito_4);
     return base;
   }, [degreeDetail]);
-  
+
+  const formatEctsPrice = useCallback((tier) => {
+    const price = getEctsPrice(tier);
+    return price === null ? 'N/D' : `${price.toFixed(2)} €/cr`;
+  }, [getEctsPrice]);
+
   const baseEctsPrice = getEctsPrice(1);
-  const rawAdminFees = parseFloat(import.meta.env.VITE_ADMIN_FEES || "45.00");
-  const adminFees = isNaN(rawAdminFees) ? 45.00 : rawAdminFees; // Tasas administrativas de secretaría y carné
+  const adminFees = parseNonNegativeNumber(import.meta.env.VITE_ADMIN_FEES);
+  const configuredPublicReference = parsePositiveNumber(import.meta.env.VITE_BECA_MEC_REFERENCE_PRICE);
+  const publicReferenceText = configuredPublicReference === null
+    ? 'la cuantía pública equivalente configurada'
+    : `aproximadamente ${configuredPublicReference.toFixed(2)} €/año para 60 ECTS`;
 
   // Elements list (Stable memoized)
   const elements = useMemo(() => {
@@ -149,18 +173,18 @@ export default function TuitionCalculator() {
     elements.forEach((elem, idx) => {
       const courseStr = elem.curso ? `${elem.curso}º Curso` : 'Asignaturas de la Titulación';
       if (!map[courseStr]) map[courseStr] = [];
-      map[courseStr].push({ ...elem, originalIndex: idx });
+      map[courseStr].push({ ...elem, subjectKey: getSubjectKey(elem, idx) });
     });
     return map;
   }, [elements]);
 
   // Handle Toggle Subject Selection
-  const toggleSubject = (idx) => {
+  const toggleSubject = (subjectKey) => {
     setSubjectSelections(prev => ({
       ...prev,
-      [idx]: {
-        selected: !prev[idx]?.selected,
-        tier: prev[idx]?.tier || 1
+      [subjectKey]: {
+        selected: !prev[subjectKey]?.selected,
+        tier: prev[subjectKey]?.tier || 1
       }
     }));
   };
@@ -179,10 +203,11 @@ export default function TuitionCalculator() {
   // Select / Deselect All
   const selectAll = (selectState) => {
     const updated = {};
-    elements.forEach((_, idx) => {
-      updated[idx] = {
+    elements.forEach((subject, idx) => {
+      const subjectKey = getSubjectKey(subject, idx);
+      updated[subjectKey] = {
         selected: selectState,
-        tier: subjectSelections[idx]?.tier || 1
+        tier: subjectSelections[subjectKey]?.tier || 1
       };
     });
     setSubjectSelections(updated);
@@ -194,9 +219,9 @@ export default function TuitionCalculator() {
     setSubjectSelections(prev => {
       const updated = { ...prev };
       courseItems.forEach(item => {
-        updated[item.originalIndex] = {
+        updated[item.subjectKey] = {
           selected: selectState,
-          tier: prev[item.originalIndex]?.tier || 1
+          tier: prev[item.subjectKey]?.tier || 1
         };
       });
       return updated;
@@ -214,7 +239,7 @@ export default function TuitionCalculator() {
     fn_general: isPrivada ? 'Exención autonómica NO aplicable en universidades privadas. La matrícula se calculará con la tarifa de honorarios privados ordinarios.' : 'Disponible acreditando el Título de Familia Numerosa de Categoría General vigente antes del inicio del curso académico. Aplica un 50% de descuento en el importe de créditos ECTS y en las tasas administrativas de secretaría.',
     fn_especial: isPrivada ? 'Exención autonómica NO aplicable en universidades privadas. La matrícula se calculará con la tarifa de honorarios privados ordinarios.' : 'Disponible acreditando el Título de Familia Numerosa de Categoría Especial vigente. Otorga exención del 100% (gratuidad total) en asignaturas y apertura/tasas de secretaría.',
     discapacidad: isPrivada ? 'Exención autonómica NO aplicable en universidades privadas. Se abonará la tarifa privada fijada por el centro.' : 'Disponible presentando el Dictamen Oficial de Discapacidad igual o superior al 33% emitido por el IMSERSO o la Comunidad Autónoma. Otorga exención completa del 100%.',
-    beca_mec: isPrivada ? `Beca MEC en Universidad Privada: El Ministerio exime ÚNICAMENTE la cuantía del precio público oficial equivalente (~${import.meta.env.VITE_BECA_MEC_REFERENCE_PRICE || "1.008"} €/año para 60 ECTS). El estudiante deberá abonar la diferencia hasta cubrir los honorarios privados.` : 'Exención provisional del 100% en créditos matriculados en 1ª matrícula. Requiere haber formalizado la solicitud de Beca MEC antes del plazo oficial. Si la beca fuera denegada, la universidad reclamará el abono en el primer cuatrimestre. Las tasas administrativas (45 €) deben abonarse salvo exención paralela.',
+    beca_mec: isPrivada ? `Beca MEC en Universidad Privada: El Ministerio exime únicamente ${publicReferenceText}. El estudiante deberá abonar la diferencia hasta cubrir los honorarios privados.` : 'Exención provisional del 100% en créditos matriculados en 1ª matrícula. Requiere haber formalizado la solicitud de Beca MEC antes del plazo oficial. Si la beca fuera denegada, la universidad reclamará el abono en el primer cuatrimestre. Las tasas administrativas configuradas deben abonarse salvo exención paralela.',
     mh_bachillerato: isPrivada ? 'Matrícula de Honor en Privada: Exime la cuantía equivalente al precio público oficial en 1º curso (60 ECTS x tarifa pública), debiendo abonarse la diferencia privada.' : 'Disponible exclusivamente para alumnos matriculados en 1º curso con Matrícula de Honor o Premio Extraordinario en Bachillerato o CFGS. Exime del pago del 100% de los créditos del primer curso (60 ECTS).',
     bonif_99: isPrivada ? 'La Bonificación del 99% por Rendimiento Académico de la CCAA NO aplica a universidades privadas.' : 'Disponible para estudiantes de universidades públicas andaluzas que aprobaron créditos en 1ª matrícula en el curso inmediatamente anterior y no son becarios del Ministerio (Decreto 99% CCAA). Bonifica el 99% de los créditos aprobados.',
     victima_violencia: isPrivada ? 'Exención autonómica NO aplicable en universidades privadas.' : 'Exención completa (100%) acreditando condición oficial de Víctima de Violencia de Género, Víctima del Terrorismo o Beneficiario del Ingreso Mínimo Vital mediante resolución judicial o administrativa.'
@@ -224,19 +249,28 @@ export default function TuitionCalculator() {
   const calculation = useMemo(() => {
     let totalEcts = 0;
     let totalSubjectCost = 0;
+    let calculationUnavailable = false;
     const tierCounts = { 1: 0, 2: 0, 3: 0, 4: 0 };
     const tierCosts = { 1: 0, 2: 0, 3: 0, 4: 0 };
     let selectedSubjectsCount = 0;
 
     if (elements.length > 0) {
       elements.forEach((elem, idx) => {
-        const state = subjectSelections[idx];
+        const state = subjectSelections[getSubjectKey(elem, idx)];
         if (state?.selected) {
           selectedSubjectsCount++;
-          const ects = parseFloat(elem.creditos_ects) || 6;
+          const ects = parsePositiveNumber(elem.creditos_ects);
+          if (ects === null) {
+            calculationUnavailable = true;
+            return;
+          }
           totalEcts += ects;
           
           const ectsPriceForTier = getEctsPrice(state.tier);
+          if (ectsPriceForTier === null) {
+            calculationUnavailable = true;
+            return;
+          }
           const subjectPrice = ects * ectsPriceForTier;
           
           totalSubjectCost += subjectPrice;
@@ -249,22 +283,24 @@ export default function TuitionCalculator() {
       totalEcts = customEcts;
       selectedSubjectsCount = Math.round(customEcts / 6);
       
-      let baseRate = parseFloat(degreeDetail.precio_credito_ects);
+      let baseRate = parsePositiveNumber(degreeDetail.precio_credito_ects);
       if (!baseRate && degreeDetail.precio_estimado_anual) {
-        baseRate = parseFloat(degreeDetail.precio_estimado_anual) / 60;
+        const annualPrice = parsePositiveNumber(degreeDetail.precio_estimado_anual);
+        baseRate = annualPrice === null ? null : annualPrice / 60;
       }
-      if (!baseRate) baseRate = 16.80;
+      if (!baseRate) calculationUnavailable = true;
 
       const multiplier = customTier === 1 ? 1 : customTier === 2 ? 1.5 : customTier === 3 ? 3.0 : 4.5;
-      const unitCost = baseRate * multiplier;
-      totalSubjectCost = totalEcts * unitCost;
+      const unitCost = baseRate === null ? 0 : baseRate * multiplier;
+      totalSubjectCost = calculationUnavailable ? 0 : totalEcts * unitCost;
 
       tierCounts[customTier] = selectedSubjectsCount;
       tierCosts[customTier] = totalSubjectCost;
     }
 
     let discountAmount = 0;
-    let finalAdminFees = selectedSubjectsCount > 0 ? adminFees : 0;
+    if (selectedSubjectsCount > 0 && adminFees === null) calculationUnavailable = true;
+    let finalAdminFees = selectedSubjectsCount > 0 ? (adminFees ?? 0) : 0;
     let discountLabel = '';
 
     if (!isPrivada) {
@@ -280,36 +316,37 @@ export default function TuitionCalculator() {
         discountAmount = tierCosts[1] || 0;
         discountLabel = 'Exención Beca MEC (1ª Matrícula)';
       } else if (discountType === 'mh_bachillerato') {
-        discountAmount = Math.min(totalSubjectCost, 60 * baseEctsPrice);
+        discountAmount = Math.min(totalSubjectCost, 60 * (baseEctsPrice ?? 0));
         discountLabel = 'Exención M.H. Bachillerato/CFGS (60 ECTS)';
       } else if (discountType === 'bonif_99') {
         discountAmount = (tierCosts[1] || 0) * 0.99;
         discountLabel = 'Bonificación 99% CCAA Rendimiento';
       }
     } else {
-      // Logic for Private Universities: Only MEC / MH cover equivalent public pricing cap (~16.80 €/ECTS)
-      const publicEctsEquivPrice = parseFloat(degreeDetail?.precio_credito_ects) || 16.80;
+      // Private-university exemptions use the configured public-price equivalent.
+      const publicEctsEquivPrice = parsePositiveNumber(degreeDetail?.precio_credito_ects);
+      if (publicEctsEquivPrice === null) calculationUnavailable = true;
       if (discountType === 'beca_mec') {
         let firstTierEctsSum = 0;
         if (elements.length > 0) {
           elements.forEach((elem, idx) => {
-            const state = subjectSelections[idx];
+            const state = subjectSelections[getSubjectKey(elem, idx)];
             if (state?.selected && state?.tier === 1) {
-              firstTierEctsSum += parseFloat(elem.creditos_ects) || 6;
+              firstTierEctsSum += parsePositiveNumber(elem.creditos_ects) ?? 0;
             }
           });
         } else if (customTier === 1) {
           firstTierEctsSum = totalEcts;
         }
-        discountAmount = firstTierEctsSum * publicEctsEquivPrice;
+        discountAmount = firstTierEctsSum * (publicEctsEquivPrice ?? 0);
         discountLabel = 'Cobertura Beca MEC (Equivalente Precio Público)';
       } else if (discountType === 'mh_bachillerato') {
-        discountAmount = Math.min(totalEcts, 60) * publicEctsEquivPrice;
+        discountAmount = Math.min(totalEcts, 60) * (publicEctsEquivPrice ?? 0);
         discountLabel = 'Cobertura M.H. Bachillerato (Equivalente Precio Público)';
       }
     }
 
-    const grandTotal = Math.max(0, totalSubjectCost - discountAmount + finalAdminFees);
+    const grandTotal = calculationUnavailable ? null : Math.max(0, totalSubjectCost - discountAmount + finalAdminFees);
 
     return {
       selectedSubjectsCount,
@@ -320,7 +357,8 @@ export default function TuitionCalculator() {
       discountAmount,
       discountLabel,
       adminFees: finalAdminFees,
-      grandTotal
+      grandTotal,
+      calculationUnavailable
     };
   }, [elements, subjectSelections, baseEctsPrice, discountType, isPrivada, degreeDetail, customEcts, customTier, adminFees, getEctsPrice]);
 
@@ -343,10 +381,10 @@ export default function TuitionCalculator() {
           </div>
           <div>
             <h2 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#FFFFFF', margin: 0, letterSpacing: '-0.5px' }}>
-              Calculadora Oficial de Matrícula Universitaria
+              Estimador de Matrícula Universitaria
             </h2>
             <p style={{ color: '#E2E8F0', margin: '0.35rem 0 0 0', fontSize: '0.95rem', lineHeight: 1.5 }}>
-              Simula el coste exacto de tu matrícula seleccionando asignaturas y aplicando recargos por 1ª, 2ª, 3ª o 4ª matrícula según el Decreto de Precios Públicos oficial.
+              Estima el coste de tu matrícula con los precios disponibles para la titulación. Confirma siempre el importe final con la universidad.
             </p>
           </div>
         </div>
@@ -556,15 +594,14 @@ export default function TuitionCalculator() {
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                       {groupedByCourse[courseName].map(subject => {
-                        const idx = subject.originalIndex;
-                        const state = subjectSelections[idx] || { selected: false, tier: 1 };
-                        const ects = parseFloat(subject.creditos_ects) || 6;
+                        const state = subjectSelections[subject.subjectKey] || { selected: false, tier: 1 };
+                        const ects = parsePositiveNumber(subject.creditos_ects);
                         const ectsPriceForTier = getEctsPrice(state.tier);
-                        const itemCost = ects * ectsPriceForTier;
+                        const itemCost = ects === null || ectsPriceForTier === null ? null : ects * ectsPriceForTier;
 
                         return (
                           <div
-                            key={idx}
+                            key={subject.subjectKey}
                             style={{
                               padding: '0.85rem 1rem',
                               borderRadius: '8px',
@@ -578,7 +615,7 @@ export default function TuitionCalculator() {
                             }}
                           >
                             {/* Checkbox */}
-                            <div onClick={() => toggleSubject(idx)} style={{ cursor: 'pointer', display: 'flex', color: state.selected ? 'var(--uca-cyan)' : 'var(--text-muted)' }}>
+                            <div onClick={() => toggleSubject(subject.subjectKey)} style={{ cursor: 'pointer', display: 'flex', color: state.selected ? 'var(--uca-cyan)' : 'var(--text-muted)' }}>
                               {state.selected ? <CheckSquare size={20} /> : <Square size={20} />}
                             </div>
 
@@ -588,7 +625,7 @@ export default function TuitionCalculator() {
                                 {subject.nombre_elemento}
                               </div>
                               <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'flex', gap: '0.75rem', marginTop: '0.15rem' }}>
-                                <span><strong>ECTS:</strong> {ects} cr.</span>
+                                <span><strong>ECTS:</strong> {ects === null ? 'N/D' : `${ects} cr.`}</span>
                                 {subject.caracter && <span><strong>Tipo:</strong> {subject.caracter}</span>}
                               </div>
                             </div>
@@ -610,16 +647,16 @@ export default function TuitionCalculator() {
                                   cursor: 'pointer'
                                 }}
                               >
-                                <option value={1}>1ª Matrícula ({getEctsPrice(1).toFixed(2)}€/cr)</option>
-                                <option value={2}>2ª Matrícula ({getEctsPrice(2).toFixed(2)}€/cr)</option>
-                                <option value={3}>3ª Matrícula ({getEctsPrice(3).toFixed(2)}€/cr)</option>
-                                <option value={4}>4ª+ Matrícula ({getEctsPrice(4).toFixed(2)}€/cr)</option>
+                                <option value={1} disabled={getEctsPrice(1) === null}>1ª Matrícula ({formatEctsPrice(1)})</option>
+                                <option value={2} disabled={getEctsPrice(2) === null}>2ª Matrícula ({formatEctsPrice(2)})</option>
+                                <option value={3} disabled={getEctsPrice(3) === null}>3ª Matrícula ({formatEctsPrice(3)})</option>
+                                <option value={4} disabled={getEctsPrice(4) === null}>4ª+ Matrícula ({formatEctsPrice(4)})</option>
                               </select>
                             </div>
 
                             {/* Cost Output */}
                             <div style={{ fontWeight: 700, fontSize: '0.95rem', color: state.selected ? '#10B981' : 'var(--text-muted)', textAlign: 'right', minWidth: '80px' }}>
-                              {state.selected ? `${itemCost.toFixed(2)} €` : '0.00 €'}
+                              {state.selected && itemCost !== null ? `${itemCost.toFixed(2)} €` : 'N/D'}
                             </div>
                           </div>
                         );
@@ -759,8 +796,13 @@ export default function TuitionCalculator() {
               {/* Price Tariff Details */}
               <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '1.25rem', background: 'rgba(255, 255, 255, 0.03)', padding: '0.75rem', borderRadius: '8px' }}>
                 <div><strong>Universidad:</strong> {currentUniv?.nombre}</div>
-                <div style={{ marginTop: '0.2rem' }}><strong>Tarifa 1ª Matrícula:</strong> {baseEctsPrice.toFixed(2)} € / crédito</div>
-                <div style={{ marginTop: '0.2rem' }}><strong>Fuente:</strong> {degreeDetail.fuente_precio || 'Decreto CCAA Oficial'}</div>
+                <div style={{ marginTop: '0.2rem' }}><strong>Tarifa 1ª Matrícula:</strong> {baseEctsPrice === null ? 'No disponible' : `${baseEctsPrice.toFixed(2)} € / crédito`}</div>
+                <div style={{ marginTop: '0.2rem' }}><strong>Fuente:</strong> {degreeDetail.fuente_precio || 'No especificada'}</div>
+                {calculation.calculationUnavailable && (
+                  <div style={{ marginTop: '0.5rem', color: '#B45309' }}>
+                    Faltan créditos, tarifa o tasas verificables; no se muestra un total inventado.
+                  </div>
+                )}
               </div>
 
               {/* Discount / Exemption Selector */}
@@ -884,10 +926,10 @@ export default function TuitionCalculator() {
                   {isPrivada ? '💎 Honorarios Privados Estimados' : '💶 Importe Matrícula Pública Estimada'}
                 </div>
                 <div style={{ fontSize: '2.2rem', fontWeight: 900, color: '#10B981', margin: '0.3rem 0' }}>
-                  {calculation.grandTotal.toFixed(2)} €
+                  {calculation.grandTotal === null ? 'No disponible' : `${calculation.grandTotal.toFixed(2)} €`}
                 </div>
                 <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-                  (Valores oficiales calculados según tarifa ECTS oficial)
+                  (Estimación basada únicamente en datos y tarifas disponibles)
                 </div>
               </div>
 

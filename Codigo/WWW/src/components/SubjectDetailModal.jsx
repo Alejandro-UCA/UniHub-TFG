@@ -69,7 +69,7 @@ export default function SubjectDetailModal({ subject, degree, onClose }) {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.4rem', flexWrap: 'wrap' }}>
               <span className="badge" style={{ background: 'rgba(255, 255, 255, 0.2)', color: '#FFFFFF', fontWeight: 700 }}>
-                {subject.caracter || 'OB'} · {subject.creditos_ects || '6'} ECTS
+                {subject.caracter || 'N/D'} · {subject.creditos_ects || 'N/D'} ECTS
               </span>
               {subject.curso && (
                 <span className="badge" style={{ background: 'rgba(243, 167, 18, 0.25)', color: 'var(--uca-sun)', fontWeight: 700 }}>
@@ -135,7 +135,7 @@ export default function SubjectDetailModal({ subject, degree, onClose }) {
                 Carga Lectiva
               </div>
               <div style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--uca-blue)' }}>
-                {subject.creditos_ects || '6.0'} ECTS
+                {subject.creditos_ects || 'N/D'} ECTS
               </div>
               {(crTeoria || crPractica) && (
                 <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '0.15rem' }}>
@@ -185,7 +185,7 @@ export default function SubjectDetailModal({ subject, degree, onClose }) {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                 {temarioList.map((t, idx) => (
                   <div 
-                    key={idx} 
+                    key={t.id ?? t.codigo ?? `${String(t.titulo || t.nombre || t).slice(0, 80)}-${idx}`}
                     style={{
                       background: 'var(--bg-main)',
                       border: '1px solid var(--border-light)',

@@ -148,7 +148,7 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue = None, shu
                         "normativa": "Real Decreto 99/2011",
                         "descripcion_plan": "Programa Oficial de Doctorado centrado en la investigación avanzada, elaboración y defensa de Tesis Doctoral conforme al Real Decreto 99/2011.",
                         "actividades_formativas": "Seminarios de investigación, estancias internacionales, publicaciones científicas y tutela académica anual.",
-                        "resumen_creditos": {"Tutela Académica Anual": "60 ECTS Equiv."},
+                        "fuente_estado": "sin_resolucion_boe",
                         "total_elementos": 0,
                         "elementos_curriculares": []
                     }
@@ -224,9 +224,12 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue = None, shu
                                 for existing in combined_elementos:
                                     course = str(existing.get("curso") or "").strip()
                                     try:
-                                        ects = float(str(existing.get("creditos_ects") or existing.get("creditos") or 6).replace(",", "."))
+                                        raw_ects = existing.get("creditos_ects")
+                                        if raw_ects is None:
+                                            raw_ects = existing.get("creditos")
+                                        ects = float(str(raw_ects).replace(",", ".")) if raw_ects not in (None, "") else 0.0
                                     except (TypeError, ValueError):
-                                        ects = 6.0
+                                        ects = 0.0
                                     covered_courses[course] = covered_courses.get(course, 0.0) + ects
 
                                 for elem in new_elements:
@@ -262,8 +265,8 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue = None, shu
                             if pdf_path and os.path.exists(pdf_path):
                                 try:
                                     os.remove(pdf_path)
-                                except Exception:
-                                    pass
+                                except OSError as cleanup_error:
+                                    logger.warning("No se pudo eliminar PDF temporal %s: %s", pdf_path, cleanup_error)
                 finally:
                     # Limpieza garantizada de cualquier PDF temporal restante no procesado por parada temprana
                     for rem_item in pdf_items:
@@ -271,8 +274,8 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue = None, shu
                         if rem_path and os.path.exists(rem_path):
                             try:
                                 os.remove(rem_path)
-                            except Exception:
-                                pass
+                            except OSError as cleanup_error:
+                                logger.warning("No se pudo eliminar PDF temporal restante %s: %s", rem_path, cleanup_error)
 
                 final_plan_doc = None
                 if valid_curriculum_found:
@@ -294,7 +297,7 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue = None, shu
                     final_plan_doc = {
                         "tipo_estructura": "programa_doctorado_investigacion",
                         "normativa": "Real Decreto 99/2011",
-                        "resumen_creditos": {"Tutela Académica Anual": "60 ECTS Equiv."},
+                        "fuente_estado": "sin_resolucion_boe",
                         "total_elementos": 0,
                         "elementos_curriculares": []
                     }
@@ -527,8 +530,8 @@ def run_phase1_part1(
                                     if any(marker in status_text_full for marker in ("TITULACIÓN EXTINGUIDA", "TITULACION EXTINGUIDA", "TITULACIÓN EXTINTA", "TITULACION EXTINTA")):
                                         is_extinct = True
                                         status_text = "TITULACIÓN EXTINGUIDA"
-                                except Exception:
-                                    pass
+                                except Exception as status_error:
+                                    logger.debug("No se pudo consultar el estado RUCT de %s: %s", degree_code, status_error)
 
                             if is_extinct:
                                 checkpoint.mark_extinct_degree(degree_code, status_text or "Extinguida")
@@ -625,8 +628,8 @@ def run_phase1_part1(
                                 if p_clean and os.path.exists(p_clean):
                                     try:
                                         os.remove(p_clean)
-                                    except Exception:
-                                        pass
+                                    except OSError as cleanup_error:
+                                        logger.warning("No se pudo limpiar PDF tras saturación de cola %s: %s", p_clean, cleanup_error)
                             completed_cleanly = False
                             worker_incomplete = True
                             error_logger.log_error("pdf_parser_queue", university_code, detail_url, "Cola de workers saturada; universidad incompleta", str(queue_error))
@@ -638,8 +641,8 @@ def run_phase1_part1(
                                 if p_clean and os.path.exists(p_clean):
                                     try:
                                         os.remove(p_clean)
-                                    except Exception:
-                                        pass
+                                    except OSError as cleanup_error:
+                                        logger.warning("No se pudo limpiar PDF tras circuito abierto %s: %s", p_clean, cleanup_error)
                             completed_cleanly = False
                             error_logger.log_error(
                                 "university_circuit_breaker",
@@ -656,8 +659,8 @@ def run_phase1_part1(
                                 if p_clean and os.path.exists(p_clean):
                                     try:
                                         os.remove(p_clean)
-                                    except Exception:
-                                        pass
+                                    except OSError as cleanup_error:
+                                        logger.warning("No se pudo limpiar PDF tras error de titulación %s: %s", p_clean, cleanup_error)
                             error_logger.log_error(
                                 "degree_processing",
                                 degree_code,
@@ -728,8 +731,8 @@ def run_phase1_part1(
                     worker_result.get("updated_degrees_count", 0),
                     worker_result.get("total_parse_time", 0.0),
                 )
-            except Exception:
-                pass
+            except Exception as worker_error:
+                logger.warning("No se pudo recoger el resultado de un worker PDF: %s", worker_error, exc_info=True)
 
         for process in consumer_pool:
             process.join(timeout=WORKER_JOIN_TIMEOUT)

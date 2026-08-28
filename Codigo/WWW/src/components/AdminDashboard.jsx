@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { 
   ShieldCheck, BarChart3, Activity, Server, Eye, Search, MapPin, 
   RefreshCw, LogOut, Plus, Edit, Trash2, Database, 
@@ -11,7 +11,24 @@ import { apiService } from '../services/api';
 import AdminFormModal from './AdminFormModal';
 import Pagination from './Pagination';
 
+const formatWebVital = (value) => Number.isFinite(value) ? `${value} ms` : 'N/D';
+const webVitalStatus = (value) => Number.isFinite(value) ? 'DATO MEDIDO' : 'SIN DATOS';
+const formatContainerMetric = (value, suffix = '') => {
+  const numericValue = Number(value);
+  return Number.isFinite(numericValue) ? `${numericValue}${suffix}` : 'N/D';
+};
+const containerMetricPercent = (value, divisor = 1) => {
+  const numericValue = Number(value);
+  return Number.isFinite(numericValue) ? Math.min(100, Math.max(0, (numericValue / divisor) * 100)) : 0;
+};
+const formatMetricValue = (value, suffix = '') => {
+  const numericValue = Number(value);
+  return Number.isFinite(numericValue) ? `${numericValue}${suffix}` : 'N/D';
+};
+
 export default function AdminDashboard({ onLogout }) {
+  const feedbackTimerRef = useRef(null);
+  const refreshTimerRef = useRef(null);
   const [activeSubTab, setActiveSubTab] = useState('uso'); // 'uso', 'crud', 'rendimiento', 'sistema', 'api_docs'
   const [crudTarget, setCrudTarget] = useState('universidades'); // 'universidades', 'titulaciones'
 
@@ -23,14 +40,14 @@ export default function AdminDashboard({ onLogout }) {
   const [containerStats, setContainerStats] = useState(null);
   const [dbUniversities, setDbUniversities] = useState([]);
   const [dbDegrees, setDbDegrees] = useState([]);
-  const [totalUniversitiesCount, setTotalUniversitiesCount] = useState(109);
-  const [totalDegreesCount, setTotalDegreesCount] = useState(13657);
+  const [totalUniversitiesCount, setTotalUniversitiesCount] = useState(0);
+  const [totalDegreesCount, setTotalDegreesCount] = useState(0);
   const [checkpointData, setCheckpointData] = useState(null);
   const [errorsLogData, setErrorsLogData] = useState([]);
   const [apiDocsInfoData, setApiDocsInfoData] = useState(null);
   const [coverageData, setCoverageData] = useState(null);
-  const [isDbOnline, setIsDbOnline] = useState(true);
-  const [dbLatency, setDbLatency] = useState(14);
+  const [isDbOnline, setIsDbOnline] = useState(false);
+  const [dbLatency, setDbLatency] = useState(null);
   const [errorSearchFilter, setErrorSearchFilter] = useState('');
 
   // Subject Management States
@@ -86,8 +103,17 @@ export default function AdminDashboard({ onLogout }) {
 
   const showFeedback = (msg, isError = false) => {
     setFeedbackMsg({ text: msg, isError });
-    setTimeout(() => setFeedbackMsg(null), 4000);
+    if (feedbackTimerRef.current) clearTimeout(feedbackTimerRef.current);
+    feedbackTimerRef.current = setTimeout(() => {
+      setFeedbackMsg(null);
+      feedbackTimerRef.current = null;
+    }, 4000);
   };
+
+  useEffect(() => () => {
+    if (feedbackTimerRef.current) clearTimeout(feedbackTimerRef.current);
+    if (refreshTimerRef.current) clearTimeout(refreshTimerRef.current);
+  }, []);
 
   const refreshData = useCallback(async () => {
     setLoading(true);
@@ -112,18 +138,22 @@ export default function AdminDashboard({ onLogout }) {
       ]);
 
       const elapsed = Math.round(performance.now() - t0);
-      setDbLatency(elapsed > 0 ? elapsed : 14);
+      setDbLatency(univRes.status === 'fulfilled' ? Math.max(1, elapsed) : null);
 
       if (univRes.status === 'fulfilled' && univRes.value) {
         setIsDbOnline(true);
         setDbUniversities(univRes.value.data || []);
-        if (univRes.value.totalCount) setTotalUniversitiesCount(univRes.value.totalCount);
+        if (univRes.value.totalCount !== null && univRes.value.totalCount !== undefined) {
+          setTotalUniversitiesCount(univRes.value.totalCount);
+        }
       } else {
         setIsDbOnline(false);
       }
       if (degRes.status === 'fulfilled' && degRes.value) {
         setDbDegrees(degRes.value.data || []);
-        if (degRes.value.totalCount) setTotalDegreesCount(degRes.value.totalCount);
+        if (degRes.value.totalCount !== null && degRes.value.totalCount !== undefined) {
+          setTotalDegreesCount(degRes.value.totalCount);
+        }
       }
       if (statsData.status === 'fulfilled') setCrawlerStats(statsData.value || []);
       if (errorsData.status === 'fulfilled') setCrawlerErrors(errorsData.value || []);
@@ -149,7 +179,11 @@ export default function AdminDashboard({ onLogout }) {
       setLoading(true);
       await apiService.triggerEtlSync();
       showFeedback('Sincronización ETL relacional iniciada en segundo plano en PostgreSQL.');
-      setTimeout(refreshData, 5000);
+      if (refreshTimerRef.current) clearTimeout(refreshTimerRef.current);
+      refreshTimerRef.current = setTimeout(() => {
+        refreshTimerRef.current = null;
+        refreshData();
+      }, 5000);
     } catch (err) {
       showFeedback(`Error al desencadenar sincronización ETL: ${err.message}`, true);
     } finally {
@@ -220,7 +254,7 @@ export default function AdminDashboard({ onLogout }) {
     setSelectedDegreeForSubjects(degree);
     setLoadingSubjects(true);
     try {
-      const subs = await apiService.getDegreeSubjects(degree.codigo_estudio);
+      const subs = await apiService.getAllDegreeSubjects(degree.codigo_estudio);
       setDegreeSubjects(subs || []);
     } catch (e) {
       console.warn('Error loading subjects:', e);
@@ -259,7 +293,7 @@ export default function AdminDashboard({ onLogout }) {
   const handleModalSubmit = async (formData) => {
     try {
       const cleanData = { ...formData };
-      ['precio_credito_ects', 'precio_credito_2', 'precio_credito_3', 'precio_credito_4'].forEach(key => {
+      ['precio_credito_ects', 'precio_credito_2', 'precio_credito_3', 'precio_credito_4', 'precio_estimado_anual'].forEach(key => {
         if (cleanData[key] === '') cleanData[key] = null;
       });
 
@@ -317,12 +351,13 @@ export default function AdminDashboard({ onLogout }) {
     });
   }, [dbDegrees, crudPillFilter]);
 
-  const contenedoresLista = containerStats?.contenedores || [
-    { nombre: 'unihub_crawler', estado: 'running', memoria_mb: 168.4, cpu_porcentaje: 8.5, fase: 'Fase 1: Crawler Multiproceso RUCT/BOE' },
-    { nombre: 'unihub_api', estado: 'running', memoria_mb: 95.2, cpu_porcentaje: 2.1, fase: 'Fase 2: FastAPI REST & SQLAlchemy Pool', puertos: '8000:8000' },
-    { nombre: 'unihub_db', estado: 'running', memoria_mb: 212.8, cpu_porcentaje: 3.4, fase: 'Fase 2: PostgreSQL 15 con Índices GIN', puertos: '5432:5432' },
-    { nombre: 'unihub_www', estado: 'running', memoria_mb: 38.1, cpu_porcentaje: 0.8, fase: 'Fase 3: Nginx + React 18 SPA', puertos: '80:80, 3000:80' }
-  ];
+  const contenedoresLista = containerStats?.contenedores_individuales || [];
+  const greenItMetrics = containerStats?.green_it_metrics || {};
+  const coverageValue = Number(coverageData?.tasa_cobertura_curricular_porcentaje);
+  const performanceReportsCount = Array.isArray(crawlerStats) ? crawlerStats.length : 0;
+  const endpointCount = Array.isArray(apiDocsInfoData?.endpoints_disponibles)
+    ? apiDocsInfoData.endpoints_disponibles.length
+    : null;
 
   return (
     <div className="container" style={{ padding: '2rem 1.5rem 4rem 1.5rem', maxWidth: '1280px' }}>
@@ -470,14 +505,14 @@ export default function AdminDashboard({ onLogout }) {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '1.75rem' }}>
             <div className="glass-panel" style={{ padding: '1.5rem' }}>
               <h4 style={{ fontSize: '1.05rem', fontWeight: 700, marginBottom: '1rem', color: 'var(--uca-blue)' }}>
-                Términos Más Buscados por Usuarios
+                Categorías de Búsqueda Más Usadas
               </h4>
               {usageStats.topSearches.length === 0 ? (
                 <div style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Aún no hay búsquedas registradas en la sesión.</div>
               ) : (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                  {usageStats.topSearches.map(([term, count], idx) => (
-                    <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.5rem 0.75rem', background: 'var(--bg-main)', borderRadius: 'var(--radius-sm)', fontSize: '0.9rem' }}>
+                  {usageStats.topSearches.map(([term, count]) => (
+                    <div key={`search-${term}`} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.5rem 0.75rem', background: 'var(--bg-main)', borderRadius: 'var(--radius-sm)', fontSize: '0.9rem' }}>
                       <span style={{ fontWeight: 600 }}>{term}</span>
                       <span className="badge badge-publica">{count} búsquedas</span>
                     </div>
@@ -494,8 +529,8 @@ export default function AdminDashboard({ onLogout }) {
                 <div style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Aún no hay universidades consultadas.</div>
               ) : (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                  {usageStats.topUniversities.map(([univ, count], idx) => (
-                    <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.5rem 0.75rem', background: 'var(--bg-main)', borderRadius: 'var(--radius-sm)', fontSize: '0.85rem' }}>
+                  {usageStats.topUniversities.map(([univ, count]) => (
+                    <div key={`university-${univ}`} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.5rem 0.75rem', background: 'var(--bg-main)', borderRadius: 'var(--radius-sm)', fontSize: '0.85rem' }}>
                       <span style={{ fontWeight: 600 }}>{univ}</span>
                       <span className="badge badge-privada">{count} vistas</span>
                     </div>
@@ -728,40 +763,40 @@ export default function AdminDashboard({ onLogout }) {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.75rem', background: 'var(--bg-main)', borderRadius: 'var(--radius-sm)' }}>
                 <span>TTFB (Time to First Byte):</span>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <strong>{perfReport.webVitals.ttfb || perfReport.webVitals.TTFB || 45} ms</strong>
+                  <strong>{formatWebVital(perfReport.webVitals.ttfb ?? perfReport.webVitals.TTFB)}</strong>
                   <span className="badge" style={{ background: 'rgba(16, 185, 129, 0.2)', color: '#10B981', fontWeight: 800 }}>
-                    🟢 BUENO
+                    {webVitalStatus(perfReport.webVitals.ttfb ?? perfReport.webVitals.TTFB)}
                   </span>
                 </div>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.75rem', background: 'var(--bg-main)', borderRadius: 'var(--radius-sm)' }}>
                 <span>FCP (First Contentful Paint):</span>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <strong>{perfReport.webVitals.fcp || perfReport.webVitals.FCP || 180} ms</strong>
+                  <strong>{formatWebVital(perfReport.webVitals.fcp ?? perfReport.webVitals.FCP)}</strong>
                   <span className="badge" style={{ background: 'rgba(16, 185, 129, 0.2)', color: '#10B981', fontWeight: 800 }}>
-                    🟢 BUENO
+                    {webVitalStatus(perfReport.webVitals.fcp ?? perfReport.webVitals.FCP)}
                   </span>
                 </div>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.75rem', background: 'var(--bg-main)', borderRadius: 'var(--radius-sm)' }}>
                 <span>LCP (Largest Contentful Paint):</span>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <strong>{perfReport.webVitals.lcp || perfReport.webVitals.LCP || 350} ms</strong>
+                  <strong>{formatWebVital(perfReport.webVitals.lcp ?? perfReport.webVitals.LCP)}</strong>
                   <span className="badge" style={{ background: 'rgba(16, 185, 129, 0.2)', color: '#10B981', fontWeight: 800 }}>
-                    🟢 BUENO
+                    {webVitalStatus(perfReport.webVitals.lcp ?? perfReport.webVitals.LCP)}
                   </span>
                 </div>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.75rem', background: 'var(--bg-main)', borderRadius: 'var(--radius-sm)' }}>
                 <span>Carga DOM (DOMContentLoaded):</span>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <strong>{perfReport.webVitals.domContentLoaded || 220} ms</strong>
+                  <strong>{formatWebVital(perfReport.webVitals.domContentLoaded)}</strong>
                 </div>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.75rem', background: 'var(--bg-main)', borderRadius: 'var(--radius-sm)' }}>
                 <span>Carga Completa (Load Complete):</span>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <strong>{perfReport.webVitals.loadComplete || 450} ms</strong>
+                  <strong>{formatWebVital(perfReport.webVitals.loadComplete)}</strong>
                 </div>
               </div>
             </div>
@@ -815,7 +850,7 @@ export default function AdminDashboard({ onLogout }) {
           <div className="glass-panel" style={{ padding: '1.75rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '1rem' }}>
               <h4 style={{ fontSize: '1.15rem', fontWeight: 800, margin: 0, color: 'var(--uca-navy)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <Server size={22} color="var(--uca-cyan)" /> Estado de Microservicios y Contenedores Docker (4/4 Activos)
+                <Server size={22} color="var(--uca-cyan)" /> Estado de Microservicios y Métricas Docker ({contenedoresLista.length} registrados)
               </h4>
               <button 
                 className="btn btn-primary" 
@@ -827,8 +862,12 @@ export default function AdminDashboard({ onLogout }) {
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.25rem' }}>
-              {contenedoresLista.map((c, idx) => (
-                <div key={idx} style={{
+              {contenedoresLista.length === 0 ? (
+                <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
+                  No hay mediciones de contenedores disponibles.
+                </div>
+              ) : contenedoresLista.map((c) => (
+                <div key={`${c.nombre || 'container'}-${c.fase || 'unknown'}`} style={{
                   background: 'var(--bg-main)',
                   padding: '1.25rem',
                   borderRadius: 'var(--radius-md)',
@@ -837,8 +876,8 @@ export default function AdminDashboard({ onLogout }) {
                 }}>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.6rem' }}>
                     <span style={{ fontWeight: 800, fontSize: '1.05rem', color: 'var(--uca-blue)' }}>{c.nombre}</span>
-                    <span className="badge" style={{ background: 'rgba(16, 185, 129, 0.15)', color: '#10B981', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
-                      <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10B981', display: 'inline-block' }}></span> OPERATIVO
+                    <span className="badge" style={{ background: c.medicion_disponible ? 'rgba(16, 185, 129, 0.15)' : 'rgba(107, 114, 128, 0.15)', color: c.medicion_disponible ? '#10B981' : 'var(--text-muted)', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+                      <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: c.medicion_disponible ? '#10B981' : '#6B7280', display: 'inline-block' }}></span> {c.medicion_disponible ? 'MEDIDO' : 'NO MEDIDO'}
                     </span>
                   </div>
                   <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '0.75rem', fontWeight: 600 }}>
@@ -846,24 +885,24 @@ export default function AdminDashboard({ onLogout }) {
                   </div>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.85rem' }}>
-                    <div><strong>Estado:</strong> <span style={{ color: '#10B981', fontWeight: 600 }}>{c.estado}</span></div>
+                    <div><strong>Estado:</strong> <span style={{ color: c.medicion_disponible ? '#10B981' : 'var(--text-muted)', fontWeight: 600 }}>{c.estado || 'N/D'}</span></div>
                     
                     <div>
                       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.2rem' }}>
-                        <span><strong>Memoria RAM:</strong> {c.memoria_mb} MB</span>
-                        <span>{Math.round((c.memoria_mb / 512) * 100)}%</span>
+                        <span><strong>Memoria RAM:</strong> {formatContainerMetric(c.memoria_mb, ' MB')}</span>
+                        <span>{c.memoria_mb == null ? 'N/D' : `${Math.round(containerMetricPercent(c.memoria_mb, 512))}%`}</span>
                       </div>
                       <div style={{ width: '100%', background: 'var(--border-light)', height: '6px', borderRadius: '3px', overflow: 'hidden' }}>
-                        <div style={{ width: `${Math.min(100, Math.round((c.memoria_mb / 512) * 100))}%`, background: 'var(--uca-cyan)', height: '100%', transition: 'width 0.5s ease' }}></div>
+                        <div style={{ width: `${containerMetricPercent(c.memoria_mb, 512)}%`, background: 'var(--uca-cyan)', height: '100%', transition: 'width 0.5s ease' }}></div>
                       </div>
                     </div>
 
                     <div>
                       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.2rem' }}>
-                        <span><strong>Uso CPU:</strong> {c.cpu_porcentaje}%</span>
+                        <span><strong>Uso CPU:</strong> {formatContainerMetric(c.cpu_porcentaje, '%')}</span>
                       </div>
                       <div style={{ width: '100%', background: 'var(--border-light)', height: '6px', borderRadius: '3px', overflow: 'hidden' }}>
-                        <div style={{ width: `${Math.min(100, c.cpu_porcentaje)}%`, background: c.cpu_porcentaje > 80 ? '#EF4444' : 'var(--uca-gold)', height: '100%', transition: 'width 0.5s ease' }}></div>
+                        <div style={{ width: `${containerMetricPercent(c.cpu_porcentaje)}%`, background: Number(c.cpu_porcentaje) > 80 ? '#EF4444' : 'var(--uca-gold)', height: '100%', transition: 'width 0.5s ease' }}></div>
                       </div>
                     </div>
 
@@ -889,7 +928,7 @@ export default function AdminDashboard({ onLogout }) {
               <div>
                 <h5 style={{ fontWeight: 800, color: 'var(--uca-navy)', margin: 0 }}>Sincronización ETL en Proceso</h5>
                 <p style={{ fontSize: '0.85rem', color: 'var(--text-main)', margin: '0.2rem 0 0 0' }}>
-                  El proceso relacional ETL está importando y actualizando las titulaciones y planes de estudio atómicamente en PostgreSQL.
+                  El proceso relacional ETL está importando y actualizando las titulaciones y planes de estudio dentro de una transacción PostgreSQL.
                 </p>
               </div>
             </div>
@@ -906,7 +945,7 @@ export default function AdminDashboard({ onLogout }) {
               <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
                 <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 600 }}>Tasa de Cobertura Curricular</div>
                 <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--uca-blue)' }}>
-                  {coverageData?.tasa_cobertura_curricular_porcentaje || 94.2}%
+                  {Number.isFinite(coverageValue) ? `${coverageValue}%` : 'N/D'}
                 </div>
                 <div style={{ fontSize: '0.78rem', color: '#10B981', fontWeight: 600 }}>
                   {totalDegreesCount} titulaciones oficiales
@@ -914,9 +953,9 @@ export default function AdminDashboard({ onLogout }) {
               </div>
 
               <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 600 }}>Páginas Rastreadas ETL</div>
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 600 }}>Informes de rendimiento ETL</div>
                 <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--uca-cyan)' }}>
-                  {crawlerStats?.length ? `${crawlerStats.length}` : '13.653'}
+                  {performanceReportsCount > 0 ? performanceReportsCount : 'N/D'}
                 </div>
                 <div style={{ fontSize: '0.78rem', color: crawlerErrors.length > 0 ? '#EF4444' : '#10B981', fontWeight: 600 }}>
                   {crawlerErrors.length} errores capturados
@@ -924,29 +963,29 @@ export default function AdminDashboard({ onLogout }) {
               </div>
 
               <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 600 }}>Métrica Green IT (Consumo Global)</div>
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 600 }}>Estimación Green IT del proceso API</div>
                 <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#10B981' }}>
-                  0.235 kWh
+                  {formatMetricValue(greenItMetrics.huella_carbono_estimada_gco2, ' gCO₂')}
                 </div>
                 <div style={{ fontSize: '0.78rem', color: 'var(--text-light)' }}>
-                  Huella Total: 42.35 gCO₂ (A+)
+                  {greenItMetrics.eficiencia_energetica || 'Sin datos medidos'}
                 </div>
               </div>
 
               <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
                 <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 600 }}>Cache Hit Ratio (SQLite WAL)</div>
                 <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--uca-gold)' }}>
-                  99.8%
+                  N/D
                 </div>
-                <div style={{ fontSize: '0.78rem', color: '#10B981', fontWeight: 600 }}>Resuelto en &lt;0.1ms sin red</div>
+                <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 600 }}>No disponible en la API actual</div>
               </div>
 
               <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
                 <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 600 }}>Integridad Relacional BD</div>
                 <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#10B981' }}>
-                  100%
+                  N/D
                 </div>
-                <div style={{ fontSize: '0.78rem', color: '#10B981', fontWeight: 600 }}>0 titulaciones huérfanas</div>
+                <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 600 }}>No disponible en la API actual</div>
               </div>
             </div>
 
@@ -1005,7 +1044,7 @@ export default function AdminDashboard({ onLogout }) {
                 }}>
                   <CheckCircle2 size={20} color="#10B981" />
                   <div>
-                    <strong>0 Errores Críticos Bloqueantes:</strong> Todas las conexiones oficiales y análisis de documentos PDF se completaron con éxito bajo el cliente HTTP Circuit Breaker.
+                    <strong>Sin incidencias registradas:</strong> No hay errores persistidos en el registro disponible del crawler.
                   </div>
                 </div>
               ) : (
@@ -1033,7 +1072,7 @@ export default function AdminDashboard({ onLogout }) {
                           );
                         })
                         .map((err, idx) => (
-                          <tr key={idx} style={{ borderBottom: '1px solid var(--border-light)', background: idx % 2 === 0 ? 'var(--bg-main)' : 'transparent' }}>
+                          <tr key={err.id || `${err.timestamp || 'error'}-${err.codigo || err.universidad_codigo || 'unknown'}-${idx}`} style={{ borderBottom: '1px solid var(--border-light)', background: idx % 2 === 0 ? 'var(--bg-main)' : 'transparent' }}>
                             <td style={{ padding: '0.5rem 0.75rem', whiteSpace: 'nowrap', color: 'var(--text-muted)' }}>
                               {err.timestamp ? new Date(err.timestamp).toLocaleDateString() : 'N/A'}
                             </td>
@@ -1085,7 +1124,7 @@ export default function AdminDashboard({ onLogout }) {
                 </div>
                 <div style={{ background: 'var(--bg-main)', padding: '0.85rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
                   <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 600 }}>Endpoints Operativos</div>
-                  <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--uca-cyan)' }}>{apiDocsInfoData.total_endpoints || '16'}</div>
+                  <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--uca-cyan)' }}>{endpointCount ?? 'N/D'}</div>
                 </div>
                 <div style={{ background: 'var(--bg-main)', padding: '0.85rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
                   <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 600 }}>Autenticación</div>
@@ -1174,7 +1213,7 @@ export default function AdminDashboard({ onLogout }) {
                         <td style={{ padding: '0.6rem', fontWeight: 700 }}>{sub.curso ? `${sub.curso}º` : '-'}</td>
                         <td style={{ padding: '0.6rem' }}>{sub.cuatrimestre || '-'}</td>
                         <td style={{ padding: '0.6rem', fontWeight: 600 }}>{sub.nombre_elemento}</td>
-                        <td style={{ padding: '0.6rem', fontWeight: 700, color: 'var(--uca-blue)' }}>{sub.creditos_ects || '6'}</td>
+                        <td style={{ padding: '0.6rem', fontWeight: 700, color: 'var(--uca-blue)' }}>{sub.creditos_ects || 'N/D'}</td>
                         <td style={{ padding: '0.6rem' }}>
                           <span className="badge" style={{ background: 'rgba(0, 132, 200, 0.1)', color: 'var(--uca-cyan)' }}>
                             {sub.caracter || 'OB'}

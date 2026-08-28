@@ -1,8 +1,9 @@
 import React from 'react';
 import { GraduationCap, Award, BookOpen, Database, ExternalLink, Server, Zap, Globe, DollarSign } from 'lucide-react';
+import { API_BASE_URL } from '../services/api';
 
 export default function AboutUs() {
-  const swaggerUrl = (import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api/v1').replace(/\/api\/v1\/?$/, '/docs');
+  const swaggerUrl = API_BASE_URL.replace(/\/api\/v1\/?$/, '/docs');
 
   return (
     <div className="container" style={{ padding: '3rem 1.5rem 4rem 1.5rem', maxWidth: '1000px' }}>
@@ -94,7 +95,7 @@ export default function AboutUs() {
               <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--uca-navy)' }}>Fase 1: Crawler & BOE</h4>
             </div>
             <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>
-              Sistema multihilo de recolección de datos sobre RUCT, parser de PDFs del BOE en dos procesos (Red/CPU), rascado de webs oficiales universitarias (públicas y privadas) y más de <strong>13.653 planes estructurados</strong>.
+              Sistema multihilo de recolección de datos sobre RUCT, parser de PDFs del BOE en dos procesos (Red/CPU) y rastreo de webs oficiales universitarias (públicas y privadas), con el volumen de datos actualizado por el ETL.
             </p>
           </div>
 

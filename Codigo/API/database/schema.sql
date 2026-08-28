@@ -7,13 +7,13 @@ CREATE TABLE IF NOT EXISTS universidades (
     id SERIAL PRIMARY KEY,
     codigo VARCHAR(10) UNIQUE NOT NULL,
     nombre VARCHAR(500) NOT NULL,
-    tipo VARCHAR(50),
-    comunidad_autonoma VARCHAR(100),
-    municipio VARCHAR(100),
-    provincia VARCHAR(100),
+    tipo VARCHAR(100),
+    comunidad_autonoma VARCHAR(200),
+    municipio VARCHAR(200),
+    provincia VARCHAR(200),
     web VARCHAR(500),
-    email VARCHAR(255),
-    telefono VARCHAR(50),
+    email VARCHAR(500),
+    telefono VARCHAR(200),
     gestionado_por_admin BOOLEAN DEFAULT FALSE,
     creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -23,9 +23,9 @@ CREATE TABLE IF NOT EXISTS titulaciones (
     id SERIAL PRIMARY KEY,
     codigo_estudio VARCHAR(20) UNIQUE NOT NULL,
     titulo TEXT NOT NULL,
-    nivel_academico VARCHAR(200),
-    estado VARCHAR(100),
-    universidad_codigo VARCHAR(10) REFERENCES universidades(codigo) ON DELETE CASCADE,
+    nivel_academico TEXT,
+    estado VARCHAR(200),
+    universidad_codigo VARCHAR(10) NOT NULL REFERENCES universidades(codigo) ON DELETE CASCADE,
     precio_credito_ects NUMERIC(6, 2),
     precio_credito_2 NUMERIC(6, 2),
     precio_credito_3 NUMERIC(6, 2),
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS titulaciones (
 -- 3. Tabla de Planes de Estudio (Metadatos BOE por Titulación)
 CREATE TABLE IF NOT EXISTS planes_estudio (
     id SERIAL PRIMARY KEY,
-    codigo_estudio VARCHAR(20) UNIQUE REFERENCES titulaciones(codigo_estudio) ON DELETE CASCADE,
+    codigo_estudio VARCHAR(20) UNIQUE NOT NULL REFERENCES titulaciones(codigo_estudio) ON DELETE CASCADE,
     boe_url TEXT,
     boe_fecha DATE,
     origen_fuente VARCHAR(100),
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS planes_estudio (
 -- 4. Tabla de Resumen de Créditos ECTS
 CREATE TABLE IF NOT EXISTS resumen_creditos (
     id SERIAL PRIMARY KEY,
-    plan_estudio_id INT REFERENCES planes_estudio(id) ON DELETE CASCADE,
+    plan_estudio_id INT NOT NULL REFERENCES planes_estudio(id) ON DELETE CASCADE,
     tipo_credito VARCHAR(200) NOT NULL,
     cantidad_creditos VARCHAR(50) NOT NULL
 );
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS resumen_creditos (
 -- 5. Tabla de Elementos Curriculares (Asignaturas, Módulos, Materias, Bloques y Guías Docentes EEES)
 CREATE TABLE IF NOT EXISTS elementos_curriculares (
     id SERIAL PRIMARY KEY,
-    plan_estudio_id INT REFERENCES planes_estudio(id) ON DELETE CASCADE,
+    plan_estudio_id INT NOT NULL REFERENCES planes_estudio(id) ON DELETE CASCADE,
     modulo TEXT,
     materia TEXT,
     nombre_elemento TEXT NOT NULL,

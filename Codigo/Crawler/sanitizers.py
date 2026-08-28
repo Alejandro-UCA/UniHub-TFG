@@ -242,7 +242,7 @@ def sanitize_subject_name(name: str) -> str:
     return normalized.rstrip(".,;:-_ ")
 
 
-def is_spurious_or_administrative_subject(text: str, ects_val: float = 6.0, caracter: str = "OB") -> bool:
+def is_spurious_or_administrative_subject(text: str, ects_val: float = None, caracter: str = "OB") -> bool:
     """
     Identifica si una línea es ruido administrativo, pie de página, escala de notas o texto de formulario.
     """
@@ -262,15 +262,17 @@ def is_spurious_or_administrative_subject(text: str, ects_val: float = 6.0, cara
     if re.match(r"^(?:FBA|FB|OBL|OB|OPT|OP|PE|PEX|TFG|TFM|EXT|OIN|DER|HAU)\s+\d+\s+\d+$", t_clean, re.I):
         return True
 
-    try:
-        credits = float(ects_val if ects_val is not None else 6.0)
-    except (TypeError, ValueError):
-        credits = 6.0
+    credits = None
+    if ects_val is not None:
+        try:
+            credits = float(ects_val)
+        except (TypeError, ValueError):
+            credits = None
     normalized_character = (caracter or "OB").upper()
     is_final_or_internship = normalized_character in {"TFG", "TFM", "TFG/TFM", "PE"} or any(
         marker in t_low for marker in ("trabajo fin", "treball fi", "tfg", "tfm", "practic", "pràctic", "externa", "proyecto")
     )
-    if credits <= 0 or credits > 30 or (credits > 12 and not is_final_or_internship):
+    if credits is not None and (credits <= 0 or credits > 30 or (credits > 12 and not is_final_or_internship)):
         return True
 
     if any(t_low == hk for hk in HEADER_KEYWORDS):
@@ -436,13 +438,23 @@ def extract_subjects_from_card_blocks(text_or_soup, base_url: str = "") -> list:
     """Extrae asignaturas estructuradas a partir de bloques/tarjetas de texto o DOM."""
     if not text_or_soup:
         return []
+    card_blocks = None
     if isinstance(text_or_soup, str):
         text = text_or_soup
     else:
-        text = text_or_soup.get_text(separator="\n")
-    
+        # Mantener la frontera DOM de cada tarjeta. Unir todo el documento en
+        # un único bloque pierde la cabecera de las tarjetas posteriores.
+        card_nodes = text_or_soup.select(
+            ".card-item, .subject-card, [data-subject], [data-asignatura]"
+        )
+        if card_nodes:
+            card_blocks = [node.get_text(separator="\n") for node in card_nodes]
+            text = ""
+        else:
+            text = text_or_soup.get_text(separator="\n")
+
     results = []
-    blocks = re.split(r"\n\s*\n+", text.strip())
+    blocks = card_blocks if card_blocks is not None else re.split(r"\n\s*\n+", text.strip())
     
     for block in blocks:
         lines = [l.strip() for l in block.splitlines() if l.strip()]
@@ -462,7 +474,7 @@ def extract_subjects_from_card_blocks(text_or_soup, base_url: str = "") -> list:
         curso_val = "1"
         cuat_val = "1C"
         caracter_val = "OB"
-        creditos_val = "6"
+        creditos_val = None
         
         for line in lines[1:]:
             l_low = line.lower()
@@ -482,7 +494,7 @@ def extract_subjects_from_card_blocks(text_or_soup, base_url: str = "") -> list:
             "nombre_elemento": nom_asig,
             "tipo_elemento": "Asignatura",
             "creditos_ects": creditos_val,
-            "creditos": float(creditos_val) if creditos_val else 6.0,
+            "creditos": float(creditos_val) if creditos_val else None,
             "caracter": caracter_val,
             "curso": curso_val,
             "cuatrimestre": cuat_val,

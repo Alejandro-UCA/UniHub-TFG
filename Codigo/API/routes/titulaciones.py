@@ -138,7 +138,7 @@ def create_titulacion(data: TitulacionCreate, db: Session = Depends(get_admin_db
         codigo_estudio=clean_code,
         titulo=data.titulo.strip(),
         nivel_academico=data.nivel_academico.strip() if data.nivel_academico else None,
-        estado=data.estado.strip() if data.estado else "Publicado en B.O.E.",
+        estado=data.estado.strip() if data.estado else None,
         universidad_codigo=univ.codigo,
         precio_credito_ects=data.precio_credito_ects,
         precio_credito_2=data.precio_credito_2,
@@ -206,12 +206,21 @@ def delete_titulacion(codigo_estudio: str, db: Session = Depends(get_admin_db), 
 # ==============================================================================
 
 @router.get("/{codigo_estudio}/asignaturas", response_model=List[ElementoCurricularOut], summary="Listar asignaturas de una titulación")
-def list_asignaturas_titulacion(codigo_estudio: str, db: Session = Depends(get_db)):
+def list_asignaturas_titulacion(
+    codigo_estudio: str,
+    response: Response,
+    skip: int = Query(0, ge=0),
+    limit: int = Query(100, ge=1, le=500),
+    db: Session = Depends(get_db),
+):
     clean_code = codigo_estudio.strip()
     plan = db.query(PlanEstudios).filter(PlanEstudios.codigo_estudio == clean_code).first()
     if not plan:
         return []
-    return db.query(ElementoCurricular).filter(ElementoCurricular.plan_estudio_id == plan.id).order_by(ElementoCurricular.curso.asc(), ElementoCurricular.nombre_elemento.asc()).all()
+    query = db.query(ElementoCurricular).filter(ElementoCurricular.plan_estudio_id == plan.id)
+    response.headers["X-Total-Count"] = str(query.count())
+    response.headers["Access-Control-Expose-Headers"] = "X-Total-Count"
+    return query.order_by(ElementoCurricular.curso.asc(), ElementoCurricular.nombre_elemento.asc()).offset(skip).limit(limit).all()
 
 @router.post("/{codigo_estudio}/asignaturas", response_model=ElementoCurricularOut, status_code=status.HTTP_201_CREATED, summary="Crear nueva asignatura para una titulación (Admin)")
 def create_asignatura(codigo_estudio: str, data: ElementoCurricularCreate, db: Session = Depends(get_admin_db), api_key: str = Depends(verify_api_key)):
@@ -224,8 +233,7 @@ def create_asignatura(codigo_estudio: str, data: ElementoCurricularCreate, db: S
     if not plan:
         plan = PlanEstudios(codigo_estudio=clean_code, origen_fuente="gestion_admin")
         db.add(plan)
-        db.commit()
-        db.refresh(plan)
+        db.flush()
 
     create_dict = data.model_dump()
     if "nombre_elemento" in create_dict and create_dict["nombre_elemento"]:

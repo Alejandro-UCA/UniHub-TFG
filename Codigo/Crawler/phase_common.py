@@ -10,6 +10,8 @@ from __future__ import annotations
 
 import os
 import time
+import json
+import logging
 from pathlib import Path
 from typing import Iterable, Sequence
 
@@ -19,6 +21,8 @@ from config import (
     API_SYNC_URL,
     PLANES_DIR,
 )
+
+logger = logging.getLogger(__name__)
 
 
 PHASE_DESCRIPTIONS = {
@@ -70,7 +74,10 @@ def iter_plan_files(
         return []
 
     paths = sorted(
-        (path for path in root_path.rglob("*.json") if path.stem.isdigit()),
+        (
+            path for path in root_path.rglob("*.json")
+            if path.stem.isdigit() or _is_plan_payload(path)
+        ),
         key=lambda path: (path.stem, len(path.parts), str(path).lower()),
     )
     if not deduplicate:
@@ -91,6 +98,16 @@ def iter_plan_files(
         if current is None or len(path.parts) > len(current.parts):
             by_degree[key] = path
     return [str(by_degree[key]) for key in sorted(by_degree)]
+
+
+def _is_plan_payload(path: Path) -> bool:
+    """Acepta códigos alfanuméricos solo si el JSON demuestra ser un plan."""
+    try:
+        with path.open("r", encoding="utf-8") as handle:
+            payload = json.load(handle)
+        return isinstance(payload, dict) and bool(str(payload.get("codigo_estudio") or "").strip())
+    except (OSError, ValueError, TypeError):
+        return False
 
 
 def cleanup_temporary_files(
@@ -121,7 +138,7 @@ def trigger_api_etl_sync(
     api_key: str | None = None,
     timeout: float = API_SYNC_TIMEOUT_SECONDS,
 ) -> bool:
-    """Solicita la ETL a la primera URL disponible sin bloquear el pipeline."""
+    """Solicita una ETL sincrónica y confirma que la transacción finalizó."""
     import requests
 
     candidates = list(urls) if urls is not None else [
@@ -147,6 +164,8 @@ def trigger_api_etl_sync(
             response = requests.post(url, headers=headers, timeout=min(float(timeout), remaining))
             if response.ok:
                 return True
+            logger.warning("La ETL remota respondió %s en %s", response.status_code, url)
         except requests.RequestException:
+            logger.warning("No se pudo contactar con la ETL remota en %s", url, exc_info=True)
             continue
     return False

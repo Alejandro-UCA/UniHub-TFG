@@ -189,8 +189,8 @@ class SubjectGuideCache:
             for conn in list(conns.values()):
                 try:
                     conn.close()
-                except Exception:
-                    pass
+                except OSError as close_error:
+                    logger.warning("No se pudo cerrar una conexión de caché de guías: %s", close_error, exc_info=True)
             conns.clear()
 
     def __enter__(self):
@@ -403,8 +403,8 @@ def parse_uca_subject_guide(soup: BeautifulSoup, url: str) -> dict:
         "idioma": "Castellano",
         "departamento": "",
         "area_conocimiento": "",
-        "creditos": {"teoria": 0.0, "practicas": 0.0, "total_ects": 6.0},
-        "horas_presenciales": {"teoria": 0.0, "otras": 0.0, "total": 150.0},
+        "creditos": {"teoria": None, "practicas": None, "total_ects": None},
+        "horas_presenciales": {"teoria": None, "otras": None, "total": None},
         "temario": [],
         "sistema_evaluacion": [],
         "criterios_evaluacion": "",
@@ -591,7 +591,7 @@ def parse_subject_guide_pdf_stream(pdf_bytes: bytes, url: str) -> dict:
         "nombre_asignatura": "",
         "idioma": "Castellano",
         "departamento": "",
-        "creditos": {"teoria": 0.0, "practicas": 0.0, "total_ects": 6.0},
+        "creditos": {"teoria": None, "practicas": None, "total_ects": None},
         "temario": [],
         "sistema_evaluacion": [],
         "criterios_evaluacion": "",
@@ -851,8 +851,8 @@ def _process_single_university_guides(u_code: str, degree_items: list, cache: Su
                     if resp is not None:
                         try:
                             resp.close()
-                        except Exception:
-                            pass
+                        except Exception as close_error:
+                            logger.debug("No se pudo cerrar la respuesta HTTP de la guía: %s", close_error, exc_info=True)
 
             # Si ninguna fuente actual respondió o produjo contenido válido,
             # conservar la última guía fiable en vez de dejar un hueco.
@@ -1024,9 +1024,9 @@ def run_phase1_part4(
     finally:
         try:
             cache.close()
-        except Exception:
-            pass
+        except Exception as close_error:
+            logger.warning("No se pudo cerrar la caché SQLite de guías: %s", close_error, exc_info=True)
         try:
             ledger.close()
-        except Exception:
-            pass
+        except Exception as close_error:
+            logger.warning("No se pudo cerrar el ledger de guías: %s", close_error, exc_info=True)

@@ -9,6 +9,17 @@ import threading
 import requests
 import urllib.parse
 from urllib.robotparser import RobotFileParser
+import os
+import sys
+import re
+import json
+import time
+import gzip
+import logging
+import threading
+import requests
+import urllib.parse
+from urllib.robotparser import RobotFileParser
 from bs4 import BeautifulSoup
 import concurrent.futures
 import unicodedata
@@ -16,10 +27,14 @@ from datetime import datetime
 from collections import defaultdict, deque
 
 logger = logging.getLogger("unihub_web_crawler")
-_MAX_PDF_PAGES_EXTRACT = 80
 
 
-def _annotate_plan_source_status(degrees: list, university_code: str, status: str) -> None:
+def _annotate_plan_source_status(
+    degrees: list,
+    university_code: str,
+    status: str,
+    university_name: str = "",
+) -> None:
     """Registra por qué se conserva un plan anterior durante una revalidación."""
     checked_at = datetime.now().isoformat()
     for degree in degrees or []:
@@ -31,7 +46,23 @@ def _annotate_plan_source_status(degrees: list, university_code: str, status: st
         path = find_plan_filepath(university_code, d_code)
         data = load_json_safe(path, default=None)
         if not isinstance(data, dict):
-            continue
+            data = {}
+        # Una actualización de estado nunca puede convertir el registro en un
+        # JSON esquelético. La identidad procede del catálogo RUCT y se repone
+        # incluso cuando la búsqueda web no encontró contenido curricular.
+        identity = {
+            "codigo_estudio": d_code,
+            "titulo": str(degree.get("titulo") or "").strip(),
+            "nivel_academico": str(degree.get("nivel_academico") or "").strip(),
+            "universidad_codigo": str(university_code or "").zfill(3),
+            "universidad_nombre": str(
+                degree.get("universidad_nombre") or university_name or ""
+            ).strip(),
+        }
+        for key, value in identity.items():
+            if value and not str(data.get(key) or "").strip():
+                data[key] = value
+        data.setdefault("plan_estudios", None)
         data["estado_fuente"] = status if data.get("plan_estudios") else status.replace("conservando_anterior", "sin_dato")
         data["fecha_ultima_comprobacion_fuente"] = checked_at
         atomic_json_dump(data, path)
@@ -73,10 +104,13 @@ from config import (
     INVALID_METADATA_LABELS,
 
 
+
     MAX_ORGANIC_AFFILIATED_HUBS_PER_UNIV,
     ORGANIC_AFFILIATED_HUB_KEYWORDS,
     EUROPEAN_ALLIANCES_KEYWORDS,
+    ORGANIC_EXTERNAL_DOMAIN_DENYLIST,
     SPA_SUBPAGE_FETCH_TIMEOUT,
+    WEB_CANDIDATES_PER_DEGREE,
     WEB_SEARCH_RETRY_DELAY,
     WIKIPEDIA_API_URL,
     WIKIDATA_API_URL,
@@ -88,9 +122,12 @@ from config import (
     INSTITUTIONAL_PORTAL_KEYWORDS,
     FULL_REVALIDATION,
     REDISCOVER_URLS_EVERY_RUN,
-    TARGET_UNIVERSITY_CODES
+    TARGET_UNIVERSITY_CODES,
+    MAX_PDF_PAGES_EXTRACT,
 )
-from downloader import RUCTDownloader, is_same_or_subdomain as downloader_is_same_or_subdomain
+_MAX_PDF_PAGES_EXTRACT = MAX_PDF_PAGES_EXTRACT
+
+from downloader import RUCTDownloader, SkipUniversityException, is_same_or_subdomain as downloader_is_same_or_subdomain
 from robots_policy import RobotsPolicy
 from crawl_ledger import CrawlLedger
 from data_quality import apply_plan_quality, source_record
@@ -101,6 +138,7 @@ from parsers import (
     parse_boe_pdf,
     classify_subject_caracter,
     sanitize_subject_name,
+    curriculum_element_key,
     is_spurious_or_administrative_subject,
     is_curriculum_complete,
     compute_curriculum_total_ects,
@@ -298,6 +336,51 @@ def score_academic_candidate_url(url: str, link_text: str, academic_level: str, 
     return score
 
 
+def _candidate_title_match_count(url: str, link_text: str, title_keywords: list | None) -> int:
+    """Cuenta términos distintivos del título presentes en una candidata.
+
+    Las páginas de una misma universidad comparten palabras como «grado» o
+    «ingeniería». El índice Hub-and-Spoke también suele enlazar esas páginas
+    desde un mismo catálogo, por lo que una sola coincidencia produce falsos
+    positivos y obliga a rastrear subportales enteros. Se normalizan acentos y
+    plurales simples para conservar el comportamiento multilingüe existente.
+    """
+    if not title_keywords:
+        return 0
+
+    haystack = unicodedata.normalize(
+        "NFKD", f"{url or ''} {link_text or ''}"
+    ).encode("ASCII", "ignore").decode("utf-8").lower()
+    matches = set()
+    for raw_keyword in title_keywords:
+        keyword = unicodedata.normalize("NFKD", str(raw_keyword or ""))\
+            .encode("ASCII", "ignore").decode("utf-8").lower().strip()
+        if len(keyword) < 4:
+            continue
+        stem = keyword[:4]
+        if keyword in haystack or stem in haystack:
+            matches.add(keyword)
+    return len(matches)
+
+
+def _is_relevant_title_candidate(url: str, link_text: str, title_keywords: list | None) -> bool:
+    """Evita explorar candidatos de otra titulación con un nombre parecido."""
+    if not title_keywords:
+        return True
+    academic_markers = (
+        "plan", "estudio", "grado", "master", "máster", "titulacion", "título",
+        "docencia", "asignatura", "curriculum", "programa", "degree", "programme",
+        "postgrado", "posgrado", "oferta-academica", "guia-docente", "malla",
+    )
+    normalized_context = unicodedata.normalize(
+        "NFKD", f"{url or ''} {link_text or ''}"
+    ).encode("ASCII", "ignore").decode("utf-8").lower()
+    if not any(marker in normalized_context for marker in academic_markers):
+        return False
+    required = min(2, len([kw for kw in title_keywords if len(str(kw or "")) >= 4]))
+    return _candidate_title_match_count(url, link_text, title_keywords) >= max(1, required)
+
+
 def is_valid_curricular_table(table_tag) -> bool:
     """Verifica que una tabla HTML sea verdaderamente curricular y no un formulario de búsqueda, escala de notas, tabla de cookies ni baremo administrativo de convalidaciones (Multilingüe)."""
     if table_tag.find(["input", "select", "textarea", "button", "form"]):
@@ -329,6 +412,48 @@ def is_valid_curricular_table(table_tag) -> bool:
         "horario de clases", "horari de classes", "calendario de exámenes", "calendari d'exàmens"
     ]
     if any(m in txt for m in discard_markers):
+        return False
+
+    # No basta con encontrar la palabra «créditos» en una tabla: las fichas
+    # administrativas de algunas universidades mezclan créditos, objetivos,
+    # centros y direcciones sin contener ninguna asignatura. Exigimos una
+    # señal estructural de plan (cabecera de asignatura/materia y otra columna
+    # curricular) o, como excepción conservadora, varias filas que se
+    # autodescriban como asignaturas y aporten créditos.
+    rows = table_tag.find_all("tr")
+    header_text = " ".join(
+        cell.get_text(" ", strip=True).lower()
+        for row in rows[:2]
+        for cell in row.find_all(["th", "td"])
+    )
+    subject_headers = (
+        "asignatura", "assignatura", "asineira", "irakasgaia", "materia",
+        "denominación", "denominacion", "nombre", "subject", "course", "module",
+    )
+    curricular_headers = (
+        "crédito", "credito", "ects", "credit", "carácter", "caracter", "tipo",
+        "tipus", "curso", "curs", "semestre", "cuatrimestre", "quadrimestre",
+        "semester", "year", "level", "código", "codigo", "codi", "kredituak",
+        "kreditu", "mota", "maila", "ikasturtea", "lauhilekoa",
+    )
+    has_subject_header = any(marker in header_text for marker in subject_headers)
+    has_curricular_header = any(marker in header_text for marker in curricular_headers)
+
+    explicit_subject_rows = 0
+    rows_with_credits = 0
+    for row in rows[1:]:
+        cells = [cell.get_text(" ", strip=True) for cell in row.find_all(["td", "th"])]
+        if not cells:
+            continue
+        row_text = " ".join(cells).lower()
+        if any(re.search(rf"\b{re.escape(marker)}\b", row_text) for marker in subject_headers):
+            explicit_subject_rows += 1
+        if any(re.search(r"\b(?:[1-9]|[12]\d|30)(?:[.,]\d+)?\s*(?:ects|cr[eé]ditos?|credits?)?\b", cell, re.IGNORECASE) for cell in cells):
+            rows_with_credits += 1
+
+    if not (has_subject_header and has_curricular_header) and not (
+        explicit_subject_rows >= 2 and rows_with_credits >= 2
+    ):
         return False
 
     # 2. Descartar tablas de política de cookies y privacidad
@@ -482,6 +607,57 @@ def is_html_page_matching_degree(soup: BeautifulSoup, target_title: str, univ_na
         return False
 
     return is_section_matching(page_kw, target_kw)
+
+
+def are_degree_titles_compatible(first_title: str, second_title: str, univ_name: str = "") -> bool:
+    """Comprueba que dos titulaciones puedan compartir una fuente curricular.
+
+    Una URL puede ser legítimamente común a versiones cooperativas o
+    lingüísticas de un plan, pero no a dos especialidades distintas. La
+    comparación es simétrica y usa las mismas palabras núcleo que el filtro
+    de páginas; exigir ambas direcciones evita que la palabra genérica
+    «ingeniería» haga compatibles «Ingeniería Web» e «Ingeniería Mecatrónica».
+    """
+    first = extract_degree_core_keywords(first_title, univ_name)
+    second = extract_degree_core_keywords(second_title, univ_name)
+    if not first or not second:
+        return False
+    return is_section_matching(first, second) and is_section_matching(second, first)
+
+
+_EXTERNAL_AFFILIATION_MARKERS = (
+    "centro adscrito", "centros adscritos", "centro asociado", "centros asociados",
+    "escuela adscrita", "escuelas adscritas", "instituto adscrito",
+    "facultad asociada", "facultades asociadas", "partner institution",
+    "partner university", "institutional partner", "academic partner",
+    "escola superior", "escuela superior", "instituto superior", "institut superior",
+    "college", "school of", "faculty of", "facultad de", "facultat de",
+    "escola", "escuela",
+)
+_EXTERNAL_ALLIANCE_MARKERS = (
+    "erasmus mundus", "joint master", "joint degree", "european university",
+    "european alliance", "sea-eu", "eunice", "charmeu", "arqus", "civica",
+    "civis", "eut+", "neurotecheu", "circle u", "unite!", "enlight",
+    "4eu+", "una europa", "eureca-pro", "ingenium",
+)
+
+
+def is_authorized_external_academic_hub(url: str, anchor_text: str = "") -> bool:
+    """Acepta una fuente externa solo con evidencia relacional explícita.
+
+    Un enlace externo a una institución o a una red social no demuestra que
+    sea un centro colaborador. La autorización se basa en el contexto visible
+    del enlace y en marcadores de alianzas académicas, no en una universidad
+    concreta ni en una lista de dominios institucionales.
+    """
+    parsed = urllib.parse.urlparse(str(url or ""))
+    host = (parsed.hostname or "").lower().removeprefix("www.")
+    if not host or host in ORGANIC_EXTERNAL_DOMAIN_DENYLIST:
+        return False
+    context = unicodedata.normalize(
+        "NFKD", f"{anchor_text or ''} {parsed.path or ''} {parsed.query or ''}"
+    ).encode("ASCII", "ignore").decode("ascii").lower()
+    return any(marker in context for marker in _EXTERNAL_AFFILIATION_MARKERS + _EXTERNAL_ALLIANCE_MARKERS)
 
 
 def is_valid_web_url(href) -> bool:
@@ -796,7 +972,7 @@ def extract_html_subjects(soup: BeautifulSoup, base_url: str = "") -> list:
                         if is_spurious_or_administrative_subject(clean_line, ects_val=ects_val_num, caracter=caracter):
                             continue
 
-                        norm_name = re.sub(r"[^\w\s]", "", clean_low).strip()
+                        norm_name = curriculum_element_key(clean_line)
                         if norm_name in seen_names or len(norm_name) < 4:
                             continue
                         seen_names.add(norm_name)
@@ -864,7 +1040,7 @@ def extract_html_subjects(soup: BeautifulSoup, base_url: str = "") -> list:
             ):
                 continue
 
-            norm_name = re.sub(r"[^\w\s]", "", nombre_lower).strip()
+            norm_name = curriculum_element_key(nombre_candidato)
             if norm_name in seen_names:
                 continue
 
@@ -1197,6 +1373,12 @@ class UniversityWebCrawler:
                         # Descubrimiento orgánico de Centros Adscritos y Alianzas Europeas
                         if full_link.startswith("http") and any(k in t_low or k in h_low for k in ORGANIC_AFFILIATED_HUB_KEYWORDS):
                             parsed_ext = urllib.parse.urlparse(full_link)
+                            external_root = parsed_ext.netloc.lower().removeprefix("www.")
+                            if (
+                                external_root in ORGANIC_EXTERNAL_DOMAIN_DENYLIST
+                                or not is_authorized_external_academic_hub(full_link, t_text)
+                            ):
+                                continue
                             ext_domain = f"{parsed_ext.scheme}://{parsed_ext.netloc}"
                             if ext_domain not in seen_organic_domains and len(organic_hubs) < MAX_ORGANIC_AFFILIATED_HUBS_PER_UNIV:
                                 seen_organic_domains.add(ext_domain)
@@ -1461,7 +1643,7 @@ class UniversityWebCrawler:
         if not can_fetch:
             print(f" [BLOQUEO ROBOTS] Universidad [{u_code}] {u_name}: acceso denegado en {web_url}.")
             self.checkpoint.mark_robots_denied_university(u_code, web_url, "Crawling denegado o robots.txt no disponible")
-            _annotate_plan_source_status(missing_degrees, u_code, "robots_denegado_conservando_anterior")
+            _annotate_plan_source_status(missing_degrees, u_code, "robots_denegado_conservando_anterior", u_name)
             stats["robots_allowed"] = False
             return stats
 
@@ -1494,7 +1676,7 @@ class UniversityWebCrawler:
             else:
                 print(f" [RESCATE FALLIDO] No se pudo encontrar web alternativa en Wikipedia para [{u_code}].")
                 self.checkpoint.record_pdf_download_failure(web_url, "ALL", f"Web principal caída/errónea. Rescate fallido: {conn_err}")
-                _annotate_plan_source_status(missing_degrees, u_code, "web_no_disponible_conservando_anterior")
+                _annotate_plan_source_status(missing_degrees, u_code, "web_no_disponible_conservando_anterior", u_name)
                 stats["robots_allowed"] = False
                 return stats
         finally:
@@ -1505,7 +1687,7 @@ class UniversityWebCrawler:
         if not can_fetch:
             print(f" [BLOQUEO ROBOTS] Universidad [{u_code}] {u_name}: Crawling DENEGADO por robots.txt en {web_url}. Registrando en checkpoint y cancelando operación.")
             self.checkpoint.mark_robots_denied_university(u_code, web_url, "Crawling denegado por robots.txt")
-            _annotate_plan_source_status(missing_degrees, u_code, "robots_denegado_conservando_anterior")
+            _annotate_plan_source_status(missing_degrees, u_code, "robots_denegado_conservando_anterior", u_name)
             stats["robots_allowed"] = False
             return stats
 
@@ -1517,12 +1699,12 @@ class UniversityWebCrawler:
         downloader = RUCTDownloader(delay=effective_delay, timeout=WEB_CONTENT_TIMEOUT, metrics_tracker=self.metrics_tracker, ledger=self.ledger, phase="fase1_parte2_web")
         downloader.reset_university_context(u_code)
         try:
-            return self._crawl_university_degrees(downloader, u_code, u_name, web_url, missing_degrees, stats)
+            return self._crawl_university_degrees(downloader, u_code, u_name, web_url, missing_degrees, stats, u_type=u_type)
         finally:
             downloader.close()
 
     def _crawl_university_degrees(self, downloader: RUCTDownloader, u_code: str, u_name: str, 
-                                 web_url: str, missing_degrees: list, stats: dict) -> dict:
+                                 web_url: str, missing_degrees: list, stats: dict, u_type: str = "") -> dict:
         """Recorre y extrae los planes de estudio de las titulaciones de una universidad."""
         sitemap_urls = self.extract_sitemap_candidate_urls(web_url, missing_degrees=missing_degrees)
         if sitemap_urls:
@@ -1549,6 +1731,7 @@ class UniversityWebCrawler:
         lazy_soup = None
         lazy_candidate_urls = None
         lazy_scanned_pages_cache = {} # Cache dict: candidate_page_url -> (sub_html, sub_soup)
+        accepted_source_identities = {}
 
         # 5. Escaneo/recorrido meticuloso de la web oficial de la universidad
         for d_idx, deg in enumerate(missing_degrees, 1):
@@ -1655,6 +1838,20 @@ class UniversityWebCrawler:
                             seen_c.add(c_url)
                             sc = score_academic_candidate_url(c_url, c_text, d_level, title_keywords)
                             scored_cat.append((sc, c_url, c_text))
+
+                    # Si el catálogo ofrece enlaces con dos términos del
+                    # título, no mezclar páginas de otra titulación que solo
+                    # comparten un término genérico (p. ej. «ingeniería»).
+                    relevant_cat = [
+                        item for item in scored_cat
+                        if _is_relevant_title_candidate(item[1], item[2], title_keywords)
+                    ]
+                    if relevant_cat:
+                        scored_cat = relevant_cat
+                    else:
+                        # No expandir enlaces genéricos: suelen ser noticias,
+                        # movilidad o investigación, no la ficha curricular.
+                        scored_cat = []
                     
                     scored_cat.sort(key=lambda x: x[0], reverse=True)
                     for sc, cat_url, cat_text in scored_cat[:4]:
@@ -1735,17 +1932,32 @@ class UniversityWebCrawler:
 
                     # Ordenar URLs candidatas por puntuación semántica descendente (de mayor a menor prioridad según nivel académico)
                     d_level = deg.get("nivel_academico", "")
-                    scored_candidates = [
-                        (score_academic_candidate_url(u, t, d_level, title_keywords), u)
-                        for u, t in lazy_candidate_urls
+                    candidate_text_by_url = {}
+                    scored_candidates = []
+                    for u, t in lazy_candidate_urls:
+                        candidate_text_by_url.setdefault(u, t)
+                        scored_candidates.append((score_academic_candidate_url(u, t, d_level, title_keywords), u))
+                    relevant_lazy = [
+                        item for item in scored_candidates
+                        if _is_relevant_title_candidate(item[1], candidate_text_by_url.get(item[1], ""), title_keywords)
                     ]
+                    if relevant_lazy:
+                        scored_candidates = relevant_lazy
+                    else:
+                        # Sin coincidencia académica relevante, no abrir una
+                        # página arbitraria de la portada institucional.
+                        scored_candidates = []
                     best_url_scores = {}
                     for sc, u in scored_candidates:
                         if u not in best_url_scores or sc > best_url_scores[u]:
                             best_url_scores[u] = sc
 
                     sorted_candidates = sorted(best_url_scores.items(), key=lambda x: x[1], reverse=True)
-                    scanned_urls = [u for u, score in sorted_candidates[:4]]
+                    # Evaluar varias fichas relevantes por titulación. El filtro
+                    # semántico evita falsos positivos; el límite configurable
+                    # recupera recall cuando la primera ficha es solo un índice.
+                    candidate_limit = max(1, int(WEB_CANDIDATES_PER_DEGREE or 1))
+                    scanned_urls = [u for u, score in sorted_candidates[:candidate_limit]]
                     visited_targets = set()
                     
                     for candidate_page_url in scanned_urls:
@@ -1814,6 +2026,15 @@ class UniversityWebCrawler:
                                             target_html = downloader.fetch_text(target_link)
                                             target_soup = BeautifulSoup(target_html, "html.parser")
                                             elementos_html = extract_html_subjects(target_soup, target_link)
+                                            # No profundizar en noticias, movilidad o investigación
+                                            # que solo coinciden por palabras sueltas del título.
+                                            # Las fichas legítimas pueden tener inicialmente cero
+                                            # asignaturas, pero deben identificarse semánticamente
+                                            # como la titulación antes de explorar sus enlaces.
+                                            if len(elementos_html) < 3 and not is_html_page_matching_degree(
+                                                target_soup, d_title, u_name, target_link
+                                            ):
+                                                continue
                                             # Paso 0.5: Si HTML estático de la ficha tiene < 3 asignaturas,
                                             # explorar dinámicamente cualquier subpágina enlazada en el DOM de la ficha (<a> tags)
                                             # priorizando subrutas directas del grado y enlaces a portales institucionales de gestión (2-Hop).
@@ -1930,14 +2151,17 @@ class UniversityWebCrawler:
                                                         if is_same_or_subdomain(full_sub, web_url) and full_sub != target_link and is_valid_web_url(full_sub):
                                                             sub_itinerarios.append(full_sub)
 
-                                                seen_names = {e.get("nombre_elemento", "").lower() for e in elementos_html}
+                                                seen_names = {
+                                                    curriculum_element_key(e.get("nombre_elemento", ""))
+                                                    for e in elementos_html
+                                                }
                                                 for s_url in sub_itinerarios[:3]:
                                                     try:
                                                         s_html = downloader.fetch_text(s_url)
                                                         s_soup = BeautifulSoup(s_html, "html.parser")
                                                         s_elems = extract_html_subjects(s_soup)
                                                         for se in s_elems:
-                                                            s_name = se.get("nombre_elemento", "").lower()
+                                                            s_name = curriculum_element_key(se.get("nombre_elemento", ""))
                                                             if s_name and s_name not in seen_names:
                                                                 seen_names.add(s_name)
                                                                 elementos_html.append(se)
@@ -1962,7 +2186,7 @@ class UniversityWebCrawler:
                                             
                                             # Extraer precios de matrículas en universidades privadas
                                             extracted_pricing = {}
-                                            if "privad" in u_type.lower():
+                                            if "privad" in (u_type or "").lower():
                                                 extracted_pricing = extract_private_university_pricing(target_soup, target_html)
                                                 
                                                 # Si no se encuentra precio en la subpágina directa, escanear enlaces de precios/admisión de la portada
@@ -2078,6 +2302,25 @@ class UniversityWebCrawler:
 
             # Guardar el plan y la URL directa donde se ha encontrado
             if found_curriculum and direct_source_url:
+                source_key = normalize_url(direct_source_url)
+                previous_identity = accepted_source_identities.get(source_key)
+                if previous_identity and not are_degree_titles_compatible(
+                    previous_identity["title"], d_title, u_name
+                ):
+                    stats["source_identity_conflicts"] = stats.get("source_identity_conflicts", 0) + 1
+                    print(
+                        "     [CUARENTENA IDENTIDAD] La URL curricular ya fue aceptada "
+                        f"para una titulación incompatible: {direct_source_url}"
+                    )
+                    found_curriculum = None
+                    direct_source_url = None
+                elif source_key:
+                    accepted_source_identities.setdefault(
+                        source_key,
+                        {"code": str(d_code), "title": str(d_title or "")},
+                    )
+
+            if found_curriculum and direct_source_url:
                 print(f"     [CANDIDATO PARTE 2] Plan localizado en web oficial: '{direct_source_url}'")
                 
                 degree_data = load_json_safe(plan_file)
@@ -2135,10 +2378,22 @@ class UniversityWebCrawler:
             else:
                 print(f"     -> No se encontró plan de estudios en la web oficial para [{d_code}].")
                 existing_data = load_json_safe(plan_file, default=None)
-                if isinstance(existing_data, dict):
-                    existing_data["estado_fuente"] = "sin_plan_actual_conservando_anterior" if existing_data.get("plan_estudios") else "sin_plan_actual_sin_dato"
-                    existing_data["fecha_ultima_comprobacion_fuente"] = datetime.now().isoformat()
-                    atomic_json_dump(existing_data, plan_file)
+                if not isinstance(existing_data, dict):
+                    existing_data = {}
+                identity = {
+                    "codigo_estudio": d_code,
+                    "titulo": str(d_title or "").strip(),
+                    "nivel_academico": str(d_level or "").strip(),
+                    "universidad_codigo": str(u_code or "").zfill(3),
+                    "universidad_nombre": str(u_name or "").strip(),
+                }
+                for key, value in identity.items():
+                    if value and not str(existing_data.get(key) or "").strip():
+                        existing_data[key] = value
+                existing_data.setdefault("plan_estudios", None)
+                existing_data["estado_fuente"] = "sin_plan_actual_conservando_anterior" if existing_data.get("plan_estudios") else "sin_plan_actual_sin_dato"
+                existing_data["fecha_ultima_comprobacion_fuente"] = datetime.now().isoformat()
+                atomic_json_dump(existing_data, plan_file)
 
         return stats
 
@@ -2246,11 +2501,24 @@ def run_phase1_part2(
         max_workers = WEB_CRAWLER_WORKERS
     max_workers = max(1, int(max_workers))
 
-    with open(UNIVERSIDADES_JSON, "r", encoding="utf-8") as f:
-        universities = json.load(f)
+    try:
+        with open(UNIVERSIDADES_JSON, "r", encoding="utf-8") as f:
+            universities = json.load(f)
+        with open(TITULACIONES_JSON, "r", encoding="utf-8") as f:
+            titulaciones_por_univ = json.load(f)
+    except (OSError, json.JSONDecodeError) as exc:
+        print(f" [AVISO PARTE 2] Catálogos inválidos; no se inicia el escaneo: {exc}")
+        return {"status": "skipped", "reason": "invalid_catalogs", "error": str(exc)}
 
-    with open(TITULACIONES_JSON, "r", encoding="utf-8") as f:
-        titulaciones_por_univ = json.load(f)
+    if not isinstance(universities, list) or not isinstance(titulaciones_por_univ, dict):
+        print(" [AVISO PARTE 2] Formato de catálogos inválido; no se inicia el escaneo.")
+        return {"status": "skipped", "reason": "invalid_catalogs"}
+
+    valid_universities = [item for item in universities if isinstance(item, dict)]
+    if universities and not valid_universities:
+        print(" [AVISO PARTE 2] El catálogo de universidades no contiene registros válidos.")
+        return {"status": "skipped", "reason": "invalid_catalogs"}
+    universities = valid_universities
 
     if TARGET_UNIVERSITY_CODES:
         universities = [u for u in universities if str(u.get("codigo", "")).zfill(3) in TARGET_UNIVERSITY_CODES]
@@ -2272,6 +2540,7 @@ def run_phase1_part2(
     
     total_missing = 0
     total_resolved = 0
+    total_source_identity_conflicts = 0
     denied_by_robots = 0
     university_errors = 0
 
@@ -2287,6 +2556,7 @@ def run_phase1_part2(
                 res = future.result() or {}
                 total_missing += res.get("missing_degrees_count", 0)
                 total_resolved += res.get("resolved_degrees_count", 0)
+                total_source_identity_conflicts += res.get("source_identity_conflicts", 0)
                 if not res.get("robots_allowed", True):
                     denied_by_robots += 1
             except Exception as exc:
@@ -2305,6 +2575,10 @@ def run_phase1_part2(
     # Consolidación atómica de planes interuniversitarios y resoluciones BOE compartidas
     prop_stats = propagate_interuniversity_and_shared_boe_plans()
     try:
+        crawler.ledger.reconcile_processing(
+            phase_prefix="fase1_parte2",
+            reason="intento sin respuesta al cerrar la Parte 2",
+        )
         crawler.checkpoint.close()
         crawler.ledger.close()
     except Exception as close_error:
@@ -2323,11 +2597,21 @@ def run_phase1_part2(
     return {
         "status": "partial" if university_errors else "completed",
         "universities_processed": len(universities),
+        "university_codes_processed": sorted(
+            str(univ.get("codigo", "")).zfill(3)
+            for univ in universities
+            if univ.get("codigo")
+        ),
         "missing_degrees": total_missing,
         "resolved_degrees": total_resolved,
+        "source_identity_conflicts": total_source_identity_conflicts,
         "propagated_degrees": prop_stats.get("total_propagated", 0),
         "robots_denied": denied_by_robots,
         "errors": university_errors,
+        "persistence": {
+            "checkpoint_sqlite": "degraded" if getattr(crawler.checkpoint, "_sqlite_disabled", False) else "ok",
+            "crawl_ledger_sqlite": "degraded" if getattr(crawler.ledger, "_disabled", False) else "ok",
+        },
     }
 
 if __name__ == "__main__":

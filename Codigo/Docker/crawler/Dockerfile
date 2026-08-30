@@ -36,6 +36,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     cron \
     curl \
     procps \
+    chromium \
+    tesseract-ocr \
+    tesseract-ocr-spa \
+    tesseract-ocr-cat \
+    tesseract-ocr-glg \
+    tesseract-ocr-eus \
+    tesseract-ocr-eng \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app

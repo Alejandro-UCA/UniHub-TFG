@@ -9,7 +9,7 @@ from unittest.mock import MagicMock, patch
 sys.stdout.reconfigure(encoding='utf-8')
 sys.path.insert(0, os.path.abspath('Codigo/Crawler'))
 
-from downloader import RUCTDownloader, normalize_url, SkipUniversityException
+from downloader import RUCTDownloader, normalize_url, SkipUniversityException, HostCircuitOpenException
 from univ_web_crawler import UniversityWebCrawler, score_academic_candidate_url, is_valid_curricular_table
 from checkpoint import CheckpointManager, atomic_json_dump
 from config import USER_AGENT, REQUEST_DELAY, JITTER_MIN_SECONDS, JITTER_MAX_SECONDS
@@ -61,6 +61,35 @@ class TestCrawlerPolitenessAndConcurrency(unittest.TestCase):
             self.assertFalse(paused)
             
         self.assertEqual(downloader.consecutive_failures, 9)
+
+    def test_host_circuit_breaker_isolated_and_recoverable(self):
+        url = "https://isolated-host.example/guide"
+        RUCTDownloader._GLOBAL_DOMAIN_FAILURES.pop("isolated-host.example", None)
+        RUCTDownloader._GLOBAL_DOMAIN_OPEN_UNTIL.pop("isolated-host.example", None)
+        try:
+            for _ in range(3):
+                RUCTDownloader._record_domain_failure(url)
+            with self.assertRaises(HostCircuitOpenException):
+                RUCTDownloader._check_domain_circuit(url)
+            RUCTDownloader._record_domain_success(url)
+            RUCTDownloader._check_domain_circuit(url)
+        finally:
+            RUCTDownloader._GLOBAL_DOMAIN_FAILURES.pop("isolated-host.example", None)
+            RUCTDownloader._GLOBAL_DOMAIN_OPEN_UNTIL.pop("isolated-host.example", None)
+
+    def test_connection_failures_are_scoped_to_the_failing_host(self):
+        downloader = RUCTDownloader(delay=0.01)
+        host_a = "https://host-a.example/guide"
+        host_b = "https://host-b.example/guide"
+        with patch("downloader.CIRCUIT_BREAKER_FAILURES_THRESHOLD", 2):
+            self.assertFalse(downloader._handle_connection_failure("Connection reset by peer", host_a))
+            self.assertFalse(downloader._handle_connection_failure("Connection reset by peer", host_a))
+            self.assertFalse(downloader._handle_connection_failure("Connection reset by peer", host_b))
+
+        self.assertEqual(downloader._connection_pause_counts_by_domain.get("host-a.example"), 1)
+        self.assertNotIn("host-b.example", downloader._connection_pause_counts_by_domain)
+        self.assertNotEqual(downloader._connection_failures_by_domain.get("host-b.example"), 0)
+        downloader.close()
 
     def test_robots_txt_cache_thread_safety(self):
         """Verifica que el acceso a la caché de robots.txt sea thread-safe con cerrojo sincronizado."""

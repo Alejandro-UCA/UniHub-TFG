@@ -5,8 +5,8 @@ La arquitectura física del sistema se basa en la virtualización liviana median
 \begin{enumerate}
     \item \textbf{Servidor de Base de Datos (\texttt{unihub\_db}):} Contenedor PostgreSQL 15 escuchando en el puerto 5432 con volumen nominado \texttt{unihub\_postgres\_data} y prueba de salud (\emph{healthcheck}) configurada con \texttt{start\_period: 20s} y 10 reintentos para tolerar la carga DDL inicial en instalaciones limpias.
     \item \textbf{Servidor de API REST (\texttt{unihub\_api}):} Contenedor Python 3.12 / FastAPI escuchando en el puerto 8000 con soporte para sincronización ETL reactiva (\texttt{/api/v1/admin/sync-etl}).
-    \item \textbf{Servidor Web Nginx (\texttt{unihub\_www}):} Contenedor Nginx escuchando en los puertos 80 y 5173 sirviendo la SPA compilada en React.
-    \item \textbf{Contenedor de Ingesta (\texttt{unihub\_crawler}):} Contenedor Python para ejecuciones del rastreador con demonio Cron (\texttt{0 2 1 * *}) y montaje directo en la carpeta del host \texttt{Codigo/Crawler/Datos}.
+    \item \textbf{Servidor Web Nginx (\texttt{unihub\_www}):} Contenedor Nginx expuesto en el puerto configurado por \texttt{WEB\_PORT}, que sirve la SPA compilada en React.
+    \item \textbf{Contenedor de Ingesta (\texttt{unihub\_crawler}):} Contenedor Python para ejecuciones del rastreador, con montaje directo de \texttt{Codigo/Crawler/Datos}. El calendario Cron se configura explícitamente mediante \texttt{CRAWLER\_CRON\_SCHEDULE}; el valor de referencia del \texttt{entrypoint} es \texttt{0 2 1 * *}.
 \end{enumerate}
 
 \section{Instrucciones de despliegue}
@@ -25,7 +25,7 @@ Los artefactos del despliegue se ubican en \texttt{Codigo/Docker/}:
     \item \texttt{api/Dockerfile} y \texttt{api/entrypoint.sh}
     \item \texttt{www/Dockerfile} y \texttt{www/nginx.conf}
     \item \texttt{.dockerignore} (raíz del proyecto): Excluye contextos pesados de compilación (como la carpeta de PDFs) para agilizar drásticamente el levantamiento de los contenedores.
-    \item Scripts de puesta en marcha en la raíz: \texttt{iniciar\_proyecto.bat} y \texttt{detener\_proyecto.bat} (Windows).
+    \item Archivo \texttt{.env.example} con las variables de entorno requeridas por Docker Compose.
 \end{itemize}
 
 \subsection{Procedimientos de instalación}
@@ -72,5 +72,5 @@ Para garantizar la continuidad de servicio y la persistencia de los datos:
     \item \textbf{Chequeo de Logs:} Monitorear la salud de los servicios con \texttt{docker compose logs -f}.
     \item \textbf{Telemetría cgroup y Green IT:} La API expone en \texttt{/api/v1/estadisticas/contenedores} la monitorización de RAM RSS/Peak, uso de CPU \%, espacio en disco y estimación de Huella de Carbono ($gCO_2$).
     \item \textbf{Copia de Seguridad de la BD:} Exportar backup mediante \texttt{docker compose exec db pg\_dump -U postgres unihub\_db > backup.sql}.
-    \item \textbf{Copia de Seguridad de Archivos JSON:} La carpeta \texttt{Codigo/Crawler/Datos} en el host mantiene los 13.653 archivos JSON estructurados a salvo en disco.
+    \item \textbf{Copia de Seguridad de Archivos JSON:} Respaldar la carpeta \texttt{Codigo/Crawler/Datos} en el host. El número de archivos es variable y debe obtenerse del manifiesto de la ejecución que se quiera auditar.
 \end{itemize}

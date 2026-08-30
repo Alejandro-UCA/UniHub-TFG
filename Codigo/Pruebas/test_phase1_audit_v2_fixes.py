@@ -21,6 +21,7 @@ import univ_web_crawler
 import spa_crawler
 import asignaturas_crawler
 import precios_crawler
+import runtime_capabilities
 
 
 class TestPhase1AuditV2Fixes(unittest.TestCase):
@@ -34,6 +35,20 @@ class TestPhase1AuditV2Fixes(unittest.TestCase):
         self.assertTrue(hasattr(metrics, "PerformanceTracker"))
         self.assertTrue(hasattr(parsers, "_RE_DYNAMIC_TIPO_FIRST"))
         self.assertTrue(hasattr(parsers, "_RE_DYNAMIC_CRED_FIRST"))
+
+    def test_01b_runtime_capabilities_are_explicit(self):
+        capabilities = runtime_capabilities.detect_runtime_capabilities()
+        self.assertIn("javascript_rendering", capabilities)
+        self.assertIn("ocr", capabilities)
+        self.assertEqual(
+            capabilities["javascript_rendering"],
+            capabilities["playwright_package"] and capabilities["chromium_binary"],
+        )
+        self.assertEqual(
+            capabilities["ocr"],
+            capabilities["pypdfium2"] and capabilities["pytesseract_package"] and capabilities["tesseract_binary"],
+        )
+        self.assertIsInstance(capabilities["missing"], list)
 
     def test_02_spa_crawler_re_import(self):
         """Verifica que spa_crawler tenga el modulo re disponible para sanitizar nombres de archivo."""

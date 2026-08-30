@@ -2,6 +2,7 @@ import os
 import json
 import glob
 import re
+import logging
 from config import (
     DATA_DIR,
     PLANES_DIR,
@@ -13,8 +14,21 @@ from config import (
 )
 from checkpoint import atomic_json_dump, load_json_safe
 from phase_common import iter_plan_files
+from cancellation import raise_if_shutdown_requested
 
 PRICE_CATALOG_ACADEMIC_YEAR = os.getenv("CRAWLER_PRICE_CATALOG_ACADEMIC_YEAR", "no especificado")
+PRICE_CATALOG_VERIFIED = os.getenv("CRAWLER_PRICE_CATALOG_VERIFIED", "false").strip().lower() in {"1", "true", "yes", "si", "sí"}
+logger = logging.getLogger(__name__)
+
+
+def is_verified_academic_year(value: str) -> bool:
+    """Solo permite publicar tarifas cuando se identifica el curso académico."""
+    return bool(re.fullmatch(r"20\d{2}-20\d{2}", str(value or "").strip()))
+
+
+def is_price_catalog_publishable(academic_year: str, verified: bool) -> bool:
+    """Evita publicar estimaciones si no existe una revisión explícita del catálogo."""
+    return is_verified_academic_year(academic_year) and bool(verified)
 
 # ==============================================================================
 # Catálogo local de tarifas SIIU/decretos autonómicos configurado por el proyecto.
@@ -253,17 +267,25 @@ def apply_price_info_to_degree(degree_dict: dict, price_info: dict, tipo_univ: s
 def load_precios_ccaa() -> dict:
     """Carga el catálogo local de precios por CCAA, si existe y no está vacío."""
     catalog = load_json_safe(PRECIOS_CCAA_JSON, default={})
-    if not catalog:
+    if not isinstance(catalog, dict) or not catalog:
         catalog = OFFICIAL_SIIU_PRICES_CATALOG
-        os.makedirs(DATA_DIR, exist_ok=True)
-        atomic_json_dump(catalog, PRECIOS_CCAA_JSON)
+        try:
+            os.makedirs(DATA_DIR, exist_ok=True)
+            atomic_json_dump(catalog, PRECIOS_CCAA_JSON)
+        except OSError as error:
+            logger.warning("No se pudo persistir el catálogo local de precios; se usará solo en memoria: %s", error)
     return catalog
 
 
 def load_universidades_map() -> dict:
     univ_map = {}
     data = load_json_safe(UNIVERSIDADES_JSON, default=[])
+    if not isinstance(data, list):
+        logger.warning("El catálogo de universidades no tiene formato de lista; no se cargarán precios por CCAA.")
+        return univ_map
     for u in data:
+        if not isinstance(u, dict):
+            continue
         code = u.get("codigo")
         if code:
             univ_map[code] = u
@@ -370,14 +392,21 @@ def compute_degree_price(ccaa: str, tipo_univ: str, nivel_academico: str, titulo
             "fuente_precio": f"Precio no disponible en decreto de {canonical_ccaa}"
         }
 
-    import logging
-    logger = logging.getLogger(__name__)
-
     try:
         precio_ects = float(precio_ects)
     except (ValueError, TypeError):
         logger.warning(f"Dato de precio_ects malformado en catálogo: {precio_ects}")
         precio_ects = None
+
+    if precio_ects is None or precio_ects <= 0:
+        return {
+            "precio_credito_ects": None,
+            "precio_credito_2": None,
+            "precio_credito_3": None,
+            "precio_credito_4": None,
+            "precio_estimado_anual": None,
+            "fuente_precio": f"Precio por ECTS inválido en el catálogo de {canonical_ccaa}",
+        }
 
     try:
         precio_2 = float(precio_2) if precio_2 is not None else None
@@ -397,7 +426,11 @@ def compute_degree_price(ccaa: str, tipo_univ: str, nivel_academico: str, titulo
         logger.warning(f"Dato de precio_4 malformado en catálogo: {precio_4}")
         precio_4 = None
         
-    tasas_admin = float(ccaa_data.get("tasas_admin", 0.0))
+    try:
+        tasas_admin = float(ccaa_data.get("tasas_admin", 0.0))
+    except (ValueError, TypeError):
+        logger.warning("Tasa administrativa malformada en el catálogo de %s", canonical_ccaa)
+        tasas_admin = 0.0
     decreto_fuente = ccaa_data.get("decreto_oficial", f"Decreto de Precios Públicos de {canonical_ccaa}")
     
     # Para Doctorado la matrícula anual es la tutela académica (~100-400€)
@@ -434,6 +467,15 @@ def run_phase1_part3(
     print("\n======================================================================")
     print("      FASE 1 - PARTE 3: CÁLCULO DE PRECIOS ECTS DE MATRÍCULA PÚBLICA")
     print("======================================================================")
+
+    if not is_price_catalog_publishable(PRICE_CATALOG_ACADEMIC_YEAR, PRICE_CATALOG_VERIFIED):
+        print(" [AVISO PARTE 3] Catálogo de precios sin curso y verificación explícita; no se publican importes.")
+        return {
+            "status": "skipped",
+            "reason": "unverified_price_catalog",
+            "academic_year": PRICE_CATALOG_ACADEMIC_YEAR,
+            "verified": PRICE_CATALOG_VERIFIED,
+        }
     
     precios_catalogo = load_precios_ccaa()
     univ_map = load_universidades_map()
@@ -460,8 +502,10 @@ def run_phase1_part3(
     updated_count = 0
     public_count = 0
     prices_cache = {}
+    processing_errors = 0
     
     for position, filepath in enumerate(selected_files, start=1):
+        raise_if_shutdown_requested()
         try:
             degree = load_json_safe(filepath, default={}) or {}
             d_code = degree.get("codigo_estudio") or os.path.splitext(os.path.basename(filepath))[0]
@@ -493,10 +537,12 @@ def run_phase1_part3(
                     "Precio actualizado" if changed else "Sin cambios",
                 )
         except Exception as e:
+            processing_errors += 1
             print(f" [AVISO] Error al procesar precio de '{filepath}': {e}")
 
     # También actualizar titulaciones_universidad.json
     tit_json_path = os.path.join(DATA_DIR, "titulaciones_universidad.json")
+    catalog_update_failed = False
     if os.path.exists(tit_json_path):
         try:
             tit_data = load_json_safe(tit_json_path)
@@ -530,6 +576,7 @@ def run_phase1_part3(
             atomic_json_dump(tit_data, tit_json_path)
             print(" -> 'titulaciones_universidad.json' actualizado con precios ECTS.")
         except Exception as e:
+            catalog_update_failed = True
             print(f" [AVISO] Error al actualizar titulaciones_universidad.json: {e}")
             
     print(f" -> Titulaciones en planes_estudio actualizadas: {updated_count}")
@@ -537,10 +584,11 @@ def run_phase1_part3(
     print("======================================================================\n")
 
     return {
-        "status": "completed",
+        "status": "partial" if processing_errors or catalog_update_failed else "completed",
         "plans_inspected": len(selected_files),
         "plans_updated": updated_count,
         "public_degrees_priced": public_count,
+        "errors": processing_errors + int(catalog_update_failed),
     }
 
 

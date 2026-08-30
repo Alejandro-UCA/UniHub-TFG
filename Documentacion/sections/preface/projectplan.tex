@@ -1,4 +1,4 @@
-En esta sección se describen todos los aspectos relativos a la gestión del proyecto **UniHub**: metodología, organización, costes, planificación, riesgos y aseguramiento de la calidad.
+En esta sección se describen todos los aspectos relativos a la gestión del proyecto \textbf{UniHub}: metodología, organización, costes, planificación, riesgos y aseguramiento de la calidad.
 
 \section{Metodología de desarrollo}
 Se ha adoptado una metodología de desarrollo ágil e incremental estructurada en 4 fases principales. Cada fase se concibe como un subsistema desacoplado con responsabilidades claras, validado mediante pruebas unitarias e integrales antes de avanzar a la siguiente iteración.
@@ -6,7 +6,7 @@ Se ha adoptado una metodología de desarrollo ágil e incremental estructurada e
 \section{Tecnologías}
 Las tecnologías empleadas se resumen a continuación:
 \begin{itemize}
-    \item \textbf{Fase 1 (Crawler):} Python 3.12, \texttt{xlrd} (lectura de XLS BIFF8), \texttt{BeautifulSoup4} (HTML parsing), \texttt{pdfplumber} y \texttt{pypdf} (extracción de tablas PDF de BOE), \texttt{psutil} (medición de memoria/CPU) y Cron para ejecución mensual programada.
+    \item \textbf{Fase 1 (Crawler):} Python 3.12, \texttt{xlrd} (lectura de XLS BIFF8), \texttt{BeautifulSoup4} (análisis HTML), \texttt{pdfplumber} (modelo geométrico y tablas del PDF BOE), OCR opcional para documentos escaneados, \texttt{psutil} (medición de memoria/CPU) y ejecución Cron configurable.
     \item \textbf{Fase 2 (API \& DB):} PostgreSQL 15, SQLAlchemy 2.0 (ORM), FastAPI (framework REST), Pydantic v2 (validación de datos) y \texttt{psycopg2-binary}.
     \item \textbf{Fase 3 (Web):} Node.js 20, Vite, React 19 (JSX), Vanilla CSS (Tokens UCA), Lucide Icons, Geolocation API y analítica local \texttt{usageTracker}.
     \item \textbf{Fase 4 (Docker):} Docker Engine, Docker Compose v2, Nginx 1.25-alpine e imágenes base slim de Python 3.12.

@@ -36,6 +36,17 @@ done
 
 PYTHON_BIN=/usr/local/bin/python
 CRAWLER_USER=crawler
+
+# El volumen de datos puede ocultar los permisos establecidos durante el build.
+# Se prepara antes de ejecutar el crawler sin privilegios y se verifica de forma
+# explícita para evitar fallos tardíos de SQLite como "unable to open database file".
+mkdir -p /app/Datos/planes_estudio /app/Datos/logs /app/Datos/http_cache /app/temp_pdfs
+chown -R "$CRAWLER_USER:$CRAWLER_USER" /app/Datos /app/temp_pdfs
+if ! su -s /bin/sh "$CRAWLER_USER" -c 'test -w /app/Datos && test -w /app/Datos/planes_estudio'; then
+    echo "[ERROR] El volumen /app/Datos no permite escritura al usuario crawler." >&2
+    exit 1
+fi
+
 {
     printf '%s\n' "PYTHONUNBUFFERED=1"
     printf '%s\n' "CRAWLER_REQUEST_DELAY=${CRAWLER_REQUEST_DELAY:-1.0}"

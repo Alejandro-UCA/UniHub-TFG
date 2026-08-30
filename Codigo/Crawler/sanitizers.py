@@ -491,6 +491,15 @@ def extract_subjects_from_card_blocks(text_or_soup, base_url: str = "") -> list:
             continue
         
         cod_asig = m_head.group(1).strip()
+        # Una página sin tarjetas puede contener URLs aisladas separadas por
+        # saltos de línea. ``https://...`` encaja accidentalmente con la
+        # expresión de código y acababa convertido en una falsa asignatura.
+        if (
+            first_line.lower().startswith(("http://", "https://", "www."))
+            or cod_asig.lower() in {"http", "https", "www"}
+            or "." in cod_asig
+        ):
+            continue
         nom_asig = sanitize_subject_name(m_head.group(2).strip())
         if not nom_asig or is_spurious_or_administrative_subject(nom_asig):
             continue

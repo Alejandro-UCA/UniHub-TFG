@@ -56,7 +56,8 @@ class ProgressEmitter:
                 'titulaciones_inspeccionadas': 0,
                 'titulaciones_actualizadas': 0,
                 'pdfs_parseados': 0,
-                'errores': 0
+                'errores': 0,
+                'incidencias_controladas': 0
             },
             'mensaje': 'Listo para iniciar.'
         }
@@ -135,7 +136,7 @@ class ProgressEmitter:
     def flush_now(self):
         self._flush(force=True)
 
-    def update_metrics(self, univ_done: int = None, deg_inspected: int = None, deg_updated: int = None, pdfs_parsed: int = None, errors: int = None):
+    def update_metrics(self, univ_done: int = None, deg_inspected: int = None, deg_updated: int = None, pdfs_parsed: int = None, errors: int = None, controlled_incidents: int = None):
         with self._lock:
             m = self.state['metricas']
             if univ_done is not None:
@@ -148,6 +149,8 @@ class ProgressEmitter:
                 m['pdfs_parseados'] = pdfs_parsed
             if errors is not None:
                 m['errores'] = errors
+            if controlled_incidents is not None:
+                m['incidencias_controladas'] = controlled_incidents
         self._flush()
 
     def set_finished(self, summary_msg: str = 'Rastreo finalizado con éxito.'):
@@ -161,6 +164,13 @@ class ProgressEmitter:
     def set_failed(self, summary_msg: str = 'Rastreo finalizado con errores.'):
         with self._lock:
             self.state['estado'] = 'ERROR'
+            self.state['mensaje'] = summary_msg
+            self.state['timestamp'] = datetime.now().isoformat()
+        self._flush(force=True)
+
+    def set_cancelled(self, summary_msg: str = 'Rastreo cancelado; el progreso se puede reanudar.'):
+        with self._lock:
+            self.state['estado'] = 'CANCELADO'
             self.state['mensaje'] = summary_msg
             self.state['timestamp'] = datetime.now().isoformat()
         self._flush(force=True)

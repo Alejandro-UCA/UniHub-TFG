@@ -1,7 +1,7 @@
 from typing import List, Optional
 from fastapi import APIRouter, Depends, HTTPException, Query, status, Response
-from sqlalchemy.orm import Session, selectinload, with_loader_criteria
-from sqlalchemy import and_, case, or_
+from sqlalchemy.orm import Session, selectinload
+from sqlalchemy import case, or_
 
 try:
     from API.database.connection import get_db, get_admin_db
@@ -22,8 +22,6 @@ except (ImportError, AttributeError):
 
 router = APIRouter(prefix="/api/v1/titulaciones", tags=["Titulaciones y Planes de Estudio"])
 
-PUBLISHABLE_PLAN_QUALITY_STATUSES = ("verificado_boe", "verificado_universidad", "verificado_administracion")
-
 @router.get("", response_model=List[TitulacionOut], summary="Búsqueda global de titulaciones oficiales (Públicas primero)")
 def list_titulaciones(
     response: Response,
@@ -33,27 +31,21 @@ def list_titulaciones(
     ccaa: Optional[str] = Query(None, description="Filtrar por CCAA de la universidad"),
     tipo_universidad: Optional[str] = Query(None, description="Filtrar por tipo de universidad (pública/privada)"),
     rama: Optional[str] = Query(None, description="Filtrar por rama de conocimiento (salud, ingenieria, sociales, humanidades, ciencias)"),
-    con_plan: Optional[bool] = Query(None, description="Filtrar solo titulaciones con plan de estudios y asignaturas disponibles"),
+    con_plan: Optional[bool] = Query(None, description="Filtrar titulaciones con plan de estudios disponible, aunque sus datos estén pendientes de verificación"),
     skip: int = Query(0, ge=0),
     limit: int = Query(100, ge=1, le=500),
     db: Session = Depends(get_db)
 ):
-    query = db.query(Titulacion).outerjoin(Universidad)
+    query = db.query(Titulacion).outerjoin(Universidad).options(
+        selectinload(Titulacion.universidad),
+        selectinload(Titulacion.plan_estudios),
+    )
     if con_plan is True:
-        query = query.filter(Titulacion.plan_estudios.has(and_(
-            PlanEstudios.estado_calidad.in_(PUBLISHABLE_PLAN_QUALITY_STATUSES),
-            PlanEstudios.elementos_curriculares.any(),
-        )))
+        # La Fase 3 puede mostrar planes parciales, siempre que exista un
+        # registro de plan. La calidad se comunica en la respuesta y en la UI.
+        query = query.filter(Titulacion.plan_estudios.has())
     elif con_plan is False:
-        query = query.filter(
-            or_(
-                ~Titulacion.plan_estudios.has(),
-                ~Titulacion.plan_estudios.has(and_(
-                    PlanEstudios.estado_calidad.in_(PUBLISHABLE_PLAN_QUALITY_STATUSES),
-                    PlanEstudios.elementos_curriculares.any(),
-                ))
-            )
-        )
+        query = query.filter(~Titulacion.plan_estudios.has())
     if titulo and titulo.strip():
         query = query.filter(Titulacion.titulo.ilike(f"%{titulo.strip()}%"))
     if nivel_academico and nivel_academico.strip():
@@ -98,12 +90,8 @@ def list_titulaciones(
 def get_titulacion(codigo_estudio: str, db: Session = Depends(get_db)):
     clean_code = codigo_estudio.strip()
     tit = db.query(Titulacion).options(
+        selectinload(Titulacion.universidad),
         selectinload(Titulacion.plan_estudios),
-        with_loader_criteria(
-            PlanEstudios,
-            PlanEstudios.estado_calidad.in_(PUBLISHABLE_PLAN_QUALITY_STATUSES),
-            include_aliases=True,
-        ),
     ).filter(Titulacion.codigo_estudio == clean_code).first()
     if not tit:
         raise HTTPException(status_code=404, detail=f"Titulación con código '{codigo_estudio}' no encontrada.")
@@ -114,12 +102,11 @@ def get_plan_estudios(codigo_estudio: str, db: Session = Depends(get_db)):
     clean_code = codigo_estudio.strip()
     plan = db.query(PlanEstudios).filter(
         PlanEstudios.codigo_estudio == clean_code,
-        PlanEstudios.estado_calidad.in_(PUBLISHABLE_PLAN_QUALITY_STATUSES),
     ).first()
     if not plan:
         raise HTTPException(
             status_code=404, 
-            detail=f"No hay un plan de estudios verificado para la titulación '{codigo_estudio}'."
+            detail=f"No hay un plan de estudios disponible para la titulación '{codigo_estudio}'."
         )
     return plan
 
@@ -128,7 +115,6 @@ def get_asignatura_guia_docente(codigo_estudio: str, elemento_id: int, db: Sessi
     clean_code = codigo_estudio.strip()
     plan = db.query(PlanEstudios).filter(
         PlanEstudios.codigo_estudio == clean_code,
-        PlanEstudios.estado_calidad.in_(PUBLISHABLE_PLAN_QUALITY_STATUSES),
     ).first()
     if not plan:
         raise HTTPException(status_code=404, detail=f"Plan de estudios '{codigo_estudio}' no encontrado.")
@@ -237,7 +223,6 @@ def list_asignaturas_titulacion(
     clean_code = codigo_estudio.strip()
     plan = db.query(PlanEstudios).filter(
         PlanEstudios.codigo_estudio == clean_code,
-        PlanEstudios.estado_calidad.in_(PUBLISHABLE_PLAN_QUALITY_STATUSES),
     ).first()
     if not plan:
         return []

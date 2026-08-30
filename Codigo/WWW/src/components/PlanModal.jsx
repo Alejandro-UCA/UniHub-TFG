@@ -42,8 +42,11 @@ export default function PlanModal({ degree, onClose }) {
       setPlanData(data || {});
     } catch (err) {
       if (err.name !== 'AbortError') {
-        console.info('Plan curricular verificado no disponible en API:', err.message);
-        setPlanData({ estado_calidad: 'sin_datos_verificados' });
+        console.info('Plan curricular no disponible en API:', err.message);
+        setPlanData({
+          estado_calidad: degree.estado_calidad_plan || null,
+          no_plan_disponible: true,
+        });
       }
     } finally {
       setLoading(false);
@@ -67,10 +70,32 @@ export default function PlanModal({ degree, onClose }) {
 
   const curriculum = planData?.plan_estudios ? planData.plan_estudios : (planData || {});
   const elementos = Array.isArray(curriculum.elementos_curriculares) ? curriculum.elementos_curriculares : [];
-  const resumen = (curriculum.resumen_creditos && typeof curriculum.resumen_creditos === 'object' && !Array.isArray(curriculum.resumen_creditos)) ? curriculum.resumen_creditos : {};
+  const resumen = Array.isArray(curriculum.resumen_creditos) ? curriculum.resumen_creditos : [];
+  const qualityStatus = curriculum.estado_calidad || degree.estado_calidad_plan || '';
+  const isPlanUnavailable = Boolean(planData?.no_plan_disponible);
+  const isVerifiedPlan = ['verificado_boe', 'verificado_universidad', 'verificado_administracion'].includes(qualityStatus);
+  const isIncompletePlan = Boolean(qualityStatus && !isVerifiedPlan && !isPlanUnavailable);
+  const qualityStatusLabel = {
+    pendiente_revision: 'Pendiente de revisión',
+    parcial: 'Datos parciales',
+    incompleto_parcial: 'Datos parciales',
+    sin_datos_verificados: 'Sin verificación completa',
+  }[qualityStatus] || 'Pendiente de verificación';
+  const qualityReasons = Object.entries(curriculum.motivos_calidad || {})
+    .flatMap(([key, value]) => (Array.isArray(value) ? value : [value]).map(item => `${key}: ${item}`))
+    .filter(Boolean)
+    .slice(0, 4);
   const boeUrl = getSafeUrl(planData?.boe_url || degree.boe_url);
+  const verifiedSourceUrl = getSafeUrl(planData?.fuente_verificada_url || degree.fuente_verificada_url);
+  const directSourceUrl = getSafeUrl(degree.web_fuente_directa_url);
+  const sourceUrl = boeUrl || verifiedSourceUrl || (isIncompletePlan ? directSourceUrl : null);
+  const sourceTitle = boeUrl
+    ? (isVerifiedPlan ? 'Boletín Oficial del Estado (BOE)' : 'BOE (referencia; pendiente de verificación)')
+    : isVerifiedPlan ? 'Fuente oficial verificada' : 'Fuente de referencia (pendiente de verificación)';
+  const sourceDescription = boeUrl
+    ? (isVerifiedPlan ? 'Documento oficial con la resolución de verificación del título.' : 'Documento localizado, todavía pendiente de validación completa.')
+    : isVerifiedPlan ? 'Página oficial empleada para verificar el plan de estudios.' : 'Enlace de referencia para completar la verificación del plan.';
   const boeFecha = planData?.boe_fecha || degree.boe_fecha;
-  const isVerifiedPlan = ['verificado_boe', 'verificado_universidad', 'verificado_administracion'].includes(planData?.estado_calidad);
 
   const isMaster = (degree.nivel_academico || '').toLowerCase().includes('máster') || (degree.nivel_academico || '').toLowerCase().includes('master');
   const isDoctor = (degree.nivel_academico || '').toLowerCase().includes('doctor') || 
@@ -80,9 +105,12 @@ export default function PlanModal({ degree, onClose }) {
 
   const numAnnual = parseFloat(degree.precio_estimado_anual);
   const numEcts = parseFloat(degree.precio_credito_ects);
-  const annualPrice = (!isNaN(numAnnual) && numAnnual > 0) 
-    ? Math.round(numAnnual) 
-    : ((!isNaN(numEcts) && numEcts > 0) ? Math.round(numEcts * 60 + 45) : null);
+  const annualPrice = !isNaN(numAnnual) && numAnnual > 0 ? Math.round(numAnnual) : null;
+  const sixtyEctsEstimate = !isDoctor && annualPrice === null && !isNaN(numEcts) && numEcts > 0
+    ? Math.round(numEcts * 60)
+    : null;
+  const displayedPrice = annualPrice ?? sixtyEctsEstimate;
+  const pricePeriod = annualPrice !== null ? 'año' : '60 ECTS';
 
   return (
     <div className="modal-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="modal-title">
@@ -162,7 +190,7 @@ export default function PlanModal({ degree, onClose }) {
           )}
 
           {/* Pricing & Fees Banner */}
-          {annualPrice && (
+          {displayedPrice !== null && (
             <div style={{
               background: 'rgba(16, 185, 129, 0.08)',
               border: '1px solid rgba(16, 185, 129, 0.25)',
@@ -180,7 +208,7 @@ export default function PlanModal({ degree, onClose }) {
                   💶 {isPrivada ? 'Honorarios Privados Estimados (1º Curso):' : 'Tarifa Oficial de Primera Matrícula:'}
                 </span>
                 <div style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--text-main)', marginTop: '0.2rem' }}>
-                  ~{annualPrice} € / año
+                  ~{displayedPrice} € / {pricePeriod}
                   {degree.precio_credito_ects && (
                     <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 500, marginLeft: '0.5rem' }}>
                       ({degree.precio_credito_ects} € / crédito ECTS)
@@ -199,8 +227,8 @@ export default function PlanModal({ degree, onClose }) {
             </div>
           )}
 
-          {/* BOE Document Button */}
-          {boeUrl && (
+          {/* Verified source document button */}
+          {sourceUrl && (
             <div style={{
               background: 'rgba(0, 132, 200, 0.08)',
               border: '1px solid var(--border-uca)',
@@ -216,18 +244,18 @@ export default function PlanModal({ degree, onClose }) {
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                 <FileText size={24} color="var(--uca-cyan)" />
                 <div>
-                  <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>Boletín Oficial del Estado (BOE)</div>
-                  <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>Documento oficial con la resolución de verificación del título.</div>
+                  <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>{sourceTitle}</div>
+                  <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>{sourceDescription}</div>
                 </div>
               </div>
               <a 
-                href={boeUrl} 
+                href={sourceUrl}
                 target="_blank" 
                 rel="noreferrer" 
                 className="btn btn-primary"
                 style={{ padding: '0.5rem 1.25rem', fontSize: '0.85rem' }}
               >
-                Abrir PDF en BOE <ExternalLink size={14} />
+                {isVerifiedPlan ? 'Abrir fuente oficial' : 'Abrir fuente de referencia'} <ExternalLink size={14} />
               </a>
             </div>
           )}
@@ -237,7 +265,7 @@ export default function PlanModal({ degree, onClose }) {
               <div style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '0.5rem' }}>Cargando información del plan de estudios...</div>
               <div style={{ fontSize: '0.85rem' }}>Analizando asignaturas, créditos ECTS y estructura oficial...</div>
             </div>
-          ) : !isVerifiedPlan ? (
+          ) : isPlanUnavailable ? (
             <div style={{
               padding: '1.5rem',
               background: 'rgba(245, 158, 11, 0.10)',
@@ -248,28 +276,58 @@ export default function PlanModal({ degree, onClose }) {
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
                 <AlertTriangle size={22} color="#B45309" style={{ flexShrink: 0, marginTop: '2px' }} />
                 <div>
-                  <h3 style={{ fontSize: '1rem', fontWeight: 800, marginBottom: '0.4rem' }}>Plan de estudios no verificado</h3>
+                  <h3 style={{ fontSize: '1rem', fontWeight: 800, marginBottom: '0.4rem' }}>Plan de estudios no disponible</h3>
                   <p style={{ margin: 0, fontSize: '0.9rem', lineHeight: 1.55 }}>
-                    No mostramos asignaturas, ECTS ni una estructura curricular porque no se ha localizado una fuente oficial suficiente para validarlos.
+                    No se ha podido cargar un plan de estudios para esta titulación. Consulta la fuente oficial de la universidad para obtener más información.
                   </p>
                 </div>
               </div>
             </div>
           ) : (
             <>
+              {isIncompletePlan && (
+                <div role="alert" style={{
+                  padding: '1rem 1.25rem',
+                  marginBottom: '1.5rem',
+                  background: 'rgba(245, 158, 11, 0.12)',
+                  border: '1px solid rgba(245, 158, 11, 0.4)',
+                  borderRadius: 'var(--radius-md)',
+                  color: 'var(--text-main)'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                    <AlertTriangle size={22} color="#B45309" style={{ flexShrink: 0, marginTop: '2px' }} />
+                    <div>
+                      <h3 style={{ fontSize: '1rem', fontWeight: 800, marginBottom: '0.35rem' }}>Información incompleta</h3>
+                      <p style={{ margin: 0, fontSize: '0.9rem', lineHeight: 1.55 }}>
+                        Se muestran los datos curriculares disponibles, pero el plan está marcado como <strong>{qualityStatusLabel}</strong> y no ha completado la verificación. Comprueba la información en la fuente oficial antes de utilizarla.
+                      </p>
+                      {qualityReasons.length > 0 && (
+                        <ul style={{ margin: '0.55rem 0 0', paddingLeft: '1.15rem', fontSize: '0.82rem', lineHeight: 1.45, color: 'var(--text-muted)' }}>
+                          {qualityReasons.map((reason, index) => <li key={`${reason}-${index}`}>{reason}</li>)}
+                        </ul>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+
               {/* Credit Summaries */}
-              {Object.keys(resumen).length > 0 && (
+              {resumen.length > 0 && (
                 <div style={{ marginBottom: '2rem' }}>
                   <h3 style={{ fontSize: '1.05rem', fontWeight: 700, marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                     <Award size={18} color="var(--uca-gold)" /> Resumen de Créditos ECTS
                   </h3>
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '0.85rem' }}>
-                    {Object.entries(resumen).map(([k, v]) => (
-                      <div key={k} style={{ background: 'var(--bg-main)', padding: '0.85rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
-                        <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>{k}</div>
-                        <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--uca-blue)' }}>{v} ECTS</div>
+                    {resumen.map((item, index) => {
+                      const credits = item.cantidad_creditos ?? 'N/D';
+                      const displayedCredits = /ects/i.test(String(credits)) ? credits : `${credits} ECTS`;
+                      return (
+                      <div key={item.id ?? `${item.tipo_credito || 'creditos'}-${index}`} style={{ background: 'var(--bg-main)', padding: '0.85rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
+                        <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>{item.tipo_credito || 'Créditos'}</div>
+                        <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--uca-blue)' }}>{displayedCredits}</div>
                       </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               )}
@@ -325,15 +383,15 @@ export default function PlanModal({ degree, onClose }) {
                       </div>
                     </div>
 
-                    {boeUrl && (
+                    {sourceUrl && (
                       <a
-                        href={boeUrl}
+                        href={sourceUrl}
                         target="_blank"
                         rel="noreferrer"
                         className="btn btn-outline"
                         style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}
                       >
-                        <FileText size={16} /> Consultar Memoria de Verificación en BOE <ExternalLink size={14} />
+                        <FileText size={16} /> Consultar fuente oficial <ExternalLink size={14} />
                       </a>
                     )}
                   </div>
@@ -383,9 +441,9 @@ export default function PlanModal({ degree, onClose }) {
                     </div>
 
                     <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-                      {degree.web_fuente_directa_url && (
+                      {directSourceUrl && (
                         <a
-                          href={degree.web_fuente_directa_url}
+                          href={directSourceUrl}
                           target="_blank"
                           rel="noreferrer"
                           className="btn btn-primary"
@@ -394,15 +452,15 @@ export default function PlanModal({ degree, onClose }) {
                           <ExternalLink size={14} /> Portal Oficial del Consorcio Europeo
                         </a>
                       )}
-                      {boeUrl && (
+                      {sourceUrl && (
                         <a
-                          href={boeUrl}
+                          href={sourceUrl}
                           target="_blank"
                           rel="noreferrer"
                           className="btn btn-outline"
                           style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}
                         >
-                          <FileText size={16} /> Resolución Oficial en BOE <ExternalLink size={14} />
+                          <FileText size={16} /> {isVerifiedPlan ? 'Fuente oficial verificada' : 'Fuente de referencia'} <ExternalLink size={14} />
                         </a>
                       )}
                     </div>
@@ -419,20 +477,22 @@ export default function PlanModal({ degree, onClose }) {
                       <FileText size={28} />
                     </div>
                     <h4 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.5rem', color: 'var(--text-main)' }}>
-                      Plan de Estudios Gestionado por la Universidad
+                      {isIncompletePlan ? 'Datos curriculares incompletos' : 'Plan de Estudios Gestionado por la Universidad'}
                     </h4>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto 1.5rem auto', lineHeight: 1.6 }}>
-                      Esta titulación oficial está verificada por el Consejo de Universidades y registrada en el RUCT. Al tratarse de una titulación impartida por una universidad privada o verificada bajo resoluciones generales sin desglose de asignaturas en el BOE, las guías docentes pormenorizadas, itinerarios y convalidaciones se gestionan directamente a través del portal y secretaría de la propia universidad.
+                      {isIncompletePlan
+                        ? 'Se ha recuperado un plan de estudios sin asignaturas desglosadas. Estos datos pueden estar incompletos o pendientes de validación; consulta la fuente oficial para confirmar la estructura y las guías docentes.'
+                        : 'Esta titulación oficial está verificada por el Consejo de Universidades y registrada en el RUCT. Al tratarse de una titulación impartida por una universidad privada o verificada bajo resoluciones generales sin desglose de asignaturas en el BOE, las guías docentes pormenorizadas, itinerarios y convalidaciones se gestionan directamente a través del portal y secretaría de la propia universidad.'}
                     </p>
-                    {boeUrl && (
+                    {sourceUrl && (
                       <a
-                        href={boeUrl}
+                        href={sourceUrl}
                         target="_blank"
                         rel="noreferrer"
                         className="btn btn-outline"
                         style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}
                       >
-                        <FileText size={16} /> Consultar Resolución Oficial en BOE <ExternalLink size={14} />
+                        <FileText size={16} /> Consultar fuente oficial <ExternalLink size={14} />
                       </a>
                     )}
                   </div>

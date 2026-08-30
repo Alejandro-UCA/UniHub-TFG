@@ -1,4 +1,4 @@
-﻿"""
+"""
 Test y Recolector de Métricas de Ejecución para la Fase 1 - Parte 1 (RUCT y BOE).
 
 Este módulo ejecuta el pipeline de la Fase 1 Parte 1 en un entorno aislado,
@@ -191,7 +191,18 @@ class TestFase1Parte1ExecutionCollector(unittest.TestCase):
 
         start_time = time.time()
 
-        with patch("fase1_parte1_ruct_boe.parse_universities_xls", return_value=mock_univ_catalog), \
+        import threading
+
+        class MockThreadProcess(threading.Thread):
+            def __init__(self, target=None, args=(), name=None, daemon=None):
+                super().__init__(target=target, args=args, name=name, daemon=daemon)
+                self.exitcode = 0
+            def terminate(self):
+                pass
+
+        with patch("multiprocessing.Process", MockThreadProcess), \
+             patch("fase1_parte1_ruct_boe.mp.Process", MockThreadProcess), \
+             patch("fase1_parte1_ruct_boe.parse_universities_xls", return_value=mock_univ_catalog), \
              patch("fase1_parte1_ruct_boe.parse_degrees_xls", return_value=mock_degrees_catalog), \
              patch("fase1_parte1_ruct_boe.parse_degree_detail_html", side_effect=mock_parse_detail), \
              patch("fase1_parte1_ruct_boe.parse_boe_pdf", return_value=mock_curriculum_plan), \

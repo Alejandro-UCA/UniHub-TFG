@@ -60,6 +60,7 @@ export default function App() {
   const [degrees, setDegrees] = useState([]);
   const [loading, setLoading] = useState(false);
   const [apiError, setApiError] = useState(null);
+  const [degreeError, setDegreeError] = useState(null);
 
   // Estados de búsqueda y filtros
   const [searchQuery, setSearchQuery] = useState('');
@@ -126,6 +127,7 @@ export default function App() {
 
   const fetchDegreesPage = useCallback(async (page, signal) => {
     setLoading(true);
+    setDegreeError(null);
     try {
       const skip = (page - 1) * degreeItemsPerPage;
       const res = await apiService.getDegrees({ 
@@ -142,10 +144,16 @@ export default function App() {
       if (res && res.data) {
         setDegrees(res.data);
         setDegreeTotalItems(res.totalCount || res.data.length);
+      } else {
+        setDegrees([]);
+        setDegreeTotalItems(0);
       }
     } catch (e) {
       if (e?.name !== 'AbortError') {
         console.warn('Error fetching degrees page', e);
+        setDegrees([]);
+        setDegreeTotalItems(0);
+        setDegreeError('No se pudieron cargar las titulaciones. Comprueba la conexión con la API y vuelve a intentarlo.');
       }
     } finally {
       setLoading(false);
@@ -212,6 +220,10 @@ export default function App() {
 
   // Titulaciones ya están paginadas desde el servidor
   const paginatedDegrees = degrees;
+  const incompleteDegreesOnPage = React.useMemo(
+    () => degrees.filter((degree) => degree.plan_incompleto || (degree.estado_calidad_plan && !degree.tiene_plan_verificado)).length,
+    [degrees]
+  );
 
   const handleViewUniversityDegrees = useCallback((univ) => {
     setSearchQuery('');
@@ -441,7 +453,7 @@ export default function App() {
           <section className="container" style={{ padding: '2.5rem 1.5rem' }}>
             <div style={{ marginBottom: '2rem' }}>
               <h2 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '0.5rem' }}>
-                Buscador de Titulaciones Oficiales Vigentes ({degreeTotalItems})
+                Buscador de Titulaciones Oficiales ({degreeTotalItems})
               </h2>
               <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)' }}>
                 Filtra por Grado, Máster o Doctorado y selecciona cualquier titulación para abrir su plan de estudios desglosado.
@@ -478,6 +490,25 @@ export default function App() {
                 >
                   ✕ Quitar filtro
                 </button>
+              </div>
+            )}
+
+            {incompleteDegreesOnPage > 0 && (
+              <div role="status" style={{
+                display: 'flex',
+                alignItems: 'flex-start',
+                gap: '0.65rem',
+                padding: '0.85rem 1rem',
+                marginBottom: '1.25rem',
+                background: 'rgba(245, 158, 11, 0.1)',
+                border: '1px solid rgba(245, 158, 11, 0.35)',
+                borderRadius: 'var(--radius-md)',
+                color: '#92400E',
+                fontSize: '0.85rem',
+                lineHeight: 1.45
+              }}>
+                <AlertCircle size={18} style={{ flexShrink: 0, marginTop: '1px' }} />
+                <span><strong>Aviso:</strong> esta página incluye {incompleteDegreesOnPage} {incompleteDegreesOnPage === 1 ? 'titulación con datos' : 'titulaciones con datos'} incompletos o pendientes de verificación. Se muestran para consulta, pero debes contrastarlos con la fuente oficial.</span>
               </div>
             )}
 
@@ -584,6 +615,17 @@ export default function App() {
             </div>
 
             {/* Degrees Grid */}
+            {degreeError && (
+              <div role="alert" className="glass-panel" style={{ padding: '1rem 1.25rem', marginBottom: '1.25rem', borderColor: 'rgba(239, 68, 68, 0.45)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#B91C1C' }}>
+                  <AlertCircle size={18} />
+                  <span>{degreeError}</span>
+                </div>
+                <button type="button" className="btn btn-outline" onClick={() => setDegreeReloadToken(token => token + 1)}>
+                  <RefreshCw size={14} /> Reintentar
+                </button>
+              </div>
+            )}
             <div style={{ 
               display: 'grid', 
               gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', 

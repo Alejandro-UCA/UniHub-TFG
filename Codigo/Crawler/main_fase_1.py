@@ -5,6 +5,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import logging
 import os
 import signal
@@ -13,7 +14,7 @@ import time
 from typing import Iterable, Optional
 
 from checkpoint import CheckpointManager
-from config import LOGS_DIR, PLANES_DIR, TEMP_PDF_DIR, HTTP_CACHE_DIR, HTTP_CACHE_MAX_BYTES
+from config import LOGS_DIR, PLANES_DIR, TEMP_PDF_DIR, HTTP_CACHE_DIR, HTTP_CACHE_MAX_BYTES, TITULACIONES_JSON, TARGET_UNIVERSITY_CODES, HTTP_CLIENT_LOG_LEVEL
 from fase1_parte1_ruct_boe import run_phase1_part1
 from fase1_parte2_web_crawler import run_phase1_part2
 from fase1_parte3_precios import run_phase1_part3
@@ -23,26 +24,88 @@ from phase_common import PHASE_DESCRIPTIONS, normalize_phase_selection, trigger_
 from crawl_ledger import CrawlLedger
 from progress_emitter import ProgressEmitter
 from run_manifest import RunManifest
+from plan_quality_audit import audit_plan_records
+from console_encoding import configure_console_encoding
+from cancellation import (
+    CrawlerCancelled,
+    clear_shutdown,
+    is_shutdown_requested,
+    raise_if_shutdown_requested,
+    request_shutdown,
+)
+
+configure_console_encoding()
 
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] (%(name)s) %(message)s",
     handlers=[logging.StreamHandler(sys.stdout)],
 )
+_http_log_level = getattr(logging, HTTP_CLIENT_LOG_LEVEL, logging.WARNING)
+for _http_logger_name in ("httpx", "httpx2", "httpcore", "httpcore2"):
+    logging.getLogger(_http_logger_name).setLevel(_http_log_level)
 logger = logging.getLogger("main_fase_1")
 
 _active_metrics: Optional[PerformanceTracker] = None
 _active_checkpoint: Optional[CheckpointManager] = None
+_active_progress: Optional[ProgressEmitter] = None
+_active_manifest: Optional[RunManifest] = None
+_active_log_handler: Optional[logging.Handler] = None
+
+
+class _JsonLinesFormatter(logging.Formatter):
+    """Formato estructurado, estable y legible por herramientas de auditoría."""
+
+    def format(self, record):
+        payload = {
+            "timestamp": self.formatTime(record, "%Y-%m-%dT%H:%M:%S%z"),
+            "level": record.levelname,
+            "logger": record.name,
+            "message": record.getMessage(),
+        }
+        if record.exc_info:
+            payload["exception"] = self.formatException(record.exc_info)
+        return json.dumps(payload, ensure_ascii=False)
+
+
+def _configure_run_log(run_id: str) -> logging.Handler:
+    """Añade un log JSONL por ejecución sin duplicar handlers entre runs."""
+    global _active_log_handler
+    root = logging.getLogger()
+    if _active_log_handler is not None:
+        root.removeHandler(_active_log_handler)
+        _active_log_handler.close()
+    path = os.path.join(LOGS_DIR, f"fase1_{run_id}.jsonl")
+    handler = logging.FileHandler(path, mode="a", encoding="utf-8")
+    handler.setLevel(logging.INFO)
+    handler.setFormatter(_JsonLinesFormatter())
+    root.addHandler(handler)
+    _active_log_handler = handler
+    logger.info("Log estructurado iniciado para la ejecución %s", run_id)
+    return handler
+
+
+def _flush_run_log() -> None:
+    if _active_log_handler is not None:
+        try:
+            _active_log_handler.flush()
+        except Exception:
+            logger.debug("No se pudo vaciar el log estructurado", exc_info=True)
 
 
 def handle_shutdown(signum, _frame):
-    """Persiste el estado antes de finalizar por una señal del sistema."""
-    logger.warning("Señal %s recibida; guardando métricas y checkpoints.", signum)
+    """Solicita una parada cooperativa sin abortar antes de cerrar el manifiesto."""
+    logger.warning("Señal %s recibida; solicitando cancelación segura.", signum)
+    request_shutdown()
     if _active_metrics is not None:
         _active_metrics.save()
     if _active_checkpoint is not None:
         _active_checkpoint.flush()
-    raise SystemExit(130)
+    if _active_progress is not None:
+        _active_progress.set_cancelled()
+    _flush_run_log()
+    if _active_manifest is not None and _active_manifest.data.get("status") == "running":
+        _active_manifest.finish("cancelled", error=f"Cancelación solicitada por señal {signum}")
 
 
 def _run_part(
@@ -89,9 +152,10 @@ def run_phase1(
     recolector de métricas y el mismo emisor de progreso. Un error se registra
     por parte y, por defecto, no destruye el trabajo ya completado.
     """
-    global _active_metrics, _active_checkpoint
+    global _active_metrics, _active_checkpoint, _active_progress, _active_manifest, _active_log_handler
 
     selected_parts = normalize_phase_selection(parts)
+    clear_shutdown()
     os.makedirs(PLANES_DIR, exist_ok=True)
     os.makedirs(TEMP_PDF_DIR, exist_ok=True)
     os.makedirs(LOGS_DIR, exist_ok=True)
@@ -101,6 +165,7 @@ def run_phase1(
     checkpoint = CheckpointManager()
     _active_metrics = metrics
     _active_checkpoint = checkpoint
+    _active_progress = progress
 
     started_at = time.time()
     results: dict = {"parts_requested": selected_parts, "parts": {}}
@@ -111,7 +176,9 @@ def run_phase1(
         force=force,
         workers=workers,
     )
+    _active_manifest = manifest
     results["run_id"] = manifest.start()
+    _configure_run_log(results["run_id"])
     failed_parts = []
     skipped_parts = []
     partial_parts = []
@@ -122,8 +189,13 @@ def run_phase1(
 
     try:
         for part in selected_parts:
+            if is_shutdown_requested():
+                break
             description = PHASE_DESCRIPTIONS[part]
             progress.update_part(part, description)
+            record_part_progress = getattr(manifest, "record_part_progress", None)
+            if callable(record_part_progress):
+                record_part_progress(part)
             print(f"\n>>> PARTE {part}: {description}")
             part_started_at = time.time()
 
@@ -139,8 +211,16 @@ def run_phase1(
                 )
                 status = part_result.get("status", "completed")
                 part_result["status"] = status
-            except KeyboardInterrupt:
-                raise
+                if part in (1, 2, 4):
+                    part_result["plan_audit"] = audit_plan_records(
+                        PLANES_DIR,
+                        TITULACIONES_JSON,
+                        TARGET_UNIVERSITY_CODES,
+                    )
+            except (KeyboardInterrupt, CrawlerCancelled) as exc:
+                request_shutdown()
+                part_result = {"status": "cancelled", "error": str(exc) or "Cancelación solicitada"}
+                status = "cancelled"
             except Exception as exc:
                 logger.exception("La Parte %s terminó con error", part)
                 part_result = {"status": "failed", "error": str(exc)}
@@ -158,16 +238,28 @@ def run_phase1(
                 skipped_parts.append(part)
             elif status == "partial":
                 partial_parts.append(part)
+            elif status == "cancelled":
+                request_shutdown()
+                break
 
         completed_count = len(results["parts"]) - len(failed_parts) - len(skipped_parts)
-        if sync_etl and not failed_parts and not partial_parts and completed_count > 0:
+        if is_shutdown_requested():
+            final_status = "cancelled"
+            results["cancelled_parts"] = [part for part in selected_parts if part not in results["parts"]]
+            results["etl_sync"] = {"status": "skipped", "reason": "cancelled"}
+            manifest.record_etl_sync(results["etl_sync"])
+            progress.set_cancelled()
+        elif sync_etl and not failed_parts and not partial_parts and completed_count > 0:
             etl_succeeded = trigger_api_etl_sync()
             results["etl_sync"] = {"status": "completed" if etl_succeeded else "failed"}
         else:
             results["etl_sync"] = {"status": "skipped"}
         manifest.record_etl_sync(results["etl_sync"])
 
-        if failed_parts:
+        if is_shutdown_requested():
+            final_status = "cancelled"
+            progress.set_cancelled()
+        elif failed_parts:
             final_status = "failed" if len(failed_parts) == len(results["parts"]) else "partial"
             progress.set_failed(f"Fallaron las partes: {failed_parts}")
         elif skipped_parts or partial_parts:
@@ -197,9 +289,20 @@ def run_phase1(
         checkpoint.flush()
         metrics.save()
         if manifest.data.get("status") == "running":
-            manifest.finish("interrupted")
+            manifest.finish(
+                "cancelled" if is_shutdown_requested() else "interrupted",
+                error="Cancelación solicitada antes de completar el manifiesto" if is_shutdown_requested() else None,
+            )
+        _flush_run_log()
+        if _active_log_handler is not None:
+            root_logger = logging.getLogger()
+            root_logger.removeHandler(_active_log_handler)
+            _active_log_handler.close()
+            _active_log_handler = None
         _active_checkpoint = None
         _active_metrics = None
+        _active_progress = None
+        _active_manifest = None
 
 
 def run_all_phase1(

@@ -25,6 +25,15 @@ const formatMetricValue = (value, suffix = '') => {
   const numericValue = Number(value);
   return Number.isFinite(numericValue) ? `${numericValue}${suffix}` : 'N/D';
 };
+const getSafeExternalUrl = (value) => {
+  if (typeof value !== 'string') return null;
+  try {
+    const url = new URL(value.trim());
+    return ['http:', 'https:'].includes(url.protocol) ? url.href : null;
+  } catch {
+    return null;
+  }
+};
 
 export default function AdminDashboard({ onLogout }) {
   const feedbackTimerRef = useRef(null);
@@ -1077,9 +1086,9 @@ export default function AdminDashboard({ onLogout }) {
                             </td>
                             <td style={{ padding: '0.5rem 0.75rem', fontWeight: 600 }}>{err.codigo || err.universidad_codigo || '-'}</td>
                             <td style={{ padding: '0.5rem 0.75rem', maxWidth: '200px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                              {err.url ? (
-                                <a href={err.url} target="_blank" rel="noreferrer" style={{ color: 'var(--uca-azure)', textDecoration: 'underline' }}>
-                                  {err.url}
+                              {getSafeExternalUrl(err.url) ? (
+                                <a href={getSafeExternalUrl(err.url)} target="_blank" rel="noreferrer" style={{ color: 'var(--uca-azure)', textDecoration: 'underline' }}>
+                                  {getSafeExternalUrl(err.url)}
                                 </a>
                               ) : '-'}
                             </td>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle2, ChevronRight } from 'lucide-react';
+import { AlertTriangle, CheckCircle2, ChevronRight } from 'lucide-react';
 import usageTracker from '../analytics/usageTracker';
 
 export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
@@ -45,7 +45,29 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
   const numEcts = parseFloat(degree.precio_credito_ects);
   const hasValidEcts = !isNaN(numEcts) && numEcts > 0;
   const hasValidAnnual = !isNaN(numAnnual) && numAnnual > 0;
-  const estimatedPrice = hasValidAnnual ? Math.round(numAnnual) : (hasValidEcts ? Math.round(numEcts * 60 + 45) : null);
+  const annualPrice = hasValidAnnual ? Math.round(numAnnual) : null;
+  const sixtyEctsEstimate = !isDoctor && annualPrice === null && hasValidEcts
+    ? Math.round(numEcts * 60)
+    : null;
+  const displayedPrice = annualPrice ?? sixtyEctsEstimate;
+  const priceLabel = annualPrice !== null ? 'año' : '60 ECTS';
+  const planQualityStatus = degree.estado_calidad_plan || '';
+  const isIncompletePlan = Boolean(
+    degree.plan_incompleto || (planQualityStatus && !degree.tiene_plan_verificado)
+  );
+  const planQualityLabel = {
+    pendiente_revision: 'Pendiente de revisión',
+    parcial: 'Datos parciales',
+    incompleto_parcial: 'Datos parciales',
+    sin_datos_verificados: 'Sin verificación completa',
+  }[planQualityStatus] || 'Pendiente de verificación';
+  const verifiedSourceLabel = degree.estado_calidad_plan === 'verificado_boe'
+    ? 'BOE'
+    : degree.estado_calidad_plan === 'verificado_universidad'
+      ? 'Universidad'
+      : degree.estado_calidad_plan === 'verificado_administracion'
+        ? 'Administración'
+        : 'Fuente verificada';
 
   return (
     <div 
@@ -89,6 +111,11 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
                 ⚠️ A extinguir
               </span>
             )}
+            {isIncompletePlan && (
+              <span className="badge" style={{ background: 'rgba(245, 158, 11, 0.16)', color: '#B45309', border: '1px solid rgba(245, 158, 11, 0.4)', fontSize: '0.7rem', fontWeight: 700 }}>
+                ⚠️ Datos incompletos
+              </span>
+            )}
           </div>
           <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 600 }}>
             {degree.codigo_estudio}
@@ -105,8 +132,27 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
           </p>
         )}
 
+        {isIncompletePlan && (
+          <div role="note" aria-label="Aviso sobre la integridad del plan" style={{
+            display: 'flex',
+            alignItems: 'flex-start',
+            gap: '0.5rem',
+            padding: '0.65rem 0.75rem',
+            marginBottom: '0.85rem',
+            borderRadius: 'var(--radius-sm)',
+            background: 'rgba(245, 158, 11, 0.1)',
+            border: '1px solid rgba(245, 158, 11, 0.3)',
+            color: '#92400E',
+            fontSize: '0.78rem',
+            lineHeight: 1.45
+          }}>
+            <AlertTriangle size={16} style={{ flexShrink: 0, marginTop: '1px' }} />
+            <span><strong>Datos incompletos:</strong> {planQualityLabel}. Puedes consultar lo disponible, pero compruébalo en la fuente oficial.</span>
+          </div>
+        )}
+
         {/* ECTS Credit Price & Estimated Annual Tuition Badge */}
-        {estimatedPrice !== null && (
+        {displayedPrice !== null && (
           <div style={{
             background: 'rgba(16, 185, 129, 0.08)',
             border: '1px solid rgba(16, 185, 129, 0.25)',
@@ -118,7 +164,7 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.2rem' }}>
               <span style={{ color: 'var(--success)', fontWeight: 700 }}>💶 1ª Matrícula:</span>
               <span style={{ fontWeight: 800, color: 'var(--text-main)' }}>
-                ~{estimatedPrice} €/año
+                ~{displayedPrice} € / {priceLabel}
                 {hasValidEcts && (
                   <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontWeight: 400, marginLeft: '0.35rem' }}>
                     ({degree.precio_credito_ects} €/c)
@@ -147,10 +193,12 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
         justifyContent: 'space-between'
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.75rem', color: 'var(--success)' }}>
-            <CheckCircle2 size={14} />
-            <span>BOE</span>
-          </div>
+          {degree.tiene_plan_verificado && (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.75rem', color: 'var(--success)' }}>
+              <CheckCircle2 size={14} />
+              <span>{verifiedSourceLabel}</span>
+            </div>
+          )}
           {degree.gestionado_por_admin && (
             <div title="Registro bloqueado y administrado manualmente (No sobrescribible por ETL)" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.72rem', color: 'var(--uca-gold)', background: 'rgba(243, 167, 18, 0.1)', padding: '0.15rem 0.35rem', borderRadius: '4px' }}>
               <span>Bloqueado</span>

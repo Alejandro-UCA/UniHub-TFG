@@ -3,13 +3,18 @@ import os
 import sys
 import tempfile
 import io
-from bs4 import BeautifulSoup
-import pypdf
+import sqlite3
+import inspect
+from unittest.mock import patch
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
 
+from bs4 import BeautifulSoup
+import pypdf
+import fase1_parte4_asignaturas as phase4
+
 from asignaturas_crawler import (
-    parse_uca_subject_guide,
+    parse_tabular_subject_guide,
     parse_generic_eees_subject_guide,
     parse_subject_guide,
     parse_subject_guide_pdf_stream,
@@ -131,6 +136,74 @@ SAMPLE_GENERIC_EEES_HTML = """
 
 class TestSubjectGuideCrawler(unittest.TestCase):
 
+    def test_limited_plan_selection_prioritizes_usable_verified_curriculum(self):
+        items = [
+            {"data": {"codigo_estudio": "SPARSE", "estado_fuente": "sin_plan_actual_sin_dato"}},
+            {
+                "data": {
+                    "codigo_estudio": "VERIFIED",
+                    "estado_fuente": "verificada",
+                    "plan_estudios": {
+                        "plan_completo": True,
+                        "elementos_curriculares": [
+                            {"nombre_elemento": "Álgebra"},
+                            {"nombre_elemento": "Cálculo"},
+                        ],
+                    },
+                }
+            },
+        ]
+
+        selected, skipped = phase4._select_plan_items_for_limit(items, 1)
+
+        self.assertEqual(selected[0]["data"]["codigo_estudio"], "VERIFIED")
+        self.assertEqual(skipped, 1)
+
+    def test_limited_plan_selection_prefers_curricular_candidate_over_sparse_record(self):
+        items = [
+            {"data": {"codigo_estudio": "SPARSE", "estado_fuente": "sin_plan_actual_sin_dato"}},
+            {
+                "data": {
+                    "codigo_estudio": "CANDIDATE",
+                    "candidato_plan_estudios": {
+                        "elementos_curriculares": [{"nombre_elemento": "Historia"}]
+                    },
+                }
+            },
+        ]
+
+        selected, skipped = phase4._select_plan_items_for_limit(items, 1)
+
+        self.assertEqual(selected[0]["data"]["codigo_estudio"], "CANDIDATE")
+        self.assertEqual(skipped, 1)
+
+    def test_unlimited_plan_selection_preserves_all_items(self):
+        items = [{"data": {"codigo_estudio": "A"}}, {"data": {"codigo_estudio": "B"}}]
+
+        selected, skipped = phase4._select_plan_items_for_limit(items, None)
+
+        self.assertEqual([item["data"]["codigo_estudio"] for item in selected], ["A", "B"])
+        self.assertEqual(skipped, 0)
+
+    def test_guide_request_failures_classify_http_statuses(self):
+        stats = {"guide_http_404": 0, "guide_http_other": 0, "guide_request_errors": 0}
+
+        phase4._record_guide_request_failure(stats, RuntimeError("HTTP 404 para 'https://uni.es/guide'"))
+        phase4._record_guide_request_failure(stats, RuntimeError("HTTP 403 para 'https://uni.es/guide'"))
+        phase4._record_guide_request_failure(stats, RuntimeError("Connection reset by peer"))
+
+        self.assertEqual(stats, {"guide_http_404": 1, "guide_http_other": 1, "guide_request_errors": 1})
+
+    def test_domain_metrics_are_generic_and_mergeable(self):
+        stats = {}
+        phase4._domain_metrics(stats, "https://Portal.Example/guia/1")["http_200"] += 1
+        phase4._domain_metrics(stats, "https://portal.example/guia/2")["http_404"] += 2
+        merged = {}
+        phase4._merge_domain_metrics(merged, stats["by_domain"])
+
+        self.assertEqual(merged["portal.example"]["http_200"], 1)
+        self.assertEqual(merged["portal.example"]["http_404"], 2)
+
     def test_generate_subject_slug(self):
         self.assertEqual(generate_subject_slug("Álgebra Lineal y Geometría"), "Algebra-Lineal-y-Geometria")
         self.assertEqual(generate_subject_slug("Programación Orientada a Objetos"), "Programacion-Orientada-a-Objetos")
@@ -147,9 +220,41 @@ class TestSubjectGuideCrawler(unittest.TestCase):
         self.assertIn("https://www.uah.es/es/estudios/asignatura/Algebra-Lineal-350000/", urls)
         self.assertTrue(any("350000" in u for u in urls))
 
-    def test_parse_uca_subject_guide(self):
+    def test_explicit_evidence_reduces_heuristic_candidate_budget(self):
+        urls = resolve_candidate_subject_guide_urls(
+            {
+                "nombre_elemento": "Álgebra Lineal",
+                "codigo_asignatura": "350000",
+                "url_guia_docente": "https://www.uah.es/guia/350000",
+            },
+            u_code="002",
+            u_web="https://www.uah.es",
+        )
+        self.assertLessEqual(len(urls), 4)
+
+    def test_no_evidence_keeps_generic_candidate_budget_bounded(self):
+        urls = resolve_candidate_subject_guide_urls(
+            {
+                "nombre_elemento": "Álgebra Lineal",
+                "codigo_asignatura": "350000",
+            },
+            u_code="002",
+            u_web="https://portal.example",
+        )
+
+        self.assertLessEqual(len(urls), 4)
+
+    def test_url_resolver_has_no_university_code_branches(self):
+        source = inspect.getsource(resolve_candidate_subject_guide_urls)
+
+        self.assertNotIn("u_code_padded ==", source)
+        self.assertNotIn("u_code_padded in", source)
+        self.assertNotIn("sevius.us.es", source)
+        self.assertNotIn("secretariavirtual.", source)
+
+    def test_parse_tabular_subject_guide(self):
         soup = BeautifulSoup(SAMPLE_UCA_HTML, "html.parser")
-        res = parse_uca_subject_guide(soup, "https://asignaturas.uca.es/2025-26/21714009")
+        res = parse_tabular_subject_guide(soup, "https://portal.example/2025-26/21714009")
 
         self.assertEqual(res["codigo_asignatura"], "21714009")
         self.assertEqual(res["nombre_asignatura"], "CÁLCULO")
@@ -176,6 +281,16 @@ class TestSubjectGuideCrawler(unittest.TestCase):
         self.assertFalse(res["profesorado"][1]["coordinador"])
         self.assertIn("Juan", res["profesorado"][0]["nombre_completo"])
 
+    def test_unified_html_parser_selects_strategy_by_content_not_domain(self):
+        content = SAMPLE_UCA_HTML.encode("utf-8")
+        from_native_domain = parse_subject_guide(
+            "https://portal.example/guia/21714009", content, "text/html"
+        )
+
+        self.assertEqual(from_native_domain["codigo_asignatura"], "21714009")
+        self.assertEqual(from_native_domain["creditos"]["total_ects"], 6.0)
+        self.assertEqual(len(from_native_domain["temario"]), 2)
+
     def test_parse_generic_eees_guide(self):
         soup = BeautifulSoup(SAMPLE_GENERIC_EEES_HTML, "html.parser")
         res = parse_generic_eees_subject_guide(soup, "https://fib.upc.edu/eda")
@@ -186,6 +301,34 @@ class TestSubjectGuideCrawler(unittest.TestCase):
         self.assertIn("Avaluació continuada", res["criterios_evaluacion"])
         self.assertEqual(len(res["profesorado"]), 2)
         self.assertEqual(len(res["bibliografia"]), 2)
+
+    def test_parse_generic_guide_recovers_heterogeneous_metadata_and_outcomes(self):
+        html = """
+        <html><head><meta property="og:title" content="Sistemas Distribuidos" /></head><body>
+          <table class="facts">
+            <tr><th>Código</th><td> SD1234 </td></tr>
+            <tr><th>Créditos ECTS</th><td>6</td></tr>
+            <tr><th>Departamento</th><td>Ingeniería Informática</td></tr>
+            <tr><th>Idioma</th><td>Castellano e inglés</td></tr>
+          </table>
+          <h2>Contenidos</h2><ul><li>Arquitecturas distribuidas</li><li>Consistencia y replicación</li></ul>
+          <h2>Evaluación</h2><table><tr><th>Examen final</th><td>60%</td></tr></table>
+          <h2>Resultados de aprendizaje</h2><ul><li>RA1 - Diseñar sistemas distribuidos tolerantes a fallos</li></ul>
+        </body></html>
+        """
+        res = parse_generic_eees_subject_guide(
+            BeautifulSoup(html, "html.parser"),
+            "https://universidad.example/guia/sd1234",
+        )
+
+        self.assertEqual(res["nombre_asignatura"], "Sistemas Distribuidos")
+        self.assertEqual(res["codigo_asignatura"], "SD1234")
+        self.assertEqual(res["creditos"]["total_ects"], 6.0)
+        self.assertEqual(res["departamento"], "Ingeniería Informática")
+        self.assertEqual(res["idioma"], "Castellano e inglés")
+        self.assertEqual(len(res["temario"]), 2)
+        self.assertEqual(res["sistema_evaluacion"][0]["ponderacion_porcentaje"], 60.0)
+        self.assertEqual(res["resultados_aprendizaje"][0]["codigo"], "RA1")
 
     def test_subject_guide_cache_deduplication(self):
         tmp_db = tempfile.NamedTemporaryFile(suffix=".db", delete=False)
@@ -223,6 +366,122 @@ class TestSubjectGuideCrawler(unittest.TestCase):
                     os.remove(db_path)
             except Exception:
                 pass
+
+    def test_subject_guide_cache_isolates_same_subject_code_by_plan(self):
+        with tempfile.TemporaryDirectory() as directory:
+            cache = SubjectGuideCache(db_path=os.path.join(directory, "guides.db"))
+            try:
+                cache.set(
+                    "https://uni.es/plan-a/asig-1234",
+                    {"codigo_asignatura": "1234", "nombre_asignatura": "Álgebra A"},
+                    u_code="099", asig_code="1234", degree_code="PLAN-A",
+                    academic_year="2025-26", language="es",
+                )
+                cache.set(
+                    "https://uni.es/plan-b/asig-1234",
+                    {"codigo_asignatura": "1234", "nombre_asignatura": "Álgebra B"},
+                    u_code="099", asig_code="1234", degree_code="PLAN-B",
+                    academic_year="2025-26", language="es",
+                )
+                self.assertEqual(
+                    cache.get(u_code="099", asig_code="1234", degree_code="PLAN-A", academic_year="2025-26", language="es")["nombre_asignatura"],
+                    "Álgebra A",
+                )
+                self.assertEqual(
+                    cache.get(u_code="099", asig_code="1234", degree_code="PLAN-B", academic_year="2025-26", language="es")["nombre_asignatura"],
+                    "Álgebra B",
+                )
+            finally:
+                cache.close()
+
+    def test_subject_guide_cache_migrates_legacy_schema(self):
+        with tempfile.TemporaryDirectory() as directory:
+            db_path = os.path.join(directory, "legacy.db")
+            connection = sqlite3.connect(db_path)
+            connection.execute(
+                "CREATE TABLE guias_docentes (url_hash TEXT PRIMARY KEY, url TEXT NOT NULL, "
+                "universidad_codigo TEXT, codigo_asignatura TEXT, nombre TEXT, datos_json TEXT NOT NULL, "
+                "fecha_extraccion TIMESTAMP DEFAULT CURRENT_TIMESTAMP)"
+            )
+            connection.commit()
+            connection.close()
+            cache = SubjectGuideCache(db_path=db_path)
+            try:
+                connection = sqlite3.connect(db_path)
+                try:
+                    columns = {row[1] for row in connection.execute("PRAGMA table_info(guias_docentes)")}
+                finally:
+                    connection.close()
+                self.assertTrue({"codigo_estudio", "curso_academico", "idioma"}.issubset(columns))
+                cache.set("https://uni.es/guide", {"nombre_asignatura": "Historia"}, "099", "1234", "Historia", degree_code="PLAN-A", academic_year="2025-26", language="es")
+                self.assertEqual(cache.get(u_code="099", asig_code="1234", degree_code="PLAN-A", academic_year="2025-26", language="es")["nombre_asignatura"], "Historia")
+            finally:
+                cache.close()
+
+    def test_subject_guide_cache_expires_persisted_entries(self):
+        with tempfile.TemporaryDirectory() as directory:
+            db_path = os.path.join(directory, "guides.db")
+            cache = SubjectGuideCache(db_path=db_path)
+            cache.set(
+                "https://uni.es/guide/1234",
+                {"codigo_asignatura": "1234", "nombre_asignatura": "Historia"},
+                u_code="099", asig_code="1234", degree_code="PLAN-A",
+                academic_year="2025-26", language="es",
+            )
+            cache.close()
+
+            connection = sqlite3.connect(db_path)
+            try:
+                connection.execute(
+                    "UPDATE guias_docentes SET fecha_extraccion = ?",
+                    ("2000-01-01 00:00:00",),
+                )
+                connection.commit()
+            finally:
+                connection.close()
+
+            with patch.object(phase4, "SUBJECT_GUIDE_CACHE_TTL_SECONDS", 60):
+                expired_cache = SubjectGuideCache(db_path=db_path)
+                try:
+                    self.assertIsNone(expired_cache.get(url="https://uni.es/guide/1234"))
+                    self.assertIsNone(
+                        expired_cache.get(
+                            u_code="099", asig_code="1234", degree_code="PLAN-A",
+                            academic_year="2025-26", language="es",
+                        )
+                    )
+                finally:
+                    expired_cache.close()
+
+    def test_normalize_evaluation_breakdown(self):
+        from fase1_parte4_asignaturas import _normalize_evaluation_breakdown
+        guide = {
+            "sistema_evaluacion": [
+                {"tarea": "Examen final escrito", "instrumentos": "Prueba objetiva", "ponderacion_porcentaje": 60.0},
+                {"tarea": "Prácticas de laboratorio", "instrumentos": "Informes semanales", "ponderacion_porcentaje": 30.0},
+                {"tarea": "Evaluación continua y participación", "instrumentos": "Cuestionarios", "ponderacion_porcentaje": 10.0},
+            ]
+        }
+        breakdown = _normalize_evaluation_breakdown(guide)
+        self.assertEqual(breakdown["examen_final_porcentaje"], 60.0)
+        self.assertEqual(breakdown["practicas_porcentaje"], 30.0)
+        self.assertEqual(breakdown["evaluacion_continua_porcentaje"], 10.0)
+
+    def test_infer_subject_guide_language(self):
+        from fase1_parte4_asignaturas import _infer_subject_guide_language
+        ca_guide = {
+            "nombre_asignatura": "Estructures de Dades i Algorismes",
+            "temario": [{"titulo": "Pla docent i continguts de lassignatura", "contenidos": []}],
+            "criterios_evaluacion": "Avaluacio continuada i criteris davaluacio",
+        }
+        self.assertEqual(_infer_subject_guide_language(ca_guide), "Català")
+
+        es_guide = {
+            "nombre_asignatura": "Estructura de Datos y Algoritmos",
+            "temario": [{"titulo": "Contenidos teóricos y prácticos", "contenidos": []}],
+            "criterios_evaluacion": "Examen final y evaluación continua",
+        }
+        self.assertEqual(_infer_subject_guide_language(es_guide), "Castellano")
 
 
 if __name__ == "__main__":

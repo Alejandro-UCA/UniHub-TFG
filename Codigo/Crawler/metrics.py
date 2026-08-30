@@ -38,11 +38,13 @@ class PerformanceTracker:
         self.titulaciones_descargadas_actualizadas = 0
         self.pdfs_parseados = 0
         self.errores_detectados = 0
+        self.incidencias_controladas = 0
 
         # Advanced & Green IT metrics
         self.total_bytes_pdf_downloaded = 0
         self.total_bytes_json_written = 0
         self.cache_hits = 0
+        self.request_memo_hits = 0
         self.domain_latencies = {}
 
     def _get_current_memory_bytes(self) -> int:
@@ -76,6 +78,15 @@ class PerformanceTracker:
         with PerformanceTracker._lock:
             self.errores_detectados += delta
 
+    def inc_incidencias_controladas(self, delta: int = 1):
+        """Cuenta incidencias conocidas que no invalidan la ejecución.
+
+        Ejemplo: una URL omitida porque una regla explícita de robots.txt
+        prohíbe rastrearla. No se mezcla con los errores del pipeline.
+        """
+        with PerformanceTracker._lock:
+            self.incidencias_controladas += delta
+
     def record_io_time(self, seconds: float, domain: str = "educacion.gob.es", bytes_transferred: int = 0):
         """Registra el tiempo de I/O de red, volumen transferido y latencia por dominio."""
         with PerformanceTracker._lock:
@@ -91,6 +102,11 @@ class PerformanceTracker:
         """Registra una lectura resuelta por caché mtime."""
         with PerformanceTracker._lock:
             self.cache_hits += 1
+
+    def record_request_memo_hit(self):
+        """Registra una petición HTTP evitada por deduplicación en memoria."""
+        with PerformanceTracker._lock:
+            self.request_memo_hits += 1
 
     def record_json_written(self, bytes_count: int):
         """Registra bytes escritos en el disco para JSONs de planes de estudio."""
@@ -173,10 +189,12 @@ class PerformanceTracker:
                     "titulaciones_al_dia_sin_cambios": self.titulaciones_al_dia,
                     "titulaciones_nuevas_o_actualizadas": self.titulaciones_descargadas_actualizadas,
                     "pdfs_boe_descargados_y_parseados": self.pdfs_parseados,
-                    "errores_registrados": self.errores_detectados
+                    "errores_registrados": self.errores_detectados,
+                    "incidencias_controladas": self.incidencias_controladas,
                 },
                 "metricas_avanzadas": {
                     "hit_ratio_cache_porcentaje": hit_ratio_pct,
+                    "peticiones_http_duplicadas_evitadas": self.request_memo_hits,
                     "tasa_compresion_pdf_vs_json": compression_ratio,
                     "huella_carbono_estimada_gco2": estimated_gco2,
                     "latencias_medias_por_dominio_seg": domain_summary

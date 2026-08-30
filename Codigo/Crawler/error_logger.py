@@ -38,7 +38,7 @@ class ErrorLogger:
                 return []
         return []
 
-    def log_error(self, phase: str, entity_id: str, url: str, reason: str, exception_details: str = None):
+    def log_error(self, phase: str, entity_id: str, url: str, reason: str, exception_details: str = None, classification: str = None):
         """
         Logs a detailed error entry to the errors JSON file atomically.
         """
@@ -50,6 +50,8 @@ class ErrorLogger:
             "motivo_fallo": reason,
             "detalles_excepcion": exception_details or ""
         }
+        if classification:
+            entry["clasificacion"] = classification
         with ErrorLogger._lock, self._interprocess_lock():
             # Sincronizar si hubo cambios externos por mtime
             if os.path.exists(self.filepath):

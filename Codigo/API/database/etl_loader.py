@@ -163,6 +163,9 @@ def run_etl() -> bool:
                     'ALTER TABLE titulaciones ADD COLUMN IF NOT EXISTS precio_credito_4 NUMERIC(6,2);',
                     'ALTER TABLE titulaciones ADD COLUMN IF NOT EXISTS precio_estimado_anual NUMERIC(8,2);',
                     'ALTER TABLE titulaciones ADD COLUMN IF NOT EXISTS fuente_precio VARCHAR(255);',
+                    'ALTER TABLE titulaciones ADD COLUMN IF NOT EXISTS centro_adscrito TEXT;',
+                    'ALTER TABLE titulaciones ADD COLUMN IF NOT EXISTS es_alianza_europea BOOLEAN NOT NULL DEFAULT FALSE;',
+                    'ALTER TABLE titulaciones ADD COLUMN IF NOT EXISTS web_fuente_directa_url TEXT;',
                     'ALTER TABLE titulaciones ADD COLUMN IF NOT EXISTS gestionado_por_admin BOOLEAN DEFAULT FALSE;',
                     'ALTER TABLE planes_estudio ADD COLUMN IF NOT EXISTS origen_fuente VARCHAR(100);',
                     'ALTER TABLE planes_estudio ADD COLUMN IF NOT EXISTS pdf_sha256 VARCHAR(64);',
@@ -170,6 +173,8 @@ def run_etl() -> bool:
                     'ALTER TABLE planes_estudio ADD COLUMN IF NOT EXISTS motivos_calidad JSONB;',
                     'ALTER TABLE planes_estudio ADD COLUMN IF NOT EXISTS fuente_verificada_url TEXT;',
                     'ALTER TABLE planes_estudio ADD COLUMN IF NOT EXISTS verificado_en TIMESTAMP;',
+                    'ALTER TABLE planes_estudio ADD COLUMN IF NOT EXISTS tipo_estructura VARCHAR(100);',
+                    'ALTER TABLE planes_estudio ADD COLUMN IF NOT EXISTS ects_exigidos TEXT;',
                     'CREATE INDEX IF NOT EXISTS idx_planes_estado_calidad ON planes_estudio(estado_calidad);',
                     'ALTER TABLE elementos_curriculares ADD COLUMN IF NOT EXISTS tipo_asistencia VARCHAR(50);',
                     'ALTER TABLE elementos_curriculares ADD COLUMN IF NOT EXISTS calificacion_minima NUMERIC(4,2);',
@@ -271,7 +276,10 @@ def run_etl() -> bool:
                                 precio_credito_3=t.get("precio_credito_3"),
                                 precio_credito_4=t.get("precio_credito_4"),
                                 precio_estimado_anual=t.get("precio_estimado_anual"),
-                                fuente_precio=t.get("fuente_precio")
+                                fuente_precio=t.get("fuente_precio"),
+                                centro_adscrito=t.get("centro_adscrito"),
+                                es_alianza_europea=bool(t.get("es_alianza_europea", False)),
+                                web_fuente_directa_url=t.get("web_fuente_directa_url"),
                             )
                             db.add(tit_obj)
                             existing_tits[d_code] = tit_obj
@@ -286,6 +294,9 @@ def run_etl() -> bool:
                                 _update_if_present(existing, "precio_credito_4", t, "precio_credito_4")
                                 _update_if_present(existing, "precio_estimado_anual", t, "precio_estimado_anual")
                                 _update_if_present(existing, "fuente_precio", t, "fuente_precio")
+                                _update_if_present(existing, "centro_adscrito", t, "centro_adscrito")
+                                _update_if_present(existing, "es_alianza_europea", t, "es_alianza_europea")
+                                _update_if_present(existing, "web_fuente_directa_url", t, "web_fuente_directa_url")
 
                 # Las eliminaciones son destructivas y el JSON no contiene por sí
                 # solo una prueba de cobertura completa. Requieren opt-in explícito.
@@ -400,7 +411,10 @@ def run_etl() -> bool:
                             precio_credito_3=p_data.get("precio_credito_3"),
                             precio_credito_4=p_data.get("precio_credito_4"),
                             precio_estimado_anual=p_data.get("precio_estimado_anual"),
-                            fuente_precio=p_data.get("fuente_precio")
+                            fuente_precio=p_data.get("fuente_precio"),
+                            centro_adscrito=p_data.get("centro_adscrito"),
+                            es_alianza_europea=bool(p_data.get("es_alianza_europea", False)),
+                            web_fuente_directa_url=p_data.get("web_fuente_directa_url"),
                         )
                         db.add(tit_obj)
                         db.flush()
@@ -412,6 +426,9 @@ def run_etl() -> bool:
                         _update_if_present(tit_obj, "precio_credito_4", p_data, "precio_credito_4")
                         _update_if_present(tit_obj, "precio_estimado_anual", p_data, "precio_estimado_anual")
                         _update_if_present(tit_obj, "fuente_precio", p_data, "fuente_precio")
+                        _update_if_present(tit_obj, "centro_adscrito", p_data, "centro_adscrito")
+                        _update_if_present(tit_obj, "es_alianza_europea", p_data, "es_alianza_europea")
+                        _update_if_present(tit_obj, "web_fuente_directa_url", p_data, "web_fuente_directa_url")
 
                     boe_date_val = None
                     if p_data.get("boe_fecha"):
@@ -437,6 +454,8 @@ def run_etl() -> bool:
                             fuente_verificada_url=(quality_metadata or {}).get("fuente_url") if has_plan_snapshot else None,
                             verificado_en=datetime.now() if has_plan_snapshot else None,
                             fecha_procesado=datetime.now(),
+                            tipo_estructura=raw_plan_data.get("tipo_estructura") if has_plan_snapshot else None,
+                            ects_exigidos=str(raw_plan_data.get("ects_exigidos")) if has_plan_snapshot and raw_plan_data.get("ects_exigidos") is not None else None,
                         )
                         db.add(plan_obj)
                         db.flush()
@@ -452,6 +471,10 @@ def run_etl() -> bool:
                             plan_obj.fuente_verificada_url = (quality_metadata or {}).get("fuente_url")
                             plan_obj.verificado_en = datetime.now()
                             plan_obj.fecha_procesado = datetime.now()
+                            plan_obj.tipo_estructura = raw_plan_data.get("tipo_estructura") or plan_obj.tipo_estructura
+                            required_ects = raw_plan_data.get("ects_exigidos")
+                            if required_ects is not None:
+                                plan_obj.ects_exigidos = str(required_ects)
                             db.query(ResumenCreditos).filter(ResumenCreditos.plan_estudio_id == plan_obj.id).delete()
                             db.query(ElementoCurricular).filter(ElementoCurricular.plan_estudio_id == plan_obj.id).delete()
                         else:

@@ -92,24 +92,38 @@ PRECIOS_CCAA_JSON = os.getenv("CRAWLER_PRECIOS_CCAA_JSON", os.path.join(DATA_DIR
 
 # Base de datos transaccional SQLite WAL para indexación ultrarrápida (0ms) y firmas SHA-256 de PDFs
 CACHE_DB_PATH = os.getenv("CRAWLER_CACHE_DB_PATH", os.path.join(DATA_DIR, "unihub_cache.sqlite3"))
+LEDGER_WRITE_BATCH_SIZE = _safe_int("CRAWLER_LEDGER_WRITE_BATCH_SIZE", 32)
 
 # Caché persistente de guías docentes de la Parte 4.
 SUBJECT_GUIDE_CACHE_DB = os.getenv(
     "CRAWLER_SUBJECT_GUIDE_CACHE_DB",
     os.path.join(DATA_DIR, "cache_guias_docentes.db"),
 )
+SUBJECT_GUIDE_CACHE_TTL_SECONDS = _safe_int(
+    "CRAWLER_SUBJECT_GUIDE_CACHE_TTL",
+    str(7 * 24 * 3600),
+)
+
+# Historial de snapshots de planes: conserva cambios reales sin duplicar
+# ejecuciones que solo actualizan marcas temporales.
+DEGREE_HISTORY_DIR = os.getenv("CRAWLER_DEGREE_HISTORY_DIR", os.path.join(DATA_DIR, "history", "planes_estudio"))
+DEGREE_HISTORY_ENABLED = os.getenv("CRAWLER_DEGREE_HISTORY_ENABLED", "1").strip().lower() not in {"0", "false", "no"}
 
 # Caché persistente de cuerpos HTTP para peticiones condicionales (ETag/Last-Modified).
 HTTP_CACHE_DIR = os.getenv("CRAWLER_HTTP_CACHE_DIR", os.path.join(DATA_DIR, "http_cache"))
 HTTP_CACHE_TTL_SECONDS = _safe_int("CRAWLER_HTTP_CACHE_TTL", str(7 * 24 * 3600))
 HTTP_CACHE_MAX_BYTES = _safe_int("CRAWLER_HTTP_CACHE_MAX_BYTES", str(1024 * 1024 * 1024))
+# Memoria máxima dedicada a respuestas repetidas dentro de una misma ejecución.
+# Evita descargar dos veces la misma URL sin convertir la caché en almacenamiento
+# permanente ni consumir memoria sin límite.
+HTTP_RUN_MEMO_MAX_BYTES = _safe_int("CRAWLER_HTTP_RUN_MEMO_MAX_BYTES", str(16 * 1024 * 1024))
 os.makedirs(HTTP_CACHE_DIR, exist_ok=True)
 
 # Política de ejecución de la Fase 1. En una ejecución nacional normal se
-# vuelven a descubrir las URLs y se revalidan todas las fuentes conocidas.
+# vuelven a descubrir las URLs, pero se revalidan solo las fuentes caducadas.
 # Los límites explícitos de universidades/titulaciones siguen permitiendo
 # ejecuciones parciales para diagnóstico o recuperación.
-FULL_REVALIDATION = os.getenv("CRAWLER_FULL_REVALIDATION", "1").strip().lower() not in {"0", "false", "no"}
+FULL_REVALIDATION = os.getenv("CRAWLER_FULL_REVALIDATION", "0").strip().lower() not in {"0", "false", "no"}
 REDISCOVER_URLS_EVERY_RUN = os.getenv("CRAWLER_REDISCOVER_URLS", "1").strip().lower() not in {"0", "false", "no"}
 _target_codes_raw = os.getenv("CRAWLER_UNIVERSITY_CODES", "")
 TARGET_UNIVERSITY_CODES = tuple(sorted({code.strip().zfill(3) for code in _target_codes_raw.split(",") if code.strip()}))
@@ -172,6 +186,7 @@ USER_AGENT = os.getenv(
     "CRAWLER_USER_AGENT",
     "UniHubCrawler/1.0 (+https://github.com/Alejandro-UCA/UniHub-TFG; contacto@unihub)"
 )
+HTTP_CLIENT_LOG_LEVEL = os.getenv("CRAWLER_HTTP_LOG_LEVEL", "WARNING").strip().upper()
 HTTP_POOL_CONNECTIONS = _safe_int("CRAWLER_HTTP_POOL_CONNECTIONS", 35)  # Tamaño del pool de hosts en caché Keep-Alive
 HTTP_POOL_MAXSIZE = _safe_int("CRAWLER_HTTP_POOL_MAXSIZE", 25)          # Conexiones simultáneas por host
 DOWNLOAD_CHUNK_SIZE = _safe_int("CRAWLER_CHUNK_SIZE", 8192)             # Bloque para descargas de PDF (bytes)
@@ -225,6 +240,27 @@ DOMAIN_MAPPINGS = {
 CIRCUIT_BREAKER_FAILURES_THRESHOLD = _safe_int("CRAWLER_CB_FAILURES_THRESHOLD", 10)  # Fallos seguidos para activar pausa
 CIRCUIT_BREAKER_PAUSE_SECONDS = _safe_int("CRAWLER_CB_PAUSE_SECONDS", 300)           # Duración de la pausa (5 minutos)
 CIRCUIT_BREAKER_MAX_PAUSES = _safe_int("CRAWLER_CB_MAX_PAUSES", 3)                    # Pausas máximas antes de omitir (15 min)
+HOST_CIRCUIT_FAILURES_THRESHOLD = _safe_int("CRAWLER_HOST_CB_FAILURES", 3)
+HOST_CIRCUIT_PAUSE_SECONDS = _safe_int("CRAWLER_HOST_CB_PAUSE_SECONDS", 60)
+
+# ==============================================================================
+# 6. PARALELISMO Y MULTIPROCESAMIENTO (OPT-01 & OPT-03)
+# ==============================================================================
+CPU_WORKERS_COUNT = int(os.getenv("CRAWLER_CPU_WORKERS", max(1, min(4, os.cpu_count() or 4))))  # Pool multiproceso PDF/OCR
+ENABLE_RUCT_ASYNC_PREFETCH = os.getenv("CRAWLER_ENABLE_RUCT_PREFETCH", "1").strip().lower() not in {"0", "false", "no"} # Activar precarga adelantada RUCT
+ASYNC_PREFETCH_WORKERS = _safe_int("CRAWLER_PREFETCH_WORKERS", 2)                           # Hilos concurrentes de precarga acotada
+RUCT_PREFETCH_LOOKAHEAD = _safe_int("CRAWLER_RUCT_PREFETCH_LOOKAHEAD", 3)                   # Ventana de titulaciones adelantadas en cola
+WEB_CRAWLER_WORKERS = _safe_int("CRAWLER_WEB_WORKERS", 12)                                   # Hilos escaneo web oficial
+TASK_QUEUE_MAXSIZE = _safe_int("CRAWLER_TASK_QUEUE_MAXSIZE", 40)                            # Tamaño máximo acotado de cola multiproceso (seguridad RAM Docker)
+TASK_QUEUE_GET_TIMEOUT = _safe_int("CRAWLER_TASK_QUEUE_TIMEOUT", 5)                          # Timeout de lectura en cola (5s)
+WORKER_RESULT_QUEUE_TIMEOUT = _safe_float("CRAWLER_WORKER_RESULT_QUEUE_TIMEOUT", 3.0)
+WORKER_STOP_QUEUE_TIMEOUT = _safe_float("CRAWLER_WORKER_STOP_QUEUE_TIMEOUT", 3.0)
+WORKER_RESULT_COLLECTION_TIMEOUT = _safe_float("CRAWLER_WORKER_RESULT_COLLECTION_TIMEOUT", 15.0)
+WORKER_JOIN_TIMEOUT = _safe_float("CRAWLER_WORKER_JOIN_TIMEOUT", 5.0)
+WORKER_TERMINATE_JOIN_TIMEOUT = _safe_float("CRAWLER_WORKER_TERMINATE_JOIN_TIMEOUT", 2.0)
+WORKER_TASK_PUT_TIMEOUT = _safe_float("CRAWLER_WORKER_TASK_PUT_TIMEOUT", 5.0)
+MAX_IN_MEMORY_PDF_BYTES = _safe_int("CRAWLER_MAX_IN_MEMORY_PDF_BYTES", str(5 * 1024 * 1024))  # Umbral híbrido RAM vs Disco (5 MB)
+ENABLE_HTTP2 = os.getenv("CRAWLER_ENABLE_HTTP2", "1").strip().lower() not in {"0", "false", "no"}  # Activar conexiones multiplexadas HTTP/2
 
 # ==============================================================================
 # 6. PARALELISMO Y MULTIPROCESAMIENTO (OPT-01 & OPT-03)
@@ -253,6 +289,9 @@ HTTP2_MAX_KEEPALIVE_CONNECTIONS = _safe_int("CRAWLER_HTTP2_MAX_KEEPALIVE", 10)  
 WEB_ROBOTS_FALLBACK_DELAY = _safe_float("CRAWLER_ROBOTS_DELAY", 0.5)      # Retardo por defecto si no hay Crawl-delay
 ROBOTS_CHECK_TIMEOUT = _safe_int("CRAWLER_ROBOTS_TIMEOUT", 10)             # Timeout para lectura de robots.txt
 ROBOTS_CACHE_TTL_SECONDS = _safe_int("CRAWLER_ROBOTS_CACHE_TTL", 86400)    # TTL de caché robots.txt (24h RFC 9309)
+ROBOTS_MAX_CACHE_SIZE = _safe_int("CRAWLER_ROBOTS_MAX_CACHE_SIZE", 512)    # Límite LRU de dominios en caché robots
+ROBOTS_POLICY_MAX_TIMEOUT = _safe_int("CRAWLER_ROBOTS_POLICY_MAX_TIMEOUT", 15) # Tope máximo timeout robots
+MAX_PDF_PAGES_EXTRACT = _safe_int("CRAWLER_MAX_PDF_PAGES_EXTRACT", 80)     # Límite páginas PDF a extraer para evitar OOM
 SITEMAP_FETCH_TIMEOUT = _safe_int("CRAWLER_SITEMAP_TIMEOUT", 4)            # Timeout por candidato de Sitemap XML
 WEB_CONNECTIVITY_TIMEOUT = _safe_float("CRAWLER_WEB_CONNECTIVITY_TIMEOUT", 10.0)
 WEB_CONTENT_TIMEOUT = _safe_float("CRAWLER_WEB_CONTENT_TIMEOUT", 15.0)
@@ -260,7 +299,42 @@ WEB_PROBE_DELAY = _safe_float("CRAWLER_WEB_PROBE_DELAY", 0.1)
 WEB_SEARCH_SUBPAGES_LIMIT = _safe_int("CRAWLER_SUBPAGES_LIMIT", 12)       # Subpáginas máximas a inspeccionar
 WEB_SEARCH_SUBPAGES_DEPTH = _safe_int("CRAWLER_SUBPAGES_DEPTH", 6)        # Coincidencias máximas del Sitemap
 LAZY_SCANNED_PAGES_CACHE_LIMIT = _safe_int("CRAWLER_LAZY_LIMIT", 25)      # Páginas escaneadas en caché RAM
+WEB_CANDIDATES_PER_DEGREE = _safe_int("CRAWLER_WEB_CANDIDATES_PER_DEGREE", 3)  # Candidatas relevantes antes de declarar fallo
+MAX_SUBJECT_GUIDE_URL_CANDIDATES = _safe_int("CRAWLER_MAX_SUBJECT_GUIDE_URL_CANDIDATES", 12)  # Límite por asignatura
+# Cuando el BOE no conserva código, las rutas por nombre son una última
+# aproximación y no deben multiplicarse por todos los dominios/patrones.
+MAX_SUBJECT_GUIDE_NO_CODE_CANDIDATES = _safe_int("CRAWLER_MAX_SUBJECT_GUIDE_NO_CODE_CANDIDATES", 6)
+# Ponderaciones de calidad y cobertura de campos para guías docentes
+SUBJECT_GUIDE_QUALITY_WEIGHTS = {
+    "nombre_asignatura": _safe_int("CRAWLER_WEIGHT_NOMBRE_ASIGNATURA", 18),
+    "codigo_asignatura": _safe_int("CRAWLER_WEIGHT_CODIGO_ASIGNATURA", 18),
+    "creditos_ects": _safe_int("CRAWLER_WEIGHT_CREDITOS_ECTS", 12),
+    "temario": _safe_int("CRAWLER_WEIGHT_TEMARIO", 18),
+    "sistema_evaluacion": _safe_int("CRAWLER_WEIGHT_SISTEMA_EVALUACION", 10),
+    "competencias": _safe_int("CRAWLER_WEIGHT_COMPETENCIAS", 8),
+    "resultados_aprendizaje": _safe_int("CRAWLER_WEIGHT_RESULTADOS_APRENDIZAJE", 8),
+    "profesorado": _safe_int("CRAWLER_WEIGHT_PROFESORADO", 4),
+    "departamento": _safe_int("CRAWLER_WEIGHT_DEPARTAMENTO", 4),
+}
+# Índice genérico de guías docentes para universidades sin adaptador específico.
+# Son cotas por universidad, no por asignatura: evitan convertir el sitemap en
+# un rastreo indiscriminado y permiten reutilizarlo para todas las materias.
+SUBJECT_GUIDE_DISCOVERY_MAX_ROOTS = _safe_int("CRAWLER_SUBJECT_GUIDE_DISCOVERY_ROOTS", 6)
+SUBJECT_GUIDE_DISCOVERY_MAX_FILES = _safe_int("CRAWLER_SUBJECT_GUIDE_DISCOVERY_FILES", 18)
+SUBJECT_GUIDE_DISCOVERY_MAX_URLS = _safe_int("CRAWLER_SUBJECT_GUIDE_DISCOVERY_URLS", 5000)
+SUBJECT_GUIDE_DISCOVERY_CACHE_DIR = os.getenv(
+    "CRAWLER_SUBJECT_GUIDE_DISCOVERY_CACHE_DIR",
+    os.path.join(DATA_DIR, "discovery_cache"),
+)
+SUBJECT_GUIDE_DISCOVERY_CACHE_TTL_SECONDS = _safe_int(
+    "CRAWLER_SUBJECT_GUIDE_DISCOVERY_CACHE_TTL",
+    str(7 * 24 * 3600),
+)
 SPA_ACCORDION_CLICK_DELAY = _safe_float("CRAWLER_SPA_CLICK_DELAY", 0.35)   # Pausa tras desplegar acordeón (s)
+SPA_INITIAL_RENDER_DELAY = _safe_float("CRAWLER_SPA_INITIAL_DELAY", 0.8)
+SPA_MAX_CONCURRENT_RENDERS = _safe_int("CRAWLER_SPA_MAX_CONCURRENT", 2)
+SPA_RENDER_CACHE_TTL_SECONDS = _safe_int("CRAWLER_SPA_CACHE_TTL", 3600)
+SPA_RENDER_CACHE_MAX_BYTES = _safe_int("CRAWLER_SPA_CACHE_MAX_BYTES", 64 * 1024 * 1024)
 SPA_SUBPAGE_FETCH_TIMEOUT = _safe_int("CRAWLER_SPA_FETCH_TIMEOUT", 15)     # Timeout para descarga de subpáginas SPA (s)
 WEB_SEARCH_RETRY_DELAY = _safe_float("CRAWLER_WEB_SEARCH_DELAY", 0.4)      # Pausa cortés entre búsquedas de subpáginas (s)
 
@@ -271,8 +345,8 @@ HUB_AND_SPOKE_MAX_HOPS = _safe_int("CRAWLER_HUB_MAX_HOPS", 6)              # Cot
 
 # Parámetros del Motor Autónomo de Descubrimiento de HUBs Curriculares (6 Capas)
 DYNAMIC_HUB_MIN_SIBLINGS = _safe_int("CRAWLER_HUB_MIN_SIBLINGS", 6)        # Mínimo de enlaces hermanos homogéneos para clasificar como HUB
-DYNAMIC_HUB_MIN_TITLE_WORDS = 2                                                  # Mínimo de palabras en ancla para titulación académica
-DYNAMIC_HUB_MAX_TITLE_WORDS = 10                                                 # Máximo de palabras en ancla para titulación académica
+DYNAMIC_HUB_MIN_TITLE_WORDS = _safe_int("CRAWLER_DYNAMIC_HUB_MIN_TITLE_WORDS", 2) # Mínimo de palabras en ancla para titulación académica
+DYNAMIC_HUB_MAX_TITLE_WORDS = _safe_int("CRAWLER_DYNAMIC_HUB_MAX_TITLE_WORDS", 10) # Máximo de palabras en ancla para titulación académica
 SPIDER_TRAP_PATH_MARKERS = [
     "/agenda/", "/calendario/", "/calendar/", "/eventos/", "/events/", 
     "/noticias/", "/news/", "/actualidad/", "/tag/", "/category/", 
@@ -344,6 +418,22 @@ ORGANIC_AFFILIATED_HUB_KEYWORDS = [
     "fundacio", "fundacion", "consorcio", "alianza", "sea-eu", "erasmus", "eunice", 
     "charmeu", "arqus", "civica", "civis", "eut+"
 ]
+# Dominios externos que pueden contener enlaces institucionales con palabras
+# como «escuela» o «Erasmus», pero no son fuentes de planes curriculares.
+ORGANIC_EXTERNAL_DOMAIN_DENYLIST = frozenset({
+    "erasmusplay.com",
+    "sepie.es",
+    "juntadeandalucia.es",
+    # Servicios sociales o de compartición: pueden aparecer enlazados desde
+    # una web universitaria, pero nunca son una fuente curricular.
+    "facebook.com",
+    "instagram.com",
+    "linkedin.com",
+    "twitter.com",
+    "x.com",
+    "youtube.com",
+    "tiktok.com",
+})
 EUROPEAN_ALLIANCES_KEYWORDS = [
     "erasmus mundus", "joint master", "european master", "sea-eu", "eunice", 
     "charmeu", "charm-eu", "arqus", "civica", "civis", "eut+", "neurotecheu", 

@@ -1,14 +1,19 @@
 import unittest
 import threading
 import time
-from Codigo.Crawler.parsers import (
+import sys
+import os
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
+
+from parsers import (
     sanitize_subject_name,
     classify_subject_caracter,
     is_spurious_or_administrative_subject,
     unreverse_text
 )
-from Codigo.Crawler.asignaturas_crawler import SubjectGuideCache, resolve_candidate_subject_guide_urls
-from Codigo.Crawler.downloader import RUCTDownloader, normalize_url
+from asignaturas_crawler import SubjectGuideCache, resolve_candidate_subject_guide_urls
+from downloader import RUCTDownloader, normalize_url
 
 
 class TestPhase1AuditFixes(unittest.TestCase):

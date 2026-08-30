@@ -1,7 +1,7 @@
-A continuación se recogen las instrucciones necesarias para evolucionar el software **UniHub**. Este manual está dirigido a los desarrolladores que pretenden extender o modificar el código fuente, con el fin de incorporar nuevas funcionalidades o modificar las ya existentes.
+A continuación se recogen las instrucciones necesarias para evolucionar el software \textbf{UniHub}. Este manual está dirigido a los desarrolladores que pretenden extender o modificar el código fuente, con el fin de incorporar nuevas funcionalidades o modificar las ya existentes.
 
 \section{Introducción}
-El proyecto **UniHub** está estructurado en 4 fases de código totalmente desacopladas situadas en \texttt{d:\textbackslash Proyecto\textbackslash Codigo\textbackslash}: \texttt{Crawler/}, \texttt{API/}, \texttt{WWW/} y \texttt{Docker/}.
+El proyecto \textbf{UniHub} se organiza en cuatro componentes principales situados bajo \texttt{Codigo/}: \texttt{Crawler/}, \texttt{API/}, \texttt{WWW/} y \texttt{Docker/}.
 
 \section{Preparación del entorno de trabajo}
 \begin{enumerate}
@@ -18,6 +18,7 @@ El proyecto **UniHub** está estructurado en 4 fases de código totalmente desac
 \section{Consideraciones generales sobre el desarrollo}
 \begin{itemize}
     \item \textbf{Gestión de Datos no Vacíos y Filtro Estricto:} Cualquier modificación en el crawler debe respetar el filtro estricto de titulaciones vigentes y la función \texttt{is\_valid\_value} de \texttt{checkpoint.py} para impedir la sobrescritura accidental de registros válidos.
+    \item \textbf{Parser BOE:} Los cambios en \texttt{boe\_pdf\_parser.py} deben conservar la delimitación por titulación, la trazabilidad de la fuente y las pruebas de precisión/cobertura. Un resultado sin detalle curricular debe persistirse como incompleto, nunca completarse con valores estimados.
     \item \textbf{Nuevos Endpoints en la API REST:} Al incorporar nuevos endpoints en FastAPI, defina siempre los esquemas Pydantic correspondientes en \texttt{schemas/schemas.py} y añada el router a \texttt{main.py}.
     \item \textbf{Sistema de Diseño UCA:} Al añadir componentes visuales en React, utilice las variables CSS corporativas de la UCA (\texttt{--uca-navy}, \texttt{--uca-blue}, \texttt{--uca-cyan}, \texttt{--uca-gold}) y la clase \texttt{.badge-doctorado} definidas en \texttt{src/index.css}.
     \item \textbf{Resiliencia de UI:} Toda ruta pública debe estar protegida por \texttt{ErrorBoundary} y componentes pesados deben cargarse con \texttt{React.lazy} y \texttt{Suspense}. Evitar comparaciones contra datos mock en tiempo de ejecución; usar banderas de estado como \texttt{initialDataLoaded} para controlar efectos secundarios.

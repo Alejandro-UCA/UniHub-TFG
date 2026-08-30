@@ -1,6 +1,6 @@
 from typing import List, Optional
 from fastapi import APIRouter, Depends, HTTPException, Query, status, Response
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, selectinload
 from sqlalchemy import case
 
 try:
@@ -70,7 +70,10 @@ def get_titulaciones_universidad(
     if not univ:
         raise HTTPException(status_code=404, detail=f"Universidad con código '{codigo}' no encontrada.")
         
-    query = db.query(Titulacion).filter(Titulacion.universidad_codigo == univ.codigo)
+    query = db.query(Titulacion).options(
+        selectinload(Titulacion.universidad),
+        selectinload(Titulacion.plan_estudios),
+    ).filter(Titulacion.universidad_codigo == univ.codigo)
     response.headers["X-Total-Count"] = str(query.count())
     response.headers["Access-Control-Expose-Headers"] = "X-Total-Count"
     return query.order_by(Titulacion.titulo.asc()).offset(skip).limit(limit).all()

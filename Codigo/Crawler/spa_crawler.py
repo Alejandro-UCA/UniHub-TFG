@@ -7,6 +7,7 @@ import tempfile
 import threading
 import time
 import urllib.parse
+from collections import OrderedDict
 from bs4 import BeautifulSoup
 import requests
 
@@ -19,6 +20,10 @@ from config import (
     MAX_RESPONSE_SIZE_BYTES,
     MAX_TEXT_RESPONSE_SIZE_BYTES,
     DOWNLOAD_CHUNK_SIZE,
+    SPA_INITIAL_RENDER_DELAY,
+    SPA_MAX_CONCURRENT_RENDERS,
+    SPA_RENDER_CACHE_TTL_SECONDS,
+    SPA_RENDER_CACHE_MAX_BYTES,
 )
 from robots_policy import RobotsPolicy
 
@@ -54,6 +59,51 @@ class SPALayoutCrawler:
     """
     _local = threading.local()
     _lock = threading.Lock()
+    _render_cache = OrderedDict()
+    _render_cache_bytes = 0
+    _render_cache_lock = threading.RLock()
+    _render_semaphore = threading.BoundedSemaphore(max(1, SPA_MAX_CONCURRENT_RENDERS))
+
+    @classmethod
+    def clear_render_cache(cls):
+        with cls._render_cache_lock:
+            cls._render_cache.clear()
+            cls._render_cache_bytes = 0
+
+    @classmethod
+    def _cached_render(cls, target_url: str):
+        if SPA_RENDER_CACHE_TTL_SECONDS <= 0:
+            return None
+        with cls._render_cache_lock:
+            entry = cls._render_cache.get(target_url)
+            if entry is None:
+                return None
+            fetched_at, result = entry
+            age = time.time() - fetched_at
+            if age < 0 or age > SPA_RENDER_CACHE_TTL_SECONDS:
+                cls._render_cache.pop(target_url, None)
+                result_size = len(str(result).encode("utf-8")) + len(getattr(result, "content_bytes", b""))
+                cls._render_cache_bytes = max(0, cls._render_cache_bytes - result_size)
+                return None
+            cls._render_cache.move_to_end(target_url)
+            return result
+
+    @classmethod
+    def _cache_render(cls, target_url: str, result: RenderResult):
+        if SPA_RENDER_CACHE_TTL_SECONDS <= 0 or (not result and not getattr(result, "content_bytes", b"")):
+            return
+        size = len(str(result).encode("utf-8")) + len(getattr(result, "content_bytes", b""))
+        if size <= 0 or size > SPA_RENDER_CACHE_MAX_BYTES:
+            return
+        with cls._render_cache_lock:
+            previous = cls._render_cache.pop(target_url, None)
+            if previous is not None:
+                cls._render_cache_bytes -= len(str(previous[1]).encode("utf-8")) + len(getattr(previous[1], "content_bytes", b""))
+            cls._render_cache[target_url] = (time.time(), result)
+            cls._render_cache_bytes += size
+            while cls._render_cache and cls._render_cache_bytes > SPA_RENDER_CACHE_MAX_BYTES:
+                _, (_, old_result) = cls._render_cache.popitem(last=False)
+                cls._render_cache_bytes -= len(str(old_result).encode("utf-8")) + len(getattr(old_result, "content_bytes", b""))
 
     @classmethod
     def get_shared_instance(cls, timeout=HTTP_TIMEOUT):
@@ -82,10 +132,14 @@ class SPALayoutCrawler:
         if self._browser is None:
             try:
                 self._pw = sync_playwright().start()
-                self._browser = self._pw.chromium.launch(
-                    headless=True,
-                    args=["--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu"]
-                )
+                launch_options = {
+                    "headless": True,
+                    "args": ["--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu"],
+                }
+                executable_path = os.getenv("PLAYWRIGHT_EXECUTABLE_PATH", "").strip()
+                if executable_path and os.path.isfile(executable_path):
+                    launch_options["executable_path"] = executable_path
+                self._browser = self._pw.chromium.launch(**launch_options)
             except Exception as e:
                 print(f"   [SPA Crawler] Error al arrancar Chromium: {e}")
                 self.close()
@@ -325,8 +379,14 @@ class SPALayoutCrawler:
         and returns the fully rendered HTML string or intercepted binary download.
         Safe fallback if Playwright is unavailable.
         """
+        cached = self._cached_render(target_url)
+        if cached is not None:
+            return cached
+
         if not PLAYWRIGHT_AVAILABLE:
-            return self._static_fallback_render(target_url)
+            result = self._static_fallback_render(target_url)
+            self._cache_render(target_url, result)
+            return result
 
         if RESPECT_ROBOTS:
             allowed, _ = self._robots_policy.check(target_url)
@@ -334,10 +394,22 @@ class SPALayoutCrawler:
                 return RenderResult("")
 
         context = None
+        semaphore_acquired = False
         try:
+            semaphore_acquired = self._render_semaphore.acquire(
+                timeout=max(0.1, self.timeout / 1000.0)
+            )
+            if not semaphore_acquired:
+                logger.warning("Límite de renders SPA ocupado; se usa fallback estático: %s", target_url)
+                result = self._static_fallback_render(target_url)
+                self._cache_render(target_url, result)
+                return result
+
             browser = self._ensure_browser()
             if not browser:
-                return self._static_fallback_render(target_url)
+                result = self._static_fallback_render(target_url)
+                self._cache_render(target_url, result)
+                return result
 
             context = browser.new_context(
                 user_agent=USER_AGENT,
@@ -358,7 +430,7 @@ class SPALayoutCrawler:
             # Interceptar descargas automáticas forzadas por cabeceras Content-Disposition (Patrón A)
             try:
                 page.goto(target_url, timeout=self.timeout, wait_until="domcontentloaded")
-                page.wait_for_timeout(800)
+                page.wait_for_timeout(max(0, int(SPA_INITIAL_RENDER_DELAY * 1000)))
             except Exception as nav_err:
                 if "Download is starting" in str(nav_err) or "net::ERR_ABORTED" in str(nav_err):
                     try:
@@ -380,7 +452,9 @@ class SPALayoutCrawler:
                         except OSError as cleanup_error:
                             logger.warning("No se pudo eliminar el temporal descargado %s: %s", temp_f.name, cleanup_error)
                         print(f"   [SPA Crawler] Descarga binaria interceptada con éxito ({len(dl_bytes)} bytes): '{safe_filename}'")
-                        return RenderResult("", is_download=True, content_bytes=dl_bytes, filename=safe_filename)
+                        result = RenderResult("", is_download=True, content_bytes=dl_bytes, filename=safe_filename)
+                        self._cache_render(target_url, result)
+                        return result
                     except Exception as dl_err:
                         print(f"   [SPA Crawler] Fallo al capturar descarga de '{target_url}': {dl_err}")
                         return RenderResult("")
@@ -406,21 +480,27 @@ class SPALayoutCrawler:
                         try { elem.click(); } catch(e) {}
                     }
                 }""")
-                page.wait_for_timeout(350)
+                page.wait_for_timeout(max(0, int(SPA_ACCORDION_CLICK_DELAY * 1000)))
             except Exception as expansion_error:
                 logger.debug("No se pudieron expandir todos los controles de la SPA: %s", expansion_error)
 
             rendered_html = page.content()
-            return RenderResult(rendered_html)
+            result = RenderResult(rendered_html)
+            self._cache_render(target_url, result)
+            return result
         except Exception as err:
             print(f"   [SPA Crawler] Headless browser fallback notice for '{target_url}': {err}")
-            return self._static_fallback_render(target_url)
+            result = self._static_fallback_render(target_url)
+            self._cache_render(target_url, result)
+            return result
         finally:
             if context:
                 try:
                     context.close()
                 except Exception as close_error:
                     logger.debug("No se pudo cerrar el contexto Playwright: %s", close_error, exc_info=True)
+            if semaphore_acquired:
+                self._render_semaphore.release()
 
     def close(self):
         """Cleanly terminates the browser instance."""

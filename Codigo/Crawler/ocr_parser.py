@@ -2,6 +2,7 @@ import os
 import io
 import re
 import logging
+import shutil
 
 logger = logging.getLogger("ocr_parser")
 
@@ -28,7 +29,7 @@ try:
 except ImportError:
     pass
 
-OCR_AVAILABLE = (HAS_PDF2IMAGE or HAS_PYPDFIUM2) and HAS_PYTESSERACT
+OCR_AVAILABLE = (HAS_PDF2IMAGE or HAS_PYPDFIUM2) and HAS_PYTESSERACT and bool(shutil.which("tesseract"))
 
 
 class OCRPDFParser:
@@ -71,19 +72,25 @@ class OCRPDFParser:
                     images = pdf2image.convert_from_bytes(raw_bytes, dpi=self.dpi, first_page=1, last_page=self.max_pages)
                 elif HAS_PYPDFIUM2:
                     pdf_doc = pypdfium2.PdfDocument(pdf_input)
-                    for i in range(min(len(pdf_doc), self.max_pages)):
-                        page = pdf_doc.get_page(i)
-                        pil_img = page.render(scale=self.dpi / 72).to_pil()
-                        images.append(pil_img)
+                    try:
+                        for i in range(min(len(pdf_doc), self.max_pages)):
+                            page = pdf_doc.get_page(i)
+                            pil_img = page.render(scale=self.dpi / 72).to_pil()
+                            images.append(pil_img)
+                    finally:
+                        pdf_doc.close()
             elif isinstance(pdf_input, str) and os.path.exists(pdf_input):
                 if HAS_PDF2IMAGE:
                     images = pdf2image.convert_from_path(pdf_input, dpi=self.dpi, first_page=1, last_page=self.max_pages)
                 elif HAS_PYPDFIUM2:
                     pdf_doc = pypdfium2.PdfDocument(pdf_input)
-                    for i in range(min(len(pdf_doc), self.max_pages)):
-                        page = pdf_doc.get_page(i)
-                        pil_img = page.render(scale=self.dpi / 72).to_pil()
-                        images.append(pil_img)
+                    try:
+                        for i in range(min(len(pdf_doc), self.max_pages)):
+                            page = pdf_doc.get_page(i)
+                            pil_img = page.render(scale=self.dpi / 72).to_pil()
+                            images.append(pil_img)
+                    finally:
+                        pdf_doc.close()
 
             if not images:
                 return ""

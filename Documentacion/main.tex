@@ -27,11 +27,14 @@
 \begin{document}
 
     % FRONTMATTER: portadas y secciones no numeradas
+    % Las páginas preliminares se numeran de forma independiente; se desactivan
+    % sus anclas para evitar destinos duplicados en los marcadores del PDF.
+    \hypersetup{pageanchor=false}
     \input{sections/1-frontmatter}
  
      \setcounter{page}{1} % Comienza a incluir números de página a partir de aquí
      % Cambia el estilo de números de página a normal
-    \clearpage\pagenumbering{arabic}
+    \clearpage\pagenumbering{arabic}\hypersetup{pageanchor=true}
     
     % PROLEGÓMENO
     \part{Prolegómeno}

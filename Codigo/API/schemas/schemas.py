@@ -129,6 +129,16 @@ class TitulacionUpdate(BaseModel):
 class TitulacionOut(TitulacionBase):
     id: int
     creado_en: Optional[datetime] = None
+    universidad_nombre: Optional[str] = None
+    universidad_tipo: Optional[str] = None
+    centro_adscrito: Optional[str] = None
+    es_alianza_europea: bool = False
+    web_fuente_directa_url: Optional[str] = None
+    estado_calidad_plan: Optional[str] = None
+    origen_fuente: Optional[str] = None
+    fuente_verificada_url: Optional[str] = None
+    tiene_plan_verificado: bool = False
+    plan_incompleto: bool = False
 
     model_config = ConfigDict(from_attributes=True)
 
@@ -230,6 +240,8 @@ class PlanEstudiosOut(BaseModel):
     fuente_verificada_url: Optional[str] = None
     verificado_en: Optional[datetime] = None
     fecha_procesado: Optional[datetime] = None
+    tipo_estructura: Optional[str] = None
+    ects_exigidos: Optional[str] = None
     resumen_creditos: List[ResumenCreditosOut] = []
     elementos_curriculares: List[ElementoCurricularOut] = []
 

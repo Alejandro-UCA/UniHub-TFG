@@ -283,12 +283,8 @@ export default function TuitionCalculator() {
       totalEcts = customEcts;
       selectedSubjectsCount = Math.round(customEcts / 6);
       
-      let baseRate = parsePositiveNumber(degreeDetail.precio_credito_ects);
-      if (!baseRate && degreeDetail.precio_estimado_anual) {
-        const annualPrice = parsePositiveNumber(degreeDetail.precio_estimado_anual);
-        baseRate = annualPrice === null ? null : annualPrice / 60;
-      }
-      if (!baseRate) calculationUnavailable = true;
+      const baseRate = parsePositiveNumber(degreeDetail.precio_credito_ects);
+      if (baseRate === null) calculationUnavailable = true;
 
       const multiplier = customTier === 1 ? 1 : customTier === 2 ? 1.5 : customTier === 3 ? 3.0 : 4.5;
       const unitCost = baseRate === null ? 0 : baseRate * multiplier;

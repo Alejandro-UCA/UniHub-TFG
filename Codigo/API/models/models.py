@@ -41,11 +41,50 @@ class Titulacion(Base):
     precio_credito_4 = Column(Numeric(6, 2), nullable=True)
     precio_estimado_anual = Column(Numeric(8, 2), nullable=True)
     fuente_precio = Column(Text, nullable=True)
+    centro_adscrito = Column(Text, nullable=True)
+    es_alianza_europea = Column(Boolean, default=False, nullable=False)
+    web_fuente_directa_url = Column(Text, nullable=True)
     gestionado_por_admin = Column(Boolean, default=False)
     creado_en = Column(DateTime, default=func.now())
 
     universidad = relationship("Universidad", back_populates="titulaciones")
     plan_estudios = relationship("PlanEstudios", back_populates="titulacion", uselist=False, cascade="all, delete-orphan")
+
+    @property
+    def universidad_nombre(self):
+        return self.universidad.nombre if self.universidad else None
+
+    @property
+    def universidad_tipo(self):
+        return self.universidad.tipo if self.universidad else None
+
+    @property
+    def estado_calidad_plan(self):
+        return self.plan_estudios.estado_calidad if self.plan_estudios else None
+
+    @property
+    def origen_fuente(self):
+        return self.plan_estudios.origen_fuente if self.plan_estudios else None
+
+    @property
+    def fuente_verificada_url(self):
+        return self.plan_estudios.fuente_verificada_url if self.plan_estudios else None
+
+    @property
+    def tiene_plan_verificado(self):
+        return bool(
+            self.plan_estudios
+            and self.plan_estudios.estado_calidad in {
+                "verificado_boe",
+                "verificado_universidad",
+                "verificado_administracion",
+            }
+        )
+
+    @property
+    def plan_incompleto(self):
+        """Indica que hay datos curriculares, pero todavía no son publicables como verificados."""
+        return bool(self.plan_estudios and not self.tiene_plan_verificado)
 
 
 class PlanEstudios(Base):
@@ -62,6 +101,8 @@ class PlanEstudios(Base):
     fuente_verificada_url = Column(Text)
     verificado_en = Column(DateTime)
     fecha_procesado = Column(DateTime)
+    tipo_estructura = Column(String(100), nullable=True)
+    ects_exigidos = Column(Text, nullable=True)
     creado_en = Column(DateTime, default=func.now())
 
     titulacion = relationship("Titulacion", back_populates="plan_estudios")

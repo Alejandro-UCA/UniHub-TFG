@@ -13,6 +13,7 @@ if CRAWLER_DIR not in sys.path:
 
 import fase1_parte1_ruct_boe as ruct_boe
 from degree_persistence import save_degree_payload
+from payload_contract import validate_degree_payload
 
 
 def complete_plan():
@@ -26,6 +27,64 @@ def complete_plan():
 
 
 class TestQualityPersistenceContract(unittest.TestCase):
+    def test_degree_payload_contract_detects_structural_errors_without_rejecting_partiality(self):
+        result = validate_degree_payload({
+            "codigo_estudio": "2500001",
+            "universidad_codigo": "099",
+            "titulo": "Grado de prueba",
+            "plan_estudios": {"elementos_curriculares": [{
+                "nombre_elemento": "Álgebra", "creditos_ects": "6"
+            }]},
+        })
+        self.assertTrue(result["valid"])
+        invalid = validate_degree_payload({
+            "codigo_estudio": "x", "universidad_codigo": "099", "titulo": "Prueba",
+            "plan_estudios": {"elementos_curriculares": [{"nombre_elemento": "", "creditos_ects": 999}]},
+        })
+        self.assertFalse(invalid["valid"])
+        self.assertIn("codigo_estudio_invalido", invalid["issues"])
+        self.assertIn("elemento_0_ects_fuera_de_rango", invalid["issues"])
+
+    def test_persistence_archives_only_real_degree_changes(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            plan_path = os.path.join(temp_dir, "degree.json")
+            partition_path = os.path.join(temp_dir, "partition.json")
+            history_dir = os.path.join(temp_dir, "history")
+            kwargs = {
+                "plan_file": plan_path,
+                "d_code": "2500001",
+                "d_title": "Grado en Ingeniería Informática",
+                "u_code": "099",
+                "u_name": "Universidad de Prueba",
+                "nivel_academico": "Grado",
+                "boe_url": "https://www.boe.es/boe/dias/2024/01/01/pdfs/BOE-A-2024-1.pdf",
+                "origen_fuente": "boe",
+            }
+            with patch("degree_persistence.DEGREE_HISTORY_DIR", history_dir), \
+                 patch("degree_persistence.DEGREE_HISTORY_ENABLED", True), \
+                 patch("degree_persistence.get_plan_filepath", return_value=partition_path):
+                save_degree_payload(plan_estudios=complete_plan(), **kwargs)
+                # Cambiar solo la marca temporal no debe generar una copia.
+                save_degree_payload(plan_estudios=complete_plan(), **kwargs)
+                self.assertEqual(list(os.walk(history_dir)), [])
+                changed = complete_plan()
+                changed["elementos_curriculares"].append({"nombre_elemento": "Nueva", "creditos_ects": 6})
+                save_degree_payload(plan_estudios=changed, **kwargs)
+
+            archived = [
+                os.path.join(root, filename)
+                for root, _, files in os.walk(history_dir)
+                for filename in files
+                if filename.endswith(".json")
+            ]
+            self.assertEqual(len(archived), 1)
+            with open(archived[0], encoding="utf-8") as handle:
+                snapshot = json.load(handle)
+            self.assertEqual(len(snapshot["plan_estudios"]["elementos_curriculares"]), 40)
+            with open(plan_path, encoding="utf-8") as handle:
+                current = json.load(handle)
+            self.assertNotEqual(snapshot["snapshot_hash"], current["snapshot_hash"])
+
     def test_persistence_quarantines_partial_candidate_and_keeps_verified_plan(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             plan_path = os.path.join(temp_dir, "2500001.json")

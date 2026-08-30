@@ -77,7 +77,8 @@ def get_crawler_status_and_metrics(datos_dir: str) -> dict:
         "titulaciones_al_dia": crawler_operations.get("titulaciones_al_dia_sin_cambios", 0),
         "titulaciones_actualizadas": crawler_operations.get("titulaciones_nuevas_o_actualizadas", 0),
         "pdfs_parseados": crawler_operations.get("pdfs_boe_descargados_y_parseados", 0),
-        "errores_registrados": crawler_operations.get("errores_registrados", 0)
+        "errores_registrados": crawler_operations.get("errores_registrados", 0),
+        "incidencias_controladas": crawler_operations.get("incidencias_controladas", 0)
     }
 
 def collect_container_physical_stats() -> dict:

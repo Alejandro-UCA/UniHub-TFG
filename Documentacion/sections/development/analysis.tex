@@ -127,7 +127,7 @@ El flujo de ejecución del rastreador combina la priorización contextual de enl
         \node[startstop] (start) {Inicio: Titulación Activa RUCT};
         \node[process, below=0.8cm of start] (fetch_html) {Descarga HTML de Ficha RUCT y Extracción de Enlaces BOE};
         \node[process, below=0.8cm of fetch_html] (rank_links) {Clasificación Contextual Semántica (Corrección 100, Plan 90, Acuerdo 10)};
-        \node[process, below=0.8cm of rank_links] (download_pdf) {Descarga y Parsing de PDF prioritario (pdfplumber / PyPDF)};
+        \node[process, below=0.8cm of rank_links] (download_pdf) {Descarga y análisis profundo del PDF (páginas, posiciones y tablas)};
         \node[decision, below=0.9cm of download_pdf] (check_complete) {$\sum \text{ECTS} \ge \text{ECTS}_{\text{exigidos}}$?};
         \node[process, right=1.2cm of check_complete, text width=3.8cm] (more_boes) {Iterar siguiente BOE del fieldset (Multi-BOE)};
         \node[process, below=1.0cm of check_complete] (mark_ok) {Marcar Plan Completo y Persistir en JSON / SQLite WAL};

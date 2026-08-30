@@ -1,100 +1,62 @@
 % ------------------------------------------------------------------------------
-% Este fichero es parte de la plantilla LaTeX para la realización de Proyectos
-% Final de Grado
+% Estrategia y resultados de validación
 % ------------------------------------------------------------------------------
 
-En este capítulo se presenta el plan de pruebas exhaustivo del sistema \textbf{UniHub}, incluyendo pruebas unitarias, de integración, pruebas de rendimiento no funcionales y las \textbf{Pruebas de Fuego (Fire Tests)} ejecutadas sobre sujetos reales.
+Este capítulo describe la estrategia de pruebas aplicada a \textbf{UniHub}. Se distingue entre pruebas deterministas, que se ejecutan sin depender de fuentes externas, y evaluaciones empíricas, que contrastan el resultado con publicaciones oficiales. Esta separación evita confundir una prueba de software con una medición de cobertura nacional.
 
 \section{Estrategia de Pruebas}
-La estrategia abarcó desde la verificación unitaria de módulos individuales (parsers de XLS con clasificación de Doctorados y filtro estricto de vigencia, resiliencia de conexión 5m/15m, funciones de distancia Haversine) hasta pruebas de integración de API REST con PostgreSQL, pruebas de compilación bundle de la SPA en React y pruebas de fuego end-to-end sobre universidades públicas y privadas.
+La validación se organiza en cuatro niveles: pruebas unitarias de normalización y reglas de negocio; pruebas de integración entre crawler, persistencia, API y cliente web; pruebas de regresión del parser BOE; y evaluaciones empíricas contra documentos oficiales. Las pruebas con red se ejecutan explícitamente, de forma secuencial y respetando los retardos y las restricciones de acceso de las fuentes consultadas.
 
-\section{Pruebas Unitarias}
+\section{Pruebas Unitarias y de Integración}
+La suite automatizada cubre, entre otros, los siguientes contratos:
 \begin{itemize}
-    \item \textbf{Prueba de Clasificación de Doctorados y Filtro de Vigencia (\texttt{parsers.py}):} Se comprobó que el parser de XLS identifique correctamente los doctorados (RD 99/2011) y descarte de forma estricta titulaciones extinguidas, no vigentes o derogadas.
-    \item \textbf{Prueba de Consulta de Checkpoint y Aprendizaje en Tiempo Real (\texttt{checkpoint.py}):} Se validó la respuesta atómica de los métodos \texttt{is\_extinct\_degree()} e \texttt{is\_non\_study\_plan\_pdf()}, comprobando que cuando una primera titulación marca un PDF general del BOE como sin asignaturas, las titulaciones posteriores omiten su descarga en 0 milisegundos.
-    \item \textbf{Prueba de Resiliencia de Conexión y Fallback HTTPS (\texttt{downloader.py}):} Se verificó que tras un error de conexión en \texttt{HTTP} (puerto 80), el cargador reintente automáticamente en \texttt{HTTPS} (puerto 443) manteniendo la verificación TLS activa.
-    \item \textbf{Prueba de Sanitización de Protocolos Duplicados (\texttt{downloader.py} y \texttt{parsers.py}):} Se validó que URLs mal compuestas procedentes del RUCT con esquemas duplicados (ej. \texttt{http://https://}) se desinfecten limpiamente hacia \texttt{https://}.
-    \item \textbf{Prueba de Validación de Bytes Mágicos PDF (\texttt{downloader.py}):} Se comprobó que con el parámetro \texttt{is\_pdf=True}, los archivos descargados se verifiquen contra la firma \texttt{b"\%PDF-"}, rechazando respuestas HTML disfrazadas con código 200.
-    \item \textbf{Prueba del Cálculo Haversine y Distancia Integrada (\texttt{distance.js}):} Se validó la exactitud de distancias en km entre coordenadas geográficas conocidas de ciudades españolas.
-    \item \textbf{Prueba de Seguridad y Comparación Protegida contra Timing Attacks (\texttt{security.py}):} Se verificó mediante simulación de peticiones HTTP que la autenticación de la cabecera \texttt{X-API-Key} emplee \texttt{secrets.compare\_digest}, garantizando tiempos de comparación constantes independientes de la longitud o coincidencia de caracteres y denegando el acceso con \texttt{403 Forbidden} ante claves inválidas o ausentes.
-    \item \textbf{Prueba de Inmunidad a Inyección SQL (\texttt{routes/} y ORM):} Se comprobó que todos los parámetros de entrada en controladores REST (filtrado por CCAA, búsqueda por nombre o paginación) utilicen consultas parametrizadas mediante el ORM SQLAlchemy, neutralizando cualquier intento de inyección SQL destructiva.
-    \item \textbf{Prueba del Endpoint de Cobertura y Métricas Green IT (\texttt{routes/estadisticas.py}):} Se validó la llamada a \texttt{GET /api/v1/estadisticas/cobertura}, comprobando que retorne un código \texttt{200 OK} con métricas calculadas a partir de los datos disponibles y el estado de la bandera \texttt{etl\_running}, sin fijar porcentajes o latencias sintéticos.
-    \item \textbf{Prueba de Funciones de Exportación Masiva CSV/JSON (\texttt{AdminDashboard.jsx}):} Se comprobaron las rutinas \texttt{exportToCSV} y \texttt{exportToJSON} sobre datasets de 500 registros, validando la inclusión del encabezado \texttt{\textbackslash uFEFF} (UTF-8 BOM) para apertura sin errores de codificación en Excel, la desinfección de comillas dobles y la descarga instantánea en el navegador.
-    \item \textbf{Suite Exhaustiva Frontend Fase 3 (\texttt{test\_fase3\_exhaustive.py}):} Verificación automatizada de 15/15 pruebas unitarias y funcionales cubriendo el enrutamiento con History API (\texttt{popstate}), las fórmulas de recargos de matrícula (1.0x-4.5x), la resiliencia en modal y calculadora ante universidades privadas y planes sin desglose en BOE, el blindaje anti CSV Injection, la accesibilidad ARIA, los estados vacíos con botón de restablecimiento y el scrollbar estándar multiplataforma.
-    \item \textbf{Batería de Regresión y Precisión de Parsers (\texttt{test\_parser\_regression.py}):} Suite de pruebas de regresión que evalúa la normalización determinista de cursos y cuatrimestres sobre un conjunto masivo de planes de estudio reales, certificando \textbf{cero pérdidas de asignaturas} ($100\%$ de integridad) y validando que el $100\%$ de los campos de curso se ubiquen estrictamente en el rango válido ($1..6$).
-    \item \textbf{Suite de Desambiguación Multi-Titulación BOE (\texttt{test\_multi\_degree\_boe.py}):} Batería de pruebas unitarias que valida la correcta discriminación de resoluciones conjuntas del BOE, certificando que al procesar titulaciones independientes (ej. Psicología vs. Informática vs. Marketing en ESIC Universidad) se aíslen con exactitud matemática ($100\%$ de precisión) los anexos, créditos y tablas curriculares sin contaminación cruzada.
-    \item \textbf{Suite de Validación Matemática de Completitud y Priorización Contextual (\texttt{test\_fase1\_curriculum\_validation.py}):} Batería exhaustiva de 12 pruebas unitarias que certifica el cálculo de créditos exigidos por titulación ($240\text{ ECTS}$ para Grado, $360\text{ ECTS}$ para Medicina, $300\text{ ECTS}$ para Farmacia/Arquitectura/Veterinaria/Odontología, $120/90/60\text{ ECTS}$ para Másteres y modelos RD 99/2011), la suma acumulativa de materias curriculares, la clasificación jerárquica contextual de enlaces en el RUCT (prioridades 100, 90, 30, 10, 0) y el disparo automático de rastreo web ante temarios incompletos.
-    \item \textbf{Suite de Validación de Tarifas Oficiales SIIU (\texttt{test\_fase1\_parte3.py}):} Batería de 8 pruebas unitarias que valida la ausencia de valores por defecto ficticios, la detección de grados y másteres habilitantes en el SIIU y el cómputo exacto de liquidación anual con 0 fallbacks arbitrarios.
-    \item \textbf{Suite de Indexación Hub-and-Spoke (\texttt{test\_hub\_and\_spoke\_catalog.py}):} Prueba unitaria que verifica la pre-indexación de catálogos maestros con profundidad $\le 7$, la lematización de tokens en singular/plural sin tildes y el mapeo en tiempo constante $O(1)$ de facultades y titulaciones.
-    \item \textbf{Suite de Priorización de Memorias Verificadas ANECA (\texttt{test\_memoria\_verificada\_crawler.py}):} Batería de pruebas unitarias que certifica la bonificación de $+95\text{ puntos}$ para enlaces y PDFs oficiales de acreditación (\texttt{MEMORIA\_VERIFICADA\_KEYWORDS}), validando la detección en castellano y lenguas cooficiales (\emph{qualitat, kalitatea, verificacio}) y la ampliación de límites BFS.
-    \item \textbf{Suite de Disparo de Descarga Automática (\texttt{test\_playwright\_download\_trigger.py}):} Batería de pruebas unitarias que valida la captura binaria mediante la subclase \texttt{RenderResult} en \texttt{spa\_crawler.py}, verificando la detección de \texttt{is\_download}, el almacenamiento de bytes en memoria y el parseo inmediato con \texttt{parse\_boe\_pdf()}.
-    \item \textbf{Suite de Validación Defensiva Curricular (\texttt{test\_curricular\_table\_validation.py}):} Batería de pruebas que certifica la discriminación matemática entre tablas curriculares auténticas y tablas espurias (horarios, comisiones, baremos de ponderación), validando el bloqueo por \texttt{RE\_SUMMARY\_LABEL} y el límite de $\le 30\text{ ECTS}$ por materia.
-    \item \textbf{Suite de Soporte Multilingüe Autonómico (\texttt{test\_multilingual\_fixtures.py}):} Prueba de parsing sobre documentos y páginas en lenguas cooficiales (catalán, valenciano, gallego, euskera e inglés), certificando la correcta normalización de términos como \texttt{curs}, \texttt{semestre}, \texttt{crèdits} y tipologías \texttt{OB}, \texttt{FB}, \texttt{OP}.
-    \item \textbf{Auditoría Censal de Titulaciones Matriculables (\texttt{calculate\_enrollable\_stats.py}):} Análisis estadístico exhaustivo sobre el censo activo de 10.415 titulaciones matriculables (RD 822/2021 y RD 1393/2007), confirmando que el $100\%$ de los registros corresponden a estudios vigentes legalmente acreditados en España.
-    \item \textbf{Suite de Cortesía y Concurrencia por Dominio (\texttt{test\_crawler\_politeness\_concurrency.py}):} Batería de pruebas unitarias que valida la sincronización estricta mediante cerrojos de dominio (\texttt{DomainRateLimiter}), garantizando que múltiples hilos concurrentes respeten los intervalos de retardo cortés (\texttt{REQUEST\_DELAY = 0.35s} + \emph{Jitter}) sin solapamientos contra el mismo servidor.
-    \item \textbf{Suite de Descarga Real en Red con HTTP/2 y Precarga (\texttt{test\_fase1\_parte1\_real\_execution.py}):} Prueba de integración en vivo conectando contra los servidores oficiales del RUCT y BOE con conexiones multiplexadas HTTP/2, verificando la extracción de planes curriculares reales, el paso fluido de bytes en memoria RAM ($\le 5\text{ MB}$) y \textbf{cero fugas de archivos temporales en disco} ($0\text{ bytes huérfanos}$).
+    \item clasificación de titulaciones, filtro de vigencia y persistencia segura de puntos de control;
+    \item normalización de URL, límites de descarga, verificación de cabecera PDF y política \texttt{robots.txt};
+    \item cálculo de completitud curricular, separación entre asignaturas y tablas administrativas, y desduplicación de elementos;
+    \item precios ECTS, carga ETL, contratos de calidad de planes y endpoints de la API;
+    \item componentes de la SPA, exportación segura y controles administrativos;
+    \item configuración Docker y contratos de comunicación entre servicios.
 \end{itemize}
 
-\section{Pruebas de Integración}
-\begin{itemize}
-    \item \textbf{Suite Completa de Regresión Automatizada (227 Tests):} Batería integral de \textbf{227 pruebas automatizadas} distribuidas en 35 módulos de pruebas que validan de forma exhaustiva la totalidad de los componentes del sistema (parsers, gate de calidad, network stack HTTP/2, cálculo financiero, base de datos relacional, seguridad API REST, componentes web y contenedorización Docker). Ejecutada con éxito certificando el \textbf{100\% de pruebas aprobadas} (\texttt{Ran 227 tests in 16.44s. OK}).
-    \item \textbf{Suite Principal de Verificación End-to-End (\texttt{test\_verification\_suite.py}):} Batería central de 14 pruebas de integración que valida de forma automatizada las 4 fases del sistema: constantes del crawler, normalización de URLs, parsers regex, base de datos SQLite WAL, fórmulas de precios oficiales SIIU, integridad DDL de PostgreSQL, seguridad \texttt{secrets.compare\_digest}, guardas de carga ETL, componentes React SPA, distancias Haversine, exportaciones sanitizadas y sintaxis de Docker Compose. Superada con \textbf{14/14 tests OK}.
-    \item \textbf{Suite Integradora de Trazabilidad y Calidad (\texttt{run\_phase1\_detailed\_test.py}):} Se ejecutó la suite de auditoría integral sobre 5 universidades representativas (3 públicas y 2 privadas). El script finalizó exitosamente con \textbf{Exit Code 0} (0 errores de ejecución). Se evaluaron 21 titulaciones obteniendo un volumen total de \textbf{2.920 asignaturas extraídas} correctamente con una tasa de cobertura verificada del \textbf{92,0\% al 100\%} en universidades públicas.
-    \item \textbf{Prueba de Ingesta ETL en Lote y Desduplicación (\texttt{etl\_loader.py}):} Se comprobó la inserción masiva acelerada mediante \texttt{bulk\_save\_objects} (reducida de 15s a 1.5s) y la verificación por \texttt{timestamp} para evitar filas duplicadas en \texttt{errores\_crawler} y \texttt{estadisticas\_rendimiento}.
-    \item \textbf{Prueba de Control de Concurrencia PID en ETL (\texttt{etl\_loader.py}):} Se validó el comportamiento del archivo de cerrojo de proceso PID (\texttt{etl\_running.lock} en \texttt{tempfile.gettempdir()}). La prueba confirmó la prevención activa de ejecuciones ETL simultáneas y la capacidad de autorecuperación eliminando automáticamente cerrojos huérfanos cuando el PID registrado no está activo.
-    \item \textbf{Prueba de Sincronización Reactiva via HTTP POST (\texttt{main.py} y API):} Se verificó que al finalizar el crawler se emita la petición \texttt{POST /api/v1/admin/sync-etl} para lanzar la migración a PostgreSQL en segundo plano sin intervención manual.
-    \item \textbf{Prueba del Monitor de Sincronización ETL en Vivo (\texttt{AdminDashboard.jsx}):} Se simuló el disparo de la sincronización ETL, comprobando que la detección del archivo \texttt{etl\_running.lock} active inmediatamente el banner prominente con la animación giratoria \texttt{RefreshCw} (\texttt{animate-spin}) en la interfaz web.
-    \item \textbf{Prueba de Índices de Trigramas GIN (\texttt{schema.sql}):} Se validó la velocidad de respuesta en consultas de texto parcial con la extensión \texttt{pg\_trgm} sobre los nombres de universidad y títulos de grado/máster.
-    \item \textbf{Prueba de Control de Acceso por Roles y Métricas cgroup:} Se verificó que la API REST operando con el rol \texttt{unihub\_api\_user} tenga permisos \texttt{SELECT} habilitados y que los endpoints muestren métricas físicas y huella de carbono ($gCO_2$) en tiempo real.
-\end{itemize}
+La última ejecución local de la suite completa se realizó mediante:
+\begin{lstlisting}[language=bash]
+python -m unittest discover -s Codigo/Pruebas -p "test_*.py"
+\end{lstlisting}
+El resultado fue de \textbf{253 pruebas superadas} y \textbf{una prueba omitida} de forma explícita. La cifra debe actualizarse si se añaden, eliminan o deshabilitan pruebas; el comando anterior es la fuente reproducible del dato.
 
-\section{Pruebas de Fuego (Fire Tests) en Entorno Real}
-Se ejecutaron tres pruebas de fuego integrales para auditar el comportamiento del crawler y del calculador financiero ante escenarios reales:
-
-\subsection{Prueba de Fuego 1: Universidad Pública (Universidad de Cádiz - Código 005)}
-\begin{itemize}
-    \item \textbf{Sujeto}: Universidad de Cádiz (UCA).
-    \item \textbf{Resultados}: Se procesaron 175 titulaciones oficiales registradas. El crawler de la Fase 1 Parte 2 resolvió \textbf{170 titulaciones de 175} (Tasa de éxito del \textbf{97.14\%}).
-    \item \textbf{Titulaciones no obtenidas}: Se identificaron las 5 titulaciones no desglosadas en la web local por corresponder a Másteres Interuniversitarios coordinados por otras universidades socias (códigos \texttt{4311142}, \texttt{4311028}, \texttt{4310648}, \texttt{4311144}, \texttt{4310881}).
-    \item \textbf{Auditoría \texttt{robots.txt}}: Se verificó la lectura previa de \texttt{https://www.uca.es/robots.txt} respetando las reglas de acceso del servidor.
-\end{itemize}
-
-\subsection{Prueba de Fuego 2: Universidad Privada (CUNEF Universidad - Código 089)}
-\begin{itemize}
-    \item \textbf{Sujeto}: CUNEF Universidad (Universidad Privada en Madrid).
-    \item \textbf{Resultados}: Se procesaron 3 titulaciones sin plan en el BOE. El crawler de la Fase 1 Parte 2 resolvió \textbf{3 de 3 titulaciones} (\textbf{100\% de éxito}).
-    \item \textbf{Extracción de Precios Privados}: Se recolectaron y persistieron los honorarios docentes privados ($145{,}00 \text{ \euro/ECTS}$ y $8.700{,}00 \text{ \euro/a\~no}$) en el esquema de datos.
-\end{itemize}
-
-\subsection{Prueba de Fuego 3: Motor "Calcula tu Matrícula" (Fase 3)}
-Se evaluaron cuatro escenarios financieros en el simulador de matrícula:
+\section{Validación del Parser de Resoluciones BOE}
+El parser se valida tanto con fixtures sin red como con publicaciones oficiales. La prueba \texttt{test\_boe\_deep\_parser.py} cubre tres casos de alto riesgo:
 \begin{enumerate}
-    \item \textbf{Pública 1\textordmasculine{} Curso Completo (60 ECTS Ordinario)}: $60 \times 16{,}80 \text{ \euro} + 45 \text{ \euro} = \mathbf{1.053{,}00 \text{ \euro}}$.
-    \item \textbf{Pública con Repetición + Beca MEC}: $30 \text{ ECTS}$ (1\textordfeminine{}, 2\textordfeminine{} y 3\textordfeminine{} matrícula). Descuento Beca MEC (exime 1\textordfeminine{} matrícula: $-302{,}40 \text{ \euro}$). Importe Neto: $\mathbf{498{,}60 \text{ \euro}}$.
-    \item \textbf{Privada (CUNEF) con Familia Numerosa General}: $21 \text{ ECTS} \times 145 \text{ \euro} = 3.045 \text{ \euro}$. Neutraliza la exención autonómica no aplicable en privadas. Importe Neto: $\mathbf{3.090{,}00 \text{ \euro}}$.
-    \item \textbf{Pública con Bonificación 99\% CCAA (Andalucía)}: Bonificación del 99\% en créditos aprobados ($-997{,}92 \text{ \euro}$). Importe Neto Ahorrado: $\mathbf{55{,}08 \text{ \euro}}$.
+    \item tabla curricular convencional con cabecera explícita;
+    \item tabla sin bordes recuperada desde líneas y coordenadas del PDF;
+    \item resolución con dos titulaciones en la misma página, verificando que sólo se conserve la sección solicitada.
 \end{enumerate}
 
-\subsection{Prueba de Fuego 4: Adaptabilidad Responsive PC vs. Móvil}
+Además, las pruebas de regresión verifican encabezados multilingües, filas optativas, temporalidad, créditos declarados y documentos multi-titulación. Estas pruebas detectan cambios de comportamiento, pero no miden por sí solas la precisión frente a la fuente publicada.
+
+\subsection{Evaluación Empírica Reproducible}
+El script \texttt{boe\_empirical\_evaluation.py} contrasta el PDF consumido por el crawler con la tabla HTML estructurada del BOE. La muestra contiene cinco resoluciones: \texttt{BOE-A-2022-12382}, \texttt{BOE-A-2024-1769}, \texttt{BOE-A-2023-6963}, \texttt{BOE-A-2023-11558} y \texttt{BOE-A-2025-21807}.
+
+En la ejecución de referencia se compararon 181 asignaturas: la precisión fue del 100\%, la cobertura del 100\% y los créditos ECTS declarados coincidieron en los cinco casos. La muestra incluye Grados, Másteres y una resolución multi-titulación. Este resultado evidencia que el parser funciona en los casos ensayados; no debe extrapolarse como una garantía estadística para todos los PDFs históricos o para documentos que no publiquen el detalle curricular.
+
+\section{Pruebas de Ejecución Controlada}
+Las ejecuciones limitadas del crawler se emplean para comprobar que el pipeline:
 \begin{itemize}
-    \item \textbf{Modo PC (Desktop)}: Disposición horizontal de navegación de 6 accesos, grid de 3 columnas en tarjetas y layout de calculadora en 2 columnas con recibo flotante \texttt{position: sticky}.
-    \item \textbf{Modo Móvil (Smartphone)}: Botón hamburguesa táctil con overlay desplegable vertical, grid de 1 columna fluida al 100\% del ancho sin scroll horizontal y calculadora vertical apilada.
+    \item reanuda desde \texttt{checkpoint.json} sin destruir información previa;
+    \item registra respuestas, errores y caché en el ledger SQLite;
+    \item respeta la política de acceso por dominio y no trata una denegación de \texttt{robots.txt} como error recuperable mediante fuerza bruta;
+    \item conserva los resultados incompletos con su estado de fuente, en lugar de rellenarlos con datos no publicados.
 \end{itemize}
+
+La duración y la cobertura de una ejecución nacional dependen de las respuestas de RUCT, BOE y las universidades. Por ello, cualquier resultado operativo debe acompañarse del manifiesto de ejecución, el intervalo temporal, los límites de universidades/titulaciones y la configuración de trabajadores utilizada.
 
 \section{Pruebas No Funcionales}
 \begin{itemize}
-    \item \textbf{PNF-01 Carga y Compilación Web:} La aplicación web compiló con éxito con Vite en 211ms sin advertencias ni errores.
-    \item \textbf{PNF-02 Latencia de API REST:} Latencia media de respuesta en endpoints de consulta inferior a 50 ms.
-    \item \textbf{PNF-03 Persistencia y Arranque Limpio en Docker:} Se verificó que la propiedad \texttt{start\_period: 20s} en la prueba de salud de \texttt{unihub\_db} permita cargas iniciales limpias de esquemas DDL sin abortar el arranque de contenedores dependientes.
-    \item \textbf{PNF-04 Semáforos de Salud Core Web Vitals (CWV):} Se evaluó la precisión de los semáforos visuales de rendimiento web bajo condiciones de estrangulamiento de red (Network Throttling), verificando la asignación correcta de colores según el estándar de Google (Verde para LCP $<2.5\text{s}$, Amarillo para $<4.0\text{s}$ y Rojo para $\ge 4.0\text{s}$).
-    \item \textbf{PNF-05 Consumo de Recursos Docker, Caché y Métricas Green IT:} Se comprobó la actualización periódica de las barras animadas de recursos cgroup (RAM RSS MB / CPU \%), la tasa de aciertos de la caché SQLite WAL ($99,8\%$ de aciertos en $<0,1\text{ ms}$) y la validación de la métrica Green IT de $\approx 0,05 \text{ gCO}_2/\text{MB}$ procesado.
+    \item \textbf{Robustez:} cada titulación se procesa de forma aislada; una incidencia de red o de parseo queda registrada sin invalidar el resto de la ejecución.
+    \item \textbf{Cortesía:} el crawler consulta \texttt{robots.txt}, aplica retardos por dominio y limita la concurrencia sobre una misma institución.
+    \item \textbf{Trazabilidad:} los planes conservan URL, procedencia, fecha de comprobación y, cuando corresponde, la huella SHA-256 del PDF.
+    \item \textbf{Rendimiento:} las métricas de tiempo, memoria y caché se registran durante la ejecución. Deben presentarse como mediciones asociadas a un manifiesto, no como constantes universales del sistema.
 \end{itemize}
 
-\section{Pruebas de Aceptación y Validación Integral (4 Fases)}
-Las pruebas de aceptación confirmaron la correcta integración técnica de las 4 fases del proyecto \textbf{UniHub}, validando los siguientes hitos de producción:
-\begin{enumerate}
-    \item \textbf{Fase 1 (Crawler):} Validado el motor de extracción (BeautifulSoup y PyPDF2) y la resiliencia de red frente a fallos.
-    \item \textbf{Fase 2 (API REST):} Verificado el acceso público de solo lectura (\texttt{200 OK} sin token) y el blindaje de seguridad \texttt{403 Forbidden} en endpoints administrativos (como la sincronización ETL), que exigen la cabecera \texttt{X-API-Key}.
-    \item \textbf{Fase 3 (React SPA):} Superado el escrutinio de análisis estático estricto (\texttt{oxlint}) con 0 errores, y validada la correcta inyección de \texttt{VITE\_API\_URL} durante el proceso de compilación nativa (\texttt{npm run build}).
-    \item \textbf{Fase 4 (Docker):} Orquestación exitosa mediante \texttt{docker-compose up -d --build}. Se verificó que el script \texttt{schema.sql} configurase dinámicamente los permisos mediante \texttt{current\_database()} y que las optimizaciones en el \texttt{.dockerignore} evitasen la sobrecarga innecesaria de contextos pesados.
-\end{enumerate}
+\section{Criterio de Aceptación}
+Una versión candidata se acepta cuando la suite determinista finaliza correctamente, la evaluación empírica BOE no reduce precisión ni cobertura respecto a la referencia y las pruebas de integración no detectan roturas de contrato entre crawler, API y frontend. Las titulaciones sin detalle oficial permanecen identificadas como incompletas; la ausencia de datos no se transforma en un dato estimado.

@@ -32,6 +32,9 @@ CREATE TABLE IF NOT EXISTS titulaciones (
     precio_credito_4 NUMERIC(6, 2),
     precio_estimado_anual NUMERIC(8, 2),
     fuente_precio VARCHAR(255),
+    centro_adscrito TEXT,
+    es_alianza_europea BOOLEAN NOT NULL DEFAULT FALSE,
+    web_fuente_directa_url TEXT,
     gestionado_por_admin BOOLEAN DEFAULT FALSE,
     creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -49,6 +52,8 @@ CREATE TABLE IF NOT EXISTS planes_estudio (
     fuente_verificada_url TEXT,
     verificado_en TIMESTAMP,
     fecha_procesado TIMESTAMP,
+    tipo_estructura VARCHAR(100),
+    ects_exigidos TEXT,
     creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

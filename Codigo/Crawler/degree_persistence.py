@@ -3,14 +3,71 @@ Módulo de persistencia unificada para planes de estudio y metadatos de titulaci
 Centraliza la serialización atómica en formato JSON, particionado por universidad y actualización de checkpoints.
 """
 import os
+import json
+import hashlib
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 from checkpoint import atomic_json_dump
-from config import get_plan_filepath, find_plan_filepath
+from config import DEGREE_HISTORY_DIR, DEGREE_HISTORY_ENABLED, get_plan_filepath, find_plan_filepath
 from parsers import detect_academic_language
 from data_quality import apply_plan_quality, source_record
+from payload_contract import validate_degree_payload
+from payload_contract import validate_degree_payload
 
 logger = logging.getLogger(__name__)
+
+
+_VOLATILE_SNAPSHOT_FIELDS = {
+    "fecha_procesado", "fecha_ultima_comprobacion_fuente", "fecha_ultima_comprobacion_guia",
+    "fecha_obtencion", "evaluado_en", "estado_ultima_extraccion", "snapshot_hash", "previous_snapshot",
+}
+
+
+def _without_volatile_fields(value):
+    if isinstance(value, dict):
+        return {
+            key: _without_volatile_fields(item)
+            for key, item in value.items()
+            if key not in _VOLATILE_SNAPSHOT_FIELDS
+        }
+    if isinstance(value, list):
+        return [_without_volatile_fields(item) for item in value]
+    return value
+
+
+def _stable_degree_snapshot_hash(payload: dict) -> str:
+    """Calcula un hash sin marcas temporales para detectar cambios de datos."""
+    stable = _without_volatile_fields(payload or {})
+    encoded = json.dumps(stable, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()
+
+
+def _read_existing_payload(path: str) -> dict:
+    try:
+        with open(path, "r", encoding="utf-8") as handle:
+            value = json.load(handle)
+            return value if isinstance(value, dict) else {}
+    except (OSError, ValueError, TypeError):
+        return {}
+
+
+def _archive_previous_degree(path: str, previous: dict, current_hash: str, u_code: str, d_code: str) -> str | None:
+    """Archiva la versión anterior solo si el contenido estable ha cambiado."""
+    if not DEGREE_HISTORY_ENABLED or not previous:
+        return None
+    previous_hash = str(previous.get("snapshot_hash") or _stable_degree_snapshot_hash(previous))
+    if previous_hash == current_hash:
+        return None
+    captured_at = datetime.now(timezone.utc)
+    captured = captured_at.strftime("%Y%m%dT%H%M%SZ")
+    history_dir = os.path.join(DEGREE_HISTORY_DIR, str(u_code or "unknown"), str(d_code or "unknown"))
+    os.makedirs(history_dir, exist_ok=True)
+    archive_path = os.path.join(history_dir, f"{captured}_{previous_hash[:16]}.json")
+    snapshot = dict(previous)
+    snapshot["snapshot_hash"] = previous_hash
+    snapshot["snapshot_archived_at"] = captured_at.isoformat()
+    atomic_json_dump(snapshot, archive_path)
+    return archive_path
 
 def save_degree_payload(plan_file: str, d_code: str, d_title: str, u_code: str, u_name: str, 
                         nivel_academico: str, boe_url: str = None, boe_fecha: str = None, 
@@ -24,6 +81,7 @@ def save_degree_payload(plan_file: str, d_code: str, d_title: str, u_code: str, 
     """
     payload = existing_data if existing_data is not None else {}
     now_iso = datetime.now().isoformat()
+    previous_on_disk = _read_existing_payload(plan_file) if os.path.isfile(plan_file) else {}
     
     # Determinar idioma predominante si no viene especificado
     if not idioma:
@@ -68,8 +126,19 @@ def save_degree_payload(plan_file: str, d_code: str, d_title: str, u_code: str, 
     # La persistencia es el último punto común antes de escribir el JSON:
     # ninguna ruta de RUCT/BOE puede publicar un candidato sin esta evaluación.
     apply_plan_quality(payload, plan_estudios, origen_fuente)
+    contract_payload = dict(payload)
+    contract_payload["plan_estudios"] = plan_estudios
+    payload["contrato_datos"] = validate_degree_payload(contract_payload)
+    contract_payload = dict(payload)
+    contract_payload["plan_estudios"] = plan_estudios
+    payload["contrato_datos"] = validate_degree_payload(contract_payload)
 
     # Guardar en la ruta destino indicada
+    current_hash = _stable_degree_snapshot_hash(payload)
+    archived_path = _archive_previous_degree(plan_file, previous_on_disk, current_hash, u_code, d_code)
+    payload["snapshot_hash"] = current_hash
+    if archived_path:
+        payload["previous_snapshot"] = archived_path
     parent_dir = os.path.dirname(os.path.abspath(plan_file))
     if parent_dir:
         os.makedirs(parent_dir, exist_ok=True)

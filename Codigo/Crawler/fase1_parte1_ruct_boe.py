@@ -55,6 +55,7 @@ from config import (
 )
 from downloader import (
     RUCTDownloader,
+    RobotsDeniedException,
     SkipUniversityException,
     normalize_url
 )
@@ -76,7 +77,71 @@ from metrics import MetricsTracker
 from degree_persistence import save_degree_payload
 from progress_emitter import ProgressEmitter
 from phase_common import cleanup_temporary_files, format_ruct_url
+from cancellation import raise_if_shutdown_requested
 from crawl_ledger import CrawlLedger
+
+
+def _ensure_active_degree_records(universities: list, catalog: dict) -> int:
+    """Garantiza un registro identificable para cada titulación vigente.
+
+    La ausencia de BOE o de una fuente curricular no justifica perder la
+    identidad RUCT del registro. Se crean o reparan únicamente metadatos; no
+    se genera ningún plan ni ninguna asignatura.
+    """
+    repaired = 0
+    for university in universities or []:
+        if not isinstance(university, dict):
+            continue
+        u_code = str(university.get("codigo") or "").zfill(3)
+        u_name = str(university.get("nombre") or "").strip()
+        univ_data = catalog.get(u_code, {}) if isinstance(catalog, dict) else {}
+        active_degrees = (
+            univ_data.get("titulaciones_vigentes", [])
+            if isinstance(univ_data, dict)
+            else []
+        )
+        for degree in active_degrees:
+            if not isinstance(degree, dict):
+                continue
+            d_code = str(degree.get("codigo_estudio") or "").strip()
+            if not re.fullmatch(r"[A-Z0-9_-]{4,32}", d_code):
+                continue
+            plan_file = find_plan_filepath(u_code, d_code)
+            existing = load_json_safe(plan_file, default=None)
+            if isinstance(existing, dict) and all(
+                str(existing.get(key) or "").strip()
+                for key in (
+                    "codigo_estudio",
+                    "titulo",
+                    "nivel_academico",
+                    "universidad_codigo",
+                    "universidad_nombre",
+                )
+            ):
+                continue
+
+            existing = existing if isinstance(existing, dict) else {}
+            current_plan = existing.get("plan_estudios")
+            if not isinstance(current_plan, dict):
+                current_plan = None
+            save_degree_payload(
+                plan_file=plan_file,
+                d_code=d_code,
+                d_title=str(degree.get("titulo") or "").strip(),
+                u_code=u_code,
+                u_name=u_name,
+                nivel_academico=str(degree.get("nivel_academico") or "").strip(),
+                boe_url=existing.get("boe_url"),
+                boe_fecha=existing.get("boe_fecha"),
+                plan_estudios=current_plan,
+                all_boe_urls=existing.get("all_boe_urls"),
+                origen_fuente=existing.get("origen_fuente"),
+                existing_data=existing,
+                source_status=existing.get("estado_fuente") or "sin_plan_actual_sin_dato",
+                source_checked_at=datetime.now().isoformat(),
+            )
+            repaired += 1
+    return repaired
 
 
 def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue = None, shutdown_event: mp.Event = None):
@@ -350,10 +415,15 @@ def run_phase1_part1(
     downloader = RUCTDownloader(metrics_tracker=metrics, ledger=ledger, phase="fase1_parte1")
     total_enqueued = 0
     processed_universities = 0
+    processed_university_codes = set()
+    controlled_incidents = 0
     phase_error = None
     worker_incomplete = False
     worker_result_count = 0
     prefetch_executor = None
+    catalog = {}
+    universities = []
+    metadata_records_repaired = 0
 
     try:
         print(" [Paso 1/3] Obteniendo lista oficial de universidades desde RUCT...")
@@ -399,6 +469,7 @@ def run_phase1_part1(
 
         print(" [Paso 2/3] Rastreo de titulaciones y resoluciones BOE por universidad...")
         for university_index, university in enumerate(universities, 1):
+            raise_if_shutdown_requested()
             university_code = str(university.get("codigo", "")).zfill(3)
             university_name = university.get("nombre", "")
             university_type = university.get("tipo", "Desconocido")
@@ -456,6 +527,7 @@ def run_phase1_part1(
 
                 try:
                     for degree_index, degree in enumerate(degrees_to_process, 1):
+                        raise_if_shutdown_requested()
                         degree_code = str(degree.get("codigo_estudio", "")).strip()
                         degree_title = degree.get("titulo", "")
                         degree_level = degree.get("nivel_academico", "")
@@ -588,6 +660,25 @@ def run_phase1_part1(
                                                 continue
                                 except SkipUniversityException:
                                     raise
+                                except RobotsDeniedException as download_error:
+                                    controlled_incidents += 1
+                                    checkpoint.record_pdf_download_failure(
+                                        candidate_url, degree_code, str(download_error)
+                                    )
+                                    error_logger.log_error(
+                                        "pdf_download",
+                                        university_code,
+                                        candidate_url,
+                                        f"Incidencia controlada: robots.txt deniega el PDF de [{degree_code}]",
+                                        str(download_error),
+                                        classification="incidencia_controlada",
+                                    )
+                                    metrics.inc_incidencias_controladas()
+                                    if temp_pdf_path and os.path.exists(temp_pdf_path):
+                                        try:
+                                            os.remove(temp_pdf_path)
+                                        except OSError:
+                                            pass
                                 except Exception as download_error:
                                     checkpoint.record_pdf_download_failure(
                                         candidate_url, degree_code, str(download_error)
@@ -599,6 +690,7 @@ def run_phase1_part1(
                                         f"Error al descargar PDF de [{degree_code}]",
                                         str(download_error),
                                     )
+                                    metrics.inc_errores()
                                     if temp_pdf_path and os.path.exists(temp_pdf_path):
                                         try:
                                             os.remove(temp_pdf_path)
@@ -684,6 +776,7 @@ def run_phase1_part1(
                     atomic_json_dump(catalog, TITULACIONES_JSON)
                     checkpoint.mark_university_processed(university_code)
                     processed_universities += 1
+                    processed_university_codes.add(university_code)
             except SkipUniversityException as connection_error:
                 error_logger.log_error(
                     "university_catalog",
@@ -729,7 +822,7 @@ def run_phase1_part1(
                 remaining = result_deadline - time.monotonic()
                 if remaining <= 0:
                     break
-                worker_result = result_queue.get(timeout=remaining)
+                worker_result = result_queue.get(timeout=max(remaining, 0.1))
                 worker_result_count += 1
                 metrics.merge_worker_stats(
                     worker_result.get("parsed_count", 0),
@@ -748,6 +841,18 @@ def run_phase1_part1(
         if not phase_error and (worker_result_count < len(consumer_pool) or any(p.exitcode not in (0, None) for p in consumer_pool)):
             worker_incomplete = True
 
+        if not phase_error and isinstance(catalog, dict):
+            metadata_records_repaired = _ensure_active_degree_records(universities, catalog)
+            if metadata_records_repaired:
+                logger.info(
+                    "Se repararon/crearon %s registros de identidad de titulaciones activas.",
+                    metadata_records_repaired,
+                )
+
+        ledger.reconcile_processing(
+            phase_prefix="fase1_parte1",
+            reason="intento sin respuesta al cerrar la Parte 1",
+        )
         downloader.close()
         ledger.close()
         checkpoint.close()
@@ -758,6 +863,7 @@ def run_phase1_part1(
             deg_updated=metrics.titulaciones_descargadas_actualizadas,
             pdfs_parsed=metrics.pdfs_parseados,
             errors=metrics.errores_detectados,
+            controlled_incidents=metrics.incidencias_controladas,
         )
 
     status = "failed" if phase_error else ("partial" if worker_incomplete else "completed")
@@ -768,6 +874,13 @@ def run_phase1_part1(
         "status": status,
         "total_enqueued": total_enqueued,
         "universities_processed": processed_universities,
+        "university_codes_processed": sorted(processed_university_codes),
+        "incidencias_controladas": controlled_incidents,
+        "metadata_records_repaired": metadata_records_repaired,
+        "persistence": {
+            "checkpoint_sqlite": "degraded" if getattr(checkpoint, "_sqlite_disabled", False) else "ok",
+            "crawl_ledger_sqlite": "degraded" if getattr(ledger, "_disabled", False) else "ok",
+        },
         "error": str(phase_error) if phase_error else None,
     }
 

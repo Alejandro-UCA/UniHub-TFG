@@ -6,6 +6,9 @@ cryptography==49.0.0
 et_xmlfile==2.0.0
 h2>=4.4.1
 httpx[http2]>=0.28.1
+# Starlette TestClient usa httpx2 desde la rama 1.x; se mantiene httpx
+# porque el crawler lo utiliza directamente para sus conexiones HTTP/2.
+httpx2>=2.0.0
 idna==3.18
 lxml==6.1.1
 numpy==2.5.1
@@ -18,6 +21,8 @@ psutil==7.2.2
 pycparser==3.0
 pypdf==6.14.2
 pypdfium2==5.12.1
+playwright>=1.48,<2
+pytesseract>=0.3.13,<0.4
 python-dateutil==2.9.0.post0
 requests==2.34.2
 six==1.17.0

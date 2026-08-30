@@ -107,7 +107,7 @@ export default function Hero({ onSearch, setActiveTab, totalUnivs, totalDegrees 
           <div className="glass-panel" style={{ padding: '1.25rem', background: 'rgba(255, 255, 255, 0.08)', borderColor: 'rgba(255, 255, 255, 0.15)' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', color: 'var(--uca-sun)', marginBottom: '0.25rem' }}>
               <GraduationCap size={22} />
-              <span style={{ fontSize: '1.8rem', fontWeight: 800 }}>{totalUnivs !== undefined ? totalUnivs : 109}</span>
+              <span style={{ fontSize: '1.8rem', fontWeight: 800 }}>{totalUnivs ?? '—'}</span>
             </div>
             <div style={{ fontSize: '0.85rem', color: '#CBD5E1', fontWeight: 500 }}>Universidades Oficiales</div>
           </div>
@@ -115,9 +115,9 @@ export default function Hero({ onSearch, setActiveTab, totalUnivs, totalDegrees 
           <div className="glass-panel" style={{ padding: '1.25rem', background: 'rgba(255, 255, 255, 0.08)', borderColor: 'rgba(255, 255, 255, 0.15)' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', color: 'var(--uca-azure)', marginBottom: '0.25rem' }}>
               <BookOpen size={22} />
-              <span style={{ fontSize: '1.8rem', fontWeight: 800 }}>{totalDegrees !== undefined ? totalDegrees : '1.800+'}</span>
+              <span style={{ fontSize: '1.8rem', fontWeight: 800 }}>{totalDegrees ?? '—'}</span>
             </div>
-            <div style={{ fontSize: '0.85rem', color: '#CBD5E1', fontWeight: 500 }}>Titulaciones Vigentes</div>
+            <div style={{ fontSize: '0.85rem', color: '#CBD5E1', fontWeight: 500 }}>Titulaciones del catálogo</div>
           </div>
 
           <div 

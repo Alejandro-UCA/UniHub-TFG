@@ -1,6 +1,7 @@
 """Política centralizada y conservadora para robots.txt (RFC 9309)."""
 from __future__ import annotations
 
+import re
 import threading
 import time
 import logging
@@ -14,6 +15,7 @@ from config import (
     ROBOTS_CACHE_TTL_SECONDS,
     ROBOTS_CONFIRMED_NO_FILE_HOSTS,
     ROBOTS_FAIL_CLOSED,
+    ROBOTS_MAX_CACHE_SIZE,
     USER_AGENT,
     REQUEST_DELAY,
 )
@@ -39,7 +41,9 @@ class RobotsPolicy:
     # decisión booleana para poder distinguir ``robots.txt inexistente`` de
     # ``robots.txt no verificable`` en los diagnósticos del crawler.
     _last_outcome: dict[str, str] = {}
-    _MAX_CACHE_SIZE = 512
+    _MAX_CACHE_SIZE = ROBOTS_MAX_CACHE_SIZE
+
+    _courtesy_delays: dict[str, float] = {}
 
     @classmethod
     def _evict_if_needed(cls):
@@ -50,6 +54,7 @@ class RobotsPolicy:
                 cls._fetch_locks.pop(oldest_origin, None)
                 cls._last_fetch.pop(oldest_origin, None)
                 cls._last_outcome.pop(oldest_origin, None)
+                cls._courtesy_delays.pop(oldest_origin, None)
 
     def __init__(self, user_agent: str = USER_AGENT, timeout: float = ROBOTS_CHECK_TIMEOUT):
         self.user_agent = user_agent
@@ -122,16 +127,25 @@ class RobotsPolicy:
                         current_url = redirected_url
                         redirect_count += 1
                     break
+                except requests.exceptions.SSLError as ssl_exc:
+                    if current_url.startswith("https://"):
+                        http_url = "http://" + current_url[8:]
+                        try:
+                            return self._load(origin, http_url)
+                        except Exception:
+                            pass
+                    if attempt < max_network_retries:
+                        time.sleep(0.3 * (attempt + 1))
+                        continue
+                    with self._lock:
+                        self._last_outcome[origin] = f"error_red_{type(ssl_exc).__name__}: {ssl_exc}"
+                    return None
                 except requests.RequestException as exc:
                     if attempt < max_network_retries:
                         time.sleep(0.3 * (attempt + 1))
                         continue
                     if current_url.startswith("http://"):
                         https_url = "https://" + current_url[7:]
-                        # Reintentar HTTPS recorre exactamente la misma lógica
-                        # de redirecciones manuales y de validación de origen.
-                        # ``allow_redirects=True`` aquí permitiría aceptar una
-                        # política robots de un host ajeno.
                         return self._load(origin, https_url)
                     else:
                         with self._lock:
@@ -151,14 +165,26 @@ class RobotsPolicy:
                             suffix = f"_tras_{redirect_count}_redirecciones" if redirect_count else ""
                             self._last_outcome[origin] = f"robots_inexistente_http_{response.status_code}{suffix}"
                         return parser
-                    if response.status_code in {401, 403}:
+                    if response.status_code == 401:
                         parser = urllib.robotparser.RobotFileParser()
                         parser.parse(["User-agent: *", "Disallow: /"])
                         with self._lock:
                             self._cache[origin] = (time.time(), parser)
                             self._evict_if_needed()
                             suffix = f"_tras_{redirect_count}_redirecciones" if redirect_count else ""
-                            self._last_outcome[origin] = f"robots_acceso_restringido_http_{response.status_code}{suffix}"
+                            self._last_outcome[origin] = f"robots_acceso_restringido_http_401{suffix}"
+                        return parser
+                    if response.status_code == 403:
+                        # WAFs universitarios frecuentemente responden 403 a robots.txt
+                        # mientras la web pública está abierta. Se tolera con crawl-delay de cortesía.
+                        parser = urllib.robotparser.RobotFileParser()
+                        parser.parse([])
+                        with self._lock:
+                            self._cache[origin] = (time.time(), parser)
+                            self._courtesy_delays[origin] = 1.0
+                            self._evict_if_needed()
+                            suffix = f"_tras_{redirect_count}_redirecciones" if redirect_count else ""
+                            self._last_outcome[origin] = f"robots_waf_403_tolerado{suffix}"
                         return parser
                     with self._lock:
                         suffix = f"_tras_{redirect_count}_redirecciones" if redirect_count else ""
@@ -182,15 +208,66 @@ class RobotsPolicy:
                     response.close()
 
     @staticmethod
-    def _is_safe_robots_redirect(target_url: str, origin: str) -> bool:
-        """Los robots sólo pueden redirigir dentro de su mismo host institucional."""
+    def _extract_base_domain(hostname: str) -> str:
+        """Extrae el nombre base del host eliminando subdominios y TLDs comunes."""
+        clean = re.sub(r"^w{1,8}\d*\.", "", hostname.lower().strip())
+        parts = [p for p in clean.split(".") if p]
+        if not parts:
+            return ""
+        compound = {("edu", "es"), ("gob", "es"), ("com", "es"), ("org", "es"), ("ac", "uk"), ("co", "uk")}
+        if len(parts) >= 3 and tuple(parts[-2:]) in compound:
+            return parts[-3]
+        elif len(parts) >= 2:
+            return parts[-2]
+        return parts[0]
+
+    @classmethod
+    def _is_safe_robots_redirect(cls, target_url: str, origin: str) -> bool:
+        """Los robots sólo pueden redirigir dentro del mismo host o dominio institucional legítimo."""
         target = urllib.parse.urlparse(target_url)
         expected = urllib.parse.urlparse(origin)
-        return (
-            target.scheme in {"http", "https"}
-            and bool(target.hostname)
-            and target.hostname.lower() == expected.hostname.lower()
-        )
+        if target.scheme not in {"http", "https"} or not target.hostname or not expected.hostname:
+            return False
+        
+        t_host = target.hostname.lower()
+        e_host = expected.hostname.lower()
+        
+        # 1. Mismo hostname exacto
+        if t_host == e_host:
+            return True
+            
+        # Descartar IPs, localhost y destinos numéricos
+        if re.match(r"^(\d{1,3}\.){3}\d{1,3}$", t_host) or t_host in {"localhost", "127.0.0.1"}:
+            return False
+
+        # 2. Subdominio o dominio raíz de la misma organización (ej. web.unican.es <-> www.unican.es)
+        t_clean = re.sub(r"^w{1,8}\d*\.", "", t_host)
+        e_clean = re.sub(r"^w{1,8}\d*\.", "", e_host)
+        if t_clean == e_clean or t_host.endswith("." + e_clean) or e_host.endswith("." + t_clean):
+            return True
+
+        # 3. Transición de TLDs institucionales reconocidos para la misma institución universitaria
+        # (ej. uab.es <-> uab.cat, udc.es <-> udc.gal, ehu.es <-> ehu.eus, upc.es <-> upc.edu)
+        allowed_tlds = {"es", "cat", "gal", "eus", "edu", "com", "org", "net"}
+        t_tld = t_host.split(".")[-1]
+        e_tld = e_host.split(".")[-1]
+        if t_tld in allowed_tlds and e_tld in allowed_tlds:
+            t_base = cls._extract_base_domain(t_host)
+            e_base = cls._extract_base_domain(e_host)
+            if t_base and e_base:
+                if t_base == e_base:
+                    return True
+                # Variaciones de marca conocidas (ej. uao <-> uaoceu, viu <-> universidadviu)
+                if (
+                    (t_base.startswith(e_base) or e_base.startswith(t_base) or t_base.endswith(e_base) or e_base.endswith(t_base))
+                    and len(t_base) >= 3
+                    and len(e_base) >= 3
+                ):
+                    return True
+                if "universidadeuropea" in t_host and "universidadeuropea" in e_host:
+                    return True
+
+        return False
 
     def check(self, url: str) -> tuple[bool, float | None]:
         resolved = self._origin(url)
@@ -222,13 +299,18 @@ class RobotsPolicy:
                 previous.startswith("robots_inexistente_http_404")
                 or previous.startswith("robots_inexistente_http_410")
                 or previous.startswith("robots_confirmado_ausente_por_configuracion")
+                or previous.startswith("robots_waf_403_tolerado")
+                or previous.startswith("robots_acceso_restringido_http_401")
             ):
-                self._last_outcome[origin] = f"{previous}_permitido"
+                self._last_outcome[origin] = f"{previous}_permitido" if allowed else f"{previous}_denegado"
             else:
                 self._last_outcome[origin] = "permitido_por_reglas" if allowed else "denegado_por_reglas"
         delay = parser.crawl_delay(self.user_agent)
         if delay is None:
             delay = parser.crawl_delay("*")
+        if delay is None:
+            with self._lock:
+                delay = self._courtesy_delays.get(origin)
         try:
             delay_value = float(delay) if delay is not None else None
         except (TypeError, ValueError):
@@ -251,3 +333,4 @@ class RobotsPolicy:
             cls._fetch_locks.clear()
             cls._last_fetch.clear()
             cls._last_outcome.clear()
+            cls._courtesy_delays.clear()

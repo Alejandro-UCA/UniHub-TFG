@@ -17,6 +17,7 @@ from sanitizers import (
     unreverse_text,
     sanitize_string_value,
     sanitize_subject_name,
+    curriculum_element_key,
     is_spurious_or_administrative_subject,
     is_valid_curricular_table,
     normalize_cuatrimestre,

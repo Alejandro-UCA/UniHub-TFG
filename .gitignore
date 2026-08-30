@@ -19,11 +19,20 @@ scratch/
 # Project Generated Data (Crawler & API Data)
 *.sqlite3*
 *.db*
+.testdeps/
+campaign_*/
+pilot_*/
+validation_*/
 Codigo/Crawler/Datos/*.json
 !Codigo/Crawler/Datos/precios_ccaa.json
 Codigo/Crawler/Datos/http_cache/
 Codigo/Crawler/Datos/run_manifests/
 Codigo/Crawler/Datos/planes_estudio/
+Codigo/Crawler/Datos/discovery_cache/
+Codigo/Crawler/Datos/history/
+Codigo/Crawler/Datos/logs/
+Codigo/Crawler/Datos/parser_corpus/
+Codigo/Crawler/Datos/sqlite_recovery/
 Codigo/Pruebas/reporte_*.json
 
 # Secretos y configuración local

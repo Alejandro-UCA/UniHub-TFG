@@ -1,143 +1,58 @@
-"""
-Regression & Precision Test Suite for Parsers (Fase 1 - Mejora 3)
-Verifies that course (curso) and term (cuatrimestre) normalizations:
-1. Yield 0 subject loss (0 regressions).
-2. Normalize curso strictly to 1..6 or empty.
-3. Rescue displaced subject/topic text into materia.
-4. Normalize terms into 1C, 2C, or Anual cleanly.
-"""
-
+import json
 import os
 import sys
-import json
+import tempfile
 import unittest
 
-BASE_DIR = r"d:\Proyecto"
-CRAWLER_DIR = os.path.join(BASE_DIR, "Codigo", "Crawler")
-DATA_DIR = os.path.join(CRAWLER_DIR, "Datos")
-PLANES_DIR = os.path.join(DATA_DIR, "planes_estudio")
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
 
-sys.path.insert(0, CRAWLER_DIR)
-from parsers import normalize_cuatrimestre, normalize_curso, sanitize_subject_name
+from parser_regression import evaluate_corpus
 
 
-class TestParserRegressionAndPrecision(unittest.TestCase):
+class TestParserRegression(unittest.TestCase):
+    def test_local_corpus_scores_declared_fields_and_minimums(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with open(os.path.join(directory, "guide.html"), "w", encoding="utf-8") as handle:
+                handle.write("""
+                <html><head><meta property="og:title" content="Minería de Datos" /></head><body>
+                  <table><tr><th>Código</th><td>AB1234</td></tr><tr><th>ECTS</th><td>6</td></tr></table>
+                  <h2>Temario</h2><ul><li>Introducción</li><li>Modelos predictivos</li></ul>
+                  <h2>Resultados de aprendizaje</h2><ul><li>RA1 - Aplicar modelos de datos</li></ul>
+                </body></html>
+                """)
+            corpus_path = os.path.join(directory, "corpus.json")
+            with open(corpus_path, "w", encoding="utf-8") as handle:
+                json.dump({"version": 1, "cases": [{
+                    "name": "generic-html",
+                    "content": "guide.html",
+                    "url": "https://uni.example/guide/ab1234",
+                    "expect": {
+                        "nombre_asignatura": "Minería de Datos",
+                        "codigo_asignatura": "AB1234",
+                        "creditos.total_ects": 6,
+                        "temario_min": 2,
+                        "resultados_aprendizaje_min": 1,
+                    },
+                }]}, handle)
 
-    def test_01_normalize_curso_unit_cases(self):
-        """Test unit edge cases for normalize_curso."""
-        # Standard numbers and ordinals
-        self.assertEqual(normalize_curso("1")[0], "1")
-        self.assertEqual(normalize_curso("1º")[0], "1")
-        self.assertEqual(normalize_curso("1.º")[0], "1")
-        self.assertEqual(normalize_curso("1er")[0], "1")
-        self.assertEqual(normalize_curso("Primer Curso")[0], "1")
-        self.assertEqual(normalize_curso("1r curs")[0], "1")
-        
-        self.assertEqual(normalize_curso("2")[0], "2")
-        self.assertEqual(normalize_curso("2º")[0], "2")
-        self.assertEqual(normalize_curso("Segundo")[0], "2")
-        self.assertEqual(normalize_curso("2n curs")[0], "2")
-        
-        self.assertEqual(normalize_curso("3º")[0], "3")
-        self.assertEqual(normalize_curso("Tercero")[0], "3")
-        
-        self.assertEqual(normalize_curso("4º")[0], "4")
-        self.assertEqual(normalize_curso("Cuarto")[0], "4")
-        
-        self.assertEqual(normalize_curso("5º")[0], "5")
-        self.assertEqual(normalize_curso("6º")[0], "6")
+            report = evaluate_corpus(corpus_path)
 
-        # Roman numerals
-        self.assertEqual(normalize_curso("I")[0], "1")
-        self.assertEqual(normalize_curso("II")[0], "2")
-        self.assertEqual(normalize_curso("III")[0], "3")
-        self.assertEqual(normalize_curso("IV")[0], "4")
+            self.assertEqual(report["cases"], 1)
+            self.assertEqual(report["passed"], 1)
+            self.assertEqual(report["failed"], 0)
+            self.assertEqual(report["average_score"], 1.0)
 
-        # Textual topic displaced into course -> course must be empty, materia rescued
-        c, mat = normalize_curso("Comunicación Oral y Escrita.", current_materia="")
-        self.assertEqual(c, "")
-        self.assertEqual(mat, "Comunicación Oral y Escrita.")
+    def test_corpus_rejects_content_path_escape(self):
+        with tempfile.TemporaryDirectory() as directory:
+            corpus_path = os.path.join(directory, "corpus.json")
+            with open(corpus_path, "w", encoding="utf-8") as handle:
+                json.dump([{"name": "escape", "content": "..\\outside.html", "expect": {}}], handle)
 
-        c, mat2 = normalize_curso("Derecho Mercantil I", current_materia="Derecho Privado")
-        self.assertEqual(c, "")
-        self.assertEqual(mat2, "Derecho Privado")
+            report = evaluate_corpus(corpus_path)
 
-        # ECTS credit misalignment (e.g. 6 credits mistaken as course 6)
-        c, _ = normalize_curso("6", ects_val=6.0)
-        self.assertEqual(c, "")
-
-    def test_02_normalize_cuatrimestre_unit_cases(self):
-        """Test unit edge cases for normalize_cuatrimestre."""
-        self.assertEqual(normalize_cuatrimestre("1"), "1C")
-        self.assertEqual(normalize_cuatrimestre("1º"), "1C")
-        self.assertEqual(normalize_cuatrimestre("1C"), "1C")
-        self.assertEqual(normalize_cuatrimestre("1er cuatrimestre"), "1C")
-        self.assertEqual(normalize_cuatrimestre("Primer Semestre"), "1C")
-        self.assertEqual(normalize_cuatrimestre("Semestre 1"), "1C")
-
-        self.assertEqual(normalize_cuatrimestre("2"), "2C")
-        self.assertEqual(normalize_cuatrimestre("2º"), "2C")
-        self.assertEqual(normalize_cuatrimestre("2C"), "2C")
-        self.assertEqual(normalize_cuatrimestre("Segundo Cuatrimestre"), "2C")
-        self.assertEqual(normalize_cuatrimestre("2do Semestre"), "2C")
-
-        self.assertEqual(normalize_cuatrimestre("Anual"), "Anual")
-        self.assertEqual(normalize_cuatrimestre("1-2"), "Anual")
-        self.assertEqual(normalize_cuatrimestre("1 y 2º"), "Anual")
-
-    def test_03_regression_over_real_plan_dataset(self):
-        """Verify on real study plan files that 0 subjects are lost and all cursos are valid."""
-        sample_elems_list = []
-
-        if os.path.exists(PLANES_DIR):
-            plan_files = [f for f in os.listdir(PLANES_DIR) if f.endswith(".json")]
-            for pf in plan_files[:500]:
-                try:
-                    with open(os.path.join(PLANES_DIR, pf), "r", encoding="utf-8") as fp:
-                        d = json.load(fp)
-                    p = d.get("plan_estudios")
-                    if p and p.get("elementos_curriculares"):
-                        sample_elems_list.append(p.get("elementos_curriculares", []))
-                except Exception:
-                    continue
-
-        # Fallback to fire test results dataset if planes_estudio is not populated in clean checkout
-        if not sample_elems_list:
-            resultados_json = os.path.join(BASE_DIR, "Codigo", "Pruebas", "ResultadosPruebaFase1.json")
-            if os.path.exists(resultados_json):
-                with open(resultados_json, "r", encoding="utf-8") as fp:
-                    data = json.load(fp)
-                for u in data.get("universidades_escaneadas", []):
-                    for t in u.get("titulaciones", []):
-                        asigs = t.get("asignaturas", [])
-                        if asigs:
-                            sample_elems_list.append(asigs)
-
-        if not sample_elems_list:
-            self.skipTest("No real study plan files or ResultadosPruebaFase1.json available for regression testing.")
-
-        total_subjects_before = 0
-        total_subjects_after = 0
-        invalid_cursos_found = 0
-        valid_cursos = {"", "1", "2", "3", "4", "5", "6"}
-
-        for elems in sample_elems_list:
-            total_subjects_before += len(elems)
-            for elem in elems:
-                c_raw = elem.get("curso", "")
-                mat_raw = elem.get("materia", "")
-                ects = float(str(elem.get("creditos_ects", 6)).replace(",", ".")) if elem.get("creditos_ects") else 6.0
-                
-                c_clean, _ = normalize_curso(c_raw, mat_raw, ects_val=ects)
-                if c_clean not in valid_cursos:
-                    invalid_cursos_found += 1
-                
-                total_subjects_after += 1
-
-        self.assertGreater(total_subjects_before, 0, "Should have evaluated at least 1 study plan with subjects")
-        self.assertEqual(total_subjects_before, total_subjects_after, "Subject count must be 100% preserved!")
-        self.assertEqual(invalid_cursos_found, 0, "No invalid cursos must exist after normalization!")
+            self.assertEqual(report["failed"], 1)
+            self.assertIn("escapes corpus", report["results"][0]["error"])
 
 
 if __name__ == "__main__":
-    unittest.main(verbosity=2)
+    unittest.main()

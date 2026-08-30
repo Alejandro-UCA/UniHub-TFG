@@ -88,10 +88,15 @@ def assess_plan_quality(payload: dict, source_type: str | None = None) -> dict:
     plan = payload.get("plan_estudios")
     source_type = str(source_type or payload.get("origen_fuente") or "").strip().lower()
     issues = validate_plan_identity(payload)
-    source_url = (
-        payload.get("boe_url")
-        or payload.get("web_fuente_directa_url")
-        or next(
+    # La fuente que se está evaluando tiene prioridad. Un plan web puede
+    # conservar un BOE histórico como respaldo, pero no debe etiquetarse como
+    # verificado por BOE si la evidencia actual procede de la universidad.
+    if any(marker in source_type for marker in ("web_oficial", "centro_adscrito", "interuniversitario")):
+        source_url = payload.get("web_fuente_directa_url") or payload.get("boe_url")
+    else:
+        source_url = payload.get("boe_url") or payload.get("web_fuente_directa_url")
+    if not source_url:
+        source_url = next(
             (
                 item.get("url")
                 for item in payload.get("fuentes", [])
@@ -99,7 +104,6 @@ def assess_plan_quality(payload: dict, source_type: str | None = None) -> dict:
             ),
             None,
         )
-    )
     if source_url:
         parsed_source = urlsplit(str(source_url))
         if parsed_source.scheme not in {"http", "https"} or not parsed_source.netloc:

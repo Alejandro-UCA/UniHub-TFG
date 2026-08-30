@@ -14,6 +14,7 @@ from config import (
     SQLITE_CONNECT_TIMEOUT,
     NEGATIVE_CACHE_TTL_SECONDS,
 )
+from sqlite_recovery import is_sqlite_corruption, quarantine_corrupt_sqlite
 
 logger = logging.getLogger("CheckpointManager")
 DB_PATH = CACHE_DB_PATH
@@ -100,27 +101,105 @@ class CheckpointManager:
         import config
         self.filepath = filepath or config.CHECKPOINT_JSON
         self.db_path = db_path or config.CACHE_DB_PATH
+        # SQLite es una optimización del checkpoint JSON. Si el fichero está
+        # dañado o el volumen no permite abrirlo, la ejecución debe continuar
+        # usando el estado en memoria y el volcado JSON.
+        self._sqlite_disabled = False
+        self._sqlite_disable_reason = None
+        self.sqlite_recovered_corrupt_path = None
+        self._recovering_sqlite = False
+        # Cada instancia mantiene sus propias conexiones por hilo. Compartir
+        # el almacenamiento de conexiones entre gestores podía dejar a una
+        # instancia usando una conexión cerrada por otra durante la
+        # recuperación de SQLite.
+        self._local = threading.local()
         self._last_mtime = 0
         self._last_save_time = 0.0
         self._cached_state = None
         self._init_sqlite()
         self.state = self._load_checkpoint()
 
+    def _disable_sqlite(self, error: Exception):
+        """Recupera una SQLite corrupta o desactiva SQLite si no es recuperable."""
+        if not self._recovering_sqlite and is_sqlite_corruption(error):
+            try:
+                quarantine_path = quarantine_corrupt_sqlite(self.db_path)
+            except OSError as recovery_error:
+                quarantine_path = None
+                logger.error(
+                    "No se pudo poner en cuarentena el checkpoint SQLite corrupto %s: %s",
+                    self.db_path,
+                    recovery_error,
+                )
+            if quarantine_path:
+                self.sqlite_recovered_corrupt_path = quarantine_path
+                self._recovering_sqlite = True
+                self._sqlite_disabled = False
+                self._sqlite_disable_reason = None
+                try:
+                    self._init_sqlite()
+                finally:
+                    self._recovering_sqlite = False
+                if not self._sqlite_disabled:
+                    logger.warning(
+                        "Checkpoint SQLite corrupto apartado en %s y reemplazado por una base nueva",
+                        quarantine_path,
+                    )
+                    return
+        if not self._sqlite_disabled:
+            logger.warning(
+                "SQLite del checkpoint no disponible en %s; se continúa con JSON: %s",
+                self.db_path,
+                error,
+            )
+        self._sqlite_disabled = True
+        self._sqlite_disable_reason = str(error)
+        conns = getattr(self._local, "connections", None)
+        if conns and self.db_path in conns:
+            conn = conns.pop(self.db_path)
+            try:
+                conn.close()
+            except Exception:
+                pass
+
     @contextlib.contextmanager
     def _get_connection(self):
         """Thread-local persistent SQLite WAL connection with in-memory page cache."""
+        if self._sqlite_disabled:
+            raise sqlite3.DatabaseError(self._sqlite_disable_reason or "SQLite desactivado")
         conns = getattr(self._local, "connections", None)
         if conns is None:
             conns = {}
             self._local.connections = conns
 
         if self.db_path not in conns:
-            conn = sqlite3.connect(self.db_path, timeout=SQLITE_CONNECT_TIMEOUT)
-            conn.execute("PRAGMA synchronous=NORMAL;")
-            conn.execute("PRAGMA temp_store=MEMORY;")
-            conn.execute("PRAGMA mmap_size=268435456;")
-            conn.execute("PRAGMA cache_size=-64000;")
-            conns[self.db_path] = conn
+            conn = None
+            try:
+                conn = sqlite3.connect(
+                    self.db_path,
+                    timeout=SQLITE_CONNECT_TIMEOUT,
+                    check_same_thread=False,
+                )
+                conn.execute("PRAGMA synchronous=NORMAL;")
+                conn.execute(f"PRAGMA busy_timeout={max(1000, int(SQLITE_CONNECT_TIMEOUT * 1000))};")
+                conn.execute("PRAGMA temp_store=MEMORY;")
+                conn.execute("PRAGMA mmap_size=268435456;")
+                conn.execute("PRAGMA cache_size=-64000;")
+                conns[self.db_path] = conn
+            except (OSError, sqlite3.Error) as error:
+                if conn is not None:
+                    try:
+                        conn.close()
+                    except Exception:
+                        pass
+                self._disable_sqlite(error)
+                if self._sqlite_disabled:
+                    raise
+                # La recuperación ha creado y preparado una conexión nueva.
+                # No propagamos la excepción de apertura del fichero antiguo.
+                conns = getattr(self._local, "connections", {})
+                if self.db_path not in conns:
+                    raise
 
         conn = conns[self.db_path]
         try:
@@ -130,14 +209,16 @@ class CheckpointManager:
                 conn.rollback()
             except Exception as error:
                 logger.warning("No se pudo leer el checkpoint SQLite/JSON; se usará el estado seguro por defecto: %s", error)
+            if isinstance(e, sqlite3.Error):
+                self._disable_sqlite(e)
             logger.debug(f"Error en transacción SQLite checkpoint: {e}")
             raise
 
     def _init_sqlite(self):
-        dir_path = os.path.dirname(os.path.abspath(self.db_path))
-        if dir_path:
-            os.makedirs(dir_path, exist_ok=True)
         try:
+            dir_path = os.path.dirname(os.path.abspath(self.db_path))
+            if dir_path:
+                os.makedirs(dir_path, exist_ok=True)
             with self._get_connection() as conn:
                 try:
                     conn.execute("PRAGMA journal_mode=WAL;")
@@ -209,7 +290,7 @@ class CheckpointManager:
                 """)
                 conn.commit()
         except Exception as e:
-            logger.warning(f"Error al inicializar tablas SQLite de checkpoint: {e}")
+            self._disable_sqlite(e)
 
     def _load_checkpoint(self):
         if os.path.exists(self.filepath):
@@ -254,12 +335,13 @@ class CheckpointManager:
     def mark_universities_downloaded(self):
         with CheckpointManager._lock:
             self.state["universities_downloaded"] = True
-            try:
-                with self._get_connection() as conn:
-                    conn.execute("INSERT OR REPLACE INTO app_metadata VALUES (?, ?)", ("universities_downloaded", "1"))
-                    conn.commit()
-            except Exception as e:
-                logger.warning(f"Error al registrar universities_downloaded en SQLite: {e}")
+            if not self._sqlite_disabled:
+                try:
+                    with self._get_connection() as conn:
+                        conn.execute("INSERT OR REPLACE INTO app_metadata VALUES (?, ?)", ("universities_downloaded", "1"))
+                        conn.commit()
+                except Exception as e:
+                    logger.warning(f"Error al registrar universities_downloaded en SQLite: {e}")
             self._save(force=True)
 
     def _is_item_registered(self, table: str, column: str, state_key: str, value: str) -> bool:
@@ -292,12 +374,13 @@ class CheckpointManager:
                 self.state[state_key] = []
             if value not in self.state[state_key]:
                 self.state[state_key].append(value)
-            try:
-                with self._get_connection() as conn:
-                    conn.execute(query, (value,))
-                    conn.commit()
-            except Exception as e:
-                logger.warning(f"Error al registrar en tabla {table} en SQLite: {e}")
+            if not self._sqlite_disabled:
+                try:
+                    with self._get_connection() as conn:
+                        conn.execute(query, (value,))
+                        conn.commit()
+                except Exception as e:
+                    logger.warning(f"Error al registrar en tabla {table} en SQLite: {e}")
             self._save(force=force_save)
 
     def is_university_processed(self, univ_code: str) -> bool:
@@ -315,13 +398,14 @@ class CheckpointManager:
         self._register_simple_item("non_study_plan_pdfs", "non_study_plan_pdfs", pdf_url, force_save=False)
         if pdf_sha256:
             with CheckpointManager._lock:
-                try:
-                    with self._get_connection() as conn:
-                        conn.execute("INSERT OR REPLACE INTO non_study_plan_hashes VALUES (?, ?, ?)", 
-                                     (pdf_sha256, "NO_PLAN_ESTUDIOS", datetime.now().isoformat()))
-                        conn.commit()
-                except Exception as e:
-                    logger.warning(f"Error al registrar hash en SQLite: {e}")
+                if not self._sqlite_disabled:
+                    try:
+                        with self._get_connection() as conn:
+                            conn.execute("INSERT OR REPLACE INTO non_study_plan_hashes VALUES (?, ?, ?)",
+                                         (pdf_sha256, "NO_PLAN_ESTUDIOS", datetime.now().isoformat()))
+                            conn.commit()
+                    except Exception as e:
+                        logger.warning(f"Error al registrar hash en SQLite: {e}")
                 if "non_study_plan_hashes" not in self.state:
                     self.state["non_study_plan_hashes"] = []
                 if pdf_sha256 not in self.state["non_study_plan_hashes"]:
@@ -359,12 +443,13 @@ class CheckpointManager:
             items = self.state.setdefault("unreachable_urls", [])
             if pdf_url not in items:
                 items.append(pdf_url)
-            try:
-                with self._get_connection() as conn:
-                    conn.execute("INSERT OR REPLACE INTO unreachable_urls (url, marked_at) VALUES (?, ?)", (pdf_url, now))
-                    conn.commit()
-            except Exception as exc:
-                logger.warning("Error al registrar URL inalcanzable: %s", exc)
+            if not self._sqlite_disabled:
+                try:
+                    with self._get_connection() as conn:
+                        conn.execute("INSERT OR REPLACE INTO unreachable_urls (url, marked_at) VALUES (?, ?)", (pdf_url, now))
+                        conn.commit()
+                except Exception as exc:
+                    logger.warning("Error al registrar URL inalcanzable: %s", exc)
             self._save(force=False)
 
     def record_pdf_download_failure(self, pdf_url: str, degree_code: str, reason: str):
@@ -379,13 +464,14 @@ class CheckpointManager:
                 "motivo_fallo": reason,
                 "timestamp": now_iso
             }
-            try:
-                with self._get_connection() as conn:
-                    conn.execute("INSERT OR REPLACE INTO failed_pdf_downloads VALUES (?, ?, ?, ?)",
-                                 (pdf_url, degree_code, reason, now_iso))
-                    conn.commit()
-            except Exception as e:
-                logger.warning(f"Error al registrar fallo de descarga PDF en SQLite: {e}")
+            if not self._sqlite_disabled:
+                try:
+                    with self._get_connection() as conn:
+                        conn.execute("INSERT OR REPLACE INTO failed_pdf_downloads VALUES (?, ?, ?, ?)",
+                                     (pdf_url, degree_code, reason, now_iso))
+                        conn.commit()
+                except Exception as e:
+                    logger.warning(f"Error al registrar fallo de descarga PDF en SQLite: {e}")
             self.mark_unreachable_url(pdf_url)
 
     def get_degree_record(self, degree_code: str) -> dict:
@@ -442,13 +528,14 @@ class CheckpointManager:
                 "boe_fecha": final_fecha,
                 "last_updated": last_updated
             }
-            try:
-                with self._get_connection() as conn:
-                    conn.execute("INSERT OR REPLACE INTO processed_degrees VALUES (?, ?, ?, ?)",
-                                 (degree_code, final_url, final_fecha, last_updated))
-                    conn.commit()
-            except Exception as e:
-                logger.warning(f"Error al registrar processed_degrees en SQLite: {e}")
+            if not self._sqlite_disabled:
+                try:
+                    with self._get_connection() as conn:
+                        conn.execute("INSERT OR REPLACE INTO processed_degrees VALUES (?, ?, ?, ?)",
+                                     (degree_code, final_url, final_fecha, last_updated))
+                        conn.commit()
+                except Exception as e:
+                    logger.warning(f"Error al registrar processed_degrees en SQLite: {e}")
             self._save(force=False)
 
     def mark_extinct_degree(self, degree_code: str, reason: str = "Extinguida"):
@@ -462,13 +549,14 @@ class CheckpointManager:
                 "motivo": reason,
                 "timestamp": timestamp
             }
-            try:
-                with self._get_connection() as conn:
-                    conn.execute("INSERT OR REPLACE INTO extinct_degrees VALUES (?, ?, ?)",
-                                 (degree_code, reason, timestamp))
-                    conn.commit()
-            except Exception as e:
-                logger.warning(f"Error al registrar extinct_degrees en SQLite: {e}")
+            if not self._sqlite_disabled:
+                try:
+                    with self._get_connection() as conn:
+                        conn.execute("INSERT OR REPLACE INTO extinct_degrees VALUES (?, ?, ?)",
+                                     (degree_code, reason, timestamp))
+                        conn.commit()
+                except Exception as e:
+                    logger.warning(f"Error al registrar extinct_degrees en SQLite: {e}")
             self._save(force=False)
 
     def is_extinct_degree(self, degree_code: str) -> bool:
@@ -486,13 +574,14 @@ class CheckpointManager:
                 "motivo": reason,
                 "timestamp": now_iso
             }
-            try:
-                with self._get_connection() as conn:
-                    conn.execute("INSERT OR REPLACE INTO robots_denied_universities VALUES (?, ?, ?, ?)",
-                                 (univ_code, web_url, reason, now_iso))
-                    conn.commit()
-            except Exception as e:
-                logger.warning(f"Error al registrar robots_denied_universities en SQLite: {e}")
+            if not self._sqlite_disabled:
+                try:
+                    with self._get_connection() as conn:
+                        conn.execute("INSERT OR REPLACE INTO robots_denied_universities VALUES (?, ?, ?, ?)",
+                                     (univ_code, web_url, reason, now_iso))
+                        conn.commit()
+                except Exception as e:
+                    logger.warning(f"Error al registrar robots_denied_universities en SQLite: {e}")
             self._save(force=False)
 
     def is_robots_denied_university(self, univ_code: str) -> bool:
@@ -512,6 +601,8 @@ class CheckpointManager:
     def _consolidate_state_from_sqlite(self) -> dict:
         """Consolida el estado global leyendo directamente de SQLite WAL para consistencia multi-proceso."""
         state = dict(self.state)
+        if self._sqlite_disabled:
+            return state
         try:
             with self._get_connection() as conn:
                 # 1. processed_universities
@@ -565,6 +656,8 @@ class CheckpointManager:
                         state["universities_downloaded"] = (v == "1" or v.lower() == "true")
         except Exception as e:
             logger.warning(f"Error al consolidar estado desde SQLite: {e}")
+            if isinstance(e, sqlite3.Error):
+                self._disable_sqlite(e)
         return state
 
     def _save(self, force: bool = False):

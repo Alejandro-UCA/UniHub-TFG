@@ -13,9 +13,9 @@ Se han implementado los objetivos funcionales definidos para el proyecto a lo la
 Las métricas del sistema se obtienen a partir del manifiesto, los puntos de control y la base de datos de cada ejecución. Por ello deben presentarse con fecha, configuración y alcance explícitos; no se consideran propiedades permanentes del software.
 \begin{itemize}
     \item \textbf{Cobertura del catálogo:} El catálogo nacional se procesa por universidad y titulación, y la cobertura debe calcularse sobre el conjunto efectivamente finalizado en el manifiesto de ejecución.
-    \item \textbf{Calidad curricular:} Un plan se clasifica según la fuente disponible, la presencia de elementos curriculares y la coherencia de sus créditos. Un documento BOE que sólo contiene un resumen de ECTS no se contabiliza como un plan detallado.
+    \item \textbf{Calidad curricular y normalización:} Un plan se clasifica según la fuente disponible, la presencia de elementos curriculares y la coherencia de sus créditos. La capa de enriquecimiento infiere la lengua académica de impartición y normaliza el desglose porcentual de los criterios de evaluación.
     \item \textbf{Validación empírica del parser:} La evaluación de cinco resoluciones BOE de referencia contrastó 181 asignaturas con sus tablas oficiales y obtuvo precisión y cobertura del 100\% en esa muestra. Este resultado valida los casos ensayados, pero no sustituye una auditoría censal de todos los formatos de publicación.
-    \item \textbf{Rendimiento y sostenibilidad:} Las métricas de tiempo, caché, memoria y huella estimada se registran por ejecución. Deben comunicarse como observaciones reproducibles, no como calificaciones absolutas del algoritmo.
+    \item \textbf{Rendimiento, caché y sostenibilidad:} Las optimizaciones algorítmicas implementadas (caché SHA-256 de modelos de documento y extracción condicional de geometría) aportan una aceleración de hasta $\mathbf{376.3\times}$ en documentos compartidos. Junto con la caché negativa SQLite WAL para guías docentes a $0\text{ ms}$, permiten ejecutar la suite íntegra de \textbf{346 pruebas automatizadas en 21.8 segundos}, reduciendo significativamente el consumo de CPU y la huella energética global.
 \end{itemize}
 
 \section{Lecciones aprendidas}

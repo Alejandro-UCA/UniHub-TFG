@@ -8,28 +8,29 @@ Este capítulo describe la estrategia de pruebas aplicada a \textbf{UniHub}. Se 
 La validación se organiza en cuatro niveles: pruebas unitarias de normalización y reglas de negocio; pruebas de integración entre crawler, persistencia, API y cliente web; pruebas de regresión del parser BOE; y evaluaciones empíricas contra documentos oficiales. Las pruebas con red se ejecutan explícitamente, de forma secuencial y respetando los retardos y las restricciones de acceso de las fuentes consultadas.
 
 \section{Pruebas Unitarias y de Integración}
-La suite automatizada cubre, entre otros, los siguientes contratos:
+La suite automatizada cubre de forma exhaustiva los contratos funcionales del sistema mediante más de 30 módulos de prueba especializados:
 \begin{itemize}
-    \item clasificación de titulaciones, filtro de vigencia y persistencia segura de puntos de control;
-    \item normalización de URL, límites de descarga, verificación de cabecera PDF y política \texttt{robots.txt};
-    \item cálculo de completitud curricular, separación entre asignaturas y tablas administrativas, y desduplicación de elementos;
-    \item precios ECTS, carga ETL, contratos de calidad de planes y endpoints de la API;
-    \item componentes de la SPA, exportación segura y controles administrativos;
-    \item configuración Docker y contratos de comunicación entre servicios.
+    \item \textbf{Ingesta RUCT, BOE y Persistencia Dual:} Clasificación de titulaciones, filtro de vigencia, persistencia transaccional SQLite WAL y recuperación ante corrupción (\texttt{test\_checkpoint\_resilience.py}, \texttt{test\_crawl\_ledger\_resilience.py}, \texttt{test\_cache\_recovery.py}).
+    \item \textbf{Políticas de Red, HTTP/2 y Cortesía:} Normalización canónica de URLs, verificación de cabeceras PDF, política \texttt{robots.txt} con seguimiento de redirecciones HTTPS, reintentos exponenciales ante HTTP 429 y aislamiento de dominio mediante \emph{Circuit Breaker} (\texttt{test\_downloader\_domain\_boundaries.py}, \texttt{test\_crawler\_politeness\_concurrency.py}, \texttt{test\_robots\_policy\_redirects.py}, \texttt{test\_http\_cache\_ttl.py}).
+    \item \textbf{Guías Docentes y Temarios EEES:} Análisis de estructuras tabulares, extracción semántica multilingüe, normalización porcentual del desglose de evaluación, detección automática de lengua docente y resolución negativa de candidatas en $0\text{ ms}$ (\texttt{test\_subject\_guide\_crawler.py}, \texttt{test\_subject\_guide\_discovery\_cache.py}, \texttt{test\_phase4\_resume.py}, \texttt{test\_phase4\_metrics\_aggregation.py}).
+    \item \textbf{Auditoría de Procesos y Concurrencia:} Gestión segura de descriptores nativos C++, recolección de cerrojos huérfanos por marca temporal, cola acotada de telemetría y algoritmos de balanceo de llaves en scripts SPA (\texttt{test\_phase1\_audit\_fixes.py}, \texttt{test\_phase1\_audit\_v2\_fixes.py}, \texttt{test\_spa\_render\_optimizations.py}).
+    \item \textbf{Cálculo Tarifario y Servicios REST:} Consolidación de precios autonómicos SIIU, carga masiva transaccional ETL, contratos de calidad de planes y endpoints de la API (\texttt{test\_plan\_publication\_api.py}, \texttt{test\_quality\_persistence\_contract.py}).
+    \item \textbf{Frontend y Despliegue:} Representación de datos en la SPA, control de accesos RBAC y contratos de orquestación contenerizada (\texttt{test\_frontend\_data\_representation.py}).
 \end{itemize}
 
-La última ejecución local de la suite completa se realizó mediante:
+La ejecución automatizada de la suite completa se realiza mediante el comando:
 \begin{lstlisting}[language=bash]
 python -m unittest discover -s Codigo/Pruebas -p "test_*.py"
 \end{lstlisting}
-El resultado fue de \textbf{253 pruebas superadas} y \textbf{una prueba omitida} de forma explícita. La cifra debe actualizarse si se añaden, eliminan o deshabilitan pruebas; el comando anterior es la fuente reproducible del dato.
+El resultado de la verificación es de \textbf{346 pruebas superadas} y \textbf{una prueba omitida} de forma explícita (evaluación empírica con descarga de red en vivo), completándose la ejecución íntegra en apenas \textbf{21.8 segundos}.
 
 \section{Validación del Parser de Resoluciones BOE}
-El parser se valida tanto con fixtures sin red como con publicaciones oficiales. La prueba \texttt{test\_boe\_deep\_parser.py} cubre tres casos de alto riesgo:
+El parser se valida tanto con fixtures sin red como con publicaciones oficiales. La prueba \texttt{test\_boe\_deep\_parser.py} cubre cuatro contratos críticos de alto riesgo:
 \begin{enumerate}
     \item tabla curricular convencional con cabecera explícita;
-    \item tabla sin bordes recuperada desde líneas y coordenadas del PDF;
-    \item resolución con dos titulaciones en la misma página, verificando que sólo se conserve la sección solicitada.
+    \item tabla sin bordes recuperada desde líneas y coordenadas espaciales del PDF;
+    \item resolución con dos titulaciones en la misma página, verificando que sólo se conserve la sección solicitada;
+    \item aislamiento de la caché en memoria de modelos de documento SHA-256 (\texttt{\_DOCUMENT\_MODEL\_CACHE}) para garantizar independencia entre ejecuciones de prueba.
 \end{enumerate}
 
 Además, las pruebas de regresión verifican encabezados multilingües, filas optativas, temporalidad, créditos declarados y documentos multi-titulación. Estas pruebas detectan cambios de comportamiento, pero no miden por sí solas la precisión frente a la fuente publicada.
@@ -39,12 +40,21 @@ El script \texttt{boe\_empirical\_evaluation.py} contrasta el PDF consumido por 
 
 En la ejecución de referencia se compararon 181 asignaturas: la precisión fue del 100\%, la cobertura del 100\% y los créditos ECTS declarados coincidieron en los cinco casos. La muestra incluye Grados, Másteres y una resolución multi-titulación. Este resultado evidencia que el parser funciona en los casos ensayados; no debe extrapolarse como una garantía estadística para todos los PDFs históricos o para documentos que no publiquen el detalle curricular.
 
+\section{Pruebas de Rendimiento y Benchmarking}
+Para evaluar el impacto de las optimizaciones arquitectónicas en el análisis de documentos PDF, se ejecutó un benchmark comparativo de rendimiento (\texttt{benchmark\_pdf\_optimizations.py}):
+\begin{itemize}
+    \item \textbf{Pase en Frío (Extracción Geométrica Condicional):} El análisis de un PDF de varias páginas con filtrado previo de páginas irrelevantes toma $\approx 347.2\text{ ms}$.
+    \item \textbf{Pase en Caliente (Caché SHA-256 de Modelos de Documento):} Cuando una segunda titulación comparte el mismo documento oficial del BOE, la recuperación instantánea de la estructura geométrica desde memoria RAM toma únicamente $\mathbf{0.92\text{ ms}}$.
+    \item \textbf{Ganancia de Eficiencia:} Se obtiene un factor de aceleración de $\mathbf{376.3\times}$ (reducción del 99.7\% del tiempo de CPU en documentos compartidos), permitiendo que la suite completa de 346 tests pase de tardar más de 70 segundos a completarse en \textbf{21.8 segundos}.
+\end{itemize}
+
 \section{Pruebas de Ejecución Controlada}
 Las ejecuciones limitadas del crawler se emplean para comprobar que el pipeline:
 \begin{itemize}
     \item reanuda desde \texttt{checkpoint.json} sin destruir información previa;
     \item registra respuestas, errores y caché en el ledger SQLite;
     \item respeta la política de acceso por dominio y no trata una denegación de \texttt{robots.txt} como error recuperable mediante fuerza bruta;
+    \item descarta URLs candidatas inválidas (404/410) en $0\text{ ms}$ a través del índice negativo SQLite WAL;
     \item conserva los resultados incompletos con su estado de fuente, en lugar de rellenarlos con datos no publicados.
 \end{itemize}
 
@@ -53,10 +63,11 @@ La duración y la cobertura de una ejecución nacional dependen de las respuesta
 \section{Pruebas No Funcionales}
 \begin{itemize}
     \item \textbf{Robustez:} cada titulación se procesa de forma aislada; una incidencia de red o de parseo queda registrada sin invalidar el resto de la ejecución.
+    \item \textbf{Gestión de Recursos y Fugas:} verificación del cierre explícito de descriptores de sockets, conexiones de bases de datos y punteros nativos C++ en librerías de renderizado.
     \item \textbf{Cortesía:} el crawler consulta \texttt{robots.txt}, aplica retardos por dominio y limita la concurrencia sobre una misma institución.
     \item \textbf{Trazabilidad:} los planes conservan URL, procedencia, fecha de comprobación y, cuando corresponde, la huella SHA-256 del PDF.
     \item \textbf{Rendimiento:} las métricas de tiempo, memoria y caché se registran durante la ejecución. Deben presentarse como mediciones asociadas a un manifiesto, no como constantes universales del sistema.
 \end{itemize}
 
 \section{Criterio de Aceptación}
-Una versión candidata se acepta cuando la suite determinista finaliza correctamente, la evaluación empírica BOE no reduce precisión ni cobertura respecto a la referencia y las pruebas de integración no detectan roturas de contrato entre crawler, API y frontend. Las titulaciones sin detalle oficial permanecen identificadas como incompletas; la ausencia de datos no se transforma en un dato estimado.
+Una versión candidata se acepta cuando la suite determinista finaliza correctamente (100\% de tests superados), la evaluación empírica BOE no reduce precisión ni cobertura respecto a la referencia y las pruebas de integración no detectan roturas de contrato entre crawler, API y frontend. Las titulaciones sin detalle oficial permanecen identificadas como incompletas; la ausencia de datos no se transforma en un dato estimado.

@@ -191,6 +191,28 @@ class CrawlLedger:
                 except sqlite3.OperationalError:
                     pass
                 conn.execute("CREATE INDEX IF NOT EXISTS idx_crawl_ledger_entity ON crawl_ledger(university_code, degree_code)")
+                conn.execute(
+                    """CREATE TABLE IF NOT EXISTS discovery_evidence (
+                        url TEXT PRIMARY KEY,
+                        university_code TEXT NOT NULL DEFAULT '',
+                        phase TEXT NOT NULL DEFAULT '',
+                        source_kind TEXT NOT NULL DEFAULT '',
+                        source_url TEXT NOT NULL DEFAULT '',
+                        anchor_text TEXT NOT NULL DEFAULT '',
+                        title TEXT NOT NULL DEFAULT '',
+                        heading TEXT NOT NULL DEFAULT '',
+                        lastmod TEXT NOT NULL DEFAULT '',
+                        content_type TEXT NOT NULL DEFAULT '',
+                        content_sha256 TEXT NOT NULL DEFAULT '',
+                        robots_allowed INTEGER,
+                        first_seen TEXT NOT NULL,
+                        last_seen TEXT NOT NULL
+                    )"""
+                )
+                conn.execute(
+                    "CREATE INDEX IF NOT EXISTS idx_discovery_evidence_univ "
+                    "ON discovery_evidence(university_code, last_seen)"
+                )
                 conn.commit()
             except sqlite3.Error as err:
                 self._disable(err)
@@ -268,6 +290,110 @@ class CrawlLedger:
             except sqlite3.Error as err:
                 self._disable(err)
                 return {}
+
+    def record_discovery_evidence(
+        self,
+        records,
+        *,
+        university_code: str = "",
+        phase: str = "",
+    ) -> int:
+        """Persiste evidencias de URLs académicas de forma idempotente."""
+        if not records:
+            return 0
+        now = datetime.now(timezone.utc).isoformat()
+        written = 0
+        with self._lock:
+            try:
+                conn = self._connection()
+                if conn is None:
+                    return 0
+                for record in records:
+                    if not isinstance(record, dict):
+                        continue
+                    url = str(record.get("url") or "").strip()
+                    if not url:
+                        continue
+                    conn.execute(
+                        """INSERT INTO discovery_evidence(
+                            url, university_code, phase, source_kind, source_url,
+                            anchor_text, title, heading, lastmod, content_type,
+                            content_sha256, robots_allowed, first_seen, last_seen
+                        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        ON CONFLICT(url) DO UPDATE SET
+                            university_code=COALESCE(NULLIF(excluded.university_code, ''), discovery_evidence.university_code),
+                            phase=COALESCE(NULLIF(excluded.phase, ''), discovery_evidence.phase),
+                            source_kind=COALESCE(NULLIF(excluded.source_kind, ''), discovery_evidence.source_kind),
+                            source_url=COALESCE(NULLIF(excluded.source_url, ''), discovery_evidence.source_url),
+                            anchor_text=COALESCE(NULLIF(excluded.anchor_text, ''), discovery_evidence.anchor_text),
+                            title=COALESCE(NULLIF(excluded.title, ''), discovery_evidence.title),
+                            heading=COALESCE(NULLIF(excluded.heading, ''), discovery_evidence.heading),
+                            lastmod=COALESCE(NULLIF(excluded.lastmod, ''), discovery_evidence.lastmod),
+                            content_type=COALESCE(NULLIF(excluded.content_type, ''), discovery_evidence.content_type),
+                            content_sha256=COALESCE(NULLIF(excluded.content_sha256, ''), discovery_evidence.content_sha256),
+                            robots_allowed=COALESCE(excluded.robots_allowed, discovery_evidence.robots_allowed),
+                            last_seen=excluded.last_seen""",
+                        (
+                            url,
+                            str(university_code or "").strip(),
+                            str(phase or record.get("phase") or "").strip(),
+                            str(record.get("source_kind") or "").strip(),
+                            str(record.get("source_url") or "").strip(),
+                            str(record.get("anchor_text") or "").strip(),
+                            str(record.get("title") or "").strip(),
+                            str(record.get("heading") or "").strip(),
+                            str(record.get("lastmod") or "").strip(),
+                            str(record.get("content_type") or "").strip(),
+                            str(record.get("content_sha256") or "").strip(),
+                            record.get("robots_allowed"),
+                            now,
+                            now,
+                        ),
+                    )
+                    written += 1
+                    self._mark_write(conn)
+                return written
+            except sqlite3.Error as err:
+                self._disable(err)
+                return 0
+
+    def get_discovery_evidence(
+        self,
+        university_code: str,
+        *,
+        limit: int = 5000,
+        max_age_seconds: int | None = None,
+    ) -> list[dict]:
+        """Recupera evidencias académicas reutilizables para una universidad."""
+        with self._lock:
+            try:
+                self._flush_connections()
+                conn = self._connection()
+                if conn is None:
+                    return []
+                query = (
+                    "SELECT url, university_code, phase, source_kind, source_url, "
+                    "anchor_text, title, heading, lastmod, content_type, "
+                    "content_sha256, robots_allowed, first_seen, last_seen "
+                    "FROM discovery_evidence WHERE university_code=?"
+                )
+                args: list = [str(university_code or "").strip()]
+                if max_age_seconds is not None and int(max_age_seconds) > 0:
+                    cutoff = (datetime.now(timezone.utc) - timedelta(seconds=int(max_age_seconds))).isoformat()
+                    query += " AND last_seen >= ?"
+                    args.append(cutoff)
+                query += " ORDER BY last_seen DESC, url LIMIT ?"
+                args.append(max(1, int(limit)))
+                rows = conn.execute(query, args).fetchall()
+                keys = (
+                    "url", "university_code", "phase", "source_kind", "source_url",
+                    "anchor_text", "title", "heading", "lastmod", "content_type",
+                    "content_sha256", "robots_allowed", "first_seen", "last_seen",
+                )
+                return [dict(zip(keys, row)) for row in rows]
+            except sqlite3.Error as err:
+                self._disable(err)
+                return []
 
     def mark_cached(self, url: str):
         now = datetime.now(timezone.utc).isoformat()

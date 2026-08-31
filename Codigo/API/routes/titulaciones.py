@@ -91,7 +91,8 @@ def get_titulacion(codigo_estudio: str, db: Session = Depends(get_db)):
     clean_code = codigo_estudio.strip()
     tit = db.query(Titulacion).options(
         selectinload(Titulacion.universidad),
-        selectinload(Titulacion.plan_estudios),
+        selectinload(Titulacion.plan_estudios).selectinload(PlanEstudios.elementos_curriculares),
+        selectinload(Titulacion.plan_estudios).selectinload(PlanEstudios.resumen_creditos),
     ).filter(Titulacion.codigo_estudio == clean_code).first()
     if not tit:
         raise HTTPException(status_code=404, detail=f"Titulación con código '{codigo_estudio}' no encontrada.")
@@ -100,7 +101,10 @@ def get_titulacion(codigo_estudio: str, db: Session = Depends(get_db)):
 @router.get("/{codigo_estudio}/plan-estudios", response_model=PlanEstudiosOut, summary="Obtener plan de estudios de la titulación extraído del BOE / Web")
 def get_plan_estudios(codigo_estudio: str, db: Session = Depends(get_db)):
     clean_code = codigo_estudio.strip()
-    plan = db.query(PlanEstudios).filter(
+    plan = db.query(PlanEstudios).options(
+        selectinload(PlanEstudios.elementos_curriculares),
+        selectinload(PlanEstudios.resumen_creditos),
+    ).filter(
         PlanEstudios.codigo_estudio == clean_code,
     ).first()
     if not plan:

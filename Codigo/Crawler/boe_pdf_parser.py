@@ -60,14 +60,14 @@ RE_CURRICULAR_PAGE_HINTS = re.compile(
 )
 _RE_DYNAMIC_TIPO_FIRST = re.compile(
     r"^(?:(?P<mod>[A-ZÁÉÍÓÚÑ][^.\n\t]+?)\.\s+)?(?P<name>[A-ZÁÉÍÓÚÑ][^.\n\t]+?(?:\.|\b))\s*"
-    r"(?P<car>FBA|FB|OBL|OB|OPT|OP|PE|PEX|TFG|TFM|EXT|OIN|DER|HAU)\s+"
+    r"(?P<car>FBA|FB|OBL|OB|OPT|OP|PE|PEX|TFG|TFM|EXT|OIN|DER|HAU|MAL|AAL|KAN|BA|OT|TR|COMP|ELEC|CORE|INT|BST|MST)\s+"
     r"(?P<ects>\d+(?:[.,]\d+)?)(?:\s+(?P<extra>.*))?$",
     re.IGNORECASE,
 )
 _RE_DYNAMIC_CRED_FIRST = re.compile(
     r"^(?:(?P<mod>[A-ZÁÉÍÓÚÑ][^.\n\t]+?)\.\s+)?(?P<name>[A-ZÁÉÍÓÚÑ][^.\n\t]+?(?:\.|\b))\s*"
     r"(?P<ects>\d+(?:[.,]\d+)?)\s+"
-    r"(?P<car>FBA|FB|OBL|OB|OPT|OP|PE|PEX|TFG|TFM|EXT|OIN|DER|HAU)(?:\s+(?P<extra>.*))?$",
+    r"(?P<car>FBA|FB|OBL|OB|OPT|OP|PE|PEX|TFG|TFM|EXT|OIN|DER|HAU|MAL|AAL|KAN|BA|OT|TR|COMP|ELEC|CORE|INT|BST|MST)(?:\s+(?P<extra>.*))?$",
     re.IGNORECASE,
 )
 from sanitizers import (
@@ -129,25 +129,23 @@ def extract_credit_summary(full_text: str) -> dict:
 def detect_curricular_table_header(clean_row: list[str]) -> dict:
     """Devuelve columnas curriculares sólo si la fila es una cabecera real.
 
-    La detección anterior buscaba subcadenas en toda la fila. Eso convertía
-    ``Ciclos de los materiales`` en una cabecera por contener ``materia`` y
-    hacía desaparecer una asignatura válida. Exigimos dos o más etiquetas de
-    columna completas, con límites de palabra.
+    Exigimos dos o más etiquetas de columna completas, con límites de palabra,
+    soportando castellano, catalán, valenciano, gallego, euskera e inglés.
     """
     columns = {}
     for idx, cell in enumerate(clean_row):
         text = str(cell or "").lower()
-        if re.search(r"\b(?:asignaturas?|denominaci[oó]n|nombre|actividad\s+formativa|unidad\s+curricular)\b", text):
+        if re.search(r"\b(?:asignaturas?|assignatures?|denominaci[oó]n|denominaci[oó]|nombre|actividad\s+formativa|activitats?\s+formatives?|unidad\s+curricular|unitat\s+curricular|m[oó]dulo\s*/\s*materia|malla\s+curricular|plan\s+de\s+estudios?|pla\s+d['’]estudis?|continguts?|contenidos?|enseñanzas?|irakasgaia|irakasgaiak|asineira|subject|course)\b", text):
             columns.setdefault("subject", idx)
-        if re.search(r"\b(?:materias?|m[oó]dulos?)\b", text):
+        if re.search(r"\b(?:materias?|mat[eè]ries?|m[oó]dulos?|m[oó]duls?|disciplina)\b", text):
             columns.setdefault("materia", idx)
-        if re.search(r"\b(?:cr[eé]ditos?|ects)\b", text):
+        if re.search(r"\b(?:cr[eé]ditos?|cr[eè]dits?|ects|kredituak?|cr[eé]d|credits?)\b", text):
             columns.setdefault("ects", idx)
-        if re.search(r"\b(?:car[aá]cter|tipo|tipus)\b", text):
+        if re.search(r"\b(?:car[aá]cter|car[aà]cter|tipo|tipus|tipolog[ií]a|tipologia|mota|type)\b", text):
             columns.setdefault("caracter", idx)
-        if re.search(r"\b(?:curso|curs|a[nñ]o)\b", text):
+        if re.search(r"\b(?:curso|curs|a[nñ]o|ano|ikasturtea?|maila|temporalidad|temporalitat|year|level)\b", text):
             columns.setdefault("curso", idx)
-        if re.search(r"\b(?:cuatrimestre|semestre|periodo|per[ií]odo|quadrimestre)\b", text):
+        if re.search(r"\b(?:cuatrimestre|semestre|periodo|per[ií]odo|quadrimestre|seme?str|term)\b", text):
             columns.setdefault("cuatrimestre", idx)
     return columns if len(columns) >= 2 else {}
 
@@ -378,10 +376,16 @@ def _section_mask(page_texts: list[str], target_title: str, univ_name: str) -> t
 
     mask, active, found = [], False, False
     for page_idx in range(len(page_texts)):
+        matched_on_this_page = None
         for section_page, keywords in sections:
             if section_page == page_idx:
-                active = is_section_matching(keywords, target_keywords)
-                found = found or active
+                if is_section_matching(keywords, target_keywords):
+                    matched_on_this_page = True
+                elif matched_on_this_page is None:
+                    matched_on_this_page = False
+        if matched_on_this_page is not None:
+            active = matched_on_this_page
+            found = found or active
         mask.append(active)
     return mask, found, True
 
@@ -468,13 +472,14 @@ def _extract_rows_from_table(rows: list[list[str]]) -> list[dict]:
         curso = clean[curso_index] if 0 <= curso_index < len(clean) else ""
         cuatrimestre = clean[cuatrimestre_index] if 0 <= cuatrimestre_index < len(clean) else ""
 
-        # Una celda sin ECTS/tipo que empieza en minúscula es casi siempre la
-        # continuación visual de la asignatura anterior.
-        if subject and extracted and not ects and not caracter and subject[:1].islower():
-            extracted[-1]["nombre_elemento"] = sanitize_subject_name(
-                f"{extracted[-1]['nombre_elemento'].rstrip(' :-,')} {subject}"
-            )
-            continue
+        # Unificación de asignaturas multilínea
+        # Una celda con texto pero sin ECTS/carácter/curso propios que continúa a la anterior:
+        if subject and extracted and not ects and not caracter and not curso:
+            prev_name = extracted[-1]["nombre_elemento"]
+            combined_name = sanitize_subject_name(f"{prev_name.rstrip(' :-,')} {subject}")
+            if not is_spurious_or_administrative_subject(combined_name) and len(subject) < 90:
+                extracted[-1]["nombre_elemento"] = combined_name
+                continue
         element = _curricular_element(subject, ects, caracter, curso, cuatrimestre, materia)
         if element:
             extracted.append(element)
@@ -664,14 +669,20 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
         "resumen_creditos": {}, "total_elementos": 0, "elementos_curriculares": [],
         "pdf_sha256": pdf_sha256, "idioma_predominante": "es",
         "metodo_extraccion": "analisis_profundo_pdf",
+        "document_has_any_curriculum": False,
     }
     if not raw_pdf or not raw_pdf.startswith(b"%PDF"):
         return empty
 
     pages, full_text = _build_document_model(raw_pdf, pdf_filepath, pdf_sha256=pdf_sha256)
+    document_has_any_curriculum = bool(
+        any(bool(page.get("tables")) for page in pages)
+        or any(RE_CURRICULAR_PAGE_HINTS.search(page.get("text", "")) for page in pages)
+    )
     page_texts = [page["text"] for page in pages]
     mask, target_found, is_multi_document = _section_mask(page_texts, target_title, univ_name)
     if target_title and is_multi_document and not target_found:
+        empty["document_has_any_curriculum"] = document_has_any_curriculum
         return empty
 
     relevant_pages = [page for index, page in enumerate(pages) if index < len(mask) and mask[index]]
@@ -706,4 +717,5 @@ def parse_boe_pdf(pdf_filepath, target_title: str = "", univ_name: str = "") -> 
         "idioma_predominante": detect_academic_language(relevant_text[:20000]),
         "metodo_extraccion": "analisis_profundo_pdf",
         "paginas_analizadas": len(relevant_pages),
+        "document_has_any_curriculum": document_has_any_curriculum,
     }

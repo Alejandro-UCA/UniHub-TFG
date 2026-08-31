@@ -19,10 +19,35 @@ def _module_available(name: str) -> bool:
         return False
 
 
+def find_browser_executable() -> str:
+    """Localiza un ejecutable Chromium disponible (Chromium, Chrome o Edge)."""
+    configured_browser = os.getenv("PLAYWRIGHT_EXECUTABLE_PATH", "").strip()
+    if configured_browser and os.path.isfile(configured_browser):
+        return configured_browser
+    candidates = [
+        shutil.which("chromium"),
+        shutil.which("chromium-browser"),
+        shutil.which("google-chrome"),
+        shutil.which("chrome"),
+        shutil.which("msedge"),
+        r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
+        r"C:\Program Files\Microsoft\Edge\Application\msedge.exe",
+        r"C:\Program Files\Google\Chrome\Application\chrome.exe",
+        r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe",
+        os.path.expanduser(r"~\AppData\Local\Google\Chrome\Application\chrome.exe"),
+        "/usr/bin/chromium",
+        "/usr/bin/chromium-browser",
+        "/usr/bin/google-chrome",
+    ]
+    for candidate in candidates:
+        if candidate and os.path.isfile(candidate):
+            return candidate
+    return ""
+
+
 def detect_runtime_capabilities() -> dict:
     """Devuelve capacidades y dependencias faltantes en formato serializable."""
-    configured_browser = os.getenv("PLAYWRIGHT_EXECUTABLE_PATH", "").strip()
-    browser_path = configured_browser or shutil.which("chromium") or shutil.which("chromium-browser") or shutil.which("google-chrome")
+    browser_path = find_browser_executable()
     playwright_package = _module_available("playwright")
     pypdfium = _module_available("pypdfium2")
     pytesseract_package = _module_available("pytesseract")

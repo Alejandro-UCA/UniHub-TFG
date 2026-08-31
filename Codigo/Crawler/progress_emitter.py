@@ -168,6 +168,14 @@ class ProgressEmitter:
             self.state['timestamp'] = datetime.now().isoformat()
         self._flush(force=True)
 
+    def set_partial(self, summary_msg: str = 'Rastreo finalizado parcialmente.'):
+        """Marca una ejecución incompleta sin atribuirle un error técnico."""
+        with self._lock:
+            self.state['estado'] = 'PARCIAL'
+            self.state['mensaje'] = summary_msg
+            self.state['timestamp'] = datetime.now().isoformat()
+        self._flush(force=True)
+
     def set_cancelled(self, summary_msg: str = 'Rastreo cancelado; el progreso se puede reanudar.'):
         with self._lock:
             self.state['estado'] = 'CANCELADO'

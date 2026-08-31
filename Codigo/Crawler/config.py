@@ -1,4 +1,5 @@
 import os
+import re
 
 def _safe_int(env_var: str, default: int) -> int:
     try:
@@ -22,10 +23,13 @@ BASE_DIR = os.getenv("CRAWLER_BASE_DIR", os.path.dirname(os.path.abspath(__file_
 # Carpeta donde se almacenan todos los datos persistidos (JSONs, SQLite, estadísticas)
 DATA_DIR = os.getenv("CRAWLER_DATA_DIR", os.path.join(BASE_DIR, "Datos"))
 
-# Directorio de logs auxiliares de la Fase 1. El registro estructurado principal
-# continúa almacenándose en ERRORES_JSON, pero el orquestador necesita una ruta
-# común para salidas de procesos y futuras rotaciones.
+# Directorio de logs auxiliares de la Fase 1.
 LOGS_DIR = os.getenv("CRAWLER_LOGS_DIR", os.path.join(DATA_DIR, "logs"))
+
+# Cada ejecución conserva sus artefactos aislados. Las rutas históricas de
+# ``errores_crawler.json`` y ``estadisticas_rendimiento.json`` siguen siendo
+# salidas de compatibilidad, pero nunca se usan como estado inicial de un run.
+RUN_ARTIFACTS_DIR = os.getenv("CRAWLER_RUN_ARTIFACTS_DIR", os.path.join(DATA_DIR, "runs"))
 
 # Subcarpeta donde se guardan los archivos JSON individuales de cada titulación/plan de estudio
 PLANES_DIR = os.getenv("CRAWLER_PLANES_DIR", os.path.join(DATA_DIR, "planes_estudio"))
@@ -38,6 +42,7 @@ os.makedirs(DATA_DIR, exist_ok=True)
 os.makedirs(PLANES_DIR, exist_ok=True)
 os.makedirs(TEMP_PDF_DIR, exist_ok=True)
 os.makedirs(LOGS_DIR, exist_ok=True)
+os.makedirs(RUN_ARTIFACTS_DIR, exist_ok=True)
 
 def get_plan_filepath(u_code: str, d_code: str, partitioned: bool = True, ensure_dirs: bool = True) -> str:
     """
@@ -83,6 +88,22 @@ CHECKPOINT_JSON = os.getenv("CRAWLER_CHECKPOINT_JSON", os.path.join(DATA_DIR, "c
 
 # Archivo JSON con métricas de Green IT, tiempos de CPU, esperas de red y consumo de RAM
 ESTADISTICAS_JSON = os.getenv("CRAWLER_ESTADISTICAS_JSON", os.path.join(DATA_DIR, "estadisticas_rendimiento.json"))
+
+
+def get_run_artifact_paths(run_id: str) -> dict[str, str]:
+    """Devuelve rutas aisladas y deterministas para una ejecución concreta."""
+    raw_run_id = str(run_id or "")
+    safe_run_id = re.sub(r"[^A-Za-z0-9_.-]", "", raw_run_id)
+    if not safe_run_id or safe_run_id in {".", ".."} or safe_run_id != raw_run_id:
+        raise ValueError("run_id vacío o inválido")
+    run_dir = os.path.join(RUN_ARTIFACTS_DIR, safe_run_id)
+    os.makedirs(run_dir, exist_ok=True)
+    return {
+        "run_dir": run_dir,
+        "errors": os.path.join(run_dir, "errores_crawler.json"),
+        "performance": os.path.join(run_dir, "estadisticas_rendimiento.json"),
+        "structured_log": os.path.join(LOGS_DIR, f"fase1_{safe_run_id}.jsonl"),
+    }
 
 # Estado de progreso consumido por el panel de administración.
 PROGRESS_JSON = os.getenv("CRAWLER_PROGRESS_JSON", os.path.join(DATA_DIR, "progreso_en_vivo.json"))
@@ -262,24 +283,6 @@ WORKER_TASK_PUT_TIMEOUT = _safe_float("CRAWLER_WORKER_TASK_PUT_TIMEOUT", 5.0)
 MAX_IN_MEMORY_PDF_BYTES = _safe_int("CRAWLER_MAX_IN_MEMORY_PDF_BYTES", str(5 * 1024 * 1024))  # Umbral híbrido RAM vs Disco (5 MB)
 ENABLE_HTTP2 = os.getenv("CRAWLER_ENABLE_HTTP2", "1").strip().lower() not in {"0", "false", "no"}  # Activar conexiones multiplexadas HTTP/2
 
-# ==============================================================================
-# 6. PARALELISMO Y MULTIPROCESAMIENTO (OPT-01 & OPT-03)
-# ==============================================================================
-CPU_WORKERS_COUNT = int(os.getenv("CRAWLER_CPU_WORKERS", max(1, min(4, os.cpu_count() or 4))))  # Pool multiproceso PDF/OCR
-ENABLE_RUCT_ASYNC_PREFETCH = os.getenv("CRAWLER_ENABLE_RUCT_PREFETCH", "1").strip().lower() not in {"0", "false", "no"} # Activar precarga adelantada RUCT
-ASYNC_PREFETCH_WORKERS = _safe_int("CRAWLER_PREFETCH_WORKERS", 2)                           # Hilos concurrentes de precarga acotada
-RUCT_PREFETCH_LOOKAHEAD = _safe_int("CRAWLER_RUCT_PREFETCH_LOOKAHEAD", 3)                   # Ventana de titulaciones adelantadas en cola
-WEB_CRAWLER_WORKERS = _safe_int("CRAWLER_WEB_WORKERS", 12)                                   # Hilos escaneo web oficial
-TASK_QUEUE_MAXSIZE = _safe_int("CRAWLER_TASK_QUEUE_MAXSIZE", 40)                            # Tamaño máximo acotado de cola multiproceso (seguridad RAM Docker)
-TASK_QUEUE_GET_TIMEOUT = _safe_int("CRAWLER_TASK_QUEUE_TIMEOUT", 5)                          # Timeout de lectura en cola (5s)
-WORKER_RESULT_QUEUE_TIMEOUT = _safe_float("CRAWLER_WORKER_RESULT_QUEUE_TIMEOUT", 3.0)
-WORKER_STOP_QUEUE_TIMEOUT = _safe_float("CRAWLER_WORKER_STOP_QUEUE_TIMEOUT", 3.0)
-WORKER_RESULT_COLLECTION_TIMEOUT = _safe_float("CRAWLER_WORKER_RESULT_COLLECTION_TIMEOUT", 15.0)
-WORKER_JOIN_TIMEOUT = _safe_float("CRAWLER_WORKER_JOIN_TIMEOUT", 5.0)
-WORKER_TERMINATE_JOIN_TIMEOUT = _safe_float("CRAWLER_WORKER_TERMINATE_JOIN_TIMEOUT", 2.0)
-WORKER_TASK_PUT_TIMEOUT = _safe_float("CRAWLER_WORKER_TASK_PUT_TIMEOUT", 5.0)
-MAX_IN_MEMORY_PDF_BYTES = _safe_int("CRAWLER_MAX_IN_MEMORY_PDF_BYTES", str(5 * 1024 * 1024))  # Umbral híbrido RAM vs Disco (5 MB)
-ENABLE_HTTP2 = os.getenv("CRAWLER_ENABLE_HTTP2", "1").strip().lower() not in {"0", "false", "no"}  # Activar conexiones multiplexadas HTTP/2
 HTTP2_MAX_CONNECTIONS = _safe_int("CRAWLER_HTTP2_MAX_CONNECTIONS", 20)                         # Máximo de conexiones en pool HTTP/2
 HTTP2_MAX_KEEPALIVE_CONNECTIONS = _safe_int("CRAWLER_HTTP2_MAX_KEEPALIVE", 10)                # Conexiones Keep-Alive retenidas en pool
 
@@ -292,9 +295,44 @@ ROBOTS_CACHE_TTL_SECONDS = _safe_int("CRAWLER_ROBOTS_CACHE_TTL", 86400)    # TTL
 ROBOTS_MAX_CACHE_SIZE = _safe_int("CRAWLER_ROBOTS_MAX_CACHE_SIZE", 512)    # Límite LRU de dominios en caché robots
 ROBOTS_POLICY_MAX_TIMEOUT = _safe_int("CRAWLER_ROBOTS_POLICY_MAX_TIMEOUT", 15) # Tope máximo timeout robots
 MAX_PDF_PAGES_EXTRACT = _safe_int("CRAWLER_MAX_PDF_PAGES_EXTRACT", 80)     # Límite páginas PDF a extraer para evitar OOM
+SUBJECT_GUIDE_PDF_MAX_BYTES = _safe_int(
+    "CRAWLER_SUBJECT_GUIDE_PDF_MAX_BYTES", 25 * 1024 * 1024
+)
+SUBJECT_GUIDE_PDF_MAX_PAGES = _safe_int(
+    "CRAWLER_SUBJECT_GUIDE_PDF_MAX_PAGES", min(MAX_PDF_PAGES_EXTRACT, 80)
+)
+SUBJECT_GUIDE_PDF_MAX_TEXT_CHARS = _safe_int(
+    "CRAWLER_SUBJECT_GUIDE_PDF_MAX_TEXT_CHARS", 1_500_000
+)
+SUBJECT_GUIDE_PDF_PARSE_TIMEOUT_SECONDS = _safe_float(
+    "CRAWLER_SUBJECT_GUIDE_PDF_PARSE_TIMEOUT_SECONDS", 30.0
+)
+SUBJECT_GUIDE_PDF_OCR_ENABLED = os.getenv(
+    "CRAWLER_SUBJECT_GUIDE_PDF_OCR_ENABLED", "1"
+).strip().lower() not in {"0", "false", "no"}
+SUBJECT_GUIDE_PDF_OCR_MAX_PAGES = _safe_int(
+    "CRAWLER_SUBJECT_GUIDE_PDF_OCR_MAX_PAGES", 5
+)
+SUBJECT_GUIDE_PDF_OCR_DPI = _safe_int(
+    "CRAWLER_SUBJECT_GUIDE_PDF_OCR_DPI", 180
+)
+SUBJECT_GUIDE_PDF_OCR_MIN_TEXT_CHARS = _safe_int(
+    "CRAWLER_SUBJECT_GUIDE_PDF_OCR_MIN_TEXT_CHARS", 80
+)
 SITEMAP_FETCH_TIMEOUT = _safe_int("CRAWLER_SITEMAP_TIMEOUT", 4)            # Timeout por candidato de Sitemap XML
 WEB_CONNECTIVITY_TIMEOUT = _safe_float("CRAWLER_WEB_CONNECTIVITY_TIMEOUT", 10.0)
 WEB_CONTENT_TIMEOUT = _safe_float("CRAWLER_WEB_CONTENT_TIMEOUT", 15.0)
+# Límite acumulado de una respuesta, además del timeout de lectura por bloque.
+# Evita que un servidor que entrega bytes muy lentamente mantenga un trabajador
+# abierto indefinidamente aunque cada lectura individual sea válida.
+HTTP_RESPONSE_MAX_DURATION_SECONDS = _safe_float(
+    "CRAWLER_HTTP_RESPONSE_MAX_SECONDS",
+    max(60.0, HTTP_TIMEOUT * 4),
+)
+# Presupuesto por titulación para que una cadena de candidatas lentas no bloquee
+# el cierre de una universidad. Se puede ampliar en campañas de investigación,
+# pero nunca se elimina el timeout por petición.
+WEB_DEGREE_TIMEOUT_SECONDS = _safe_float("CRAWLER_WEB_DEGREE_TIMEOUT", 900.0)
 WEB_PROBE_DELAY = _safe_float("CRAWLER_WEB_PROBE_DELAY", 0.1)
 WEB_SEARCH_SUBPAGES_LIMIT = _safe_int("CRAWLER_SUBPAGES_LIMIT", 12)       # Subpáginas máximas a inspeccionar
 WEB_SEARCH_SUBPAGES_DEPTH = _safe_int("CRAWLER_SUBPAGES_DEPTH", 6)        # Coincidencias máximas del Sitemap
@@ -330,6 +368,10 @@ SUBJECT_GUIDE_DISCOVERY_CACHE_TTL_SECONDS = _safe_int(
     "CRAWLER_SUBJECT_GUIDE_DISCOVERY_CACHE_TTL",
     str(7 * 24 * 3600),
 )
+SUBJECT_GUIDE_DISCOVERY_ENABLE_SPA = os.getenv(
+    "CRAWLER_DISCOVERY_ENABLE_SPA",
+    "1",
+).strip().lower() not in {"0", "false", "no"}
 SPA_ACCORDION_CLICK_DELAY = _safe_float("CRAWLER_SPA_CLICK_DELAY", 0.35)   # Pausa tras desplegar acordeón (s)
 SPA_INITIAL_RENDER_DELAY = _safe_float("CRAWLER_SPA_INITIAL_DELAY", 0.8)
 SPA_MAX_CONCURRENT_RENDERS = _safe_int("CRAWLER_SPA_MAX_CONCURRENT", 2)
@@ -432,7 +474,14 @@ ORGANIC_EXTERNAL_DOMAIN_DENYLIST = frozenset({
     "twitter.com",
     "x.com",
     "youtube.com",
+    "youtu.be",
     "tiktok.com",
+    "pinterest.com",
+    "sharepoint.com",
+    "dropbox.com",
+    "drive.google.com",
+    "docs.google.com",
+    "forms.office.com",
 })
 EUROPEAN_ALLIANCES_KEYWORDS = [
     "erasmus mundus", "joint master", "european master", "sea-eu", "eunice", 

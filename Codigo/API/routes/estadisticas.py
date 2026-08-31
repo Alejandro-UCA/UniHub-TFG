@@ -156,6 +156,14 @@ def get_estadisticas_cobertura(db: Session = Depends(get_db), api_key: str = Dep
     from sqlalchemy import func
 
     total_titulaciones = db.query(Titulacion).count()
+    titulaciones_curriculares = db.query(Titulacion).filter(
+        ~Titulacion.nivel_academico.ilike("%doctor%"),
+        ~Titulacion.nivel_academico.ilike("%99/2011%"),
+        ~Titulacion.nivel_academico.ilike("%extranjero%"),
+        ~Titulacion.nivel_academico.ilike("%equivalente%")
+    ).count()
+    doctorados_investigacion = total_titulaciones - titulaciones_curriculares
+
     titulaciones_con_plan_detallado = (
         db.query(PlanEstudios.codigo_estudio)
         .join(ElementoCurricular, ElementoCurricular.plan_estudio_id == PlanEstudios.id)
@@ -163,7 +171,7 @@ def get_estadisticas_cobertura(db: Session = Depends(get_db), api_key: str = Dep
         .count()
     )
 
-    cobertura_pct = round((titulaciones_con_plan_detallado / total_titulaciones * 100), 2) if total_titulaciones > 0 else 0.0
+    cobertura_pct = round((titulaciones_con_plan_detallado / titulaciones_curriculares * 100), 2) if titulaciones_curriculares > 0 else 0.0
 
     # Distribución de titulaciones por CCAA
     ccaa_distribution = {}
@@ -181,6 +189,8 @@ def get_estadisticas_cobertura(db: Session = Depends(get_db), api_key: str = Dep
 
     return {
         "total_titulaciones_bd": total_titulaciones,
+        "total_titulaciones_curriculares": titulaciones_curriculares,
+        "doctorados_investigacion_rd99_2011": doctorados_investigacion,
         "titulaciones_con_plan_detallado": titulaciones_con_plan_detallado,
         "tasa_cobertura_curricular_porcentaje": cobertura_pct,
         "distribucion_titulaciones_ccaa": ccaa_distribution,

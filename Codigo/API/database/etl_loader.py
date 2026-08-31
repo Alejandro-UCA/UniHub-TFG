@@ -1,4 +1,4 @@
-﻿import os
+import os
 import sys
 import json
 import logging
@@ -11,9 +11,15 @@ from sqlalchemy.orm import sessionmaker
 logger = logging.getLogger("unihub_etl")
 
 PUBLISHABLE_PLAN_QUALITY_STATUSES = frozenset({
+    "completo",
+    "completo_normativo",
     "verificado_boe",
+    "verificado_web",
     "verificado_universidad",
     "verificado_administracion",
+    "incompleto_parcial",
+    "incompleto",
+    "pendiente_revision",
 })
 
 
@@ -27,15 +33,14 @@ def _update_if_present(instance, attribute: str, payload: dict, key: str) -> Non
 
 
 def _has_authoritative_plan_snapshot(plan_data: object, quality_status: object = None) -> bool:
-    """Indica si la fuente aporta una instantánea curricular apta para sustituir datos.
-
-    Además de la estructura, exige un estado de calidad publicable. Un ``null``,
-    un objeto vacío o un candidato pendiente expresa ausencia de detalle
-    confirmado: la ETL conserva los elementos ya verificados en la base de datos.
-    """
-    return str(quality_status or "").strip().lower() in PUBLISHABLE_PLAN_QUALITY_STATUSES and isinstance(plan_data, dict) and any(
-        key in plan_data for key in ("resumen_creditos", "elementos_curriculares")
-    )
+    """Indica si la fuente aporta una instantánea curricular con asignaturas o créditos."""
+    if not isinstance(plan_data, dict):
+        return False
+    elems = plan_data.get("elementos_curriculares")
+    res_cred = plan_data.get("resumen_creditos")
+    if (elems and len(elems) > 0) or (res_cred and len(res_cred) > 0):
+        return True
+    return str(quality_status or "").strip().lower() in PUBLISHABLE_PLAN_QUALITY_STATUSES
 
 # Añadir el directorio padre de la API a la ruta de importación
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -217,9 +222,9 @@ def run_etl() -> bool:
 
                 for u in univ_list:
                     code = str(u.get("codigo", "")).strip().zfill(3)
-                    if not code or code == "000":
+                    if not code:
                         continue
-                    nombre = str(u.get("nombre") or "").strip()
+                    nombre = str(u.get("nombre") or "").strip() or ("Otras Instituciones y Títulos Oficiales" if code == "000" else "")
                     if not nombre:
                         logger.error("Universidad %s omitida: falta el nombre en la fuente.", code)
                         continue

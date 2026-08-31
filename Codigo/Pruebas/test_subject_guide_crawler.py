@@ -5,6 +5,7 @@ import tempfile
 import io
 import sqlite3
 import inspect
+import threading
 from unittest.mock import patch
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
@@ -136,6 +137,66 @@ SAMPLE_GENERIC_EEES_HTML = """
 
 class TestSubjectGuideCrawler(unittest.TestCase):
 
+    def test_run_negative_registry_deduplicates_fragments_and_is_thread_safe(self):
+        registry = phase4.RunNegativeURLRegistry()
+        self.assertTrue(registry.add("https://portal.example/guia/123/#seccion"))
+        self.assertTrue(registry.contains("https://portal.example/guia/123/"))
+        self.assertFalse(registry.add("https://portal.example/guia/123"))
+
+        barrier = threading.Barrier(8)
+        results = []
+
+        def register():
+            barrier.wait()
+            results.append(registry.add("https://portal.example/guia/456#fragment"))
+
+        workers = [threading.Thread(target=register) for _ in range(8)]
+        for worker in workers:
+            worker.start()
+        for worker in workers:
+            worker.join()
+
+        self.assertEqual(sum(results), 1)
+        self.assertEqual(len(registry), 2)
+
+    def test_soft_404_detection_is_strict_and_learns_repeated_route(self):
+        soft_404 = b"<html><head><title>Inicio | Universidad</title></head><body><h1>Inicio</h1><p>Portal institucional</p></body></html>"
+        detected, fingerprint, reason = phase4.detect_soft_404_response(
+            "https://uni.example/estudios/asignatura/algebra-1/",
+            "https://uni.example/",
+            soft_404,
+        )
+        self.assertTrue(detected)
+        self.assertEqual(reason, "redireccion_portada")
+        self.assertTrue(fingerprint)
+
+        registry = phase4.RunNegativeURLRegistry()
+        for suffix in ("algebra-1", "calculo-1"):
+            url = f"https://uni.example/estudios/asignatura/{suffix}/"
+            registry.mark_soft404(url, fingerprint)
+        self.assertFalse(registry.contains_soft404_route("https://uni.example/estudios/asignatura/fisica-1/"))
+        registry.mark_soft404("https://uni.example/estudios/asignatura/fisica-1/", fingerprint)
+        self.assertTrue(registry.contains_soft404_route("https://uni.example/estudios/asignatura/quimica-1/"))
+
+        valid_guide = b"<html><head><title>Guia docente</title></head><body><h1>Temario</h1><p>Evaluacion y competencias.</p></body></html>"
+        self.assertFalse(phase4.detect_soft_404_response(
+            "https://uni.example/guia/algebra-1/",
+            "https://uni.example/guia/algebra-1/",
+            valid_guide,
+        )[0])
+
+    def test_negative_registry_adapts_host_budget_only_after_strong_evidence(self):
+        registry = phase4.RunNegativeURLRegistry()
+        host = "https://uni.example/guia/"
+        for index in range(15):
+            registry.observe_host_result(f"{host}{index}", negative=True)
+        self.assertFalse(registry.contains_unproductive_host(f"{host}next"))
+        registry.observe_host_result(f"{host}15", negative=True)
+        self.assertTrue(registry.contains_unproductive_host(f"{host}next"))
+
+        registry.observe_host_result(f"{host}valid", positive=True)
+        self.assertFalse(registry.contains_unproductive_host(f"{host}later"))
+
     def test_limited_plan_selection_prioritizes_usable_verified_curriculum(self):
         items = [
             {"data": {"codigo_estudio": "SPARSE", "estado_fuente": "sin_plan_actual_sin_dato"}},
@@ -231,6 +292,25 @@ class TestSubjectGuideCrawler(unittest.TestCase):
             u_web="https://www.uah.es",
         )
         self.assertLessEqual(len(urls), 4)
+
+    def test_discovery_index_teaches_the_canonical_public_host(self):
+        urls = resolve_candidate_subject_guide_urls(
+            {
+                "nombre_elemento": "Álgebra Lineal",
+                "codigo_asignatura": "350000",
+            },
+            u_code="999",
+            u_web="https://example.edu",
+            d_code="PLAN-1",
+            discovery_index={
+                "records": [
+                    {"url": "https://www.example.edu/guia/algebra-lineal-350000.pdf"},
+                    {"url": "https://www.example.edu/guia/calculo-350000.pdf"},
+                ]
+            },
+        )
+        self.assertTrue(any("https://www.example.edu/" in url for url in urls))
+        self.assertFalse(any("www.www.example.edu" in url for url in urls))
 
     def test_no_evidence_keeps_generic_candidate_budget_bounded(self):
         urls = resolve_candidate_subject_guide_urls(

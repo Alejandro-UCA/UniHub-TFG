@@ -6,7 +6,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler"))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
-from downloader import RUCTDownloader, is_valid_http_url
+from downloader import RUCTDownloader, is_valid_http_url, normalize_url
 from fase1_parte4_asignaturas import resolve_candidate_subject_guide_urls
 
 
@@ -22,6 +22,13 @@ class URLValidationTests(unittest.TestCase):
 
     def test_accepts_unicode_path_and_idna_host(self):
         self.assertTrue(is_valid_http_url("https://xn--universidad-9za.es/guía/álgebra"))
+
+    def test_normalize_url_does_not_invent_a_base_for_relative_paths(self):
+        self.assertEqual(normalize_url("/relative/guide.pdf"), "")
+
+    def test_normalize_url_rejects_malformed_or_special_schemes(self):
+        for value in ("http:///bad", "javascript:alert(1)", "mailto:test@example.org"):
+            self.assertEqual(normalize_url(value), "", value)
 
     def test_request_rejects_invalid_url_before_network(self):
         downloader = RUCTDownloader(enable_http2=False)

@@ -57,5 +57,34 @@ class TestHubAndSpokeCatalog(unittest.TestCase):
         # 3. Comprobar que la URL con profundidad > 6 fue DESCARTADA
         self.assertNotIn("profundo", catalog_map)
 
+    def test_part2_publishes_sitemap_and_catalog_evidence(self):
+        fake_ledger = MagicMock()
+        self.crawler.ledger = fake_ledger
+        downloader = MagicMock()
+        self.crawler.extract_sitemap_candidate_urls = MagicMock(
+            return_value={"https://www.ugr.es/estudios/algebra"}
+        )
+        self.crawler._build_academic_catalog_map = MagicMock(
+            return_value={
+                "algebra": [("https://www.ugr.es/grado/algebra", "Grado en Álgebra")],
+            }
+        )
+
+        self.crawler._crawl_university_degrees(
+            downloader,
+            "999",
+            "Universidad de Prueba",
+            "https://www.ugr.es",
+            [],
+            {},
+        )
+
+        self.assertEqual(fake_ledger.record_discovery_evidence.call_count, 2)
+        sitemap_records = fake_ledger.record_discovery_evidence.call_args_list[0].args[0]
+        catalog_records = fake_ledger.record_discovery_evidence.call_args_list[1].args[0]
+        self.assertEqual(sitemap_records[0]["source_kind"], "sitemap")
+        self.assertEqual(catalog_records[0]["source_kind"], "hub_catalog")
+        self.assertEqual(catalog_records[0]["anchor_text"], "Grado en Álgebra")
+
 if __name__ == "__main__":
     unittest.main()

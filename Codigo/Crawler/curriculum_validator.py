@@ -59,15 +59,10 @@ def get_required_degree_credits(
             is_degree = any(marker in level or marker in title for marker in ("grado", "bachelor", "licenciatura", "diplomatura", "240", "231"))
             if not (is_degree and parsed_total < 180):
                 return parsed_total
-    if "medicina" in title:
-        return float(MEDICINA_ECTS)
-    if any(marker in title for marker in ("veterinaria", "farmacia", "odontología", "odontologia", "arquitectura")):
-        return float(ESPECIALES_GRADO_ECTS)
-    if any(marker in title for marker in ("doble", "simultaneidad", "pceo", "double")):
-        return float(ESPECIALES_GRADO_ECTS)
-
     is_master = any(marker in level or marker in title for marker in ("máster", "master", "màster", "masterra", "431"))
     if is_master:
+        if any(marker in title for marker in ("doble", "simultaneidad", "pceo", "double")):
+            return 120.0
         if any(marker in title for marker in (
             "ingeniería industrial", "ingenieria industrial",
             "ingeniería de caminos", "ingenieria de caminos",
@@ -84,6 +79,13 @@ def get_required_degree_credits(
         )):
             return 90.0
         return float(MASTER_MIN_ECTS)
+
+    if "medicina" in title:
+        return float(MEDICINA_ECTS)
+    if any(marker in title for marker in ("veterinaria", "farmacia", "odontología", "odontologia", "arquitectura")):
+        return float(ESPECIALES_GRADO_ECTS)
+    if any(marker in title for marker in ("doble", "simultaneidad", "pceo", "double")):
+        return float(ESPECIALES_GRADO_ECTS)
 
     return float(GRADO_STANDARD_ECTS)
 
@@ -180,8 +182,16 @@ def get_curriculum_completeness_status(degree_dict: dict) -> dict:
     # la suma de filas se conserva para decidir si hay detalle suficiente.
     obtained = declared_total if total_elements and declared_total is not None else listed_total
 
+    min_subjects = 16 if required >= 180 else (6 if required >= 60 else 3)
+    has_normative_summary_and_full_core = (
+        declared_total is not None
+        and declared_total >= required
+        and listed_total >= 0.80 * required
+        and total_elements >= min_subjects
+    )
+
     if plan.get("es_alianza_europea") or plan.get("tipo_estructura") == "consorcio_europeo_erasmus_mundus":
-        complete = bool(total_elements and listed_total >= required)
+        complete = bool(total_elements and (listed_total >= required or listed_total >= 0.80 * required))
         status = "consorcio_estructural" if complete else "consorcio_sin_detalle"
     elif total_elements == 0:
         complete = False
@@ -189,6 +199,9 @@ def get_curriculum_completeness_status(degree_dict: dict) -> dict:
     elif listed_total >= required:
         complete = True
         status = "completo"
+    elif has_normative_summary_and_full_core:
+        complete = True
+        status = "completo_normativo"
     else:
         complete = False
         status = "incompleto_parcial"

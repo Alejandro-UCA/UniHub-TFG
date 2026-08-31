@@ -117,9 +117,6 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
               </span>
             )}
           </div>
-          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 600 }}>
-            {degree.codigo_estudio}
-          </span>
         </div>
 
         <h3 style={{ fontSize: '1.05rem', fontWeight: 700, lineHeight: 1.35, marginBottom: '0.5rem' }}>

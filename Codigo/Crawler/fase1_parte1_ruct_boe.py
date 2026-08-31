@@ -245,7 +245,12 @@ def pdf_parser_consumer(task_queue: mp.Queue, result_queue: mp.Queue = None, shu
                             resumen = curriculum_data.get("resumen_creditos", {})
 
                             if total_elems == 0 and len(resumen) == 0:
-                                checkpoint.mark_non_study_plan_pdf(cand_url, pdf_sha256)
+                                # Solo se marca el hash del PDF como no curricular si el documento
+                                # carece de cualquier tabla/indicio curricular para toda titulación.
+                                if not curriculum_data.get("document_has_any_curriculum", False):
+                                    checkpoint.mark_non_study_plan_pdf(cand_url, pdf_sha256)
+                                else:
+                                    checkpoint.mark_non_study_plan_pdf(cand_url)
                                 continue
 
                             valid_curriculum_found = True
@@ -414,6 +419,7 @@ def run_phase1_part1(
     ledger = CrawlLedger()
     downloader = RUCTDownloader(metrics_tracker=metrics, ledger=ledger, phase="fase1_parte1")
     total_enqueued = 0
+    total_degrees_discovered = 0
     processed_universities = 0
     processed_university_codes = set()
     controlled_incidents = 0
@@ -512,6 +518,7 @@ def run_phase1_part1(
                     "total_titulaciones_vigentes": len(active_degrees),
                     "titulaciones_vigentes": active_degrees,
                 }
+                total_degrees_discovered += len(active_degrees)
                 atomic_json_dump(catalog, TITULACIONES_JSON)
 
                 degrees_to_process = list(reversed(active_degrees))
@@ -616,11 +623,14 @@ def run_phase1_part1(
                                         logger.warning("Cola llena, reintentando encolar titulación %s...", degree_code)
                                 continue
 
-                            high_priority = [item for item in candidates if item.get("priority", 0) >= 90]
-                            target_candidates = high_priority or [
-                                item for item in candidates if item.get("priority", 0) > 0
-                            ]
-                            target_candidates = target_candidates[:MAX_BOE_CANDIDATES_PER_DEGREE]
+                            # Evaluamos los candidatos ordenados por prioridad y fecha decreciente
+                            # para permitir que el consumidor inspeccione la resolución con plan completo
+                            # si la modificación más reciente carece de tablas curriculares.
+                            target_candidates = sorted(
+                                [item for item in candidates if item.get("priority", 0) > 0],
+                                key=lambda c: (c.get("priority", 0), c.get("date") or datetime(1970, 1, 1)),
+                                reverse=True
+                            )[:MAX_BOE_CANDIDATES_PER_DEGREE]
                             pdf_items = []
                             for candidate_index, candidate in enumerate(target_candidates, 1):
                                 candidate_url = candidate.get("url", "")
@@ -873,6 +883,7 @@ def run_phase1_part1(
     return {
         "status": status,
         "total_enqueued": total_enqueued,
+        "degrees_discovered": total_degrees_discovered,
         "universities_processed": processed_universities,
         "university_codes_processed": sorted(processed_university_codes),
         "incidencias_controladas": controlled_incidents,

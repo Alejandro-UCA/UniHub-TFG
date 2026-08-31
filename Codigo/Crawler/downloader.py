@@ -42,6 +42,8 @@ from config import (
     HTTP2_MAX_CONNECTIONS,
     HTTP2_MAX_KEEPALIVE_CONNECTIONS,
     WEB_CONNECTIVITY_TIMEOUT,
+    HTTP_RESPONSE_MAX_DURATION_SECONDS,
+    WEB_DEGREE_TIMEOUT_SECONDS,
     ROBOTS_POLICY_MAX_TIMEOUT,
 )
 from robots_policy import RobotsPolicy
@@ -77,7 +79,7 @@ _SECURE_DOMAINS_TUPLE = ("dogc.gencat.cat", "boe.es", "educacion.gob.es", "bocm.
 
 def normalize_url(url: str, domain_mappings: dict = None, base_url: str = None) -> str:
     """Normalizes legacy domains, cleans malformed protocol prefixes, and upgrades HTTP to HTTPS for secure official portals."""
-    if not url:
+    if not isinstance(url, str) or not url.strip():
         return ""
     url = url.strip().strip("'\"` ")
     while any(url.startswith(prefix) for prefix in ["http://https://", "https://http://", "http://http://", "https://https://"]):
@@ -96,13 +98,23 @@ def normalize_url(url: str, domain_mappings: dict = None, base_url: str = None) 
         elif base_url:
             url = urljoin(base_url, url)
         elif url.startswith("/"):
-            url = "https://www.boe.es" + url
+            # Una ruta relativa no identifica un recurso por sí sola. Antes
+            # se asociaba implícitamente a BOE, creando fuentes ficticias en
+            # candidatos de universidades y guías docentes.
+            return ""
         else:
+            # No convertir esquemas especiales (mailto:, javascript:, ...)
+            # en hosts HTTPS aparentemente válidos.
+            scheme_match = re.match(r"^[A-Za-z][A-Za-z0-9+.-]*:", url)
+            if scheme_match:
+                return ""
             url = "https://" + url
 
     try:
         parts = urlsplit(url)
         netloc = parts.netloc.lower()
+        if parts.scheme.lower() not in {"http", "https"} or not netloc:
+            return ""
         
         if domain_mappings is None:
             domain_mappings = DOMAIN_MAPPINGS
@@ -129,7 +141,8 @@ def normalize_url(url: str, domain_mappings: dict = None, base_url: str = None) 
                 scheme = "https"
                 break
 
-        return urlunsplit((scheme, netloc, parts.path, parts.query, parts.fragment))
+        normalised = urlunsplit((scheme, netloc, parts.path, parts.query, parts.fragment))
+        return normalised if is_valid_http_url(normalised) else ""
     except Exception:
         return url
 
@@ -234,12 +247,16 @@ class RobotsDeniedException(PermissionError):
         super().__init__(message)
 
 
+class DegreeTimeoutException(TimeoutError):
+    """Presupuesto acumulado agotado al procesar una titulación."""
+
+
 class HostCircuitOpenException(requests.RequestException):
     """El origen remoto está temporalmente aislado por fallos transitorios."""
 
 class HTTP2ResponseWrapper:
     """Wrapper around httpx.Response providing full requests.Response API compatibility."""
-    def __init__(self, httpx_resp, target_url: str):
+    def __init__(self, httpx_resp, target_url: str, max_duration: float = HTTP_RESPONSE_MAX_DURATION_SECONDS):
         self._resp = httpx_resp
         self.status_code = int(httpx_resp.status_code)
         self.headers = httpx_resp.headers
@@ -247,6 +264,8 @@ class HTTP2ResponseWrapper:
         self.encoding = httpx_resp.encoding
         self.http_version = getattr(httpx_resp, "http_version", "HTTP/2")
         self._unihub_cached = False
+        self._started_at = time.monotonic()
+        self._max_duration = max(0.0, float(max_duration))
 
     def raise_for_status(self):
         if 400 <= self.status_code < 600:
@@ -256,7 +275,12 @@ class HTTP2ResponseWrapper:
             )
 
     def iter_content(self, chunk_size=DOWNLOAD_CHUNK_SIZE):
-        return self._resp.iter_bytes(chunk_size=chunk_size)
+        for chunk in self._resp.iter_bytes(chunk_size=chunk_size):
+            if self._max_duration and time.monotonic() - self._started_at > self._max_duration:
+                raise requests.Timeout(
+                    f"Respuesta HTTP excede el límite acumulado de {self._max_duration:.1f}s"
+                )
+            yield chunk
 
     @property
     def content(self) -> bytes:
@@ -308,6 +332,7 @@ class RUCTDownloader:
         self.ledger = ledger
         self.phase = phase
         self.current_degree_code = ""
+        self._degree_started_at = None
         self.session = requests.Session()
         self.session.headers.update({
             "User-Agent": USER_AGENT,
@@ -374,6 +399,14 @@ class RUCTDownloader:
 
     def set_degree_context(self, degree_code: str):
         self.current_degree_code = str(degree_code or "")
+        self._degree_started_at = time.monotonic() if self.current_degree_code else None
+
+    def degree_budget_exceeded(self) -> bool:
+        """Indica si la titulación actual agotó su presupuesto acumulado."""
+        if not self.current_degree_code or self._degree_started_at is None:
+            return False
+        budget = max(0.0, float(WEB_DEGREE_TIMEOUT_SECONDS))
+        return bool(budget and time.monotonic() - self._degree_started_at >= budget)
 
     DOMAIN_MAPPINGS = DOMAIN_MAPPINGS
 
@@ -592,7 +625,21 @@ class RUCTDownloader:
         return any(marker in text for marker in (
             "server disconnected", "connection reset", "connection aborted",
             "connection refused", "timed out", "timeout", "temporarily unavailable",
+            # Errores de TLS/DNS a nivel de host: no tiene sentido gastar el
+            # presupuesto de cada URL si el origen completo está inutilizable.
+            "sslcertverificationerror", "certificate verify failed",
+            "hostname mismatch", "max retries exceeded",
         ))
+
+    @staticmethod
+    def _is_permanent_http_error(error: Exception) -> bool:
+        """Indica respuestas 4xx que no deben reintentarse para otra URL."""
+        response = getattr(error, "response", None)
+        status_code = getattr(response, "status_code", None)
+        if status_code is None:
+            match = re.search(r"\b([45]\d{2})\b", str(error or ""))
+            status_code = int(match.group(1)) if match else 0
+        return 400 <= int(status_code or 0) < 500 and int(status_code) not in {408, 429}
 
     def _handle_connection_failure(self, error_details: str, url: str = "") -> bool:
         """
@@ -719,6 +766,11 @@ class RUCTDownloader:
 
         while attempt < max_retries:
             attempt += 1
+            if self.degree_budget_exceeded():
+                raise DegreeTimeoutException(
+                    f"Titulación '{self.current_degree_code}' excede el presupuesto "
+                    f"acumulado de {WEB_DEGREE_TIMEOUT_SECONDS:.1f}s"
+                )
             self._apply_delay(url)
             if self.ledger is not None:
                 try:
@@ -787,7 +839,11 @@ class RUCTDownloader:
                     if self.httpx_client is not None:
                         req = self.httpx_client.build_request("GET", target_url, headers=request_headers or None)
                         httpx_resp = self.httpx_client.send(req, stream=stream)
-                        response = HTTP2ResponseWrapper(httpx_resp, target_url)
+                        response = HTTP2ResponseWrapper(
+                            httpx_resp,
+                            target_url,
+                            max_duration=HTTP_RESPONSE_MAX_DURATION_SECONDS,
+                        )
                     else:
                         verify_ssl = True
                         response = self.session.get(target_url, stream=stream, timeout=self.timeout, verify=verify_ssl, headers=request_headers or None)
@@ -864,6 +920,16 @@ class RUCTDownloader:
                         except Exception as error:
                             logger.debug("No se pudo cerrar la respuesta tras circuito abierto: %s", error, exc_info=True)
                     raise
+                except HostCircuitOpenException:
+                    # El circuito ya ha decidido que el host está en
+                    # enfriamiento. No convertir ese estado controlado en
+                    # otro fallo, reintento o incremento de contadores.
+                    if 'response' in locals() and response is not None:
+                        try:
+                            response.close()
+                        except Exception as error:
+                            logger.debug("No se pudo cerrar la respuesta tras circuito abierto: %s", error, exc_info=True)
+                    raise
                 except Exception as e:
                     if 'response' in locals() and response is not None:
                         try:
@@ -886,7 +952,7 @@ class RUCTDownloader:
 
             # Check if this error is an unresolvable URL / 404
             err_str = str(last_error)
-            if any(marker in err_str for marker in ["404", "NameResolutionError", "getaddrinfo failed", "ConnectionRefusedError", "InvalidURL"]):
+            if self._is_permanent_http_error(last_error) or any(marker in err_str for marker in ["404", "NameResolutionError", "getaddrinfo failed", "ConnectionRefusedError", "InvalidURL"]):
                 raise last_error
 
             # Handle connection failure for circuit breaker monitoring
@@ -936,7 +1002,13 @@ class RUCTDownloader:
                 raise ValueError(f"El texto remoto supera el límite de seguridad de {max_size_bytes} bytes")
             chunks = []
             total = 0
+            deadline = time.monotonic() + max(0.0, float(HTTP_RESPONSE_MAX_DURATION_SECONDS))
             for chunk in response.iter_content(chunk_size=DOWNLOAD_CHUNK_SIZE):
+                if HTTP_RESPONSE_MAX_DURATION_SECONDS > 0 and time.monotonic() > deadline:
+                    raise requests.Timeout(
+                        f"Respuesta HTTP excede el límite acumulado de "
+                        f"{HTTP_RESPONSE_MAX_DURATION_SECONDS:.1f}s"
+                    )
                 if chunk:
                     total += len(chunk)
                     if total > max_size_bytes:

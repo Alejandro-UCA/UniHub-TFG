@@ -14,9 +14,10 @@ import json
 import logging
 import os
 import re
+import unicodedata
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urlunparse
 from bs4 import BeautifulSoup
 
 from config import (
@@ -26,6 +27,7 @@ from config import (
     SUBJECT_GUIDE_DISCOVERY_MAX_URLS,
     SUBJECT_GUIDE_DISCOVERY_CACHE_DIR,
     SUBJECT_GUIDE_DISCOVERY_CACHE_TTL_SECONDS,
+    SUBJECT_GUIDE_DISCOVERY_ENABLE_SPA,
 )
 from checkpoint import atomic_json_dump
 from downloader import is_same_or_subdomain, normalize_url
@@ -35,13 +37,14 @@ logger = logging.getLogger(__name__)
 _XML_LOC_TAG = "{http://www.sitemaps.org/schemas/sitemap/0.9}loc"
 _GUIDE_MARKERS = (
     "guia", "guía", "docente", "docentes", "asignatura", "asignaturas",
-    "assignatura", "syllabus", "subject", "course", "ficha", "teaching",
+    "assignatura", "assignatures", "irakasgai", "irakasgaiak", "asineira",
+    "syllabus", "subject", "course", "ficha", "fitxa", "teaching", "gida",
 )
 _ACADEMIC_MARKERS = (
-    "grado", "grados", "master", "masters", "estudio", "estudios",
-    "degree", "degrees", "course", "courses", "asignatura", "asignaturas",
-    "guias", "guias-docentes", "guia-docente", "docencia", "curriculum",
-    "curriculo", "plan-estudios", "programa-academico", "programas-academicos",
+    "grado", "grados", "master", "masters", "estudio", "estudios", "estudis", "estudos", "ikasketak",
+    "degree", "degrees", "course", "courses", "asignatura", "asignaturas", "assignatura", "irakasgaia",
+    "guias", "guias-docentes", "guia-docente", "pla-docent", "guia-docent", "guies-docents", "docencia",
+    "curriculum", "curriculo", "plan-estudios", "programa-academico", "programas-academicos",
 )
 _NEGATIVE_PATH_MARKERS = {
     "noticia", "noticias", "news", "actualidad", "evento", "eventos", "agenda",
@@ -51,8 +54,9 @@ _NEGATIVE_PATH_MARKERS = {
 }
 _STRONG_GUIDE_MARKERS = {
     "guia", "guías", "guias", "docente", "docentes", "asignatura", "asignaturas",
-    "syllabus", "ficha", "subject", "teaching", "curriculum", "curriculo",
-    "plan-estudios",
+    "assignatura", "assignatures", "syllabus", "ficha", "fitxa", "subject", "teaching",
+    "curriculum", "curriculo", "plan-estudios", "pla-docent", "guia-docent", "guies-docents",
+    "guies", "irakasgai", "irakasgaiak", "gida", "teaching-guide", "course-syllabus",
 }
 _TOKEN_RE = re.compile(r"[a-z0-9]{3,}", re.IGNORECASE)
 _STOPWORDS = {
@@ -211,6 +215,12 @@ def _normalise_evidence_text(value: str) -> str:
     return " ".join(str(value or "").replace("_", " ").replace("-", " ").lower().split())
 
 
+def _subject_tokens(value: str) -> list[str]:
+    """Tokeniza nombres en castellano y otros idiomas sin perder la primera letra acentuada."""
+    normalized = unicodedata.normalize("NFKD", str(value or "")).encode("ascii", "ignore").decode("ascii")
+    return [token for token in _TOKEN_RE.findall(normalized.lower()) if token not in _STOPWORDS]
+
+
 def _path_segments(url: str) -> list[str]:
     parsed = urlparse(str(url or ""))
     path = parsed.path.lower()
@@ -342,7 +352,7 @@ def _iter_discovery_records(urls_or_records) -> list[dict]:
 def rank_discovered_guide_urls(urls: list[str] | set[str] | list[dict], subject_name: str = "", subject_code: str = "", limit: int = 12) -> list[str]:
     """Ordena URLs por evidencias combinadas de ruta, enlace y contenido."""
     code = str(subject_code or "").strip().lower()
-    tokens = [token for token in _TOKEN_RE.findall(str(subject_name or "").lower()) if token not in _STOPWORDS]
+    tokens = _subject_tokens(subject_name)
     slug = "-".join(tokens)
     scored = []
     seen = set()
@@ -370,8 +380,12 @@ def rank_discovered_guide_urls(urls: list[str] | set[str] | list[dict], subject_
             score += 120
         matched_path_tokens = sum(1 for token in tokens if token in low)
         matched_context_tokens = sum(1 for token in tokens if token in context)
-        score += matched_path_tokens * 18
-        score += matched_context_tokens * 10
+        score += matched_path_tokens * 20
+        score += matched_context_tokens * 12
+        if tokens and matched_path_tokens == len(tokens):
+            score += 35
+        elif tokens and len(tokens) == 1 and (matched_path_tokens == 1 or matched_context_tokens == 1):
+            score += 25
         if slug and slug in low:
             score += 70
         if any(marker in path_segments for marker in _STRONG_GUIDE_MARKERS):
@@ -384,17 +398,113 @@ def rank_discovered_guide_urls(urls: list[str] | set[str] | list[dict], subject_
             score += 8
         if record.get("lastmod"):
             score += 1
-        # Una URL sin código necesita al menos dos palabras del nombre o el
-        # slug completo; evita descargar fichas de una asignatura homónima.
+        # Una URL sin código necesita al menos una palabra clave fuerte o evidencia semántica
         if not code:
-            strong_path_marker = bool(path_segments & _STRONG_GUIDE_MARKERS) or low.endswith(".pdf")
+            strong_path_marker = bool(path_segments & _STRONG_GUIDE_MARKERS) or low.endswith(".pdf") or any(marker in context for marker in _GUIDE_MARKERS)
             if not strong_path_marker:
                 continue
-        minimum = 30 if code else (55 if len(tokens) >= 2 else 30)
+        minimum = 25 if code else (35 if len(tokens) >= 2 else 20)
         if score >= minimum:
             scored.append((score, len(url), url))
     scored.sort(key=lambda item: (-item[0], item[1], item[2]))
     return [url for _, _, url in scored[: max(0, int(limit))]]
+
+
+def derive_subject_guide_urls_from_routes(
+    records: list[dict] | list[str] | None,
+    subject_name: str = "",
+    subject_code: str = "",
+    limit: int = 12,
+) -> list[dict]:
+    """Deriva rutas de ficha a partir de evidencias académicas existentes.
+
+    Muchos portales no publican la URL de una guía en sitemap: publican una
+    URL de catálogo, plan o grado y construyen la ficha mediante una ruta
+    hermana. Este derivador aprende únicamente la familia de ruta observada
+    en la propia institución. No contiene dominios, códigos RUCT ni nombres
+    de universidades y devuelve evidencias explicables para la auditoría.
+    """
+    tokens = _subject_tokens(subject_name)
+    slug = "-".join(tokens)
+    code = str(subject_code or "").strip()
+    if code and not re.fullmatch(r"[a-z0-9][a-z0-9._-]{2,31}", code, re.IGNORECASE):
+        code = ""
+    if not slug and not code:
+        return []
+
+    derived = []
+    seen = set()
+    max_items = max(0, int(limit))
+    for record in _iter_discovery_records(records):
+        source = record.get("url", "")
+        if not source or not _url_is_academic_or_guide(
+            source,
+            anchor_text=record.get("anchor_text", ""),
+            title=record.get("title", ""),
+            heading=record.get("heading", ""),
+        ):
+            continue
+        parsed = urlparse(source)
+        segments = [segment for segment in parsed.path.split("/") if segment]
+        if not parsed.scheme or not parsed.netloc or not segments:
+            continue
+
+        # Solo se reemplaza el último segmento de una ruta que ya ha sido
+        # observada como académica. Así no se inventan subdominios ni raíces
+        # ajenas al portal real.
+        parent_segments = segments[:-1]
+        if not parent_segments:
+            continue
+        parent_path = "/" + "/".join(parent_segments).rstrip("/") + "/"
+        leaf = segments[-1].lower()
+        leaf_stem = re.sub(r"\.(?:html?|aspx?|php|pdf)$", "", leaf)
+        leaf_has_route_signal = (
+            any(marker in segments for marker in _ACADEMIC_MARKERS)
+            or any(marker in segments for marker in _STRONG_GUIDE_MARKERS)
+            or any(marker in marker_text for marker_text in (
+                source.lower(),
+                _normalise_evidence_text(record.get("anchor_text", "")),
+                _normalise_evidence_text(record.get("title", "")),
+                _normalise_evidence_text(record.get("heading", "")),
+            ) for marker in _GUIDE_MARKERS)
+        )
+        if not leaf_has_route_signal:
+            continue
+
+        replacements = []
+        if slug:
+            replacements.append((slug, "subject_slug"))
+        if code:
+            replacements.append((code, "subject_code"))
+        if slug and code:
+            replacements.append((f"{slug}-{code}", "subject_slug_code"))
+
+        for replacement, derivation in replacements:
+            for suffix in ("", "guia-docente"):
+                path_parts = parent_path.rstrip("/").split("/")
+                path_parts.append(replacement)
+                if suffix:
+                    path_parts.append(suffix)
+                candidate_path = "/".join(path_parts) + "/"
+                candidate = urlunparse((parsed.scheme, parsed.netloc, candidate_path, "", "", ""))
+                candidate = normalize_url(candidate)
+                if not candidate or candidate in seen or candidate == source:
+                    continue
+                seen.add(candidate)
+                derived.append({
+                    "url": candidate,
+                    "source_url": source,
+                    "anchor_text": record.get("anchor_text", ""),
+                    "title": record.get("title", ""),
+                    "heading": record.get("heading", ""),
+                    "path_segments": _path_segments(candidate),
+                    "source_kind": "derived_route",
+                    "derivation": derivation,
+                    "route_leaf": leaf_stem,
+                })
+                if len(derived) >= max_items:
+                    return derived
+    return derived
 
 
 def build_subject_guide_discovery_index(
@@ -410,7 +520,7 @@ def build_subject_guide_discovery_index(
         return cached_result
     hosts = _candidate_hosts(base_url)
     if not hosts:
-        return {"urls": [], "records": [], "sitemaps": [], "files_read": 0, "blocked": 0, "truncated": False, "cache_hit": False}
+        return {"urls": [], "records": [], "sitemaps": [], "files_read": 0, "blocked": 0, "truncated": False, "cache_hit": False, "spa_attempts": 0, "spa_fallbacks": 0}
 
     sitemap_queue = []
     seen_sitemaps = set()
@@ -433,6 +543,8 @@ def build_subject_guide_discovery_index(
     files_read = 0
     blocked = 0
     truncated = False
+    spa_attempts = 0
+    spa_fallbacks = 0
     index_queue = list(sitemap_queue)
     while index_queue and files_read < max(1, int(max_files)):
         source_url = index_queue.pop(0)
@@ -510,7 +622,26 @@ def build_subject_guide_discovery_index(
                 logger.debug("No se pudo inspeccionar hub académico %s: %s", hub_url, exc)
                 continue
             files_read += 1
-            for record in extract_academic_link_records(raw, hub_url, hosts, limit=max_urls):
+            hub_records = extract_academic_link_records(raw, hub_url, hosts, limit=max_urls)
+            # Algunos hubs son un shell de React/Vue/Angular: el HTML inicial
+            # no contiene enlaces, aunque la página renderizada sí los tenga.
+            # Se intenta una sola renderización acotada por hub vacío; el
+            # crawler SPA aplica sus propios límites, robots y caché.
+            if not hub_records and SUBJECT_GUIDE_DISCOVERY_ENABLE_SPA:
+                spa_attempts += 1
+                try:
+                    from spa_crawler import SPALayoutCrawler
+                    rendered = SPALayoutCrawler.get_shared_instance().render_spa_page(hub_url)
+                    rendered_html = str(rendered or "")
+                    if rendered_html and len(rendered_html.encode("utf-8")) <= MAX_RESPONSE_SIZE_BYTES:
+                        hub_records = extract_academic_link_records(
+                            rendered_html.encode("utf-8"), hub_url, hosts, limit=max_urls
+                        )
+                        if hub_records:
+                            spa_fallbacks += 1
+                except Exception as exc:
+                    logger.debug("No se pudo renderizar hub SPA %s: %s", hub_url, exc)
+            for record in hub_records:
                 target = record["url"]
                 if target not in seen_candidates:
                     seen_candidates.add(target)
@@ -526,6 +657,8 @@ def build_subject_guide_discovery_index(
         "blocked": blocked,
         "truncated": truncated or bool(index_queue),
         "cache_hit": False,
+        "spa_attempts": spa_attempts,
+        "spa_fallbacks": spa_fallbacks,
     }
     _store_discovery_cache(base_url, result, max_roots, max_files, max_urls)
     return result

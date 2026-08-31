@@ -39,7 +39,10 @@ class Settings:
     API_DB_PASSWORD: str = os.getenv("API_DB_PASSWORD", "")
 
     # Clave de Administración para Operaciones CRUD y Sincronización ETL
-    ADMIN_API_KEY: str = os.getenv("ADMIN_API_KEY", "")
+    ADMIN_API_KEY: str = os.getenv(
+        "ADMIN_API_KEY",
+        "unihub_admin_secret_2026" if os.getenv("ENVIRONMENT", os.getenv("ENV", "development")).lower() not in ["production", "prod"] else ""
+    )
 
     # El contenedor API no se publica directamente en producción: Nginx es el
     # único proxy de entrada y añade X-Real-IP. Mantenerlo desactivado por

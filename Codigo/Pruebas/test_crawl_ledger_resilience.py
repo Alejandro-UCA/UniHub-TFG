@@ -144,6 +144,33 @@ class TestCrawlLedgerResilience(unittest.TestCase):
             finally:
                 ledger.close()
 
+    def test_discovery_evidence_is_idempotent_and_preserves_richer_metadata(self):
+        with tempfile.TemporaryDirectory() as directory:
+            ledger = CrawlLedger(db_path=os.path.join(directory, "ledger.sqlite3"))
+            try:
+                url = "https://uni.example/guia/algebra-1.pdf"
+                first = ledger.record_discovery_evidence(
+                    [{"url": url, "source_kind": "sitemap", "source_url": "https://uni.example/sitemap.xml"}],
+                    university_code="999",
+                    phase="fase1_parte2_web",
+                )
+                second = ledger.record_discovery_evidence(
+                    [{"url": url, "source_kind": "catalog", "anchor_text": "Álgebra I", "lastmod": "2026-08-31"}],
+                    university_code="999",
+                    phase="fase1_parte2_web",
+                )
+
+                records = ledger.get_discovery_evidence("999")
+
+                self.assertEqual(first, 1)
+                self.assertEqual(second, 1)
+                self.assertEqual(len(records), 1)
+                self.assertEqual(records[0]["anchor_text"], "Álgebra I")
+                self.assertEqual(records[0]["source_url"], "https://uni.example/sitemap.xml")
+                self.assertEqual(records[0]["lastmod"], "2026-08-31")
+            finally:
+                ledger.close()
+
 
 if __name__ == "__main__":
     unittest.main()

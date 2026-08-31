@@ -77,6 +77,21 @@ class TestCrawlerPolitenessAndConcurrency(unittest.TestCase):
             RUCTDownloader._GLOBAL_DOMAIN_FAILURES.pop("isolated-host.example", None)
             RUCTDownloader._GLOBAL_DOMAIN_OPEN_UNTIL.pop("isolated-host.example", None)
 
+    def test_open_host_circuit_is_not_retried_by_http_loop(self):
+        downloader = RUCTDownloader(delay=0.01, max_retries=3, respect_robots=False)
+        try:
+            with patch.object(downloader, "_apply_delay"), \
+                 patch.object(
+                     downloader,
+                     "_check_domain_circuit",
+                     side_effect=HostCircuitOpenException("circuit breaker abierto"),
+                 ) as check_circuit:
+                with self.assertRaises(HostCircuitOpenException):
+                    downloader._request_with_retry("https://isolated-host.example/guide")
+            self.assertEqual(check_circuit.call_count, 1)
+        finally:
+            downloader.close()
+
     def test_connection_failures_are_scoped_to_the_failing_host(self):
         downloader = RUCTDownloader(delay=0.01)
         host_a = "https://host-a.example/guide"

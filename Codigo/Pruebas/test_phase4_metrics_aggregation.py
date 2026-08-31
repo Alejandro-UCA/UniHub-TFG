@@ -101,6 +101,41 @@ class TestPhase4MetricsAggregation(unittest.TestCase):
             self.assertEqual(result["universities_processed"], 5)
             self.assertLessEqual(state["maximum"], 2)
 
+    def test_part4_skips_universities_denied_by_part2_before_submitting_workers(self):
+        with tempfile.TemporaryDirectory() as directory:
+            plans_dir = os.path.join(directory, "plans")
+            os.makedirs(plans_dir)
+            for code in ("997", "998"):
+                with open(os.path.join(plans_dir, f"{code}.json"), "w", encoding="utf-8") as handle:
+                    json.dump({
+                        "universidad_codigo": code,
+                        "codigo_estudio": f"PLAN-{code}",
+                        "plan_estudios": {"elementos_curriculares": []},
+                    }, handle)
+            universities_path = os.path.join(directory, "universidades.json")
+            with open(universities_path, "w", encoding="utf-8") as handle:
+                json.dump([], handle)
+
+            submitted = []
+
+            def worker(u_code, *_args):
+                submitted.append(str(u_code))
+                return {"university_code": u_code}
+
+            with patch.object(phase4, "PLANES_DIR", plans_dir), \
+                 patch.object(phase4, "UNIVERSIDADES_JSON", universities_path), \
+                 patch.object(phase4, "SubjectGuideCache", return_value=_Disposable()), \
+                 patch.object(phase4, "CrawlLedger", return_value=_Disposable()), \
+                 patch.object(phase4, "_process_university_guides_isolated", side_effect=worker):
+                result = phase4.run_phase1_part4(
+                    max_workers=1,
+                    robots_denied_university_codes={"997"},
+                )
+
+            self.assertEqual(submitted, ["998"])
+            self.assertEqual(result["universities_processed"], 1)
+            self.assertEqual(result["robots_denied_universities_skipped"], 1)
+
 
 if __name__ == "__main__":
     unittest.main()

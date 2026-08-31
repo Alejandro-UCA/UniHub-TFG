@@ -127,7 +127,7 @@ from config import (
 )
 _MAX_PDF_PAGES_EXTRACT = MAX_PDF_PAGES_EXTRACT
 
-from downloader import RUCTDownloader, SkipUniversityException, is_same_or_subdomain as downloader_is_same_or_subdomain
+from downloader import RUCTDownloader, SkipUniversityException, is_same_or_subdomain as downloader_is_same_or_subdomain, normalize_url, is_valid_http_url
 from robots_policy import RobotsPolicy
 from crawl_ledger import CrawlLedger
 from data_quality import apply_plan_quality, source_record
@@ -148,6 +148,8 @@ from parsers import (
     is_section_matching,
     extract_subjects_from_card_blocks,
     detect_academic_language,
+    normalize_curso,
+    normalize_cuatrimestre,
     RE_SUMMARY_LABEL
 )
 
@@ -371,13 +373,20 @@ def _is_relevant_title_candidate(url: str, link_text: str, title_keywords: list 
         "plan", "estudio", "grado", "master", "máster", "titulacion", "título",
         "docencia", "asignatura", "curriculum", "programa", "degree", "programme",
         "postgrado", "posgrado", "oferta-academica", "guia-docente", "malla",
+        "estudis", "estudos", "grau", "graus", "grao", "graos", "gradua", "graduak",
+        "ikasketa", "ikasketak", "bachelor", "undergraduate", "syllabus", "courses",
     )
     normalized_context = unicodedata.normalize(
         "NFKD", f"{url or ''} {link_text or ''}"
     ).encode("ASCII", "ignore").decode("utf-8").lower()
     if not any(marker in normalized_context for marker in academic_markers):
         return False
-    required = min(2, len([kw for kw in title_keywords if len(str(kw or "")) >= 4]))
+    GENERIC_LEVEL_WORDS = {"grado", "grados", "master", "masters", "máster", "másteres", "doctor", "doctorado", "doctorados", "titulo", "titulacion", "titulaciones", "estudio", "estudios"}
+    substantive_kws = [
+        kw for kw in title_keywords
+        if str(kw or "").lower() not in GENERIC_LEVEL_WORDS and len(str(kw or "")) >= 4
+    ]
+    required = min(2, len(substantive_kws)) if substantive_kws else 1
     return _candidate_title_match_count(url, link_text, title_keywords) >= max(1, required)
 
 
@@ -414,12 +423,6 @@ def is_valid_curricular_table(table_tag) -> bool:
     if any(m in txt for m in discard_markers):
         return False
 
-    # No basta con encontrar la palabra «créditos» en una tabla: las fichas
-    # administrativas de algunas universidades mezclan créditos, objetivos,
-    # centros y direcciones sin contener ninguna asignatura. Exigimos una
-    # señal estructural de plan (cabecera de asignatura/materia y otra columna
-    # curricular) o, como excepción conservadora, varias filas que se
-    # autodescriban como asignaturas y aporten créditos.
     rows = table_tag.find_all("tr")
     header_text = " ".join(
         cell.get_text(" ", strip=True).lower()
@@ -441,7 +444,9 @@ def is_valid_curricular_table(table_tag) -> bool:
 
     explicit_subject_rows = 0
     rows_with_credits = 0
-    for row in rows[1:]:
+    rows_with_character = 0
+    scan_rows = rows[1:] if (rows and any(cell.name == "th" for cell in rows[0].find_all(["th", "td"]))) else rows
+    for row in scan_rows:
         cells = [cell.get_text(" ", strip=True) for cell in row.find_all(["td", "th"])]
         if not cells:
             continue
@@ -450,10 +455,34 @@ def is_valid_curricular_table(table_tag) -> bool:
             explicit_subject_rows += 1
         if any(re.search(r"\b(?:[1-9]|[12]\d|30)(?:[.,]\d+)?\s*(?:ects|cr[eé]ditos?|credits?)?\b", cell, re.IGNORECASE) for cell in cells):
             rows_with_credits += 1
+        if any(re.search(r"\b(?:FB|OB|OP|B|O|PE|TFG|TFM|TR|BA|OT|DER|OIN|HAU|OPT|OBL)\b", cell, re.IGNORECASE) for cell in cells):
+            rows_with_character += 1
 
-    if not (has_subject_header and has_curricular_header) and not (
-        explicit_subject_rows >= 2 and rows_with_credits >= 2
-    ):
+    has_adjacent_course_heading = False
+    parent_heading = table_tag.find_previous(["h1", "h2", "h3", "h4", "h5", "h6", "caption", "legend", "button", "summary"])
+    if parent_heading:
+        h_txt = parent_heading.get_text().lower()
+        if any(ck in h_txt for ck in ["curso", "curs", "ano", "año", "ikasturtea", "maila", "semestre", "cuatrimestre", "quadrimestre", "year", "term"]):
+            has_adjacent_course_heading = True
+
+    if not has_adjacent_course_heading:
+        parent_tab = table_tag.find_parent(["div", "section", "article"], class_=lambda c: c and any(k in str(c).lower() for k in ["tab-pane", "tabcontent", "accordion", "collapse", "panel"]))
+        if parent_tab:
+            tab_id = parent_tab.get("id") or ""
+            tab_trigger = table_tag.find_previous(["a", "button", "li"])
+            if tab_trigger:
+                t_txt = tab_trigger.get_text().lower()
+                if any(ck in t_txt for ck in ["curso", "curs", "ano", "año", "ikasturtea", "maila", "semestre", "cuatrimestre", "quadrimestre", "year", "term"]):
+                    has_adjacent_course_heading = True
+
+    is_valid_structural_table = (
+        (has_subject_header and has_curricular_header)
+        or (has_curricular_header and rows_with_credits >= 2)
+        or (rows_with_credits >= 2 and (rows_with_character >= 1 or has_adjacent_course_heading))
+        or (explicit_subject_rows >= 2 and rows_with_credits >= 2)
+        or (rows_with_credits >= 3 and len(rows) >= 3)
+    )
+    if not is_valid_structural_table:
         return False
 
     # 2. Descartar tablas de política de cookies y privacidad
@@ -474,7 +503,7 @@ def is_valid_curricular_table(table_tag) -> bool:
         # EN
         "subject", "course", "module", "credits", "syllabus", "semester"
     ]
-    return any(m in txt for m in curricular_markers)
+    return any(m in txt for m in curricular_markers) or has_adjacent_course_heading or rows_with_character >= 1
 
 
 def ensure_https_url(url: str) -> str:
@@ -511,12 +540,18 @@ def parse_price_value(val_str: str, min_val: float, max_val: float) -> float | N
 
 def build_html_curriculum_payload(elementos_html: list, degree_title: str) -> dict:
     """Construye la estructura estándar de plan de estudios a partir de asignaturas extraídas de HTML."""
+    total_ects = sum(
+        float(str(e.get("creditos_ects", 0)).replace(",", "."))
+        for e in elementos_html
+        if e.get("creditos_ects") not in (None, "")
+    )
     return {
-        # No inferir el total reglamentario a partir del tipo de título: el
-        # nivel puede ser un máster de 60/90/120 ECTS u otro programa.
         "resumen_creditos": {},
+        "origen": "Web Oficial Universidad",
         "total_elementos": len(elementos_html),
-        "elementos_curriculares": elementos_html
+        "total_creditos_extraidos": round(total_ects, 2),
+        "elementos_curriculares": elementos_html,
+        "is_partial": total_ects < 120.0
     }
 
 
@@ -533,7 +568,7 @@ def is_html_page_matching_degree(soup: BeautifulSoup, target_title: str, univ_na
     Comprueba:
     1. Que no sea una subpágina de cursos de extensión, títulos propios o formularios no oficiales.
     2. Consistencia estricta de Nivel Académico (3 niveles independientes: Grado, Máster y Doctorado).
-    3. Distinción estricta de Ingeniería vs Ciencia/Salud (evita que Ingeniería Química absorba Química).
+    3. Distinción estricta de Ingeniería vs Ciencia/Salud en el título principal.
     4. Distinción estricta de Grado Simple vs Doble Grado.
     5. Validación semántica del núcleo temático con lematización multilingüe y filtro de adjetivos genéricos.
     """
@@ -547,22 +582,27 @@ def is_html_page_matching_degree(soup: BeautifulSoup, target_title: str, univ_na
     if any(m in url_low for m in NON_OFFICIAL_COURSE_MARKERS):
         return False
 
-    # 2. Extraer encabezados y título de la página
-    page_texts = []
+    # 2. Extraer título principal y encabezados secundarios
+    primary_title_candidates = []
+    h1 = soup.find("h1")
+    if h1 and h1.get_text(strip=True):
+        primary_title_candidates.append(h1.get_text(separator=" ", strip=True))
+    for meta in soup.find_all("meta", attrs={"property": "og:title"}):
+        if meta.get("content"):
+            primary_title_candidates.append(meta["content"])
+    for meta in soup.find_all("meta", attrs={"name": "title"}):
+        if meta.get("content"):
+            primary_title_candidates.append(meta["content"])
     if soup.title and soup.title.string:
-        page_texts.append(soup.title.string)
+        primary_title_candidates.append(soup.title.string)
 
-    for h in soup.find_all(["h1", "h2", "h3"]):
+    primary_title_str = " ".join(primary_title_candidates).lower()
+
+    page_texts = list(primary_title_candidates)
+    for h in soup.find_all(["h2", "h3"]):
         h_text = h.get_text(separator=" ", strip=True)
         if h_text and len(h_text) > 3:
             page_texts.append(h_text)
-
-    for meta in soup.find_all("meta", attrs={"property": "og:title"}):
-        if meta.get("content"):
-            page_texts.append(meta["content"])
-    for meta in soup.find_all("meta", attrs={"name": "title"}):
-        if meta.get("content"):
-            page_texts.append(meta["content"])
 
     if page_url:
         page_texts.append(page_url.replace("/", " ").replace("-", " ").replace("_", " "))
@@ -585,10 +625,11 @@ def is_html_page_matching_degree(soup: BeautifulSoup, target_title: str, univ_na
     if is_target_doctor and not is_page_doctor and (is_page_grado or is_page_master):
         return False
 
-    # 4. Distinción estricta de Ingeniería vs Ciencia/Salud Pura
+    # 4. Distinción estricta de Ingeniería vs Ciencia/Salud Pura en el título principal
     is_target_eng = bool(RE_ENGINEERING_MARKER.search(target_low))
-    is_page_eng = bool(RE_ENGINEERING_MARKER.search(combined_page_header))
-    if is_target_eng != is_page_eng:
+    eval_eng_text = primary_title_str if primary_title_str else combined_page_header
+    is_page_eng = bool(RE_ENGINEERING_MARKER.search(eval_eng_text))
+    if is_target_eng != is_page_eng and primary_title_str:
         return False
 
     # 5. Distinción estricta de Grado Simple vs Doble Grado
@@ -652,7 +693,7 @@ def is_authorized_external_academic_hub(url: str, anchor_text: str = "") -> bool
     """
     parsed = urllib.parse.urlparse(str(url or ""))
     host = (parsed.hostname or "").lower().removeprefix("www.")
-    if not host or host in ORGANIC_EXTERNAL_DOMAIN_DENYLIST:
+    if not host or any(host == denied or host.endswith("." + denied) for denied in ORGANIC_EXTERNAL_DOMAIN_DENYLIST):
         return False
     context = unicodedata.normalize(
         "NFKD", f"{anchor_text or ''} {parsed.path or ''} {parsed.query or ''}"
@@ -667,6 +708,10 @@ def is_valid_web_url(href) -> bool:
     h = href.strip().lower()
     if h.startswith(("#", "javascript:", "mailto:", "tel:", "whatsapp:", "ftp:", "data:")):
         return False
+    if h.startswith(("http://", "https://")):
+        parsed = urllib.parse.urlparse(href)
+        if not parsed.netloc or not parsed.netloc.strip():
+            return False
     return True
 
 
@@ -900,6 +945,35 @@ def extract_html_subjects(soup: BeautifulSoup, base_url: str = "") -> list:
     for t in tables:
         if not is_valid_curricular_table(t):
             continue
+
+        table_curso = ""
+        table_cuatrimestre = ""
+        parent_heading = t.find_previous(["h1", "h2", "h3", "h4", "h5", "h6", "caption", "legend", "button", "summary"])
+        if parent_heading:
+            h_text = parent_heading.get_text()
+            if any(ext in h_text.lower() for ext in ["en extinción", "en extincion", "en procés d'extinció", "pla amortitzat", "plan extinguido", "plan histórico"]):
+                continue
+            c_norm, _ = normalize_curso(h_text)
+            if c_norm:
+                table_curso = c_norm
+            table_cuatrimestre = normalize_cuatrimestre(h_text)
+
+        if not table_curso:
+            parent_tab = t.find_parent(["div", "section", "article"], class_=lambda c: c and any(k in str(c).lower() for k in ["tab-pane", "tabcontent", "accordion", "collapse", "panel"]))
+            if parent_tab:
+                tab_id = parent_tab.get("id") or ""
+                tab_aria = parent_tab.get("aria-labelledby") or ""
+                tab_trigger = soup.find(["a", "button", "li"], attrs={"href": f"#{tab_id}"}) if tab_id else None
+                if not tab_trigger and tab_aria:
+                    tab_trigger = soup.find(id=tab_aria)
+                if tab_trigger:
+                    t_text = tab_trigger.get_text()
+                    c_norm, _ = normalize_curso(t_text)
+                    if c_norm:
+                        table_curso = c_norm
+                    if not table_cuatrimestre:
+                        table_cuatrimestre = normalize_cuatrimestre(t_text)
+
         rows = t.find_all("tr")
         subj_col = 0
         ects_col = -1
@@ -913,8 +987,15 @@ def extract_html_subjects(soup: BeautifulSoup, base_url: str = "") -> list:
 
             cols_raw = [td.get_text(separator=" ", strip=True) for td in tds]
 
-            # Detectar si la primera fila o <th> definen los índices de columnas
-            if r_idx == 0 or all(cell.name == "th" for cell in tds):
+            # Detectar si la fila define los índices de columnas (fila con <th> o fila 0 con palabras clave de cabecera)
+            is_header_row = (
+                all(cell.name == "th" for cell in tds)
+                or (r_idx == 0 and any(
+                    any(w in c_val.lower() for w in ["asignatura", "assignatura", "asineira", "irakasgaia", "materia", "denominaci", "crédito", "credito", "crèdits", "ects"])
+                    for c_val in cols_raw
+                ))
+            )
+            if is_header_row:
                 for c_i, c_val in enumerate(cols_raw):
                     c_low = c_val.lower().strip()
                     if any(w == c_low or w in c_low for w in ["asignatura", "assignatura", "asineira", "irakasgaia", "materia", "denominació", "denominacion", "denominación", "nombre", "actividad", "subject", "course", "modul", "módulo", "modulo"]):
@@ -1001,8 +1082,8 @@ def extract_html_subjects(soup: BeautifulSoup, base_url: str = "") -> list:
                             "nombre_elemento": clean_line,
                             "creditos_ects": creditos,
                             "caracter": caracter,
-                            "curso": "",
-                            "cuatrimestre": "",
+                            "curso": table_curso,
+                            "cuatrimestre": table_cuatrimestre or "1C",
                             "idioma": detect_academic_language(clean_line)
                         }
                         if url_guia:
@@ -1086,13 +1167,26 @@ def extract_html_subjects(soup: BeautifulSoup, base_url: str = "") -> list:
 
             curso = ""
             if curso_col != -1 and curso_col < len(cols_raw):
-                curso = cols_raw[curso_col]
+                c_norm, _ = normalize_curso(cols_raw[curso_col])
+                curso = c_norm or cols_raw[curso_col]
             else:
                 for col in cols_raw[1:]:
                     col_lower = col.lower()
                     if any(c_kw in col_lower for c_kw in ["1º", "2º", "3º", "4º", "primer", "segundo", "tercer", "cuarto", "1er", "2do", "3er", "4to"]):
-                        curso = col
+                        c_norm, _ = normalize_curso(col)
+                        curso = c_norm or col
                         break
+            if not curso and table_curso:
+                curso = table_curso
+
+            cuatrimestre_val = ""
+            for col in cols_raw:
+                c_clean = col.lower().strip()
+                if any(q in c_clean for q in ["1c", "2c", "1s", "2s", "primer", "segundo", "anual", "q1", "q2", "s1", "s2", "lauhileko"]):
+                    cuatrimestre_val = normalize_cuatrimestre(col)
+                    break
+            if not cuatrimestre_val:
+                cuatrimestre_val = table_cuatrimestre or "1C"
 
             # Extraer enlace saliente a la guía docente si existe en la fila o celda
             url_guia = ""
@@ -1125,7 +1219,8 @@ def extract_html_subjects(soup: BeautifulSoup, base_url: str = "") -> list:
                 "creditos_ects": creditos,
                 "caracter": caracter,
                 "curso": curso,
-                "cuatrimestre": ""
+                "cuatrimestre": cuatrimestre_val,
+                "idioma": detect_academic_language(nombre_candidato)
             }
             if url_guia:
                 elem_item["url_guia_docente"] = url_guia
@@ -1709,11 +1804,40 @@ class UniversityWebCrawler:
         sitemap_urls = self.extract_sitemap_candidate_urls(web_url, missing_degrees=missing_degrees)
         if sitemap_urls:
             print(f"     -> {len(sitemap_urls)} URLs académicas indexadas extraídas del Sitemap XML de la universidad.")
+            if self.ledger:
+                sitemap_records = [
+                    {"url": u, "source_kind": "sitemap", "source_url": web_url}
+                    for u in sitemap_urls
+                ]
+                self.ledger.record_discovery_evidence(
+                    sitemap_records,
+                    university_code=u_code,
+                    phase="fase1_parte2",
+                )
 
         # 4.1. Pre-indexado rápido de catálogos maestros Hub-and-Spoke (Profundidad <= 6)
         catalog_map = self._build_academic_catalog_map(downloader, web_url, max_depth=6)
         if catalog_map:
             print(f"     -> [Hub-and-Spoke] {len(catalog_map)} términos académicos indexados desde catálogos maestros (Profundidad <= 6).")
+            if self.ledger:
+                catalog_records = []
+                for term, entries in catalog_map.items():
+                    for entry in entries:
+                        if isinstance(entry, (list, tuple)) and len(entry) >= 2:
+                            c_url, c_text = entry[0], entry[1]
+                        else:
+                            c_url, c_text = str(entry), ""
+                        catalog_records.append({
+                            "url": c_url,
+                            "source_kind": "hub_catalog",
+                            "anchor_text": c_text,
+                            "source_url": web_url,
+                        })
+                self.ledger.record_discovery_evidence(
+                    catalog_records,
+                    university_code=u_code,
+                    phase="fase1_parte2",
+                )
 
         TITLE_STOPWORDS = {
             "grado", "grados", "graduado", "graduada", "graduats", "graduades", "grau", "graus", "grao", "graos", "gradua", "graduak", "bachelor", "undergraduate",
@@ -2146,7 +2270,12 @@ class UniversityWebCrawler:
                                                 for a_sub in target_soup.find_all("a", href=True):
                                                     h_sub = a_sub["href"].strip()
                                                     t_sub = a_sub.get_text(strip=True).lower()
-                                                    if any(k in t_sub or k in h_sub.lower() for k in ["mencion", "mención", "especialidad", "optativas", "itinerari", "itinerario", "trabajo fin", "tfg", "tfm", "menciones"]):
+                                                    if any(k in t_sub or k in h_sub.lower() for k in [
+                                                        "mencion", "mención", "menció", "mencions", "especialidad", "especialidades", "especialitats",
+                                                        "optativas", "optatives", "hautazkoak", "itinerari", "itineraris", "itinerario", "itinerarios",
+                                                        "ibilbidea", "aipamena", "aipamenak", "track", "major", "specialization",
+                                                        "trabajo fin", "tfg", "tfm", "treball fi", "traballo fin", "menciones"
+                                                    ]):
                                                         full_sub = urllib.parse.urljoin(target_link, h_sub)
                                                         if is_same_or_subdomain(full_sub, web_url) and full_sub != target_link and is_valid_web_url(full_sub):
                                                             sub_itinerarios.append(full_sub)
@@ -2155,7 +2284,7 @@ class UniversityWebCrawler:
                                                     curriculum_element_key(e.get("nombre_elemento", ""))
                                                     for e in elementos_html
                                                 }
-                                                for s_url in sub_itinerarios[:3]:
+                                                for s_url in sub_itinerarios[:8]:
                                                     try:
                                                         s_html = downloader.fetch_text(s_url)
                                                         s_soup = BeautifulSoup(s_html, "html.parser")
@@ -2433,37 +2562,44 @@ def propagate_interuniversity_and_shared_boe_plans(planes_dir: str = PLANES_DIR)
         boe = d.get("boe_url") or ""
         elems = d.get("plan_estudios", {}).get("elementos_curriculares", []) if d.get("plan_estudios") else []
         norm_t = normalize_joint_title(d.get("titulo", ""))
+        is_interuniv = bool(
+            d.get("interuniversitario")
+            or "interuniversitari" in norm_t
+            or "consorcio" in norm_t
+            or "conjunto" in norm_t
+            or "erasmus mundus" in norm_t
+            or any(k in d.get("titulo", "").lower() for k in EUROPEAN_ALLIANCES_KEYWORDS)
+        )
+
         level_key = normalize_joint_title(d.get("nivel_academico", ""))
         title_key = f"{norm_t}|{level_key}" if level_key else norm_t
         
-        if len(elems) >= 3 and is_curriculum_complete(d):
+        has_sufficient_detail = len(elems) >= 5 or is_curriculum_complete(d)
+        if has_sufficient_detail:
             if boe and "boe.es" in boe:
                 if boe not in boe_index or len(elems) > len(boe_index[boe][0].get("elementos_curriculares", [])):
                     boe_index[boe] = (d.get("plan_estudios", {}), d.get("web_fuente_directa_url") or boe)
-            if title_key:
+            if title_key and is_interuniv:
                 if title_key not in title_index or len(elems) > len(title_index[title_key][0].get("elementos_curriculares", [])):
                     title_index[title_key] = (d.get("plan_estudios", {}), d.get("web_fuente_directa_url") or boe)
         else:
-            empty_records.append((path, d, boe, norm_t))
+            empty_records.append((path, d, boe, norm_t, is_interuniv))
 
-    for path, d, boe, norm_t in empty_records:
+    for path, d, boe, norm_t, is_interuniv_target in empty_records:
         matched_plan = None
         source_url = ""
         origen = ""
 
-        if boe in boe_index:
+        if boe and boe in boe_index:
             matched_plan, source_url = boe_index[boe]
             origen = "resolucion_boe_compartida"
             stats["boe_shared_rescued"] += 1
-        else:
+        elif is_interuniv_target:
             title_key = f"{norm_t}|{normalize_joint_title(d.get('nivel_academico', ''))}" if d.get("nivel_academico") else norm_t
             if title_key in title_index:
                 matched_plan, source_url = title_index[title_key]
-            else:
-                matched_plan = None
-        if matched_plan and not origen:
-            origen = "interuniversitario_compartido"
-            stats["interuniv_shared_rescued"] += 1
+                origen = "interuniversitario_compartido"
+                stats["interuniv_shared_rescued"] += 1
 
         is_european = any(k in d.get("titulo", "").lower() for k in EUROPEAN_ALLIANCES_KEYWORDS)
         if matched_plan:

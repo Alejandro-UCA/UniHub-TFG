@@ -18,6 +18,32 @@ from runtime_capabilities import detect_runtime_capabilities
 RUN_MANIFESTS_DIR = os.getenv("CRAWLER_RUN_MANIFESTS_DIR", os.path.join(DATA_DIR, "run_manifests"))
 
 
+def _is_process_running(pid: int | None) -> bool:
+    """Verifica si un PID sigue activo en el sistema operativo."""
+    if not pid or not isinstance(pid, int) or pid <= 0:
+        return False
+    try:
+        import psutil
+        return psutil.pid_exists(pid)
+    except ImportError:
+        pass
+    if os.name == "nt":
+        import ctypes
+        PROCESS_QUERY_LIMITED_INFORMATION = 0x1000
+        SYNCHRONIZE = 0x00100000
+        handle = ctypes.windll.kernel32.OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION | SYNCHRONIZE, False, pid)
+        if handle:
+            ctypes.windll.kernel32.CloseHandle(handle)
+            return True
+        return False
+    else:
+        try:
+            os.kill(pid, 0)
+            return True
+        except OSError:
+            return False
+
+
 class RunManifest:
     def __init__(self, *, parts, limit_universities=None, limit_degrees=None, force=False, workers=None):
         started = datetime.now(timezone.utc).isoformat()
@@ -36,8 +62,10 @@ class RunManifest:
                 "full_revalidation": bool(FULL_REVALIDATION or force),
                 "rediscover_urls": bool(REDISCOVER_URLS_EVERY_RUN or force),
                 "runtime_capabilities": detect_runtime_capabilities(),
+                "pid": os.getpid(),
             },
             "parts": {},
+            "artifacts": {},
             "coverage": {
                 "universities_attempted": 0,
                 "university_codes_attempted": [],
@@ -52,6 +80,9 @@ class RunManifest:
                 "guide_discovery_urls": 0,
                 "guide_discovery_blocked": 0,
                 "guide_discovery_cache_hits": 0,
+                "guide_discovery_spa_attempts": 0,
+                "guide_discovery_spa_fallbacks": 0,
+                "guide_shared_discovery_urls": 0,
                 "guide_spa_fallbacks": 0,
                 "guide_candidate_urls_generated": 0,
                 "guide_candidate_urls_requested": 0,
@@ -63,6 +94,9 @@ class RunManifest:
                 "guide_quality_score_total": 0.0,
                 "guide_quality_scored": 0,
                 "guide_quality_average": 0.0,
+                "guide_pdf_parse_count": 0,
+                "guide_pdf_parse_time": 0.0,
+                "guide_ocr_used": 0,
                 "subjects_resumed": 0,
                 "negative_cache_hits": 0,
                 "metrics_by_university": {},
@@ -108,6 +142,18 @@ class RunManifest:
         else:
             # Compatibilidad con resultados de fases antiguas sin desglose.
             coverage["universities_attempted"] += self._non_negative_int(result.get("universities_processed"))
+
+        # Actualizar titulaciones descubiertas/procesadas
+        disc_deg = self._non_negative_int(
+            result.get("degrees_discovered")
+            or result.get("total_degrees_discovered")
+            or result.get("discovered_degrees")
+            or result.get("total_degrees_processed")
+            or result.get("degrees_processed")
+        )
+        if disc_deg > 0:
+            coverage["degrees_discovered"] = max(coverage.get("degrees_discovered", 0), disc_deg)
+
         # ``missing_degrees`` es el número de titulaciones pendientes antes de
         # la Parte 2; no representa titulaciones descubiertas por el crawler.
         coverage["degrees_pending_resolution"] = coverage.get("degrees_pending_resolution", 0) + self._non_negative_int(
@@ -125,6 +171,9 @@ class RunManifest:
         coverage["guide_discovery_urls"] += self._non_negative_int(result.get("guide_discovery_urls"))
         coverage["guide_discovery_blocked"] += self._non_negative_int(result.get("guide_discovery_blocked"))
         coverage["guide_discovery_cache_hits"] += self._non_negative_int(result.get("guide_discovery_cache_hits"))
+        coverage["guide_discovery_spa_attempts"] += self._non_negative_int(result.get("guide_discovery_spa_attempts"))
+        coverage["guide_discovery_spa_fallbacks"] += self._non_negative_int(result.get("guide_discovery_spa_fallbacks"))
+        coverage["guide_shared_discovery_urls"] += self._non_negative_int(result.get("guide_shared_discovery_urls"))
         coverage["guide_spa_fallbacks"] += self._non_negative_int(result.get("guide_spa_fallbacks"))
         coverage["guide_candidate_urls_generated"] += self._non_negative_int(result.get("guide_candidate_urls_generated"))
         coverage["guide_candidate_urls_requested"] += self._non_negative_int(result.get("guide_candidate_urls_requested"))
@@ -135,6 +184,9 @@ class RunManifest:
         coverage["guide_robots_denied"] += self._non_negative_int(result.get("guide_robots_denied"))
         coverage["guide_quality_score_total"] += self._non_negative_float(result.get("guide_quality_score_total"))
         coverage["guide_quality_scored"] += self._non_negative_int(result.get("guide_quality_scored"))
+        coverage["guide_pdf_parse_count"] += self._non_negative_int(result.get("guide_pdf_parse_count"))
+        coverage["guide_pdf_parse_time"] += self._non_negative_float(result.get("guide_pdf_parse_time"))
+        coverage["guide_ocr_used"] += self._non_negative_int(result.get("guide_ocr_used"))
         if coverage["guide_quality_scored"]:
             coverage["guide_quality_average"] = round(
                 coverage["guide_quality_score_total"] / coverage["guide_quality_scored"], 2
@@ -182,6 +234,16 @@ class RunManifest:
         self.data["etl_sync"] = result if isinstance(result, dict) else {"status": "failed"}
         self._persist()
 
+    def record_artifacts(self, artifacts: dict):
+        """Registra las salidas físicas asociadas exclusivamente al run."""
+        if isinstance(artifacts, dict):
+            self.data["artifacts"] = {
+                str(key): str(value)
+                for key, value in artifacts.items()
+                if value
+            }
+            self._persist()
+
     def finish(self, status: str, *, error: str | None = None):
         self.data["status"] = status
         self.data["finished_at"] = datetime.now(timezone.utc).isoformat()
@@ -189,3 +251,44 @@ class RunManifest:
             self.data["error"] = str(error)
         self.data.pop("active_part", None)
         self._persist()
+
+    @classmethod
+    def recover_orphaned_manifests(cls, manifests_dir: str | None = None) -> int:
+        """Marca como 'interrupted' únicamente aquellos manifiestos en 'running' cuyo PID ya no existe en el SO."""
+        import glob
+        import json
+        target_dirs = [manifests_dir] if manifests_dir else [
+            RUN_MANIFESTS_DIR,
+            os.path.join(DATA_DIR, "runs"),
+            os.path.join(DATA_DIR, "run_manifests"),
+        ]
+        recovered = 0
+        current_pid = os.getpid()
+        for t_dir in target_dirs:
+            if not t_dir or not os.path.exists(t_dir):
+                continue
+            # Buscar manifiestos tanto directos como en subcarpetas de ejecuciones (runs/*/manifest.json)
+            json_files = glob.glob(os.path.join(t_dir, "*.json")) + glob.glob(os.path.join(t_dir, "*", "manifest.json"))
+            for m_file in json_files:
+                try:
+                    with open(m_file, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                    if data.get("status") == "running":
+                        m_pid = data.get("execution", {}).get("pid")
+                        # Solo se interrumpe si el PID no es el proceso actual Y no está vivo en el sistema operativo
+                        if m_pid and m_pid != current_pid and not _is_process_running(m_pid):
+                            data["status"] = "interrupted"
+                            data["finished_at"] = datetime.now(timezone.utc).isoformat()
+                            data["error"] = "Proceso anterior finalizado o interrumpido externamente"
+                            atomic_json_dump(data, m_file)
+                            recovered += 1
+                        elif not m_pid:
+                            # Manifiesto antiguo sin PID registrado: se marca como interrumpido si no es la sesión actual
+                            data["status"] = "interrupted"
+                            data["finished_at"] = datetime.now(timezone.utc).isoformat()
+                            data["error"] = "Ejecución histórica previa sin PID"
+                            atomic_json_dump(data, m_file)
+                            recovered += 1
+                except Exception:
+                    pass
+        return recovered

@@ -48,6 +48,17 @@ class TestPhasePersistenceResilience(unittest.TestCase):
                 "Erasmus Student Network Oviedo",
             )
         )
+        for service_url in (
+            "https://youtu.be/example",
+            "https://www.pinterest.com/pin/example",
+            "https://tenant.sharepoint.com/sites/erasmus",
+        ):
+            self.assertFalse(
+                is_authorized_external_academic_hub(
+                    service_url,
+                    "Erasmus Mundus Joint Master",
+                )
+            )
         self.assertFalse(
             is_authorized_external_academic_hub(
                 "https://ocw.mit.edu/course",

@@ -264,8 +264,6 @@ class RobotsPolicy:
                     and len(e_base) >= 3
                 ):
                     return True
-                if "universidadeuropea" in t_host and "universidadeuropea" in e_host:
-                    return True
 
         return False
 

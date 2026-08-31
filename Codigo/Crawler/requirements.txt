@@ -5,10 +5,9 @@ charset-normalizer==3.4.9
 cryptography==49.0.0
 et_xmlfile==2.0.0
 h2>=4.4.1
-httpx[http2]>=0.28.1
-# Starlette TestClient usa httpx2 desde la rama 1.x; se mantiene httpx
-# porque el crawler lo utiliza directamente para sus conexiones HTTP/2.
-httpx2>=2.0.0
+httpx[http2]>=0.28.1,<0.29
+# Este entorno del crawler usa el paquete oficial ``httpx``. El API mantiene
+# su cliente de pruebas separado porque Starlette 1.x importa ``httpx2``.
 idna==3.18
 lxml==6.1.1
 numpy==2.5.1

@@ -101,6 +101,9 @@ OFFICIAL_SIIU_PRICES_CATALOG = {
     },
     "Cataluña": {
         "Grado": {"1": 18.46, "2": 31.38, "3": 67.70, "4": 94.00, "defecto": 18.46},
+        "Grado - Salud": {"1": 18.46, "2": 31.38, "3": 67.70, "4": 94.00, "defecto": 18.46},
+        "Grado - Ciencias e Ingeniería": {"1": 18.46, "2": 31.38, "3": 67.70, "4": 94.00, "defecto": 18.46},
+        "Grado - Ciencias Sociales y Humanidades": {"1": 17.69, "2": 30.07, "3": 64.86, "4": 90.08, "defecto": 17.69},
         "Máster Habilitante": {"1": 27.67, "2": 47.04, "3": 101.48, "4": 140.90, "defecto": 27.67},
         "Máster No Habilitante": {"1": 41.17, "2": 69.99, "3": 150.98, "4": 209.65, "defecto": 41.17},
         "Doctorado": {"1": 401.12, "defecto": 401.12},
@@ -109,6 +112,9 @@ OFFICIAL_SIIU_PRICES_CATALOG = {
     },
     "Comunitat Valenciana": {
         "Grado": {"1": 15.10, "2": 25.67, "3": 55.37, "4": 76.90, "defecto": 15.10},
+        "Grado - Salud": {"1": 17.34, "2": 29.48, "3": 63.58, "4": 88.30, "defecto": 17.34},
+        "Grado - Ciencias e Ingeniería": {"1": 15.10, "2": 25.67, "3": 55.37, "4": 76.90, "defecto": 15.10},
+        "Grado - Ciencias Sociales y Humanidades": {"1": 12.79, "2": 21.74, "3": 46.90, "4": 65.10, "defecto": 12.79},
         "Máster Habilitante": {"1": 20.20, "2": 34.34, "3": 74.07, "4": 102.88, "defecto": 20.20},
         "Máster No Habilitante": {"1": 35.34, "2": 60.08, "3": 129.60, "4": 180.00, "defecto": 35.34},
         "Doctorado": {"1": 180.00, "defecto": 180.00},
@@ -125,6 +131,9 @@ OFFICIAL_SIIU_PRICES_CATALOG = {
     },
     "Galicia": {
         "Grado": {"1": 11.89, "2": 20.21, "3": 43.60, "4": 60.56, "defecto": 11.89},
+        "Grado - Salud": {"1": 13.93, "2": 23.68, "3": 51.08, "4": 70.94, "defecto": 13.93},
+        "Grado - Ciencias e Ingeniería": {"1": 13.93, "2": 23.68, "3": 51.08, "4": 70.94, "defecto": 13.93},
+        "Grado - Ciencias Sociales y Humanidades": {"1": 11.89, "2": 20.21, "3": 43.60, "4": 60.56, "defecto": 11.89},
         "Máster Habilitante": {"1": 13.50, "2": 22.95, "3": 49.50, "4": 68.75, "defecto": 13.50},
         "Máster No Habilitante": {"1": 18.20, "2": 30.94, "3": 66.75, "4": 92.70, "defecto": 18.20},
         "Doctorado": {"1": 110.00, "defecto": 110.00},
@@ -133,6 +142,9 @@ OFFICIAL_SIIU_PRICES_CATALOG = {
     },
     "Comunidad de Madrid": {
         "Grado": {"1": 21.39, "2": 36.36, "3": 78.44, "4": 108.94, "defecto": 21.39},
+        "Grado - Salud": {"1": 21.39, "2": 36.36, "3": 78.44, "4": 108.94, "defecto": 21.39},
+        "Grado - Ciencias e Ingeniería": {"1": 21.39, "2": 36.36, "3": 78.44, "4": 108.94, "defecto": 21.39},
+        "Grado - Ciencias Sociales y Humanidades": {"1": 21.39, "2": 36.36, "3": 78.44, "4": 108.94, "defecto": 21.39},
         "Máster Habilitante": {"1": 26.84, "2": 45.63, "3": 98.42, "4": 136.70, "defecto": 26.84},
         "Máster No Habilitante": {"1": 45.02, "2": 76.53, "3": 165.10, "4": 229.30, "defecto": 45.02},
         "Doctorado": {"1": 390.00, "defecto": 390.00},
@@ -265,16 +277,23 @@ def apply_price_info_to_degree(degree_dict: dict, price_info: dict, tipo_univ: s
 
 
 def load_precios_ccaa() -> dict:
-    """Carga el catálogo local de precios por CCAA, si existe y no está vacío."""
+    """Carga el catálogo local de precios por CCAA combinando el archivo persistido con el catálogo base oficial."""
     catalog = load_json_safe(PRECIOS_CCAA_JSON, default={})
-    if not isinstance(catalog, dict) or not catalog:
-        catalog = OFFICIAL_SIIU_PRICES_CATALOG
-        try:
-            os.makedirs(DATA_DIR, exist_ok=True)
-            atomic_json_dump(catalog, PRECIOS_CCAA_JSON)
-        except OSError as error:
-            logger.warning("No se pudo persistir el catálogo local de precios; se usará solo en memoria: %s", error)
-    return catalog
+    merged = dict(OFFICIAL_SIIU_PRICES_CATALOG)
+    if isinstance(catalog, dict) and catalog:
+        for ccaa_key, ccaa_val in catalog.items():
+            if ccaa_key in merged and isinstance(ccaa_val, dict) and isinstance(merged[ccaa_key], dict):
+                merged_ccaa = dict(merged[ccaa_key])
+                merged_ccaa.update(ccaa_val)
+                merged[ccaa_key] = merged_ccaa
+            else:
+                merged[ccaa_key] = ccaa_val
+    try:
+        os.makedirs(DATA_DIR, exist_ok=True)
+        atomic_json_dump(merged, PRECIOS_CCAA_JSON)
+    except OSError as error:
+        logger.warning("No se pudo persistir el catálogo local de precios: %s", error)
+    return merged
 
 
 def load_universidades_map() -> dict:
@@ -290,6 +309,30 @@ def load_universidades_map() -> dict:
         if code:
             univ_map[code] = u
     return univ_map
+
+
+def classify_degree_experimental_tier(titulo: str) -> str:
+    """Clasifica el grado en una de las tres categorías de experimentalidad oficial:
+    - Grado - Salud: Nivel 1 (Medicina, Enfermería, Veterinaria, Odontología, Farmacia...)
+    - Grado - Ciencias e Ingeniería: Nivel 2 (Ingenierías, Arquitectura, Física, Química, Biología, Informática...)
+    - Grado - Ciencias Sociales y Humanidades: Nivel 3 (Derecho, ADE, Historia, Filología, Educación...)
+    """
+    t = (titulo or "").lower()
+    if any(k in t for k in [
+        "medicina", "enfermería", "enfermeria", "infermeria", "odontología", "odontologia",
+        "veterinaria", "farmacia", "fisioterapia", "podología", "podologia",
+        "biomedicina", "ciencias biomédicas", "ciències biomèdiques", "nutrición", "nutricio"
+    ]):
+        return "Grado - Salud"
+    if any(k in t for k in [
+        "ingeniería", "ingenieria", "enginyeria", "enxeñaría", "ingeniaritza", "engineering",
+        "informática", "informatica", "informàtica", "software", "computadores", "datos", "data",
+        "química", "quimica", "física", "fisica", "biología", "biologia", "biotecnología", "biotecnologia",
+        "matemáticas", "matematicas", "matemàtiques", "geología", "geologia", "arquitectura", "biomédica",
+        "telecomunicación", "telecomunicació", "telecomunicaciones", "aeroespacial", "naval", "mecánica", "mecanica", "eléctrica", "electrica", "industrial"
+    ]):
+        return "Grado - Ciencias e Ingeniería"
+    return "Grado - Ciencias Sociales y Humanidades"
 
 
 def compute_degree_price(ccaa: str, tipo_univ: str, nivel_academico: str, titulo: str, precios_catalogo: dict = None) -> dict:
@@ -337,6 +380,7 @@ def compute_degree_price(ccaa: str, tipo_univ: str, nivel_academico: str, titulo
     # Determinar categoría académica oficial
     if "doctorado" in nivel_lower or "560" in nivel_lower or "900" in nivel_lower or "doctor" in titulo_lower:
         cat = "Doctorado"
+        cat_prices = ccaa_data.get(cat)
     elif "máster" in nivel_lower or "master" in nivel_lower or "431" in nivel_lower:
         # Másteres que habilitan para el ejercicio de profesiones reguladas en España (soporte multilingüe ES, CA, GL, EU)
         habilitantes = [
@@ -351,16 +395,20 @@ def compute_degree_price(ccaa: str, tipo_univ: str, nivel_academico: str, titulo
             "ingeniería de montes", "enginyeria de forests", "enxeñaría de montes",
             "ingeniería de minas", "enginyeria de mines", "enxeñaría de minas",
             "arquitectura", "arkitektura",
-            "psicología general sanitaria", "psicologia general sanitaria", "psicologia general sanitària", "osasun psikologia orokorra"
+            "psicología general sanitaria", "psicologia general sanitaria", "psicologia general sanitària", "osasun psikologia orokorra",
+            "náutica y transporte marítimo", "nautica y transporte maritimo", "nàutica i transport marítim", "gestión y planificación portuaria", "marina mercante",
+            "ingeniería química", "enginyeria química", "enxeñaría química", "ingenieria quimica"
         ]
         if any(h in titulo_lower for h in habilitantes):
             cat = "Máster Habilitante"
         else:
             cat = "Máster No Habilitante"
+        cat_prices = ccaa_data.get(cat)
     else:
         cat = "Grado"
+        exp_tier = classify_degree_experimental_tier(titulo)
+        cat_prices = ccaa_data.get(exp_tier) or ccaa_data.get(cat)
         
-    cat_prices = ccaa_data.get(cat)
     if not cat_prices:
         return {
             "precio_credito_ects": None,

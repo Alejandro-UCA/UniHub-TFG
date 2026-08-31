@@ -14,6 +14,8 @@ from parsers import (
 )
 from asignaturas_crawler import SubjectGuideCache, resolve_candidate_subject_guide_urls
 from downloader import RUCTDownloader, normalize_url
+from fase1_parte2_web_crawler import normalize_url as parte2_normalize_url
+from fase1_parte2_web_crawler import is_valid_web_url
 
 
 class TestPhase1AuditFixes(unittest.TestCase):
@@ -89,6 +91,18 @@ class TestPhase1AuditFixes(unittest.TestCase):
         rel = "../asignaturas/guia_101.pdf"
         resolved = normalize_url(rel, base_url=base)
         self.assertEqual(resolved, "https://www.uca.es/grado-informatica/asignaturas/guia_101.pdf")
+
+    def test_parte2_exposes_normalize_url_for_source_deduplication(self):
+        """Evita que Parte 2 vuelva a fallar al deduplicar una fuente directa."""
+        self.assertEqual(
+            parte2_normalize_url("https://www.uca.es/plan.pdf"),
+            "https://www.uca.es/plan.pdf",
+        )
+
+    def test_parte2_rejects_malformed_absolute_links_but_keeps_relative_links(self):
+        self.assertFalse(is_valid_web_url("http:///catalogo/guia.pdf"))
+        self.assertFalse(is_valid_web_url("javascript:alert(1)"))
+        self.assertTrue(is_valid_web_url("../catalogo/guia.pdf"))
 
     def test_resolve_candidate_guide_urls_subdomain_formatting(self):
         """Verifica que el generador de URLs candidatas no duplique www en subdominios."""

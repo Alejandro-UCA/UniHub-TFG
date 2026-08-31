@@ -27,6 +27,7 @@ Codigo/Crawler/Datos/*.json
 !Codigo/Crawler/Datos/precios_ccaa.json
 Codigo/Crawler/Datos/http_cache/
 Codigo/Crawler/Datos/run_manifests/
+Codigo/Crawler/Datos/runs/
 Codigo/Crawler/Datos/planes_estudio/
 Codigo/Crawler/Datos/discovery_cache/
 Codigo/Crawler/Datos/history/

@@ -6,6 +6,7 @@ import tempfile
 import unittest
 import threading
 import concurrent.futures
+from unittest.mock import patch
 
 # Agregar paths para importar modulos de Crawler
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
@@ -18,6 +19,7 @@ import checkpoint
 import error_logger
 import metrics
 import univ_web_crawler
+import fase1_parte2_web_crawler
 import spa_crawler
 import asignaturas_crawler
 import precios_crawler
@@ -49,6 +51,16 @@ class TestPhase1AuditV2Fixes(unittest.TestCase):
             capabilities["pypdfium2"] and capabilities["pytesseract_package"] and capabilities["tesseract_binary"],
         )
         self.assertIsInstance(capabilities["missing"], list)
+
+    def test_01c_part2_robots_policy_dependency_is_available(self):
+        crawler = fase1_parte2_web_crawler.UniversityWebCrawler.__new__(
+            fase1_parte2_web_crawler.UniversityWebCrawler
+        )
+        crawler.user_agent = "UniHub-test"
+        with patch.object(fase1_parte2_web_crawler.RobotsPolicy, "check", return_value=(True, None)):
+            allowed, delay = crawler.check_robots_allowed("https://university.example")
+        self.assertTrue(allowed)
+        self.assertIsNone(delay)
 
     def test_02_spa_crawler_re_import(self):
         """Verifica que spa_crawler tenga el modulo re disponible para sanitizar nombres de archivo."""
@@ -84,6 +96,30 @@ class TestPhase1AuditV2Fixes(unittest.TestCase):
         finally:
             if os.path.exists(tf_path):
                 os.remove(tf_path)
+
+    def test_03b_error_logs_are_isolated_by_run(self):
+        with tempfile.TemporaryDirectory() as directory:
+            first = os.path.join(directory, "runs", "run-a", "errores_crawler.json")
+            second = os.path.join(directory, "runs", "run-b", "errores_crawler.json")
+            os.makedirs(os.path.dirname(first), exist_ok=True)
+            os.makedirs(os.path.dirname(second), exist_ok=True)
+            first_logger = error_logger.ErrorLogger(filepath=first)
+            second_logger = error_logger.ErrorLogger(filepath=second)
+            first_logger.log_error("fase1", "001", "https://a.example", "fallo controlado")
+            second_logger.log_error("fase2", "002", "https://b.example", "otro fallo")
+            with open(first, encoding="utf-8") as handle:
+                first_entries = json.load(handle)
+            with open(second, encoding="utf-8") as handle:
+                second_entries = json.load(handle)
+            self.assertEqual([entry["id_entidad"] for entry in first_entries], ["001"])
+            self.assertEqual([entry["id_entidad"] for entry in second_entries], ["002"])
+
+    def test_03c_run_artifact_paths_are_safe_and_isolated(self):
+        paths = config.get_run_artifact_paths("run-test-01")
+        self.assertIn(os.path.join("runs", "run-test-01"), paths["errors"])
+        self.assertNotEqual(paths["errors"], config.ERRORES_JSON)
+        with self.assertRaises(ValueError):
+            config.get_run_artifact_paths("../")
 
     def test_04_checkpoint_multi_process_sqlite_consolidation(self):
         """Verifica que CheckpointManager consolide datos desde SQLite WAL cuando multiples instancias escriben."""
@@ -181,6 +217,34 @@ class TestPhase1AuditV2Fixes(unittest.TestCase):
         report = tracker.generate_report()
         self.assertEqual(report["rendimiento_tiempo"]["tiempo_espera_io_red_seg"], 1.25)
         self.assertEqual(report["operaciones_crawler"]["universidades_inspeccionadas"], 200)
+
+    def test_06b_metrics_record_real_work_of_parts_2_and_4(self):
+        tracker = metrics.PerformanceTracker()
+        tracker.record_part_result(2, {
+            "status": "completed",
+            "university_codes_processed": ["101", "102"],
+            "missing_degrees": 8,
+            "resolved_degrees": 3,
+            "propagated_degrees": 2,
+            "robots_denied": 1,
+        }, 12.5)
+        tracker.record_part_result(4, {
+            "status": "completed",
+            "university_codes_processed": ["101", "102"],
+            "plans_inspected": 7,
+            "enriched_degrees": 4,
+            "guide_subjects_considered": 20,
+            "guide_candidate_urls_generated": 40,
+            "guide_candidate_urls_pruned": 16,
+            "guide_candidate_urls_requested": 24,
+            "guide_robots_denied": 2,
+        }, 30.0)
+        report = tracker.generate_report()
+        self.assertEqual(report["operaciones_crawler"]["universidades_inspeccionadas"], 4)
+        self.assertEqual(report["operaciones_crawler"]["titulaciones_inspeccionadas"], 18)
+        self.assertEqual(report["operaciones_crawler"]["titulaciones_nuevas_o_actualizadas"], 9)
+        self.assertEqual(report["operaciones_por_parte"]["parte4"]["guide_candidate_urls_pruned"], 16)
+        self.assertEqual(report["duracion_por_parte_seg"]["parte2"], 12.5)
 
     def test_07_asignaturas_crawler_planes_dir_missing_handled(self):
         """Verifica que enrich_all_degrees_with_subject_guides maneje la ausencia de PLANES_DIR sin lanzar FileNotFoundError."""

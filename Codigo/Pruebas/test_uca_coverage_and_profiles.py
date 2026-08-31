@@ -3,6 +3,7 @@ import os
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 
 CRAWLER_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler"))
@@ -21,6 +22,7 @@ from fase1_parte4_asignaturas import (
 )
 from subject_guide_discovery import (
     build_subject_guide_discovery_index,
+    derive_subject_guide_urls_from_routes,
     extract_academic_link_records,
     parse_sitemap_locations,
     rank_discovered_guide_urls,
@@ -29,6 +31,7 @@ from subject_guide_quality import assess_subject_guide_quality
 from univ_web_crawler import extract_html_subjects, is_valid_curricular_table
 from config import ORGANIC_EXTERNAL_DOMAIN_DENYLIST
 from bs4 import BeautifulSoup
+import fase1_parte4_asignaturas as phase4
 
 
 class TestUcaCoverageAndProfiles(unittest.TestCase):
@@ -75,6 +78,105 @@ class TestUcaCoverageAndProfiles(unittest.TestCase):
             subject_code="123456",
         )
         self.assertEqual(ranked[0], "https://uni.es/guias/algebra-lineal-123456.pdf")
+
+    def test_route_derivation_learns_generic_academic_path_family(self):
+        derived = derive_subject_guide_urls_from_routes(
+            [{
+                "url": "https://portal.example/estudios/grado-informatica",
+                "anchor_text": "Grado en Informática",
+            }],
+            subject_name="Álgebra Lineal",
+            subject_code="123456",
+            limit=8,
+        )
+        urls = {item["url"] for item in derived}
+        self.assertTrue(any("/estudios/" in url for url in urls))
+        self.assertTrue(any("123456" in url for url in urls))
+        self.assertTrue(any("algebra-lineal" in url for url in urls))
+        self.assertTrue(all(item["source_kind"] == "derived_route" for item in derived))
+
+    def test_route_derivation_never_crosses_the_observed_host(self):
+        derived = derive_subject_guide_urls_from_routes(
+            ["https://portal.example/catalogo/degree/1"],
+            subject_name="Historia del Arte",
+            subject_code="987654",
+            limit=20,
+        )
+        self.assertTrue(derived)
+        self.assertTrue(all(url["url"].startswith("https://portal.example/") for url in derived))
+
+    def test_discovery_uses_bounded_spa_fallback_for_empty_hub(self):
+        class _Robots:
+            def check(self, _url):
+                return True, ""
+
+        class _Downloader:
+            robots_policy = _Robots()
+
+            def fetch_content(self, url, max_size_bytes=None):
+                if url.endswith("/guias/algebra-123456.pdf"):
+                    return b""
+                return b"<html><head><title>Portal</title></head><body></body></html>"
+
+        rendered = type("Rendered", (str,), {})(
+            "<html><body><a href='/guias/algebra-123456.pdf'>Guía docente Álgebra</a></body></html>"
+        )
+        with patch("spa_crawler.SPALayoutCrawler.get_shared_instance") as get_instance:
+            get_instance.return_value.render_spa_page.return_value = rendered
+            result = build_subject_guide_discovery_index(
+                _Downloader(), "https://spa-test.example", max_roots=1, max_files=18, max_urls=10
+            )
+        self.assertGreater(result["spa_attempts"], 0)
+        self.assertGreater(result["spa_fallbacks"], 0)
+        self.assertIn("https://spa-test.example/guias/algebra-123456.pdf", result["urls"])
+
+    def test_subject_guide_pdf_parser_enforces_page_and_text_limits(self):
+        class _Page:
+            def __init__(self, text):
+                self.text = text
+
+            def extract_text(self):
+                return self.text
+
+        class _Reader:
+            def __init__(self, _stream):
+                self.pages = [_Page("Página %s" % index) for index in range(6)]
+
+        with patch.object(phase4.pypdf, "PdfReader", _Reader), \
+                patch.object(phase4, "SUBJECT_GUIDE_PDF_MAX_PAGES", 2), \
+                patch.object(phase4, "SUBJECT_GUIDE_PDF_MAX_TEXT_CHARS", 100):
+            result = phase4.parse_subject_guide_pdf_stream(b"%PDF-test", "https://uni.example/guia.pdf")
+        self.assertEqual(result["pdf_paginas_procesadas"], 2)
+        self.assertEqual(result["pdf_paginas_totales"], 6)
+        self.assertTrue(result["pdf_parseo_limitado"])
+        self.assertEqual(result["motivo_parseo_limitado"], "max_pages")
+
+    def test_subject_guide_pdf_parser_uses_ocr_only_for_sparse_text(self):
+        class _Page:
+            def extract_text(self):
+                return ""
+
+        class _Reader:
+            def __init__(self, _stream):
+                self.pages = [_Page()]
+
+        class _OCR:
+            def __init__(self, **_kwargs):
+                pass
+
+            def extract_text_via_ocr(self, _payload):
+                return "Nombre: Álgebra Lineal\nCódigo: 123456\nCONTENIDOS\nTema 1. Vectores"
+
+        import ocr_parser
+        with patch.object(phase4.pypdf, "PdfReader", _Reader), \
+                patch.object(phase4, "SUBJECT_GUIDE_PDF_OCR_ENABLED", True), \
+                patch.object(phase4, "SUBJECT_GUIDE_PDF_OCR_MIN_TEXT_CHARS", 20), \
+                patch.object(ocr_parser, "OCR_AVAILABLE", True), \
+                patch.object(ocr_parser, "OCRPDFParser", _OCR):
+            result = phase4.parse_subject_guide_pdf_stream(b"%PDF-test", "https://uni.example/guia.pdf")
+        self.assertTrue(result["ocr_usado"])
+        self.assertEqual(result["metodo_extraccion"], "ocr")
+        self.assertEqual(result["codigo_asignatura"], "123456")
 
     def test_discovery_evidence_keeps_context_and_rejects_generic_news(self):
         html = b"""

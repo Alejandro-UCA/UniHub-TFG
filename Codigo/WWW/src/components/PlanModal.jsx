@@ -73,7 +73,14 @@ export default function PlanModal({ degree, onClose }) {
   const resumen = Array.isArray(curriculum.resumen_creditos) ? curriculum.resumen_creditos : [];
   const qualityStatus = curriculum.estado_calidad || degree.estado_calidad_plan || '';
   const isPlanUnavailable = Boolean(planData?.no_plan_disponible);
-  const isVerifiedPlan = ['verificado_boe', 'verificado_universidad', 'verificado_administracion'].includes(qualityStatus);
+  const isVerifiedPlan = [
+    'verificado_boe',
+    'verificado_web',
+    'verificado_universidad',
+    'verificado_administracion',
+    'completo',
+    'completo_normativo'
+  ].includes(qualityStatus);
   const isIncompletePlan = Boolean(qualityStatus && !isVerifiedPlan && !isPlanUnavailable);
   const qualityStatusLabel = {
     pendiente_revision: 'Pendiente de revisión',

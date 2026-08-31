@@ -13,7 +13,8 @@ import sys
 import time
 from typing import Iterable, Optional
 
-from checkpoint import CheckpointManager
+import config
+from checkpoint import CheckpointManager, atomic_json_dump
 from config import LOGS_DIR, PLANES_DIR, TEMP_PDF_DIR, HTTP_CACHE_DIR, HTTP_CACHE_MAX_BYTES, TITULACIONES_JSON, TARGET_UNIVERSITY_CODES, HTTP_CLIENT_LOG_LEVEL
 from fase1_parte1_ruct_boe import run_phase1_part1
 from fase1_parte2_web_crawler import run_phase1_part2
@@ -68,14 +69,14 @@ class _JsonLinesFormatter(logging.Formatter):
         return json.dumps(payload, ensure_ascii=False)
 
 
-def _configure_run_log(run_id: str) -> logging.Handler:
+def _configure_run_log(run_id: str, path: str | None = None) -> logging.Handler:
     """Añade un log JSONL por ejecución sin duplicar handlers entre runs."""
     global _active_log_handler
     root = logging.getLogger()
     if _active_log_handler is not None:
         root.removeHandler(_active_log_handler)
         _active_log_handler.close()
-    path = os.path.join(LOGS_DIR, f"fase1_{run_id}.jsonl")
+    path = path or os.path.join(LOGS_DIR, f"fase1_{run_id}.jsonl")
     handler = logging.FileHandler(path, mode="a", encoding="utf-8")
     handler.setLevel(logging.INFO)
     handler.setFormatter(_JsonLinesFormatter())
@@ -117,6 +118,7 @@ def _run_part(
     workers: Optional[int],
     metrics: PerformanceTracker,
     progress: ProgressEmitter,
+    robots_denied_university_codes: Optional[set[str]] = None,
 ) -> dict:
     """Invoca cualquier parte usando el contrato común de la migración."""
     runners = {
@@ -125,14 +127,17 @@ def _run_part(
         3: run_phase1_part3,
         4: run_phase1_part4,
     }
-    result = runners[part](
-        limit_universities=limit_universities,
-        limit_degrees=limit_degrees,
-        force=force,
-        max_workers=workers,
-        metrics_tracker=metrics,
-        progress_emitter=progress,
-    )
+    runner_kwargs = {
+        "limit_universities": limit_universities,
+        "limit_degrees": limit_degrees,
+        "force": force,
+        "max_workers": workers,
+        "metrics_tracker": metrics,
+        "progress_emitter": progress,
+    }
+    if part == 4:
+        runner_kwargs["robots_denied_university_codes"] = robots_denied_university_codes or set()
+    result = runners[part](**runner_kwargs)
     return result if isinstance(result, dict) else {"status": "completed"}
 
 
@@ -159,6 +164,7 @@ def run_phase1(
     os.makedirs(PLANES_DIR, exist_ok=True)
     os.makedirs(TEMP_PDF_DIR, exist_ok=True)
     os.makedirs(LOGS_DIR, exist_ok=True)
+    RunManifest.recover_orphaned_manifests()
 
     metrics = PerformanceTracker()
     progress = ProgressEmitter()
@@ -178,10 +184,27 @@ def run_phase1(
     )
     _active_manifest = manifest
     results["run_id"] = manifest.start()
-    _configure_run_log(results["run_id"])
+    run_artifacts = config.get_run_artifact_paths(results["run_id"])
+    # Un run nunca hereda errores de una campaña anterior. El JSON histórico
+    # queda como compatibilidad; el estado operativo vive en esta carpeta.
+    config.ERRORES_JSON = run_artifacts["errors"]
+    atomic_json_dump([], config.ERRORES_JSON)
+    set_metrics_context = getattr(metrics, "set_run_context", None)
+    if callable(set_metrics_context):
+        set_metrics_context(
+            results["run_id"],
+            filepath=run_artifacts["performance"],
+            latest_filepath=config.ESTADISTICAS_JSON,
+        )
+    run_artifacts["manifest"] = manifest.path
+    record_artifacts = getattr(manifest, "record_artifacts", None)
+    if callable(record_artifacts):
+        record_artifacts(run_artifacts)
+    _configure_run_log(results["run_id"], run_artifacts["structured_log"])
     failed_parts = []
     skipped_parts = []
     partial_parts = []
+    robots_denied_for_following_parts: set[str] = set()
 
     print("\n" + "=" * 76)
     print("                 UNIHUB · PIPELINE DE FASE 1")
@@ -208,6 +231,7 @@ def run_phase1(
                     workers=workers,
                     metrics=metrics,
                     progress=progress,
+                    robots_denied_university_codes=robots_denied_for_following_parts,
                 )
                 status = part_result.get("status", "completed")
                 part_result["status"] = status
@@ -228,7 +252,16 @@ def run_phase1(
 
             part_result["duration_seconds"] = round(time.time() - part_started_at, 2)
             results["parts"][f"parte{part}"] = part_result
+            record_metrics_part = getattr(metrics, "record_part_result", None)
+            if callable(record_metrics_part):
+                record_metrics_part(part, part_result, part_result["duration_seconds"])
             manifest.record_part(part, part_result)
+            if part == 2:
+                robots_denied_for_following_parts = {
+                    str(code).zfill(3)
+                    for code in (part_result.get("robots_denied_university_codes") or [])
+                    if str(code).strip()
+                }
 
             if status == "failed":
                 failed_parts.append(part)
@@ -264,7 +297,7 @@ def run_phase1(
             progress.set_failed(f"Fallaron las partes: {failed_parts}")
         elif skipped_parts or partial_parts:
             final_status = "skipped" if skipped_parts and len(skipped_parts) == len(results["parts"]) else "partial"
-            progress.set_failed(f"Partes incompletas/omitidas: partial={partial_parts}, skipped={skipped_parts}")
+            progress.set_partial(f"Partes incompletas/omitidas: partial={partial_parts}, skipped={skipped_parts}")
         elif results["etl_sync"]["status"] == "failed":
             # Los ficheros del crawler aún no se han cargado en la API: la
             # campaña no puede declararse completada hasta que eso ocurra.

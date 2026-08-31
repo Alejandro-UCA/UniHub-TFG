@@ -469,6 +469,7 @@ export default function TuitionCalculator() {
                 onChange={(e) => setSelectedDegreeCode(e.target.value)}
                 style={{
                   width: '100%',
+                  maxWidth: '100%',
                   padding: '0.75rem 1rem',
                   borderRadius: '8px',
                   background: 'var(--bg-card)',
@@ -476,14 +477,31 @@ export default function TuitionCalculator() {
                   border: '1px solid var(--border-light)',
                   fontWeight: 600,
                   fontSize: '0.95rem',
-                  outline: 'none'
+                  outline: 'none',
+                  boxSizing: 'border-box',
+                  textOverflow: 'ellipsis',
+                  overflow: 'hidden',
+                  cursor: 'pointer'
                 }}
               >
-                {degrees.map(d => (
-                  <option key={d.codigo_estudio} value={d.codigo_estudio}>
-                    [{d.nivel_academico ? d.nivel_academico.split('-')[0].trim() : 'Estudio'}] {d.titulo}
-                  </option>
-                ))}
+                {degrees.map(d => {
+                  const rawTitle = d.titulo || '';
+                  const cleanT = rawTitle
+                    .replace(/&oacute;/gi, 'ó')
+                    .replace(/&aacute;/gi, 'á')
+                    .replace(/&eacute;/gi, 'é')
+                    .replace(/&iacute;/gi, 'í')
+                    .replace(/&uacute;/gi, 'ú')
+                    .replace(/&ntilde;/gi, 'ñ')
+                    .replace(/&quot;/gi, '"')
+                    .replace(/&amp;/gi, '&');
+                  const level = d.nivel_academico ? d.nivel_academico.split('-')[0].trim() : 'Estudio';
+                  return (
+                    <option key={d.codigo_estudio} value={d.codigo_estudio}>
+                      [{level}] {cleanT}
+                    </option>
+                  );
+                })}
               </select>
             )}
           </div>

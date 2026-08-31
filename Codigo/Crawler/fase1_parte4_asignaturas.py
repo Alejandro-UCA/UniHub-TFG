@@ -34,8 +34,25 @@ from config import (
     MAX_SUBJECT_GUIDE_NO_CODE_CANDIDATES,
     FULL_REVALIDATION,
     TARGET_UNIVERSITY_CODES,
+    SUBJECT_GUIDE_DISCOVERY_MAX_URLS,
+    SUBJECT_GUIDE_DISCOVERY_CACHE_TTL_SECONDS,
+    SUBJECT_GUIDE_PDF_MAX_BYTES,
+    SUBJECT_GUIDE_PDF_MAX_PAGES,
+    SUBJECT_GUIDE_PDF_MAX_TEXT_CHARS,
+    SUBJECT_GUIDE_PDF_PARSE_TIMEOUT_SECONDS,
+    SUBJECT_GUIDE_PDF_OCR_ENABLED,
+    SUBJECT_GUIDE_PDF_OCR_MAX_PAGES,
+    SUBJECT_GUIDE_PDF_OCR_DPI,
+    SUBJECT_GUIDE_PDF_OCR_MIN_TEXT_CHARS,
 )
-from downloader import RUCTDownloader, SkipUniversityException, normalize_url, is_valid_http_url
+from downloader import (
+    RUCTDownloader,
+    HostCircuitOpenException,
+    SkipUniversityException,
+    normalize_url,
+    is_valid_http_url,
+    is_same_or_subdomain,
+)
 from checkpoint import atomic_json_dump, load_json_safe
 from data_quality import apply_plan_quality
 from parsers import sanitize_subject_name, classify_subject_caracter, detect_academic_language
@@ -44,13 +61,161 @@ from phase_common import iter_plan_files
 from cancellation import CrawlerCancelled, raise_if_shutdown_requested, is_shutdown_requested
 from crawl_ledger import CrawlLedger
 from sqlite_recovery import is_sqlite_corruption, quarantine_corrupt_sqlite
-from subject_guide_discovery import build_subject_guide_discovery_index, rank_discovered_guide_urls
+from subject_guide_discovery import (
+    build_subject_guide_discovery_index,
+    derive_subject_guide_urls_from_routes,
+    rank_discovered_guide_urls,
+)
 from subject_guide_quality import annotate_subject_guide_quality
 
 logger = logging.getLogger(__name__)
 
 CACHE_GUIAS_DB = SUBJECT_GUIDE_CACHE_DB
 _RESUMABLE_GUIDE_STATES = frozenset({"verificada", "no_encontrada", "respaldo_ultima_fuente"})
+
+
+class RunNegativeURLRegistry:
+    """Negativos exactos compartidos por todos los workers de un run.
+
+    La caché persistente se puede ignorar durante una revalidación total. Este
+    registro, en cambio, solo vive en la ejecución actual y evita que dos
+    trabajadores soliciten la misma URL después de un 404, un bloqueo de
+    robots o un error equivalente. Las claves se normalizan y se les elimina
+    el fragmento, que nunca se envía al servidor.
+    """
+
+    def __init__(self):
+        self._lock = threading.RLock()
+        self._urls: set[str] = set()
+        self._soft404_route_fingerprints: dict[tuple[str, str], set[str]] = {}
+        self._blocked_soft404_routes: set[str] = set()
+        self._circuit_hosts: set[str] = set()
+        self._host_observations: dict[str, dict[str, int]] = {}
+
+    @staticmethod
+    def _soft404_route(url: str) -> str:
+        normalized = RunNegativeURLRegistry._key(url)
+        if not normalized:
+            return ""
+        parsed = urlparse(normalized)
+        segments = [segment for segment in parsed.path.split("/") if segment]
+        if len(segments) <= 1:
+            route_path = "/"
+        else:
+            # Se elimina solo el último segmento, que en los portales suele
+            # ser el identificador o slug de la asignatura. Se conserva el
+            # resto para no bloquear de forma global un host heterogéneo.
+            route_path = "/" + "/".join(segments[:-1])
+        return f"{parsed.scheme}://{parsed.netloc.lower()}{route_path}"
+
+    @staticmethod
+    def _key(url: str) -> str:
+        normalized = normalize_url(str(url or "").strip())
+        if not normalized:
+            return ""
+        # No eliminamos parámetros: en portales académicos suelen identificar
+        # la asignatura o el curso. Solo el fragmento es siempre local.
+        return normalized.split("#", 1)[0].rstrip("/") or normalized
+
+    def add(self, url: str) -> bool:
+        key = self._key(url)
+        if not key:
+            return False
+        with self._lock:
+            already_present = key in self._urls
+            self._urls.add(key)
+            return not already_present
+
+    def contains(self, url: str) -> bool:
+        key = self._key(url)
+        if not key:
+            return False
+        with self._lock:
+            return key in self._urls
+
+    def mark_soft404(self, url: str, fingerprint: str, threshold: int = 3) -> bool:
+        """Aprende un patrón solo tras respuestas soft-404 repetidas.
+
+        Se exigen tres URLs distintas del mismo patrón y la misma huella de
+        contenido. Una sola portada genérica nunca basta para cerrar la ruta.
+        Devuelve si el patrón acaba de quedar bloqueado.
+        """
+        route = self._soft404_route(url)
+        fingerprint = str(fingerprint or "").strip()
+        if not route or not fingerprint:
+            return False
+        with self._lock:
+            fingerprints = self._soft404_route_fingerprints.setdefault((route, fingerprint), set())
+            fingerprints.add(self._key(url))
+            if len(fingerprints) >= max(2, int(threshold)):
+                was_blocked = route in self._blocked_soft404_routes
+                self._blocked_soft404_routes.add(route)
+                return not was_blocked
+        return False
+
+    def contains_soft404_route(self, url: str) -> bool:
+        route = self._soft404_route(url)
+        if not route:
+            return False
+        with self._lock:
+            return route in self._blocked_soft404_routes
+
+    @staticmethod
+    def _host(url: str) -> str:
+        return (urlparse(normalize_url(str(url or ""))).netloc or "").lower()
+
+    def mark_circuit_host(self, url: str) -> None:
+        host = self._host(url)
+        if host:
+            with self._lock:
+                self._circuit_hosts.add(host)
+
+    def contains_circuit_host(self, url: str) -> bool:
+        host = self._host(url)
+        if not host:
+            return False
+        with self._lock:
+            return host in self._circuit_hosts
+
+    def observe_host_result(self, url: str, *, negative: bool = False, positive: bool = False) -> None:
+        """Acumula evidencia efímera para el presupuesto adaptativo del host."""
+        host = self._host(url)
+        if not host:
+            return
+        with self._lock:
+            observation = self._host_observations.setdefault(
+                host, {"samples": 0, "negatives": 0, "positives": 0}
+            )
+            observation["samples"] += 1
+            if negative:
+                observation["negatives"] += 1
+            if positive:
+                observation["positives"] += 1
+
+    def contains_unproductive_host(
+        self,
+        url: str,
+        *,
+        minimum_samples: int = 16,
+        minimum_negative_ratio: float = 0.95,
+    ) -> bool:
+        """Indica si seguir generando peticiones al host ya no es rentable."""
+        host = self._host(url)
+        if not host:
+            return False
+        with self._lock:
+            observation = self._host_observations.get(host)
+            if not observation or observation["positives"]:
+                return False
+            samples = observation["samples"]
+            return (
+                samples >= max(1, int(minimum_samples))
+                and observation["negatives"] / samples >= float(minimum_negative_ratio)
+            )
+
+    def __len__(self) -> int:
+        with self._lock:
+            return len(self._urls)
 
 
 def _guide_state_is_recent(timestamp: str) -> bool:
@@ -234,6 +399,7 @@ class SubjectGuideCache:
                     if dir_path:
                         os.makedirs(dir_path, exist_ok=True)
                 conn = sqlite3.connect(self.db_path, timeout=SQLITE_CONNECT_TIMEOUT)
+                conn.execute("PRAGMA busy_timeout = 30000;")
                 conn.execute("PRAGMA journal_mode=WAL;")
                 conn.execute("PRAGMA synchronous=NORMAL;")
                 conn.execute("PRAGMA temp_store=MEMORY;")
@@ -569,13 +735,16 @@ def _subject_guide_identity_matches(expected_name: str, expected_code: str, pars
         return True
 
     # Los portales pueden mostrar una variante bilingüe o añadir/quitar el
-    # número de edición. Se tolera únicamente una relación de inclusión
-    # completa, nunca una coincidencia parcial de una sola palabra genérica.
+    # número de edición. Se tolera una relación de inclusión completa,
+    # exigiendo que para términos únicos (len == 1) el título destino sea una variante corta (<= 3 tokens).
     expected_set = set(expected_tokens)
     parsed_set = set(parsed_tokens)
     shared = expected_set & parsed_set
-    if len(shared) < 2:
+    min_required = min(2, len(expected_set), len(parsed_set))
+    if len(shared) < min_required:
         return False
+    if min_required == 1 and len(expected_tokens) == 1:
+        return expected_set.issubset(parsed_set) and len(parsed_tokens) <= 3
     return expected_set.issubset(parsed_set) or parsed_set.issubset(expected_set)
 
 
@@ -586,6 +755,9 @@ def resolve_candidate_subject_guide_urls(
     d_code: str = "",
     academic_year: str = None,
     discovery_index: dict | None = None,
+    negative_registry: RunNegativeURLRegistry | None = None,
+    negative_urls: set[str] | None = None,
+    pruning_stats: dict | None = None,
 ) -> list:
     """
     Generador universal de URLs candidatas para guías docentes del EEES.
@@ -628,6 +800,11 @@ def resolve_candidate_subject_guide_urls(
             _add_url(explicit_url)
 
     explicit_candidates = list(candidates)
+    discovered_items = (
+        discovery_index.get("records") or discovery_index.get("urls", [])
+        if discovery_index
+        else []
+    )
 
     asig_code = elem.get("codigo_asignatura") or elem.get("codigo")
     asig_nombre = elem.get("nombre_elemento", "")
@@ -645,6 +822,17 @@ def resolve_candidate_subject_guide_urls(
     slug = generate_subject_slug(asig_nombre)
     u_code_padded = str(u_code).zfill(3)
 
+    # Si el sitemap/hub solo expone rutas de catálogo, aprende la familia de
+    # ruta observada y deriva pocas rutas hermanas. Es una heurística basada
+    # en evidencia, sin perfiles declarativos ni ramas por universidad.
+    route_derived_items = derive_subject_guide_urls_from_routes(
+        discovered_items,
+        subject_name=asig_nombre,
+        subject_code=asig_code,
+        limit=max(1, candidate_limit * 2),
+    ) if discovered_items else []
+    enriched_discovered_items = list(discovered_items) + route_derived_items
+
     # 2. El catálogo de universidades es la fuente de verdad para el dominio.
     # El parámetro explícito tiene prioridad porque puede contener un portal
     # institucional legítimo que no sea el dominio raíz.
@@ -659,6 +847,34 @@ def resolve_candidate_subject_guide_urls(
 
     if domain:
         clean_domain = re.sub(r"^www\.", "", domain)
+        # Algunos catálogos registran el dominio raíz, pero publican todo el
+        # contenido académico bajo un host canónico (normalmente www). El
+        # índice ya consultado es evidencia válida para aprender ese host sin
+        # introducir perfiles declarativos por universidad.
+        discovered_host_counts = {}
+        for discovered_item in enriched_discovered_items:
+            discovered_url = (
+                discovered_item.get("url", "")
+                if isinstance(discovered_item, dict)
+                else discovered_item
+            )
+            discovered_host = (urlparse(str(discovered_url or "")).hostname or "").lower().rstrip(".")
+            if not discovered_host:
+                continue
+            try:
+                belongs_to_institution = is_same_or_subdomain(
+                    f"https://{discovered_host}",
+                    f"https://{clean_domain}",
+                )
+            except Exception:
+                belongs_to_institution = False
+            if belongs_to_institution:
+                discovered_host_counts[discovered_host] = discovered_host_counts.get(discovered_host, 0) + 1
+        learned_public_host = (
+            max(discovered_host_counts, key=discovered_host_counts.get)
+            if discovered_host_counts
+            else clean_domain
+        )
         # Códigos variantes (original y sin ceros a la izquierda)
         code_variants = [asig_code] if asig_code else []
         if asig_code and asig_code.startswith("0"):
@@ -673,9 +889,9 @@ def resolve_candidate_subject_guide_urls(
                 candidate_limit,
                 max(1, MAX_SUBJECT_GUIDE_NO_CODE_CANDIDATES),
             )
-            guide_domains = [clean_domain]
+            guide_domains = [learned_public_host]
             for guide_domain in dict.fromkeys(
-                re.sub(r"^www\.", "", str(candidate).strip().lower())
+                str(candidate).strip().lower()
                 for candidate in guide_domains
                 if candidate
             ):
@@ -699,14 +915,14 @@ def resolve_candidate_subject_guide_urls(
                 _add_url(f"https://guiasdocentes.{clean_domain}/{year}/{c_code}")
 
             if slug:
-                _add_url(f"https://www.{clean_domain}/es/estudios/estudios-oficiales/grados/asignatura/{slug}-{c_code}/")
-                _add_url(f"https://www.{clean_domain}/estudios/asignatura/{slug}-{c_code}/")
+                _add_url(f"https://{learned_public_host}/es/estudios/estudios-oficiales/grados/asignatura/{slug}-{c_code}/")
+                _add_url(f"https://{learned_public_host}/estudios/asignatura/{slug}-{c_code}/")
 
             if d_code:
-                _add_url(f"https://www.{clean_domain}/descargas/guias/{c_code}.pdf")
+                _add_url(f"https://{learned_public_host}/descargas/guias/{c_code}.pdf")
                 for year in year_candidates:
-                    _add_url(f"https://www.{clean_domain}/shared/es/estudios/estudios-oficiales/grados/.galleries/Programs-En/{c_code}_{d_code}_{year}_en.pdf")
-                    _add_url(f"https://www.{clean_domain}/shared/es/estudios/estudios-oficiales/grados/.galleries/Programs-Es/{c_code}_{d_code}_{year}_es.pdf")
+                    _add_url(f"https://{learned_public_host}/shared/es/estudios/estudios-oficiales/grados/.galleries/Programs-En/{c_code}_{d_code}_{year}_en.pdf")
+                    _add_url(f"https://{learned_public_host}/shared/es/estudios/estudios-oficiales/grados/.galleries/Programs-Es/{c_code}_{d_code}_{year}_es.pdf")
 
     if (
         url_directa
@@ -714,14 +930,21 @@ def resolve_candidate_subject_guide_urls(
     ):
         _add_url(url_directa)
 
-    discovered_items = discovery_index.get("records") or discovery_index.get("urls", []) if discovery_index else []
-    if discovered_items:
+    discovered_candidates = set()
+    route_derived_candidates = set()
+    if enriched_discovered_items:
         discovered = rank_discovered_guide_urls(
-            discovered_items,
+            enriched_discovered_items,
             subject_name=asig_nombre,
             subject_code=asig_code,
             limit=candidate_limit,
         )
+        direct_discovered_candidates = {
+            item.get("url", "") if isinstance(item, dict) else str(item)
+            for item in discovered_items
+        }
+        discovered_candidates = set(discovered) & direct_discovered_candidates
+        route_derived_candidates = set(discovered) - discovered_candidates
         # Las URLs descubiertas se colocan antes de las heurísticas genéricas:
         # un sitemap real tiene más evidencia que un subdominio inventado. La
         # URL explícita conservada en el plan mantiene siempre la prioridad.
@@ -735,6 +958,10 @@ def resolve_candidate_subject_guide_urls(
         score = 0
         if url in explicit_candidates:
             score += 1000
+        if url in discovered_candidates:
+            score += 500
+        if url in route_derived_candidates:
+            score += 300
         if asig_code and re.search(rf"(?<![a-z0-9]){re.escape(str(asig_code).lower())}(?![a-z0-9])", low):
             score += 250
         if slug and slug in low:
@@ -757,22 +984,75 @@ def resolve_candidate_subject_guide_urls(
     # El límite se aplica después de puntuar todo el conjunto, para que una
     # plantilla genérica no desplace una URL explícita o descubierta por sitemap.
     candidates = list(dict.fromkeys(candidate for candidate in candidates if is_valid_http_url(candidate)))
+    before_negative_filter = len(candidates)
+    negative_keys = {
+        RunNegativeURLRegistry._key(url)
+        for url in (negative_urls or set())
+        if RunNegativeURLRegistry._key(url)
+    }
+    if negative_keys or negative_registry is not None:
+        candidates = [
+            candidate for candidate in candidates
+            if RunNegativeURLRegistry._key(candidate) not in negative_keys
+            and not (negative_registry and negative_registry.contains(candidate))
+        ]
+
     candidates.sort(key=lambda item: (-_candidate_score(item)[0], _candidate_score(item)[1], _candidate_score(item)[2]))
-    evidence_count = len(set(explicit_candidates + (discovered if discovered_items else [])))
-    adaptive_limit = candidate_limit
-    if evidence_count:
-        # Cuando ya existe evidencia real (URL explícita o sitemap), no se
-        # necesitan doce plantillas heurísticas: se deja un pequeño margen de
-        # rescate sin multiplicar peticiones por asignatura.
-        adaptive_limit = min(candidate_limit, max(4, evidence_count + 3))
+    relevant_evidence_count = len(set(discovered or [])) if enriched_discovered_items else 0
+    has_explicit_evidence = bool(explicit_candidates)
+    has_route_evidence = bool(route_derived_candidates)
+    # El tamaño total del índice ya no influye. Una asignatura solo recibe un
+    # pequeño margen según sus evidencias relevantes, nunca miles de URLs del
+    # catálogo compartido de otra asignatura.
+    if has_explicit_evidence:
+        adaptive_limit = min(candidate_limit, 2)
+    elif relevant_evidence_count or has_route_evidence:
+        adaptive_limit = min(candidate_limit, 3)
     else:
-        # Sin evidencia explícita ni sitemap relevante, las plantillas son
-        # solo una última oportunidad. Mantenerlas acotadas evita convertir
-        # cada asignatura en una batería de peticiones a subdominios/rutas
-        # inventadas. El límite es genérico y sigue dejando margen para
-        # portales con código de asignatura.
-        adaptive_limit = min(candidate_limit, 4 if asig_code else 3)
-    candidates = candidates[:adaptive_limit]
+        adaptive_limit = min(candidate_limit, 3 if asig_code else 2)
+
+    # Diversificación estructural: una única URL por familia de ruta hasta
+    # agotar el presupuesto. Conserva host, directorios y claves de query,
+    # pero abstrae identificadores/curso/código para no repetir plantillas
+    # equivalentes con distinto formato.
+    def _route_family(url: str) -> str:
+        parsed = urlparse(url)
+        family_segments = []
+        for segment in parsed.path.strip("/").lower().split("/"):
+            if not segment:
+                continue
+            value = segment
+            if asig_code and str(asig_code).lower() in value:
+                value = value.replace(str(asig_code).lower(), "{subject}")
+            if slug and slug.lower() in value:
+                value = value.replace(slug.lower(), "{subject}")
+            value = re.sub(r"20\d{2}(?:[-_]20?\d{2})?", "{year}", value)
+            value = re.sub(r"(?<![a-z])\d{3,}(?![a-z])", "{id}", value)
+            family_segments.append(value)
+        query_keys = ",".join(sorted({key.lower() for key in re.findall(r"(?:^|&)\s*([^=&\s]+)=", parsed.query)}))
+        return f"{parsed.netloc.lower()}/{'/'.join(family_segments)}?{query_keys}"
+
+    selected = []
+    selected_families = set()
+    for candidate in candidates:
+        family = _route_family(candidate)
+        if family in selected_families:
+            continue
+        selected_families.add(family)
+        selected.append(candidate)
+        if len(selected) >= adaptive_limit:
+            break
+    # Si todas las alternativas caen en la misma familia, no descartamos la
+    # oportunidad de rescate por cumplir la cuota de diversidad.
+    if len(selected) < adaptive_limit:
+        selected.extend(candidate for candidate in candidates if candidate not in selected)
+        selected = selected[:adaptive_limit]
+    candidates = selected
+
+    if pruning_stats is not None:
+        pruning_stats["candidate_urls_before_filter"] = before_negative_filter
+        pruning_stats["candidate_urls_after_filter"] = len(candidates)
+        pruning_stats["candidate_urls_pruned"] = max(0, before_negative_filter - len(candidates))
 
     return candidates
 
@@ -920,6 +1200,7 @@ def parse_generic_eees_subject_guide(soup: BeautifulSoup, url: str) -> dict:
         "idioma": "Castellano",
         "departamento": "",
         "creditos": {"teoria": None, "practicas": None, "total_ects": None},
+        "requisitos_previos": [],
         "temario": [],
         "sistema_evaluacion": [],
         "criterios_evaluacion": "",
@@ -974,19 +1255,30 @@ def parse_generic_eees_subject_guide(soup: BeautifulSoup, url: str) -> dict:
                 res["departamento"] = value
 
     SECTIONS_MAP = {
-        "temario": ["temario", "continguts", "contenidos", "programa", "syllabus", "bloques temáticos", "plà docent"],
-        "evaluacion": ["evaluación", "avaluació", "evaluation", "sistema de evaluación", "criteris d'avaluació"],
-        "profesorado": ["profesorado", "professorat", "equip docent", "equipo docente", "teaching staff", "coordinación", "professors", "profesores"],
-        "bibliografia": ["bibliografía", "bibliografia", "bibliography", "referencias", "recursos d'aprenentatge"],
-        "competencias": ["competencias", "competències", "learning outcomes", "resultados de aprendizaje"]
+        "requisitos": ["requisitos", "prerrequisitos", "prerrequisits", "requisits previs", "recomanacions", "aurretiazko baldintzak", "requisitos previos", "prerequisites", "incompatibilidades", "incompatibilitats"],
+        "temario": ["temario", "continguts", "contenidos", "programa", "syllabus", "bloques temáticos", "plà docent", "edukiak", "contidos", "course outline", "thematic units"],
+        "evaluacion": ["evaluación", "evaluacion", "avaluació", "avaluacio", "evaluation", "sistema de evaluación", "criteris d'avaluació", "ebaluazioa", "cualificación", "assessment"],
+        "profesorado": ["profesorado", "professorat", "equip docent", "equipo docente", "teaching staff", "coordinación", "professors", "profesores", "irakasleak", "docentes", "faculty"],
+        "bibliografia": ["bibliografía", "bibliografia", "bibliography", "referencias", "recursos d'aprenentatge", "bibliografia basica", "reading list"],
+        "competencias": ["competencias", "competències", "competencias básicas", "competencias específicas", "learning outcomes", "resultados de aprendizaje", "gaitasunak", "competencias xerais", "skills"]
     }
 
     headings = soup.find_all(["h2", "h3", "h4", "dt", "strong", "legend"])
     for h in headings:
         h_text = h.get_text(strip=True).lower()
-        
+
+        # 0. Requisitos previos e incompatibilidades
+        if any(kw in h_text for kw in SECTIONS_MAP["requisitos"]):
+            next_node = h.find_next_sibling(["ul", "ol", "div", "table", "p", "dd"])
+            if next_node:
+                for it in next_node.find_all(["li", "p", "tr"]):
+                    req_txt = " ".join(it.get_text(" ", strip=True).split())
+                    if req_txt and 4 <= len(req_txt) <= 300 and not is_spurious_or_administrative_subject(req_txt):
+                        if req_txt not in res["requisitos_previos"]:
+                            res["requisitos_previos"].append(req_txt)
+
         # 1. Temario
-        if any(kw in h_text for kw in SECTIONS_MAP["temario"]):
+        elif any(kw in h_text for kw in SECTIONS_MAP["temario"]):
             next_node = h.find_next_sibling(["ul", "ol", "div", "table", "p", "dd"])
             if next_node:
                 items = next_node.find_all(["li", "p", "tr"])
@@ -994,7 +1286,7 @@ def parse_generic_eees_subject_guide(soup: BeautifulSoup, url: str) -> dict:
                     txt = it.get_text(strip=True)
                     if txt and 4 <= len(txt) <= 250 and not is_spurious_or_administrative_subject(txt):
                         res["temario"].append({"titulo": txt, "contenidos": []})
-        
+
         # 2. Evaluación
         elif any(kw in h_text for kw in SECTIONS_MAP["evaluacion"]):
             next_node = h.find_next_sibling(["div", "table", "p", "ul", "dd"])
@@ -1016,7 +1308,19 @@ def parse_generic_eees_subject_guide(soup: BeautifulSoup, url: str) -> dict:
                         entry = {"tarea": task, "instrumentos": " ".join(cells[1:]), "ponderacion_porcentaje": float(percent.group(1).replace(",", "."))}
                         if not any(existing == entry for existing in res["sistema_evaluacion"]):
                             res["sistema_evaluacion"].append(entry)
-        
+                # Extracción desde texto continuo con porcentajes (ej. "Examen: 60%, Prácticas: 40%")
+                if not res["sistema_evaluacion"] and criteria:
+                    for m_pond in re.finditer(r"([^.,;\n:()]+?)\s*:\s*(\d{1,3}(?:[.,]\d+)?)\s*%", criteria):
+                        task_name = m_pond.group(1).strip()
+                        if 3 <= len(task_name) <= 80:
+                            entry = {
+                                "tarea": task_name,
+                                "instrumentos": task_name,
+                                "ponderacion_porcentaje": float(m_pond.group(2).replace(",", "."))
+                            }
+                            if not any(existing == entry for existing in res["sistema_evaluacion"]):
+                                res["sistema_evaluacion"].append(entry)
+
         # 3. Profesorado
         elif any(kw in h_text for kw in SECTIONS_MAP["profesorado"]):
             next_node = h.find_next_sibling(["ul", "ol", "div", "table", "p", "dd"])
@@ -1024,8 +1328,19 @@ def parse_generic_eees_subject_guide(soup: BeautifulSoup, url: str) -> dict:
                 for it in next_node.find_all(["li", "tr", "p"]):
                     p_txt = it.get_text(strip=True)
                     if p_txt and 4 <= len(p_txt) <= 80:
-                        res["profesorado"].append({"nombre_completo": p_txt, "coordinador": False})
-        
+                        email = ""
+                        mailto = it.find("a", href=re.compile(r"^mailto:", re.I))
+                        if mailto and mailto.get("href"):
+                            email = mailto["href"].replace("mailto:", "").strip()
+                        if not email:
+                            m_em = re.search(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b", it.get_text())
+                            if m_em:
+                                email = m_em.group(0)
+                        prof_item = {"nombre_completo": p_txt, "coordinador": False}
+                        if email:
+                            prof_item["email"] = email
+                        res["profesorado"].append(prof_item)
+
         # 4. Bibliografía
         elif any(kw in h_text for kw in SECTIONS_MAP["bibliografia"]):
             next_node = h.find_next_sibling(["ul", "ol", "div", "p", "dd"])
@@ -1077,12 +1392,77 @@ def parse_subject_guide_pdf_stream(pdf_bytes: bytes, url: str) -> dict:
         "bibliografia": [],
         "competencias": [],
         "resultados_aprendizaje": [],
+        "metodo_extraccion": "texto_nativo",
+        "ocr_usado": False,
+        "pdf_paginas_procesadas": 0,
+        "pdf_paginas_totales": 0,
+        "pdf_parseo_limitado": False,
     }
 
+    if not isinstance(pdf_bytes, (bytes, bytearray)) or len(pdf_bytes) > max(1, SUBJECT_GUIDE_PDF_MAX_BYTES):
+        res["pdf_parseo_limitado"] = True
+        res["motivo_parseo_limitado"] = "max_bytes"
+        res["pdf_parse_duracion_seg"] = 0.0
+        return res
+
+    parse_started = time.perf_counter()
     try:
         reader = pypdf.PdfReader(io.BytesIO(pdf_bytes))
-        pages_text = [p.extract_text() or "" for p in reader.pages]
+        try:
+            total_pages = len(reader.pages)
+        except Exception:
+            total_pages = 0
+        res["pdf_paginas_totales"] = total_pages
+        max_pages = min(max(1, SUBJECT_GUIDE_PDF_MAX_PAGES), total_pages) if total_pages else 0
+        pages_text = []
+        total_chars = 0
+        for page_number in range(max_pages):
+            if time.perf_counter() - parse_started >= max(0.1, SUBJECT_GUIDE_PDF_PARSE_TIMEOUT_SECONDS):
+                res["pdf_parseo_limitado"] = True
+                res["motivo_parseo_limitado"] = "timeout"
+                break
+            try:
+                page_text = reader.pages[page_number].extract_text() or ""
+            except Exception as page_error:
+                logger.debug("No se pudo extraer la página %s de %s: %s", page_number + 1, url, page_error)
+                page_text = ""
+            remaining = max(0, SUBJECT_GUIDE_PDF_MAX_TEXT_CHARS - total_chars)
+            if len(page_text) > remaining:
+                page_text = page_text[:remaining]
+                res["pdf_parseo_limitado"] = True
+                res["motivo_parseo_limitado"] = "max_text_chars"
+            pages_text.append(page_text)
+            total_chars += len(page_text)
+            res["pdf_paginas_procesadas"] += 1
+            if total_chars >= SUBJECT_GUIDE_PDF_MAX_TEXT_CHARS:
+                break
+        if max_pages < total_pages and not res["pdf_parseo_limitado"]:
+            res["pdf_parseo_limitado"] = True
+            res["motivo_parseo_limitado"] = "max_pages"
         full_text = "\n".join(pages_text)
+
+        # OCR es una segunda oportunidad únicamente para PDFs escaneados o
+        # con una capa de texto prácticamente vacía. La disponibilidad de
+        # Tesseract/las librerías es opcional y nunca convierte un fallo de
+        # OCR en un error de la ejecución.
+        if (
+            SUBJECT_GUIDE_PDF_OCR_ENABLED
+            and len(full_text.strip()) < max(0, SUBJECT_GUIDE_PDF_OCR_MIN_TEXT_CHARS)
+            and time.perf_counter() - parse_started < max(0.1, SUBJECT_GUIDE_PDF_PARSE_TIMEOUT_SECONDS)
+        ):
+            try:
+                from ocr_parser import OCRPDFParser, OCR_AVAILABLE
+                if OCR_AVAILABLE:
+                    ocr_text = OCRPDFParser(
+                        dpi=max(72, SUBJECT_GUIDE_PDF_OCR_DPI),
+                        max_pages=max(1, SUBJECT_GUIDE_PDF_OCR_MAX_PAGES),
+                    ).extract_text_via_ocr(bytes(pdf_bytes))
+                    if ocr_text and len(ocr_text.strip()) >= max(10, SUBJECT_GUIDE_PDF_OCR_MIN_TEXT_CHARS):
+                        full_text = ocr_text[:max(1, SUBJECT_GUIDE_PDF_MAX_TEXT_CHARS)]
+                        res["metodo_extraccion"] = "ocr"
+                        res["ocr_usado"] = True
+            except Exception as ocr_error:
+                logger.debug("OCR no disponible para %s: %s", url, ocr_error)
         lines = [l.strip() for l in full_text.splitlines() if l.strip()]
 
         is_structured_guide = _looks_like_structured_learning_guide(lines)
@@ -1193,6 +1573,7 @@ def parse_subject_guide_pdf_stream(pdf_bytes: bytes, url: str) -> dict:
     except Exception as e:
         logger.warning(f"Error al procesar stream PDF de guía docente: {e}")
 
+    res["pdf_parse_duracion_seg"] = round(max(0.0, time.perf_counter() - parse_started), 6)
     return res
 
 
@@ -1488,13 +1869,13 @@ def _normalize_evaluation_breakdown(guide: dict) -> dict:
         except (ValueError, TypeError):
             continue
         text = f"{item.get('tarea', '')} {item.get('instrumentos', '')}".lower()
-        if any(w in text for w in ("examen", "prueba final", "exàmen", "final exam", "avaluacio final", "evaluacion final")):
+        if any(w in text for w in ("examen", "exame", "azterketa", "prueba final", "proba final", "exàmen", "final exam", "written exam", "test final", "avaluacio final", "evaluacion final", "azterketa idatzia")):
             breakdown["examen_final_porcentaje"] += val
-        elif any(w in text for w in ("práctica", "practica", "laboratorio", "pràctica", "lab", "taller")):
+        elif any(w in text for w in ("práctica", "practica", "pràctica", "laboratorio", "laborategi", "praktikak", "lab", "taller", "obradoiro", "laboratory", "practicum")):
             breakdown["practicas_porcentaje"] += val
-        elif any(w in text for w in ("teoría", "teoria", "teórico", "theory", "continguts teorics")):
+        elif any(w in text for w in ("teoría", "teoria", "teórico", "teoriko", "theory", "continguts teorics")):
             breakdown["teoria_porcentaje"] += val
-        elif any(w in text for w in ("continua", "seguimiento", "participación", "contínua", "continuous")):
+        elif any(w in text for w in ("continua", "contínua", "etengabe", "etengabeko", "avaliación continua", "avaluació continuada", "continuous", "seguimiento", "participación", "coursework")):
             breakdown["evaluacion_continua_porcentaje"] += val
         else:
             breakdown["otras_actividades_porcentaje"] += val
@@ -1578,18 +1959,104 @@ def _guide_has_content(parsed_guide: dict) -> bool:
     )
 
 
+_SOFT_404_MARKERS = (
+    "404", "not found", "page not found", "página no encontrada",
+    "pagina no encontrada", "recurso no encontrado", "página no existe",
+    "pagina no existe", "contenido no encontrado", "recurso no disponible",
+    "page doesn’t exist", "page doesn't exist",
+)
+_GENERIC_LANDING_TITLES = frozenset({
+    "inicio", "home", "welcome", "bienvenido", "bienvenida", "portal",
+    "universidad", "universidad de", "error", "acceso denegado",
+})
+
+
+def detect_soft_404_response(
+    requested_url: str,
+    response_url: str,
+    body: bytes,
+    content_type: str = "",
+) -> tuple[bool, str, str]:
+    """Detecta páginas 200 que son realmente un 404 o una portada genérica.
+
+    La detección es deliberadamente estricta: exige un marcador inequívoco,
+    una redirección a una portada/error o un título genérico junto con una
+    ruta de aterrizaje. Devuelve ``(detectado, huella, motivo)``.
+    """
+    if not body or len(body) > MAX_RESPONSE_SIZE_BYTES or "pdf" in str(content_type or "").casefold():
+        return False, "", ""
+    try:
+        soup = BeautifulSoup(body, "html.parser")
+    except Exception:
+        return False, "", ""
+    title = soup.title.get_text(" ", strip=True) if soup.title else ""
+    headings = " ".join(node.get_text(" ", strip=True) for node in soup.find_all(["h1", "h2"], limit=3))
+    visible_text = " ".join(soup.stripped_strings)
+    title_low = " ".join(title.casefold().split())
+    heading_low = " ".join(headings.casefold().split())
+    text_low = " ".join(visible_text.casefold().split())
+    canonical = soup.find("link", rel=lambda value: value and "canonical" in value)
+    canonical_url = normalize_url(str(canonical.get("href") or ""), base_url=response_url) if canonical else ""
+    requested = normalize_url(requested_url)
+    response = normalize_url(response_url or requested_url)
+    response_path = urlparse(response).path.strip("/").casefold()
+    requested_path = urlparse(requested).path.strip("/").casefold()
+
+    marker = next((item for item in _SOFT_404_MARKERS if item in title_low or item in heading_low), "")
+    if not marker:
+        marker = next((item for item in _SOFT_404_MARKERS if item in text_low[:5000]), "")
+    redirected_to_landing = bool(
+        response
+        and requested
+        and response != requested
+        and len(response_path.split("/")) <= 1
+        and len(requested_path.split("/")) >= 2
+    )
+    canonical_landing = bool(
+        canonical_url
+        and requested
+        and canonical_url != requested
+        and len(urlparse(canonical_url).path.strip("/").split("/")) <= 1
+        and len(requested_path.split("/")) >= 2
+    )
+    generic_landing = bool(
+        (title_low in _GENERIC_LANDING_TITLES or heading_low in _GENERIC_LANDING_TITLES)
+        and (not requested_path or len(requested_path.split("/")) >= 2)
+        and (redirected_to_landing or canonical_landing or len(text_low) < 1200)
+    )
+    if not (marker or redirected_to_landing or canonical_landing or generic_landing):
+        return False, "", ""
+
+    fingerprint_source = "|".join((
+        title_low,
+        heading_low[:300],
+        canonical_url or response,
+        re.sub(r"\s+", " ", visible_text.casefold())[:2000],
+    ))
+    fingerprint = hashlib.sha256(fingerprint_source.encode("utf-8", errors="ignore")).hexdigest()
+    reason = "marcador_404" if marker else "redireccion_portada" if redirected_to_landing else "canonical_portada" if canonical_landing else "portada_generica"
+    return True, fingerprint, reason
+
+
 _DOMAIN_METRIC_FIELDS = (
     "candidate_urls_generated", "candidate_urls_requested", "cache_hits",
     "negative_cache_hits", "robots_denied", "http_200", "http_404",
-    "http_other", "request_errors",
+    "http_other", "request_errors", "soft404_detected", "soft404_route_skips",
+    "circuit_host_skips", "unproductive_host_skips",
 )
 _UNIVERSITY_METRIC_FIELDS = (
     "guide_subjects_considered", "guide_subjects_not_found", "processed_guides",
     "cached_hits", "resumed_subjects", "negative_cache_hits",
     "guide_discovery_cache_hits",
+    "guide_discovery_spa_attempts", "guide_discovery_spa_fallbacks",
+    "guide_shared_discovery_urls",
     "guide_candidate_urls_generated", "guide_candidate_urls_requested",
+    "guide_candidate_urls_pruned",
     "guide_http_200", "guide_http_404", "guide_http_other", "guide_request_errors",
     "guide_robots_denied", "guide_identity_rejected", "guide_spa_fallbacks",
+    "guide_soft404_detected", "guide_soft404_route_skips", "guide_circuit_host_skips",
+    "guide_unproductive_host_skips",
+    "guide_pdf_parse_count", "guide_pdf_parse_time", "guide_ocr_used",
     "enriched_degrees", "promoted_candidates",
 )
 
@@ -1676,7 +2143,14 @@ def _select_plan_items_for_limit(plan_items: list[dict], limit_degrees: int | No
 # PROCESAMIENTO SECUENCIAL POR UNIVERSIDAD (CORTESÍA ÉTICA)
 # =============================================================================
 
-def _process_single_university_guides(u_code: str, degree_items: list, cache: SubjectGuideCache, downloader: RUCTDownloader, force: bool = False) -> dict:
+def _process_single_university_guides(
+    u_code: str,
+    degree_items: list,
+    cache: SubjectGuideCache,
+    downloader: RUCTDownloader,
+    force: bool = False,
+    negative_registry: RunNegativeURLRegistry | None = None,
+) -> dict:
     """
     Procesa de forma 100% secuencial y cortés todas las titulaciones de una única universidad.
     Garantiza que ningún dominio universitario reciba peticiones simultáneas.
@@ -1696,14 +2170,25 @@ def _process_single_university_guides(u_code: str, degree_items: list, cache: Su
         "guide_discovery_urls": 0,
         "guide_discovery_blocked": 0,
         "guide_discovery_cache_hits": 0,
+        "guide_discovery_spa_attempts": 0,
+        "guide_discovery_spa_fallbacks": 0,
+        "guide_shared_discovery_urls": 0,
         "guide_spa_fallbacks": 0,
         "guide_candidate_urls_generated": 0,
         "guide_candidate_urls_requested": 0,
+        "guide_candidate_urls_pruned": 0,
         "guide_http_200": 0,
         "guide_http_404": 0,
         "guide_http_other": 0,
         "guide_request_errors": 0,
         "guide_robots_denied": 0,
+        "guide_soft404_detected": 0,
+        "guide_soft404_route_skips": 0,
+        "guide_circuit_host_skips": 0,
+        "guide_unproductive_host_skips": 0,
+        "guide_pdf_parse_count": 0,
+        "guide_pdf_parse_time": 0.0,
+        "guide_ocr_used": 0,
         "guide_quality_score_total": 0.0,
         "guide_quality_scored": 0,
         "resumed_subjects": 0,
@@ -1721,6 +2206,7 @@ def _process_single_university_guides(u_code: str, degree_items: list, cache: Su
     # esta misma ejecución. La caché persistente sigue respetando su política
     # normal fuera de ``force``/``FULL_REVALIDATION``.
     run_negative_urls: set[str] = set()
+    negative_registry = negative_registry or RunNegativeURLRegistry()
 
     for item in degree_items:
         raise_if_shutdown_requested()
@@ -1808,31 +2294,87 @@ def _process_single_university_guides(u_code: str, degree_items: list, cache: Su
             # 2. Resolución de URLs candidatas mediante el Fast-Path Universal
             if not discovery_attempted:
                 discovery_attempted = True
+                shared_records = []
+                get_discovery = getattr(getattr(downloader, "ledger", None), "get_discovery_evidence", None)
+                if callable(get_discovery):
+                    shared_records = get_discovery(
+                        str(u_code).zfill(3),
+                        limit=SUBJECT_GUIDE_DISCOVERY_MAX_URLS,
+                        max_age_seconds=SUBJECT_GUIDE_DISCOVERY_CACHE_TTL_SECONDS,
+                    ) or []
+                    stats["guide_shared_discovery_urls"] = len(shared_records)
                 if u_web:
                     discovery_index = build_subject_guide_discovery_index(downloader, u_web)
                     stats["guide_discovery_cache_hits"] += int(bool(discovery_index.get("cache_hit")))
+                    stats["guide_discovery_spa_attempts"] += int(discovery_index.get("spa_attempts", 0) or 0)
+                    stats["guide_discovery_spa_fallbacks"] += int(discovery_index.get("spa_fallbacks", 0) or 0)
                     stats["guide_discovery_files"] += int(discovery_index.get("files_read", 0))
                     stats["guide_discovery_urls"] += len(
                         discovery_index.get("records") or discovery_index.get("urls", [])
                     )
                     stats["guide_discovery_blocked"] += int(discovery_index.get("blocked", 0))
+                    local_records = discovery_index.get("records") or discovery_index.get("urls", [])
+                    combined_records = []
+                    seen_discovery_urls = set()
+                    for record in list(shared_records) + list(local_records):
+                        candidate_url = record.get("url") if isinstance(record, dict) else record
+                        candidate_url = normalize_url(str(candidate_url or ""))
+                        if candidate_url and candidate_url not in seen_discovery_urls:
+                            seen_discovery_urls.add(candidate_url)
+                            if isinstance(record, dict):
+                                enriched_record = dict(record)
+                                enriched_record["url"] = candidate_url
+                            else:
+                                enriched_record = {"url": candidate_url}
+                            combined_records.append(enriched_record)
+                    discovery_index = dict(discovery_index)
+                    discovery_index["records"] = combined_records
+                    discovery_index["urls"] = [record["url"] for record in combined_records]
+                elif shared_records:
+                    discovery_index = {
+                        "records": shared_records,
+                        "urls": [record.get("url", "") for record in shared_records],
+                    }
+            pruning_stats = {}
             candidate_urls = resolve_candidate_subject_guide_urls(
                 elem=elem,
                 u_code=u_code,
                 u_web=u_web,
                 d_code=d_code,
                 discovery_index=discovery_index,
+                negative_registry=negative_registry,
+                negative_urls=run_negative_urls,
+                pruning_stats=pruning_stats,
             )
             stats["guide_candidate_urls_generated"] += len(candidate_urls)
+            stats["guide_candidate_urls_pruned"] += int(pruning_stats.get("candidate_urls_pruned", 0) or 0)
             for candidate_url in candidate_urls:
                 _domain_metrics(stats, candidate_url)["candidate_urls_generated"] += 1
 
             # 3. Descarga y parsing híbrido en memoria (HTML / PDF stream)
             found_current_guide = False
             for c_url in candidate_urls:
-                if c_url in run_negative_urls or (not revalidate_sources and cache.is_negative(c_url)):
+                if (
+                    negative_registry.contains(c_url)
+                    or c_url in run_negative_urls
+                    or (not revalidate_sources and cache.is_negative(c_url))
+                ):
                     stats["negative_cache_hits"] += 1
                     _domain_metrics(stats, c_url)["negative_cache_hits"] += 1
+                    continue
+                if negative_registry.contains_soft404_route(c_url):
+                    stats["negative_cache_hits"] += 1
+                    stats["guide_soft404_route_skips"] += 1
+                    _domain_metrics(stats, c_url)["negative_cache_hits"] += 1
+                    _domain_metrics(stats, c_url)["soft404_route_skips"] += 1
+                    continue
+                if negative_registry.contains_circuit_host(c_url):
+                    stats["guide_circuit_host_skips"] += 1
+                    _domain_metrics(stats, c_url)["circuit_host_skips"] += 1
+                    continue
+                if negative_registry.contains_unproductive_host(c_url):
+                    stats["guide_unproductive_host_skips"] += 1
+                    _domain_metrics(stats, c_url)["unproductive_host_skips"] += 1
                     continue
 
                 if not revalidate_sources:
@@ -1857,6 +2399,7 @@ def _process_single_university_guides(u_code: str, degree_items: list, cache: Su
                         elem["fecha_ultima_comprobacion_guia"] = datetime.now().isoformat()
                         stats["cached_hits"] += 1
                         _domain_metrics(stats, c_url)["cache_hits"] += 1
+                        negative_registry.observe_host_result(c_url, positive=True)
                         degree_modified = True
                         found_current_guide = True
                         break
@@ -1864,6 +2407,7 @@ def _process_single_university_guides(u_code: str, degree_items: list, cache: Su
                     allowed, _ = downloader.robots_policy.check(c_url)
                     if not allowed:
                         run_negative_urls.add(c_url)
+                        negative_registry.add(c_url)
                         stats["guide_robots_denied"] += 1
                         _domain_metrics(stats, c_url)["robots_denied"] += 1
                         if not revalidate_sources:
@@ -1889,7 +2433,27 @@ def _process_single_university_guides(u_code: str, degree_items: list, cache: Su
                                 chunks.append(chunk)
                         body = b"".join(chunks)
                         downloader.store_response_content(c_url, resp, body)
+                        soft404, soft404_fingerprint, soft404_reason = detect_soft_404_response(
+                            c_url,
+                            str(getattr(resp, "url", "") or c_url),
+                            body,
+                            c_type,
+                        )
+                        if soft404:
+                            stats["guide_soft404_detected"] += 1
+                            _domain_metrics(stats, c_url)["soft404_detected"] += 1
+                            run_negative_urls.add(c_url)
+                            negative_registry.add(c_url)
+                            negative_registry.observe_host_result(c_url, negative=True)
+                            negative_registry.mark_soft404(c_url, soft404_fingerprint)
+                            cache.mark_negative(c_url, reason=f"soft404:{soft404_reason}")
+                            logger.info("[soft-404] Respuesta 200 descartada para %s (%s)", c_url, soft404_reason)
+                            continue
                         parsed_guide = parse_subject_guide(c_url, body, c_type)
+                        if c_url.lower().endswith(".pdf") or "application/pdf" in c_type.lower() or body.startswith(b"%PDF"):
+                            stats["guide_pdf_parse_count"] += 1
+                            stats["guide_pdf_parse_time"] += float(parsed_guide.get("pdf_parse_duracion_seg", 0.0) or 0.0)
+                            stats["guide_ocr_used"] += int(bool(parsed_guide.get("ocr_usado")))
                         identity_ok = _subject_guide_identity_matches(
                             asig_name, asig_code, parsed_guide, source_url=c_url
                         )
@@ -1915,6 +2479,10 @@ def _process_single_university_guides(u_code: str, degree_items: list, cache: Su
                                     rendered_type = ""
                                 if rendered_body:
                                     rendered_guide = parse_subject_guide(c_url, rendered_body, rendered_type)
+                                    if "application/pdf" in rendered_type.lower() or rendered_body.startswith(b"%PDF"):
+                                        stats["guide_pdf_parse_count"] += 1
+                                        stats["guide_pdf_parse_time"] += float(rendered_guide.get("pdf_parse_duracion_seg", 0.0) or 0.0)
+                                        stats["guide_ocr_used"] += int(bool(rendered_guide.get("ocr_usado")))
                                     if _subject_guide_identity_matches(asig_name, asig_code, rendered_guide, source_url=c_url):
                                         parsed_guide = rendered_guide
                                         identity_ok = True
@@ -1926,6 +2494,9 @@ def _process_single_university_guides(u_code: str, degree_items: list, cache: Su
 
                         if not identity_ok:
                             stats["guide_identity_rejected"] += 1
+                            run_negative_urls.add(c_url)
+                            negative_registry.add(c_url)
+                            negative_registry.observe_host_result(c_url, negative=True)
                             cache.mark_negative(c_url)
                             logger.info(
                                 "[identidad] Guía descartada para %s: la respuesta no corresponde a la asignatura",
@@ -1933,6 +2504,9 @@ def _process_single_university_guides(u_code: str, degree_items: list, cache: Su
                             )
                             continue
                         if not has_content:
+                            run_negative_urls.add(c_url)
+                            negative_registry.add(c_url)
+                            negative_registry.observe_host_result(c_url, negative=True)
                             cache.mark_negative(c_url)
                             continue
 
@@ -1958,6 +2532,7 @@ def _process_single_university_guides(u_code: str, degree_items: list, cache: Su
                             academic_year=academic_year_identity,
                             language=language_identity,
                         )
+                        negative_registry.observe_host_result(c_url, positive=True)
                         elem["guia_docente"] = parsed_guide
                         elem["url_guia_docente"] = c_url
                         elem["estado_guia_docente"] = "verificada"
@@ -1970,6 +2545,8 @@ def _process_single_university_guides(u_code: str, degree_items: list, cache: Su
                         break
                     elif status_code == 404:
                         run_negative_urls.add(c_url)
+                        negative_registry.add(c_url)
+                        negative_registry.observe_host_result(c_url, negative=True)
                         stats["guide_http_404"] += 1
                         _domain_metrics(stats, c_url)["http_404"] += 1
                         cache.mark_negative(c_url)
@@ -1981,6 +2558,12 @@ def _process_single_university_guides(u_code: str, degree_items: list, cache: Su
                     elif status_code:
                         stats["guide_http_other"] += 1
                         _domain_metrics(stats, c_url)["http_other"] += 1
+                except HostCircuitOpenException as circuit_error:
+                    negative_registry.mark_circuit_host(c_url)
+                    stats["guide_circuit_host_skips"] += 1
+                    _domain_metrics(stats, c_url)["circuit_host_skips"] += 1
+                    logger.info("[circuit-breaker] Host omitido hasta el final del run: %s", circuit_error)
+                    continue
                 except SkipUniversityException:
                     _record_guide_request_failure(stats, SkipUniversityException("circuit breaker"), c_url)
                     print(f" [AVISO CORTOCIRCUITO] Omitiendo guías de la universidad [{u_code}] por sobrecarga del servidor.")
@@ -1988,6 +2571,7 @@ def _process_single_university_guides(u_code: str, degree_items: list, cache: Su
                 except Exception as e:
                     if re.search(r"\b404\b", str(e), re.IGNORECASE):
                         run_negative_urls.add(c_url)
+                        negative_registry.add(c_url)
                         cache.mark_negative(c_url)
                     _record_guide_request_failure(stats, e, c_url)
                     logger.debug(f"Error al descargar guía '{c_url}': {e}")
@@ -2030,12 +2614,28 @@ def _process_single_university_guides(u_code: str, degree_items: list, cache: Su
     return stats
 
 
-def _process_university_guides_isolated(u_code, degree_items, cache, force=False, ledger=None):
+def _process_university_guides_isolated(
+    u_code,
+    degree_items,
+    cache,
+    force=False,
+    ledger=None,
+    negative_registry=None,
+):
     """Procesa una universidad con sesión y estado de circuit breaker propios."""
+    if negative_registry is None:
+        negative_registry = getattr(cache, "_run_negative_registry", None)
     downloader = RUCTDownloader(ledger=ledger, phase="fase1_parte4")
     downloader.reset_university_context(str(u_code))
     try:
-        return _process_single_university_guides(u_code, degree_items, cache, downloader, force)
+        return _process_single_university_guides(
+            u_code,
+            degree_items,
+            cache,
+            downloader,
+            force,
+            negative_registry=negative_registry,
+        )
     finally:
         try:
             from spa_crawler import SPALayoutCrawler
@@ -2060,6 +2660,7 @@ def run_phase1_part4(
     target_univ_code: str = None,
     limit_univ: int = None,
     workers: int = None,
+    robots_denied_university_codes: set[str] | None = None,
 ) -> dict:
     """
     FASE 1 - PARTE 4: Extracción de temarios, evaluación y contenido de guías docentes.
@@ -2080,6 +2681,14 @@ def run_phase1_part4(
 
     cache = SubjectGuideCache()
     ledger = CrawlLedger()
+    negative_registry = RunNegativeURLRegistry()
+    # Se asocia a la caché compartida para mantener la firma histórica del
+    # worker (útil para integraciones y pruebas) sin perder coordinación entre
+    # universidades concurrentes.
+    try:
+        cache._run_negative_registry = negative_registry
+    except Exception:
+        pass
     try:
         if not os.path.exists(PLANES_DIR):
             print(f" -> [AVISO] Directorio de planes {PLANES_DIR} no existe en disco. Omitiendo enriquecimiento.")
@@ -2137,7 +2746,16 @@ def run_phase1_part4(
                 "data": data,
             })
 
+        robots_denied_codes = {
+            str(code).strip().zfill(3)
+            for code in (robots_denied_university_codes or set())
+            if str(code).strip()
+        }
+        robots_denied_universities_skipped = 0
         for u_code, items in eligible_by_university.items():
+            if str(u_code).zfill(3) in robots_denied_codes:
+                robots_denied_universities_skipped += 1
+                continue
             selected_items, skipped_items = _select_plan_items_for_limit(items, limit_degrees)
             univ_groups[u_code] = selected_items
             plans_skipped_by_limit += skipped_items
@@ -2179,14 +2797,25 @@ def run_phase1_part4(
         guide_discovery_urls = 0
         guide_discovery_blocked = 0
         guide_discovery_cache_hits = 0
+        guide_discovery_spa_attempts = 0
+        guide_discovery_spa_fallbacks = 0
+        guide_shared_discovery_urls = 0
         guide_spa_fallbacks = 0
         guide_candidate_urls_generated = 0
         guide_candidate_urls_requested = 0
+        guide_candidate_urls_pruned = 0
         guide_http_200 = 0
         guide_http_404 = 0
         guide_http_other = 0
         guide_request_errors = 0
         guide_robots_denied = 0
+        guide_soft404_detected = 0
+        guide_soft404_route_skips = 0
+        guide_circuit_host_skips = 0
+        guide_unproductive_host_skips = 0
+        guide_pdf_parse_count = 0
+        guide_pdf_parse_time = 0.0
+        guide_ocr_used = 0
         guide_quality_score_total = 0.0
         guide_quality_scored = 0
         resumed_subjects = 0
@@ -2242,14 +2871,25 @@ def run_phase1_part4(
                         guide_discovery_urls += res.get("guide_discovery_urls", 0)
                         guide_discovery_blocked += res.get("guide_discovery_blocked", 0)
                         guide_discovery_cache_hits += res.get("guide_discovery_cache_hits", 0)
+                        guide_discovery_spa_attempts += res.get("guide_discovery_spa_attempts", 0)
+                        guide_discovery_spa_fallbacks += res.get("guide_discovery_spa_fallbacks", 0)
+                        guide_shared_discovery_urls += res.get("guide_shared_discovery_urls", 0)
                         guide_spa_fallbacks += res.get("guide_spa_fallbacks", 0)
                         guide_candidate_urls_generated += res.get("guide_candidate_urls_generated", 0)
                         guide_candidate_urls_requested += res.get("guide_candidate_urls_requested", 0)
+                        guide_candidate_urls_pruned += res.get("guide_candidate_urls_pruned", 0)
                         guide_http_200 += res.get("guide_http_200", 0)
                         guide_http_404 += res.get("guide_http_404", 0)
                         guide_http_other += res.get("guide_http_other", 0)
                         guide_request_errors += res.get("guide_request_errors", 0)
                         guide_robots_denied += res.get("guide_robots_denied", 0)
+                        guide_soft404_detected += res.get("guide_soft404_detected", 0)
+                        guide_soft404_route_skips += res.get("guide_soft404_route_skips", 0)
+                        guide_circuit_host_skips += res.get("guide_circuit_host_skips", 0)
+                        guide_unproductive_host_skips += res.get("guide_unproductive_host_skips", 0)
+                        guide_pdf_parse_count += res.get("guide_pdf_parse_count", 0)
+                        guide_pdf_parse_time += res.get("guide_pdf_parse_time", 0.0)
+                        guide_ocr_used += res.get("guide_ocr_used", 0)
                         guide_quality_score_total += res.get("guide_quality_score_total", 0.0)
                         guide_quality_scored += res.get("guide_quality_scored", 0)
                         resumed_subjects += res.get("resumed_subjects", 0)
@@ -2286,6 +2926,10 @@ def run_phase1_part4(
                         break
 
         elapsed = round(time.time() - start_time, 2)
+        if metrics_tracker is not None:
+            record_pdf_parse_aggregate = getattr(metrics_tracker, "record_pdf_parse_aggregate", None)
+            if callable(record_pdf_parse_aggregate):
+                record_pdf_parse_aggregate(guide_pdf_parse_count, guide_pdf_parse_time)
         print("\n" + "=" * 70)
         print(f"      FASE 1 - PARTE 4 FINALIZADA {'PARCIALMENTE' if university_errors else 'CON ÉXITO'}")
         print("======================================================================")
@@ -2301,10 +2945,18 @@ def run_phase1_part4(
         print(f" -> URLs académicas indexadas para guías:    {guide_discovery_urls}")
         print(f" -> Accesos de descubrimiento bloqueados:     {guide_discovery_blocked}")
         print(f" -> Índices de descubrimiento reutilizados:    {guide_discovery_cache_hits}")
+        print(f" -> Renderizados SPA de descubrimiento:         {guide_discovery_spa_attempts}/{guide_discovery_spa_fallbacks}")
+        print(f" -> Evidencias reutilizadas desde Parte 2:       {guide_shared_discovery_urls}")
         print(f" -> Guías recuperadas mediante SPA/OCR web:   {guide_spa_fallbacks}")
+        print(f" -> PDFs de guías parseados/tiempo:             {guide_pdf_parse_count}/{round(guide_pdf_parse_time, 2)}s (OCR: {guide_ocr_used})")
         print(f" -> URL candidatas generadas/solicitadas:      {guide_candidate_urls_generated}/{guide_candidate_urls_requested}")
+        print(f" -> Candidatas descartadas por poda inteligente: {guide_candidate_urls_pruned}")
         print(f" -> Respuestas 200/404/otras:                 {guide_http_200}/{guide_http_404}/{guide_http_other}")
         print(f" -> Bloqueos robots/errores de petición:      {guide_robots_denied}/{guide_request_errors}")
+        print(f" -> Soft-404 detectados/URLs omitidas por patrón: {guide_soft404_detected}/{guide_soft404_route_skips}")
+        print(f" -> URLs omitidas por cortocircuito de host:       {guide_circuit_host_skips}")
+        print(f" -> URLs omitidas por host improductivo:           {guide_unproductive_host_skips}")
+        print(f" -> Universidades omitidas por robots de Parte 2: {robots_denied_universities_skipped}")
         print(f" -> Planes seleccionados con currículo útil:   {plans_with_curriculum_selected}")
         print(f" -> Planes omitidos por límite de muestra:     {plans_skipped_by_limit}")
         average_quality = round(guide_quality_score_total / guide_quality_scored, 2) if guide_quality_scored else 0.0
@@ -2317,10 +2969,11 @@ def run_phase1_part4(
         return {
             "status": "cancelled" if cancelled or is_shutdown_requested() else ("partial" if university_errors else "completed"),
             "plans_inspected": total_enqueued,
-            "universities_processed": len(eligible_by_university),
+            "universities_processed": len(univ_groups),
             "university_codes_processed": sorted(
-                str(code).zfill(3) for code in eligible_by_university if code
+                str(code).zfill(3) for code in univ_groups if code
             ),
+            "robots_denied_universities_skipped": robots_denied_universities_skipped,
             "plans_with_curriculum_selected": plans_with_curriculum_selected,
             "plans_skipped_by_limit": plans_skipped_by_limit,
             "enriched_degrees": enriched_degrees,
@@ -2336,14 +2989,25 @@ def run_phase1_part4(
             "guide_discovery_urls": guide_discovery_urls,
             "guide_discovery_blocked": guide_discovery_blocked,
             "guide_discovery_cache_hits": guide_discovery_cache_hits,
+            "guide_discovery_spa_attempts": guide_discovery_spa_attempts,
+            "guide_discovery_spa_fallbacks": guide_discovery_spa_fallbacks,
+            "guide_shared_discovery_urls": guide_shared_discovery_urls,
             "guide_spa_fallbacks": guide_spa_fallbacks,
             "guide_candidate_urls_generated": guide_candidate_urls_generated,
             "guide_candidate_urls_requested": guide_candidate_urls_requested,
+            "guide_candidate_urls_pruned": guide_candidate_urls_pruned,
             "guide_http_200": guide_http_200,
             "guide_http_404": guide_http_404,
             "guide_http_other": guide_http_other,
             "guide_request_errors": guide_request_errors,
             "guide_robots_denied": guide_robots_denied,
+            "guide_soft404_detected": guide_soft404_detected,
+            "guide_soft404_route_skips": guide_soft404_route_skips,
+            "guide_circuit_host_skips": guide_circuit_host_skips,
+            "guide_unproductive_host_skips": guide_unproductive_host_skips,
+            "guide_pdf_parse_count": guide_pdf_parse_count,
+            "guide_pdf_parse_time": round(guide_pdf_parse_time, 6),
+            "guide_ocr_used": guide_ocr_used,
             "guide_quality_score_total": round(guide_quality_score_total, 2),
             "guide_quality_scored": guide_quality_scored,
             "guide_quality_average": average_quality,

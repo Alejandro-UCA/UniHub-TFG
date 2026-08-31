@@ -239,6 +239,27 @@
       "4": 94.0,
       "defecto": 18.46
     },
+    "Grado - Salud": {
+      "1": 18.46,
+      "2": 31.38,
+      "3": 67.7,
+      "4": 94.0,
+      "defecto": 18.46
+    },
+    "Grado - Ciencias e Ingeniería": {
+      "1": 18.46,
+      "2": 31.38,
+      "3": 67.7,
+      "4": 94.0,
+      "defecto": 18.46
+    },
+    "Grado - Ciencias Sociales y Humanidades": {
+      "1": 17.69,
+      "2": 30.07,
+      "3": 64.86,
+      "4": 90.08,
+      "defecto": 17.69
+    },
     "Máster Habilitante": {
       "1": 27.67,
       "2": 47.04,
@@ -267,6 +288,27 @@
       "3": 55.37,
       "4": 76.9,
       "defecto": 15.1
+    },
+    "Grado - Salud": {
+      "1": 17.34,
+      "2": 29.48,
+      "3": 63.58,
+      "4": 88.3,
+      "defecto": 17.34
+    },
+    "Grado - Ciencias e Ingeniería": {
+      "1": 15.1,
+      "2": 25.67,
+      "3": 55.37,
+      "4": 76.9,
+      "defecto": 15.1
+    },
+    "Grado - Ciencias Sociales y Humanidades": {
+      "1": 12.79,
+      "2": 21.74,
+      "3": 46.9,
+      "4": 65.1,
+      "defecto": 12.79
     },
     "Máster Habilitante": {
       "1": 20.2,
@@ -326,6 +368,27 @@
       "4": 60.56,
       "defecto": 11.89
     },
+    "Grado - Salud": {
+      "1": 13.93,
+      "2": 23.68,
+      "3": 51.08,
+      "4": 70.94,
+      "defecto": 13.93
+    },
+    "Grado - Ciencias e Ingeniería": {
+      "1": 13.93,
+      "2": 23.68,
+      "3": 51.08,
+      "4": 70.94,
+      "defecto": 13.93
+    },
+    "Grado - Ciencias Sociales y Humanidades": {
+      "1": 11.89,
+      "2": 20.21,
+      "3": 43.6,
+      "4": 60.56,
+      "defecto": 11.89
+    },
     "Máster Habilitante": {
       "1": 13.5,
       "2": 22.95,
@@ -349,6 +412,27 @@
   },
   "Comunidad de Madrid": {
     "Grado": {
+      "1": 21.39,
+      "2": 36.36,
+      "3": 78.44,
+      "4": 108.94,
+      "defecto": 21.39
+    },
+    "Grado - Salud": {
+      "1": 21.39,
+      "2": 36.36,
+      "3": 78.44,
+      "4": 108.94,
+      "defecto": 21.39
+    },
+    "Grado - Ciencias e Ingeniería": {
+      "1": 21.39,
+      "2": 36.36,
+      "3": 78.44,
+      "4": 108.94,
+      "defecto": 21.39
+    },
+    "Grado - Ciencias Sociales y Humanidades": {
       "1": 21.39,
       "2": 36.36,
       "3": 78.44,

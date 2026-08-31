@@ -26,6 +26,9 @@ class _Progress:
     def set_failed(self, *_args):
         pass
 
+    def set_partial(self, *_args):
+        pass
+
     def set_finished(self):
         pass
 
@@ -133,6 +136,27 @@ class TestPipelineManifest(unittest.TestCase):
         self.assertEqual(result["status"], "partial")
         self.assertEqual(result["etl_sync"], {"status": "failed"})
         manifest.record_etl_sync.assert_called_once_with({"status": "failed"})
+
+    def test_omitted_part_is_reported_as_partial_not_runtime_error(self):
+        from unittest.mock import MagicMock
+
+        progress = MagicMock()
+        with patch.object(main_fase_1, "normalize_phase_selection", return_value=[1, 3]), \
+             patch.object(main_fase_1, "_run_part", side_effect=[
+                 {"status": "completed"},
+                 {"status": "skipped", "reason": "unverified_price_catalog"},
+             ]), \
+             patch.object(main_fase_1, "PerformanceTracker", return_value=_Noop()), \
+             patch.object(main_fase_1, "CheckpointManager", return_value=_Noop()), \
+             patch.object(main_fase_1, "ProgressEmitter", return_value=progress), \
+             patch.object(main_fase_1, "RunManifest") as manifest_type, \
+             patch.object(main_fase_1.CrawlLedger, "prune_http_cache"):
+            manifest_type.return_value.start.return_value = "partial-run"
+            result = main_fase_1.run_phase1(parts=[1, 3], sync_etl=False)
+
+        self.assertEqual(result["status"], "partial")
+        progress.set_partial.assert_called_once()
+        progress.set_failed.assert_not_called()
 
     def test_cancellation_finishes_manifest_with_resumable_status(self):
         def cancel_part(_part, **_kwargs):

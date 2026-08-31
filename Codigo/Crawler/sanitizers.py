@@ -274,7 +274,7 @@ def is_spurious_or_administrative_subject(text: str, ects_val: float = None, car
     
     if len(t_clean) < 3 or len(t_clean) > 130:
         return True
-        
+
     if t_clean.isdigit():
         return True
 
@@ -367,12 +367,27 @@ def normalize_cuatrimestre(raw: str) -> str:
     if not raw:
         return "1C"
     r = unreverse_text(str(raw)).lower().strip()
-    if any(k in r for k in ["anual", "1-2", "1 y 2", "1 i 2"]):
+
+    # 1. Comprobar modalidad Anual
+    if re.search(r"\b(?:anual|anualidad|anuals?|ambos|1-2|1\s*y\s*2|1\s*i\s*2|year-long|annual)\b", r):
         return "Anual"
-    if any(k in r for k in ["2", "2c", "2s", "2º", "2o", "segundo", "segon", "2n", "2n q", "2n s", "q2", "s2", "2do"]):
+
+    # 2. Comprobar declaraciones explícitas con prefijo o sufijo de semestre / cuatrimestre
+    if re.search(r"(?:cuatrimestre|semestre|cuadrimestre|quadrimestre|lauhileko|sem|cuat|q|s)\s*[:=.-]?\s*(?:2|2º|2o|2n|2do|segundo|segon|segona|second)\b|\b(?:2|2º|2o|2n|2do|segundo|segon|segona|second)\s*(?:cuatrimestre|semestre|cuadrimestre|quadrimestre|lauhileko|sem|cuat|q|s)\b|\b(?:2c|2s|2º\s*s|2º\s*c|2n\s*q|2n\s*s|q2|s2|2\.\s*lauhilekoa)\b", r):
         return "2C"
-    if any(k in r for k in ["1", "1c", "1s", "1º", "1o", "primer", "1r", "1r q", "1r s", "q1", "s1", "1er"]):
+    if re.search(r"(?:cuatrimestre|semestre|cuadrimestre|quadrimestre|lauhileko|sem|cuat|q|s)\s*[:=.-]?\s*(?:1|1º|1o|1r|1er|1ra|primer|primero|primera|first)\b|\b(?:1|1º|1o|1r|1er|1ra|primer|primero|primera|first)\s*(?:cuatrimestre|semestre|cuadrimestre|quadrimestre|lauhileko|sem|cuat|q|s)\b|\b(?:1c|1s|1º\s*s|1º\s*c|1r\s*q|1r\s*s|q1|s1|1\.\s*lauhilekoa)\b", r):
         return "1C"
+
+    # 3. Comprobar ordinales o números sin prefijo de "curso"
+    if re.search(r"\b(?:segundo|segon|segona|2n|2do|2º|2o)\b", r) and not re.search(r"\b(?:curso|curs|año|ano|ikasturte)\b", r):
+        return "2C"
+    if re.search(r"\b(?:primer|primero|primera|1r|1er|1º|1o)\b", r) and not re.search(r"\b(?:curso|curs|año|ano|ikasturte)\b", r):
+        return "1C"
+    if re.search(r"(?<!curso\s)(?<!curs\s)(?<!año\s)(?<!ano\s)\b2\b", r):
+        return "2C"
+    if re.search(r"(?<!curso\s)(?<!curs\s)(?<!año\s)(?<!ano\s)\b1\b", r):
+        return "1C"
+
     return "1C"
 
 
@@ -433,51 +448,60 @@ def classify_subject_caracter(raw_caracter: str, subject_name: str = "", default
     FB (Formación Básica), OB (Obligatoria), OP (Optativa), PE (Prácticas Externas), TFG/TFM (Trabajo Fin de Grado/Máster).
     """
     s_nom = (subject_name or "").lower()
-    if any(k in s_nom for k in ["trabajo fin de grado", "treball de final de grau", "tfg", "traballo de fin de grao", "gradu amaierako lana", "bachelor thesis"]):
+    if any(k in s_nom for k in ["trabajo fin de grado", "treball de final de grau", "tfg", "traballo de fin de grao", "gradu amaierako lana", "bachelor thesis", "final degree project"]):
         return "TFG"
-    if any(k in s_nom for k in ["trabajo fin de máster", "trabajo fin de master", "treball de final de màster", "tfm", "master thesis"]):
+    if any(k in s_nom for k in ["trabajo fin de máster", "trabajo fin de master", "treball de final de màster", "tfm", "master thesis", "master amaierako lana"]):
         return "TFM"
-    if any(k in s_nom for k in ["prácticas externas", "practicas externas", "pràctiques externes", "prácticas en empresa", "external internships"]):
+    if any(k in s_nom for k in ["prácticas externas", "practicas externas", "pràctiques externes", "prácticas en empresa", "external internships", "kanpoko praktikak"]):
         return "PE"
 
     if not raw_caracter:
         return default
 
     c = unreverse_text(str(raw_caracter)).upper().strip()
-    if re.search(r"\b(?:FB|FBA|FORMACI[OÓÒ]N?\s+B[AÁÀ]SICA|OINARRIZKOA|BASIC TRAINING)\b", c):
+    if re.search(r"\b(?:FB|FBA|FORMACI[OÓÒ]N?\s+B[AÁÀ]SICA|OINARRIZKOA|OIN|BASIC TRAINING|TR|TRONCAL|BA|B[AÀ]SICA)\b", c):
         return "FB"
-    if re.search(r"\b(?:OP|OPT|OPTATIV[AO]S?|OPTATIUS?|HAUTAZKOA?|ELECTIVE|OPTIONAL)\b", c):
+    if re.search(r"\b(?:OP|OPT|OT|OPTATIV[AO]S?|OPTATIUS?|HAUTAZKOA?|HAU|ELECTIVE|OPTIONAL)\b", c):
         return "OP"
-    if re.search(r"\b(?:PE|PEX|PR[AÁÀ]CTICAS?\s*(?:EXTERNAS?)?|PR[AÀ]CTIQUES?\s*(?:EXTERNES?)?|KANPOKO\s+PRAKTIKAK|INTERNSHIP|PLACEMENT)\b", c):
+    if re.search(r"\b(?:PE|PEX|PR[AÁÀ]CTICAS?\s*(?:EXTERNAS?)?|PR[AÀ]CTIQUES?\s*(?:EXTERNES?)?|KANPOKO\s+PRAKTIKAK|KAN|INTERNSHIP|PLACEMENT|INT)\b", c):
         return "PE"
-    if re.search(r"\b(?:TFG|TFM|TRABAJO\s+(?:DE\s+)?FIN|TREBALL\s+FI(?:NAL)?|BACHELOR\s+THESIS|MASTER\s+THESIS)\b", c):
+    if re.search(r"\b(?:TFG|TFM|TRABAJO\s+(?:DE\s+)?FIN|TREBALL\s+FI(?:NAL)?|BACHELOR\s+THESIS|MASTER\s+THESIS|MAL|AAL|BST|MST)\b", c):
         return "TFG/TFM"
-    if re.search(r"\b(?:OB|OBL|OBLIGATORI[AO]S?|OBLIGAT[ÒO]RI[AO]S?|DERRIGORREZKOA|COMPULSORY|MANDATORY)\b", c):
+    if re.search(r"\b(?:OB|OBL|OBLIGATORI[AO]S?|OBLIGAT[ÒO]RI[AO]S?|DERRIGORREZKOA|DER|COMPULSORY|MANDATORY|COMP|CORE)\b", c):
         return "OB"
 
     return default
 
 
 def extract_subjects_from_card_blocks(text_or_soup, base_url: str = "") -> list:
-    """Extrae asignaturas estructuradas a partir de bloques/tarjetas de texto o DOM."""
+    """Extrae asignaturas estructuradas a partir de bloques/tarjetas de texto o DOM.
+
+    Soporta tarjetas con código prefijado (ej. '701001 - Álgebra') y tarjetas
+    modernas con nombre directo de asignatura, extrayendo ECTS, curso y tipología.
+    """
     if not text_or_soup:
         return []
     card_blocks = None
     if isinstance(text_or_soup, str):
         text = text_or_soup
     else:
-        # Mantener la frontera DOM de cada tarjeta. Unir todo el documento en
-        # un único bloque pierde la cabecera de las tarjetas posteriores.
+        # Mantener la frontera DOM de cada tarjeta, soportando selectores académicos universales.
         card_nodes = text_or_soup.select(
-            ".card-item, .subject-card, [data-subject], [data-asignatura]"
+            ".card-item, .subject-card, .subject-item, .asignatura-item, "
+            "[data-subject], [data-asignatura], .materia-item, .plan-estudios-item, "
+            ".item-asignatura, .course-item, li.asignatura, li.subject"
         )
         if card_nodes:
             card_blocks = [node.get_text(separator="\n") for node in card_nodes]
             text = ""
+        elif hasattr(text_or_soup, "find") and text_or_soup.find("table"):
+            # Si el documento tiene tablas pero no tarjetas explícitas, evitar falsos positivos
+            return []
         else:
             text = text_or_soup.get_text(separator="\n")
 
     results = []
+    seen_names = set()
     blocks = card_blocks if card_blocks is not None else re.split(r"\n\s*\n+", text.strip())
     
     for block in blocks:
@@ -486,41 +510,78 @@ def extract_subjects_from_card_blocks(text_or_soup, base_url: str = "") -> list:
             continue
         
         first_line = lines[0]
-        m_head = re.match(r"^([A-Z0-9]{2,8})\s*[-–—:]\s*(.+)$", first_line, re.IGNORECASE)
-        if not m_head:
-            continue
+        cod_asig = ""
+        nom_asig = ""
         
-        cod_asig = m_head.group(1).strip()
-        # Una página sin tarjetas puede contener URLs aisladas separadas por
-        # saltos de línea. ``https://...`` encaja accidentalmente con la
-        # expresión de código y acababa convertido en una falsa asignatura.
-        if (
-            first_line.lower().startswith(("http://", "https://", "www."))
-            or cod_asig.lower() in {"http", "https", "www"}
-            or "." in cod_asig
-        ):
-            continue
-        nom_asig = sanitize_subject_name(m_head.group(2).strip())
+        m_head = re.match(r"^([A-Z0-9]{2,10})\s*[-–—:]\s*(.+)$", first_line, re.IGNORECASE)
+        if m_head:
+            cod_candidate = m_head.group(1).strip()
+            if not (
+                first_line.lower().startswith(("http://", "https://", "www."))
+                or cod_candidate.lower() in {"http", "https", "www"}
+                or "." in cod_candidate
+            ):
+                cod_asig = cod_candidate
+                nom_asig = sanitize_subject_name(m_head.group(2).strip())
+
+        if not nom_asig:
+            # Soporte para tarjetas cuyo encabezado es directamente el nombre de la asignatura
+            # Exige indicios curriculares en el bloque si no hay código explícito
+            has_curric_hints = any(k in block.lower() for k in [
+                "crèdits", "créditos", "creditos", "ects", "asignatura", "assignatura",
+                "obligatoria", "optativa", "formación básica", "formacio basica", "1º curso", "2º curso", "3º curso", "4º curso"
+            ])
+            if has_curric_hints or card_blocks is not None:
+                clean_first = sanitize_subject_name(first_line)
+                if (
+                    clean_first
+                    and len(clean_first) >= 4
+                    and len(clean_first) <= 120
+                    and not clean_first.lower().startswith(("http://", "https://", "www."))
+                    and not clean_first.isdigit()
+                    and not is_spurious_or_administrative_subject(clean_first)
+                ):
+                    nom_asig = clean_first
+
         if not nom_asig or is_spurious_or_administrative_subject(nom_asig):
             continue
+
+        key = curriculum_element_key(nom_asig)
+        if not key or key in seen_names:
+            continue
+        seen_names.add(key)
         
         curso_val = "1"
         cuat_val = "1C"
-        caracter_val = "OB"
+        caracter_val = classify_subject_caracter("", nom_asig)
         creditos_val = None
         
-        for line in lines[1:]:
+        for line in lines:
             l_low = line.lower()
-            if "curs" in l_low or "curso" in l_low or "semestre" in l_low or "cuatrimestre" in l_low or "formaci" in l_low or "obligat" in l_low or "optat" in l_low:
+            if any(k in l_low for k in ["curs", "curso", "semestre", "cuatrimestre", "formaci", "obligat", "optat", "básica", "basica"]):
                 c_norm, _ = normalize_curso(line)
                 if c_norm:
                     curso_val = c_norm
                 cuat_val = normalize_cuatrimestre(line)
                 caracter_val = classify_subject_caracter(line, nom_asig)
             
-            m_num = re.search(r"^(\d+(?:[.,]\d+)?)(?:\s+|$)", line)
-            if m_num and ("crèdits" in block.lower() or "créditos" in block.lower() or "ects" in block.lower() or len(lines) >= 3):
-                creditos_val = m_num.group(1).replace(",", ".")
+            m_cr = re.search(r"\b(\d+(?:[.,]\d+)?)\s*(?:cr[eèé]dits?|ects|cr\.?)\b", line, re.IGNORECASE)
+            if m_cr:
+                try:
+                    val_flt = float(m_cr.group(1).replace(",", "."))
+                    if 0.5 <= val_flt <= 60.0:
+                        creditos_val = m_cr.group(1).replace(",", ".")
+                except ValueError:
+                    pass
+            elif not creditos_val:
+                m_num = re.search(r"^(\d+(?:[.,]\d+)?)(?:\s+|$)", line)
+                if m_num and any(k in block.lower() for k in ["crèdits", "créditos", "ects"]) and len(lines) >= 2:
+                    try:
+                        val_flt = float(m_num.group(1).replace(",", "."))
+                        if 0.5 <= val_flt <= 30.0:
+                            creditos_val = m_num.group(1).replace(",", ".")
+                    except ValueError:
+                        pass
         
         results.append({
             "codigo_asignatura": cod_asig,

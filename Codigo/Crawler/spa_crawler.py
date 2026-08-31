@@ -136,8 +136,9 @@ class SPALayoutCrawler:
                     "headless": True,
                     "args": ["--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu"],
                 }
-                executable_path = os.getenv("PLAYWRIGHT_EXECUTABLE_PATH", "").strip()
-                if executable_path and os.path.isfile(executable_path):
+                from runtime_capabilities import find_browser_executable
+                executable_path = find_browser_executable()
+                if executable_path:
                     launch_options["executable_path"] = executable_path
                 self._browser = self._pw.chromium.launch(**launch_options)
             except Exception as e:

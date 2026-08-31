@@ -131,6 +131,7 @@ CREATE INDEX IF NOT EXISTS idx_elem_plan ON elementos_curriculares(plan_estudio_
 CREATE INDEX IF NOT EXISTS idx_elem_caracter ON elementos_curriculares(caracter);
 CREATE INDEX IF NOT EXISTS idx_elem_nombre ON elementos_curriculares(nombre_elemento);
 CREATE INDEX IF NOT EXISTS idx_planes_codigo ON planes_estudio(codigo_estudio);
+ALTER TABLE IF EXISTS planes_estudio ADD COLUMN IF NOT EXISTS estado_calidad VARCHAR(64) NOT NULL DEFAULT 'pendiente_revision';
 CREATE INDEX IF NOT EXISTS idx_planes_estado_calidad ON planes_estudio(estado_calidad);
 
 -- =====================================================================

@@ -21,10 +21,25 @@ def _module_available(name: str) -> bool:
 
 def find_browser_executable() -> str:
     """Localiza un ejecutable Chromium disponible (Chromium, Chrome o Edge)."""
+    # 1. Priorizar binarios nativos de Playwright si existen en rutas compartidas
+    playwright_candidates = [
+        "/ms-playwright/chromium-1234/chrome-linux64/chrome",
+        "/home/crawler/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome",
+        "/root/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome",
+    ]
+    for pw_path in playwright_candidates:
+        if pw_path and os.path.isfile(pw_path):
+            return pw_path
+
+    # 2. Variable de entorno configurada
     configured_browser = os.getenv("PLAYWRIGHT_EXECUTABLE_PATH", "").strip()
     if configured_browser and os.path.isfile(configured_browser):
+        if configured_browser == "/usr/bin/chromium" and os.path.isfile("/usr/lib/chromium/chromium"):
+            return "/usr/lib/chromium/chromium"
         return configured_browser
+
     candidates = [
+        "/usr/lib/chromium/chromium",
         shutil.which("chromium"),
         shutil.which("chromium-browser"),
         shutil.which("google-chrome"),

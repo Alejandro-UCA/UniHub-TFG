@@ -507,6 +507,7 @@ def run_phase1_part3(
     max_workers: int = None,
     metrics_tracker=None,
     progress_emitter=None,
+    degree_title_filter: str | None = None,
 ) -> dict:
     """
     Fase 1 - Parte 3: Asigna tarifas catalogadas y estima las matrículas
@@ -534,6 +535,10 @@ def run_phase1_part3(
     degrees_per_university = {}
     for filepath in json_files:
         degree = load_json_safe(filepath, default={}) or {}
+        if degree_title_filter:
+            from phase_common import matches_degree_title
+            if not matches_degree_title(degree.get("titulo"), degree_title_filter):
+                continue
         u_code = str(degree.get("universidad_codigo") or "")
         if TARGET_UNIVERSITY_CODES and u_code.zfill(3) not in TARGET_UNIVERSITY_CODES:
             continue

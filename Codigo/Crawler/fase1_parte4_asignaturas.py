@@ -890,6 +890,10 @@ def resolve_candidate_subject_guide_urls(
                 max(1, MAX_SUBJECT_GUIDE_NO_CODE_CANDIDATES),
             )
             guide_domains = [learned_public_host]
+            for sub in ("guias", "guies", "guiasdocentes", "asignaturas", "docencia", "centros", "facultades", "secretaria"):
+                cand_sub = f"{sub}.{clean_domain}"
+                if is_same_or_subdomain(f"https://{cand_sub}", f"https://{clean_domain}"):
+                    guide_domains.append(cand_sub)
             for guide_domain in dict.fromkeys(
                 str(candidate).strip().lower()
                 for candidate in guide_domains
@@ -898,6 +902,8 @@ def resolve_candidate_subject_guide_urls(
                 _add_url(f"https://{guide_domain}/es/estudios/asignatura/{slug}/")
                 _add_url(f"https://{guide_domain}/estudios/asignatura/{slug}/")
                 _add_url(f"https://{guide_domain}/{slug}/guia-docente")
+                _add_url(f"https://{guide_domain}/asignatura/{slug}")
+                _add_url(f"https://{guide_domain}/assignatura/{slug}")
 
         # 3. Patrones institucionales genéricos.
         #
@@ -909,6 +915,12 @@ def resolve_candidate_subject_guide_urls(
             # 4. Patrones Institucionales Genéricos del SUE
             _add_url(f"https://secretaria.{clean_domain}/docencia/guia/{c_code}")
             _add_url(f"https://cv1.cpd.{clean_domain}/ConsPlanesEstudio/cvFichaAsigRedir.asp?asig={c_code}")
+            _add_url(f"https://guias.{clean_domain}/asig={c_code}")
+            _add_url(f"https://guias.{clean_domain}/index.php?cod={c_code}")
+            _add_url(f"https://guias.{clean_domain}/asignatura.php?id={c_code}")
+            _add_url(f"https://guiasdocentes.{clean_domain}/asignatura/{c_code}")
+            _add_url(f"https://guies.{clean_domain}/guia.php?asig={c_code}")
+            _add_url(f"https://sia.{clean_domain}/rest/publicacion/estudio/asignatura/{c_code}")
             for year in year_candidates:
                 _add_url(f"https://asignaturas.{clean_domain}/{year}/{c_code}")
                 _add_url(f"https://guias.{clean_domain}/{year}/{c_code}")
@@ -917,6 +929,7 @@ def resolve_candidate_subject_guide_urls(
             if slug:
                 _add_url(f"https://{learned_public_host}/es/estudios/estudios-oficiales/grados/asignatura/{slug}-{c_code}/")
                 _add_url(f"https://{learned_public_host}/estudios/asignatura/{slug}-{c_code}/")
+                _add_url(f"https://guias.{clean_domain}/{slug}-{c_code}")
 
             if d_code:
                 _add_url(f"https://{learned_public_host}/descargas/guias/{c_code}.pdf")
@@ -1472,8 +1485,55 @@ def parse_subject_guide_pdf_stream(pdf_bytes: bytes, url: str) -> dict:
         if is_signed_guide:
             _enrich_signed_learning_guide_from_lines(res, lines)
 
-        # 1. Metadatos generales (Nombre, Código, ECTS, Departamento)
-        for l in lines[:30]:
+        # 0. Inicializar campos canónicos en bloque y listas estructuradas
+        res["profesorado_texto"] = ""
+        res["prerrequisitos_texto"] = ""
+        res["competencias_texto"] = ""
+        res["temario_texto"] = ""
+        res["metodologia_texto"] = ""
+        res["bibliografia_texto"] = ""
+
+        # 1. Segmentación canónica de todas las secciones en bloques de texto
+        SECTION_PATTERNS = [
+            ("ficha_identificativa", r"^(?:\d+\.?\s*)?(?:FICHA\s+IDENTIFICATIVA|DATOS\s+DE\s+LA\s+ASIGNATURA|IDENTIFICACI[OÓ]N)\b"),
+            ("profesorado", r"^(?:\d+\.?\s*)?(?:PROFESORADO|EQUIPO\s+DOCENTE|CUADRO\s+DOCENTE|DOCENCIA|TEACHING\s+STAFF|LECTURERS)\b"),
+            ("prerrequisitos", r"^(?:\d+\.?\s*)?(?:PRERREQUISITOS|REQUISITOS|RECOMENDACIONES|CONTEXTO|PREREQUISITES)\b"),
+            ("competencias", r"^(?:\d+\.?\s*)?(?:COMPETENCIAS|COMPETÈNCIES|RESULTADOS\s+DE\s+APRENDIZAJE|OBJETIVOS|LEARNING\s+OUTCOMES)\b"),
+            ("temario", r"^(?:\d+\.?\s*)?(?:DESCRIPCI[OÓ]N\s+DE\s+CONTENIDOS|CONTENIDOS|TEMARIO|PROGRAMA|SYLLABUS|COURSE\s+CONTENTS)\b"),
+            ("metodologia", r"^(?:\d+\.?\s*)?(?:METODOLOG[IÍ]A|ACTIVIDADES\s+DOCENTES|ACTIVIDADES\s+FORMATIVAS|ACTIVITATS|TEACHING\s+METHODOLOGY)\b"),
+            ("evaluacion", r"^(?:\d+\.?\s*)?(?:SISTEMAS?\s+DE\s+EVALUACI[OÓ]N|EVALUACI[OÓ]N|CRITERIOS\s+DE\s+EVALUACI[OÓ]N|ASSESSMENT)\b"),
+            ("bibliografia", r"^(?:\d+\.?\s*)?(?:BIBLIOGRAF[IÍ]A|FUENTES|RECURSOS|BIBLIOGRAPHY|REFERENCES)\b"),
+        ]
+
+        current_sec = "ficha_identificativa"
+        section_lines = {name: [] for name, _ in SECTION_PATTERNS}
+
+        for l in ([] if is_signed_guide else lines):
+            changed = False
+            for sec_name, pat in SECTION_PATTERNS:
+                if re.search(pat, l, re.IGNORECASE):
+                    current_sec = sec_name
+                    changed = True
+                    break
+            if changed:
+                continue
+            if re.match(r"^(?:Gu[íi]a\s+Docente|Curso\s+Acad[ée]mico|\d+\s+-\s+.*|P[aá]gina\s+\d+)", l, re.IGNORECASE):
+                continue
+            if current_sec in section_lines:
+                section_lines[current_sec].append(l)
+
+        # Asignar bloques textuales completos
+        res["profesorado_texto"] = "\n".join(section_lines["profesorado"]).strip()
+        res["prerrequisitos_texto"] = "\n".join(section_lines["prerrequisitos"]).strip()
+        res["competencias_texto"] = "\n".join(section_lines["competencias"]).strip()
+        res["temario_texto"] = "\n".join(section_lines["temario"]).strip()
+        res["metodologia_texto"] = "\n".join(section_lines["metodologia"]).strip()
+        if section_lines["evaluacion"]:
+            res["criterios_evaluacion"] = "\n".join(section_lines["evaluacion"]).strip()
+        res["bibliografia_texto"] = "\n".join(section_lines["bibliografia"]).strip()
+
+        # 2. Metadatos generales (Nombre, Código, ECTS, Departamento)
+        for l in (lines[:35] + section_lines["ficha_identificativa"][:15]):
             m_name = re.search(r"(?:Course Name|Asignatura|Nombre):\s*([^\n|]+)", l, re.IGNORECASE)
             if m_name and not res["nombre_asignatura"]:
                 res["nombre_asignatura"] = sanitize_subject_name(m_name.group(1).strip())
@@ -1493,29 +1553,29 @@ def parse_subject_guide_pdf_stream(pdf_bytes: bytes, url: str) -> dict:
             if m_dept and not res["departamento"]:
                 res["departamento"] = m_dept.group(1).strip()
 
-        # 2. Temario / Units / Blocks / Section-bounded Contents
-        in_contents = False
-        for l in ([] if is_signed_guide else lines):
-            if re.search(r"^(?:3\.\s*)?(?:COURSE\s+)?(?:CONTENTS|CONTENIDOS|TEMARIO|PROGRAMA|SYLLABUS)", l, re.IGNORECASE):
-                in_contents = True
-                continue
-            if in_contents and re.search(r"^(?:4\.\s*)?(?:TEACHING|METODOLOGÍA|ACTIVIDADES|5\.\s*ASSESSMENT|EVALUACIÓN)", l, re.IGNORECASE):
-                in_contents = False
-
-            m_unit = re.search(r"^(Unit\s+\d+|Tema\s+\d+|Bloque\s+[I|V|X\d]+|Módulo\s+\d+)[:.\-–\s]+(.+)$", l, re.IGNORECASE)
+        # 3. Temario / Units / Blocks estructurados
+        temario_source = section_lines["temario"] if section_lines["temario"] else lines
+        current_unit = None
+        for l in ([] if is_signed_guide else temario_source):
+            m_unit = re.match(r"^(Tema\s+\d+(?:[-–]\d+)?|Bloque\s+[I|V|X\d]+|Unit\s+\d+|M[oó]dulo\s+\d+)[:.\-–\s]*(.*)$", l, re.IGNORECASE)
             if m_unit:
+                if current_unit:
+                    res["temario"].append(current_unit)
                 u_label = m_unit.group(1).strip()
                 u_title = m_unit.group(2).strip()
                 if not is_spurious_or_administrative_subject(u_title):
-                    res["temario"].append({
+                    current_unit = {
                         "orden": u_label,
                         "titulo": u_title,
                         "contenidos": []
-                    })
-            elif in_contents:
+                    }
+            elif current_unit:
+                if not re.search(r"^(?:Profesorado|Lecturers|Docencia):", l, re.IGNORECASE):
+                    current_unit["titulo"] = (current_unit["titulo"] + " " + l).strip()
+            elif not section_lines["temario"]:
                 clean_topic = re.sub(r"\b\d+\s*hours?\b.*$", "", l, flags=re.IGNORECASE).strip()
                 clean_topic = re.sub(r"\b\d+\s*horas?\b.*$", "", clean_topic, flags=re.IGNORECASE).strip()
-                if 4 <= len(clean_topic) <= 120 and not any(kw in clean_topic.lower() for kw in ["contents", "total number", "credits", "approved by", "school board"]):
+                if 4 <= len(clean_topic) <= 120 and not any(kw in clean_topic.lower() for kw in ["contents", "total number", "credits", "approved by", "school board", "profesorado"]):
                     if not is_spurious_or_administrative_subject(clean_topic):
                         if not any(t["titulo"] == clean_topic for t in res["temario"]):
                             res["temario"].append({
@@ -1523,51 +1583,56 @@ def parse_subject_guide_pdf_stream(pdf_bytes: bytes, url: str) -> dict:
                                 "titulo": clean_topic,
                                 "contenidos": []
                             })
+        if current_unit:
+            res["temario"].append(current_unit)
 
-        # 3. Evaluación
-        eval_lines = []
-        in_eval = False
-        for l in ([] if is_signed_guide else lines):
-            if re.search(r"(?:5\.\s*ASSESSMENT|EVALUACIÓN|EVALUATION|SISTEMA DE EVALUACIÓN)", l, re.IGNORECASE):
-                in_eval = True
-                continue
-            if in_eval and re.search(r"(?:6\.\s*BIBLIOGRAPHY|BIBLIOGRAFÍA|7\.\s*DOCENCIA|PROFESORADO)", l, re.IGNORECASE):
-                in_eval = False
-                break
-            if in_eval:
-                eval_lines.append(l)
-                # Detectar pruebas evaluables y porcentajes
-                m_pond = re.search(r"([A-Za-zÁÉÍÓÚáéíóúñ\s,–\-]{4,50})\s*[:=–]\s*(\d{1,2}(?:[.,]\d+)?)\s*%", l)
-                if m_pond:
-                    tarea_nom = m_pond.group(1).strip()
-                    pond_val = float(m_pond.group(2).replace(",", "."))
-                    if not any(ev["tarea"] == tarea_nom for ev in res["sistema_evaluacion"]):
+        # 4. Evaluación estructurada
+        eval_source = section_lines["evaluacion"] if section_lines["evaluacion"] else lines
+        for l in ([] if is_signed_guide else eval_source):
+            # Limpiar repeticiones contiguas producidas por extracción de tablas
+            l_clean = re.sub(r'(\b\w+\b)(?:\s+\1)+', r'\1', l).strip()
+            m_pond = re.search(r"^([A-Za-zÁÉÍÓÚáéíóúñ\s,–\-]{3,40}?)\s*[:=–]?\s*(\d{1,3}(?:[.,]\d+)?)\s*%$", l_clean)
+            if not m_pond:
+                m_pond = re.search(r"([A-Za-zÁÉÍÓÚáéíóúñ\s,–\-]{3,30}?)\s*[:=–]\s*(\d{1,3}(?:[.,]\d+)?)\s*%", l_clean)
+            if m_pond:
+                tarea_nom = m_pond.group(1).strip()
+                pond_val = float(m_pond.group(2).replace(",", "."))
+                if tarea_nom.lower() not in ("del", "el", "la", "por", "con", "para", "en") and len(tarea_nom.split()) <= 5:
+                    if 0 < pond_val <= 100 and not any(ev["tarea"].lower() == tarea_nom.lower() for ev in res["sistema_evaluacion"]):
                         res["sistema_evaluacion"].append({
                             "tarea": tarea_nom,
                             "instrumentos": "",
                             "ponderacion_porcentaje": pond_val
                         })
-                # Detectar instrumentos específicos (ej. PEI1, PEI2, PEF)
-                elif re.search(r"\b(PEI\d*|PEF|Continuous assessment|Examen final|Evaluación continua)\b", l, re.IGNORECASE):
-                    crit_nom = l.strip()
-                    if 4 <= len(crit_nom) <= 80 and not any(ev["tarea"] == crit_nom for ev in res["sistema_evaluacion"]):
-                        res["sistema_evaluacion"].append({
-                            "tarea": crit_nom,
-                            "instrumentos": "Criterio de evaluación oficial",
-                            "ponderacion_porcentaje": 0.0
-                        })
+            elif re.search(r"\b(PEI\d*|PEF|Continuous assessment|Examen final|Evaluación continua)\b", l, re.IGNORECASE):
+                crit_nom = l.strip()
+                if 4 <= len(crit_nom) <= 80 and not any(ev["tarea"] == crit_nom for ev in res["sistema_evaluacion"]):
+                    res["sistema_evaluacion"].append({
+                        "tarea": crit_nom,
+                        "instrumentos": "Criterio de evaluación oficial",
+                        "ponderacion_porcentaje": 0.0
+                    })
 
-        if eval_lines and not res["criterios_evaluacion"]:
-            res["criterios_evaluacion"] = "\n".join(eval_lines[:15])
-
-        # 4. Profesorado / Lecturers
-        for l in lines:
+        # 5. Profesorado estructurado
+        prof_source = section_lines["profesorado"] if section_lines["profesorado"] else lines
+        is_coord = False
+        for l in prof_source:
+            if re.search(r"^(?:Coordinaci[oó]n|Coordinador[a]?)\b", l, re.IGNORECASE):
+                is_coord = True
+                continue
+            m_pname = re.search(r"^Nombre:\s*([A-ZÁÉÍÓÚÑa-záéíóúñ\s,–\-]{4,60})", l, re.IGNORECASE)
+            if m_pname:
+                p_clean = m_pname.group(1).strip()
+                if not any(p_clean.lower() == x["nombre_completo"].lower() for x in res["profesorado"]):
+                    res["profesorado"].append({"nombre_completo": p_clean, "coordinador": is_coord})
+                    is_coord = False
+                continue
             m_prof = re.search(r"(?:Lecturers?|Profesorado|Teaching staff):\s*([^\n]+)", l, re.IGNORECASE)
             if m_prof:
                 profs_raw = m_prof.group(1).split(",")
                 for p in profs_raw:
                     p_clean = p.strip()
-                    if 4 <= len(p_clean) <= 60 and not any(p_clean == x["nombre_completo"] for x in res["profesorado"]):
+                    if 4 <= len(p_clean) <= 60 and not any(p_clean.lower() == x["nombre_completo"].lower() for x in res["profesorado"]):
                         res["profesorado"].append({"nombre_completo": p_clean, "coordinador": False})
 
     except Exception as e:
@@ -2412,7 +2477,7 @@ def _process_single_university_guides(
                         _domain_metrics(stats, c_url)["robots_denied"] += 1
                         if not revalidate_sources:
                             cache.mark_negative(c_url)
-                        logger.info("[robots.txt] Guía docente omitida: %s", c_url)
+                        logger.debug("[robots.txt] Guía docente omitida: %s", c_url)
                         continue
                 resp = None
                 try:
@@ -2447,7 +2512,7 @@ def _process_single_university_guides(
                             negative_registry.observe_host_result(c_url, negative=True)
                             negative_registry.mark_soft404(c_url, soft404_fingerprint)
                             cache.mark_negative(c_url, reason=f"soft404:{soft404_reason}")
-                            logger.info("[soft-404] Respuesta 200 descartada para %s (%s)", c_url, soft404_reason)
+                            logger.debug("[soft-404] Respuesta 200 descartada para %s (%s)", c_url, soft404_reason)
                             continue
                         parsed_guide = parse_subject_guide(c_url, body, c_type)
                         if c_url.lower().endswith(".pdf") or "application/pdf" in c_type.lower() or body.startswith(b"%PDF"):
@@ -2498,7 +2563,7 @@ def _process_single_university_guides(
                             negative_registry.add(c_url)
                             negative_registry.observe_host_result(c_url, negative=True)
                             cache.mark_negative(c_url)
-                            logger.info(
+                            logger.debug(
                                 "[identidad] Guía descartada para %s: la respuesta no corresponde a la asignatura",
                                 asig_name or asig_code,
                             )
@@ -2542,6 +2607,7 @@ def _process_single_university_guides(
                             stats["candidate_guides_processed"] += 1
                         degree_modified = True
                         found_current_guide = True
+                        print(f"   ✓ [GUÍA DOCENTE] [{final_asig_code or asig_code}] {asig_name} ({len(parsed_guide.get('temario', []))} temas, {len(parsed_guide.get('profesorado', []))} profesores, Calidad: {quality_info.get('puntuacion', 0)}/100)")
                         break
                     elif status_code == 404:
                         run_negative_urls.add(c_url)
@@ -2661,15 +2727,16 @@ def run_phase1_part4(
     limit_univ: int = None,
     workers: int = None,
     robots_denied_university_codes: set[str] | None = None,
+    degree_title_filter: str | None = None,
 ) -> dict:
     """
     FASE 1 - PARTE 4: Extracción de temarios, evaluación y contenido de guías docentes.
     Agrupa los planes de estudio por universidad y los procesa en paralelo (hasta max_workers universidades a la vez),
     manteniendo estricta cortesía secuencial por dominio.
     """
-    print("\n" + "=" * 70)
-    print("      INICIANDO FASE 1 - PARTE 4: GUÍAS DOCENTES Y TEMARIOS EEES")
-    print("======================================================================")
+    print("\n" + "=" * 70, flush=True)
+    print("      INICIANDO FASE 1 - PARTE 4: GUÍAS DOCENTES Y TEMARIOS EEES", flush=True)
+    print("======================================================================", flush=True)
 
     if limit_universities is None:
         limit_universities = limit_univ
@@ -2691,7 +2758,7 @@ def run_phase1_part4(
         pass
     try:
         if not os.path.exists(PLANES_DIR):
-            print(f" -> [AVISO] Directorio de planes {PLANES_DIR} no existe en disco. Omitiendo enriquecimiento.")
+            print(f" -> [AVISO] Directorio de planes {PLANES_DIR} no existe en disco. Omitiendo enriquecimiento.", flush=True)
             return {
                 "status": "skipped",
                 "reason": "missing_plans_directory",
@@ -2704,7 +2771,7 @@ def run_phase1_part4(
         universities_map = {str(u.get("codigo")): u for u in universities if isinstance(u, dict) and u.get("codigo")} if isinstance(universities, list) else {}
 
         total_degrees = len(plan_files)
-        print(f" -> {total_degrees} planes de estudio a inspeccionar en disco.")
+        print(f" -> {total_degrees} planes de estudio a inspeccionar en disco.", flush=True)
 
         # Agrupar titulaciones por universidad para procesamiento concurrente seguro
         univ_groups = {}
@@ -2722,6 +2789,10 @@ def run_phase1_part4(
                 continue
 
             u_code = data.get("universidad_codigo", "000")
+            if degree_title_filter:
+                from phase_common import matches_degree_title
+                if not matches_degree_title(data.get("titulo"), degree_title_filter):
+                    continue
             if TARGET_UNIVERSITY_CODES and str(u_code).zfill(3) not in TARGET_UNIVERSITY_CODES:
                 continue
             if not data.get("web"):
@@ -2782,7 +2853,7 @@ def run_phase1_part4(
                     split_groups[task_id] = (u_code, items[chunk_idx:chunk_idx + chunk_size])
             univ_groups = split_groups
 
-        print(f" -> {len(univ_groups)} grupos de universidad para procesamiento en paralelo con {max_workers} trabajadores.")
+        print(f" -> {len(univ_groups)} grupos de universidad para procesamiento en paralelo con {max_workers} trabajadores.", flush=True)
 
         processed_guides = 0
         cached_hits = 0
@@ -2829,15 +2900,21 @@ def run_phase1_part4(
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
             group_iterator = iter(univ_groups.items())
             futures = {}
+            completed = 0
+            submitted = 0
 
             def _submit_next_group() -> bool:
+                nonlocal submitted
                 try:
                     group_code, group_value = next(group_iterator)
                 except StopIteration:
                     return False
+                submitted += 1
+                u_target = group_value[0] if isinstance(group_value, tuple) else group_code
+                print(f"[{submitted}/{len(univ_groups)}] Procesando Universidad [{u_target}]...", flush=True)
                 futures[executor.submit(
                     _process_university_guides_isolated,
-                    group_value[0] if isinstance(group_value, tuple) else group_code,
+                    u_target,
                     group_value[1] if isinstance(group_value, tuple) else group_value,
                     cache,
                     force,
@@ -2848,7 +2925,6 @@ def run_phase1_part4(
             for _ in range(min(max_workers, len(univ_groups))):
                 _submit_next_group()
 
-            completed = 0
             while futures:
                 done, _ = wait(tuple(futures), return_when=FIRST_COMPLETED)
                 for future in done:
@@ -2858,8 +2934,11 @@ def run_phase1_part4(
                         cancelled = True
                     try:
                         res = future.result()
-                        processed_guides += res.get("processed_guides", 0)
-                        cached_hits += res.get("cached_hits", 0)
+                        guides_count = res.get("processed_guides", 0)
+                        cached_count = res.get("cached_hits", 0)
+                        print(f"✓ [{completed}/{len(univ_groups)}] Universidad [{u_code}] completada ({guides_count} guías extraídas, {cached_count} en caché).", flush=True)
+                        processed_guides += guides_count
+                        cached_hits += cached_count
                         enriched_degrees += res.get("enriched_degrees", 0)
                         candidate_degrees_inspected += res.get("candidate_degrees_inspected", 0)
                         candidate_guides_processed += res.get("candidate_guides_processed", 0)
@@ -2909,7 +2988,7 @@ def run_phase1_part4(
                         break
                     except Exception as exc:
                         university_errors += 1
-                        print(f" [ERROR PARTE 4] Excepción en universidad [{u_code}]: {exc}")
+                        print(f"❌ [ERROR FATAL] Universidad [{u_code}] detenida debido a: {exc}", flush=True)
                     if progress_emitter is not None:
                         progress_emitter.update_university(
                             completed,

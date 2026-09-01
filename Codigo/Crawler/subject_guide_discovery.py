@@ -330,9 +330,25 @@ def extract_academic_links(html: bytes, source_url: str, allowed_hosts: list[str
 
 
 def _candidate_hosts(base_url: str) -> list[str]:
-    """Devuelve únicamente el dominio oficial recibido por el pipeline."""
+    """
+    Devuelve el host principal y los subdominios institucionales estándar
+    de docencia y guías que pertenezcan estrictamente al mismo dominio.
+    """
     host = _normalise_host(base_url)
-    return [host] if host else []
+    if not host:
+        return []
+    hosts = [host]
+    clean_domain = re.sub(r"^www\d*\.", "", host)
+    subdomains = (
+        "guias", "guies", "guiasdocentes", "asignaturas", "assignatures",
+        "docencia", "sia", "secretaria", "centros", "centres", "facultades",
+        "facultats", "escuelas", "escoles"
+    )
+    for sub in subdomains:
+        cand = f"{sub}.{clean_domain}"
+        if cand != host and is_same_or_subdomain(f"https://{cand}", f"https://{clean_domain}"):
+            hosts.append(cand)
+    return list(dict.fromkeys(hosts))
 
 
 def _iter_discovery_records(urls_or_records) -> list[dict]:

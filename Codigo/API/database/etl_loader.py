@@ -36,6 +36,9 @@ def _has_authoritative_plan_snapshot(plan_data: object, quality_status: object =
     """Indica si la fuente aporta una instantánea curricular con asignaturas o créditos."""
     if not isinstance(plan_data, dict):
         return False
+    has_curriculum_key = "elementos_curriculares" in plan_data or "resumen_creditos" in plan_data
+    if not has_curriculum_key:
+        return False
     elems = plan_data.get("elementos_curriculares")
     res_cred = plan_data.get("resumen_creditos")
     if (elems and len(elems) > 0) or (res_cred and len(res_cred) > 0):

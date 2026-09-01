@@ -47,6 +47,81 @@ def normalize_phase_selection(parts: Iterable[int] | None) -> tuple[int, ...]:
     return tuple(normalized)
 
 
+def normalize_text(text: str) -> str:
+    """Normaliza texto eliminando acentos y pasando a minúsculas para búsquedas semánticas robustas."""
+    if not text:
+        return ""
+    import unicodedata
+    return unicodedata.normalize("NFKD", str(text).lower()).encode("ASCII", "ignore").decode("utf-8").strip()
+
+
+def matches_degree_title(title: str | None, query: str | None) -> bool:
+    """Indica si el título de una titulación coincide con el filtro textual."""
+    if not query or not str(query).strip():
+        return True
+    return normalize_text(query) in normalize_text(title or "")
+
+
+def resolve_target_universities(
+    raw_inputs: Sequence[str] | None = None,
+    *,
+    universities_data: Sequence[dict] | None = None,
+    university_type: str | None = None,
+) -> tuple[str, ...]:
+    """Resuelve códigos, nombres y filtros de tipo hacia una tupla de códigos RUCT de 3 dígitos."""
+    from checkpoint import load_json_safe
+    from config import UNIVERSIDADES_JSON
+
+    univ_list = universities_data
+    if univ_list is None and os.path.exists(UNIVERSIDADES_JSON):
+        univ_list = load_json_safe(UNIVERSIDADES_JSON, default=[])
+    if not isinstance(univ_list, list):
+        univ_list = []
+
+    type_norm = (university_type or "").strip().lower()
+    if type_norm in {"publica", "publicas", "public"}:
+        target_type = "pública"
+    elif type_norm in {"privada", "privadas", "private"}:
+        target_type = "privada"
+    else:
+        target_type = None
+
+    resolved_codes = set()
+
+    if raw_inputs:
+        flat_inputs = []
+        for item in raw_inputs:
+            if isinstance(item, str):
+                flat_inputs.extend([part.strip() for part in item.replace(",", " ").split() if part.strip()])
+
+        for raw in flat_inputs:
+            if raw.isdigit():
+                code = str(raw).zfill(3)
+                resolved_codes.add(code)
+            else:
+                norm_q = normalize_text(raw)
+                for u in univ_list:
+                    if isinstance(u, dict):
+                        u_name = normalize_text(u.get("nombre", ""))
+                        u_code = str(u.get("codigo", "")).zfill(3)
+                        if norm_q in u_name or norm_q == u_code:
+                            resolved_codes.add(u_code)
+    elif target_type and univ_list:
+        for u in univ_list:
+            if isinstance(u, dict) and normalize_text(u.get("tipo", "")) == normalize_text(target_type):
+                resolved_codes.add(str(u.get("codigo", "")).zfill(3))
+
+    if target_type and resolved_codes and univ_list:
+        valid_type_codes = {
+            str(u.get("codigo", "")).zfill(3)
+            for u in univ_list
+            if isinstance(u, dict) and normalize_text(u.get("tipo", "")) == normalize_text(target_type)
+        }
+        resolved_codes &= valid_type_codes
+
+    return tuple(sorted(resolved_codes))
+
+
 def format_ruct_url(template: str, code: str, *, degree: bool = False) -> str:
     """Formatea plantillas históricas y nuevas sin depender del alias usado."""
     values = {

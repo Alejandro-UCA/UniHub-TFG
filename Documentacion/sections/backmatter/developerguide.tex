@@ -30,3 +30,30 @@ El proyecto \textbf{UniHub} se organiza en cuatro componentes principales situad
     \item \textbf{Construir y Levantar Todo con Docker:} \texttt{cd Codigo/Docker; docker compose up --build -d}.
     \item \textbf{Ejecutar Carga ETL:} \texttt{docker compose exec api python database/etl\_loader.py}.
 \end{itemize}
+
+\section{Ejecución Avanzada y Filtrado del Crawler (Fase 1)}
+El orquestador troncal \texttt{main\_fase\_1.py} dispone de una suite completa de parámetros por línea de comandos para auditorías, pruebas unitarias o ejecuciones de producción segmentadas:
+\begin{itemize}
+    \item \textbf{Selección de Partes:}
+    \begin{itemize}
+        \item Ejecutar solo una parte: \texttt{python main\_fase\_1.py --parte 4}
+        \item Ejecutar varias partes específicas: \texttt{python main\_fase\_1.py --parts 1 2}
+        \item Ejecutar el pipeline completo: \texttt{python main\_fase\_1.py --all}
+    \end{itemize}
+    \item \textbf{Filtrado por Universidades (Códigos o Nombres):}
+    \begin{itemize}
+        \item Por códigos RUCT: \texttt{python main\_fase\_1.py --parte 4 --univs 025 008}
+        \item Por nombres o términos clave: \texttt{python main\_fase\_1.py --parte 4 --univs "Cádiz" "Granada"}
+    \end{itemize}
+    \item \textbf{Filtrado por Titularidad Institucional:}
+    \begin{itemize}
+        \item Solo públicas: \texttt{python main\_fase\_1.py --publicas}
+        \item Solo privadas: \texttt{python main\_fase\_1.py --privadas}
+    \end{itemize}
+    \item \textbf{Filtrado Semántico por Título de Titulación:}
+    \begin{itemize}
+        \item Buscar solo titulaciones de Informática: \texttt{python main\_fase\_1.py --grado "Informática"}
+        \item Combinar filtros: \texttt{python main\_fase\_1.py --parte 4 --univs 025 --grado "Medicina"}
+    \end{itemize}
+\end{itemize}
+

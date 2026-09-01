@@ -657,14 +657,14 @@ class RUCTDownloader:
         """
         err_str = str(error_details)
         if any(marker in err_str for marker in ["404", "NameResolutionError", "getaddrinfo failed", "ConnectionRefusedError", "InvalidURL"]):
-            logger.warning(f"[ADVERTENCIA] Enlace no disponible o no resuelto: {error_details}")
+            logger.debug(f"[ADVERTENCIA] Enlace no disponible o no resuelto: {error_details}")
             return False
 
         if url:
             domain = urlparse(url).netloc.lower() or "default"
             failures = self._connection_failures_by_domain.get(domain, 0) + 1
             self._connection_failures_by_domain[domain] = failures
-            logger.warning(
+            logger.debug(
                 "[ADVERTENCIA] Fallo de conexión en '%s' #%s/%s: %s",
                 domain, failures, CIRCUIT_BREAKER_FAILURES_THRESHOLD, error_details,
             )
@@ -672,7 +672,7 @@ class RUCTDownloader:
                 self._connection_pause_counts_by_domain[domain] = (
                     self._connection_pause_counts_by_domain.get(domain, 0) + 1
                 )
-                logger.warning(
+                logger.debug(
                     "[RESILIENCIA] Se aísla temporalmente el host '%s'; "
                     "los demás dominios de la universidad continúan.", domain,
                 )
@@ -680,7 +680,7 @@ class RUCTDownloader:
             return False
 
         self.consecutive_failures += 1
-        logger.warning(f"[ADVERTENCIA] Fallo de conexión #{self.consecutive_failures}/{CIRCUIT_BREAKER_FAILURES_THRESHOLD}: {error_details}")
+        logger.debug(f"[ADVERTENCIA] Fallo de conexión #{self.consecutive_failures}/{CIRCUIT_BREAKER_FAILURES_THRESHOLD}: {error_details}")
         
         if self.consecutive_failures >= CIRCUIT_BREAKER_FAILURES_THRESHOLD:
             self.pause_count_univ += 1
@@ -889,7 +889,7 @@ class RUCTDownloader:
                         retry_after_val = response.headers.get("Retry-After")
                         retry_secs = int(retry_after_val) if (retry_after_val and retry_after_val.isdigit()) else HTTP_429_DEFAULT_RETRY_AFTER
                         retry_secs = min(max(0, retry_secs), max(0, HTTP_429_MAX_RETRY_AFTER))
-                        print(f" [AVISO CORTESIA RED] HTTP 429 detectado en '{target_url}'. Retardo adaptativo para '{domain}' ajustado a {new_delay:.2f}s. Pausando {retry_secs}s...")
+                        logger.debug("[AVISO CORTESIA RED] HTTP 429 detectado en '%s'. Retardo adaptativo para '%s' ajustado a %.2fs. Pausando %ss...", target_url, domain, new_delay, retry_secs)
                         time.sleep(retry_secs)
                         last_error = requests.HTTPError(f"HTTP 429 Too Many Requests para '{target_url}'")
                         had_429 = True
@@ -944,7 +944,7 @@ class RUCTDownloader:
                             self.ledger.record_response(target_url, response=locals().get("response"), status="failed", error=str(e))
                         except Exception as ledger_error:
                             logger.warning("No se pudo registrar el fallo de descarga en el ledger: %s", ledger_error, exc_info=True)
-                    print(f"     [Proceso Red] -> Falló conexión a '{target_url}': {e}")
+                    logger.debug("[Proceso Red] -> Falló conexión a '%s': %s", target_url, e)
                     continue
 
             if last_error is None:
@@ -962,7 +962,7 @@ class RUCTDownloader:
                 if not had_429:
                     backoff_wait = (2 ** (attempt - 1)) * 0.5
                     time.sleep(backoff_wait)
-                print(f" 🔄 [RESILIENCIA] Reintentando petición ({attempt + 1}/{max_retries}) para '{url}'...")
+                logger.debug("[RESILIENCIA] Reintentando petición (%s/%s) para '%s'...", attempt + 1, max_retries, url)
 
         if last_error is None:
             last_error = requests.RequestException(f"Error tras agotar {max_retries} intentos para '{url}'")

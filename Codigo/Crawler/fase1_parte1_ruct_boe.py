@@ -382,6 +382,7 @@ def run_phase1_part1(
     max_workers: int = None,
     metrics_tracker=None,
     progress_emitter=None,
+    degree_title_filter: str | None = None,
 ) -> dict:
     """Descarga el catálogo RUCT y resuelve los planes publicados en BOE."""
     full_revalidation = bool(FULL_REVALIDATION or force)
@@ -522,6 +523,9 @@ def run_phase1_part1(
                 atomic_json_dump(catalog, TITULACIONES_JSON)
 
                 degrees_to_process = list(reversed(active_degrees))
+                if degree_title_filter:
+                    from phase_common import matches_degree_title
+                    degrees_to_process = [d for d in degrees_to_process if matches_degree_title(d.get("titulo"), degree_title_filter)]
                 if limit_degrees is not None:
                     degrees_to_process = degrees_to_process[:max(0, limit_degrees)]
 

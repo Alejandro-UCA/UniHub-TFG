@@ -2620,6 +2620,7 @@ def run_phase1_part2(
     max_workers: int = None,
     metrics_tracker=None,
     progress_emitter=None,
+    degree_title_filter: str | None = None,
 ) -> dict:
     """
     Punto de entrada principal para la Fase 1 - Parte 2:
@@ -2661,12 +2662,18 @@ def run_phase1_part2(
     if limit_universities is not None:
         universities = universities[:max(0, limit_universities)]
 
-    if limit_degrees is not None and isinstance(titulaciones_por_univ, dict):
+    if (limit_degrees is not None or degree_title_filter) and isinstance(titulaciones_por_univ, dict):
+        from phase_common import matches_degree_title
         limited_catalog = {}
         for u_code, u_data in titulaciones_por_univ.items():
             if isinstance(u_data, dict):
                 u_data = dict(u_data)
-                u_data["titulaciones_vigentes"] = list(u_data.get("titulaciones_vigentes", []))[:max(0, limit_degrees)]
+                degs = list(u_data.get("titulaciones_vigentes", []))
+                if degree_title_filter:
+                    degs = [d for d in degs if matches_degree_title(d.get("titulo"), degree_title_filter)]
+                if limit_degrees is not None:
+                    degs = degs[:max(0, limit_degrees)]
+                u_data["titulaciones_vigentes"] = degs
             limited_catalog[u_code] = u_data
         titulaciones_por_univ = limited_catalog
 

@@ -40,21 +40,22 @@ CRAWLER_USER=crawler
 # El volumen de datos puede ocultar los permisos establecidos durante el build.
 # Se prepara antes de ejecutar el crawler sin privilegios y se verifica de forma
 # explícita para evitar fallos tardíos de SQLite como "unable to open database file".
-mkdir -p /app/Datos/planes_estudio /app/Datos/logs /app/Datos/http_cache /app/temp_pdfs
-chown -R "$CRAWLER_USER:$CRAWLER_USER" /app/Datos /app/temp_pdfs
+mkdir -p /app/Datos/planes_estudio /app/Datos/logs /app/Datos/http_cache /app/temp_pdfs /home/crawler
+chown -R "$CRAWLER_USER:$CRAWLER_USER" /app/Datos /app/temp_pdfs /home/crawler
 if ! su -s /bin/sh "$CRAWLER_USER" -c 'test -w /app/Datos && test -w /app/Datos/planes_estudio'; then
     echo "[ERROR] El volumen /app/Datos no permite escritura al usuario crawler." >&2
     exit 1
 fi
 
 {
+    printf '%s\n' "HOME=/home/crawler"
     printf '%s\n' "PYTHONUNBUFFERED=1"
     printf '%s\n' "CRAWLER_REQUEST_DELAY=${CRAWLER_REQUEST_DELAY:-1.0}"
     printf '%s\n' "ADMIN_API_KEY=${ADMIN_API_KEY:-}"
     printf '%s\n' "ADMIN_API_KEYS=${ADMIN_API_KEYS:-}"
     printf '%s\n' "API_SYNC_URL=${API_SYNC_URL:-}"
     printf '%s\n' "CRAWLER_API_SYNC_TIMEOUT=${CRAWLER_API_SYNC_TIMEOUT:-600}"
-    printf '%s\n' "$CRON_SCHEDULE cd /app && $PYTHON_BIN /app/main.py >> /var/log/crawler_cron.log 2>&1"
+    printf '%s\n' "$CRON_SCHEDULE cd /app && export HOME=/home/crawler && $PYTHON_BIN /app/main.py >> /var/log/crawler_cron.log 2>&1"
 } | crontab -u "$CRAWLER_USER" -
 
 chown "$CRAWLER_USER:$CRAWLER_USER" /var/log/crawler_cron.log
@@ -62,8 +63,8 @@ chown "$CRAWLER_USER:$CRAWLER_USER" /var/log/crawler_cron.log
 # Ejecutar la sincronización inicial en primer plano. Si falla, el contenedor
 # termina con error y Docker puede reiniciarlo; el fallo no queda oculto.
 if [ "${CRAWLER_RUN_ON_STARTUP:-true}" = "true" ]; then
-    echo "[INFO] Ejecutando sincronización inicial del rastreador..."
-    su -s /bin/sh "$CRAWLER_USER" -c "exec $PYTHON_BIN /app/main.py"
+    echo "[INFO] Ejecutando sincronización inicial del rastreador (Parte 4)..."
+    su -s /bin/sh "$CRAWLER_USER" -c "export HOME=/home/crawler && exec $PYTHON_BIN /app/main_fase_1.py ${CRAWLER_PARTS_ARGS:---parte 4}"
 fi
 
 echo "[INFO] Sincronización inicial omitida. Activando cron: ${CRON_SCHEDULE}."

@@ -119,6 +119,7 @@ def _run_part(
     metrics: PerformanceTracker,
     progress: ProgressEmitter,
     robots_denied_university_codes: Optional[set[str]] = None,
+    degree_title_filter: Optional[str] = None,
 ) -> dict:
     """Invoca cualquier parte usando el contrato común de la migración."""
     runners = {
@@ -134,6 +135,7 @@ def _run_part(
         "max_workers": workers,
         "metrics_tracker": metrics,
         "progress_emitter": progress,
+        "degree_title_filter": degree_title_filter,
     }
     if part == 4:
         runner_kwargs["robots_denied_university_codes"] = robots_denied_university_codes or set()
@@ -150,6 +152,9 @@ def run_phase1(
     workers: Optional[int] = None,
     sync_etl: bool = True,
     continue_on_error: bool = True,
+    target_universities: Optional[Iterable[str]] = None,
+    university_type: Optional[str] = None,
+    degree_query: Optional[str] = None,
 ) -> dict:
     """Ejecuta, en orden, las partes seleccionadas de la Fase 1.
 
@@ -158,6 +163,22 @@ def run_phase1(
     por parte y, por defecto, no destruye el trabajo ya completado.
     """
     global _active_metrics, _active_checkpoint, _active_progress, _active_manifest, _active_log_handler
+
+    from phase_common import resolve_target_universities
+    if target_universities or university_type:
+        resolved = resolve_target_universities(
+            target_universities,
+            university_type=university_type,
+        )
+        if resolved:
+            config.TARGET_UNIVERSITY_CODES = resolved
+            print(f" [FILTRO] Universidades objetivo ({len(resolved)}): {', '.join(resolved)}")
+        elif target_universities or university_type:
+            print(" [AVISO] Ninguna universidad coincide con los filtros especificados.")
+            return {"status": "completed", "parts": {}}
+
+    if degree_query:
+        print(f" [FILTRO] Titulaciones filtradas por: '{degree_query}'")
 
     selected_parts = normalize_phase_selection(parts)
     clear_shutdown()
@@ -232,6 +253,7 @@ def run_phase1(
                     metrics=metrics,
                     progress=progress,
                     robots_denied_university_codes=robots_denied_for_following_parts,
+                    degree_title_filter=degree_query,
                 )
                 status = part_result.get("status", "completed")
                 part_result["status"] = status
@@ -376,16 +398,65 @@ def run_crawler(
 
 
 def parse_args(argv=None):
-    parser = argparse.ArgumentParser(description="UniHub - Orquestador de la Fase 1")
+    parser = argparse.ArgumentParser(
+        description="UniHub - Orquestador de la Fase 1",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Ejemplos de uso:
+  # 1. Lanzar partes específicas:
+  python main_fase_1.py --parte 4
+  python main_fase_1.py --parts 1 2
+
+  # 2. Filtrar por conjunto de universidades (códigos o nombres):
+  python main_fase_1.py --parte 4 --univs 025 041
+  python main_fase_1.py --parte 4 --univs "Cádiz" "Granada"
+
+  # 3. Limitar a universidades públicas o privadas:
+  python main_fase_1.py --publicas
+  python main_fase_1.py --privadas
+  python main_fase_1.py --tipo-univ publica
+
+  # 4. Filtrar titulaciones por texto en el título:
+  python main_fase_1.py --grado "Informática"
+  python main_fase_1.py --parte 4 --univs 025 --grado "Medicina"
+        """,
+    )
     selection = parser.add_mutually_exclusive_group()
     selection.add_argument("--all", action="store_true", help="Ejecutar las cuatro partes (valor predeterminado).")
     selection.add_argument("--parte", type=int, choices=(1, 2, 3, 4), help="Ejecutar una sola parte.")
     selection.add_argument("--parts", type=int, nargs="+", choices=(1, 2, 3, 4), help="Ejecutar varias partes en orden.")
-    parser.add_argument("--limit-univ", type=int, default=None)
-    parser.add_argument("--limit-deg", type=int, default=None)
-    parser.add_argument("--force", action="store_true")
-    parser.add_argument("--workers", type=int, default=None)
-    parser.add_argument("--no-sync-etl", action="store_true", help="No solicitar la sincronización ETL final.")
+
+    parser.add_argument(
+        "--universities", "--univs", "-u",
+        type=str,
+        nargs="+",
+        default=None,
+        help="Filtrar por uno o varios códigos (025, 041) o nombres de universidad ('Cádiz', 'Granada').",
+    )
+
+    type_group = parser.add_mutually_exclusive_group()
+    type_group.add_argument("--publicas", action="store_true", help="Procesar exclusivamente universidades públicas.")
+    type_group.add_argument("--privadas", action="store_true", help="Procesar exclusivamente universidades privadas.")
+    type_group.add_argument(
+        "--tipo-universidad", "--tipo-univ",
+        type=str,
+        choices=("publica", "privada", "publicas", "privadas"),
+        default=None,
+        help="Filtrar por tipo de institución (pública o privada).",
+    )
+
+    parser.add_argument(
+        "--filtro-titulacion", "--grado", "--titulo", "--degree-query",
+        type=str,
+        default=None,
+        help="Filtrar titulaciones que contengan este texto en el título (ej: 'Informática', 'Medicina', 'Derecho').",
+    )
+
+    parser.add_argument("--limit-univ", type=int, default=None, help="Límite máximo de universidades a procesar.")
+    parser.add_argument("--limit-deg", type=int, default=None, help="Límite de titulaciones por universidad.")
+    parser.add_argument("--force", action="store_true", help="Forzar reanálisis omitiendo cachés.")
+    parser.add_argument("--workers", type=int, default=None, help="Número de hilos/trabajadores paralelos.")
+    parser.add_argument("--no-sync-etl", action="store_true", help="No solicitar la sincronización ETL final con la API.")
     parser.add_argument("--stop-on-error", action="store_true", help="Detenerse en el primer error de una parte.")
     return parser.parse_args(argv)
 
@@ -395,6 +466,9 @@ def main(argv=None) -> int:
     signal.signal(signal.SIGTERM, handle_shutdown)
     args = parse_args(argv)
     parts = [args.parte] if args.parte else args.parts
+
+    univ_type = "publica" if args.publicas else ("privada" if args.privadas else args.tipo_universidad)
+
     result = run_phase1(
         parts=parts,
         limit_universities=args.limit_univ,
@@ -403,6 +477,9 @@ def main(argv=None) -> int:
         workers=args.workers,
         sync_etl=not args.no_sync_etl,
         continue_on_error=not args.stop_on_error,
+        target_universities=args.universities,
+        university_type=univ_type,
+        degree_query=args.filtro_titulacion,
     )
     return 0 if result["status"] == "completed" else 1
 

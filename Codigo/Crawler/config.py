@@ -422,12 +422,11 @@ ACADEMIC_SUBPAGE_KEYWORDS = [
     "estructura", "curriculum", "syllabus", "irakasgaiak", "ikasketa-plana", "courses", "sia", "apps"
 ]
 
-# Palabras clave y subdominios institucionales de portales de gestión docente
+# Palabras clave y subdominios institucionales de portales de gestión docente y centros
 INSTITUTIONAL_PORTAL_KEYWORDS = [
-    "apps", "sia", "secretaria", "portal", "sies", "cvnet", "guias", "gestion", "ujiapps", "academico", "estudis"
+    "apps", "sia", "secretaria", "portal", "sies", "cvnet", "guias", "gestion", "ujiapps", "academico", "estudis",
+    "centros", "centres", "facultades", "facultats", "facultade", "escuelas", "escoles", "escolas", "ikastegiak", "campus"
 ]
-
-
 
 # Metadatos de ficha administrativa a descartar para evitar confusión con asignaturas (Multilingüe: ES, CA, GL, EU)
 INVALID_METADATA_LABELS = {
@@ -450,9 +449,6 @@ INVALID_METADATA_LABELS = {
     "kudeaketa zentroa", "irakaskuntza modalitatea", "ebaki nota", "kredituko prezioa",
     "plazak", "iraupena", "graduaren datuak", "masterraren datuak", "kanpoko praktikak"
 }
-
-
-# Parámetros para Descubrimiento Orgánico de Centros Adscritos y Alianzas Europeas (Patrones 1 y 3)
 MAX_ORGANIC_AFFILIATED_HUBS_PER_UNIV = _safe_int("CRAWLER_MAX_ORGANIC_HUBS", 12)
 ORGANIC_AFFILIATED_HUB_KEYWORDS = [
     "adscrit", "adscrito", "adscrita", "centres adscrits", "centros adscritos",

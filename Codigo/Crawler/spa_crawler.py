@@ -131,10 +131,23 @@ class SPALayoutCrawler:
             self.close()
         if self._browser is None:
             try:
+                if not os.environ.get("HOME") or not os.access(os.environ.get("HOME", ""), os.W_OK):
+                    if os.path.exists("/home/crawler") and os.access("/home/crawler", os.W_OK):
+                        os.environ["HOME"] = "/home/crawler"
+                    else:
+                        os.environ["HOME"] = "/tmp"
                 self._pw = sync_playwright().start()
                 launch_options = {
                     "headless": True,
-                    "args": ["--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu"],
+                    "args": [
+                        "--no-sandbox",
+                        "--disable-dev-shm-usage",
+                        "--disable-gpu",
+                        "--disable-software-rasterizer",
+                        "--disable-crash-reporter",
+                        "--crash-dumps-dir=/tmp",
+                        "--no-zygote",
+                    ],
                 }
                 from runtime_capabilities import find_browser_executable
                 executable_path = find_browser_executable()
@@ -142,7 +155,7 @@ class SPALayoutCrawler:
                     launch_options["executable_path"] = executable_path
                 self._browser = self._pw.chromium.launch(**launch_options)
             except Exception as e:
-                print(f"   [SPA Crawler] Error al arrancar Chromium: {e}")
+                logger.debug("Error al arrancar Chromium para SPA: %s", e)
                 self.close()
         return self._browser
 
@@ -432,6 +445,15 @@ class SPALayoutCrawler:
             try:
                 page.goto(target_url, timeout=self.timeout, wait_until="domcontentloaded")
                 page.wait_for_timeout(max(0, int(SPA_INITIAL_RENDER_DELAY * 1000)))
+
+                # Detección y resolución adaptativa de retos interactivos WAF (Anubis Proof of Work, Turnstile, etc.)
+                try:
+                    page_text_sample = (page.content() or "")[:4000].lower()
+                    if any(kw in page_text_sample for kw in ["making sure you're not a bot", "anubis", "challenge-platform", "cf-browser-verification", "turnstile", "checking your browser"]):
+                        logger.info("Detectado reto WAF/Proof of Work en '%s'; esperando resolución interactiva...", target_url)
+                        page.wait_for_timeout(2500)
+                except Exception as waf_wait_err:
+                    logger.debug("Aviso en espera de reto WAF: %s", waf_wait_err)
             except Exception as nav_err:
                 if "Download is starting" in str(nav_err) or "net::ERR_ABORTED" in str(nav_err):
                     try:

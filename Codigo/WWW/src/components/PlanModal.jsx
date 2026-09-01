@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { X, FileText, ExternalLink, Award, Layers, AlertTriangle, BookOpen, ChevronDown, ChevronUp, User } from 'lucide-react';
 import { apiService } from '../services/api';
 import SubjectDetailModal from './SubjectDetailModal';
+import ErrorBoundary from './ErrorBoundary';
 
 const getSubjectKey = (subject, index) => String(
   subject.id ?? subject.codigo ?? `${subject.nombre_elemento || 'elemento'}|${subject.curso || ''}|${subject.cuatrimestre || ''}|${subject.creditos_ects || ''}|${index}`
@@ -738,11 +739,13 @@ export default function PlanModal({ degree, onClose }) {
 
       {/* Modal / Tarjeta detallada de asignatura individual */}
       {selectedSubject && (
-        <SubjectDetailModal
-          subject={selectedSubject}
-          degree={degree}
-          onClose={() => setSelectedSubject(null)}
-        />
+        <ErrorBoundary>
+          <SubjectDetailModal
+            subject={selectedSubject}
+            degree={degree}
+            onClose={() => setSelectedSubject(null)}
+          />
+        </ErrorBoundary>
       )}
     </div>
   );

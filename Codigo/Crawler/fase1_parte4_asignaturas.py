@@ -718,15 +718,19 @@ def _subject_guide_identity_matches(expected_name: str, expected_code: str, pars
     parsed_code = str(parsed_guide.get("codigo_asignatura") or "").strip()
     expected_code = str(expected_code or "").strip()
 
+    expected_tokens = _normalise_subject_identity(expected_name)
+    parsed_tokens = _normalise_subject_identity(parsed_name)
+
     if expected_code and parsed_code and expected_code.lower() == parsed_code.lower():
+        # Si ambos nombres están presentes y no comparten ningún token, se rechaza por contradicción semántica
+        if expected_tokens and parsed_tokens and not (set(expected_tokens) & set(parsed_tokens)):
+            return False
         return True
     if parsed_code and expected_code and is_plausible_subject_code(expected_code):
         return False
     if not parsed_name:
         return bool(expected_code and expected_code.lower() in str(source_url or "").lower())
 
-    expected_tokens = _normalise_subject_identity(expected_name)
-    parsed_tokens = _normalise_subject_identity(parsed_name)
     if not expected_tokens or not parsed_tokens:
         return False
     expected_key = " ".join(expected_tokens)
@@ -1223,21 +1227,9 @@ def parse_generic_eees_subject_guide(soup: BeautifulSoup, url: str) -> dict:
         "resultados_aprendizaje": [],
     }
 
-    h1 = soup.find("h1")
-    if h1:
-        res["nombre_asignatura"] = sanitize_subject_name(h1.get_text(strip=True))
-    if not res["nombre_asignatura"]:
-        for selector in ("meta[property='og:title']", "meta[name='twitter:title']"):
-            meta = soup.select_one(selector)
-            if meta and meta.get("content"):
-                res["nombre_asignatura"] = sanitize_subject_name(meta["content"])
-                break
-    if not res["nombre_asignatura"] and soup.title:
-        res["nombre_asignatura"] = sanitize_subject_name(soup.title.get_text(" ", strip=True))
-
     # Muchas universidades publican los metadatos en tablas de dos columnas,
     # dl/dt/dd o tarjetas sin clases estables. Se extraen por la etiqueta
-    # visible, nunca por la posición de la página.
+    # visible, con máxima prioridad sobre títulos de página genéricos.
     metadata_pairs = []
     for row in soup.find_all("tr"):
         cells = row.find_all(["th", "td"], recursive=False)
@@ -1247,16 +1239,37 @@ def parse_generic_eees_subject_guide(soup: BeautifulSoup, url: str) -> dict:
         dd = dt.find_next_sibling("dd")
         if dd:
             metadata_pairs.append((dt.get_text(" ", strip=True), dd.get_text(" ", strip=True)))
+    for div in soup.find_all(["div", "p", "li"]):
+        txt = div.get_text(" ", strip=True)
+        if ":" in txt and len(txt) < 150:
+            parts = txt.split(":", 1)
+            metadata_pairs.append((parts[0].strip(), parts[1].strip()))
+
     for label, value in metadata_pairs:
         label_lower = label.casefold()
         value = " ".join(value.split())
         if not value:
             continue
-        if any(token in label_lower for token in ("código", "codigo", "code", "sigla", "abrev")):
+        if any(token in label_lower for token in ("asignatura", "nombre asignatura", "subject", "course", "assignatura", "irakasgaia", "nombre de la asignatura")):
+            if "|" in value:
+                parts = [p.strip() for p in value.split("|") if p.strip()]
+                for p in parts:
+                    if re.fullmatch(r"\d+", p):
+                        if not res["codigo_asignatura"]:
+                            res["codigo_asignatura"] = p
+                    else:
+                        if not res["nombre_asignatura"]:
+                            res["nombre_asignatura"] = sanitize_subject_name(p)
+            else:
+                if not res["nombre_asignatura"]:
+                    res["nombre_asignatura"] = sanitize_subject_name(value)
+        elif any(token in label_lower for token in ("código", "codigo", "código asignatura", "codigo asignatura", "code", "sigla", "abrev")):
             code_match = re.search(r"[A-Za-z]{0,4}\s*\d{4,8}", value)
             candidate = re.sub(r"\s+", "", code_match.group(0)) if code_match else value
             if not res["codigo_asignatura"] and is_plausible_subject_code(candidate):
                 res["codigo_asignatura"] = candidate.upper()
+        elif any(token in label_lower for token in ("materia", "subject matter", "matèria")):
+            res["materia"] = sanitize_subject_name(value)
         elif any(token in label_lower for token in ("ects", "crédito", "credito", "credits")):
             ects_match = re.search(r"\d+(?:[.,]\d+)?", value)
             if ects_match and res["creditos"]["total_ects"] is None:
@@ -1266,6 +1279,26 @@ def parse_generic_eees_subject_guide(soup: BeautifulSoup, url: str) -> dict:
         elif any(token in label_lower for token in ("departamento", "department", "facultad", "school")):
             if not res["departamento"]:
                 res["departamento"] = value
+
+    # Si no se encontró en metadatos estructurados, recurrir a encabezados o title ignorando nombres de portal
+    if not res["nombre_asignatura"]:
+        h1 = soup.find("h1")
+        if h1:
+            h1_text = h1.get_text(strip=True)
+            if not any(ign in h1_text.lower() for ign in ("universidad", "portal", "programas docentes", "guía docente", "guia docente", "inicio", "facultad", "escuela")):
+                res["nombre_asignatura"] = sanitize_subject_name(h1_text)
+    if not res["nombre_asignatura"]:
+        for selector in ("meta[property='og:title']", "meta[name='twitter:title']"):
+            meta = soup.select_one(selector)
+            if meta and meta.get("content"):
+                m_txt = meta["content"]
+                if not any(ign in m_txt.lower() for ign in ("universidad", "portal", "programas docentes", "guía docente", "guia docente")):
+                    res["nombre_asignatura"] = sanitize_subject_name(m_txt)
+                    break
+    if not res["nombre_asignatura"] and soup.title:
+        t_txt = soup.title.get_text(" ", strip=True)
+        if not any(ign in t_txt.lower() for ign in ("universidad", "portal", "programas docentes", "guía docente", "guia docente")):
+            res["nombre_asignatura"] = sanitize_subject_name(t_txt)
 
     SECTIONS_MAP = {
         "requisitos": ["requisitos", "prerrequisitos", "prerrequisits", "requisits previs", "recomanacions", "aurretiazko baldintzak", "requisitos previos", "prerequisites", "incompatibilidades", "incompatibilitats"],

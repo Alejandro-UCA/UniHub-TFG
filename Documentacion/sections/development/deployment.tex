@@ -52,6 +52,7 @@ docker compose up --build -d
         \begin{lstlisting}[language=bash]
 docker compose up -d db api www
         \end{lstlisting}
+    \item \textbf{Control de Ejecución del Crawler al Arranque:} En el archivo \texttt{.env} se puede configurar \texttt{CRAWLER\_RUN\_ON\_STARTUP=false} para omitir el rastreo automático al iniciar los contenedores, o bien definir argumentos específicos en \texttt{CRAWLER\_PARTS\_ARGS} (por ejemplo, \texttt{--parte 4 --universities 005}).
 \end{enumerate}
 
 \subsubsection{Construcción de Imágenes y Variables de Entorno}

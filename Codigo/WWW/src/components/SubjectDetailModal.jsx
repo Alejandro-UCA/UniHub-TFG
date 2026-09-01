@@ -353,9 +353,26 @@ export default function SubjectDetailModal({ subject, degree, onClose }) {
 
               {bibList.length > 0 ? (
                 <ul style={{ margin: 0, paddingLeft: '1.2rem', fontSize: '0.8rem', color: 'var(--text-muted)', lineHeight: 1.45 }}>
-                  {bibList.map((b, bIdx) => (
-                    <li key={bIdx} style={{ marginBottom: '0.3rem' }}>{b}</li>
-                  ))}
+                  {bibList.map((b, bIdx) => {
+                    const isObj = typeof b === 'object' && b !== null;
+                    const bTitle = isObj ? (b.titulo || b.nombre || '') : String(b);
+                    const bAutores = isObj ? b.autores : '';
+                    const bIsbn = isObj ? b.isbn : '';
+                    const bUrl = isObj ? b.url : '';
+                    return (
+                      <li key={bIdx} style={{ marginBottom: '0.45rem' }}>
+                        {bUrl ? (
+                          <a href={bUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--uca-blue)', fontWeight: 600, textDecoration: 'underline' }}>
+                            {bTitle}
+                          </a>
+                        ) : (
+                          <span style={{ color: 'var(--text-main)', fontWeight: 600 }}>{bTitle}</span>
+                        )}
+                        {bAutores && <span style={{ color: 'var(--text-muted)', marginLeft: '0.35rem' }}>· {bAutores}</span>}
+                        {bIsbn && <span style={{ color: 'var(--text-muted)', marginLeft: '0.35rem', fontSize: '0.75rem' }}>({bIsbn})</span>}
+                      </li>
+                    );
+                  })}
                 </ul>
               ) : (
                 <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>

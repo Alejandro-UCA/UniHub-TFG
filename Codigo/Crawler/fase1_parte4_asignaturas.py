@@ -1327,11 +1327,32 @@ def parse_generic_eees_subject_guide(soup: BeautifulSoup, url: str) -> dict:
         elif any(kw in h_text for kw in SECTIONS_MAP["temario"]):
             next_node = h.find_next_sibling(["ul", "ol", "div", "table", "p", "dd"])
             if next_node:
-                items = next_node.find_all(["li", "p", "tr"])
-                for it in items:
-                    txt = it.get_text(strip=True)
-                    if txt and 4 <= len(txt) <= 250 and not is_spurious_or_administrative_subject(txt):
-                        res["temario"].append({"titulo": txt, "contenidos": []})
+                tables = [next_node] if next_node.name == "table" else next_node.find_all("table")
+                if tables:
+                    for table in tables:
+                        rows = table.find_all("tr")
+                        for r in rows:
+                            cells = [" ".join(c.get_text(" ", strip=True).split()) for c in r.find_all(["td", "th"])]
+                            if not cells or any(hdr in cells[0].casefold() for hdr in ("id/orden", "orden", "número", "numero", "tema", "bloque", "código")):
+                                if len(cells) > 1 and any(hdr in cells[1].casefold() for hdr in ("tema", "contenido", "descripción")):
+                                    continue
+                            if len(cells) >= 2:
+                                orden = cells[0] if re.match(r"^\d+$", cells[0]) else f"{len(res['temario']) + 1}"
+                                tema_raw = cells[1]
+                                desc = cells[2] if len(cells) >= 3 else ""
+                                parts = re.split(r"(?<=\.)\s+(?=[A-Z0-9])", tema_raw)
+                                titulo = parts[0].strip() if parts else tema_raw
+                                contenidos = [p.strip() for p in parts[1:] if len(p.strip()) > 3] if len(parts) > 1 else []
+                                if desc and desc not in contenidos:
+                                    contenidos.append(desc)
+                                if titulo and not is_spurious_or_administrative_subject(titulo):
+                                    res["temario"].append({"orden": orden, "titulo": titulo, "contenidos": contenidos})
+                else:
+                    items = next_node.find_all(["li", "p"])
+                    for it in items:
+                        txt = " ".join(it.get_text(" ", strip=True).split())
+                        if txt and 4 <= len(txt) <= 250 and not is_spurious_or_administrative_subject(txt):
+                            res["temario"].append({"orden": f"{len(res['temario']) + 1}", "titulo": txt, "contenidos": []})
 
         # 2. Evaluación
         elif any(kw in h_text for kw in SECTIONS_MAP["evaluacion"]):
@@ -1341,19 +1362,19 @@ def parse_generic_eees_subject_guide(soup: BeautifulSoup, url: str) -> dict:
                 if len(criteria) > len(res["criterios_evaluacion"]):
                     res["criterios_evaluacion"] = criteria
                 for row in next_node.find_all("tr"):
-                    cells = [cell.get_text(" ", strip=True) for cell in row.find_all(["th", "td"])]
-                    percent = None
-                    for cell in cells:
-                        percent = re.search(r"(\d{1,3}(?:[.,]\d+)?)\s*%", cell)
-                        if percent:
-                            break
-                    if percent and cells:
-                        task = cells[0]
-                        if len(cells) > 1 and re.search(r"%", task):
-                            task = cells[1]
-                        entry = {"tarea": task, "instrumentos": " ".join(cells[1:]), "ponderacion_porcentaje": float(percent.group(1).replace(",", "."))}
-                        if not any(existing == entry for existing in res["sistema_evaluacion"]):
-                            res["sistema_evaluacion"].append(entry)
+                    cells = [" ".join(cell.get_text(" ", strip=True).split()) for cell in row.find_all(["th", "td"])]
+                    if not cells or any(hdr in cells[0].casefold() for hdr in ("id/orden", "tarea", "actividad", "prueba", "código", "item")):
+                        continue
+                    if len(cells) >= 3:
+                        task = cells[1] if len(cells) >= 4 else cells[0]
+                        instr = cells[2] if len(cells) >= 4 else cells[1]
+                        pond_str = cells[3] if len(cells) >= 4 else cells[2]
+                        pond_match = re.search(r"\d+(?:[.,]\d+)?", pond_str)
+                        p_val = float(pond_match.group(0).replace(",", ".")) if pond_match else None
+                        if p_val is not None and p_val <= 100 and task and 3 <= len(task) <= 120:
+                            entry = {"tarea": task, "instrumentos": instr, "ponderacion_porcentaje": p_val}
+                            if not any(existing.get("tarea") == entry["tarea"] for existing in res["sistema_evaluacion"]):
+                                res["sistema_evaluacion"].append(entry)
                 # Extracción desde texto continuo con porcentajes (ej. "Examen: 60%, Prácticas: 40%")
                 if not res["sistema_evaluacion"] and criteria:
                     for m_pond in re.finditer(r"([^.,;\n:()]+?)\s*:\s*(\d{1,3}(?:[.,]\d+)?)\s*%", criteria):
@@ -1371,30 +1392,85 @@ def parse_generic_eees_subject_guide(soup: BeautifulSoup, url: str) -> dict:
         elif any(kw in h_text for kw in SECTIONS_MAP["profesorado"]):
             next_node = h.find_next_sibling(["ul", "ol", "div", "table", "p", "dd"])
             if next_node:
-                for it in next_node.find_all(["li", "tr", "p"]):
-                    p_txt = it.get_text(strip=True)
-                    if p_txt and 4 <= len(p_txt) <= 80:
-                        email = ""
-                        mailto = it.find("a", href=re.compile(r"^mailto:", re.I))
-                        if mailto and mailto.get("href"):
-                            email = mailto["href"].replace("mailto:", "").strip()
-                        if not email:
-                            m_em = re.search(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b", it.get_text())
-                            if m_em:
-                                email = m_em.group(0)
-                        prof_item = {"nombre_completo": p_txt, "coordinador": False}
-                        if email:
-                            prof_item["email"] = email
-                        res["profesorado"].append(prof_item)
+                tables = [next_node] if next_node.name == "table" else next_node.find_all("table")
+                if tables:
+                    for table in tables:
+                        th_texts = [c.get_text(" ", strip=True).casefold() for c in table.find_all("th")]
+                        is_docente_table = any(any(k in th for k in ("apellido", "profesor", "docente", "nombre")) for th in th_texts)
+                        if not is_docente_table and th_texts:
+                            continue
+                        rows = table.find_all("tr")
+                        for r in rows:
+                            cells = [" ".join(c.get_text(" ", strip=True).split()) for c in r.find_all(["td", "th"])]
+                            if not cells or any(hdr in cells[0].casefold() for hdr in ("primer apellido", "apellido", "apellidos", "nombre", "profesor", "docente", "código", "detalle", "horas", "actividad")):
+                                continue
+                            if any(hdr in " ".join(cells).casefold() for hdr in ("teoría", "prácticas de informática", "actividades formativas", "no presenciales", "seminarios")):
+                                continue
+                            if len(cells) >= 4:
+                                ap1, ap2, nom, cat = cells[0], cells[1], cells[2], cells[3]
+                                coord = len(cells) > 4 and any(t in cells[4].upper() for t in ("SÍ", "SI", "X", "COORD", "TRUE"))
+                                full_name = f"{nom} {ap1} {ap2}".strip().title()
+                                if full_name and not any(p.get("nombre_completo") == full_name for p in res["profesorado"]):
+                                    res["profesorado"].append({
+                                        "nombre_completo": full_name,
+                                        "categoria": cat,
+                                        "coordinador": coord,
+                                    })
+                            elif len(cells) >= 1:
+                                p_txt = cells[0].title()
+                                if 4 <= len(p_txt) <= 80 and not any(p.get("nombre_completo") == p_txt for p in res["profesorado"]):
+                                    if not re.search(r"\d", p_txt) and not any(act in p_txt.lower() for act in ("teoría", "práctica", "actividad", "horas", "seminario")):
+                                        res["profesorado"].append({
+                                            "nombre_completo": p_txt,
+                                            "categoria": cells[1] if len(cells) > 1 else "",
+                                            "coordinador": False,
+                                        })
+                else:
+                    for it in next_node.find_all(["li", "p"]):
+                        p_txt = " ".join(it.get_text(" ", strip=True).split())
+                        if p_txt and 4 <= len(p_txt) <= 80:
+                            email = ""
+                            mailto = it.find("a", href=re.compile(r"^mailto:", re.I))
+                            if mailto and mailto.get("href"):
+                                email = mailto["href"].replace("mailto:", "").strip()
+                            if not email:
+                                m_em = re.search(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b", it.get_text())
+                                if m_em:
+                                    email = m_em.group(0)
+                            prof_item = {"nombre_completo": p_txt.title(), "coordinador": False}
+                            if email:
+                                prof_item["email"] = email
+                            if not any(p.get("nombre_completo") == prof_item["nombre_completo"] for p in res["profesorado"]):
+                                res["profesorado"].append(prof_item)
 
         # 4. Bibliografía
         elif any(kw in h_text for kw in SECTIONS_MAP["bibliografia"]):
-            next_node = h.find_next_sibling(["ul", "ol", "div", "p", "dd"])
+            next_node = h.find_next_sibling(["ul", "ol", "div", "table", "p", "dd"])
             if next_node:
-                for it in next_node.find_all(["li", "p"]):
-                    b_txt = it.get_text(strip=True)
-                    if b_txt and 6 <= len(b_txt) <= 300:
-                        res["bibliografia"].append(b_txt)
+                tables = [next_node] if next_node.name == "table" else next_node.find_all("table")
+                if tables:
+                    for table in tables:
+                        rows = table.find_all("tr")
+                        for r in rows:
+                            cells = [" ".join(c.get_text(" ", strip=True).split()) for c in r.find_all(["td", "th"])]
+                            if not cells or any(hdr in cells[0].casefold() for hdr in ("título", "titulo", "autor", "autores", "isbn", "editorial")):
+                                continue
+                            if len(cells) >= 2:
+                                tit = cells[0]
+                                aut = cells[1] if len(cells) >= 2 else ""
+                                isbn = cells[2] if len(cells) >= 3 else ""
+                                b_url = cells[3] if len(cells) >= 4 else ""
+                                res["bibliografia"].append({
+                                    "titulo": tit,
+                                    "autores": aut,
+                                    "isbn": isbn,
+                                    "url": b_url
+                                })
+                else:
+                    for it in next_node.find_all(["li", "p"]):
+                        b_txt = " ".join(it.get_text(" ", strip=True).split())
+                        if b_txt and 6 <= len(b_txt) <= 300:
+                            res["bibliografia"].append(b_txt)
 
         # Algunas plantillas mezclan competencias y resultados bajo un mismo
         # bloque; los resultados se conservan como entidades separadas.

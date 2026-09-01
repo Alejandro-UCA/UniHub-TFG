@@ -342,7 +342,8 @@ def _candidate_hosts(base_url: str) -> list[str]:
     subdomains = (
         "guias", "guies", "guiasdocentes", "asignaturas", "assignatures",
         "docencia", "sia", "secretaria", "centros", "centres", "facultades",
-        "facultats", "escuelas", "escoles"
+        "facultats", "escuelas", "escoles", "posgrado", "postgrado",
+        "titulaciones", "estudios", "esingenieria", "etsi", "eps", "ciencias"
     )
     for sub in subdomains:
         cand = f"{sub}.{clean_domain}"

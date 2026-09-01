@@ -752,6 +752,132 @@ def _subject_guide_identity_matches(expected_name: str, expected_code: str, pars
     return expected_set.issubset(parsed_set) or parsed_set.issubset(expected_set)
 
 
+def _extract_web_subject_table_records(html: str, base_url: str) -> list[dict]:
+    """Extrae registros estructurados de asignaturas (código, nombre, URL guía) desde tablas HTML."""
+    if not html:
+        return []
+    soup = BeautifulSoup(html, "html.parser")
+    records = []
+    seen = set()
+    for tr in soup.find_all("tr"):
+        cells = [c.get_text(" ", strip=True) for c in tr.find_all(["th", "td"])]
+        if len(cells) >= 2:
+            code = None
+            name = None
+            for idx, c in enumerate(cells):
+                m_code = re.fullmatch(r"\d{4,8}", c.strip())
+                if m_code:
+                    code = m_code.group(0)
+                    if idx + 1 < len(cells) and len(cells[idx + 1]) >= 3:
+                        name = cells[idx + 1]
+                    elif idx > 0 and len(cells[idx - 1]) >= 3:
+                        name = cells[idx - 1]
+                    break
+            if code and name and (code, name) not in seen:
+                seen.add((code, name))
+                a_tag = tr.find("a", href=True)
+                guide_url = ""
+                if a_tag and a_tag.get("href"):
+                    guide_url = urljoin(base_url, a_tag["href"])
+                records.append({
+                    "codigo": code,
+                    "nombre": name,
+                    "tokens": set(_normalise_subject_identity(name)),
+                    "url_guia": guide_url,
+                })
+    return records
+
+
+def _enrich_degree_subject_codes_and_urls(
+    downloader,
+    u_code: str,
+    u_web: str,
+    d_code: str,
+    d_title: str,
+    d_level: str,
+    elementos: list[dict],
+    direct_url: str = "",
+    discovery_index: dict | None = None,
+) -> bool:
+    """Enriquece asignaturas procedentes de BOE (sin código) buscando tablas de asignaturas en la web de la titulación."""
+    if not elementos or not any(not elem.get("codigo_asignatura") or not elem.get("url_guia_docente") for elem in elementos):
+        return False
+
+    candidate_urls = []
+    if direct_url:
+        candidate_urls.append(direct_url)
+        for suffix in ("/asignaturas/", "/plan-de-estudios/", "-plan", "/estructura-del-curso", "/asignaturas"):
+            candidate_urls.append(urljoin(direct_url.rstrip("/") + "/", suffix.lstrip("/")))
+
+    if discovery_index:
+        disc_records = discovery_index.get("records") or discovery_index.get("urls", [])
+        title_tokens = set(_normalise_subject_identity(d_title))
+        for rec in disc_records:
+            u_cand = rec.get("url") if isinstance(rec, dict) else rec
+            u_cand_str = str(u_cand or "")
+            if not u_cand_str:
+                continue
+            cand_tokens = set(_normalise_subject_identity(u_cand_str))
+            if len(title_tokens & cand_tokens) >= 2 and any(k in u_cand_str.lower() for k in ("asig", "plan", "master", "grado", "titulac")):
+                candidate_urls.append(u_cand_str)
+
+    if u_web:
+        clean_web = u_web if "://" in u_web else f"https://{u_web}"
+        parsed_web = urlparse(clean_web)
+        root_domain = re.sub(r"^www\d*\.", "", parsed_web.hostname or "")
+        if "ciberseguridad" in d_title.lower() or "seguridad" in d_title.lower():
+            candidate_urls.extend([
+                f"https://esingenieria.{root_domain}/docencia/masteres/master-en-ciberseguridad-datos-informacion/asignaturas/",
+                f"https://esingenieria.{root_domain}/docencia/masteres/master-en-ciberseguridad-datos-informacion/plan-de-estudios/",
+                f"https://posgrado.{root_domain}/masteres/seguridad-informatica/",
+            ])
+
+    candidate_urls = list(dict.fromkeys(u for u in candidate_urls if u))[:8]
+    modified = False
+
+    for cand_url in candidate_urls:
+        try:
+            html = downloader.fetch_text(cand_url)
+            if not html:
+                continue
+            web_records = _extract_web_subject_table_records(html, cand_url)
+            if not web_records:
+                continue
+
+            for elem in elementos:
+                elem_name = elem.get("nombre_elemento", "")
+                elem_tokens = set(_normalise_subject_identity(elem_name))
+                if not elem_tokens:
+                    continue
+
+                best_match = None
+                best_score = 0.0
+
+                for rec in web_records:
+                    rec_tokens = rec["tokens"]
+                    if not rec_tokens:
+                        continue
+                    overlap = len(elem_tokens & rec_tokens) / min(len(elem_tokens), len(rec_tokens))
+                    if overlap > best_score:
+                        best_score = overlap
+                        best_match = rec
+
+                if best_match and best_score >= 0.65:
+                    if not elem.get("codigo_asignatura"):
+                        elem["codigo_asignatura"] = best_match["codigo"]
+                        modified = True
+                    if not elem.get("url_guia_docente") and best_match.get("url_guia"):
+                        elem["url_guia_docente"] = best_match["url_guia"]
+                        modified = True
+
+            if modified:
+                break
+        except Exception as exc:
+            logger.debug("Error enriqueciendo códigos de titulación desde %s: %s", cand_url, exc)
+
+    return modified
+
+
 def resolve_candidate_subject_guide_urls(
     elem: dict, 
     u_code: str, 
@@ -799,7 +925,7 @@ def resolve_candidate_subject_guide_urls(
         explicit_year = _normalise_academic_year_token(explicit_url)
         if (
             _is_likely_subject_guide_url(explicit_url, elem.get("codigo_asignatura") or elem.get("codigo"))
-            and (not explicit_year or explicit_year == current_year)
+            and (not explicit_year or explicit_year in year_candidates)
         ):
             _add_url(explicit_url)
 
@@ -2415,6 +2541,21 @@ def _process_single_university_guides(
 
         if not elementos:
             continue
+
+        # Enriquecimiento previo de códigos y URLs de guías desde la web si el plan proviene del BOE sin códigos locales
+        enriched_codes = _enrich_degree_subject_codes_and_urls(
+            downloader=downloader,
+            u_code=u_code,
+            u_web=u_web,
+            d_code=d_code,
+            d_title=data.get("titulo", ""),
+            d_level=data.get("nivel_academico", ""),
+            elementos=elementos,
+            direct_url=data.get("web_fuente_directa_url", ""),
+            discovery_index=discovery_index,
+        )
+        if enriched_codes:
+            degree_modified = True
 
         for elem in elementos:
             raise_if_shutdown_requested()

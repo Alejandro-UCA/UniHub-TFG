@@ -6,17 +6,8 @@ import time
 import gzip
 import logging
 import threading
-import requests
-import urllib.parse
-from urllib.robotparser import RobotFileParser
-import os
-import sys
-import re
-import json
-import time
-import gzip
-import logging
-import threading
+import heapq
+import itertools
 import requests
 import urllib.parse
 from urllib.robotparser import RobotFileParser
@@ -102,6 +93,8 @@ from config import (
     MEMORIA_VERIFICADA_KEYWORDS,
     ACADEMIC_SUBPAGE_KEYWORDS,
     INVALID_METADATA_LABELS,
+    ACADEMIC_SUBDOMAIN_PREFIXES,
+    NON_ACADEMIC_DEMOTION_MARKERS,
 
 
 
@@ -584,9 +577,10 @@ def is_html_page_matching_degree(soup: BeautifulSoup, target_title: str, univ_na
 
     # 2. Extraer título principal y encabezados secundarios
     primary_title_candidates = []
-    h1 = soup.find("h1")
-    if h1 and h1.get_text(strip=True):
-        primary_title_candidates.append(h1.get_text(separator=" ", strip=True))
+    for h1 in soup.find_all("h1"):
+        h1_txt = h1.get_text(separator=" ", strip=True)
+        if h1_txt:
+            primary_title_candidates.append(h1_txt)
     for meta in soup.find_all("meta", attrs={"property": "og:title"}):
         if meta.get("content"):
             primary_title_candidates.append(meta["content"])
@@ -632,9 +626,10 @@ def is_html_page_matching_degree(soup: BeautifulSoup, target_title: str, univ_na
     if is_target_eng != is_page_eng and primary_title_str:
         return False
 
-    # 5. Distinción estricta de Grado Simple vs Doble Grado
+    # 5. Distinción estricta de Grado Simple vs Doble Grado (sobre el título principal o URL de la ficha, no widgets laterales)
     is_target_double = bool(RE_DOUBLE_DEGREE_MARKER.search(target_low))
-    is_page_double = bool(RE_DOUBLE_DEGREE_MARKER.search(combined_page_header))
+    eval_double_text = f"{primary_title_str} {page_url or ''}".lower()
+    is_page_double = bool(RE_DOUBLE_DEGREE_MARKER.search(eval_double_text))
     if not is_target_double and is_page_double:
         return False
 
@@ -1385,6 +1380,60 @@ class UniversityWebCrawler:
                     pass
         return None
 
+    def _score_academic_hub_link(self, full_link: str, text: str) -> int:
+        """Calcula la prioridad semántica de un enlace para la cola de hubs de catálogo."""
+        u_low = full_link.lower()
+        t_low = text.lower()
+
+        # 1. Penalizar departamentos, noticias, páginas administrativas y títulos propios no oficiales
+        if any(m in u_low for m in NON_ACADEMIC_DEMOTION_MARKERS):
+            return -50
+
+        score = 0
+        parsed = urllib.parse.urlparse(full_link)
+        clean_path = parsed.path.rstrip("/")
+        is_leaf_degree = bool(re.search(r"/(?:grado|grau|master|postgrado)-[a-z0-9_-]+", clean_path.lower()))
+
+        # 2. Bonificación máxima para catálogos maestros y portales de oferta oficial de grados/másteres (no fichas individuales)
+        master_catalog_patterns = [
+            "/estudios/grado", "/estudios/master", "/grados", "/graus", "/titulaciones",
+            "/oferta-academica", "/estudis/graus", "/estudis/masters", "/titulacions",
+            "/oferta-formativa", "/estudios-ofertados", "/planes-de-estudio", "/titulaciones-oficiales"
+        ]
+        if not is_leaf_degree and any(clean_path.lower().endswith(p) or p in clean_path.lower() for p in master_catalog_patterns):
+            score += 80
+        elif is_leaf_degree:
+            score += 15
+
+        # 3. Bonificación por subdominios especializados en gestión docente
+        if any(sp in u_low for sp in ACADEMIC_SUBDOMAIN_PREFIXES):
+            score += 50
+
+        # 4. Bonificación por catálogos maestros y planes de estudio generales
+        for k in HUB_ACADEMIC_KEYWORDS:
+            if k in u_low:
+                score += 15
+            if k in t_low:
+                score += 10
+
+        # 5. Bonificación por facultades y centros
+        if any(k in u_low or k in t_low for k in ["facultad", "facultat", "facultade", "eskola", "escuela", "centro", "centre"]):
+            score += 10
+
+        # 6. Bonificación por términos directos de titulación / currículo
+        if any(k in u_low or k in t_low for k in ["plan-de-estudios", "plan-estudios", "estructura", "malla", "asignaturas", "grau", "grado", "master", "máster"]):
+            score += 20
+
+        # 7. Preferir rutas cortas y limpias sin parámetros de ordenación/paginación
+        if "?" in full_link:
+            score -= 25
+
+        path_segs = [p for p in clean_path.split("/") if p]
+        if len(path_segs) <= 2:
+            score += 5
+
+        return score
+
     def _build_academic_catalog_map(
         self, 
         downloader: RUCTDownloader, 
@@ -1394,11 +1443,10 @@ class UniversityWebCrawler:
         max_hops: int = HUB_AND_SPOKE_MAX_HOPS
     ) -> dict:
         """
-        Patrón Hub-and-Spoke Catalog Indexing Autónomo (6 Capas) con exploración BFS multinivel.
+        Patrón Hub-and-Spoke Catalog Indexing Autónomo con Priority Queue Semántico y descubrimiento de subdominios.
         Descarga de forma secuencial y cortés (respetando REQUEST_DELAY y robots.txt)
         los catálogos maestros y sub-hubs descubiertos dinámicamente mediante topología DOM,
-        densidad de enlaces hermanos, cargas de hidratación (JSON-LD/Next.js), desplegables de formularios
-        y migas de pan, sin dependencia obligatoria de diccionarios de palabras fijas.
+        priorizando portales académicos y subdominios docentes sobre departamentos y páginas administrativas.
         """
         catalog_map = defaultdict(list)
         seen_hubs = {web_url.rstrip("/")}
@@ -1406,12 +1454,14 @@ class UniversityWebCrawler:
         seen_organic_domains = set()
         organic_hubs = {}
         
-        # Cola BFS: tuplas de (url_hub, nivel_salto_actual)
-        queue = deque([(web_url, 0)])
+        # Priority Queue: tuplas de (-puntuacion_prioridad, nivel_salto, contador_insercion, url_hub, salto_actual)
+        pq = []
+        insertion_counter = 0
+        heapq.heappush(pq, (-100, 0, insertion_counter, web_url, 0))
         visited_hubs_count = 0
 
-        while queue and visited_hubs_count < max_hubs:
-            current_hub, current_hop = queue.popleft()
+        while pq and visited_hubs_count < max_hubs:
+            neg_prio, current_hop, _, current_hub, _ = heapq.heappop(pq)
             visited_hubs_count += 1
             
             try:
@@ -1426,7 +1476,9 @@ class UniversityWebCrawler:
                         norm_bc = bc_hub.rstrip("/")
                         if norm_bc not in seen_hubs and len(seen_hubs) < max_hubs * 2:
                             seen_hubs.add(norm_bc)
-                            queue.append((bc_hub, current_hop + 1))
+                            insertion_counter += 1
+                            bc_prio = self._score_academic_hub_link(bc_hub, "")
+                            heapq.heappush(pq, (-max(bc_prio, 10), current_hop + 1, insertion_counter, bc_hub, current_hop + 1))
 
                 # Capa 4, 5 y 6: Extracción de fuentes dinámicas (JSON-LD, Formularios Select y Eventos JS)
                 dynamic_candidates = []
@@ -1452,7 +1504,7 @@ class UniversityWebCrawler:
                         for tok in all_toks:
                             catalog_map[tok].append((dyn_url, dyn_title))
 
-                # Capa 1 y 2: Enlaces hipertexto estándar con evaluación heurística de HUB y Sibling Uniformity
+                # Capa 1 y 2: Enlaces hipertexto estándar con evaluación heurística de HUB y Priority Queue
                 for a in soup.find_all("a", href=True):
                     h = a["href"].strip()
                     if not is_valid_web_url(h):
@@ -1481,11 +1533,13 @@ class UniversityWebCrawler:
                                 organic_hubs[ext_domain] = (full_link, hub_name)
                         continue
                         
-                    # 1. Detección dinámica de Sub-HUBs de catálogo (Capa 1, 2 y fallback)
-                    if current_hop < max_hops and is_dynamic_academic_hub(soup, a, full_link, web_url):
+                    # 1. Detección dinámica y encolado prioritario de Sub-HUBs de catálogo
+                    link_priority = self._score_academic_hub_link(full_link, t_text)
+                    if current_hop < max_hops and (link_priority > 0 or is_dynamic_academic_hub(soup, a, full_link, web_url)):
                         if norm_link not in seen_hubs and len(seen_hubs) < max_hubs * 2:
                             seen_hubs.add(norm_link)
-                            queue.append((full_link, current_hop + 1))
+                            insertion_counter += 1
+                            heapq.heappush(pq, (-link_priority, current_hop + 1, insertion_counter, full_link, current_hop + 1))
                             
                     # 2. Indexación en catalog_map de páginas de titulación y planes docentes
                     if len(t_text) >= 4 and not is_spider_trap_or_spurious_url(full_link, t_text):
@@ -1505,7 +1559,11 @@ class UniversityWebCrawler:
                                 if w_norm.endswith('es') and len(w_norm) > 5:
                                     all_toks.add(w_norm[:-2])
                             for tok in all_toks:
-                                catalog_map[tok].append((full_link, t_text))
+                                # Desambiguación: insertar al principio las páginas con marcadores de titulación
+                                if link_priority >= 20:
+                                    catalog_map[tok].insert(0, (full_link, t_text))
+                                else:
+                                    catalog_map[tok].append((full_link, t_text))
             except Exception as exc:
                 logger.debug(f"Excepción controlada en crawling: {exc}")
                 continue
@@ -1947,9 +2005,10 @@ class UniversityWebCrawler:
                 catalog_candidates = []
                 for kw in title_keywords:
                     kw_low = kw.lower()
-                    kw_stem = kw_low[:4] if len(kw_low) >= 4 else kw_low
+                    kw_norm = unicodedata.normalize('NFKD', kw_low).encode('ASCII', 'ignore').decode('utf-8')
+                    kw_stem = kw_norm[:4] if len(kw_norm) >= 4 else kw_norm
                     for map_tok, links in catalog_map.items():
-                        if kw_low in map_tok or (len(kw_stem) >= 4 and kw_stem in map_tok):
+                        if kw_norm in map_tok or kw_low in map_tok or (len(kw_stem) >= 4 and kw_stem in map_tok):
                             for c_url, c_text in links:
                                 catalog_candidates.append((c_url, c_text))
 
@@ -1978,7 +2037,9 @@ class UniversityWebCrawler:
                         scored_cat = []
                     
                     scored_cat.sort(key=lambda x: x[0], reverse=True)
-                    for sc, cat_url, cat_text in scored_cat[:4]:
+                    candidate_limit = max(8, int(WEB_CANDIDATES_PER_DEGREE or 8))
+                    scored_cat.sort(key=lambda x: x[0], reverse=True)
+                    for sc, cat_url, cat_text in scored_cat[:candidate_limit]:
                         if found_curriculum or sc < 40:
                             break
                         try:
@@ -1993,11 +2054,74 @@ class UniversityWebCrawler:
                             else:
                                 c_html = downloader.fetch_text(cat_url)
                                 c_soup = BeautifulSoup(c_html, "html.parser")
-                                c_elementos = extract_html_subjects(c_soup)
+                                c_elementos = extract_html_subjects(c_soup, cat_url)
                                 req_c = get_required_degree_credits(d_level, d_title)
                                 cur_c = compute_curriculum_total_ects(c_elementos)
                                 
-                                # Si HTML estático tiene < 3 asignaturas (contenedor SPA vacío JS), renderizar con Playwright
+                                # Paso 0.5: Si HTML estático de la ficha tiene < 10 asignaturas o < 60% créditos, explorar subpáginas curriculares (-plan, /estructura, /asignaturas, etc.)
+                                if len(c_elementos) < 10 or cur_c < (req_c * 0.6):
+                                    discovered_cat_subpages = []
+                                    seen_cat_subs = {cat_url}
+                                    parsed_cat_target = urllib.parse.urlparse(cat_url)
+                                    cat_path_prefix = parsed_cat_target.path.rstrip("/")
+
+                                    for a_tag in c_soup.find_all("a", href=True):
+                                        h_sub = a_tag["href"].strip()
+                                        if not h_sub or h_sub.startswith(("javascript:", "mailto:", "tel:", "#")):
+                                            continue
+                                        t_sub = a_tag.get_text(" ", strip=True).lower()
+                                        h_sub_low = h_sub.lower()
+                                        if (
+                                            any(kw in t_sub for kw in ACADEMIC_SUBPAGE_KEYWORDS) 
+                                            or any(kw in h_sub_low for kw in ACADEMIC_SUBPAGE_KEYWORDS)
+                                            or any(k in h_sub_low or k in t_sub for k in ["-plan", "estructura", "malla", "asignatura", "assignatura", "guia", "docencia", "web del curso", "plan de estudios"])
+                                        ):
+                                            full_sub_url = urllib.parse.urljoin(cat_url, h_sub)
+                                            if full_sub_url not in seen_cat_subs and is_same_or_subdomain(full_sub_url, web_url):
+                                                seen_cat_subs.add(full_sub_url)
+                                                parsed_sub = urllib.parse.urlparse(full_sub_url)
+                                                is_child = 1 if (cat_path_prefix and parsed_sub.path.startswith(cat_path_prefix)) else 0
+                                                has_pla = 1 if any(k in full_sub_url.lower() or k in t_sub for k in ["pla-estudis", "plan-estudios", "malla", "asignaturas", "assignatures", "docencia", "-plan", "estructura"]) else 0
+                                                priority = (is_child * 10) + (has_pla * 5)
+                                                discovered_cat_subpages.append((priority, full_sub_url))
+
+                                    discovered_cat_subpages.sort(key=lambda x: x[0], reverse=True)
+                                    for _, sub_p_url in discovered_cat_subpages[:8]:
+                                        try:
+                                            sub_p_html = downloader.fetch_text(sub_p_url)
+                                            if sub_p_html:
+                                                sub_p_soup = BeautifulSoup(sub_p_html, "html.parser")
+                                                sub_p_elems = extract_html_subjects(sub_p_soup, sub_p_url)
+                                                if len(sub_p_elems) > len(c_elementos):
+                                                    c_elementos = sub_p_elems
+                                                    c_soup = sub_p_soup
+                                                    cat_url = sub_p_url
+                                                
+                                                # Si la subpágina enlaza a una estructura más profunda (ej. web del curso -> estructura del curso)
+                                                if len(c_elementos) < 10:
+                                                    for a2 in sub_p_soup.find_all("a", href=True):
+                                                        h2 = a2["href"].strip()
+                                                        t2 = a2.get_text(" ", strip=True).lower()
+                                                        if any(k in h2.lower() or k in t2 for k in ["estructura", "plan-de-estudios", "asignaturas", "malla"]):
+                                                            f2 = urllib.parse.urljoin(sub_p_url, h2)
+                                                            if f2 not in seen_cat_subs and is_same_or_subdomain(f2, web_url):
+                                                                seen_cat_subs.add(f2)
+                                                                try:
+                                                                    h2_html = downloader.fetch_text(f2)
+                                                                    if h2_html:
+                                                                        s2_soup = BeautifulSoup(h2_html, "html.parser")
+                                                                        s2_elems = extract_html_subjects(s2_soup, f2)
+                                                                        if len(s2_elems) > len(c_elementos):
+                                                                            c_elementos = s2_elems
+                                                                            c_soup = s2_soup
+                                                                            cat_url = f2
+                                                                except Exception:
+                                                                    pass
+                                        except Exception as exc:
+                                            logger.debug(f"Excepción controlada en crawling subpágina: {exc}")
+                                            pass
+
+                                # Si tras explorar subpáginas sigue teniendo < 3 asignaturas (contenedor SPA vacío JS), renderizar con Playwright
                                 if len(c_elementos) < 3:
                                     try:
                                         from spa_crawler import SPALayoutCrawler

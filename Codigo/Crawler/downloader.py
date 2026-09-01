@@ -433,10 +433,19 @@ class RUCTDownloader:
         # Los TLD reservados para tests/documentación no representan aliases
         # DNS públicos; no se les añade ``www`` porque muchos mocks esperan
         # exactamente una sola petición.
+        cctld_suffixes = (".com.es", ".edu.es", ".org.es", ".gob.es", ".nom.es", ".co.uk")
+        is_subdomain = False
+        if any(host.endswith(sfx) for sfx in cctld_suffixes):
+            if host.count(".") >= 3:
+                is_subdomain = True
+        elif host.count(".") >= 2:
+            is_subdomain = True
+
         if (
             not host
             or is_ip
             or host.startswith("www.")
+            or is_subdomain
             or "." not in host
             or host.endswith((".test", ".invalid", ".localhost"))
         ):

@@ -271,7 +271,7 @@ CPU_WORKERS_COUNT = int(os.getenv("CRAWLER_CPU_WORKERS", max(1, min(4, os.cpu_co
 ENABLE_RUCT_ASYNC_PREFETCH = os.getenv("CRAWLER_ENABLE_RUCT_PREFETCH", "1").strip().lower() not in {"0", "false", "no"} # Activar precarga adelantada RUCT
 ASYNC_PREFETCH_WORKERS = _safe_int("CRAWLER_PREFETCH_WORKERS", 2)                           # Hilos concurrentes de precarga acotada
 RUCT_PREFETCH_LOOKAHEAD = _safe_int("CRAWLER_RUCT_PREFETCH_LOOKAHEAD", 3)                   # Ventana de titulaciones adelantadas en cola
-WEB_CRAWLER_WORKERS = _safe_int("CRAWLER_WEB_WORKERS", 12)                                   # Hilos escaneo web oficial
+WEB_CRAWLER_WORKERS = _safe_int("CRAWLER_WEB_WORKERS", 20)                                   # Hilos escaneo web oficial
 TASK_QUEUE_MAXSIZE = _safe_int("CRAWLER_TASK_QUEUE_MAXSIZE", 40)                            # Tamaño máximo acotado de cola multiproceso (seguridad RAM Docker)
 TASK_QUEUE_GET_TIMEOUT = _safe_int("CRAWLER_TASK_QUEUE_TIMEOUT", 5)                          # Timeout de lectura en cola (5s)
 WORKER_RESULT_QUEUE_TIMEOUT = _safe_float("CRAWLER_WORKER_RESULT_QUEUE_TIMEOUT", 3.0)
@@ -381,9 +381,26 @@ SPA_SUBPAGE_FETCH_TIMEOUT = _safe_int("CRAWLER_SPA_FETCH_TIMEOUT", 15)     # Tim
 WEB_SEARCH_RETRY_DELAY = _safe_float("CRAWLER_WEB_SEARCH_DELAY", 0.4)      # Pausa cortés entre búsquedas de subpáginas (s)
 
 # Parámetros del Patrón Hub-and-Spoke Catalog Indexing (Fase 1 Parte 2)
-HUB_AND_SPOKE_MAX_HUBS = _safe_int("CRAWLER_HUB_MAX_HUBS", 45)             # Catálogos maestros, facultades y calidad a pre-indexar
+HUB_AND_SPOKE_MAX_HUBS = _safe_int("CRAWLER_HUB_MAX_HUBS", 200)            # Catálogos maestros, facultades y calidad a pre-indexar
 HUB_AND_SPOKE_MAX_DEPTH = _safe_int("CRAWLER_HUB_MAX_DEPTH", 7)            # Cota máxima de profundidad en segmentos URL
 HUB_AND_SPOKE_MAX_HOPS = _safe_int("CRAWLER_HUB_MAX_HOPS", 6)              # Cota máxima de saltos BFS entre sub-hubs de catálogo
+
+# Prefijos de subdominios especializados en gestión académica y guías docentes
+ACADEMIC_SUBDOMAIN_PREFIXES = [
+    "asignaturas.", "guiasdocentes.", "sia.", "geaservicios.", "grados.",
+    "facultad.", "secretaria.", "graus.", "estudis.", "campusvirtual.", "docencia."
+]
+
+# Marcadores de páginas no docentes o títulos no oficiales a penalizar en la cola de hubs
+NON_ACADEMIC_DEMOTION_MARKERS = [
+    "/dep-", "/departamento", "/departament", "/departamendu", "/seccion-departamental",
+    "/investigacion", "/recerca", "/ikerketa", "/grupos-investigacion",
+    "/noticias", "/noticies", "/novas", "/albisteak", "/agenda", "/eventos",
+    "/profesorado", "/directorio", "/pdi", "/pas", "/buzon", "/contacto",
+    "/transparencia", "/normativa", "/empleo", "/convenios",
+    "/cfp/", "/formacion-permanente", "/titulos-propios", "/titulospropios",
+    "/estudios-propios", "/formacion-continua", "/cursos-verano", "/extension-universitaria"
+]
 
 # Parámetros del Motor Autónomo de Descubrimiento de HUBs Curriculares (6 Capas)
 DYNAMIC_HUB_MIN_SIBLINGS = _safe_int("CRAWLER_HUB_MIN_SIBLINGS", 6)        # Mínimo de enlaces hermanos homogéneos para clasificar como HUB

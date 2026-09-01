@@ -641,18 +641,24 @@ export default function PlanModal({ degree, onClose }) {
                                             <BookOpen size={16} /> Temario Oficial ({temarioList.length} bloques/temas)
                                           </div>
                                           <ul style={{ margin: 0, paddingLeft: '1.2rem', fontSize: '0.82rem', lineHeight: 1.5, color: 'var(--text-main)' }}>
-                                            {temarioList.map((t, tIdx) => (
-                                              <li key={tIdx} style={{ marginBottom: '0.35rem' }}>
-                                                <strong>{typeof t === 'string' ? t : (t.titulo || t.orden || `Tema ${tIdx + 1}`)}</strong>
-                                                {t.contenidos && Array.isArray(t.contenidos) && t.contenidos.length > 0 && (
-                                                  <ul style={{ paddingLeft: '1rem', marginTop: '0.2rem', color: 'var(--text-muted)', fontSize: '0.78rem' }}>
-                                                    {t.contenidos.slice(0, 3).map((sub, sIdx) => (
-                                                      <li key={sIdx}>{sub}</li>
-                                                    ))}
-                                                  </ul>
-                                                )}
-                                              </li>
-                                            ))}
+                                            {temarioList.map((t, tIdx) => {
+                                              const isStr = typeof t === 'string';
+                                              const isObj = typeof t === 'object' && t !== null;
+                                              const title = isStr ? t : (isObj ? (t.titulo || t.nombre || t.orden || `Tema ${tIdx + 1}`) : String(t));
+                                              const subs = isObj && Array.isArray(t.contenidos) ? t.contenidos : [];
+                                              return (
+                                                <li key={tIdx} style={{ marginBottom: '0.35rem' }}>
+                                                  <strong>{title}</strong>
+                                                  {subs.length > 0 && (
+                                                    <ul style={{ paddingLeft: '1rem', marginTop: '0.2rem', color: 'var(--text-muted)', fontSize: '0.78rem' }}>
+                                                      {subs.slice(0, 3).map((sub, sIdx) => (
+                                                        <li key={sIdx}>{typeof sub === 'object' && sub !== null ? (sub.titulo || sub.contenido || JSON.stringify(sub)) : String(sub)}</li>
+                                                      ))}
+                                                    </ul>
+                                                  )}
+                                                </li>
+                                              );
+                                            })}
                                           </ul>
                                         </div>
                                       )}
@@ -665,16 +671,22 @@ export default function PlanModal({ degree, onClose }) {
                                           </div>
                                           {evalList.length > 0 ? (
                                             <div style={{ fontSize: '0.82rem' }}>
-                                              {evalList.map((ev, evIdx) => (
-                                                <div key={evIdx} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.25rem 0', borderBottom: '1px dashed var(--border-light)' }}>
-                                                  <span>{ev.tarea || ev.instrumentos || `Prueba ${evIdx + 1}`}</span>
-                                                  <strong style={{ color: 'var(--uca-blue)' }}>{ev.ponderacion_porcentaje ? `${ev.ponderacion_porcentaje}%` : 'Ponderado'}</strong>
-                                                </div>
-                                              ))}
+                                              {evalList.map((ev, evIdx) => {
+                                                const isStr = typeof ev === 'string';
+                                                const isObj = typeof ev === 'object' && ev !== null;
+                                                const task = isStr ? ev : (isObj ? (ev.tarea || ev.instrumentos || `Prueba ${evIdx + 1}`) : String(ev));
+                                                const pond = isObj ? (ev.ponderacion_porcentaje ?? null) : null;
+                                                return (
+                                                  <div key={evIdx} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.25rem 0', borderBottom: '1px dashed var(--border-light)' }}>
+                                                    <span>{task}</span>
+                                                    <strong style={{ color: 'var(--uca-blue)' }}>{pond !== null ? `${pond}%` : 'Ponderado'}</strong>
+                                                  </div>
+                                                );
+                                              })}
                                             </div>
                                           ) : (
                                             <p style={{ margin: 0, fontSize: '0.8rem', color: 'var(--text-muted)', lineHeight: 1.45 }}>
-                                              {elem.criterios_evaluacion || guia.criterios_evaluacion}
+                                              {typeof (elem.criterios_evaluacion || guia.criterios_evaluacion) === 'object' ? JSON.stringify(elem.criterios_evaluacion || guia.criterios_evaluacion) : String(elem.criterios_evaluacion || guia.criterios_evaluacion)}
                                             </p>
                                           )}
                                         </div>
@@ -687,22 +699,28 @@ export default function PlanModal({ degree, onClose }) {
                                         </div>
                                         {profList.length > 0 ? (
                                           <ul style={{ margin: 0, paddingLeft: '1.2rem', fontSize: '0.82rem', color: 'var(--text-main)', marginBottom: '0.75rem' }}>
-                                            {profList.map((p, pIdx) => (
-                                              <li key={pIdx}>
-                                                {typeof p === 'string' ? p : p.nombre_completo}
-                                                {p.coordinador && <span style={{ marginLeft: '0.3rem', fontSize: '0.72rem', color: 'var(--uca-sun)', fontWeight: 700 }}>(Coordinador)</span>}
-                                              </li>
-                                            ))}
+                                            {profList.map((p, pIdx) => {
+                                              const isStr = typeof p === 'string';
+                                              const isObj = typeof p === 'object' && p !== null;
+                                              const pName = isStr ? p : (isObj ? (p.nombre_completo || p.nombre || `Docente ${pIdx + 1}`) : String(p));
+                                              const isCoord = isObj && Boolean(p.coordinador);
+                                              return (
+                                                <li key={pIdx}>
+                                                  {pName}
+                                                  {isCoord && <span style={{ marginLeft: '0.3rem', fontSize: '0.72rem', color: 'var(--uca-sun)', fontWeight: 700 }}>(Coordinador)</span>}
+                                                </li>
+                                              );
+                                            })}
                                           </ul>
                                         ) : (
                                           <p style={{ margin: '0 0 0.75rem 0', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                                            {guia.departamento ? `Departamento: ${guia.departamento}` : 'Consultar profesorado en la guía oficial.'}
+                                            {guia.departamento ? `Departamento: ${typeof guia.departamento === 'object' ? JSON.stringify(guia.departamento) : guia.departamento}` : 'Consultar profesorado en la guía oficial.'}
                                           </p>
                                         )}
 
                                         {bibList.length > 0 && (
                                           <div style={{ marginTop: '0.5rem', paddingTop: '0.5rem', borderTop: '1px dashed var(--border-light)', fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-                                            <strong>Bibliografía básica:</strong> {bibList.slice(0, 2).map(b => typeof b === 'string' ? b : (b.titulo || b.referencia || '')).join(' · ')}
+                                            <strong>Bibliografía básica:</strong> {bibList.slice(0, 2).map(b => typeof b === 'string' ? b : (typeof b === 'object' && b !== null ? (b.titulo || b.referencia || JSON.stringify(b)) : String(b))).join(' · ')}
                                           </div>
                                         )}
 

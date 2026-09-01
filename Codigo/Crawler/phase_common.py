@@ -218,6 +218,7 @@ def trigger_api_etl_sync(
     candidates = list(urls) if urls is not None else [
         API_SYNC_URL,
         "http://unihub_api:8000/api/v1/admin/sync-etl",
+        "http://localhost/api/v1/admin/sync-etl",
         "http://localhost:8000/api/v1/admin/sync-etl",
     ]
     headers = {}

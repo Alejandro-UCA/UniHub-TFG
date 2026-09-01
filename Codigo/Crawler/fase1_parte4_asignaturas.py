@@ -2761,6 +2761,7 @@ def run_phase1_part4(
     workers: int = None,
     robots_denied_university_codes: set[str] | None = None,
     degree_title_filter: str | None = None,
+    target_universities: list[str] | set[str] | None = None,
 ) -> dict:
     """
     FASE 1 - PARTE 4: Extracción de temarios, evaluación y contenido de guías docentes.
@@ -2832,6 +2833,11 @@ def run_phase1_part4(
                 university_meta = universities_map.get(str(u_code))
                 if university_meta and university_meta.get("web"):
                     data["web"] = university_meta["web"]
+
+            if target_universities:
+                formatted_target_univs = {str(code).zfill(3) for code in target_universities}
+                if str(u_code).zfill(3) not in formatted_target_univs:
+                    continue
 
             if target_univ_code and str(u_code).zfill(3) != str(target_univ_code).zfill(3):
                 continue

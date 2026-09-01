@@ -120,6 +120,7 @@ def _run_part(
     progress: ProgressEmitter,
     robots_denied_university_codes: Optional[set[str]] = None,
     degree_title_filter: Optional[str] = None,
+    target_universities: Optional[list[str]] = None,
 ) -> dict:
     """Invoca cualquier parte usando el contrato común de la migración."""
     runners = {
@@ -136,6 +137,7 @@ def _run_part(
         "metrics_tracker": metrics,
         "progress_emitter": progress,
         "degree_title_filter": degree_title_filter,
+        "target_universities": target_universities,
     }
     if part == 4:
         runner_kwargs["robots_denied_university_codes"] = robots_denied_university_codes or set()
@@ -254,6 +256,7 @@ def run_phase1(
                     progress=progress,
                     robots_denied_university_codes=robots_denied_for_following_parts,
                     degree_title_filter=degree_query,
+                    target_universities=resolved if 'resolved' in locals() and resolved else list(target_universities or []),
                 )
                 status = part_result.get("status", "completed")
                 part_result["status"] = status

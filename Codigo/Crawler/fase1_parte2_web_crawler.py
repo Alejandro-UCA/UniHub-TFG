@@ -2621,6 +2621,7 @@ def run_phase1_part2(
     metrics_tracker=None,
     progress_emitter=None,
     degree_title_filter: str | None = None,
+    target_universities: list[str] | set[str] | None = None,
 ) -> dict:
     """
     Punto de entrada principal para la Fase 1 - Parte 2:
@@ -2657,8 +2658,10 @@ def run_phase1_part2(
         return {"status": "skipped", "reason": "invalid_catalogs"}
     universities = valid_universities
 
-    if TARGET_UNIVERSITY_CODES:
-        universities = [u for u in universities if str(u.get("codigo", "")).zfill(3) in TARGET_UNIVERSITY_CODES]
+    effective_targets = target_universities or TARGET_UNIVERSITY_CODES
+    if effective_targets:
+        target_set = {str(c).zfill(3) for c in effective_targets}
+        universities = [u for u in universities if str(u.get("codigo", "")).zfill(3) in target_set]
     if limit_universities is not None:
         universities = universities[:max(0, limit_universities)]
 

@@ -241,6 +241,6 @@ def trigger_api_etl_sync(
                 return True
             logger.warning("La ETL remota respondió %s en %s", response.status_code, url)
         except requests.RequestException:
-            logger.warning("No se pudo contactar con la ETL remota en %s", url, exc_info=True)
+            logger.info("No se pudo contactar con la ETL remota en %s (API offline o en entorno standalone)", url)
             continue
     return False

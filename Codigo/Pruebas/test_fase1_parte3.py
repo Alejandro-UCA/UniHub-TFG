@@ -126,7 +126,7 @@ class TestPhase1Part3Strict(unittest.TestCase):
         self.assertIn("Catálogo local SIIU", deg_pub["fuente_precio"])
 
         deg_priv = {"titulo": "Grado en Bioquímica"}
-        apply_price_info_to_degree(deg_priv, {}, "Privada")
+        apply_price_info_to_degree(deg_priv, {"fuente_precio": "Universidad Privada (Tarifas fijadas por la institución)"}, "Privada")
         self.assertNotIn("precio_credito_ects", deg_priv)
         self.assertIn("Privada", deg_priv["fuente_precio"])
 
@@ -136,6 +136,48 @@ class TestPhase1Part3Strict(unittest.TestCase):
         self.assertEqual(normalize_ccaa_name(None), "")
         self.assertEqual(normalize_ccaa_name("Andalucía"), "Andalucía")
         self.assertEqual(normalize_ccaa_name("Euskadi"), "País Vasco")
+
+    def test_09_private_university_with_catalog_unav_medicine(self):
+        """Verifica la resolución de precios oficiales para la Universidad de Navarra (Medicina)."""
+        res = compute_degree_price(
+            ccaa="Navarra",
+            tipo_univ="Privada",
+            nivel_academico="Grado",
+            titulo="Grado en Medicina",
+            univ_codigo="031",
+            univ_nombre="Universidad de Navarra"
+        )
+        self.assertEqual(res["precio_credito_ects"], 275.00)
+        self.assertEqual(res["precio_estimado_anual"], 16500.00)
+        self.assertIn("Universidad de Navarra", res["fuente_precio"])
+
+    def test_10_private_university_with_catalog_unir_engineering(self):
+        """Verifica la resolución de precios para UNIR (Ingeniería Informática)."""
+        res = compute_degree_price(
+            ccaa="La Rioja",
+            tipo_univ="Privada",
+            nivel_academico="Grado",
+            titulo="Grado en Ingeniería Informática",
+            univ_codigo="076",
+            univ_nombre="Universidad Internacional de La Rioja"
+        )
+        self.assertEqual(res["precio_credito_ects"], 75.00)
+        self.assertEqual(res["precio_estimado_anual"], 4500.00)
+        self.assertIn("UNIR", res["fuente_precio"])
+
+    def test_11_private_university_with_catalog_comillas_ade(self):
+        """Verifica la resolución de precios para Universidad Pontificia Comillas (ADE)."""
+        res = compute_degree_price(
+            ccaa="Madrid",
+            tipo_univ="Privada",
+            nivel_academico="Grado",
+            titulo="Grado en Administración y Dirección de Empresas",
+            univ_codigo="034",
+            univ_nombre="Universidad Pontificia Comillas"
+        )
+        self.assertEqual(res["precio_credito_ects"], 215.00)
+        self.assertEqual(res["precio_estimado_anual"], 12900.00)
+        self.assertIn("Universidad Pontificia Comillas", res["fuente_precio"])
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

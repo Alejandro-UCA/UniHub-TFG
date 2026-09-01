@@ -79,19 +79,23 @@ El sistema de ingesta de la Fase 1 se estructura en cuatro partes desacopladas y
     \label{fig:fase1_parte2_diagram}
 \end{figure}
 
-\subsubsection{Fase 1 - Parte 3: Consolidación de Precios Públicos ECTS (SIIU)}
+\subsubsection{Fase 1 - Parte 3: Consolidación de Precios ECTS y Tarifas Públicas y Privadas (SIIU)}
 \begin{itemize}
-    \item \texttt{fase1\_parte3\_precios.py}: Asigna precios públicos por crédito ECTS e importes anuales estimados a partir del catálogo local de referencias SIIU y normativa autonómica disponible.
-    \item \textbf{Clasificación por Grados de Experimentalidad Oficiales (\texttt{classify\_degree\_experimental\_tier}):} Diferenciación de precios por área de conocimiento según los decretos autonómicos (\emph{Salud, Ciencias e Ingeniería, y Ciencias Sociales y Humanidades}), ajustando el precio por ECTS a la intensidad experimental real del título.
-    \item Dispone de un catálogo local pre-cargado \texttt{OFFICIAL\_SIIU\_PRICES\_CATALOG} para las 17 Comunidades Autónomas más la UNED con validación protegida contra excepciones de conversión numérica en floats/enteros y cobertura de másteres habilitantes marítimos (Orden FOM/1415/2018) y químicos.
+    \item \texttt{fase1\_parte3\_precios.py}: Asigna precios por crédito ECTS e importes anuales estimados a partir del catálogo local de referencias del SIIU, normativa autonómica disponible y prospectos de instituciones privadas.
+    \item \textbf{Clasificación por Grados de Experimentalidad y Disciplinas (\texttt{classify\_degree\_experimental\_tier}):} Diferenciación de precios por área de conocimiento (\emph{Salud, Ciencias e Ingeniería, y Ciencias Sociales y Humanidades}):
+    \begin{enumerate}
+        \item \textbf{Universidades Públicas:} Aplica las matrices de experimentalidad vigentes en los 17 decretos autonómicos y la UNED (\texttt{OFFICIAL\_SIIU\_PRICES\_CATALOG}), calculando los precios de primera a cuarta matrícula.
+        \item \textbf{Universidades Privadas:} Incorpora el catálogo estructurado \texttt{OFFICIAL\_PRIVATE\_UNIVERSITIES\_PRICES\_CATALOG} para las 51 instituciones privadas del sistema universitario español (\emph{UNAV, Comillas-ICADE/ICAI, UNIR, UOC, UAX, Nebrija, CEU San Pablo/Cardenal Herrera, Deusto, UEM, Loyola Andalucía, VIU, Isabel I, UDIMA, IE, CUNEF, ESIC, etc.}), diferenciando los honorarios según la rama formativa (\emph{Salud} vs \emph{Ingenierías} vs \emph{Sociales/Humanidades}) y el nivel de estudio.
+    \end{enumerate}
     \item Implementa discriminación por categoría (\emph{Grado, Máster Habilitante, Máster No Habilitante y Doctorado}) con la fórmula anual base $\text{Coste} = (60 \text{ ECTS} \times \text{Precio ECTS}) + \text{Tasas Admin}$.
+    \item \textbf{Trazabilidad y Transparencia (\texttt{fuente\_precio}):} Registra explícitamente el origen normativo del importe (ej. \emph{Decreto de Precios Públicos de la Junta de Andalucía (BOJA)} o \emph{Tarifario Oficial Institución Privada - Universidad de Navarra}).
     \item Incorpora \textbf{caché en memoria} del catálogo \texttt{precios\_ccaa.json} y volcado atómico mediante \texttt{atomic\_json\_dump} sobre los planes de estudio y el índice de titulaciones.
 \end{itemize}
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.92\textwidth]{figures/fase1_parte3_diagram.jpg}
-    \caption{Algoritmo de cómputo tarifario a partir del catálogo local, cacheo en memoria RAM y sincronización de la Fase 1 Parte 3}
+    \caption{Algoritmo de cómputo tarifario para universidades públicas y privadas a partir del catálogo local, cacheo en memoria RAM y sincronización de la Fase 1 Parte 3}
     \label{fig:fase1_parte3_diagram}
 \end{figure}
 

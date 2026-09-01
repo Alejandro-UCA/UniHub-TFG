@@ -1365,10 +1365,10 @@ def parse_generic_eees_subject_guide(soup: BeautifulSoup, url: str) -> dict:
                     cells = [" ".join(cell.get_text(" ", strip=True).split()) for cell in row.find_all(["th", "td"])]
                     if not cells or any(hdr in cells[0].casefold() for hdr in ("id/orden", "tarea", "actividad", "prueba", "código", "item")):
                         continue
-                    if len(cells) >= 3:
+                    if len(cells) >= 2:
                         task = cells[1] if len(cells) >= 4 else cells[0]
-                        instr = cells[2] if len(cells) >= 4 else cells[1]
-                        pond_str = cells[3] if len(cells) >= 4 else cells[2]
+                        instr = cells[2] if len(cells) >= 4 else (cells[1] if len(cells) >= 3 else cells[0])
+                        pond_str = cells[3] if len(cells) >= 4 else (cells[2] if len(cells) >= 3 else cells[1])
                         pond_match = re.search(r"\d+(?:[.,]\d+)?", pond_str)
                         p_val = float(pond_match.group(0).replace(",", ".")) if pond_match else None
                         if p_val is not None and p_val <= 100 and task and 3 <= len(task) <= 120:
@@ -3110,6 +3110,19 @@ def run_phase1_part4(
                             len(univ_groups),
                             str(u_code),
                             str(u_code),
+                        )
+                        progress_emitter.update_metrics(
+                            univ_done=completed,
+                            deg_inspected=total_enqueued,
+                            deg_updated=enriched_degrees,
+                            pdfs_parsed=guide_pdf_parse_count,
+                            errors=university_errors,
+                            controlled_incidents=(
+                                guide_robots_denied
+                                + guide_identity_rejected
+                                + guide_soft404_detected
+                                + guide_soft404_route_skips
+                            ),
                         )
                     if not cancelled and not is_shutdown_requested():
                         _submit_next_group()

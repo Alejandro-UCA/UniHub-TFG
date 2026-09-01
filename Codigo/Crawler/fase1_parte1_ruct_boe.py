@@ -457,6 +457,8 @@ def run_phase1_part1(
                     university["web"] = previous.get("web", university.get("web", ""))
                     university["web_corregida_por_wikidata"] = True
 
+        atomic_json_dump(universities, UNIVERSIDADES_JSON)
+
         effective_targets = target_universities or TARGET_UNIVERSITY_CODES
         if effective_targets:
             target_set = {str(c).zfill(3) for c in effective_targets}

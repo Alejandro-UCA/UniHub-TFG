@@ -1665,26 +1665,26 @@ class UniversityWebCrawler:
         stats["missing_degrees_count"] = len(missing_degrees)
 
         if not missing_degrees:
-            print(f" [Parte 2] Universidad [{u_code}] {u_name}: sin titulaciones web rastreables (p. ej. doctorados). Finalizado.")
+            logger.info("Universidad [%s] %s: sin titulaciones web rastreables (p. ej. doctorados).", u_code, u_name)
             return stats
 
-        print(f" [Parte 2] Universidad [{u_code}] {u_name}: {len(missing_degrees)} titulaciones no resueltas por la Parte 1. Verificando conectividad en '{web_url}'...")
+        logger.info("Universidad [%s] %s: %d titulaciones no resueltas por la Parte 1. Verificando conectividad en '%s'...", u_code, u_name, len(missing_degrees), web_url)
 
         # 2.5 robots.txt debe autorizar antes de cualquier petición de conectividad.
         can_fetch, crawl_delay = self.check_robots_allowed(web_url)
         if not can_fetch:
             # Si el origen registrado en el RUCT no responde o no tiene robots.txt disponible, comprobar si Wikidata conoce la URL oficial activa
-            print(f" [AVISO ROBOTS] Universidad [{u_code}] {u_name}: fallo al comprobar robots en '{web_url}'. Consultando URL alternativa...")
+            logger.warning("[AVISO ROBOTS] Universidad [%s] %s: fallo al comprobar robots en '%s'. Consultando URL alternativa...", u_code, u_name, web_url)
             rescued_url = self.rescue_university_url(u_name)
             if rescued_url:
                 cand_rescued = ensure_https_url(rescued_url)
                 if cand_rescued != web_url:
                     web_url = cand_rescued
-                    print(f" [RESCATE OK] URL actualizada por Wikidata para [{u_code}]: {web_url}")
+                    logger.info("[RESCATE OK] URL actualizada por Wikidata para [%s]: %s", u_code, web_url)
                     can_fetch, crawl_delay = self.check_robots_allowed(web_url)
 
         if not can_fetch:
-            print(f" [BLOQUEO ROBOTS] Universidad [{u_code}] {u_name}: acceso denegado en {web_url}.")
+            logger.warning("[BLOQUEO ROBOTS] Universidad [%s] %s: acceso denegado en %s.", u_code, u_name, web_url)
             self.checkpoint.mark_robots_denied_university(u_code, web_url, "Crawling denegado o robots.txt no disponible")
             _annotate_plan_source_status(missing_degrees, u_code, "robots_denegado_conservando_anterior", u_name)
             stats["robots_allowed"] = False
@@ -1696,11 +1696,11 @@ class UniversityWebCrawler:
         try:
             conn_downloader.fetch_content(web_url)
         except Exception as conn_err:
-            print(f" [RESCATE] Web '{web_url}' inalcanzable ({conn_err}). Consultando Wikipedia/Wikidata...")
+            logger.info("[RESCATE] Web '%s' inalcanzable (%s). Consultando Wikipedia/Wikidata...", web_url, conn_err)
             rescued_url = self.rescue_university_url(u_name)
             if rescued_url:
                 web_url = ensure_https_url(rescued_url)
-                print(f" [RESCATE OK] URL corregida por Wikidata para [{u_code}]: {web_url}")
+                logger.info("[RESCATE OK] URL corregida por Wikidata para [%s]: %s", u_code, web_url)
                 
                 # Actualizar permanentemente en universidades.json
                 with self.univ_file_lock:
@@ -1715,9 +1715,9 @@ class UniversityWebCrawler:
                                     break
                             atomic_json_dump(all_univs, UNIVERSIDADES_JSON)
                         except Exception as file_err:
-                            print(f"   [AVISO] No se pudo persistir la URL corregida en el JSON: {file_err}")
+                            logger.warning("No se pudo persistir la URL corregida en el JSON: %s", file_err)
             else:
-                print(f" [RESCATE FALLIDO] No se pudo encontrar web alternativa en Wikipedia para [{u_code}].")
+                logger.warning("[RESCATE FALLIDO] No se pudo encontrar web alternativa en Wikipedia para [%s].", u_code)
                 self.checkpoint.record_pdf_download_failure(web_url, "ALL", f"Web principal caída/errónea. Rescate fallido: {conn_err}")
                 _annotate_plan_source_status(missing_degrees, u_code, "web_no_disponible_conservando_anterior", u_name)
                 stats["robots_allowed"] = False
@@ -1728,7 +1728,7 @@ class UniversityWebCrawler:
         # 3. Si se ha rescatado la URL, volver a validar su origen y robots.txt.
         can_fetch, crawl_delay = self.check_robots_allowed(web_url)
         if not can_fetch:
-            print(f" [BLOQUEO ROBOTS] Universidad [{u_code}] {u_name}: Crawling DENEGADO por robots.txt en {web_url}. Registrando en checkpoint y cancelando operación.")
+            logger.warning("[BLOQUEO ROBOTS] Universidad [%s] %s: Crawling DENEGADO por robots.txt en %s.", u_code, u_name, web_url)
             self.checkpoint.mark_robots_denied_university(u_code, web_url, "Crawling denegado por robots.txt")
             _annotate_plan_source_status(missing_degrees, u_code, "robots_denegado_conservando_anterior", u_name)
             stats["robots_allowed"] = False
@@ -1736,7 +1736,7 @@ class UniversityWebCrawler:
 
         effective_delay = max(crawl_delay, 0.5) if crawl_delay and crawl_delay > 0 else 0.5
         delay_msg = f" (Crawl-delay declarado en robots.txt: {crawl_delay:.1f}s)" if crawl_delay else ""
-        print(f" [PERMITIDO ROBOTS] Universidad [{u_code}] {u_name}: Crawling PERMITIDO por robots.txt{delay_msg}. Iniciando escaneo web...")
+        logger.info("[PERMITIDO ROBOTS] Universidad [%s] %s: Crawling PERMITIDO por robots.txt%s. Iniciando escaneo web...", u_code, u_name, delay_msg)
 
         # 4. Acceso previo al Sitemap XML del portal académico (respetando retardo oficial)
         downloader = RUCTDownloader(delay=effective_delay, timeout=WEB_CONTENT_TIMEOUT, metrics_tracker=self.metrics_tracker, ledger=self.ledger, phase="fase1_parte2_web")
@@ -1751,7 +1751,7 @@ class UniversityWebCrawler:
         """Recorre y extrae los planes de estudio de las titulaciones de una universidad."""
         sitemap_urls = self.extract_sitemap_candidate_urls(web_url, missing_degrees=missing_degrees)
         if sitemap_urls:
-            print(f"     -> {len(sitemap_urls)} URLs académicas indexadas extraídas del Sitemap XML de la universidad.")
+            logger.info("  [%s] %d URLs académicas indexadas extraídas del Sitemap XML.", u_code, len(sitemap_urls))
             if self.ledger:
                 sitemap_records = [
                     {"url": u, "source_kind": "sitemap", "source_url": web_url}
@@ -1812,7 +1812,7 @@ class UniversityWebCrawler:
             d_level = deg.get("nivel_academico", "")
             plan_file = find_plan_filepath(u_code, d_code)
 
-            print(f"   [{d_idx}/{len(missing_degrees)}] Buscando en web oficial plan para [{d_code}]: {d_title[:60]}...")
+            logger.info("   [%d/%d] Buscando en web oficial plan para [%s]: %s...", d_idx, len(missing_degrees), d_code, d_title[:60])
 
             found_curriculum = None
             direct_source_url = None
@@ -1830,7 +1830,7 @@ class UniversityWebCrawler:
 
             if existing_direct_url:
                 try:
-                    print(f"     -> Probando URL directa guardada previamente: {existing_direct_url}")
+                    logger.debug("     -> Probando URL directa guardada previamente: %s", existing_direct_url)
                     if existing_direct_url.lower().endswith(".pdf"):
                         parsed = self._try_parse_candidate_pdf(downloader, existing_direct_url, d_code, d_title, u_name)
                         if parsed:
@@ -1844,9 +1844,9 @@ class UniversityWebCrawler:
                             if len(elementos_html) >= 3 and is_html_page_matching_degree(sub_soup, d_title, u_name, existing_direct_url):
                                 found_curriculum = build_html_curriculum_payload(elementos_html, d_title)
                                 direct_source_url = existing_direct_url
-                                print(f"     -> [ÉXITO FAST-PATH] Encontradas {len(elementos_html)} asignaturas en URL previa: {existing_direct_url}")
+                                logger.info("     -> [ÉXITO FAST-PATH] Encontradas %d asignaturas en URL previa: %s", len(elementos_html), existing_direct_url)
                 except Exception as e:
-                    print(f"     -> Falló lectura de URL directa previa: {e}")
+                    logger.debug("     -> Falló lectura de URL directa previa: %s", e)
 
             univ_name_tokens = set(re.findall(r'\b[a-zA-ZáéíóúñÁÉÍÓÚÑ]{3,}\b', u_name.lower()))
             title_keywords = [
@@ -1875,7 +1875,7 @@ class UniversityWebCrawler:
                             if parsed:
                                 found_curriculum = parsed
                                 direct_source_url = sm_candidate_url
-                                print(f"     -> Encontrado plan de estudios desde Sitemap XML: {sm_candidate_url}")
+                                logger.info("     -> Encontrado plan de estudios desde Sitemap XML: %s", sm_candidate_url)
                                 break
                         else:
                             sub_html = downloader.fetch_text(sm_candidate_url)
@@ -1884,7 +1884,7 @@ class UniversityWebCrawler:
                             if len(elementos_html) >= 3 and is_html_page_matching_degree(sub_soup, d_title, u_name, sm_candidate_url):
                                 found_curriculum = build_html_curriculum_payload(elementos_html, d_title)
                                 direct_source_url = sm_candidate_url
-                                print(f"     -> Encontradas asignaturas HTML válidas desde Sitemap XML: {sm_candidate_url}")
+                                logger.info("     -> Encontradas asignaturas HTML válidas desde Sitemap XML: %s", sm_candidate_url)
                                 break
                     except Exception as exc:
                         logger.debug(f"Excepción controlada en crawling: {exc}")
@@ -1939,7 +1939,7 @@ class UniversityWebCrawler:
                                 if parsed:
                                     found_curriculum = parsed
                                     direct_source_url = cat_url
-                                    print(f"     -> [Hub-and-Spoke] Encontrado plan PDF: {cat_url}")
+                                    logger.info("     -> [Hub-and-Spoke] Encontrado plan PDF: %s", cat_url)
                                     break
                             else:
                                 c_html = downloader.fetch_text(cat_url)
@@ -2008,7 +2008,7 @@ class UniversityWebCrawler:
                                                                 except Exception:
                                                                     pass
                                         except Exception as exc:
-                                            logger.debug(f"Excepción controlada en crawling subpágina: {exc}")
+                                            logger.debug("Excepción controlada en crawling subpágina: %s", exc)
                                             pass
 
                                 # Si tras explorar subpáginas sigue teniendo < 3 asignaturas (contenedor SPA vacío JS), renderizar con Playwright
@@ -2025,7 +2025,7 @@ class UniversityWebCrawler:
                                                     if pdf_curriculum and len(pdf_curriculum.get("elementos_curriculares", [])) >= 3:
                                                         found_curriculum = pdf_curriculum
                                                         direct_source_url = cat_url
-                                                        print(f"     -> [Playwright Download Rescate] Encontrado PDF oficial con {len(pdf_curriculum['elementos_curriculares'])} asignaturas: {cat_url}")
+                                                        logger.info("     -> [Playwright Download Rescate] Encontrado PDF oficial con %d asignaturas: %s", len(pdf_curriculum['elementos_curriculares']), cat_url)
                                                         break
                                             else:
                                                 rend_soup = BeautifulSoup(rend, "html.parser")
@@ -2033,16 +2033,16 @@ class UniversityWebCrawler:
                                                 if len(rend_elem) > len(c_elementos):
                                                     c_elementos = rend_elem
                                     except Exception as exc:
-                                        logger.debug(f"Excepción controlada en crawling: {exc}")
+                                        logger.debug("Excepción controlada en crawling: %s", exc)
                                         pass
                                 
                                 if len(c_elementos) >= 3 and not found_curriculum and is_html_page_matching_degree(c_soup, d_title, u_name, cat_url):
                                     found_curriculum = build_html_curriculum_payload(c_elementos, d_title)
                                     direct_source_url = cat_url
-                                    print(f"     -> [Hub-and-Spoke] Encontradas {len(c_elementos)} asignaturas HTML: {cat_url}")
+                                    logger.info("     -> [Hub-and-Spoke] Encontradas %d asignaturas HTML: %s", len(c_elementos), cat_url)
                                     break
                         except Exception as exc:
-                            logger.debug(f"Excepción controlada en crawling: {exc}")
+                            logger.debug("Excepción controlada en crawling: %s", exc)
                             pass
 
             # ESTRATEGIA 2: Escaneo de portales académicos con sinónimos amplios
@@ -2264,7 +2264,7 @@ class UniversityWebCrawler:
                                                                 if pdf_curriculum and len(pdf_curriculum.get("elementos_curriculares", [])) >= 3:
                                                                     found_curriculum = pdf_curriculum
                                                                     direct_source_url = target_link
-                                                                    print(f"     -> [Playwright Download Rescate] Encontrado PDF oficial con {len(pdf_curriculum['elementos_curriculares'])} asignaturas: {target_link}")
+                                                                    logger.info("     -> [Playwright Download Rescate] Encontrado PDF oficial con %d asignaturas: %s", len(pdf_curriculum['elementos_curriculares']), target_link)
                                                                     break
                                                         else:
                                                             spa_soup = BeautifulSoup(rendered_html, "html.parser")
@@ -2275,7 +2275,7 @@ class UniversityWebCrawler:
                                                                 target_html = rendered_html
                                                                 current_ects = compute_curriculum_total_ects(elementos_html)
                                                 except Exception as exc:
-                                                    logger.warning(f"Excepción controlada en crawling Playwright/SPA: {exc}")
+                                                    logger.warning("Excepción controlada en crawling Playwright/SPA: %s", exc)
                                                     pass
 
                                             # Paso 2: Si el temario sigue siendo parcial, explorar sub-enlaces de menciones/especialidades/TFG en la misma ficha
@@ -2310,7 +2310,7 @@ class UniversityWebCrawler:
                                                                 elementos_html.append(se)
                                                         current_ects = compute_curriculum_total_ects(elementos_html)
                                                     except Exception as exc:
-                                                        logger.debug(f"Excepción controlada en crawling: {exc}")
+                                                        logger.debug("Excepción controlada en crawling: %s", exc)
                                                         pass
 
                                             # Paso 3: Si sigue siendo parcial o faltan asignaturas, comprobar si la ficha enlaza el PDF oficial del plan completo
@@ -2349,7 +2349,7 @@ class UniversityWebCrawler:
                                                             if extracted_pricing.get("precio_credito_ects"):
                                                                 break
                                                         except Exception as exc:
-                                                            logger.debug(f"Excepción controlada en crawling: {exc}")
+                                                            logger.debug("Excepción controlada en crawling: %s", exc)
                                                             pass
 
                                             if not found_curriculum and ((len(elementos_html) >= 3 and is_html_page_matching_degree(target_soup, d_title, u_name, target_link)) or extracted_pricing):
@@ -2363,17 +2363,17 @@ class UniversityWebCrawler:
                                                     found_curriculum["fuente_precio"] = "Web Oficial Universidad Privada"
 
                                                 direct_source_url = target_link
-                                                print(f"     -> Encontrados datos e información en subpágina de titulación: {target_link}")
+                                                logger.info("     -> Encontrados datos e información en subpágina de titulación: %s", target_link)
                                                 break
                                             elif found_curriculum:
                                                 break
                                         except Exception as t_err:
-                                            print(f"     -> Error al examinar subpágina de titulación '{target_link}': {t_err}")
+                                            logger.debug("     -> Error al examinar subpágina de titulación '%s': %s", target_link, t_err)
                         except Exception as sub_err:
-                            print(f"     -> Excepción al escanear sub-página '{candidate_page_url}': {sub_err}")
+                            logger.debug("     -> Excepción al escanear sub-página '%s': %s", candidate_page_url, sub_err)
 
                 except Exception as crawl_err:
-                    print(f"     -> Error al rastrear la web oficial para [{d_code}]: {crawl_err}")
+                    logger.debug("     -> Error al rastrear la web oficial para [%s]: %s", d_code, crawl_err)
 
             # ESTRATEGIA 2.5: Exploración Orgánica de Centros Adscritos Descubiertos (Patrón 1)
             if not found_curriculum:
@@ -2391,7 +2391,7 @@ class UniversityWebCrawler:
                 
                 if matched_hub_url:
                     try:
-                        print(f"     -> [Centro Adscrito Orgánico] Descubierto '{matched_hub_name}' ({matched_hub_url})")
+                        logger.info("     -> [Centro Adscrito Orgánico] Descubierto '%s' (%s)", matched_hub_name, matched_hub_url)
                         with self.organic_lock:
                             has_cached = matched_hub_url in self.organic_affiliated_cache
                         if not has_cached:
@@ -2422,13 +2422,13 @@ class UniversityWebCrawler:
                                             found_curriculum = build_html_curriculum_payload(c_elems, d_title)
                                             direct_source_url = c_u
                                             found_curriculum["centro_adscrito"] = matched_hub_name
-                                            print(f"     -> [Centro Adscrito Éxito] Encontradas {len(c_elems)} asignaturas en {c_u}")
+                                            logger.info("     -> [Centro Adscrito Éxito] Encontradas %d asignaturas en %s", len(c_elems), c_u)
                                             break
                                     except Exception as exc:
-                                        logger.debug(f"Excepción controlada en crawling: {exc}")
+                                        logger.debug("Excepción controlada en crawling: %s", exc)
                                         pass
                     except Exception as e_center:
-                        print(f"     -> Error al consultar centro adscrito orgánico '{matched_hub_name}': {e_center}")
+                        logger.debug("     -> Error al consultar centro adscrito orgánico '%s': %s", matched_hub_name, e_center)
 
             # ESTRATEGIA 3: Modelado de Alianzas Universitarias Europeas y Erasmus Mundus (Patrón 3)
             is_european_program = any(k in d_title.lower() for k in EUROPEAN_ALLIANCES_KEYWORDS)
@@ -2441,7 +2441,7 @@ class UniversityWebCrawler:
                         break
                         
                 direct_source_url = discovered_alliance_url or existing_direct_url or deg.get("boe_url") or web_url
-                print(f"     -> [Alianza Europea / Erasmus Mundus] Fuente localizada sin estructura curricular verificable -> {direct_source_url}")
+                logger.info("     -> [Alianza Europea / Erasmus Mundus] Fuente localizada -> %s", direct_source_url)
 
             # Guardar el plan y la URL directa donde se ha encontrado
             if found_curriculum and direct_source_url:
@@ -2451,9 +2451,9 @@ class UniversityWebCrawler:
                     previous_identity["title"], d_title, u_name
                 ):
                     stats["source_identity_conflicts"] = stats.get("source_identity_conflicts", 0) + 1
-                    print(
+                    logger.warning(
                         "     [CUARENTENA IDENTIDAD] La URL curricular ya fue aceptada "
-                        f"para una titulación incompatible: {direct_source_url}"
+                        "para una titulación incompatible: %s", direct_source_url
                     )
                     found_curriculum = None
                     direct_source_url = None
@@ -2464,7 +2464,7 @@ class UniversityWebCrawler:
                     )
 
             if found_curriculum and direct_source_url:
-                print(f"     [CANDIDATO PARTE 2] Plan localizado en web oficial: '{direct_source_url}'")
+                logger.info("     [CANDIDATO PARTE 2] Plan localizado en web oficial: '%s'", direct_source_url)
                 
                 degree_data = load_json_safe(plan_file)
                 degree_data["codigo_estudio"] = d_code
@@ -2512,14 +2512,14 @@ class UniversityWebCrawler:
                 degree_data["estado_fuente"] = "verificada" if quality["publicable"] else "candidata_no_publicable"
                 if quality["publicable"]:
                     stats["resolved_degrees_count"] += 1
-                    print(f"     [VERIFICADO PARTE 2] Plan publicado con estado {quality['estado']}.")
+                    logger.info("     [VERIFICADO PARTE 2] Plan publicado con estado %s.", quality['estado'])
                 else:
-                    print(f"     [CUARENTENA PARTE 2] Plan no publicado: {quality['estado']} ({', '.join(quality['errores']) or quality['completitud']}).")
+                    logger.info("     [CUARENTENA PARTE 2] Plan no publicado: %s (%s).", quality['estado'], ', '.join(quality['errores']) or quality['completitud'])
                 
                 atomic_json_dump(degree_data, plan_file)
                 self.checkpoint.update_degree_record(d_code, direct_source_url, datetime.now().strftime("%Y-%m-%d"), datetime.now().isoformat())
             else:
-                print(f"     -> No se encontró plan de estudios en la web oficial para [{d_code}].")
+                logger.debug("     -> No se encontró plan de estudios en la web oficial para [%s].", d_code)
                 existing_data = load_json_safe(plan_file, default=None)
                 if not isinstance(existing_data, dict):
                     existing_data = {}
@@ -2712,16 +2712,21 @@ def run_phase1_part2(
 
         for completed, future in enumerate(concurrent.futures.as_completed(futures), start=1):
             univ = futures[future]
+            u_code = str(univ.get("codigo", "")).zfill(3)
+            u_name = str(univ.get("nombre", ""))
             try:
                 res = future.result() or {}
-                total_missing += res.get("missing_degrees_count", 0)
-                total_resolved += res.get("resolved_degrees_count", 0)
+                u_missing = res.get("missing_degrees_count", 0)
+                u_resolved = res.get("resolved_degrees_count", 0)
+                total_missing += u_missing
+                total_resolved += u_resolved
                 total_source_identity_conflicts += res.get("source_identity_conflicts", 0)
                 if not res.get("robots_allowed", True):
                     denied_by_robots += 1
+                print(f"  ✓ [{completed}/{len(universities)}] Universidad [{u_code}] {u_name}: {u_resolved}/{u_missing} planes verificados", flush=True)
             except Exception as exc:
                 university_errors += 1
-                print(f" [ERROR PARTE 2] Excepción inesperada en universidad {univ.get('codigo')}: {exc}")
+                print(f"  ✗ [{completed}/{len(universities)}] [ERROR PARTE 2] Universidad [{u_code}]: {exc}", flush=True)
                 crawler.logger.log_error("fase1_parte2_univ_web", univ.get("codigo", "ALL"), univ.get("web", ""), "Excepcion no controlada en escaneo web de universidad", str(exc))
             if progress_emitter is not None:
                 progress_emitter.update_university(

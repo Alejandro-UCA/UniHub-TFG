@@ -10,12 +10,15 @@ import heapq
 import itertools
 import requests
 import urllib.parse
+import warnings
 from urllib.robotparser import RobotFileParser
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 import concurrent.futures
 import unicodedata
 from datetime import datetime
 from collections import defaultdict, deque
+
+warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
 
 logger = logging.getLogger("unihub_web_crawler")
 
@@ -1358,7 +1361,12 @@ class UniversityWebCrawler:
                 html_content = downloader.fetch_text(current_hub)
                 if not html_content:
                     continue
-                soup = BeautifulSoup(html_content, "html.parser")
+                is_xml = html_content.lstrip().startswith("<?xml")
+                parser_type = "xml" if is_xml else "html.parser"
+                try:
+                    soup = BeautifulSoup(html_content, parser_type)
+                except Exception:
+                    soup = BeautifulSoup(html_content, "html.parser")
                 
                 # Capa 3: Ascenso Jerárquico por Migas de Pan (Breadcrumbs)
                 if current_hop < max_hops:

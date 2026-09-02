@@ -332,33 +332,98 @@ def is_spurious_or_administrative_subject(text: str, ects_val: float = None, car
 
 
 def is_valid_curricular_table(table_tag) -> bool:
-    """Verifica que una tabla HTML sea verdaderamente curricular y no un formulario o tabla de cookies."""
-    if not table_tag:
-        return False
-    if table_tag.find(["input", "select", "textarea", "button", "form"]):
+    """Verifica que una tabla HTML sea verdaderamente curricular y no un formulario de búsqueda, escala de notas, tabla de cookies ni baremo administrativo de convalidaciones (Multilingüe)."""
+    if not table_tag or table_tag.find(["input", "select", "textarea", "button", "form"]):
         return False
     txt = table_tag.get_text(separator=" ", strip=True).lower()
     
+    # 1. Marcadores de descarte administrativo, legal, reconocimientos o formación corporativa
     discard_markers = [
-        "calificación cualitativa", "calificacion cualitativa", "escala de calificaciones",
-        "tabla de equivalencias", "tabla de convalidaciones", "reconocimiento de créditos",
-        "responsable del tratamiento", "delegado de protección", "política de cookies",
-        "politica de cookies", "formación a medida", "horario de clases"
+        # Escala de notas y baremos
+        "calificación cualitativa", "calificacion cualitativa", "calificación numérica", "calificacion numerica",
+        "calificación estándar", "calificacion estandar", "escala de calificaciones", "tabla de equivalencias",
+        "qualificació qualitativa", "qualificacio qualitativa", "cualificación cualitativa", "kalifikazio kualitatiboa",
+        "grading scale", "qualitative grade",
+        # Reconocimientos y convalidaciones administrativas
+        "se pueden reconocer", "reconocimiento de créditos", "reconocimiento de creditos", "normativa aplicable",
+        "tabla de convalidaciones", "taula de convalidacions", "taula dequivalencies", "táboa de equivalencias",
+        # Privacidad y protección de datos
+        "responsable del tratamiento", "delegado de protección", "delegado de proteccion", "dpo", "finalidades o usos de los datos",
+        "base jurídica", "base juridica", "derechos de los interesados", "plazo de conservación", "_ga", "_gid", "_fbp", "cookie-agreed",
+        "protección de datos", "proteccion de datos", "datos de carácter personal", "datos de caracter personal",
+        "política de cookies", "politica de cookies", "política de privacidad", "politica de privacidad",
+        "legitimación", "legitimacion", "destinatarios", "ejercicio de derechos", "agencia española de protección",
+        "configuración de cookies", "configuracion de cookies", "gestión de cookies", "gestion de cookies",
+        # Formación a medida / Convenios de empresas
+        "formación a medida", "formacion a medida", "empresa / institución", "empresa / institucion", "entidad colaboradora",
+        # Mínors y microcredenciales (si no es el grado oficial)
+        "oferta de minors", "plan de estudios del mínor",
+        # Horarios y calendarios de exámenes
+        "horario de clases", "horari de classes", "calendario de exámenes", "calendari d'exàmens"
     ]
     if any(m in txt for m in discard_markers):
         return False
 
-    cookie_markers = ["_ga", "_gid", "_fbp", "cookie", "cookies", "consentimiento", "caducidad"]
-    if any(m in txt for m in cookie_markers) and not any(cm in txt for cm in ["asignatura", "assignatura", "materia", "irakasgaia", "subject", "course"]):
-        return False
+    rows = table_tag.find_all("tr")
+    header_text = " ".join(
+        cell.get_text(" ", strip=True).lower()
+        for row in rows[:2]
+        for cell in row.find_all(["th", "td"])
+    )
+    subject_headers = (
+        "asignatura", "assignatura", "asineira", "irakasgaia", "materia",
+        "denominación", "denominacion", "nombre", "subject", "course", "module",
+    )
+    curricular_headers = (
+        "crédito", "credito", "ects", "credit", "carácter", "caracter", "tipo",
+        "tipus", "curso", "curs", "semestre", "cuatrimestre", "quadrimestre",
+        "semester", "year", "level", "código", "codigo", "codi", "kredituak",
+        "kreditu", "mota", "maila", "ikasturtea", "lauhilekoa",
+    )
+    has_subject_header = any(marker in header_text for marker in subject_headers)
+    has_curricular_header = any(marker in header_text for marker in curricular_headers)
 
-    curricular_markers = [
-        "asignatura", "materia", "denominaci", "ects", "crédito", "credito",
-        "carácter", "caracter", "semestre", "cuatrimestre", "guía docente",
-        "assignatura", "credits", "curs", "tipus", "quadrimestre", "guia docent",
-        "asineira", "creditos", "cuadrimestre", "irakasgaia", "kredituak", "subject", "course", "syllabus"
-    ]
-    return any(m in txt for m in curricular_markers)
+    explicit_subject_rows = 0
+    rows_with_credits = 0
+    rows_with_character = 0
+    scan_rows = rows[1:] if (rows and any(cell.name == "th" for cell in rows[0].find_all(["th", "td"]))) else rows
+    for row in scan_rows:
+        cells = [cell.get_text(" ", strip=True) for cell in row.find_all(["td", "th"])]
+        if not cells:
+            continue
+        row_text = " ".join(cells).lower()
+        if any(re.search(rf"\b{re.escape(marker)}\b", row_text) for marker in subject_headers):
+            explicit_subject_rows += 1
+        if any(re.search(r"\b(?:[1-9]|[12]\d|30)(?:[.,]\d+)?\s*(?:ects|cr[eé]ditos?|credits?)?\b", cell, re.IGNORECASE) for cell in cells):
+            rows_with_credits += 1
+        if any(re.search(r"\b(?:FB|OB|OP|B|O|PE|TFG|TFM|TR|BA|OT|DER|OIN|HAU|OPT|OBL)\b", cell, re.IGNORECASE) for cell in cells):
+            rows_with_character += 1
+
+    has_adjacent_course_heading = False
+    parent_heading = table_tag.find_previous(["h1", "h2", "h3", "h4", "h5", "h6", "caption", "legend", "button", "summary"])
+    if parent_heading:
+        h_txt = parent_heading.get_text().lower()
+        if any(ck in h_txt for ck in ["curso", "curs", "ano", "año", "ikasturtea", "maila", "semestre", "cuatrimestre", "quadrimestre", "year", "term"]):
+            has_adjacent_course_heading = True
+
+    if not has_adjacent_course_heading:
+        parent_tab = table_tag.find_parent(["div", "section", "article"], class_=lambda c: c and any(k in str(c).lower() for k in ["tab-pane", "tabcontent", "accordion", "collapse", "panel"]))
+        if parent_tab:
+            tab_id = parent_tab.get("id") or ""
+            tab_trigger = table_tag.find_previous(["a", "button", "li"])
+            if tab_trigger:
+                t_txt = tab_trigger.get_text().lower()
+                if any(ck in t_txt for ck in ["curso", "curs", "ano", "año", "ikasturtea", "maila", "semestre", "cuatrimestre", "quadrimestre", "year", "term"]):
+                    has_adjacent_course_heading = True
+
+    is_valid_structural_table = (
+        (has_subject_header and has_curricular_header)
+        or (has_curricular_header and rows_with_credits >= 2)
+        or (rows_with_credits >= 2 and (rows_with_character >= 1 or has_adjacent_course_heading))
+        or (explicit_subject_rows >= 2 and rows_with_credits >= 2)
+        or (rows_with_credits >= 3 and len(rows) >= 3)
+    )
+    return is_valid_structural_table
 
 
 @lru_cache(maxsize=1024)

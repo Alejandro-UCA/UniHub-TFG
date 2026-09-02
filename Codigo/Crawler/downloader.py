@@ -642,11 +642,14 @@ class RUCTDownloader:
 
     @staticmethod
     def _is_permanent_http_error(error: Exception) -> bool:
-        """Indica respuestas 4xx que no deben reintentarse para otra URL."""
+        """Indica respuestas 4xx o fallos permanentes de DNS/URL que no deben reintentarse."""
+        text = str(error or "").lower()
+        if any(m in text for m in ("getaddrinfo", "nameresolution", "invalidurl", "no such host", "failed to resolve", "name or service not known")):
+            return True
         response = getattr(error, "response", None)
         status_code = getattr(response, "status_code", None)
         if status_code is None:
-            match = re.search(r"\b([45]\d{2})\b", str(error or ""))
+            match = re.search(r"\b([45]\d{2})\b", text)
             status_code = int(match.group(1)) if match else 0
         return 400 <= int(status_code or 0) < 500 and int(status_code) not in {408, 429}
 

@@ -2885,9 +2885,19 @@ def _process_single_university_guides(
                     print(f" [AVISO CORTOCIRCUITO] Omitiendo guías de la universidad [{u_code}] por sobrecarga del servidor.")
                     break
                 except Exception as e:
-                    if re.search(r"\b404\b", str(e), re.IGNORECASE):
+                    err_text = str(e).lower()
+                    is_unresolvable = (
+                        re.search(r"\b404\b", err_text)
+                        or any(m in err_text for m in (
+                            "getaddrinfo", "nameresolution", "connectionrefused",
+                            "connecttimeout", "invalidurl", "no such host",
+                            "failed to resolve", "name or service not known",
+                        ))
+                    )
+                    if is_unresolvable:
                         run_negative_urls.add(c_url)
                         negative_registry.add(c_url)
+                        negative_registry.observe_host_result(c_url, negative=True)
                         cache.mark_negative(c_url)
                     _record_guide_request_failure(stats, e, c_url)
                     logger.debug(f"Error al descargar guía '{c_url}': {e}")

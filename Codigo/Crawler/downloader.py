@@ -899,7 +899,10 @@ class RUCTDownloader:
                             new_delay = min(curr_delay * ADAPTIVE_BACKOFF_MULTIPLIER, ADAPTIVE_BACKOFF_MAX_DELAY)
                             self._GLOBAL_DOMAIN_DELAYS[domain] = new_delay
                         retry_after_val = response.headers.get("Retry-After")
-                        retry_secs = int(retry_after_val) if (retry_after_val and retry_after_val.isdigit()) else HTTP_429_DEFAULT_RETRY_AFTER
+                        if retry_after_val and retry_after_val.isdigit():
+                            retry_secs = int(retry_after_val)
+                        else:
+                            retry_secs = HTTP_429_DEFAULT_RETRY_AFTER * attempt
                         retry_secs = min(max(0, retry_secs), max(0, HTTP_429_MAX_RETRY_AFTER))
                         logger.debug("[AVISO CORTESIA RED] HTTP 429 detectado en '%s'. Retardo adaptativo para '%s' ajustado a %.2fs. Pausando %ss...", target_url, domain, new_delay, retry_secs)
                         time.sleep(retry_secs)

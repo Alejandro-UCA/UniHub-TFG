@@ -2891,7 +2891,7 @@ def _process_single_university_guides(
                             stats["candidate_guides_processed"] += 1
                         degree_modified = True
                         found_current_guide = True
-                        print(f"   ✓ [GUÍA DOCENTE] [{final_asig_code or asig_code}] {asig_name} ({len(parsed_guide.get('temario', []))} temas, {len(parsed_guide.get('profesorado', []))} profesores, Calidad: {quality_info.get('puntuacion', 0)}/100)")
+                        logger.info("   ✓ [GUÍA DOCENTE] [%s] %s (%d temas, %d profesores, Calidad: %d/100)", final_asig_code or asig_code, asig_name, len(parsed_guide.get('temario', [])), len(parsed_guide.get('profesorado', [])), quality_info.get('puntuacion', 0))
                         break
                     elif status_code == 404:
                         run_negative_urls.add(c_url)
@@ -2916,7 +2916,7 @@ def _process_single_university_guides(
                     continue
                 except SkipUniversityException:
                     _record_guide_request_failure(stats, SkipUniversityException("circuit breaker"), c_url)
-                    print(f" [AVISO CORTOCIRCUITO] Omitiendo guías de la universidad [{u_code}] por sobrecarga del servidor.")
+                    logger.warning("[AVISO CORTOCIRCUITO] Omitiendo guías de la universidad [%s] por sobrecarga del servidor.", u_code)
                     break
                 except Exception as e:
                     err_text = str(e).lower()

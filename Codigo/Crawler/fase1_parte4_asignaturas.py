@@ -753,12 +753,14 @@ def _subject_guide_identity_matches(expected_name: str, expected_code: str, pars
 
 
 def _extract_web_subject_table_records(html: str, base_url: str) -> list[dict]:
-    """Extrae registros estructurados de asignaturas (código, nombre, URL guía) desde tablas HTML."""
+    """Extrae registros estructurados de asignaturas (código, nombre, URL guía) desde tablas y listas de enlaces HTML."""
     if not html:
         return []
     soup = BeautifulSoup(html, "html.parser")
     records = []
     seen = set()
+
+    # 1. Extracción desde tablas estándar <tr><td>
     for tr in soup.find_all("tr"):
         cells = [c.get_text(" ", strip=True) for c in tr.find_all(["th", "td"])]
         if len(cells) >= 2:
@@ -785,6 +787,38 @@ def _extract_web_subject_table_records(html: str, base_url: str) -> list[dict]:
                     "tokens": set(_normalise_subject_identity(name)),
                     "url_guia": guide_url,
                 })
+
+    # 2. Extracción desde listas de enlaces o tarjetas estructuradas (ej: "229011101 - Comunicación Social")
+    for a_tag in soup.find_all("a", href=True):
+        href = a_tag.get("href", "").strip()
+        if not href or href.startswith("#") or href.startswith("javascript:"):
+            continue
+        text = a_tag.get_text(" ", strip=True)
+        m_link = re.match(r"^(\d{4,9})\s*[-–_:]\s*(.+)$", text)
+        if m_link:
+            code = m_link.group(1).strip()
+            name = m_link.group(2).strip()
+            if code and name and (code, name) not in seen and len(name) >= 3:
+                seen.add((code, name))
+                guide_url = urljoin(base_url, href)
+                records.append({
+                    "codigo": code,
+                    "nombre": name,
+                    "tokens": set(_normalise_subject_identity(name)),
+                    "url_guia": guide_url,
+                })
+        elif any(k in href.lower() for k in ("view_guide", "guia_docente", "guia-docente", "asig=", "cod=")) and len(text) >= 4:
+            # Enlaces con texto de nombre y parámetro en URL
+            if text not in seen and not any(k in text.lower() for k in ("inicio", "volver", "contacto", "login", "ayuda", "descargar")):
+                seen.add(text)
+                guide_url = urljoin(base_url, href)
+                records.append({
+                    "codigo": "",
+                    "nombre": text,
+                    "tokens": set(_normalise_subject_identity(text)),
+                    "url_guia": guide_url,
+                })
+
     return records
 
 

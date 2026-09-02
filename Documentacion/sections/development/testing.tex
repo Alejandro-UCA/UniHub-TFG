@@ -45,7 +45,7 @@ Para evaluar el impacto de las optimizaciones arquitectónicas en el análisis d
 \begin{itemize}
     \item \textbf{Pase en Frío (Extracción Geométrica Condicional):} El análisis de un PDF de varias páginas con filtrado previo de páginas irrelevantes toma $\approx 347.2\text{ ms}$.
     \item \textbf{Pase en Caliente (Caché SHA-256 de Modelos de Documento):} Cuando una segunda titulación comparte el mismo documento oficial del BOE, la recuperación instantánea de la estructura geométrica desde memoria RAM toma únicamente $\mathbf{0.92\text{ ms}}$.
-    \item \textbf{Ganancia de Eficiencia:} Se obtiene un factor de aceleración de $\mathbf{376.3\times}$ (reducción del 99.7\% del tiempo de CPU en documentos compartidos), permitiendo que la suite completa de 346 tests pase de tardar más de 70 segundos a completarse en \textbf{21.8 segundos}.
+    \item \textbf{Ganancia de Eficiencia:} Se obtiene un factor de aceleración de $\mathbf{376.3\times}$ (reducción del 99.7\% del tiempo de CPU en documentos compartidos), permitiendo que la suite completa de 396 tests se ejecute con máxima rapidez y solidez.
 \end{itemize}
 
 \section{Pruebas de Ejecución Controlada}

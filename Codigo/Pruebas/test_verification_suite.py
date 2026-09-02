@@ -226,6 +226,20 @@ class TestPhase4DockerOrchestration(unittest.TestCase):
             path = os.path.join(BASE_DIR, script)
             self.assertTrue(os.path.exists(path), f"Missing batch script: {script}")
 
+    def test_04_shell_scripts_and_entrypoints_have_unix_lf_line_endings(self):
+        """Garantiza que ningún script shell o entrypoint contenga retornos de carro CRLF de Windows."""
+        import glob
+        sh_files = glob.glob(os.path.join(BASE_DIR, "Codigo", "**", "*.sh"), recursive=True)
+        self.assertGreater(len(sh_files), 0, "No se encontraron scripts shell para auditar.")
+        for sh_file in sh_files:
+            with open(sh_file, "rb") as f:
+                raw_bytes = f.read()
+            self.assertNotIn(
+                b"\r\n",
+                raw_bytes,
+                f"El script {os.path.relpath(sh_file, BASE_DIR)} tiene saltos de línea Windows (CRLF), lo que causa 'no such file or directory' en Linux/Docker."
+            )
+
 
 if __name__ == "__main__":
     print("======================================================================")

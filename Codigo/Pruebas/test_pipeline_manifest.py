@@ -159,24 +159,28 @@ class TestPipelineManifest(unittest.TestCase):
         progress.set_failed.assert_not_called()
 
     def test_cancellation_finishes_manifest_with_resumable_status(self):
-        def cancel_part(_part, **_kwargs):
-            import cancellation
-            cancellation.request_shutdown()
-            return {"status": "cancelled"}
+        import cancellation
+        cancellation.clear_shutdown()
+        try:
+            def cancel_part(_part, **_kwargs):
+                cancellation.request_shutdown()
+                return {"status": "cancelled"}
 
-        with patch.object(main_fase_1, "normalize_phase_selection", return_value=(1,)), \
-             patch.object(main_fase_1, "_run_part", side_effect=cancel_part), \
-             patch.object(main_fase_1, "PerformanceTracker", return_value=_Noop()), \
-             patch.object(main_fase_1, "CheckpointManager", return_value=_Noop()), \
-             patch.object(main_fase_1, "ProgressEmitter", return_value=_Progress()), \
-             patch.object(main_fase_1, "RunManifest") as manifest_type, \
-             patch.object(main_fase_1.CrawlLedger, "prune_http_cache"):
-            manifest = manifest_type.return_value
-            manifest.start.return_value = "cancelled-run"
-            result = main_fase_1.run_phase1(parts=[1], sync_etl=False)
+            with patch.object(main_fase_1, "normalize_phase_selection", return_value=(1,)), \
+                 patch.object(main_fase_1, "_run_part", side_effect=cancel_part), \
+                 patch.object(main_fase_1, "PerformanceTracker", return_value=_Noop()), \
+                 patch.object(main_fase_1, "CheckpointManager", return_value=_Noop()), \
+                 patch.object(main_fase_1, "ProgressEmitter", return_value=_Progress()), \
+                 patch.object(main_fase_1, "RunManifest") as manifest_type, \
+                 patch.object(main_fase_1.CrawlLedger, "prune_http_cache"):
+                manifest = manifest_type.return_value
+                manifest.start.return_value = "cancelled-run"
+                result = main_fase_1.run_phase1(parts=[1], sync_etl=False)
 
-        self.assertEqual(result["status"], "cancelled")
-        manifest.finish.assert_called_once_with("cancelled")
+            self.assertEqual(result["status"], "cancelled")
+            manifest.finish.assert_called_once_with("cancelled")
+        finally:
+            cancellation.clear_shutdown()
 
     def test_manifest_preserves_university_and_domain_metrics(self):
         with tempfile.TemporaryDirectory() as directory:

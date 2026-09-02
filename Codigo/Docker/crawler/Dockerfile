@@ -53,7 +53,7 @@ COPY --from=builder /install /install
 # Copiar código fuente y script de entrada
 COPY Codigo/Crawler /app
 COPY Codigo/Docker/crawler/entrypoint.sh /app/entrypoint.sh
-RUN chmod +x /app/entrypoint.sh
+RUN sed -i -e 's/\r$//' /app/entrypoint.sh && chmod +x /app/entrypoint.sh
 
 # El daemon cron conserva privilegios mínimos para planificar tareas, pero el
 # crawler y los datos se ejecutan con un usuario dedicado sin privilegios.

@@ -1,0 +1,11 @@
+# ==============================================================================
+# Git Attributes: Forzar saltos de línea Unix (LF) en scripts de Linux y Docker
+# ==============================================================================
+
+# Auto-detect text files and normalize line endings
+* text=auto
+
+# Scripts de shell y entrypoints de Docker siempre con LF
+*.sh text eol=lf
+Dockerfile* text eol=lf
+*.sql text eol=lf

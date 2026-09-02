@@ -53,6 +53,7 @@ RUN addgroup --system app \
     && adduser --system --ingroup app app \
     && mkdir -p /app/Datos \
     && chown -R app:app /app \
+    && sed -i -e 's/\r$//' /app/entrypoint.sh \
     && chmod +x /app/entrypoint.sh
 
 USER app

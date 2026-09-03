@@ -1,16 +1,83 @@
-En este capítulo se detalla la situación actual que origina el desarrollo del sistema \textbf{UniHub}. Asimismo, se describen las alternativas tecnológicas existentes.
+En este capítulo se detalla la situación actual que motiva el diseño e implementación del sistema \textbf{UniHub}. Se expone la problemática de dispersión y heterogeneidad de los datos en la educación superior española, se fundamenta teóricamente el empleo de técnicas de rastreo y extracción web (\textit{Web Scraping}) a partir de la literatura científica reciente, se analizan las alternativas tecnológicas existentes y se define el posicionamiento innovador del presente proyecto.
 
-\section{Contexto} 
-El panorama de la educación superior en España está integrado por más de un centenar de universidades públicas y privadas, distribuidas en las 17 comunidades autónomas. Cada año se publican y modifican miles de titulaciones oficiales de Grado, Máster y Doctorado en el Boletín Oficial del Estado (BOE).
+\section{Contexto y justificación del proyecto}
+El panorama universitario español se encuentra inmerso en un proceso continuo de transformación y actualización normativa, regulado por la Ley Orgánica 2/2023 del Sistema Universitario (LOSU) \cite{ley_organica_2_2023} y los Reales Decretos que ordenan las enseñanzas oficiales: el Real Decreto 822/2021 \cite{rd822_2021} para estudios de Grado y Máster, y el Real Decreto 99/2011 \cite{rd99_2011} para los programas de Doctorado. Con más de 90 universidades activas entre instituciones públicas y privadas, distribuidas a lo largo de las 17 comunidades autónomas, el catálogo estatal supera las 4.000 titulaciones vigentes.
 
-Las fuentes de consulta oficiales proporcionan la información en listados tabulados XLS o páginas en HTML. Sin embargo, carecen de una interfaz moderna de búsqueda unificada por geolocalización, no desglosan visualmente las asignaturas y créditos ECTS extraídos de las publicaciones BOE, no permiten filtrar Doctorados de forma diferenciada ni ordenan prioritariamente los centros públicos frente a los privados. La problemática radica en la dispersión de los datos y la falta de un sistema integrado de consulta pública y administración contenerizada.
+A pesar de que las administraciones públicas promueven la transparencia y la apertura de datos gubernamentales (\textit{Open Government Data}) \cite{attard2015systematic, janssen2012benefits}, en la práctica existe una notable fragmentación informativa:
+\begin{enumerate}
+    \item \textbf{Dispersión de fuentes jurídicas y académicas:} La aprobación y verificación oficial de cada plan de estudios se publica en el Boletín Oficial del Estado (BOE) o en los diarios oficiales de las comunidades autónomas en formato PDF plano. Por su parte, el catálogo general se registra administrativamente en el Registro de Universidades, Centros y Títulos (RUCT), cuya consulta pública se apoya en interfaces tradicionales y volcados en hojas de cálculo (\texttt{.xls}) sin servicios de interconexión modernos.
+    \item \textbf{Heterogeneidad en la publicación universitaria:} Cada universidad mantiene su propia infraestructura web y sistemas de gestión de contenidos (CMS), publicando sus planes docentes bajo esquemas visuales, nomenclaturas y estructuras dispares. Ello impide que los futuros estudiantes o investigadores puedan comparar planes curriculares de forma homogénea.
+    \item \textbf{Opacidad y complejidad en la tarificación de matrículas:} Los precios públicos universitarios varían significativamente entre comunidades autónomas según los grados de experimentalidad, los recargos por repetición de matrícula (de 1\textordfeminine{} a 4\textordfeminine{} convocatoria) y los regímenes de exención social (Familias Numerosas, Becas del Ministerio, discapacidad o bonificaciones autonómicas por rendimiento académico). Asimismo, las universidades privadas operan con tarifas anuales independientes que no suelen estar consolidadas en ninguna plataforma pública de comparación.
+    \item \textbf{Naturaleza diferenciada de las enseñanzas de Doctorado:} Conforme al Real Decreto 99/2011 \cite{rd99_2011}, los estudios de doctorado no se estructuran en asignaturas lectivas tradicionales con créditos ECTS, sino en líneas de investigación, actividades formativas transversales y tutela académica de la tesis doctoral. La inmensa mayoría de portales existentes cometen el error de tratar los doctorados bajo el prisma de asignaturas lectivas o, por el contrario, los omiten por completo de sus motores de búsqueda.
+\end{enumerate}
 
-\section{Estado de la técnica} 
-Existen plataformas estatales e institucionales de consulta académica, entre las que destacan:
+\noindent Ante este escenario, \textbf{UniHub} se concibe como una solución integral de ingeniería que centraliza, normaliza, enriquece y expone la totalidad de la oferta universitaria española mediante una arquitectura desacoplada en cuatro fases operativas.
+
+\section{Estado de la técnica: Extracción y agregación de datos web}
+La captura, estructuración y consolidación de información proveniente de múltiples fuentes heterogéneas constituye uno de los campos de investigación más prolíficos de la informática aplicada. En esta sección se analiza el estado del arte en extracción de datos web, tecnologías de parsing de documentos semiestructurados y arquitecturas de agregación.
+
+\subsection{Fundamentos teóricos del Web Scraping y la Extracción de Datos}
+De acuerdo con las revisiones sistemáticas de Ferrara et al. \cite{ferrara2014web} y Singrodia et al. \cite{singrodia2019review}, el proceso de extracción automatizada de datos web (\textit{Web Data Extraction} o \textit{Web Scraping}) consiste en recuperar información no estructurada o semiestructurada de páginas HTML y transformarla en representaciones estructuradas analizables (tales como tablas relacionales o esquemas JSON). 
+
+Zhao \cite{zhao2017web} subraya que, a diferencia de los rastreadores web convencionales (\textit{web crawlers}) utilizados por motores de indexación generalista como Google, que buscan recorrer hiperenlaces exhaustivamente sin procesar profundamente la semántica del documento, los extractores de datos orientados a dominio combinan el rastreo dirigido (\textit{focused crawling}) con patrones semánticos y reglas heurísticas diseñadas para aislar entidades específicas de interés.
+
+En el ámbito biomédico y científico, Glez-Peña et al. \cite{glez2014web} destacan que el \textit{web scraping} se ha consolidado como un mecanismo imprescindible para salvar la brecha existente cuando las fuentes primarias no proporcionan Interfaces de Programación de Aplicaciones (APIs) REST documentadas o cuando los servicios web existentes presentan restricciones de volumen o discontinuidad en el servicio.
+
+\subsection{Evolución de las técnicas de extracción web}
+La literatura clasifica los mecanismos de extracción web en cuatro grandes familias metodológicas \cite{ferrara2014web, crescenzi2001roadrunner}:
 \begin{itemize}
-    \item \textbf{Registro Oficial de Origen (Ministerio de Educación):} Fuente primaria de los datos. Proporciona búsquedas por formulario básico y exportación en formato legacy BIFF8 (.xls). No incluye servicios API REST modernos ni interfaz orientada a la experiencia de usuario móvil/geolocalizada.
-    \item \textbf{Boletín Oficial del Estado (BOE):} Repositorio jurídico oficial donde se publican las resoluciones y planes de estudio en formato PDF. Requiere herramientas especializadas de procesamiento de lenguaje natural y parseo de tablas para extraer asignaturas y módulos estructurados.
-    \item \textbf{Portales Web Propietarios de Universidades:} Cada universidad publica sus planes de estudio con formatos visuales dispares, dificultando la comparativa directa entre titulaciones equivalentes.
+    \item \textbf{Generadores de Wrappers y Enfoques Heurísticos / DOM:} Se fundamentan en la navegación sobre el árbol de objetos del documento (\textit{Document Object Model}, DOM) empleando expresiones regulares, selectores XPath o selectores CSS (herramientas como \texttt{BeautifulSoup}, \texttt{lxml} o \texttt{Scrapy}). Este enfoque ofrece una gran velocidad de procesamiento y bajo consumo de recursos computacionales, si bien resulta sensible a cambios estructurales drásticos en las plantillas HTML \cite{glez2014web}.
+    \item \textbf{Extracción Inductiva y Reconocimiento de Patrones Repetitivos:} Sistemas pioneros como \textit{RoadRunner} \cite{crescenzi2001roadrunner} demostraron la viabilidad de inferir gramáticas y esquemas de extracción comparando automáticamente páginas web generadas a partir de la misma plantilla de base de datos, aislando los datos variables respecto al esqueleto de diseño.
+    \item \textbf{Automatización mediante Navegadores Headless (Renderizado Dinámico):} Ante el auge de las aplicaciones web enriquecidas y los frameworks de renderizado en el cliente (\textit{Single Page Applications} con React, Angular o Vue), el contenido textual no reside en el HTML crudo retornado por el servidor, sino que se genera asíncronamente mediante peticiones AJAX o Fetch. En estos entornos, el scraping requiere navegadores sin interfaz gráfica (\textit{Headless Browsers}) tales como Chromium sobre Playwright o Puppeteer, capaces de ejecutar el motor JavaScript V8, evaluar eventos del ciclo de vida de la página y esperar la mutación del DOM antes de volcar el contenido procesado \cite{singrodia2019review}.
+    \item \textbf{Segmentación y Procesamiento Geométrico de Documentos PDF:} En el contexto institucional de las publicaciones oficiales (BOE), la información legal no reside en etiquetas web sino en flujos vectoriales de documentos PDF. La extracción requiere reconstruir el modelo espacial de caracteres, coordenadas tipográficas, líneas delimitadoras y tablas (\textit{pdfplumber}, \textit{pypdfium2}), combinando en ocasiones algoritmos de Reconocimiento Óptico de Caracteres (OCR) basados en Tesseract cuando los documentos corresponden a escaneos antiguos \cite{ferrara2014web}.
 \end{itemize}
 
-El sistema \textbf{UniHub} aborda esta brecha mediante un pipeline automatizado de cuatro componentes: rastreo, almacenamiento relacional en PostgreSQL, exposición mediante API REST FastAPI y visualización interactiva en React bajo el sistema de diseño visual de la Universidad de Cádiz (UCA).
+\subsection{Políticas de cortesía, ética y gobernanza en el rastreo web}
+El desarrollo de sistemas de rastreo automatizado debe observar rigurosos principios de cortesía y cumplimiento de estándares para no perjudicar la disponibilidad de los servidores objetivo \cite{ferrara2014web}:
+\begin{itemize}
+    \item \textbf{Respeto al Robots Exclusion Protocol (\texttt{robots.txt}):} Los crawlers éticos deben consultar e interpretar de forma estricta las directivas \texttt{Disallow} y \texttt{Crawl-delay} publicadas en el archivo raíz de cada dominio antes de emitir solicitudes automatizadas.
+    \item \textbf{Limitación de Tasa y Backoff Exponencial:} El software debe implementar retardos deliberados entre peticiones sucesivas al mismo dominio, incorporando mecanismos de retroceso exponencial (\textit{exponential backoff}) ante códigos de estado HTTP 429 (\textit{Too Many Requests}) o 503 (\textit{Service Unavailable}).
+    \item \textbf{Identificación Transparente (\textit{User-Agent}):} Las cabeceras HTTP de las peticiones deben incluir un identificador descriptivo que informe al administrador del sistema sobre la naturaleza académica del agente y proporcione un canal de contacto.
+\end{itemize}
+
+\section{Análisis de plataformas y alternativas existentes}
+Con el fin de situar la aportación de \textbf{UniHub}, se han analizado las principales plataformas institucionales y privadas de información universitaria disponibles en España:
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Comparativa entre plataformas existentes de información universitaria y UniHub}
+\label{tab:comparativa_plataformas}
+\begin{tabularx}{\textwidth}{p{3.8cm} c c c c c}
+\toprule
+\textbf{Funcionalidad / Característica} & \textbf{RUCT} & \textbf{BOE} & \textbf{QEDU} & \textbf{Portales Univ.} & \textbf{UniHub} \\
+\midrule
+Catálogo global (Públicas y Privadas) & Sí & No (disperso) & Sí & No (local) & \textbf{Sí} \\
+Desglose curricular de asignaturas (BOE) & No & Sí (PDF plano) & No & Sí (heterogéneo) & \textbf{Sí (estructurado)} \\
+Detección de Menciones oficiales & No & No & No & Parcial & \textbf{Sí (verificado)} \\
+Tratamiento diferenciado de Doctorados & Parcial & Parcial & No & Parcial & \textbf{Sí (RD 99/2011)} \\
+Búsqueda por proximidad (Haversine) & No & No & No & No & \textbf{Sí (50+ ciudades)} \\
+Simulador financiero de matrícula & No & No & No & No & \textbf{Sí (Púb. y Priv.)} \\
+API REST documentada y pública & No & Parcial & No & Raras excepciones & \textbf{Sí (FastAPI/Swagger)} \\
+Arquitectura contenerizada (Docker) & No pública & No pública & No pública & Propietaria & \textbf{Sí (Docker Compose)} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\noindent A continuación se detalla el comportamiento de cada alternativa:
+\begin{itemize}
+    \item \textbf{Registro de Universidades, Centros y Títulos (RUCT - Ministerio):} Constituye el inventario administrativo oficial. Aunque su cobertura es exhaustiva para verificar la vigencia legal de centros y títulos, su interfaz está diseñada con paradigmas heredados de principios de los años 2000. No desglosa las asignaturas aprobadas, no enlaza directamente a los planes publicados en el BOE y carece de un servicio web moderno para su consulta programática por terceros.
+    \item \textbf{Buscador del Boletín Oficial del Estado (BOE):} Almacena las resoluciones normativas de publicación de planes de estudio. No obstante, se limita a ofrecer documentos PDF escaneados o vectoriales organizados cronológicamente, sin vincularlos a metadatos relacionales ni comprobar la vigencia frente a planes extinguidos por modificaciones curriculares posteriores.
+    \item \textbf{Qué Estudiar y Dónde en la Universidad (QEDU):} Aplicación del Ministerio orientada a la toma de decisiones vocacionales. Proporciona datos de notas de corte y rendimiento de inserción laboral, pero omite por completo los planes de estudios detallados, los temarios docentes y el cálculo dinámico de costes de matrícula.
+    \item \textbf{Portales Propietarios de las Universidades:} Presentan el desglose de sus propios grados, pero varían drásticamente en calidad y accesibilidad: mientras algunas universidades disponen de portales interactivos avanzados, otras publican fichas estáticas o documentos PDF escaneados, haciendo imposible la comparativa ágil entre titulaciones de distintas instituciones.
+\end{itemize}
+
+\section{Aportación y valor diferencial de UniHub}
+El sistema \textbf{UniHub} supera las limitaciones descritas integrando los datos oficiales en un ciclo de vida completo de ingeniería:
+\begin{enumerate}
+    \item \textbf{Ingesta y Normalización Automatizada:} Un motor híbrido en Python que descarga la base del RUCT, sigue la trazabilidad hasta los planes de estudio aprobados en el BOE, analiza las tablas curriculares mediante segmentación geométrica y rescata asignaturas de los portales web universitarios ante resoluciones sintéticas.
+    \item \textbf{Validación Matemática de Calidad de Datos:} En consonancia con las metodologías de evaluación de calidad de datos propuestas por Batini et al. \cite{batini2009methodologies}, el sistema implementa la regla de cierre curricular $\sum \text{ECTS} \ge \text{ECTS}_{\text{exigidos}}$ para clasificar automáticamente cada plan en verificado, parcial o pendiente.
+    \item \textbf{Integración Completa del Marco Legal de Doctorados:} Diseña un modelo de persistencia específico (\texttt{programa\_doctoral JSONB}) que almacena y visualiza las líneas de investigación acreditadas, actividades formativas y escuelas de doctorado conforme al RD 99/2011 \cite{rd99_2011}, integrando el concepto de tutela académica anual.
+    \item \textbf{Transparencia Económica y Simulador Financiero:} Codifica las tablas de precios públicos de las 17 comunidades autónomas y honorarios de universidades privadas, permitiendo al usuario calcular con exactitud la liquidación estimada considerando repeticiones y exenciones sociales.
+    \item \textbf{Experiencia de Usuario Moderna y Geolocalizada:} SPA responsiva en React basada en la identidad visual de la Universidad de Cádiz (UCA), con ordenación por proximidad mediante la fórmula del semiverseno (Haversine) y un panel de administración con telemetría de infraestructura en tiempo real.
+\end{enumerate}

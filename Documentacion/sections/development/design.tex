@@ -50,22 +50,84 @@ El diseño relacional en PostgreSQL (\texttt{schema.sql}) se compone de las sigu
 \end{itemize}
 
 \section{Diseño de la Interfaz de Usuario} 
-El diseño visual se ha construido respetando la paleta de colores de la \textbf{Universidad de Cádiz (UCA)}:
+El diseño visual y la experiencia de usuario (UX/UI) de la aplicación web de \textbf{UniHub} se han concebido bajo los estándares modernos de desarrollo de Single Page Applications (SPA) con React 19 y Vite, siguiendo estrictamente la identidad visual corporativa de la \textbf{Universidad de Cádiz (UCA)}:
 \begin{itemize}
-    \item \textbf{Azul Noche UCA (Principal):} \texttt{\#002B49} y \texttt{\#003366}.
-    \item \textbf{Azul Mar de Cádiz (Acentos):} \texttt{\#0084C8} y \texttt{\#00A8E8}.
-    \item \textbf{Dorado Sol de Cádiz (Highlights/Badges):} \texttt{\#F3A712} y \texttt{\#FFC72C}.
-    \item \textbf{Rosa Magenta (Badge Doctorado):} \texttt{\#EC4899} (20\% opacidad).
-    \item \textbf{Panel de Administración (Fase 3):} Vista multisección asegurada equipada con las siguientes características avanzadas:
-    \begin{enumerate}
-        \item \textbf{Herramientas de Exportación Masiva CRUD:} Botones de descarga instantánea de tablas en formatos CSV (delimitado por coma con encabezado \texttt{UTF-8 BOM} para compatibilidad total con Microsoft Excel) y JSON estructurado.
-        \item \textbf{Paginación Total y Filtros Rápidos (Pills):} Integración de controles de navegación con selector de tamaño de página (20, 50, 100, 500, Todos) y botones interactivos para filtrado instantáneo por tipología (Públicas vs Privadas) y nivel académico (Grados, Másteres, Doctorados).
-        \item \textbf{Gestor Modal de Asignaturas y Tarifas ECTS:} Subpanel interactivo para consultar, añadir, editar y eliminar materias curriculares con sincronización en tiempo real, junto con la gestión integral de precios por crédito ECTS (1\textordfeminine{} a 4\textordfeminine{} matrícula) e importe estimado anual por titulación.
-        \item \textbf{Semáforos de Salud Core Web Vitals y Latencia BD:} Indicadores semafóricos visuales (basados en el código de colores estandarizado de Google CWV: Verde para Bueno, Amarillo para Aceptable y Rojo para Lento) midiendo TTFB ($<800\text{ ms}$), FCP ($<1800\text{ ms}$) y LCP ($<2500\text{ ms}$), complementados con un badge de conectividad en tiempo real con la base de datos PostgreSQL y medición de latencia en milisegundos.
-        \item \textbf{Barras de Progreso Animadas de Recursos Docker:} Barras dinámicas de uso de recursos cgroup por contenedor en tiempo real (RAM RSS MB sobre cuota de 512 MB y carga CPU \%), con transiciones CSS fluidas y alertas visuales cuando la CPU supera el 80\%.
-        \item \textbf{Cuadro de Mando KPI (Green IT, Caché y Cobertura):} Presenta métricas operativas calculadas sobre la última ejecución y la base de datos disponible. No sustituye a la trazabilidad del manifiesto ni debe presentarse como una medición universal fuera de su contexto de ejecución.
-        \item \textbf{Visor Interactivo de Incidencias y Errores del Crawler:} Tabla interactiva de incidencias de red y URLs desactualizadas con buscador en vivo y exportación dedicada en CSV/JSON.
-        \item \textbf{Monitor de Sincronización ETL en Vivo:} Banner reactivo en tiempo real con animación de carga (\texttt{animate-spin}) que refleja el estado de la migración relacional transaccional PostgreSQL y la existencia del archivo de cerrojo de proceso PID (\texttt{etl\_running.lock}).
-    \end{enumerate}
-    \item \textbf{Estilos Visuales y Accesibilidad:} Formularios con efecto desenfocado *glassmorphism* (\texttt{backdrop-filter: blur(12px)}), botones de cabecera con dimensiones uniformes, scroll automático superior al paginar, calculadora con banner de alto contraste UCA y pie de página con aviso legal sobre fuentes oficiales públicas (RUCT/BOE).
+    \item \textbf{Azul Noche UCA (Color Primario y Navegación):} \texttt{\#002B49} y \texttt{\#003366}, empleado en barras de cabecera, tipografía de títulos y banners principales.
+    \item \textbf{Azul Mar de Cádiz (Acentos y Acciones):} \texttt{\#0084C8} y \texttt{\#00A8E8}, utilizado en botones de acción principal, enlaces interactivos y bordes destacados.
+    \item \textbf{Dorado Sol de Cádiz (Avisos e Insignias Especiales):} \texttt{\#F3A712} y \texttt{\#FFC72C}, aplicado en insignias de advertencia y registros gestionados por administración.
+    \item \textbf{Verde Aprobado / Éxito (Insignia Verificado):} \texttt{\#10B981}, aplicado en distintivos de planes completos verificados conforme a publicación en BOE.
+    \item \textbf{Rosa Magenta (Distintivo Doctorado):} \texttt{\#EC4899} (con fondo al 15\,\% de opacidad), específico para programas oficiales de doctorado e investigación (RD 99/2011).
 \end{itemize}
+
+\subsection{Vistas Principales y Prototipado del Sistema}
+A continuación se describen y documentan visualmente las pantallas nucleares de la plataforma mediante capturas de la interfaz implementada.
+
+\subsubsection{Pantalla Principal y Catálogo de Universidades}
+La vista principal integra la barra de navegación superior, el banner institucional con métricas globales en tiempo real y la grilla interactiva de universidades (Figura~\ref{fig:ui_catalogo}).
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/ui_catalogo_universidades.png}
+    \caption{Interfaz de usuario: Pantalla de inicio y catálogo interactivo de universidades con buscador y filtros (Fase 3)}
+    \label{fig:ui_catalogo}
+\end{figure}
+
+Cada tarjeta universitaria expone su denominación oficial, tipología institucional (Pública o Privada), comunidad autónoma y el desglose de oferta académica (Grados, Másteres y Doctorados). Asimismo, incorpora controles de paginación configurable (5, 10, 20, 50 y 100 elementos por página) con desplazamiento suave automático al inicio tras cada transición.
+
+\subsubsection{Modal de Visualización Curricular y Menciones Oficiales}
+Al pulsar sobre el botón de consulta de una titulación, el sistema despliega un diálogo modal flotante con desenfoque de fondo (\textit{glassmorphism}) que renderiza la estructura docente (Figura~\ref{fig:ui_modal_plan}).
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/ui_modal_plan_estudios.png}
+    \caption{Interfaz de usuario: Modal de detalle curricular con asignaturas, créditos ECTS, cuatrimestres y trazabilidad BOE}
+    \label{fig:ui_modal_plan}
+\end{figure}
+
+El modal incluye:
+\begin{enumerate}
+    \item \textbf{Encabezado de Calidad y Trazabilidad:} Muestra la insignia de calidad del plan (\emph{Verificado BOE, Universidad o Administración}) y proporciona el botón directo hacia la disposición legal original.
+    \item \textbf{Desglose Curricular por Cursos y Cuatrimestres:} Agrupa las asignaturas estructuradas (1\textordmasculine{} a 4\textordmasculine{} curso; 1C, 2C y Anual) con indicación de tipología (Básica, Obligatoria, Optativa) y carga en créditos ECTS.
+    \item \textbf{Menciones Curriculares e Itinerarios:} Detección y filtrado visual de itinerarios formativos oficiales aprobados en el plan de estudios.
+    \item \textbf{Tratamiento Específico de Doctorados:} Para programas de doctorado, sustituye la tabla de asignaturas por la tarjeta de investigación con líneas acreditadas, escuela tutelar y régimen de tutela académica anual.
+\end{enumerate}
+
+\subsubsection{Simulador Financiero de Matrícula Universitaria}
+La herramienta de liquidación de matrícula (\texttt{TuitionCalculator}) permite al estudiante estimar con exactitud el coste económico de sus estudios en centros públicos y privados (Figura~\ref{fig:ui_calculadora}).
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/ui_calculadora_matricula.png}
+    \caption{Interfaz de usuario: Estimador interactivo de liquidación de matrícula con repeticiones y exenciones sociales}
+    \label{fig:ui_calculadora}
+\end{figure}
+
+El simulador implementa en tiempo real:
+\begin{itemize}
+    \item Selección granular de asignaturas individuales o cursos completos.
+    \item Modificación del grado de repetición (1\textordfeminine{}, 2\textordfeminine{}, 3\textordfeminine{} o 4\textordfeminine{}+ matrícula) aplicando los coeficientes multiplicadores autonómicos.
+    \item Aplicación de exenciones sociales (Familia Numerosa General y Especial, Discapacidad $\ge 33\,\%$, Beca MEC del Ministerio, Matrícula de Honor y Bonificación del 99\,\% de la Junta de Andalucía).
+    \item Generación instantánea del recibo de liquidación con desglose de créditos, tasas de secretaría y bonificación total.
+\end{itemize}
+
+\subsubsection{Búsqueda por Proximidad Geográfica (Fórmula de Haversine)}
+La vista de geolocalización permite a los usuarios ordenar el catálogo de centros universitarios en función de su distancia física real en kilómetros (Figura~\ref{fig:ui_geolocalizacion}).
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/ui_geolocalizacion.png}
+    \caption{Interfaz de usuario: Búsqueda y ordenación de universidades por proximidad geográfica mediante geolocalización}
+    \label{fig:ui_geolocalizacion}
+\end{figure}
+
+El cálculo se ejecuta en el cliente mediante la fórmula trigonométrica del semiverseno (Haversine), tomando como referencia las coordenadas GPS del navegador del usuario o una capital de provincia seleccionada manualmente entre las 52 provincias españolas.
+
+\subsection{Panel de Control y Administración Aislado}
+Ubicado bajo la ruta de acceso manual \texttt{/admin} y protegido mediante autenticación por clave API (\texttt{X-API-Key}), el panel de administración centraliza la monitorización y gestión de la plataforma:
+\begin{enumerate}
+    \item \textbf{Herramientas de Exportación Masiva CRUD:} Descarga en formatos CSV (con codificación \texttt{UTF-8 BOM} para compatibilidad total con hojas de cálculo) y JSON estructurado, sanitizando caracteres iniciales potencialmente peligrosos (\texttt{=}, \texttt{+}, \texttt{-}, \texttt{@}) para neutralizar ataques de CSV Injection.
+    \item \textbf{Gestor Modal de Asignaturas y Precios ECTS:} Subpanel para añadir, editar o dar de baja materias curriculares, bloqueando modificaciones accidentales sobre planes verificados mediante la marca \texttt{gestionado\_por\_admin}.
+    \item \textbf{Semáforos Core Web Vitals y Latencia de Base de Datos:} Indicadores de rendimiento en vivo (TTFB, FCP y LCP) conforme a las directrices de Google CWV, complementados con la medición de latencia en milisegundos de la conexión PostgreSQL.
+    \item \textbf{Telemetría Docker y Sostenibilidad Green IT:} Monitorización continua de consumo de memoria RAM RSS y porcentaje de uso de CPU por contenedor, complementado con la estimación de emisiones de carbono ($g\text{CO}_2$).
+    \item \textbf{Monitor de Sincronización ETL en Vivo:} Banner reactivo que notifica el progreso de la carga de datos masiva y la liberación de cerrojos de proceso (\texttt{etl\_running.lock}).
+\end{enumerate}

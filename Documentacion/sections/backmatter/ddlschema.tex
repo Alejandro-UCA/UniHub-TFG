@@ -1,0 +1,151 @@
+\label{anexo:ddl_schema}
+
+En este apéndice se proporciona la definición formal completa del esquema relacional físico de la base de datos PostgreSQL de \textbf{UniHub} (\texttt{schema.sql}). Incluye la creación de tablas principales, claves foráneas con restricciones de integridad referencial y borrado en cascada, tipos semiestructurados (\texttt{JSONB}), índices de búsqueda acelerada mediante trigramas (\texttt{pg\_trgm}) y la parametrización del rol de solo lectura de la API REST (\texttt{unihub\_api\_user}).
+
+\begin{lstlisting}[language=SQL, caption={Esquema DDL completo de PostgreSQL (schema.sql)}]
+-- =====================================================================
+-- ESQUEMA BASE DE DATOS POSTGRESQL - UNIHUB
+-- =====================================================================
+
+-- 1. Tabla de Universidades (Publicas y Privadas)
+CREATE TABLE IF NOT EXISTS universidades (
+    id SERIAL PRIMARY KEY,
+    codigo VARCHAR(10) UNIQUE NOT NULL,
+    nombre VARCHAR(500) NOT NULL,
+    tipo VARCHAR(100),
+    comunidad_autonoma VARCHAR(200),
+    municipio VARCHAR(200),
+    provincia VARCHAR(200),
+    web VARCHAR(500),
+    email VARCHAR(500),
+    telefono VARCHAR(200),
+    gestionado_por_admin BOOLEAN DEFAULT FALSE,
+    creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 2. Tabla de Titulaciones (Grados, Masteres, Doctorados Vigentes)
+CREATE TABLE IF NOT EXISTS titulaciones (
+    id SERIAL PRIMARY KEY,
+    codigo_estudio VARCHAR(20) UNIQUE NOT NULL,
+    titulo TEXT NOT NULL,
+    nivel_academico TEXT,
+    estado VARCHAR(200),
+    universidad_codigo VARCHAR(10) NOT NULL REFERENCES universidades(codigo) ON DELETE CASCADE,
+    precio_credito_ects NUMERIC(6, 2),
+    precio_credito_2 NUMERIC(6, 2),
+    precio_credito_3 NUMERIC(6, 2),
+    precio_credito_4 NUMERIC(6, 2),
+    precio_estimado_anual NUMERIC(8, 2),
+    fuente_precio VARCHAR(255),
+    centro_adscrito TEXT,
+    es_alianza_europea BOOLEAN NOT NULL DEFAULT FALSE,
+    web_fuente_directa_url TEXT,
+    gestionado_por_admin BOOLEAN DEFAULT FALSE,
+    creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 3. Tabla de Planes de Estudio (Metadatos BOE por Titulacion)
+CREATE TABLE IF NOT EXISTS planes_estudio (
+    id SERIAL PRIMARY KEY,
+    codigo_estudio VARCHAR(20) UNIQUE NOT NULL REFERENCES titulaciones(codigo_estudio) ON DELETE CASCADE,
+    boe_url TEXT,
+    boe_fecha DATE,
+    origen_fuente VARCHAR(100),
+    pdf_sha256 VARCHAR(64),
+    estado_calidad VARCHAR(64) NOT NULL DEFAULT 'pendiente_revision',
+    motivos_calidad JSONB,
+    fuente_verificada_url TEXT,
+    verificado_en TIMESTAMP,
+    fecha_procesado TIMESTAMP,
+    tipo_estructura VARCHAR(100),
+    ects_exigidos TEXT,
+    programa_doctoral JSONB,
+    creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 4. Tabla de Resumen de Creditos ECTS
+CREATE TABLE IF NOT EXISTS resumen_creditos (
+    id SERIAL PRIMARY KEY,
+    plan_estudio_id INT NOT NULL REFERENCES planes_estudio(id) ON DELETE CASCADE,
+    tipo_credito VARCHAR(200) NOT NULL,
+    cantidad_creditos VARCHAR(50) NOT NULL
+);
+
+-- 5. Tabla de Elementos Curriculares (Asignaturas, Modulos, Materias)
+CREATE TABLE IF NOT EXISTS elementos_curriculares (
+    id SERIAL PRIMARY KEY,
+    plan_estudio_id INT NOT NULL REFERENCES planes_estudio(id) ON DELETE CASCADE,
+    codigo VARCHAR(50),
+    nombre_elemento TEXT NOT NULL,
+    modulo TEXT,
+    materia TEXT,
+    creditos_ects NUMERIC(5, 2),
+    caracter VARCHAR(100),
+    curso INT,
+    cuatrimestre VARCHAR(50),
+    idioma VARCHAR(100),
+    departamento TEXT,
+    creditos_teoria NUMERIC(5, 2),
+    creditos_practica NUMERIC(5, 2),
+    url_guia_docente TEXT,
+    guia_docente JSONB,
+    fuente_elemento VARCHAR(50) DEFAULT 'BOE',
+    creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 6. Tabla de Registro de Errores e Incidencias del Crawler
+CREATE TABLE IF NOT EXISTS errores_crawler (
+    id SERIAL PRIMARY KEY,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    universidad_codigo VARCHAR(10),
+    url_afectada TEXT,
+    codigo_http INT,
+    mensaje_error TEXT,
+    contexto JSONB
+);
+
+-- 7. Tabla de Metricas de Rendimiento de Ingesta
+CREATE TABLE IF NOT EXISTS estadisticas_rendimiento (
+    id SERIAL PRIMARY KEY,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fase_crawler VARCHAR(50),
+    total_titulaciones_procesadas INT,
+    total_planes_completos INT,
+    total_planes_parciales INT,
+    duracion_segundos NUMERIC(8, 2),
+    memoria_rss_mb NUMERIC(8, 2),
+    tasa_acierto_porcentaje NUMERIC(5, 2)
+);
+
+-- =====================================================================
+-- INDICES OPTIMIZADOS PARA BUSQUEDA Y RENDIMIENTO
+-- =====================================================================
+CREATE INDEX IF NOT EXISTS idx_titulaciones_univ_codigo ON titulaciones(universidad_codigo);
+CREATE INDEX IF NOT EXISTS idx_titulaciones_nivel ON titulaciones(nivel_academico);
+CREATE INDEX IF NOT EXISTS idx_elementos_plan_id ON elementos_curriculares(plan_estudio_id);
+CREATE INDEX IF NOT EXISTS idx_elementos_curso ON elementos_curriculares(curso);
+
+-- Extension pg_trgm para busquedas textuales difusas en espanol
+CREATE EXTENSION IF NOT EXISTS pg_trgm;
+CREATE INDEX IF NOT EXISTS idx_univ_nombre_trgm ON universidades USING gin (nombre gin_trgm_ops);
+CREATE INDEX IF NOT EXISTS idx_tit_titulo_trgm ON titulaciones USING gin (titulo gin_trgm_ops);
+
+-- =====================================================================
+-- CONFIGURACION DE SEGURIDAD RBAC: USUARIO DE SOLO LECTURA API
+-- =====================================================================
+DO
+$do$
+BEGIN
+   IF NOT EXISTS (
+      SELECT FROM pg_catalog.pg_roles
+      WHERE  rolname = 'unihub_api_user') THEN
+      CREATE ROLE unihub_api_user WITH LOGIN PASSWORD '${POSTGRES_API_PASSWORD}';
+   END IF;
+END
+$do$;
+
+GRANT CONNECT ON DATABASE unihub_db TO unihub_api_user;
+GRANT USAGE ON SCHEMA public TO unihub_api_user;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO unihub_api_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO unihub_api_user;
+\end{lstlisting}

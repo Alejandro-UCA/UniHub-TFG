@@ -1,0 +1,17 @@
+\newpage{\ }
+\thispagestyle{empty}
+\chapter*{Abstract}
+
+\noindent This Bachelor's Thesis addresses the design, development, and implementation of \textbf{UniHub}, a comprehensive, distributed computer system for the centralization, storage, consultation, and management of higher education offerings in Spain (public and private universities, Bachelor's, Master's, and Doctoral degrees, and detailed study plans extracted from the Official State Gazette -- BOE).
+
+The project is structured into four clearly delimited and interconnected engineering phases:
+\begin{enumerate}
+    \item \textbf{Phase 1 (Web Crawler \& Extraction):} Developed in Python, it retrieves the official catalog, filters active degrees, and processes BOE resolutions. The PDF deep analysis module constructs a geometric model of pages, text positions, and tabular boundaries to isolate each degree and extract its curricular syllabus. Execution ensures end-to-end traceability, strictly adheres to \texttt{robots.txt} policies across institutional sources, and supports automated Cron scheduling via \texttt{CRAWLER\_CRON\_SCHEDULE}.
+    \item \textbf{Phase 2 (PostgreSQL Database \& REST API):} Relational DDL schema with a restricted read-only role (\texttt{unihub\_api\_user}), bulk ETL ingestion pipeline, priority sorting (public institutions first, followed by private ones), real-time cgroup container performance telemetry, and a high-performance RESTful service built with FastAPI.
+    \item \textbf{Phase 3 (Web Frontend Portal):} A modern Single Page Application (SPA) built with React and Vite following the corporate visual identity of the University of Cadiz (UCA). It features configurable pagination (5, 10, 20, 50, and 100 items per page), masking of internal database identifiers, Haversine geolocation with distance computed directly onto university cards, a featured universities section (top 6 most visited), an institutional ``About Us'' section (Bachelor's Thesis by Alejandro Ramos Rodríguez, UCA), and an isolated administrative control panel accessible via the manual URL route \texttt{/admin}.
+    \item \textbf{Phase 4 (Docker Containerization \& Orchestration):} Multi-container architecture composed of four isolated services (\texttt{unihub\_db}, \texttt{unihub\_crawler}, \texttt{unihub\_api}, \texttt{unihub\_www}) orchestrated with Docker Compose, providing verified data persistence across container shutdowns and restarts.
+\end{enumerate}
+
+\vspace{.5cm}
+
+\noindent \textbf{Keywords:} UniHub, University of Cadiz (UCA), Python Crawler, BOE, Doctorate, PostgreSQL, FastAPI, React, Haversine Geolocation, Docker Compose.

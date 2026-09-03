@@ -1,8 +1,69 @@
 \begin{thebibliography}{}
 
-\bibitem[Hevner et~al., 2004]{hevner2004}
-Hevner, A.~R., March, S.~T., Park, J., y Ram, S. (2004).
-\newblock {Design Science in Information Systems Research}.
-\newblock {\em MIS Quarterly}, 28(1):75--105.
+\bibitem[Attard et~al., 2015]{attard2015systematic}
+Attard, J., Orlandi, F., Scerri, S., y Auer, S. (2015).
+\newblock {A systematic review of open government data initiatives}.
+\newblock {\em Government Information Quarterly}, 32(4):399--418.
+
+\bibitem[Batini et~al., 2009]{batini2009methodologies}
+Batini, C., Cappiello, C., Francalanci, C., y Maurino, A. (2009).
+\newblock {Methodologies for data quality assessment and improvement}.
+\newblock {\em ACM Computing Surveys (CSUR)}, 41(3):1--52.
+
+\bibitem[Crescenzi et~al., 2001]{crescenzi2001roadrunner}
+Crescenzi, V., Mecca, G., y Merialdo, P. (2001).
+\newblock {ROADRUNNER: Towards automatic data extraction from large, web
+  sites}.
+\newblock In {\em Proceedings of the 27th International Conference on Very
+  Large Data Bases (VLDB)}, pages 324--335.
+
+\bibitem[Ferrara et~al., 2014]{ferrara2014web}
+Ferrara, E., De~Meo, P., Fiumara, G., y Baumgartner, R. (2014).
+\newblock {Web data extraction, applications and techniques: A survey}.
+\newblock {\em Knowledge-Based Systems}, 70:301--323.
+
+\bibitem[Glez-Pe{\~n}a et~al., 2014]{glez2014web}
+Glez-Pe{\~n}a, D., Louren{\c{c}}o, A., L{\'o}pez-Fern{\'a}ndez, H.,
+  Reboiro-Jato, M., y Fdez-Riverola, F. (2014).
+\newblock {Web scraping technologies in an API world}.
+\newblock {\em Briefings in Bioinformatics}, 15(5):788--797.
+
+\bibitem[Janssen et~al., 2012]{janssen2012benefits}
+Janssen, M., Charalabidis, Y., y Zuiderwijk, A. (2012).
+\newblock {Benefits, adoption barriers and myths of open data and open
+  government}.
+\newblock {\em Information Systems Management}, 29(4):258--268.
+
+\bibitem[{Jefatura del Estado}, 2023]{ley_organica_2_2023}
+{Jefatura del Estado} (2023).
+\newblock {Ley Orgánica 2/2023, de 22 de marzo, del Sistema Universitario
+  (LOSU)}.
+\newblock Boletín Oficial del Estado, núm. 70, de 23 de marzo de 2023.
+
+\bibitem[{Ministerio de Educación}, 2011]{rd99_2011}
+{Ministerio de Educación} (2011).
+\newblock {Real Decreto 99/2011, de 28 de enero, por el que se regulan las
+  enseñanzas oficiales de doctorado}.
+\newblock Boletín Oficial del Estado, núm. 35, de 10 de febrero de 2011.
+
+\bibitem[{Ministerio de Universidades}, 2021]{rd822_2021}
+{Ministerio de Universidades} (2021).
+\newblock {Real Decreto 822/2021, de 28 de septiembre, por el que se establece
+  la organización de las enseñanzas universitarias y del procedimiento de
+  aseguramiento de su calidad}.
+\newblock Boletín Oficial del Estado, núm. 233, de 29 de septiembre de 2021.
+
+\bibitem[Singrodia et~al., 2019]{singrodia2019review}
+Singrodia, V., Mitra, A., y Paul, S. (2019).
+\newblock {A review on Web Scrapping and its applications}.
+\newblock In {\em 2019 International Conference on Computer Communication and
+  Informatics (ICCCI)}, pages 1--6. IEEE.
+
+\bibitem[Zhao, 2017]{zhao2017web}
+Zhao, B. (2017).
+\newblock {Web scraping: An efficient way of leveraging data from the web for
+  advanced data analysis}.
+\newblock {\em Research and Practice in Technology Enhanced Learning},
+  12(1):1--22.
 
 \end{thebibliography}

@@ -49,12 +49,7 @@ El sistema de ingesta de la Fase 1 se estructura en cuatro partes desacopladas y
     \item \texttt{fase1\_parte1\_ruct\_boe.py}: Orquesta la ejecución mediante una arquitectura paralela Productor-Consumidor con buffer híbrido en memoria ($\le 5\text{ MB}$ en RAM y volcado temporal con borrado garantizado para archivos mayores), reintentos ante contrapresión en colas (\texttt{queue.Full}) y reporte fiable de métricas de trabajadores en bloques \texttt{finally} ante paradas cooperativas.
 \end{itemize}
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.92\textwidth]{figures/fase1_parte1_diagram.jpg}
-    \caption{Diagrama de arquitectura paralela Productor-Consumidor, caché SHA-256 y resiliencia Circuit Breaker de la Fase 1 Parte 1}
-    \label{fig:fase1_parte1_diagram}
-\end{figure}
+
 
 \subsubsection{Fase 1 - Parte 2: Recuperación desde Webs Oficiales}
 \begin{itemize}
@@ -74,12 +69,7 @@ El sistema de ingesta de la Fase 1 se estructura en cuatro partes desacopladas y
     \item \textbf{Extracción Universal y Agnóstica de Programas de Doctorado Oficiales (RD 99/2011) (\texttt{extract\_generic\_doctoral\_program}):} Marco de ingesta para los más de 3.500 programas oficiales de doctorado del sistema universitario español. Dado que bajo el RD 99/2011 los doctorados carecen de mallas lectivas con créditos ECTS tradicionales, el módulo descubre y navega de forma canónica hacia subpáginas de investigación (\texttt{lineas-de-investigacion}, \texttt{equipos-y-lineas}), descartando descargas directas de PDFs o información puramente administrativa. Extrae de forma multilingüe las líneas acreditadas a través de tres patrones universales (listas HTML adyacentes a encabezados semánticos, sub-encabezados H4/H5 en secciones y tablas estructuradas tipográficamente), captura la Escuela de Doctorado responsable y recopila las actividades formativas transversales, integrándolas en el campo estructurado \texttt{programa\_doctoral} y como elementos curriculares con \texttt{caracter = "INVESTIGACION"}.
 \end{itemize}
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.92\textwidth]{figures/fase1_parte2_diagram.jpg}
-    \caption{Flujo de rastreo web oficial con arquitectura Hub-and-Spoke, verificación robots.txt, sitemaps XML y extracción tarifaria privada de la Fase 1 Parte 2}
-    \label{fig:fase1_parte2_diagram}
-\end{figure}
+
 
 \subsubsection{Fase 1 - Parte 3: Consolidación de Precios ECTS y Tarifas Públicas y Privadas (SIIU)}
 \begin{itemize}
@@ -94,12 +84,7 @@ El sistema de ingesta de la Fase 1 se estructura en cuatro partes desacopladas y
     \item Incorpora \textbf{caché en memoria} del catálogo \texttt{precios\_ccaa.json} y volcado atómico mediante \texttt{atomic\_json\_dump} sobre los planes de estudio y el índice de titulaciones.
 \end{itemize}
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.92\textwidth]{figures/fase1_parte3_diagram.jpg}
-    \caption{Algoritmo de cómputo tarifario para universidades públicas y privadas a partir del catálogo local, cacheo en memoria RAM y sincronización de la Fase 1 Parte 3}
-    \label{fig:fase1_parte3_diagram}
-\end{figure}
+
 
 \subsubsection{Fase 1 - Parte 4: Guías Docentes y Temarios EEES (\texttt{fase1\_parte4\_asignaturas.py})}
 \begin{itemize}
@@ -191,75 +176,15 @@ La Fase 1 incorpora mecanismos orientados a reducir trabajo repetido sin alterar
     \item Documentación de pruebas: \texttt{EstudioRendimientoFase1.md}, \texttt{EstudioTasaAciertoReal.md}, \texttt{ResultadosPruebaFase1.md/json}.
 \end{itemize}
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.95\textwidth]{figures/unihub_crawler_architecture.jpg}
-    \caption{Diagrama de arquitectura paralela Productor-Consumidor y resiliencia de red de la Fase 1}
-    \label{fig:crawler_architecture}
-\end{figure}
+\section{Esquema Físico Relacional y Modelo de Persistencia}
+El esquema físico en PostgreSQL se diseña para garantizar la integridad referencial, la indexación optimizada de consultas y el aislamiento estricto de privilegios de acceso. El modelo relacional implementado se articula en torno a tres entidades principales y sus correspondientes tablas de soporte:
+\begin{enumerate}
+    \item \textbf{Entidad \texttt{universidades}:} Almacena la identidad institucional del centro de educación superior (\texttt{codigo} oficial RUCT como clave primaria, denominación legal, tipología pública o privada, comunidad autónoma, provincia, municipio, portal web institucional y canales de contacto).
+    \item \textbf{Entidad \texttt{titulaciones}:} Registra la oferta académica oficial vinculada a cada universidad (\texttt{codigo\_estudio} único, nivel académico Grado, Máster o Doctorado, estado de vigencia, precios regulados SIIU por crédito ECTS de primera a cuarta matrícula y coste anual estimado).
+    \item \textbf{Entidad \texttt{planes\_estudio}:} Almacena la trazabilidad de la publicación oficial en el BOE (enlace web a la resolución, fecha de publicación, huella criptográfica SHA-256 del PDF original y estado de calidad curricular). Asimismo, para las titulaciones de Doctorado conforme al RD 99/2011, incorpora la columna semiestructurada \texttt{programa\_doctoral JSONB}, que modela formalmente las líneas de investigación científica acreditadas, la Escuela de Doctorado responsable y el inventario de actividades formativas transversales.
+    \item \textbf{Estructura Curricular Desglosada (\texttt{resumen\_creditos} y \texttt{elementos\_curriculares}):} Tablas dependientes con borrado en cascada (\texttt{ON DELETE CASCADE}) que descomponen el plan de estudios en módulos, materias y asignaturas, registrando créditos ECTS, carácter (Básica, Obligatoria, Optativa, Prácticas o Trabajo Fin de Título), temporalidad (curso y cuatrimestre) y guías docentes asociadas.
+    \item \textbf{Auditoría de Ingesta y Salud del Sistema (\texttt{errores\_crawler} y \texttt{estadisticas\_rendimiento}):} Registros relacionales para la auditoría forense de incidencias de red y métricas de rendimiento por fase (duración, consumo de memoria RSS y tasa de acierto).
+    \item \textbf{Aislamiento de Privilegios de Acceso (RBAC):} Creación dinámica en PostgreSQL del rol de solo lectura \texttt{unihub\_api\_user}, al que se asigna exclusivamente el privilegio \texttt{GRANT SELECT} sobre las tablas del esquema público, blindando la base de datos frente a mutaciones accidentales o vulnerabilidades de inyección procedentes del servicio REST estándar.
+\end{enumerate}
 
-\section{Código DDL de Base de datos}
-El esquema físico en PostgreSQL se construye mediante el archivo DDL \texttt{schema.sql}:
-\begin{lstlisting}[language=SQL, caption={Esquema DDL relacional, tabla planes\_estudio y rol de solo lectura de la API}]
-CREATE TABLE IF NOT EXISTS universidades (
-    id SERIAL PRIMARY KEY,
-    codigo VARCHAR(10) UNIQUE NOT NULL,
-    nombre VARCHAR(500) NOT NULL,
-    tipo VARCHAR(50),
-    comunidad_autonoma VARCHAR(100),
-    municipio VARCHAR(100),
-    provincia VARCHAR(100),
-    web VARCHAR(500),
-    email VARCHAR(255),
-    telefono VARCHAR(50),
-    creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE TABLE IF NOT EXISTS titulaciones (
-    id SERIAL PRIMARY KEY,
-    codigo_estudio VARCHAR(20) UNIQUE NOT NULL,
-    universidad_codigo VARCHAR(10) REFERENCES universidades(codigo),
-    titulo VARCHAR(255) NOT NULL,
-    nivel_academico VARCHAR(50),
-    estado VARCHAR(200),
-    precio_credito_ects NUMERIC(10,2),
-    precio_estimado_anual NUMERIC(10,2),
-    fuente_precio VARCHAR(100),
-    creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE TABLE IF NOT EXISTS planes_estudio (
-    id SERIAL PRIMARY KEY,
-    codigo_estudio VARCHAR(20) UNIQUE NOT NULL REFERENCES titulaciones(codigo_estudio) ON DELETE CASCADE,
-    boe_url TEXT,
-    boe_fecha DATE,
-    origen_fuente VARCHAR(100),
-    pdf_sha256 VARCHAR(64),
-    estado_calidad VARCHAR(64) NOT NULL DEFAULT 'pendiente_revision',
-    motivos_calidad JSONB,
-    fuente_verificada_url TEXT,
-    verificado_en TIMESTAMP,
-    fecha_procesado TIMESTAMP,
-    tipo_estructura VARCHAR(100),
-    ects_exigidos TEXT,
-    programa_doctoral JSONB,
-    creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Rol de solo lectura para la API REST (Soporte dinamico en inicializacion Docker)
-DO
-$do$
-BEGIN
-   IF NOT EXISTS (
-      SELECT FROM pg_catalog.pg_roles
-      WHERE  rolname = 'unihub_api_user') THEN
-      CREATE ROLE unihub_api_user WITH LOGIN PASSWORD '${POSTGRES_API_PASSWORD}';
-   END IF;
-END
-$do$;
-
-EXECUTE format('GRANT CONNECT ON DATABASE %I TO unihub_api_user', current_database());
-GRANT USAGE ON SCHEMA public TO unihub_api_user;
-GRANT SELECT ON ALL TABLES IN SCHEMA public TO unihub_api_user;
-ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO unihub_api_user;
-\end{lstlisting}
+\noindent Siguiendo las directrices metodológicas de documentación técnica, el código fuente DDL completo que materializa este diseño en PostgreSQL (\texttt{schema.sql}) se ha trasladado al Anexo~\ref{anexo:ddl_schema} (Esquema Físico DDL de Base de Datos), donde se detallan todas las sentencias de creación de tablas, índices B-Tree y GIN con trigramas (\texttt{pg\_trgm}) y directivas de seguridad.

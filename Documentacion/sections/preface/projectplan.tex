@@ -1,61 +1,180 @@
-En esta sección se describen todos los aspectos relativos a la gestión del proyecto \textbf{UniHub}: metodología, organización, costes, planificación, riesgos y aseguramiento de la calidad.
+En esta sección se describen todos los aspectos relativos a la gestión del proyecto \textbf{UniHub}: metodología, organización, desglose de costes, planificación temporal con diagrama de Gantt, gestión de riesgos y aseguramiento de la calidad.
 
 \section{Metodología de desarrollo}
-Se ha adoptado una metodología de desarrollo ágil e incremental estructurada en 4 fases principales. Cada fase se concibe como un subsistema desacoplado con responsabilidades claras, validado mediante pruebas unitarias e integrales antes de avanzar a la siguiente iteración.
-
-\section{Tecnologías}
-Las tecnologías empleadas se resumen a continuación:
+Se ha adoptado una metodología de desarrollo ágil e incremental estructurada en fases bien delimitadas. Cada fase se concibe como un subsistema desacoplado con responsabilidades funcionales claras, validado mediante pruebas unitarias e integrales antes de consolidar los artefactos:
 \begin{itemize}
-    \item \textbf{Fase 1 (Crawler):} Python 3.12, \texttt{xlrd} (lectura de XLS BIFF8), \texttt{BeautifulSoup4} (análisis HTML), \texttt{pdfplumber} (modelo geométrico y tablas del PDF BOE), OCR opcional para documentos escaneados, \texttt{psutil} (medición de memoria/CPU) y ejecución Cron configurable.
-    \item \textbf{Fase 2 (API \& DB):} PostgreSQL 15, SQLAlchemy 2.0 (ORM), FastAPI (framework REST), Pydantic v2 (validación de datos) y \texttt{psycopg2-binary}.
-    \item \textbf{Fase 3 (Web):} Node.js 20, Vite, React 19 (JSX), Vanilla CSS (Tokens UCA), Lucide Icons, Geolocation API y analítica local \texttt{usageTracker}.
-    \item \textbf{Fase 4 (Docker):} Docker Engine, Docker Compose v2, Nginx 1.25-alpine e imágenes base slim de Python 3.12.
+    \item \textbf{Fase 0 - Análisis, Requisitos y Estado del Arte:} Estudio normativo (RD 822/2021, RD 99/2011), análisis de viabilidad técnica, arquitectura de datos y revisión bibliográfica.
+    \item \textbf{Fase 1 - Motor de Rastreo, Ingesta y Extracción Curricular:} Desarrollo del pipeline de descarga del RUCT, filtrado de activas, deduplicación de planes, parser de resoluciones PDF del BOE, crawling web de apoyo, catálogo de precios SIIU y extracción de guías docentes.
+    \item \textbf{Fase 2 - Almacenamiento Relacional y API REST:} Diseño del esquema DDL en PostgreSQL, rol de solo lectura de la API, pipeline de carga masiva ETL con control de sobrescritura, desarrollo de la API REST en FastAPI y telemetría de rendimiento de contenedores.
+    \item \textbf{Fase 3 - Portal Web SPA y Simulador Financiero:} Interfaz reactiva en React 19 con diseño institucional UCA, catálogo interactivo con paginación optimizada, modal de planes de estudio y menciones, tarjeta dedicada de doctorados, motor de simulación de matrícula con exenciones y panel de administración aislado.
+    \item \textbf{Fase 4 - Contenerización, Orquestación y Pruebas:} Creación de Dockerfiles multi-stage, orquestación mediante Docker Compose con persistencia en volúmenes, batería de más de 400 pruebas automatizadas y despliegue final.
+    \item \textbf{Fase 5 - Documentación y Memoria Técnica:} Redacción de la memoria del Trabajo Fin de Grado, elaboración de diagramas UML formales y redacción de manuales de usuario y de desarrollo.
 \end{itemize}
 
-\section{Herramientas utilizadas}
-Para el desarrollo y la documentación del proyecto se emplearon las siguientes herramientas de soporte:
+\section{Tecnologías empleadas}
+Las tecnologías y herramientas utilizadas se resumen a continuación:
 \begin{itemize}
-    \item \textbf{Entorno de desarrollo:} Visual Studio Code, Git, MiKTeX para compilación de LaTeX.
-    \item \textbf{Asistencia a la redacción y revisión:} Google Antigravity con Gemini 3.6 Flash para la revisión de estilo académico y coherencia terminológica.
-    \item \textbf{Sistema de asistencia a la ingeniería:} Sistema montado por Unsloth Studio + Muse-Glimmer-30B-GGUF + OpenCode para la exploración del código, detección de inconsistencias entre la implementación y la documentación y generación de anexos técnicos.
+    \item \textbf{Fase 1 (Crawler / ETL):} Python 3.12, \texttt{xlrd} (lectura de XLS BIFF8 del RUCT), \texttt{BeautifulSoup4} (análisis HTML semántico), \texttt{pdfplumber} y \texttt{pypdfium2} (segmentación geométrica de tablas PDF en BOE), \texttt{playwright} (navegación headless para portales SPA dinámicos), \texttt{psutil} (medición de telemetría).
+    \item \textbf{Fase 2 (API \& Base de Datos):} PostgreSQL 15, SQLAlchemy 2.0 (ORM), FastAPI (framework web asíncrono), Pydantic v2 (validación estricta de esquemas de datos), Uvicorn (servidor ASGI) y \texttt{psycopg2-binary}.
+    \item \textbf{Fase 3 (Portal Web):} Node.js 20, Vite 8, React 19 (JSX), CSS moderno con variables institucionales UCA, Lucide Icons, Geolocation API (fórmula de Haversine) y Oxlint (análisis estático).
+    \item \textbf{Fase 4 (Despliegue y DevOps):} Docker Engine, Docker Compose v2, Nginx 1.25-alpine e imágenes base Debian slim de Python 3.12.
+    \item \textbf{Herramientas de soporte:} Visual Studio Code, Git, GitHub y MiKTeX con pdflatex.
 \end{itemize}
 
-\section{Planificación del proyecto}
-El desarrollo del proyecto se ejecutó en 4 hitos secuenciales:
-\begin{enumerate}
-    \item \textbf{Hito 1 - Rastreador (Fase 1):} Implementación de descargas con reintentos, deduplicación de planes renovados por Real Decreto, clasificación de Doctorados, filtro estricto de vigencia (descarte de extinguidas), resiliencia de conexión (5m/15m cortocircuito), parseo de PDF del BOE y notificación automática a la API REST.
-    \item \textbf{Hito 2 - Base de Datos y API REST (Fase 2):} Diseño del esquema DDL en PostgreSQL, rol de solo lectura (\texttt{ruct\_api\_user}), script ETL, ordenación prioritaria (públicas primero) y endpoints de consulta y métricas físicas cgroup.
-    \item \textbf{Hito 3 - Portal Web UCA \& CRUD (Fase 3):} Desarrollo de la SPA en React con estética UCA, paginación (5, 10, 20, 50, 100), ocultación de códigos internos, geolocalización por Haversine con distancia en tarjeta, sección de universidades destacadas (top 6 más visitadas), apartado "Sobre Nosotros" (TFG Alejandro Ramos Rodríguez, UCA) y panel de administración aislado en la ruta manual \texttt{/admin}.
-    \item \textbf{Hito 4 - Dockerización \& Persistencia (Fase 4):} Creación de Dockerfiles, Nginx proxy inverso, \texttt{docker-compose.yml} y montaje de volúmenes persistentes (\texttt{ruct\_postgres\_data} y datos en host).
-\end{enumerate}
+\section{Planificación temporal y diagrama de Gantt}
+Conforme a la normativa académica de la Universidad de Cádiz para el Trabajo Fin de Grado en Ingeniería Informática, la asignatura cuenta con una asignación de 18 créditos ECTS. Considerando una equivalencia reglamentaria de 25 horas de dedicación por cada crédito ECTS, el proyecto contempla una carga total de trabajo de \textbf{450 horas}.
 
-\section{Organización}
-El proyecto ha sido coordinado bajo la estructura de roles de un proyecto de ingeniería de software:
-\begin{itemize}
-    \item \textbf{Jefe de Proyecto / Analista:} Definición de requisitos, arquitectura general y planificación por fases.
-    \item \textbf{Desarrollador Backend / Crawler:} Construcción del rastreador Python, modelos relacionales y API REST FastAPI.
-    \item \textbf{Desarrollador Frontend:} Implementación de la SPA en React, sistema de diseño UCA y motores de métricas.
-    \item \textbf{Ingeniero de DevOps:} Configuración de contenedores Docker, proxies Nginx y persistencia de volúmenes.
-\end{itemize}
+Estas 450 horas de ingeniería se han distribuido a lo largo de un período de 16 semanas laborables, estructuradas en las fases descritas en la Tabla~\ref{tab:desglose_horas}.
 
-\section{Costes}
-Se estiman los costes de recursos humanos y equipamiento:
-\begin{itemize}
-    \item \textbf{Personal (Ingeniería de Software):} 350 horas de trabajo estimadas a una tarifa media de 30 €/h = 10.500 €.
-    \item \textbf{Equipamiento y Software:} Uso de herramientas y tecnologías de Software Libre / Código Abierto (Python, PostgreSQL, FastAPI, React, Nginx, Docker), con un coste de licencias de 0 €.
-    \item \textbf{Coste Total Estimado:} 10.500 €.
-\end{itemize}
+\begin{table}[htbp]
+\centering
+\small
+\caption{Distribución de carga de trabajo por fases del proyecto (Total: 450 horas)}
+\label{tab:desglose_horas}
+\begin{tabularx}{\textwidth}{l p{7.5cm} r r}
+\toprule
+\textbf{Fase} & \textbf{Denominación y Actividades Principales} & \textbf{Horas} & \textbf{Porcentaje} \\
+\midrule
+Fase 0 & Análisis previo, estado del arte, especificación de requisitos & 35 h & 7,8\,\% \\
+Fase 1 & Motor de rastreo, ingesta RUCT, parsing BOE, web y precios & 135 h & 30,0\,\% \\
+Fase 2 & Diseño físico PostgreSQL, pipeline ETL y API REST FastAPI & 80 h & 17,8\,\% \\
+Fase 3 & Desarrollo de frontend React SPA, modal de planes y simulador & 110 h & 24,4\,\% \\
+Fase 4 & Dockerización, orquestación, persistencia y test suite & 50 h & 11,1\,\% \\
+Fase 5 & Redacción de memoria técnica, diagramación UML y revisión & 40 h & 8,9\,\% \\
+\midrule
+\textbf{Total} & \textbf{Dedicación total del Trabajo Fin de Grado (18 ECTS $\times$ 25 h)} & \textbf{450 h} & \textbf{100,0\,\%} \\
+\bottomrule
+\end{tabularx}
+\end{table}
 
-\section{Riesgos}
+\noindent En la Figura~\ref{fig:diagrama_gantt} se esquematiza el cronograma temporal del proyecto mediante un diagrama de Gantt, ilustrando las dependencias entre hitos y las semanas de ejecución.
+
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[x=0.9cm, y=0.55cm]
+    % Cuadrícula de semanas (1 a 16)
+    \draw[black!15, very thin] (0, 0) grid (16, -15);
+    
+    % Cabecera de semanas
+    \foreach \s in {1,...,16} {
+        \node[font=\bfseries\scriptsize, text=black!70] at (\s - 0.5, 0.6) {S\s};
+    }
+    
+    % Estilos de barras
+    \tikzset{
+        ganttbar/.style={rectangle, rounded corners=2.5pt, fill=blue!65!black, text=white, font=\scriptsize\bfseries, align=center, inner sep=0pt, minimum height=0.42cm},
+        ganttbar_f1/.style={rectangle, rounded corners=2.5pt, fill=cyan!75!black, text=white, font=\scriptsize\bfseries, align=center, inner sep=0pt, minimum height=0.42cm},
+        ganttbar_f2/.style={rectangle, rounded corners=2.5pt, fill=teal!70!black, text=white, font=\scriptsize\bfseries, align=center, inner sep=0pt, minimum height=0.42cm},
+        ganttbar_f3/.style={rectangle, rounded corners=2.5pt, fill=orange!80!black, text=white, font=\scriptsize\bfseries, align=center, inner sep=0pt, minimum height=0.42cm},
+        ganttbar_f4/.style={rectangle, rounded corners=2.5pt, fill=purple!70!black, text=white, font=\scriptsize\bfseries, align=center, inner sep=0pt, minimum height=0.42cm},
+        ganttbar_f5/.style={rectangle, rounded corners=2.5pt, fill=gray!75!black, text=white, font=\scriptsize\bfseries, align=center, inner sep=0pt, minimum height=0.42cm},
+        tasklabel/.style={font=\footnotesize, anchor=east, align=right}
+    }
+    
+    % Tareas Fase 0
+    \node[tasklabel] at (-0.2, -0.7) {Fase 0: Análisis y Requisitos (35h)};
+    \node[ganttbar, anchor=west, minimum width=2.7cm] at (0, -0.7) {S1--S3};
+    
+    % Tareas Fase 1
+    \node[tasklabel] at (-0.2, -2.2) {F1.1: Descarga RUCT y Filtrado Activas (25h)};
+    \node[ganttbar_f1, anchor=west, minimum width=1.8cm] at (2, -2.2) {S3--S4};
+    
+    \node[tasklabel] at (-0.2, -3.4) {F1.2: Parser BOE PDF y Detección Menciones (50h)};
+    \node[ganttbar_f1, anchor=west, minimum width=2.7cm] at (3, -3.4) {S4--S6};
+    
+    \node[tasklabel] at (-0.2, -4.6) {F1.3: Crawler Web y Rescate de Planes (30h)};
+    \node[ganttbar_f1, anchor=west, minimum width=2.7cm] at (5, -4.6) {S6--S8};
+    
+    \node[tasklabel] at (-0.2, -5.8) {F1.4: Precios SIIU y Módulo Doctorado (30h)};
+    \node[ganttbar_f1, anchor=west, minimum width=2.7cm] at (6, -5.8) {S7--S9};
+    
+    % Tareas Fase 2
+    \node[tasklabel] at (-0.2, -7.2) {F2.1: Modelado DDL PostgreSQL y ETL (40h)};
+    \node[ganttbar_f2, anchor=west, minimum width=2.7cm] at (7, -7.2) {S8--S10};
+    
+    \node[tasklabel] at (-0.2, -8.4) {F2.2: API REST FastAPI y Métricas cgroup (40h)};
+    \node[ganttbar_f2, anchor=west, minimum width=2.7cm] at (8, -8.4) {S9--S11};
+    
+    % Tareas Fase 3
+    \node[tasklabel] at (-0.2, -9.8) {F3.1: Frontend React SPA y Tarjetas UCA (45h)};
+    \node[ganttbar_f3, anchor=west, minimum width=3.6cm] at (9, -9.8) {S10--S13};
+    
+    \node[tasklabel] at (-0.2, -11.0) {F3.2: Modal Curricular, Doctorados y Menciones (35h)};
+    \node[ganttbar_f3, anchor=west, minimum width=2.7cm] at (11, -11.0) {S12--S14};
+    
+    \node[tasklabel] at (-0.2, -12.2) {F3.3: Simulador Matrícula y Panel Admin (30h)};
+    \node[ganttbar_f3, anchor=west, minimum width=2.7cm] at (12, -12.2) {S13--S15};
+    
+    % Tareas Fase 4 y 5
+    \node[tasklabel] at (-0.2, -13.5) {Fase 4: Docker, Test Suite (407) y DevOps (50h)};
+    \node[ganttbar_f4, anchor=west, minimum width=2.7cm] at (13, -13.5) {S14--S16};
+    
+    \node[tasklabel] at (-0.2, -14.7) {Fase 5: Memoria Técnica y Documentación (40h)};
+    \node[ganttbar_f5, anchor=west, minimum width=3.6cm] at (12, -14.7) {S13--S16};
+    
+    % Línea de hito final
+    \draw[red!80!black, thick, dashed] (16, 1) -- (16, -15.5);
+    \node[font=\bfseries\scriptsize, text=red!80!black, anchor=south] at (16, 1) {Entrega};
+\end{tikzpicture}%
+}
+\caption{Diagrama de Gantt del proyecto UniHub (Planificación de 450 horas en 16 semanas)}
+\label{fig:diagrama_gantt}
+\end{figure}
+
+\section{Presupuesto y desglose de costes}
+El análisis económico del proyecto contempla los costes directos de recursos humanos, equipamiento hardware, software y suministros indirectos, conforme a las tarifas habituales en ingeniería de software. Las horas de dedicación reflejan fielmente el esfuerzo requerido de \textbf{450 horas} (18 créditos ECTS $\times$ 25 h/crédito).
+
+En la Tabla~\ref{tab:presupuesto_costes} se detallan todos los conceptos presupuestarios del proyecto.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Presupuesto detallado del proyecto UniHub (450 horas de trabajo)}
+\label{tab:presupuesto_costes}
+\begin{tabularx}{\textwidth}{p{6.8cm} r r r}
+\toprule
+\textbf{Concepto / Recurso} & \textbf{Unidades / Horas} & \textbf{Precio Unitario} & \textbf{Coste Total} \\
+\midrule
+\multicolumn{4}{l}{\textbf{1. Recursos Humanos (Personal de Ingeniería de Software)}} \\
+\quad Fase 0: Análisis y Requisitos & 35 h & 30,00\,\euro/h & 1.050,00\,\euro \\
+\quad Fase 1: Rastreador Python y Extracción BOE & 135 h & 30,00\,\euro/h & 4.050,00\,\euro \\
+\quad Fase 2: Base de Datos PostgreSQL y API FastAPI & 80 h & 30,00\,\euro/h & 2.400,00\,\euro \\
+\quad Fase 3: Portal Web React SPA y Calculadora & 110 h & 30,00\,\euro/h & 3.300,00\,\euro \\
+\quad Fase 4: Docker, Persistencia y Batería de Tests & 50 h & 30,00\,\euro/h & 1.500,00\,\euro \\
+\quad Fase 5: Memoria Técnica y Documentación & 40 h & 30,00\,\euro/h & 1.200,00\,\euro \\
+\textbf{Subtotal Personal (450 horas)} & \textbf{450 h} & \textbf{30,00\,\euro/h} & \textbf{13.500,00\,\euro} \\
+\midrule
+\multicolumn{4}{l}{\textbf{2. Equipamiento Hardware (Amortización en período de desarrollo)}} \\
+\quad Estación de trabajo portátil (1.200\,\euro, amort. 4 meses) & 4 meses & 25,00\,\euro/mes & 100,00\,\euro \\
+\quad Dispositivos de prueba y almacenamiento externo & 4 meses & 7,50\,\euro/mes & 30,00\,\euro \\
+\textbf{Subtotal Equipamiento} & & & \textbf{130,00\,\euro} \\
+\midrule
+\multicolumn{4}{l}{\textbf{3. Software, Frameworks y Licencias}} \\
+\quad Pila FOSS (Python, PostgreSQL, FastAPI, React, Docker) & Licencias Open Source & 0,00\,\euro & 0,00\,\euro \\
+\textbf{Subtotal Software} & & & \textbf{0,00\,\euro} \\
+\midrule
+\multicolumn{4}{l}{\textbf{4. Costes Indirectos y Suministros (Energía y Conectividad)}} \\
+\quad Conexión a Internet de banda ancha (4 meses) & 4 meses & 35,00\,\euro/mes & 140,00\,\euro \\
+\quad Consumo eléctrico imputable al desarrollo & 4 meses & 27,50\,\euro/mes & 110,00\,\euro \\
+\textbf{Subtotal Costes Indirectos} & & & \textbf{250,00\,\euro} \\
+\midrule
+\textbf{Base Imponible (Coste Total Directo e Indirecto)} & & & \textbf{13.880,00\,\euro} \\
+\textbf{Impuesto sobre el Valor Añadido (IVA 21\,\%)} & & & \textbf{2.914,80\,\euro} \\
+\midrule
+\textbf{PRESUPUESTO TOTAL DEL PROYECTO} & & & \textbf{16.794,80\,\euro} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Gestión de riesgos}
 Se identificaron y mitigaron los siguientes riesgos principales:
 \begin{itemize}
-    \item \textbf{R-01: Cambios en el formato de exportación o cortes de red.} Impacto: Alto. Mitigación: Parsers flexibles con manejo de excepciones, log de errores en \texttt{errores\_crawler.json} y cortocircuito con pausas de 5m y 15m.
-    \item \textbf{R-02: Sobrescritura accidental de datos válidos con valores vacíos.} Impacto: Alto. Mitigación: Implementación de la función estricta de validación \texttt{is\_valid\_value} en el crawler.
-    \item \textbf{R-03: Pérdida de datos al apagar contenedores Docker.} Impacto: Crítico. Mitigación: Mapeo de volúmenes nominados en PostgreSQL y montajes directos en el disco host (\texttt{../Crawler/Datos}).
+    \item \textbf{R-01: Modificaciones en las plantillas web o cortes de red.} Impacto: Alto. Mitigación: Parsers dinámicos con captura de excepciones, registro forense en \texttt{errores\_crawler.json} y mecanismos de cortocircuito ante caídas prolongadas.
+    \item \textbf{R-02: Sobrescritura accidental de datos completos con registros parciales.} Impacto: Crítico. Mitigación: Verificación obligatoria de completitud curricular ($\sum \text{ECTS} \ge \text{ECTS}_{\text{exigidos}}$) antes de actualizar la persistencia en base de datos.
+    \item \textbf{R-03: Pérdida de persistencia al reiniciar o apagar contenedores Docker.} Impacto: Crítico. Mitigación: Asignación de volúmenes nominales persistentes (\texttt{unihub\_postgres\_data}) y bind mounts hacia el host.
+    \item \textbf{R-04: Degradación del rendimiento de la API ante consultas concurrentes.} Impacto: Medio. Mitigación: Creación de índices B-Tree en columnas clave (\texttt{codigo\_estudio}, \texttt{universidad\_codigo}), rol de solo lectura y agrupaciones pre-agregadas en la base de datos.
 \end{itemize}
 
-\section{Gestión de la configuración}
-Control de versiones gestionado mediante Git en el repositorio del proyecto. Se aplicó una política de commits atómicos e independientes para cada tarea funcional del proyecto.
-
-\section{Aseguramiento de calidad}
-Se establecieron controles de calidad continuos: compilación del bundle React en Vite con 0 errores (211ms), validación estricta de schemas Pydantic en FastAPI, comprobaciones de salud de la base de datos (\texttt{pg\_isready}) y verificación de compilación del documento LaTeX en MiKTeX.
+\section{Aseguramiento de la calidad y gestión de la configuración}
+El aseguramiento de la calidad se apoya en una batería integral de 407 pruebas automatizadas que cubren todas las fases del ciclo de vida (crawler, lógica DDL, API REST, simulación de matrícula, geolocalización y contenerización). El control de versiones se gestiona mediante Git bajo un flujo de trabajo de commits atómicos e independientes asociados a funcionalidades concretas.

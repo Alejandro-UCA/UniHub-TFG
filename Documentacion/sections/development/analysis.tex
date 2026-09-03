@@ -152,11 +152,88 @@ El flujo de ejecución del rastreador combina la priorización contextual de enl
 \end{figure}
 
 \subsection{Modelo de Secuencia: Simulación Financiera en Calculadora de Matrícula}
-En la Fase 3, el usuario interactúa dinámicamente con la calculadora de matrícula:
+En la Fase 3, el usuario interactúa dinámicamente con la calculadora de matrícula para simular el coste oficial de liquidación académica. El flujo de interacción y los intercambios de mensajes entre la interfaz de usuario, el servicio de backend y la base de datos se ilustran formalmente en el Diagrama de Secuencia UML de la Figura~\ref{fig:diagrama_secuencia_calculadora}.
+
+\begin{figure}[htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+    font=\footnotesize,
+    lifeline/.style={draw=black!50, dashed, thick},
+    activation/.style={draw=black!70, fill=blue!15, rectangle, minimum width=0.35cm},
+    actor_box/.style={draw=black!80, fill=yellow!15, rounded corners=3pt, minimum width=2.2cm, minimum height=0.7cm, font=\bfseries\footnotesize, align=center},
+    system_box/.style={draw=blue!80!black, fill=blue!10, rounded corners=3pt, minimum width=2.8cm, minimum height=0.7cm, font=\bfseries\footnotesize, align=center},
+    db_box/.style={draw=teal!80!black, fill=teal!10, rounded corners=3pt, minimum width=2.6cm, minimum height=0.7cm, font=\bfseries\footnotesize, align=center},
+    msg/.style={thick, -{Stealth[length=5pt]}, draw=black!80},
+    ret_msg/.style={thick, dashed, -{Stealth[length=5pt]}, draw=blue!70!black},
+    self_msg/.style={thick, -{Stealth[length=4pt]}, draw=orange!80!black}
+]
+    % Posiciones horizontales de las líneas de vida
+    \def\xUser{0}
+    \def\xUI{4.2}
+    \def\xAPI{8.6}
+    \def\xDB{12.6}
+
+    % Nodos de cabecera
+    \node[actor_box] (user) at (\xUser, 0) {Usuario\\(Estudiante)};
+    \node[system_box] (ui) at (\xUI, 0) {Frontend React\\(TuitionCalculator)};
+    \node[system_box] (api) at (\xAPI, 0) {Backend REST\\(FastAPI)};
+    \node[db_box] (db) at (\xDB, 0) {Base de Datos\\(PostgreSQL)};
+
+    % Líneas de vida verticales
+    \draw[lifeline] (user) -- (\xUser, -10.5);
+    \draw[lifeline] (ui) -- (\xUI, -10.5);
+    \draw[lifeline] (api) -- (\xAPI, -10.5);
+    \draw[lifeline] (db) -- (\xDB, -10.5);
+
+    % Activaciones
+    \node[activation, minimum height=9.0cm] at (\xUser, -5.2) {};
+    \node[activation, minimum height=8.8cm] at (\xUI, -5.3) {};
+    \node[activation, minimum height=2.2cm] at (\xAPI, -2.2) {};
+    \node[activation, minimum height=1.0cm] at (\xDB, -2.4) {};
+
+    % Mensajes
+    % 1. Selección de Titulación
+    \draw[msg] (\xUser, -1.2) -- node[above, font=\scriptsize] {1: seleccionarTitulacion(codEstudio)} (\xUI, -1.2);
+    
+    % 2. Petición HTTP a la API
+    \draw[msg] (\xUI, -1.7) -- node[above, font=\scriptsize] {2: GET /api/v1/titulaciones/\{cod\}/plan} (\xAPI, -1.7);
+    
+    % 3. Consulta SQL
+    \draw[msg] (\xAPI, -2.2) -- node[above, font=\scriptsize] {3: SELECT plan, asignaturas, precios} (\xDB, -2.2);
+    
+    % 4. Respuesta de la base de datos
+    \draw[ret_msg] (\xDB, -2.9) -- node[above, font=\scriptsize] {4: Registros relacionales DDL} (\xAPI, -2.9);
+    
+    % 5. Respuesta JSON a la UI
+    \draw[ret_msg] (\xAPI, -3.5) -- node[above, font=\scriptsize] {5: 200 OK (JSON Plan \& Tarifas ECTS)} (\xUI, -3.5);
+
+    % 6. Selección de asignaturas y repeticiones
+    \draw[msg] (\xUser, -4.5) -- node[above, font=\scriptsize] {6: seleccionarAsignaturas(ids) / marcarRepeticion(tier 1--4)} (\xUI, -4.5);
+
+    % 7. Selección de exención social
+    \draw[msg] (\xUser, -5.6) -- node[above, font=\scriptsize] {7: seleccionarExencion(Familia Num., Beca MEC, 99\% CCAA)} (\xUI, -5.6);
+
+    % 8. Auto-cálculo reactivo (self call)
+    \draw[self_msg] (\xUI, -6.6) -- ++(1.4, 0) -- ++(0, -0.7) -- node[below, font=\scriptsize, align=left] {8: calcularCosteMatricula()\\$\quad$aplicarTasasAdmin()\\$\quad$deducirBonificaciones()} (\xUI, -7.3);
+
+    % 9. Renderizado de liquidación
+    \draw[ret_msg] (\xUI, -8.6) -- node[above, font=\scriptsize] {9: renderizarReciboLiquidacion(desglose, total)} (\xUser, -8.6);
+
+    % 10. Confirmación / Exploración
+    \draw[msg] (\xUser, -9.5) -- node[above, font=\scriptsize] {10: consultarDetalleAsignatura(guiaDocente)} (\xUI, -9.5);
+\end{tikzpicture}%
+}
+\caption{Diagrama de Secuencia UML: Interacción en la Simulación Financiera de Matrícula (Fase 3)}
+\label{fig:diagrama_secuencia_calculadora}
+\end{figure}
+
+El flujo operativo formal se desarrolla a través de las siguientes etapas interconectadas:
 \begin{enumerate}
-    \item El estudiante selecciona una titulación oficial; la aplicación React recupera el desglose de asignaturas del plan de estudios y la tarifa oficial SIIU por crédito ECTS desde la API REST.
-    \item El usuario marca las asignaturas que desea matricular e indica el número de matrícula (1\textordfeminine{}, 2\textordfeminine{}, 3\textordfeminine{} o 4\textordfeminine{} repetición).
-    \item El motor de cálculo aplica los coeficientes multiplicadores ($1.0\times, 1.5\times, 3.0\times, 4.5\times$), deduce las bonificaciones sociales seleccionadas (Beca MEC, Familia Numerosa, Bonificación 99\% autonómica) y genera el recibo de liquidación en tiempo real ($<1\text{ ms}$).
+    \item \textbf{Recuperación de datos oficiales:} Al seleccionar una titulación en el desplegable, la aplicación React emite una solicitud asíncrona \texttt{GET} a la API REST de FastAPI para recuperar el plan de estudios verificado y las tarifas oficiales por crédito ECTS (1\textordfeminine{}, 2\textordfeminine{}, 3\textordfeminine{} y 4\textordfeminine{}+ matrícula). La API ejecuta la consulta contra PostgreSQL y devuelve el objeto JSON estructurado.
+    \item \textbf{Selección curricular y ponderación de repetición:} El usuario activa o desactiva asignaturas individuales o cursos completos. Por cada asignatura seleccionada, puede indicar el grado de repetición (\(1.0\times\), \(1.5\times\), \(3.0\times\) o \(4.5\times\) sobre el precio del crédito).
+    \item \textbf{Aplicación de exenciones y bonificaciones sociales:} El estudiante puede activar regímenes especiales: Familia Numerosa General (50\,\%), Especial (100\,\%), Beca MEC (exención de 1\textordfeminine{} matrícula), Matrícula de Honor (exención de hasta 60 ECTS) o Bonificación del 99\,\% de la Junta de Andalucía para asignaturas aprobadas en primera convocatoria.
+    \item \textbf{Cálculo reactivo en tiempo de ejecución:} La función memoizada en React (\texttt{useMemo}) computa el importe total de créditos, las tasas administrativas de secretaría y el descuento aplicado en un tiempo inferior a 1 ms, sin requerir peticiones de red adicionales y actualizando instantáneamente el recibo de liquidación desglosado.
 \end{enumerate}
 
 \section{Modelo de Interfaz de Usuario}

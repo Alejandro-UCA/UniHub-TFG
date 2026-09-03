@@ -5,9 +5,9 @@ El modelo conceptual identifica las entidades centrales del dominio universitari
 \begin{itemize}
     \item \textbf{Universidad:} Representa cada centro universitario público o privado registrado en el RUCT (código oficial, nombre, tipo de centro, comunidad autónoma, municipio, provincia, URL web oficial, email de contacto y teléfono institucional).
     \item \textbf{Titulacion:} Representa una titulación oficial vigente de Grado, Máster o Doctorado (código de estudio, denominación oficial, nivel académico, estado de vigencia y rama de conocimiento). Se relaciona mediante agregación con Universidad (1:N).
-    \item \textbf{PlanEstudios:} Contiene la metainformación del plan de estudios (URL del BOE, fecha de publicación, fecha de procesado, procedencia de la fuente y diagnóstico de completitud matemática). Se relaciona 1:1 con Titulacion.
+    \item \textbf{PlanEstudios:} Contiene la metainformación del plan de estudios (URL del BOE, fecha de publicación, fecha de procesado, procedencia de la fuente, tipo de estructura curricular, estado de calidad verificado, diagnóstico de completitud matemática y objeto estructurado \texttt{programa\_doctoral} para Doctorados). Se relaciona 1:1 con Titulacion.
     \item \textbf{ResumenCreditos:} Almacena la distribución oficial de créditos ECTS (formación básica, obligatoria, optativa, TFG/TFM, prácticas externas y créditos totales exigidos). Relación N:1 con PlanEstudios.
-    \item \textbf{ElementoCurricular:} Almacena el desglose estructurado de asignaturas, módulos, materias, créditos ECTS, carácter (Básica, Obligatoria, Optativa), curso y cuatrimestre. Relación N:1 con PlanEstudios.
+    \item \textbf{ElementoCurricular:} Almacena el desglose estructurado de asignaturas o líneas de investigación científica (carácter \emph{INVESTIGACION}), módulos, materias, créditos ECTS, curso y cuatrimestre. Relación N:1 con PlanEstudios.
     \item \textbf{TarifaECTS:} Almacena la estructura de precios públicos por crédito ECTS (1\textordfeminine{} a 4\textordfeminine{} matrícula) e importes estimados anuales procedentes del SIIU y decretos autonómicos. Relación N:1 con Titulacion.
 \end{itemize}
 
@@ -45,6 +45,8 @@ El modelo conceptual identifica las entidades centrales del dominio universitari
             + plan\_completo: Boolean\\
             + ects\_totales\_detectados: Float\\
             + ects\_exigidos: Float\\
+            + tipo\_estructura: String\\
+            + programa\_doctoral: JSON\\
             + origen\_fuente: String
         };
 

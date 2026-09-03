@@ -142,10 +142,30 @@ estructurales. El contrato no exige que el plan esté completo —eso lo decide
 el control de calidad—, pero sí evita publicar estructuras malformadas o
 valores numéricos imposibles.
 
-Cada payload persistido incorpora `contrato_datos` con versión e incidencias
-estructurales. El contrato no exige que el plan esté completo —eso lo decide
-el control de calidad—, pero sí evita publicar estructuras malformadas o
-valores numéricos imposibles.
+### Widgets dinámicos y endpoints REST institucionales
+
+Cuando los portales universitarios renderizan las mallas docentes mediante
+componentes asíncronos en el cliente, la Fase 1 Parte 2 inspecciona los
+atributos HTML5 (`data-config`, `data-url`, `data-json`) para descubrir los
+servicios REST subyacentes. Aplica prevención estricta contra ataques SSRF
+(verificando que la URL pertenezca al dominio institucional autorizado) y extrae
+las asignaturas desde la respuesta JSON estructurada sin requerir el arranque de
+un navegador sin cabeza.
+
+### Programas Oficiales de Doctorado (RD 99/2011)
+
+Los programas de doctorado oficiales en España se rigen por el RD 99/2011 y no
+poseen asignaturas lectivas con créditos ECTS tradicionales. El crawler aplica un
+modelo de extracción y validación específico:
+- Navegación canónica a subpáginas acreditadas (`lineas-de-investigacion`, `equipos-y-lineas`),
+  descartando enlaces a descargas de PDFs binarios y ruido administrativo (tasas, quejas, DEVA).
+- Detección multilingüe de líneas de investigación mediante 3 patrones universales (listas HTML,
+  subtítulos H4/H5 en secciones y celdas de tablas estructuradas).
+- Identificación de la Escuela de Doctorado responsable y de las Actividades Formativas Transversales.
+- Validación curricular adaptada: el validador exige 0 ECTS lectivos y certifica el plan como
+  `doctorado_verificado` / `verificado_programa_doctoral` si existen líneas de investigación estructuradas.
+- Persistencia dual: las líneas se guardan en el objeto estructurado `programa_doctoral` y como
+  elementos curriculares con `caracter = "INVESTIGACION"` para mantener compatibilidad relacional en consultas y uniones SQL.
 
 La arquitectura no copia el crawler por universidad: el núcleo común resuelve
 dominios, cursos, candidatos, descarga, parsing, identidad, caché y calidad.

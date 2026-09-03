@@ -13,7 +13,7 @@
 2. **Visualizador Curricular Oficial ([`PlanModal.jsx`](file:///d:/Proyecto/Codigo/WWW/src/components/PlanModal.jsx))**:
    - Desglose interactivo de planes de estudio organizados por curso académico y cuatrimestre (`1C`, `2C`, `Anual`).
    - Resaltado visual de **Menciones Curriculares e Itinerarios Oficiales** (`[Mención en...]`).
-   - Tarjeta específica para programas de doctorado bajo el **RD 99/2011** (líneas de investigación y tutela académica anual).
+   - Tarjeta interactiva para programas de doctorado bajo el **RD 99/2011**: badge oficial verificado, Escuela de Doctorado responsable, cuadrícula de líneas de investigación científica acreditadas, actividades formativas transversales, régimen de dedicación y tutela académica anual.
 
 3. **Simulador Financiero "Calcula tu Matrícula" ([`TuitionCalculator.jsx`](file:///d:/Proyecto/Codigo/WWW/src/components/TuitionCalculator.jsx))**:
    - Estimación basada en las tarifas disponibles, con indicación de fuente y sin inventar valores ausentes.

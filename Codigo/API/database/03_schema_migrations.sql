@@ -57,7 +57,8 @@ ALTER TABLE IF EXISTS planes_estudio
     ADD COLUMN IF NOT EXISTS estado_calidad VARCHAR(64) NOT NULL DEFAULT 'pendiente_revision',
     ADD COLUMN IF NOT EXISTS motivos_calidad JSONB,
     ADD COLUMN IF NOT EXISTS fuente_verificada_url TEXT,
-    ADD COLUMN IF NOT EXISTS verificado_en TIMESTAMP;
+    ADD COLUMN IF NOT EXISTS verificado_en TIMESTAMP,
+    ADD COLUMN IF NOT EXISTS programa_doctoral JSONB;
 
 CREATE INDEX IF NOT EXISTS idx_planes_estado_calidad ON planes_estudio(estado_calidad);
 

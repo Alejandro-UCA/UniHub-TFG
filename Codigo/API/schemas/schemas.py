@@ -242,6 +242,7 @@ class PlanEstudiosOut(BaseModel):
     fecha_procesado: Optional[datetime] = None
     tipo_estructura: Optional[str] = None
     ects_exigidos: Optional[str] = None
+    programa_doctoral: Optional[Dict[str, Any]] = None
     resumen_creditos: List[ResumenCreditosOut] = []
     elementos_curriculares: List[ElementoCurricularOut] = []
 

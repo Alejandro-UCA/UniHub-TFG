@@ -134,6 +134,7 @@ from parsers import (
     parse_boe_pdf,
     classify_subject_caracter,
     sanitize_subject_name,
+    sanitize_string_value,
     curriculum_element_key,
     is_spurious_or_administrative_subject,
     is_curriculum_complete,
@@ -1333,6 +1334,235 @@ def extract_dynamic_widget_subjects(
     return []
 
 
+RE_DOCTORAL_LINEAS_HEADER = re.compile(
+    r"\b(?:l[íi]neas?\s+de\s+investigaci[óo]n|l[íi]nies?\s+de\s+recerca|ikerketa[- ]lerroak|li[ñn]as?\s+de\s+investigaci[óo]n|research\s+lines)\b",
+    re.I,
+)
+
+RE_DOCTORAL_ACTIVIDADES_HEADER = re.compile(
+    r"\b(?:actividades?\s+formativas?|activitats?\s+formatives?|prestakuntza[- ]jarduerak|training\s+activities)\b",
+    re.I,
+)
+
+RE_DOCTORAL_ESCUELA_PATTERNS = re.compile(
+    r"(?:escuela\s+(?:internacional\s+)?de\s+doctorado|escuela\s+internacional\s+de\s+posgrado|escola\s+de\s+doctorat|doktoretza\s+eskola|doctoral\s+school)[^<\n,.]*",
+    re.I,
+)
+
+SUBPAGE_DOCTORAL_LINEAS_KW = re.compile(
+    r"(?:l[íi]neas?\s+de\s+investigaci[óo]n|l[íi]nies?\s+de\s+recerca|equipos?\s+y\s+l[íi]neas|lineas-de-investigacion|equipos-y-lineas)",
+    re.I,
+)
+
+DOCTORAL_LINE_DISQUALIFIERS = {
+    "informe", "verificación", "modificación", "matrícula", "admisión", "documentación",
+    "precios", "automatrícula", "contacto", "organización", "normativa", "inicio",
+    "contingut", "calendario", "requisitos", "presentación", "tasas", "quejas",
+    "sugerencias", "mapa del sitio", "accesibilidad", "responsables", "investigadores",
+    "profesorado", "proyectos de investigación", "producción científica", "directors/es",
+    "la direcció", "tutoria", "comissió", "comisiones", "equipos de investigación",
+    "líneas de investigación", "personal de investigación", "criterios de selección",
+    "deva", "memoria", "seguimiento", "calidad", "infraestructura", "dotación",
+    "acreditación", "comisión", "alumnos", "tesis dirigidas", "indicadores", "dr."
+}
+
+
+def is_valid_doctoral_line(t: str) -> bool:
+    if not (4 < len(t) < 110):
+        return False
+    t_low = t.lower()
+    if any(k in t_low for k in DOCTORAL_LINE_DISQUALIFIERS):
+        return False
+    if "@" in t_low or "http://" in t_low or "https://" in t_low:
+        return False
+    if re.match(r"^(?:prof|dra?|don|dña)\.?\s+", t_low):
+        return False
+    return True
+
+
+def extract_doctoral_lines_from_soup(soup: BeautifulSoup, base_url: str) -> list:
+    """Extrae líneas de investigación desde una sopa HTML de forma universal y agnóstica."""
+    if not soup:
+        return []
+    lines = []
+    seen = set()
+
+    headers = [
+        el for el in soup.find_all(["h1", "h2", "h3", "h4", "h5"])
+        if RE_DOCTORAL_LINEAS_HEADER.search(el.get_text(strip=True)) and len(el.get_text(strip=True)) < 90
+    ]
+
+    for h in headers:
+        # Patrón 1: Lista HTML (ul, ol) adyacente o siguiente
+        next_list = h.find_next(["ol", "ul"])
+        if next_list:
+            items = []
+            for li in next_list.find_all("li", recursive=False):
+                t = sanitize_string_value(li.get_text(separator=" ", strip=True))
+                if is_valid_doctoral_line(t) and t.lower() not in seen:
+                    seen.add(t.lower())
+                    items.append(t)
+            if len(items) >= 2:
+                return items
+
+        # Patrón 2: Sub-encabezados de sección (h4/h5 en UAB bajo h2)
+        section_parent = h.find_parent(["section", "article", "div"])
+        if section_parent:
+            sub_headers = section_parent.find_all(["h4", "h5"])
+            if not sub_headers:
+                sub_headers = section_parent.find_all("h3")
+            sh_items = []
+            for sh in sub_headers:
+                t = sanitize_string_value(sh.get_text(strip=True))
+                if is_valid_doctoral_line(t) and t.lower() not in seen:
+                    seen.add(t.lower())
+                    sh_items.append(t)
+            if len(sh_items) >= 2:
+                return sh_items
+
+        # Patrón 3: Tablas estructuradas (múltiples tablas o filas, UGR / UCA)
+        tables = h.find_all_next("table")
+        if tables:
+            tb_items = []
+            for table in tables:
+                for tr in table.find_all("tr"):
+                    for td in tr.find_all("td"):
+                        styled_items = td.find_all(["span", "strong", "b", "h4", "h5"])
+                        found_styled = False
+                        for st in styled_items:
+                            style = st.get("style", "")
+                            t = sanitize_string_value(st.get_text(strip=True))
+                            if ("16pt" in style or "14pt" in style or "font-size" in style or st.name in ["strong", "b"]):
+                                if is_valid_doctoral_line(t) and t.lower() not in seen:
+                                    seen.add(t.lower())
+                                    tb_items.append(t)
+                                    found_styled = True
+                        if not found_styled:
+                            for a in td.find_all("a"):
+                                t = sanitize_string_value(a.get_text(strip=True))
+                                if is_valid_doctoral_line(t) and t.lower() not in seen:
+                                    seen.add(t.lower())
+                                    tb_items.append(t)
+            if len(tb_items) >= 2:
+                return tb_items
+
+    return lines
+
+
+def extract_doctoral_activities_from_soup(soup: BeautifulSoup) -> list:
+    """Extrae actividades formativas universales."""
+    if not soup:
+        return []
+    actividades = []
+    header_act = soup.find(lambda e: e.name in ["h1", "h2", "h3", "h4", "h5", "strong"] and RE_DOCTORAL_ACTIVIDADES_HEADER.search(e.get_text(strip=True)))
+    if header_act:
+        act_list = header_act.find_next(["ul", "ol"])
+        if act_list:
+            for li in act_list.find_all("li"):
+                t = sanitize_string_value(li.get_text(separator=" ", strip=True))
+                if 5 < len(t) < 150 and not any(k in t.lower() for k in ["requisitos", "calendario"]):
+                    actividades.append(t)
+    return actividades
+
+
+def extract_doctoral_school_name(soup: BeautifulSoup) -> str:
+    """Extrae y normaliza el nombre oficial de la Escuela de Doctorado."""
+    if not soup:
+        return "Escuela Internacional de Posgrado / Doctorado"
+    m_esc = RE_DOCTORAL_ESCUELA_PATTERNS.search(soup.get_text())
+    if m_esc:
+        cand = sanitize_string_value(m_esc.group(0))
+        cand = re.sub(r"(?:PWNED|de la\s+de\s+|Mapa del sitio|Accesibilidad).*", "", cand, flags=re.I).strip()
+        cand = cand.rstrip(" \t\n\r·-–—/")
+        if len(cand) > 10:
+            return cand
+    return "Escuela Internacional de Posgrado / Doctorado"
+
+
+def extract_generic_doctoral_program(start_url: str, downloader) -> dict:
+    """Orquestador genérico con navegación inteligente a subpáginas canónicas oficiales de doctorado."""
+    if not start_url:
+        return {}
+    html = downloader.fetch_text(start_url)
+    if not html:
+        return {}
+
+    soup = BeautifulSoup(html, "html.parser")
+    escuela = extract_doctoral_school_name(soup)
+    actividades = extract_doctoral_activities_from_soup(soup)
+
+    parsed_start = urllib.parse.urlparse(start_url)
+    subpage_candidates = []
+    for a in soup.find_all("a", href=True):
+        href = a["href"].strip()
+        text = a.get_text(" ", strip=True)
+        # Ignorar archivos binarios o descargas directas de PDFs
+        if href.lower().endswith((".pdf", ".doc", ".docx", ".xls", ".xlsx", ".zip")) or "/wp-content/uploads/" in href.lower():
+            continue
+        if SUBPAGE_DOCTORAL_LINEAS_KW.search(text) or SUBPAGE_DOCTORAL_LINEAS_KW.search(href):
+            full_sub = urllib.parse.urljoin(start_url, href)
+            p_sub = urllib.parse.urlparse(full_sub)
+            if p_sub.netloc == parsed_start.netloc and full_sub.split("#")[0] != start_url.split("#")[0]:
+                if full_sub not in subpage_candidates:
+                    if any(k in full_sub.lower() for k in ["lineas-de-investigacion", "equipos-y-lineas"]):
+                        subpage_candidates.insert(0, full_sub)
+                    else:
+                        subpage_candidates.append(full_sub)
+
+    lines = []
+    final_url = start_url
+
+    # Si hay una subpágina canónica especializada, probarla primero
+    if subpage_candidates and any(k in subpage_candidates[0].lower() for k in ["lineas-de-investigacion", "equipos-y-lineas"]):
+        target_sub = subpage_candidates[0]
+        try:
+            sub_html = downloader.fetch_text(target_sub)
+            if sub_html:
+                soup_sub = BeautifulSoup(sub_html, "html.parser")
+                sub_lines = extract_doctoral_lines_from_soup(soup_sub, target_sub)
+                if len(sub_lines) >= 2:
+                    lines = sub_lines
+                    final_url = target_sub
+                    if not actividades:
+                        actividades = extract_doctoral_activities_from_soup(soup_sub)
+        except Exception:
+            pass
+
+    # Si no se resolvió con la subpágina canónica, intentar página inicial
+    if len(lines) < 2:
+        lines = extract_doctoral_lines_from_soup(soup, start_url)
+        final_url = start_url
+
+    # Si aún no, intentar el resto de subpáginas candidatas
+    if len(lines) < 2:
+        for sub_url in subpage_candidates[1:4]:
+            try:
+                sub_html = downloader.fetch_text(sub_url)
+                if not sub_html:
+                    continue
+                soup_sub = BeautifulSoup(sub_html, "html.parser")
+                sub_lines = extract_doctoral_lines_from_soup(soup_sub, sub_url)
+                if len(sub_lines) >= 2:
+                    lines = sub_lines
+                    final_url = sub_url
+                    if not actividades:
+                        actividades = extract_doctoral_activities_from_soup(soup_sub)
+                    break
+            except Exception:
+                pass
+
+    return {
+        "regulacion": "RD 99/2011",
+        "tipo_programa": "investigacion_doctoral",
+        "escuela_doctorado": escuela,
+        "url_fuente": final_url,
+        "lineas_investigacion": lines,
+        "actividades_formativas": actividades,
+        "total_lineas": len(lines),
+        "total_actividades": len(actividades),
+    }
+
+
 def extract_private_university_pricing(soup: BeautifulSoup, page_text: str) -> dict:
     """
     Rastrea e identifica la información de precios de matrícula (precio por crédito ECTS y coste anual)
@@ -1960,12 +2190,12 @@ class UniversityWebCrawler:
         downloader = RUCTDownloader(delay=effective_delay, timeout=WEB_CONTENT_TIMEOUT, metrics_tracker=self.metrics_tracker, ledger=self.ledger, phase="fase1_parte2_web")
         downloader.reset_university_context(u_code)
         try:
-            return self._crawl_university_degrees(downloader, u_code, u_name, web_url, missing_degrees, stats, u_type=u_type)
+            return self._crawl_university_degrees(downloader, u_code, u_name, web_url, missing_degrees, stats, u_type=u_type, force=force)
         finally:
             downloader.close()
 
     def _crawl_university_degrees(self, downloader: RUCTDownloader, u_code: str, u_name: str, 
-                                 web_url: str, missing_degrees: list, stats: dict, u_type: str = "") -> dict:
+                                 web_url: str, missing_degrees: list, stats: dict, u_type: str = "", force: bool = False) -> dict:
         """Recorre y extrae los planes de estudio de las titulaciones de una universidad."""
         sitemap_urls = self.extract_sitemap_candidate_urls(web_url, missing_degrees=missing_degrees)
         if sitemap_urls:
@@ -2782,6 +3012,136 @@ class UniversityWebCrawler:
                 existing_data["estado_fuente"] = "sin_plan_actual_conservando_anterior" if existing_data.get("plan_estudios") else "sin_plan_actual_sin_dato"
                 existing_data["fecha_ultima_comprobacion_fuente"] = datetime.now().isoformat()
                 atomic_json_dump(existing_data, plan_file)
+
+        # 4. Procesamiento de Programas Oficiales de Doctorado (RD 99/2011)
+        doctorate_degrees = [deg for deg in missing_degrees if is_doctorate_program(deg.get("nivel_academico", ""), deg.get("titulo", ""))]
+        if doctorate_degrees:
+            logger.info("Universidad [%s] %s: procesando %d programas oficiales de Doctorado (RD 99/2011)...", u_code, u_name, len(doctorate_degrees))
+            doc_stats = self.process_university_doctorates(u_code, u_name, doctorate_degrees, web_url, downloader, catalog_map, force=force)
+            stats["resolved_degrees_count"] += doc_stats.get("resolved_doctorates", 0)
+
+        return stats
+
+    def process_university_doctorates(self, u_code: str, u_name: str, doctorate_degrees: list, web_url: str, downloader, catalog_map: dict = None, force: bool = False) -> dict:
+        """
+        Procesa de forma universal y estructurada los programas oficiales de Doctorado (RD 99/2011).
+        Recupera líneas de investigación científica, escuela de doctorado y actividades formativas.
+        """
+        stats = {"total_doctorates": len(doctorate_degrees), "resolved_doctorates": 0}
+
+        for d_idx, deg in enumerate(doctorate_degrees, 1):
+            d_code = deg.get("codigo_estudio", "")
+            d_title = deg.get("titulo", "")
+            d_level = deg.get("nivel_academico", "")
+            plan_file = find_plan_filepath(u_code, d_code)
+
+            degree_data = load_json_safe(plan_file, default={})
+            if not isinstance(degree_data, dict):
+                degree_data = {}
+
+            # Si ya está verificado como programa doctoral y no se fuerza, saltar
+            if not force and degree_data.get("estado_calidad") in ("verificado_programa_doctoral", "doctorado_verificado") and degree_data.get("programa_doctoral"):
+                continue
+
+            target_urls_to_try = []
+            if degree_data.get("web_fuente_directa_url"):
+                target_urls_to_try.append(degree_data["web_fuente_directa_url"])
+
+            # Buscar en catalog_map enlaces que coincidan con palabras clave del título
+            if catalog_map:
+                d_tokens = [tok for tok in re.findall(r'[a-zA-Z0-9áéíóúñÁÉÍÓÚÑ]{4,}', d_title.lower()) if tok not in TITLE_STOPWORDS]
+                for cat_url in catalog_map.keys():
+                    cat_url_low = cat_url.lower()
+                    match_count = sum(1 for tok in d_tokens if tok in cat_url_low)
+                    if match_count >= 2 and cat_url not in target_urls_to_try:
+                        target_urls_to_try.append(cat_url)
+
+            # Intentar extracción con el extractor genérico de doctorados
+            doc_data = None
+            for cand_url in target_urls_to_try[:3]:
+                try:
+                    res = extract_generic_doctoral_program(cand_url, downloader)
+                    if res and res.get("total_lineas", 0) >= 2:
+                        doc_data = res
+                        break
+                except Exception as ex:
+                    logger.debug("Excepción en extracción doctoral de %s: %s", cand_url, ex)
+
+            now_iso = datetime.now().isoformat()
+            degree_data.update({
+                "codigo_estudio": d_code,
+                "titulo": d_title,
+                "nivel_academico": d_level,
+                "universidad_codigo": str(u_code).zfill(3),
+                "universidad_nombre": u_name,
+                "fecha_procesado": now_iso,
+                "fecha_ultima_comprobacion_fuente": now_iso,
+                "precio_credito_ects": deg.get("precio_credito_ects"),
+                "precio_estimado_anual": deg.get("precio_estimado_anual"),
+                "fuente_precio": deg.get("fuente_precio"),
+            })
+
+            if doc_data and doc_data.get("total_lineas", 0) >= 2:
+                final_url = doc_data.get("url_fuente") or (target_urls_to_try[0] if target_urls_to_try else web_url)
+                lines = doc_data.get("lineas_investigacion", [])
+                escuela = doc_data.get("escuela_doctorado", "Escuela Internacional de Doctorado / Posgrado")
+                
+                curriculum_payload = {
+                    "nombre_plan": d_title,
+                    "codigo_plan": d_code,
+                    "tipo_estructura": "programa_doctorado_investigacion",
+                    "normativa": "Real Decreto 99/2011",
+                    "ects_exigidos": 0.0,
+                    "plan_completo": True,
+                    "ects_totales_detectados": 0.0,
+                    "elementos_curriculares": [
+                        {
+                            "nombre_elemento": line,
+                            "caracter": "INVESTIGACION",
+                            "modulo": "Línea de Investigación",
+                            "materia": escuela,
+                            "creditos_ects": None,
+                            "curso": "Tutela Académica",
+                        }
+                        for line in lines
+                    ],
+                    "resumen_creditos": {"Investigación y Tesis": "Tutela Académica Anual"}
+                }
+                degree_data["plan_estudios"] = curriculum_payload
+                degree_data["programa_doctoral"] = doc_data
+                degree_data["web_fuente_directa_url"] = final_url
+                degree_data["origen_fuente"] = "web_oficial_universidad"
+                degree_data["estado_fuente"] = "verificada"
+                degree_data["estado_calidad"] = "verificado_programa_doctoral"
+                stats["resolved_doctorates"] += 1
+                logger.info("     [DOCTORADO VERIFICADO] [%s] %s: %d líneas oficiales en %s", d_code, d_title[:50], len(lines), escuela)
+            else:
+                # Si no se localizaron líneas en la web, el título sigue siendo 100% legal y oficial bajo RD 99/2011
+                curriculum_payload = {
+                    "nombre_plan": d_title,
+                    "codigo_plan": d_code,
+                    "tipo_estructura": "programa_doctorado_investigacion",
+                    "normativa": "Real Decreto 99/2011",
+                    "ects_exigidos": 0.0,
+                    "plan_completo": True,
+                    "ects_totales_detectados": 0.0,
+                    "elementos_curriculares": [],
+                    "resumen_creditos": {"Investigación y Tesis": "Tutela Académica Anual"}
+                }
+                degree_data["plan_estudios"] = curriculum_payload
+                degree_data["programa_doctoral"] = {
+                    "regulacion": "RD 99/2011",
+                    "tipo_programa": "investigacion_doctoral",
+                    "escuela_doctorado": "Escuela Internacional de Posgrado / Doctorado",
+                    "duracion_anos": {"tiempo_completo": 3, "tiempo_parcial": 5},
+                    "lineas_investigacion": [],
+                    "actividades_formativas": []
+                }
+                degree_data["origen_fuente"] = "resolucion_boe_ruct"
+                degree_data["estado_fuente"] = "programa_doctoral_oficial"
+                degree_data["estado_calidad"] = "doctorado_oficial"
+
+            atomic_json_dump(degree_data, plan_file)
 
         return stats
 

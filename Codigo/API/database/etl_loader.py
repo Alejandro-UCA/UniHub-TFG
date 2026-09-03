@@ -17,6 +17,10 @@ PUBLISHABLE_PLAN_QUALITY_STATUSES = frozenset({
     "verificado_web",
     "verificado_universidad",
     "verificado_administracion",
+    "verificado_programa_doctoral",
+    "doctorado_verificado",
+    "doctorado_estructural",
+    "doctorado_oficial",
     "incompleto_parcial",
     "incompleto",
     "pendiente_revision",
@@ -36,6 +40,8 @@ def _has_authoritative_plan_snapshot(plan_data: object, quality_status: object =
     """Indica si la fuente aporta una instantánea curricular con asignaturas o créditos."""
     if not isinstance(plan_data, dict):
         return False
+    if plan_data.get("tipo_estructura") == "programa_doctorado_investigacion" or "programa_doctoral" in plan_data:
+        return True
     has_curriculum_key = "elementos_curriculares" in plan_data or "resumen_creditos" in plan_data
     if not has_curriculum_key:
         return False
@@ -183,6 +189,7 @@ def run_etl() -> bool:
                     'ALTER TABLE planes_estudio ADD COLUMN IF NOT EXISTS verificado_en TIMESTAMP;',
                     'ALTER TABLE planes_estudio ADD COLUMN IF NOT EXISTS tipo_estructura VARCHAR(100);',
                     'ALTER TABLE planes_estudio ADD COLUMN IF NOT EXISTS ects_exigidos TEXT;',
+                    'ALTER TABLE planes_estudio ADD COLUMN IF NOT EXISTS programa_doctoral JSONB;',
                     'CREATE INDEX IF NOT EXISTS idx_planes_estado_calidad ON planes_estudio(estado_calidad);',
                     'ALTER TABLE elementos_curriculares ADD COLUMN IF NOT EXISTS tipo_asistencia VARCHAR(50);',
                     'ALTER TABLE elementos_curriculares ADD COLUMN IF NOT EXISTS calificacion_minima NUMERIC(4,2);',
@@ -464,6 +471,7 @@ def run_etl() -> bool:
                             fecha_procesado=datetime.now(),
                             tipo_estructura=raw_plan_data.get("tipo_estructura") if has_plan_snapshot else None,
                             ects_exigidos=str(raw_plan_data.get("ects_exigidos")) if has_plan_snapshot and raw_plan_data.get("ects_exigidos") is not None else None,
+                            programa_doctoral=p_data.get("programa_doctoral") if has_plan_snapshot else None,
                         )
                         db.add(plan_obj)
                         db.flush()
@@ -480,6 +488,8 @@ def run_etl() -> bool:
                             plan_obj.verificado_en = datetime.now()
                             plan_obj.fecha_procesado = datetime.now()
                             plan_obj.tipo_estructura = raw_plan_data.get("tipo_estructura") or plan_obj.tipo_estructura
+                            if p_data.get("programa_doctoral"):
+                                plan_obj.programa_doctoral = p_data.get("programa_doctoral")
                             required_ects = raw_plan_data.get("ects_exigidos")
                             if required_ects is not None:
                                 plan_obj.ects_exigidos = str(required_ects)

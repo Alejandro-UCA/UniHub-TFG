@@ -54,6 +54,7 @@ CREATE TABLE IF NOT EXISTS planes_estudio (
     fecha_procesado TIMESTAMP,
     tipo_estructura VARCHAR(100),
     ects_exigidos TEXT,
+    programa_doctoral JSONB,
     creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

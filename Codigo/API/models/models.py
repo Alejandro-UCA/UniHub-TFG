@@ -78,6 +78,10 @@ class Titulacion(Base):
                 "verificado_boe",
                 "verificado_universidad",
                 "verificado_administracion",
+                "verificado_programa_doctoral",
+                "doctorado_verificado",
+                "doctorado_estructural",
+                "doctorado_oficial",
             }
         )
 
@@ -103,6 +107,7 @@ class PlanEstudios(Base):
     fecha_procesado = Column(DateTime)
     tipo_estructura = Column(String(100), nullable=True)
     ects_exigidos = Column(Text, nullable=True)
+    programa_doctoral = Column(JSON().with_variant(JSONB, "postgresql"), nullable=True)
     creado_en = Column(DateTime, default=func.now())
 
     titulacion = relationship("Titulacion", back_populates="plan_estudios")

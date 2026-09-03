@@ -11,6 +11,7 @@ from curriculum_validator import get_curriculum_completeness_status, is_doctorat
 
 QUALITY_VERIFIED_BOE = "verificado_boe"
 QUALITY_VERIFIED_UNIVERSITY = "verificado_universidad"
+QUALITY_VERIFIED_DOCTORATE = "verificado_programa_doctoral"
 QUALITY_PARTIAL = "parcial"
 QUALITY_PENDING_REVIEW = "pendiente_revision"
 QUALITY_NO_VERIFIED_DATA = "sin_datos_verificados"
@@ -18,6 +19,7 @@ QUALITY_NO_VERIFIED_DATA = "sin_datos_verificados"
 PUBLISHABLE_QUALITY_STATUSES = frozenset({
     QUALITY_VERIFIED_BOE,
     QUALITY_VERIFIED_UNIVERSITY,
+    QUALITY_VERIFIED_DOCTORATE,
 })
 
 
@@ -136,7 +138,9 @@ def assess_plan_quality(payload: dict, source_type: str | None = None) -> dict:
     is_official_web = any(marker in source_type for marker in (
         "web_oficial", "centro_adscrito", "resolucion_boe", "interuniversitario",
     ))
-    if is_boe:
+    if is_doctorate_program(payload.get("nivel_academico", ""), payload.get("titulo", "")) and completeness["is_complete"]:
+        result.update({"estado": QUALITY_VERIFIED_DOCTORATE, "publicable": True})
+    elif is_boe:
         result.update({"estado": QUALITY_VERIFIED_BOE, "publicable": True})
     elif is_official_web:
         result.update({"estado": QUALITY_VERIFIED_UNIVERSITY, "publicable": True})

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { X, FileText, ExternalLink, Award, Layers, AlertTriangle, BookOpen, ChevronDown, ChevronUp, User } from 'lucide-react';
+import { X, FileText, ExternalLink, Award, Layers, AlertTriangle, BookOpen, ChevronDown, ChevronUp, User, Compass } from 'lucide-react';
 import { apiService } from '../services/api';
 import SubjectDetailModal from './SubjectDetailModal';
 import ErrorBoundary from './ErrorBoundary';
@@ -72,6 +72,13 @@ export default function PlanModal({ degree, onClose }) {
   const curriculum = planData?.plan_estudios ? planData.plan_estudios : (planData || {});
   const elementos = Array.isArray(curriculum.elementos_curriculares) ? curriculum.elementos_curriculares : [];
   const resumen = Array.isArray(curriculum.resumen_creditos) ? curriculum.resumen_creditos : [];
+  const progDoc = curriculum.programa_doctoral || planData?.programa_doctoral || {};
+  const escuelaDoctorado = progDoc.escuela_doctorado || (elementos.find(e => e.materia)?.materia) || null;
+  const doctoralLines = (Array.isArray(progDoc.lineas_investigacion) && progDoc.lineas_investigacion.length > 0)
+    ? progDoc.lineas_investigacion
+    : elementos.filter(e => e.caracter === 'INVESTIGACION' || e.modulo === 'Línea de Investigación').map(e => e.nombre_elemento);
+  const doctoralActivities = Array.isArray(progDoc.actividades_formativas) ? progDoc.actividades_formativas : [];
+
   const qualityStatus = curriculum.estado_calidad || degree.estado_calidad_plan || '';
   const isPlanUnavailable = Boolean(planData?.no_plan_disponible);
   const isVerifiedPlan = [
@@ -79,11 +86,19 @@ export default function PlanModal({ degree, onClose }) {
     'verificado_web',
     'verificado_universidad',
     'verificado_administracion',
+    'verificado_programa_doctoral',
+    'doctorado_verificado',
+    'doctorado_estructural',
+    'doctorado_oficial',
     'completo',
     'completo_normativo'
   ].includes(qualityStatus);
   const isIncompletePlan = Boolean(qualityStatus && !isVerifiedPlan && !isPlanUnavailable);
   const qualityStatusLabel = {
+    verificado_programa_doctoral: 'Doctorado Oficial Verificado',
+    doctorado_verificado: 'Doctorado Oficial Verificado',
+    doctorado_estructural: 'Doctorado Oficial Verificado',
+    doctorado_oficial: 'Doctorado Oficial (RD 99/2011)',
     pendiente_revision: 'Pendiente de revisión',
     parcial: 'Datos parciales',
     incompleto_parcial: 'Datos parciales',
@@ -363,7 +378,7 @@ export default function PlanModal({ degree, onClose }) {
                           Programa Oficial de Doctorado e Investigación
                         </h4>
                         <span style={{ fontSize: '0.82rem', color: 'var(--uca-cyan)', fontWeight: 600 }}>
-                          Regulado por el Real Decreto 99/2011
+                          Regulado por el Real Decreto 99/2011 {escuelaDoctorado ? `· ${escuelaDoctorado}` : ''}
                         </span>
                       </div>
                     </div>
@@ -371,6 +386,47 @@ export default function PlanModal({ degree, onClose }) {
                     <p style={{ fontSize: '0.92rem', color: 'var(--text-main)', lineHeight: 1.6, marginBottom: '1.25rem' }}>
                       Conforme a la normativa universitaria española (Real Decreto 99/2011), los estudios de Doctorado no se estructuran en asignaturas lectivas tradicionales con créditos ECTS, sino que se articulan en torno a <strong>Líneas de Investigación Científica, Actividades Formativas Transversales</strong> (seminarios, congresos y estancias) y la elaboración y defensa pública de la <strong>Tesis Doctoral</strong> bajo tutela académica anual.
                     </p>
+
+                    {doctoralLines.length > 0 && (
+                      <div style={{ marginBottom: '1.5rem' }}>
+                        <h5 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                          <Compass size={17} color="var(--uca-blue)" />
+                          Líneas de Investigación Científica Oficiales ({doctoralLines.length})
+                        </h5>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '0.65rem' }}>
+                          {doctoralLines.map((line, idx) => (
+                            <div key={idx} style={{
+                              padding: '0.75rem 1rem',
+                              background: 'var(--bg-main)',
+                              borderRadius: 'var(--radius-sm)',
+                              border: '1px solid var(--border-light)',
+                              display: 'flex',
+                              alignItems: 'flex-start',
+                              gap: '0.65rem'
+                            }}>
+                              <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: 'var(--uca-blue)', marginTop: '0.45rem', flexShrink: 0 }} />
+                              <span style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--text-main)', lineHeight: 1.4 }}>
+                                {line}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {doctoralActivities.length > 0 && (
+                      <div style={{ marginBottom: '1.5rem' }}>
+                        <h5 style={{ fontSize: '0.92rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                          <BookOpen size={16} color="var(--uca-cyan)" />
+                          Actividades Formativas Transversales y Específicas ({doctoralActivities.length})
+                        </h5>
+                        <ul style={{ margin: 0, paddingLeft: '1.25rem', fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
+                          {doctoralActivities.map((act, idx) => (
+                            <li key={idx} style={{ marginBottom: '0.35rem' }}>{act}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
                       <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>

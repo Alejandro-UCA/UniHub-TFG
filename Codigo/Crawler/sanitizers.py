@@ -524,7 +524,7 @@ def classify_subject_caracter(raw_caracter: str, subject_name: str = "", default
         return default
 
     c = unreverse_text(str(raw_caracter)).upper().strip()
-    if re.search(r"\b(?:FB|FBA|FORMACI[OÓÒ]N?\s+B[AÁÀ]SICA|OINARRIZKOA|OIN|BASIC TRAINING|TR|TRONCAL|BA|B[AÀ]SICA)\b", c):
+    if re.search(r"\b(?:FB|FBA|FORMACI[OÓÒ]N?\s+B[AÁÀ]SICA|OINARRIZKOA|OIN|BASIC TRAINING|TR|TRONCAL|BA|B[AÁÀ]SICA)\b", c):
         return "FB"
     if re.search(r"\b(?:OP|OPT|OT|OPTATIV[AO]S?|OPTATIUS?|HAUTAZKOA?|HAU|ELECTIVE|OPTIONAL)\b", c):
         return "OP"

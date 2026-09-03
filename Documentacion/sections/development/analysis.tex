@@ -13,6 +13,7 @@ El modelo conceptual identifica las entidades centrales del dominio universitari
 
 \begin{figure}[htbp]
     \centering
+    \resizebox{0.95\textwidth}{!}{%
     \begin{tikzpicture}[
         classbox/.style={rectangle, draw=black!70, fill=blue!5, rounded corners=2pt, font=\small, text width=4.5cm, align=left, inner sep=5pt, drop shadow},
         assoc/.style={-{Stealth[length=5pt]}, thick, draw=black!70}
@@ -65,7 +66,8 @@ El modelo conceptual identifica las entidades centrales del dominio universitari
         \draw[assoc] (univ) -- node[above, font=\footnotesize] {1 \quad oferta \quad N} (tit);
         \draw[assoc] (tit) -- node[right, font=\footnotesize] {1 \quad define \quad 1} (plan);
         \draw[assoc] (plan) -- node[above, font=\footnotesize] {1 \quad desglosa \quad N} (elem);
-    \end{tikzpicture}
+    \end{tikzpicture}%
+    }
     \caption{Diagrama de Clases del Modelo de Dominio de UniHub (UML)}
     \label{fig:diagrama_dominio_uml}
 \end{figure}
@@ -75,6 +77,7 @@ Se identifican tres actores que interactúan con el sistema según su perfil de 
 
 \begin{figure}[htbp]
     \centering
+    \resizebox{0.95\textwidth}{!}{%
     \begin{tikzpicture}[
         actor/.style={circle, draw=black!80, fill=yellow!10, minimum size=0.8cm, font=\bfseries\footnotesize, drop shadow},
         usecase/.style={ellipse, draw=blue!70!black, fill=blue!8, text width=3.8cm, align=center, font=\footnotesize, minimum height=0.9cm, drop shadow},
@@ -106,7 +109,8 @@ Se identifican tres actores que interactúan con el sistema según su perfil de 
         \draw[conn] (admin) -- (cu6);
 
         \draw[conn] (crawler) -- (cu7);
-    \end{tikzpicture}
+    \end{tikzpicture}%
+    }
     \caption{Diagrama General de Casos de Uso de UniHub (UML)}
     \label{fig:diagrama_casos_uso_uml}
 \end{figure}
@@ -119,6 +123,7 @@ El flujo de ejecución del rastreador combina la priorización contextual de enl
 
 \begin{figure}[htbp]
     \centering
+    \resizebox{0.95\textwidth}{!}{%
     \begin{tikzpicture}[
         node distance=1.2cm and 1.5cm,
         startstop/.style={rectangle, rounded corners=10pt, draw=black!80, fill=green!15, font=\bfseries\footnotesize, minimum height=0.7cm, drop shadow},
@@ -146,7 +151,8 @@ El flujo de ejecución del rastreador combina la priorización contextual de enl
         \draw[arrow] (check_complete) -- node[above, font=\scriptsize] {Sin BOE/0 ECTS} (rescue_web);
         \draw[arrow] (rescue_web) |- (mark_ok);
         \draw[arrow] (mark_ok) -- (end);
-    \end{tikzpicture}
+    \end{tikzpicture}%
+    }
     \caption{Diagrama de Actividad: Ingesta Inteligente y Validación Matemática de Completitud Curricular}
     \label{fig:diagrama_actividad_crawler}
 \end{figure}

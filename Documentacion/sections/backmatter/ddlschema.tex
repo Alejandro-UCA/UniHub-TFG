@@ -3,9 +3,9 @@
 En este apéndice se proporciona la definición formal completa del esquema relacional físico de la base de datos PostgreSQL de \textbf{UniHub} (\texttt{schema.sql}). Incluye la creación de tablas principales, claves foráneas con restricciones de integridad referencial y borrado en cascada, tipos semiestructurados (\texttt{JSONB}), índices de búsqueda acelerada mediante trigramas (\texttt{pg\_trgm}) y la parametrización del rol de solo lectura de la API REST (\texttt{unihub\_api\_user}).
 
 \begin{lstlisting}[language=SQL, caption={Esquema DDL completo de PostgreSQL (schema.sql)}]
--- =====================================================================
+-- ===============================================
 -- ESQUEMA BASE DE DATOS POSTGRESQL - UNIHUB
--- =====================================================================
+-- ===============================================
 
 -- 1. Tabla de Universidades (Publicas y Privadas)
 CREATE TABLE IF NOT EXISTS universidades (
@@ -117,9 +117,9 @@ CREATE TABLE IF NOT EXISTS estadisticas_rendimiento (
     tasa_acierto_porcentaje NUMERIC(5, 2)
 );
 
--- =====================================================================
+-- ===============================================
 -- INDICES OPTIMIZADOS PARA BUSQUEDA Y RENDIMIENTO
--- =====================================================================
+-- ===============================================
 CREATE INDEX IF NOT EXISTS idx_titulaciones_univ_codigo ON titulaciones(universidad_codigo);
 CREATE INDEX IF NOT EXISTS idx_titulaciones_nivel ON titulaciones(nivel_academico);
 CREATE INDEX IF NOT EXISTS idx_elementos_plan_id ON elementos_curriculares(plan_estudio_id);
@@ -130,9 +130,9 @@ CREATE EXTENSION IF NOT EXISTS pg_trgm;
 CREATE INDEX IF NOT EXISTS idx_univ_nombre_trgm ON universidades USING gin (nombre gin_trgm_ops);
 CREATE INDEX IF NOT EXISTS idx_tit_titulo_trgm ON titulaciones USING gin (titulo gin_trgm_ops);
 
--- =====================================================================
+-- ===============================================
 -- CONFIGURACION DE SEGURIDAD RBAC: USUARIO DE SOLO LECTURA API
--- =====================================================================
+-- ===============================================
 DO
 $do$
 BEGIN

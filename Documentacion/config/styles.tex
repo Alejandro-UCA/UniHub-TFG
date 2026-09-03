@@ -9,8 +9,12 @@
 
 % Formato del código fuente con lstlisting
 \lstset{
-  basicstyle=\ttfamily,
+  basicstyle=\ttfamily\footnotesize,
   breaklines=true,
+  breakatwhitespace=false,
+  columns=flexible,
+  keepspaces=true,
+  showstringspaces=false
 }
 
 % Márgenes
@@ -32,3 +36,5 @@
 \DeclareCaptionLabelSeparator*{spaced}{\\[1.5ex]}
 \captionsetup[table]{textfont=it,format=plain,justification=justified,
   singlelinecheck=false,labelsep=spaced,skip=0pt}
+\emergencystretch=3em
+\sloppy

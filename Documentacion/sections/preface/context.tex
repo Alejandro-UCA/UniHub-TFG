@@ -48,20 +48,20 @@ Con el fin de situar la aportación de \textbf{UniHub}, se han analizado las pri
 \small
 \caption{Comparativa entre plataformas existentes de información universitaria y UniHub}
 \label{tab:comparativa_plataformas}
-\begin{tabularx}{\textwidth}{p{3.8cm} c c c c c}
+\begin{tabular}{p{5.7cm} >{\centering\arraybackslash}p{1.3cm} >{\centering\arraybackslash}p{1.3cm} >{\centering\arraybackslash}p{1.3cm} >{\centering\arraybackslash}p{1.8cm} >{\centering\arraybackslash}p{2.8cm}}
 \toprule
-\textbf{Funcionalidad / Característica} & \textbf{RUCT} & \textbf{BOE} & \textbf{QEDU} & \textbf{Portales Univ.} & \textbf{UniHub} \\
+\textbf{Característica / Criterio} & \textbf{RUCT} & \textbf{BOE} & \textbf{QEDU} & \textbf{Webs Univ.} & \textbf{UniHub} \\
 \midrule
-Catálogo global (Públicas y Privadas) & Sí & No (disperso) & Sí & No (local) & \textbf{Sí} \\
-Desglose curricular de asignaturas (BOE) & No & Sí (PDF plano) & No & Sí (heterogéneo) & \textbf{Sí (estructurado)} \\
-Detección de Menciones oficiales & No & No & No & Parcial & \textbf{Sí (verificado)} \\
-Tratamiento diferenciado de Doctorados & Parcial & Parcial & No & Parcial & \textbf{Sí (RD 99/2011)} \\
+Catálogo global (Públicas y Privadas) & Sí & No & Sí & No & \textbf{Sí} \\
+Desglose curricular de asignaturas & No & Parcial & No & Parcial & \textbf{Sí} \\
+Detección de Menciones oficiales & No & No & No & Parcial & \textbf{Sí} \\
+Tratamiento específico de Doctorados & No & Parcial & No & Parcial & \textbf{Sí (RD 99/2011)} \\
 Búsqueda por proximidad (Haversine) & No & No & No & No & \textbf{Sí (50+ ciudades)} \\
 Simulador financiero de matrícula & No & No & No & No & \textbf{Sí (Púb. y Priv.)} \\
-API REST documentada y pública & No & Parcial & No & Raras excepciones & \textbf{Sí (FastAPI/Swagger)} \\
-Arquitectura contenerizada (Docker) & No pública & No pública & No pública & Propietaria & \textbf{Sí (Docker Compose)} \\
+API REST pública y documentada & No & Parcial & No & No & \textbf{Sí (FastAPI)} \\
+Arquitectura contenerizada (Docker) & No & No & No & No & \textbf{Sí (Docker Compose)} \\
 \bottomrule
-\end{tabularx}
+\end{tabular}
 \end{table}
 
 \noindent A continuación se detalla el comportamiento de cada alternativa:

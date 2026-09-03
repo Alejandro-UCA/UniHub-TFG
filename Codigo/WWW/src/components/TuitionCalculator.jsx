@@ -232,6 +232,9 @@ export default function TuitionCalculator() {
   const [discountType, setDiscountType] = useState('ninguno');
 
   const isPrivada = (currentUniv?.tipo || '').toLowerCase().includes('privad');
+  const isDoctor = (degreeDetail?.nivel_academico || '').toLowerCase().includes('doctor') ||
+                   (degreeDetail?.nivel_academico || '').toLowerCase().includes('99/2011') ||
+                   (degreeDetail?.titulo || '').toLowerCase().includes('doctor');
 
   // Diccionario explicativo de condiciones de bonificación / exención
   const DISCOUNT_INFO = {
@@ -254,7 +257,18 @@ export default function TuitionCalculator() {
     const tierCosts = { 1: 0, 2: 0, 3: 0, 4: 0 };
     let selectedSubjectsCount = 0;
 
-    if (elements.length > 0) {
+    if (isDoctor) {
+      const annualPrice = parsePositiveNumber(degreeDetail?.precio_estimado_anual);
+      if (annualPrice === null) {
+        calculationUnavailable = true;
+      } else {
+        totalSubjectCost = annualPrice;
+        selectedSubjectsCount = 1;
+        totalEcts = 0;
+        tierCosts[1] = annualPrice;
+        tierCounts[1] = 1;
+      }
+    } else if (elements.length > 0) {
       elements.forEach((elem, idx) => {
         const state = subjectSelections[getSubjectKey(elem, idx)];
         if (state?.selected) {
@@ -356,7 +370,7 @@ export default function TuitionCalculator() {
       grandTotal,
       calculationUnavailable
     };
-  }, [elements, subjectSelections, baseEctsPrice, discountType, isPrivada, degreeDetail, customEcts, customTier, adminFees, getEctsPrice]);
+  }, [elements, subjectSelections, baseEctsPrice, discountType, isPrivada, isDoctor, degreeDetail, customEcts, customTier, adminFees, getEctsPrice]);
 
   return (
     <div style={{ padding: '2rem 0', maxWidth: '1280px', margin: '0 auto' }}>
@@ -520,7 +534,34 @@ export default function TuitionCalculator() {
           
           {/* Left Column: Subjects Picker OR Flat ECTS Simulator */}
           <div>
-            {elements.length > 0 ? (
+            {isDoctor ? (
+              <div className="glass-panel" style={{ padding: '2rem', borderRadius: '12px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                  <div style={{ padding: '0.65rem', background: 'rgba(0, 132, 200, 0.15)', borderRadius: '10px', color: 'var(--uca-blue)' }}>
+                    <Receipt size={24} />
+                  </div>
+                  <div>
+                    <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--text-main)', margin: 0 }}>
+                      Régimen de Tutela Académica Anual (RD 99/2011)
+                    </h3>
+                    <span style={{ fontSize: '0.85rem', color: 'var(--uca-cyan)', fontWeight: 600 }}>
+                      Estudios Oficiales de Doctorado e Investigación
+                    </span>
+                  </div>
+                </div>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-main)', lineHeight: 1.6, marginBottom: '1.25rem' }}>
+                  En los programas de doctorado oficiales no existe matrícula por asignaturas o créditos ECTS lectivos. Conforme al Real Decreto 99/2011, los doctorandos abonan anualmente la tasa oficial por <strong>tutela académica de dirección de tesis</strong> establecida oficialmente por la comunidad autónoma o universidad.
+                </p>
+                <div style={{ background: 'var(--bg-main)', padding: '1.25rem', borderRadius: '8px', border: '1px solid var(--border-light)' }}>
+                  <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', marginBottom: '0.25rem' }}>
+                    Concepto Académico Facturable
+                  </div>
+                  <div style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--uca-blue)' }}>
+                    Tutela Académica de Tesis Doctoral (1 Curso Anual Completo)
+                  </div>
+                </div>
+              </div>
+            ) : elements.length > 0 ? (
               <>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
                   <div>

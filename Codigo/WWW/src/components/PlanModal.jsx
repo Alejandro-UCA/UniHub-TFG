@@ -124,6 +124,7 @@ export default function PlanModal({ degree, onClose }) {
   const isDoctor = (degree.nivel_academico || '').toLowerCase().includes('doctor') || 
                    (degree.nivel_academico || '').toLowerCase().includes('99/2011') ||
                    (degree.titulo || '').toLowerCase().includes('doctor');
+  const isDoctoralProgram = curriculum.tipo_estructura === 'programa_doctorado_investigacion' || isDoctor;
   const isPrivada = (degree.universidad_tipo || '').toLowerCase().includes('privad');
 
   const numAnnual = parseFloat(degree.precio_estimado_anual);
@@ -358,10 +359,10 @@ export default function PlanModal({ degree, onClose }) {
               {/* Subjects & Modules Breakdown */}
               <div>
                 <h3 style={{ fontSize: '1.05rem', fontWeight: 700, marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <Layers size={18} color="var(--uca-cyan)" /> {curriculum.tipo_estructura === 'programa_doctorado_investigacion' ? 'Estructura Investigadora y Formativa (RD 99/2011)' : `Estructura de Asignaturas, Módulos y Materias (${elementos.length})`}
+                  <Layers size={18} color="var(--uca-cyan)" /> {isDoctoralProgram ? 'Estructura Investigadora y Formativa (RD 99/2011)' : `Estructura de Asignaturas, Módulos y Materias (${elementos.length})`}
                 </h3>
 
-                {curriculum.tipo_estructura === 'programa_doctorado_investigacion' ? (
+                {isDoctoralProgram ? (
                   <div style={{
                     padding: '2rem 1.75rem',
                     background: 'linear-gradient(135deg, rgba(0, 132, 200, 0.05) 0%, rgba(15, 23, 42, 0.02) 100%)',

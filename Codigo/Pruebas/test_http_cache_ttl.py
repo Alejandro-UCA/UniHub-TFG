@@ -9,9 +9,9 @@ import sys
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
 
-import downloader as downloader_module
-from crawl_ledger import CrawlLedger
-from downloader import RUCTDownloader
+import core.downloader as downloader_module
+from core.crawl_ledger import CrawlLedger
+from core.downloader import RUCTDownloader
 
 
 class TestHttpCacheTtl(unittest.TestCase):

@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
 
-from univ_web_crawler import (
+from pipelines.parte2_web_crawler import (
     extract_html_subjects,
     extract_private_university_pricing,
     UniversityWebCrawler,
@@ -15,7 +15,7 @@ from univ_web_crawler import (
     parse_price_value,
     build_html_curriculum_payload
 )
-from spa_crawler import SPALayoutCrawler
+from parsers.spa_engine import SPALayoutCrawler
 
 class TestPhase1Part2Fixes(unittest.TestCase):
 

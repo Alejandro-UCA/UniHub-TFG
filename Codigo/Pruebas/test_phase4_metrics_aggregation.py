@@ -10,7 +10,7 @@ import sys
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
 
-import fase1_parte4_asignaturas as phase4
+import pipelines.parte4_asignaturas as phase4
 
 
 class _Disposable:

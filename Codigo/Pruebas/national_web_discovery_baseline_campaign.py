@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 
 from audit_campaign import audit_root
-from fase1_parte2_web_crawler import run_phase1_part2
+from pipelines.parte2_web_crawler import run_phase1_part2
 
 
 def _counts(report: dict) -> dict:

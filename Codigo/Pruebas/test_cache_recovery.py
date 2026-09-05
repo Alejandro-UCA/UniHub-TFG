@@ -6,7 +6,7 @@ import unittest
 
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
-from cache_recovery import inspect_sqlite_database, quarantine_corrupt_sqlite
+from utils.cache_recovery import inspect_sqlite_database, quarantine_corrupt_sqlite
 
 
 class TestCacheRecovery(unittest.TestCase):

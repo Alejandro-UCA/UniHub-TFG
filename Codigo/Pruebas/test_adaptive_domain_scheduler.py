@@ -6,7 +6,7 @@ import requests
 
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
-from downloader import RUCTDownloader
+from core.downloader import RUCTDownloader
 
 
 class TestAdaptiveDomainScheduler(unittest.TestCase):

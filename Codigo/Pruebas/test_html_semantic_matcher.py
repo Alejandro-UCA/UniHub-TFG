@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 
 sys.path.insert(0, os.path.abspath('Codigo/Crawler'))
 
-from univ_web_crawler import is_html_page_matching_degree
+from pipelines.parte2_web_crawler import is_html_page_matching_degree
 from parsers import is_section_matching, extract_degree_core_keywords
 
 class TestHTMLSemanticMatcher(unittest.TestCase):

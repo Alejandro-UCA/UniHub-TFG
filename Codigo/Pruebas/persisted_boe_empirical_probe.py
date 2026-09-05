@@ -13,11 +13,11 @@ CRAWLER_DIR = BASE_DIR / "Codigo" / "Crawler"
 if str(CRAWLER_DIR) not in sys.path:
     sys.path.insert(0, str(CRAWLER_DIR))
 
-from boe_search_discovery import rebuild_persisted_boe_candidates  # noqa: E402
-from checkpoint import load_json_safe  # noqa: E402
-from config import PLANES_DIR  # noqa: E402
-from curriculum_validator import get_curriculum_completeness_status  # noqa: E402
-from fase1_parte1_ruct_boe import RUCTDownloader  # noqa: E402
+from extractors.boe_discovery import rebuild_persisted_boe_candidates  # noqa: E402
+from core.checkpoint import load_json_safe  # noqa: E402
+from core.config import PLANES_DIR  # noqa: E402
+from quality.curriculum_validator import get_curriculum_completeness_status  # noqa: E402
+from pipelines.parte1_ruct_boe import RUCTDownloader  # noqa: E402
 from parsers import parse_boe_pdf  # noqa: E402
 
 

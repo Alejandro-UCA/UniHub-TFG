@@ -8,7 +8,7 @@ import json
 from collections import Counter, defaultdict
 from bs4 import BeautifulSoup
 import snapshot_candidate_audit as audit
-from curriculum_recovery import infer_declared_total_ects
+from extractors.curriculum_recovery import infer_declared_total_ects
 from in_memory_web_snapshot import InMemoryWebSnapshot
 
 

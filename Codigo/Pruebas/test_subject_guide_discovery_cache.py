@@ -7,7 +7,7 @@ import sys
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
 
-import subject_guide_discovery as discovery
+import extractors.subject_guides as discovery
 
 
 class _Robots:

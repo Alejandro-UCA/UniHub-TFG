@@ -5,8 +5,8 @@ from unittest.mock import MagicMock, patch
 from bs4 import BeautifulSoup
 
 sys.path.append('d:/Proyecto/Codigo/Crawler')
-from univ_web_crawler import UniversityWebCrawler, propagate_interuniversity_and_shared_boe_plans
-from config import (
+from pipelines.parte2_web_crawler import UniversityWebCrawler, propagate_interuniversity_and_shared_boe_plans
+from core.config import (
     ORGANIC_AFFILIATED_HUB_KEYWORDS,
     EUROPEAN_ALLIANCES_KEYWORDS,
     MAX_ORGANIC_AFFILIATED_HUBS_PER_UNIV

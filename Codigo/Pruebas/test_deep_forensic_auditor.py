@@ -11,7 +11,7 @@ from parsers import (
     classify_subject_caracter,
     unreverse_text
 )
-from univ_web_crawler import (
+from pipelines.parte2_web_crawler import (
     is_valid_curricular_table,
     is_html_page_matching_degree,
     is_source_url_level_compatible,

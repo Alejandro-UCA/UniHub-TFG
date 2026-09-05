@@ -4,7 +4,7 @@ import unittest
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
 
-from fase1_parte2_web_crawler import merge_bounded_catalog_map
+from pipelines.parte2_web_crawler import merge_bounded_catalog_map
 
 
 class TestBoundedCatalogMap(unittest.TestCase):

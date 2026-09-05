@@ -13,21 +13,21 @@ import sys
 import time
 from typing import Iterable, Optional
 
-import config
-from checkpoint import CheckpointManager, atomic_json_dump
-from config import LOGS_DIR, PLANES_DIR, TEMP_PDF_DIR, HTTP_CACHE_DIR, HTTP_CACHE_MAX_BYTES, TITULACIONES_JSON, TARGET_UNIVERSITY_CODES, HTTP_CLIENT_LOG_LEVEL
+from core import config
+from core.checkpoint import CheckpointManager, atomic_json_dump
+from core.config import LOGS_DIR, PLANES_DIR, TEMP_PDF_DIR, HTTP_CACHE_DIR, HTTP_CACHE_MAX_BYTES, TITULACIONES_JSON, TARGET_UNIVERSITY_CODES, HTTP_CLIENT_LOG_LEVEL
 from pipelines.parte1_ruct_boe import run_phase1_part1
 from pipelines.parte2_web_crawler import run_phase1_part2
 from pipelines.parte3_precios import run_phase1_part3
 from pipelines.parte4_asignaturas import run_phase1_part4
-from metrics import PerformanceTracker
-from phase_common import PHASE_DESCRIPTIONS, normalize_phase_selection, trigger_api_etl_sync
-from crawl_ledger import CrawlLedger
-from progress_emitter import ProgressEmitter
-from run_manifest import RunManifest
-from plan_quality_audit import audit_plan_records
-from console_encoding import configure_console_encoding
-from cancellation import (
+from core.metrics import PerformanceTracker
+from pipelines.common import PHASE_DESCRIPTIONS, normalize_phase_selection, trigger_api_etl_sync
+from core.crawl_ledger import CrawlLedger
+from core.progress import ProgressEmitter
+from core.manifest import RunManifest
+from quality.plan_audit import audit_plan_records
+from utils.console_encoding import configure_console_encoding
+from core.cancellation import (
     CrawlerCancelled,
     clear_shutdown,
     is_shutdown_requested,
@@ -176,7 +176,7 @@ def run_phase1(
         print("\n [LIMPIEZA DE DATOS] Purgando artefactos volátiles con respaldo previo de semillas...")
         clean_crawler_runtime_data(dry_run=False, backup_seed=True)
 
-    from phase_common import resolve_target_universities
+    from pipelines.common import resolve_target_universities
     if target_universities or university_type:
         resolved = resolve_target_universities(
             target_universities,

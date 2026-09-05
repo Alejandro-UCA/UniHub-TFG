@@ -19,7 +19,7 @@ from urllib.parse import parse_qs, quote_plus, unquote, urlparse
 
 from bs4 import BeautifulSoup
 
-from config import (
+from core.config import (
     WEB_SEARCH_DISCOVERY_ENABLED,
     WEB_SEARCH_DISCOVERY_ENDPOINT,
     WEB_SEARCH_DISCOVERY_FALLBACK_ENDPOINTS,
@@ -28,7 +28,7 @@ from config import (
     WEB_SEARCH_DISCOVERY_TIMEOUT,
     WEB_SEARCH_RETRY_DELAY,
 )
-from downloader import is_same_or_subdomain, normalize_url
+from core.downloader import is_same_or_subdomain, normalize_url
 
 logger = logging.getLogger(__name__)
 

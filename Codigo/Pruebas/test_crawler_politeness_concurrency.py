@@ -9,10 +9,10 @@ from unittest.mock import MagicMock, patch
 sys.stdout.reconfigure(encoding='utf-8')
 sys.path.insert(0, os.path.abspath('Codigo/Crawler'))
 
-from downloader import RUCTDownloader, normalize_url, SkipUniversityException, HostCircuitOpenException
-from univ_web_crawler import UniversityWebCrawler, score_academic_candidate_url, is_valid_curricular_table
-from checkpoint import CheckpointManager, atomic_json_dump
-from config import USER_AGENT, REQUEST_DELAY, JITTER_MIN_SECONDS, JITTER_MAX_SECONDS
+from core.downloader import RUCTDownloader, normalize_url, SkipUniversityException, HostCircuitOpenException
+from pipelines.parte2_web_crawler import UniversityWebCrawler, score_academic_candidate_url, is_valid_curricular_table
+from core.checkpoint import CheckpointManager, atomic_json_dump
+from core.config import USER_AGENT, REQUEST_DELAY, JITTER_MIN_SECONDS, JITTER_MAX_SECONDS
 
 
 class TestCrawlerPolitenessAndConcurrency(unittest.TestCase):

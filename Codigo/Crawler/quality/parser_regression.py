@@ -13,7 +13,7 @@ import json
 import os
 from numbers import Number
 
-from fase1_parte4_asignaturas import parse_subject_guide
+from pipelines.parte4_asignaturas import parse_subject_guide
 
 
 def _get_path(payload: dict, path: str):

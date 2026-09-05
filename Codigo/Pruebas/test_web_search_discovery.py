@@ -3,9 +3,9 @@ import unittest
 from urllib.parse import quote
 from unittest.mock import patch
 
-import web_search_discovery as search_discovery
+import extractors.web_search as search_discovery
 
-from web_search_discovery import (
+from extractors.web_search import (
     build_search_queries,
     discover_institutional_origins,
     discover_search_candidates,

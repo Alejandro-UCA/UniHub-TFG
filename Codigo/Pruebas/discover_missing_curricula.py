@@ -7,8 +7,8 @@ import json
 from pathlib import Path
 
 import acquire_missing_evidence as acquisition
-import boe_search_discovery
-from boe_search_discovery import discover_boe_candidates, build_boe_search_queries
+from extractors import boe_discovery
+from extractors.boe_discovery import discover_boe_candidates, build_boe_search_queries
 from in_memory_web_snapshot import DiskWebSnapshot
 
 ROOT = Path(__file__).resolve().parents[2]

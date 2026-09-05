@@ -11,7 +11,7 @@ import unittest
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
 
-from boe_pdf_parser import (
+from parsers.boe_pdf import (
     clean_curricular_elements,
     detect_curricular_table_header,
     extract_credit_summary,
@@ -19,8 +19,8 @@ from boe_pdf_parser import (
     is_section_matching,
     parse_boe_text_curriculum_dynamic,
 )
-from curriculum_validator import get_curriculum_completeness_status
-from sanitizers import is_spurious_or_administrative_subject
+from quality.curriculum_validator import get_curriculum_completeness_status
+from utils.sanitizers import is_spurious_or_administrative_subject
 
 
 class TestBOEEmpiricalRegressions(unittest.TestCase):

@@ -3,7 +3,7 @@ import json
 import glob
 import re
 import logging
-from config import (
+from core.config import (
     DATA_DIR,
     PLANES_DIR,
     UNIVERSIDADES_JSON,
@@ -12,9 +12,9 @@ from config import (
     STANDARD_YEAR_ECTS_CREDITS,
     TARGET_UNIVERSITY_CODES,
 )
-from checkpoint import atomic_json_dump, load_json_safe
-from phase_common import iter_plan_files
-from cancellation import raise_if_shutdown_requested
+from core.checkpoint import atomic_json_dump, load_json_safe
+from pipelines.common import iter_plan_files
+from core.cancellation import raise_if_shutdown_requested
 
 PRICE_CATALOG_ACADEMIC_YEAR = os.getenv("CRAWLER_PRICE_CATALOG_ACADEMIC_YEAR", "2025-2026")
 # Un catálogo embebido en el código no es evidencia primaria por sí mismo.
@@ -380,7 +380,7 @@ def run_phase1_part3(
     for filepath in json_files:
         degree = load_json_safe(filepath, default={}) or {}
         if degree_title_filter:
-            from phase_common import matches_degree_title
+            from pipelines.common import matches_degree_title
             if not matches_degree_title(degree.get("titulo"), degree_title_filter):
                 continue
         u_code = str(degree.get("universidad_codigo") or os.path.basename(os.path.dirname(filepath))).strip().zfill(3)

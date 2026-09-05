@@ -14,14 +14,14 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), "..", "Crawler"))
 sys.path.append(os.path.join(os.path.dirname(__file__), "..", "API"))
 
-from fase1_parte2_web_crawler import (
+from pipelines.parte2_web_crawler import (
     extract_doctoral_lines_from_soup,
     extract_doctoral_activities_from_soup,
     extract_doctoral_school_name,
     extract_generic_doctoral_program,
     is_valid_doctoral_line,
 )
-from curriculum_validator import get_curriculum_completeness_status, is_doctorate_program
+from quality.curriculum_validator import get_curriculum_completeness_status, is_doctorate_program
 
 
 class TestDoctoralExtractionAndValidation(unittest.TestCase):

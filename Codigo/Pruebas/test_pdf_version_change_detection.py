@@ -9,11 +9,11 @@ from pypdf import PdfWriter
 import sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
 
-from boe_pdf_parser import parse_boe_pdf
-import degree_persistence
-from degree_persistence import save_degree_payload
-from crawl_ledger import CrawlLedger
-from downloader import RUCTDownloader
+from parsers.boe_pdf import parse_boe_pdf
+from utils import degree_persistence
+from utils.degree_persistence import save_degree_payload
+from core.crawl_ledger import CrawlLedger
+from core.downloader import RUCTDownloader
 
 
 class TestPdfVersionChangeDetection(unittest.TestCase):

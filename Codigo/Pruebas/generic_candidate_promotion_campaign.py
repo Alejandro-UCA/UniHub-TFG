@@ -9,8 +9,8 @@ import json
 from datetime import datetime
 from pathlib import Path
 
-from data_quality import assess_plan_quality, promote_verified_candidate
-from degree_persistence import save_degree_payload
+from quality.data_quality import assess_plan_quality, promote_verified_candidate
+from utils.degree_persistence import save_degree_payload
 
 
 def _digest(value) -> str:

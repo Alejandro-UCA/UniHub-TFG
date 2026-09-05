@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
-from checkpoint import CheckpointManager
+from core.checkpoint import CheckpointManager
 
 
 class TestCheckpointResilience(unittest.TestCase):

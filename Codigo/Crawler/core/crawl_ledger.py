@@ -13,7 +13,7 @@ import os
 from datetime import datetime, timedelta, timezone
 
 from core.config import CACHE_DB_PATH, SQLITE_CONNECT_TIMEOUT, LEDGER_WRITE_BATCH_SIZE
-from sqlite_recovery import is_sqlite_corruption, quarantine_corrupt_sqlite
+from utils.sqlite_recovery import is_sqlite_corruption, quarantine_corrupt_sqlite
 
 logger = logging.getLogger(__name__)
 

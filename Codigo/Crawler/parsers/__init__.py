@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
-from config import (
+from core.config import (
     SPANISH_STOP_WORDS,
     UMBRELLA_BRANCH_WORDS,
 )
-from sanitizers import (
+from utils.sanitizers import (
     RE_MULTIPLE_SPACES,
     classify_subject_caracter,
     curriculum_element_key,

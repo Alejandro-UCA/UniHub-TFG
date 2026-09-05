@@ -64,7 +64,7 @@ chown "$CRAWLER_USER:$CRAWLER_USER" /var/log/crawler_cron.log
 # termina con error y Docker puede reiniciarlo; el fallo no queda oculto.
 if [ "${CRAWLER_RUN_ON_STARTUP:-true}" = "true" ]; then
     echo "[INFO] Ejecutando sincronización inicial del rastreador (Fase 1 Completa)..."
-    su -s /bin/sh "$CRAWLER_USER" -c "export HOME=/home/crawler && exec $PYTHON_BIN /app/main_fase_1.py ${CRAWLER_PARTS_ARGS:---all}"
+    su -s /bin/sh "$CRAWLER_USER" -c "export HOME=/home/crawler && exec $PYTHON_BIN /app/main.py ${CRAWLER_PARTS_ARGS:---all}"
 fi
 
 echo "[INFO] Sincronización inicial omitida. Activando cron: ${CRON_SCHEDULE}."

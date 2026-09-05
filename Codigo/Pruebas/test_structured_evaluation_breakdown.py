@@ -4,7 +4,7 @@ import os
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
 
-from subject_guide_quality import parse_evaluation_breakdown, assess_subject_guide_quality, annotate_subject_guide_quality
+from quality.subject_guide_quality import parse_evaluation_breakdown, assess_subject_guide_quality, annotate_subject_guide_quality
 
 
 class TestStructuredEvaluationBreakdown(unittest.TestCase):

@@ -9,7 +9,7 @@ from unittest.mock import patch
 
 CRAWLER_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler"))
 sys.path.insert(0, CRAWLER_DIR)
-import config
+from core import config
 import healthcheck
 
 

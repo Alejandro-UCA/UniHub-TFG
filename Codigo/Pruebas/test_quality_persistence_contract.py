@@ -11,9 +11,9 @@ CRAWLER_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Cra
 if CRAWLER_DIR not in sys.path:
     sys.path.insert(0, CRAWLER_DIR)
 
-import fase1_parte1_ruct_boe as ruct_boe
-from degree_persistence import save_degree_payload
-from payload_contract import validate_degree_payload
+import pipelines.parte1_ruct_boe as ruct_boe
+from utils.degree_persistence import save_degree_payload
+from quality.payload_contract import validate_degree_payload
 
 
 def complete_plan():
@@ -152,7 +152,7 @@ class TestQualityPersistenceContract(unittest.TestCase):
         self.assertIsNone(save_payload.call_args.kwargs["plan_estudios"])
 
     def test_european_fallback_contains_no_generated_curriculum_text(self):
-        source_path = os.path.join(CRAWLER_DIR, "fase1_parte2_web_crawler.py")
+        source_path = os.path.join(CRAWLER_DIR, "pipelines", "parte2_web_crawler.py")
         with open(source_path, encoding="utf-8") as source_file:
             content = source_file.read()
         self.assertNotIn("descripcion_consorcio", content)

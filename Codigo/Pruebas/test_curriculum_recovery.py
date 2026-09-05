@@ -1,9 +1,11 @@
+import sys, os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'Crawler')))
 import unittest
 from unittest.mock import MagicMock, patch
 
 from bs4 import BeautifulSoup
 
-from curriculum_recovery import (
+from extractors.curriculum_recovery import (
     extract_prose_curriculum,
     extract_structured_curriculum,
     generic_curriculum_path_candidates,
@@ -12,7 +14,7 @@ from curriculum_recovery import (
     discover_linked_curriculum_documents,
     discover_linked_curriculum_pages,
 )
-from fase1_parte2_web_crawler import UniversityWebCrawler as Part2UniversityWebCrawler
+from pipelines.parte2_web_crawler import UniversityWebCrawler as Part2UniversityWebCrawler
 
 
 class CurriculumRecoveryTests(unittest.TestCase):
@@ -267,7 +269,7 @@ class CurriculumRecoveryTests(unittest.TestCase):
         }.get(url, b"")
         crawler = Part2UniversityWebCrawler()
         crawler.check_robots_allowed = MagicMock(return_value=(True, None))
-        with patch("fase1_parte2_web_crawler.RUCTDownloader", return_value=downloader):
+        with patch("pipelines.parte2_web_crawler.RUCTDownloader", return_value=downloader):
             candidates = crawler._extract_recursive_sitemap_candidates(
                 "https://catalog.example.edu/",
                 [{"titulo": "Máster Universitario en Data Science"}],
@@ -287,7 +289,7 @@ class CurriculumRecoveryTests(unittest.TestCase):
             """,
             "html.parser",
         )
-        from fase1_parte2_web_crawler import extract_html_subjects
+        from pipelines.parte2_web_crawler import extract_html_subjects
 
         elements = extract_html_subjects(soup, "https://example.edu/study")
         self.assertEqual(["Mètodes de recerca"], [e["nombre_elemento"] for e in elements])
@@ -305,7 +307,7 @@ class CurriculumRecoveryTests(unittest.TestCase):
             """,
             "html.parser",
         )
-        from fase1_parte2_web_crawler import extract_html_subjects
+        from pipelines.parte2_web_crawler import extract_html_subjects
 
         elements = extract_html_subjects(soup, "https://example.edu/study")
         self.assertEqual(["Metodología de investigación"], [e["nombre_elemento"] for e in elements])

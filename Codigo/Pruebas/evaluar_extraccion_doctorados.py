@@ -1,4 +1,4 @@
-﻿import os
+import os
 import sys
 import re
 import json
@@ -6,8 +6,8 @@ import urllib.parse
 from bs4 import BeautifulSoup
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
-from downloader import RUCTDownloader
-from sanitizers import sanitize_string_value
+from core.downloader import RUCTDownloader
+from utils.sanitizers import sanitize_string_value
 
 
 RE_LINEAS_HEADER = re.compile(

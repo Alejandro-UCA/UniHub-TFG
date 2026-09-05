@@ -10,9 +10,9 @@ import os
 import uuid
 from datetime import datetime, timezone
 
-from checkpoint import atomic_json_dump
-from config import DATA_DIR, FULL_REVALIDATION, REDISCOVER_URLS_EVERY_RUN, TARGET_UNIVERSITY_CODES
-from runtime_capabilities import detect_runtime_capabilities
+from core.checkpoint import atomic_json_dump
+from core.config import DATA_DIR, FULL_REVALIDATION, REDISCOVER_URLS_EVERY_RUN, TARGET_UNIVERSITY_CODES
+from core.capabilities import detect_runtime_capabilities
 
 
 RUN_MANIFESTS_DIR = os.getenv("CRAWLER_RUN_MANIFESTS_DIR", os.path.join(DATA_DIR, "run_manifests"))

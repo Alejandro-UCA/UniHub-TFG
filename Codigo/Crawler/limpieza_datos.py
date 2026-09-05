@@ -19,7 +19,7 @@ from pathlib import Path
 # Permitir ejecución directa
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from console_encoding import configure_console_encoding
+from utils.console_encoding import configure_console_encoding
 from utils.data_cleanup import (
     get_crawler_data_inventory,
     clean_crawler_runtime_data,

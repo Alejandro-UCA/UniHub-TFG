@@ -1,4 +1,4 @@
-﻿import unittest
+import unittest
 from unittest.mock import MagicMock
 from bs4 import BeautifulSoup
 import sys
@@ -6,7 +6,7 @@ import os
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
 
-from fase1_parte2_web_crawler import extract_dynamic_widget_subjects
+from pipelines.parte2_web_crawler import extract_dynamic_widget_subjects
 
 
 class TestGenericDynamicWidgets(unittest.TestCase):

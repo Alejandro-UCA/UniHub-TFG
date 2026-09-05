@@ -5,8 +5,8 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 import xlrd
 
-from sanitizers import sanitize_string_value
-from downloader import normalize_url
+from utils.sanitizers import sanitize_string_value
+from core.downloader import normalize_url
 
 logger = logging.getLogger("ruct_xls_parser")
 

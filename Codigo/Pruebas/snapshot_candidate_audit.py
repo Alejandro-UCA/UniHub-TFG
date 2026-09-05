@@ -20,10 +20,10 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "Codigo" / "Crawler"))
 sys.path.insert(0, str(ROOT / "Codigo" / "Pruebas"))
 
-from boe_pdf_parser import parse_boe_pdf  # noqa: E402
-from curriculum_recovery import infer_declared_total_ects  # noqa: E402
-from data_quality import assess_plan_quality  # noqa: E402
-from fase1_parte2_web_crawler import (  # noqa: E402
+from parsers.boe_pdf import parse_boe_pdf  # noqa: E402
+from extractors.curriculum_recovery import infer_declared_total_ects  # noqa: E402
+from quality.data_quality import assess_plan_quality  # noqa: E402
+from pipelines.parte2_web_crawler import (  # noqa: E402
     build_html_curriculum_payload,
     extract_html_subjects,
     is_html_page_matching_degree,

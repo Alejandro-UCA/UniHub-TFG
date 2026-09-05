@@ -4,7 +4,7 @@ import sys
 import os
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
-from boe_pdf_parser import merge_chronological_boe_curricula
+from parsers.boe_pdf import merge_chronological_boe_curricula
 
 class TestBoeChronologicalMerge(unittest.TestCase):
     def test_merge_base_and_modification_decrees(self):

@@ -1,7 +1,9 @@
+import sys, os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'Crawler')))
 import json
 import unittest
 
-from boe_search_discovery import (
+from extractors.boe_discovery import (
     build_boe_search_queries,
     discover_boe_candidates,
     discover_boe_candidates_from_summary,
@@ -46,7 +48,7 @@ SUMMARY_JSON = """
 
 class BoeSearchDiscoveryTests(unittest.TestCase):
     def test_search_does_not_replace_degree_with_master_or_legacy_diploma(self):
-        from boe_search_discovery import _candidate_score
+        from extractors.boe_discovery import _candidate_score
         for source in ('Máster en Turismo', 'Diplomado en Turismo'):
             self.assertIsNone(_candidate_score(
                 {'title': 'Universidad de Prueba publica el plan de estudios de ' + source},
@@ -65,7 +67,7 @@ class BoeSearchDiscoveryTests(unittest.TestCase):
         self.assertTrue(all('bachelor' not in query and 'bioinformatics' not in query for query in queries))
 
     def test_common_subject_word_does_not_validate_another_degree(self):
-        from boe_search_discovery import _candidate_score
+        from extractors.boe_discovery import _candidate_score
         self.assertIsNone(_candidate_score(
             {'title': 'Resolución de la Universitat de València por la que se publica el plan de estudios de Máster en Investigación en Psicología'},
             '', 'Universitat de València',
@@ -83,7 +85,7 @@ class BoeSearchDiscoveryTests(unittest.TestCase):
 
     def test_verified_plan_does_not_trigger_another_search(self):
         from unittest.mock import patch
-        with patch('data_quality.assess_plan_quality', return_value={'publicable': True}):
+        with patch('quality.data_quality.assess_plan_quality', return_value={'publicable': True}):
             self.assertFalse(needs_boe_curriculum_search([{'url': 'https://example.edu/plan.pdf'}], {'plan_estudios': {}}))
 
     def test_queries_are_bounded_and_strip_administrative_suffix(self):

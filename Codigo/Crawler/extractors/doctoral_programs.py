@@ -12,7 +12,7 @@ import re
 import urllib.parse
 from bs4 import BeautifulSoup
 
-from sanitizers import sanitize_string_value
+from utils.sanitizers import sanitize_string_value
 
 RE_DOCTORAL_LINEAS_HEADER = re.compile(
     r"\b(?:l[íi]neas?\s+de\s+investigaci[óo]n|l[íi]nies?\s+de\s+recerca|ikerketa[- ]lerroak|li[ñn]as?\s+de\s+investigaci[óo]n|research\s+lines)\b",

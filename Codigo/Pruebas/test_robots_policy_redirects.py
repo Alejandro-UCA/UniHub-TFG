@@ -5,8 +5,8 @@ from unittest.mock import patch, MagicMock
 import requests
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
-import robots_policy
-from downloader import is_same_or_subdomain
+from core import robots_policy
+from core.downloader import is_same_or_subdomain
 
 
 class _MockResponse:

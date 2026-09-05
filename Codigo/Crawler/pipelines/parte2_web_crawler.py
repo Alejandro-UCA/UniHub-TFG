@@ -87,7 +87,7 @@ def _annotate_plan_source_status(
         data["fecha_ultima_comprobacion_fuente"] = checked_at
         atomic_json_dump(data, path)
 
-from config import (
+from core.config import (
     UNIVERSIDADES_JSON,
     TITULACIONES_JSON,
     PLANES_DIR,
@@ -157,9 +157,9 @@ from config import (
 )
 _MAX_PDF_PAGES_EXTRACT = MAX_PDF_PAGES_EXTRACT
 
-from downloader import RUCTDownloader, SkipUniversityException, is_same_or_subdomain as downloader_is_same_or_subdomain, normalize_url, is_valid_http_url
-from web_source_recovery import currentness_score, is_explicitly_historical
-from curriculum_recovery import (
+from core.downloader import RUCTDownloader, SkipUniversityException, is_same_or_subdomain as downloader_is_same_or_subdomain, normalize_url, is_valid_http_url
+from extractors.web_source_recovery import currentness_score, is_explicitly_historical
+from extractors.curriculum_recovery import (
     extract_prose_curriculum,
     extract_structured_curriculum,
     extract_hydration_payload,
@@ -175,21 +175,21 @@ from curriculum_recovery import (
     discover_course_partitioned_subpages,
     matches_boe_credit_distribution,
 )
-from curriculum_validator import get_curriculum_completeness_status
-from subject_guide_discovery import parse_sitemap_locations
-from web_search_discovery import discover_institutional_origins, discover_search_candidates
-from robots_policy import RobotsPolicy
-from crawl_ledger import CrawlLedger
-from ruct_xls_parser import extract_participating_universities
-from data_quality import (
+from quality.curriculum_validator import get_curriculum_completeness_status
+from extractors.subject_guides import parse_sitemap_locations
+from extractors.web_search import discover_institutional_origins, discover_search_candidates
+from core.robots_policy import RobotsPolicy
+from core.crawl_ledger import CrawlLedger
+from parsers.ruct_catalog import extract_participating_universities
+from quality.data_quality import (
     apply_plan_quality,
     assess_plan_quality,
     promote_verified_candidate,
     source_record,
 )
-from error_logger import ErrorLogger
-from checkpoint import CheckpointManager, atomic_json_dump, load_json_safe
-from phase_common import iter_plan_files, normalize_text
+from core.error_logger import ErrorLogger
+from core.checkpoint import CheckpointManager, atomic_json_dump, load_json_safe
+from pipelines.common import iter_plan_files, normalize_text
 from parsers import (
     parse_boe_pdf,
     classify_subject_caracter,
@@ -649,7 +649,7 @@ def merge_bounded_catalog_map(
 
 def is_valid_curricular_table(table_tag) -> bool:
     """Verifica que una tabla HTML sea verdaderamente curricular (reutiliza sanitizers centralizado)."""
-    from sanitizers import is_valid_curricular_table as sanitizers_is_valid_table
+    from utils.sanitizers import is_valid_curricular_table as sanitizers_is_valid_table
     return sanitizers_is_valid_table(table_tag)
 
 
@@ -2596,7 +2596,7 @@ class UniversityWebCrawler:
                             # comprobación de identidad ni la de completitud posterior.
                             if extracted_ects < minimum_ects and budget_available():
                                 try:
-                                    from spa_crawler import SPALayoutCrawler
+                                    from parsers.spa_engine import SPALayoutCrawler
 
                                     rendered_direct = SPALayoutCrawler.get_shared_instance(
                                         timeout=max(1, int(downloader.timeout))
@@ -2863,7 +2863,7 @@ class UniversityWebCrawler:
                             )
                             if sitemap_matches_degree and len(elementos_html) < 3 and budget_available():
                                 try:
-                                    from spa_crawler import SPALayoutCrawler
+                                    from parsers.spa_engine import SPALayoutCrawler
 
                                     rendered_sitemap = SPALayoutCrawler.get_shared_instance(
                                         timeout=max(1, int(downloader.timeout))
@@ -3003,7 +3003,7 @@ class UniversityWebCrawler:
                                     )
                                     if cat_matches_degree and len(c_elementos) < 3 and budget_available():
                                         try:
-                                            from spa_crawler import SPALayoutCrawler
+                                            from parsers.spa_engine import SPALayoutCrawler
 
                                             rendered_catalog_page = SPALayoutCrawler.get_shared_instance(
                                                 timeout=max(1, int(downloader.timeout))
@@ -3168,7 +3168,7 @@ class UniversityWebCrawler:
                                 # Si tras explorar subpáginas sigue teniendo < 3 asignaturas (contenedor SPA vacío JS), renderizar con Playwright
                                 if len(c_elementos) < 3:
                                     try:
-                                        from spa_crawler import SPALayoutCrawler
+                                        from parsers.spa_engine import SPALayoutCrawler
                                         spa_c = SPALayoutCrawler.get_shared_instance(
                                             timeout=max(1, int(downloader.timeout))
                                         )
@@ -3272,7 +3272,7 @@ class UniversityWebCrawler:
                         )
                         if route_matches_degree and len(route_elements) < 3 and budget_available():
                             try:
-                                from spa_crawler import SPALayoutCrawler
+                                from parsers.spa_engine import SPALayoutCrawler
 
                                 rendered_route = SPALayoutCrawler.get_shared_instance(
                                     timeout=max(1, int(downloader.timeout))
@@ -3507,7 +3507,7 @@ class UniversityWebCrawler:
                                                 # identidad de la ficha, evita gastar el presupuesto en
                                                 # subpáginas auxiliares antes de inspeccionar esa evidencia.
                                                 try:
-                                                    from spa_crawler import SPALayoutCrawler
+                                                    from parsers.spa_engine import SPALayoutCrawler
 
                                                     rendered_target = SPALayoutCrawler.get_shared_instance(
                                                         timeout=max(1, int(downloader.timeout))
@@ -3676,7 +3676,7 @@ class UniversityWebCrawler:
                                                                 if not budget_available():
                                                                     break
                                                                 try:
-                                                                    from spa_crawler import SPALayoutCrawler
+                                                                    from parsers.spa_engine import SPALayoutCrawler
                                                                     spa_c = SPALayoutCrawler.get_shared_instance(
                                                                         timeout=max(1, int(downloader.timeout))
                                                                     )
@@ -3708,7 +3708,7 @@ class UniversityWebCrawler:
                                             current_ects = compute_curriculum_total_ects(elementos_html)
                                             if len(elementos_html) < 3:
                                                 try:
-                                                    from spa_crawler import SPALayoutCrawler
+                                                    from parsers.spa_engine import SPALayoutCrawler
                                                     spa_crawler = SPALayoutCrawler.get_shared_instance(
                                                         timeout=max(1, int(downloader.timeout))
                                                     )
@@ -4469,7 +4469,7 @@ def run_phase1_part2(
         universities = universities[:max(0, limit_universities)]
 
     if (limit_degrees is not None or degree_title_filter) and isinstance(titulaciones_por_univ, dict):
-        from phase_common import matches_degree_title
+        from pipelines.common import matches_degree_title
         limited_catalog = {}
         for u_code, u_data in titulaciones_por_univ.items():
             if isinstance(u_data, dict):

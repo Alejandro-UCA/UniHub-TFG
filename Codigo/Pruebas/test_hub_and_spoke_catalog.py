@@ -7,8 +7,8 @@ from bs4 import BeautifulSoup
 import sys
 
 sys.path.append('d:/Proyecto/Codigo/Crawler')
-import fase1_parte2_web_crawler as part2
-from univ_web_crawler import UniversityWebCrawler
+import pipelines.parte2_web_crawler as part2
+from pipelines.parte2_web_crawler import UniversityWebCrawler
 
 class TestHubAndSpokeCatalog(unittest.TestCase):
     def setUp(self):
@@ -111,8 +111,8 @@ class TestHubAndSpokeCatalog(unittest.TestCase):
             plan_path = os.path.join(temp_dir, "degree.json")
             with open(plan_path, "w", encoding="utf-8") as handle:
                 json.dump({**degree, "web_fuente_directa_url": source_url}, handle)
-            with patch("fase1_parte2_web_crawler.find_plan_filepath", return_value=plan_path), \
-                 patch("fase1_parte2_web_crawler.is_html_page_matching_degree", return_value=True):
+            with patch("pipelines.parte2_web_crawler.find_plan_filepath", return_value=plan_path), \
+                 patch("pipelines.parte2_web_crawler.is_html_page_matching_degree", return_value=True):
                 self.crawler._crawl_university_degrees(
                     downloader,
                     "999",
@@ -151,9 +151,9 @@ class TestHubAndSpokeCatalog(unittest.TestCase):
             plan_path = os.path.join(temp_dir, "degree.json")
             with open(plan_path, "w", encoding="utf-8") as handle:
                 json.dump({**degree, "web_fuente_directa_url": source_url}, handle)
-            with patch("fase1_parte2_web_crawler.find_plan_filepath", return_value=plan_path), \
-                 patch("fase1_parte2_web_crawler.is_html_page_matching_degree", return_value=True), \
-                 patch("spa_crawler.SPALayoutCrawler.get_shared_instance", return_value=spa_instance):
+            with patch("pipelines.parte2_web_crawler.find_plan_filepath", return_value=plan_path), \
+                 patch("pipelines.parte2_web_crawler.is_html_page_matching_degree", return_value=True), \
+                 patch("parsers.spa_engine.SPALayoutCrawler.get_shared_instance", return_value=spa_instance):
                 self.crawler._crawl_university_degrees(
                     downloader,
                     "999",
@@ -232,7 +232,7 @@ class TestHubAndSpokeCatalog(unittest.TestCase):
             """,
             "html.parser",
         )
-        from fase1_parte2_web_crawler import extract_html_subjects
+        from pipelines.parte2_web_crawler import extract_html_subjects
 
         elements = extract_html_subjects(soup, "https://www.example.edu/plan")
         self.assertEqual(len(elements), 1)

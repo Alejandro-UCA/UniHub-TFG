@@ -4,10 +4,10 @@ import unittest
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "Crawler"))
 
-from curriculum_validator import get_curriculum_completeness_status
-from data_quality import assess_plan_quality
-from ruct_xls_parser import classify_registry_entity
-from subject_guide_quality import assess_subject_guide_quality
+from quality.curriculum_validator import get_curriculum_completeness_status
+from quality.data_quality import assess_plan_quality
+from parsers.ruct_catalog import classify_registry_entity
+from quality.subject_guide_quality import assess_subject_guide_quality
 
 
 class AuditHardeningTests(unittest.TestCase):

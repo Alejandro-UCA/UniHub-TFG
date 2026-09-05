@@ -32,7 +32,7 @@ class TestPhase1Crawler(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         sys.path.insert(0, CRAWLER_DIR)
-        cls.crawler_config = load_module_from_path("crawler_config", os.path.join(CRAWLER_DIR, "config.py"))
+        cls.crawler_config = load_module_from_path("crawler_config", os.path.join(CRAWLER_DIR, "core", "config.py"))
 
     def test_01_crawler_config_and_constants(self):
         cfg = self.crawler_config
@@ -43,7 +43,7 @@ class TestPhase1Crawler(unittest.TestCase):
         self.assertIn("UniHubCrawler", cfg.USER_AGENT)
 
     def test_02_url_normalization(self):
-        from downloader import normalize_url
+        from core.downloader import normalize_url
         test_cases = [
             ("http://https://www.uca.es", "https://www.uca.es"),
             ("https://http://www.uca.es", "http://www.uca.es"),
@@ -74,7 +74,7 @@ class TestPhase1Crawler(unittest.TestCase):
         self.assertEqual(extracted.get("Créditos Totales"), 240)
 
     def test_04_sqlite_wal_checkpoint(self):
-        from checkpoint import CheckpointManager
+        from core.checkpoint import CheckpointManager
         test_db = os.path.join(CRAWLER_DIR, "test_verify_checkpoint.db")
         if os.path.exists(test_db):
             os.remove(test_db)
@@ -99,7 +99,7 @@ class TestPhase1Crawler(unittest.TestCase):
                 pass
 
     def test_05_precios_official_formula(self):
-        from precios_crawler import compute_degree_price
+        from pipelines.parte3_precios import compute_degree_price
         res = compute_degree_price(
             ccaa="Comunidad de Andalucía",
             tipo_univ="Pública",

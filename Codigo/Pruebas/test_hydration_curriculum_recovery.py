@@ -5,11 +5,11 @@ import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
 
 from bs4 import BeautifulSoup
-from curriculum_recovery import (
+from extractors.curriculum_recovery import (
     extract_hydration_payload,
     extract_curriculum_from_json_tree,
 )
-from fase1_parte2_web_crawler import extract_html_subjects
+from pipelines.parte2_web_crawler import extract_html_subjects
 
 
 class TestHydrationCurriculumRecovery(unittest.TestCase):

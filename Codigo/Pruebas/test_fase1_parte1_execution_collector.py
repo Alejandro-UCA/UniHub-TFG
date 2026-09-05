@@ -19,13 +19,13 @@ CRAWLER_DIR = os.path.join(BASE_DIR, "Crawler")
 if CRAWLER_DIR not in sys.path:
     sys.path.insert(0, CRAWLER_DIR)
 
-import config
-import checkpoint as checkpoint_module
-import error_logger
-import metrics as metrics_module
-import fase1_parte1_ruct_boe as parte1
-from metrics import MetricsTracker
-from progress_emitter import ProgressEmitter
+from core import config
+import core.checkpoint as checkpoint_module
+from core import error_logger
+import core.metrics as metrics_module
+import pipelines.parte1_ruct_boe as parte1
+from core.metrics import MetricsTracker
+from core.progress import ProgressEmitter
 
 
 class TestFase1Parte1ExecutionCollector(unittest.TestCase):

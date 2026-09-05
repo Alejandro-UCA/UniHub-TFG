@@ -9,13 +9,13 @@ import urllib
 import urllib.parse
 from bs4 import BeautifulSoup
 
-from config import (
+from core.config import (
     DEFAULT_SUBJECT_ECTS,
     HEADER_KEYWORDS,
     INVALID_METADATA_LABELS,
     INVALID_SUBJECT_KEYWORDS,
 )
-from sanitizers import (
+from utils.sanitizers import (
     classify_subject_caracter,
     curriculum_element_key,
     detect_academic_language,
@@ -29,7 +29,7 @@ from sanitizers import (
 )
 
 from utils.text_utils import normalize_unicode_text as normalize_text
-from curriculum_recovery import (
+from extractors.curriculum_recovery import (
     discover_linked_curriculum_documents,
     discover_linked_curriculum_pages,
     discover_related_academic_origins,
@@ -47,7 +47,7 @@ from parsers.schema_org import extract_schema_org_curriculum
 try:
     from quality.curriculum_validator import infer_missing_courses_in_curriculum
 except ImportError:
-    from curriculum_validator import infer_missing_courses_in_curriculum
+    from quality.curriculum_validator import infer_missing_courses_in_curriculum
 
 logger = logging.getLogger(__name__)
 

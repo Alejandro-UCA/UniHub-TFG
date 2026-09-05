@@ -2,8 +2,8 @@ import unittest
 
 from bs4 import BeautifulSoup
 
-from boe_pdf_parser import extract_degree_core_keywords
-from fase1_parte2_web_crawler import is_html_page_matching_degree
+from parsers.boe_pdf import extract_degree_core_keywords
+from pipelines.parte2_web_crawler import is_html_page_matching_degree
 
 
 class MultilingualIdentityTests(unittest.TestCase):

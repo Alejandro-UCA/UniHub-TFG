@@ -14,7 +14,7 @@ from core.config import (
     SQLITE_CONNECT_TIMEOUT,
     NEGATIVE_CACHE_TTL_SECONDS,
 )
-from sqlite_recovery import is_sqlite_corruption, quarantine_corrupt_sqlite
+from utils.sqlite_recovery import is_sqlite_corruption, quarantine_corrupt_sqlite
 
 logger = logging.getLogger("CheckpointManager")
 DB_PATH = CACHE_DB_PATH

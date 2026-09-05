@@ -4,8 +4,8 @@ import time
 import threading
 import psutil
 from datetime import datetime
-from config import ESTADISTICAS_JSON
-from checkpoint import atomic_json_dump
+from core.config import ESTADISTICAS_JSON
+from core.checkpoint import atomic_json_dump
 
 class PerformanceTracker:
     """
@@ -16,8 +16,7 @@ class PerformanceTracker:
     _lock = threading.Lock()
 
     def __init__(self, filepath=None):
-        import config
-        self.filepath = filepath or config.ESTADISTICAS_JSON
+        self.filepath = filepath or ESTADISTICAS_JSON
         self.latest_filepath = None
         self.run_id = ""
         self.process = psutil.Process(os.getpid())

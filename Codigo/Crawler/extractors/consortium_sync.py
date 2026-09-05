@@ -10,13 +10,13 @@ from collections import defaultdict
 from datetime import datetime
 from typing import Any
 
-from checkpoint import atomic_json_dump, load_json_safe
+from core.checkpoint import atomic_json_dump, load_json_safe
 from core.config import PLANES_DIR
-from curriculum_validator import is_curriculum_complete
-from data_quality import apply_plan_quality, assess_plan_quality, source_record
-from downloader import normalize_url
+from quality.curriculum_validator import is_curriculum_complete
+from quality.data_quality import apply_plan_quality, assess_plan_quality, source_record
+from core.downloader import normalize_url
 from lexicon.academic_keywords import EUROPEAN_ALLIANCES_KEYWORDS
-from phase_common import iter_plan_files
+from pipelines.common import iter_plan_files
 from utils.text_utils import normalize_joint_title as _canonical_normalize_joint_title
 
 _PROPAGATION_VOLATILE_FIELDS = frozenset({

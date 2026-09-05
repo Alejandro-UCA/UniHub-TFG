@@ -5,7 +5,7 @@ from unittest.mock import MagicMock, patch
 
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
-import spa_crawler
+from parsers import spa_engine as spa_crawler
 
 
 class TestSpaRenderOptimizations(unittest.TestCase):

@@ -4,7 +4,7 @@ import unittest
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
 
-from precios_crawler import (
+from pipelines.parte3_precios import (
     compute_degree_price,
     is_public_university,
     apply_price_info_to_degree,

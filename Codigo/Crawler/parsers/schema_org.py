@@ -13,7 +13,7 @@ import re
 import urllib.parse
 from bs4 import BeautifulSoup
 
-from sanitizers import (
+from utils.sanitizers import (
     classify_subject_caracter,
     curriculum_element_key,
     detect_academic_language,

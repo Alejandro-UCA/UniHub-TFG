@@ -6,7 +6,7 @@ import unittest
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
 
-from parser_regression import evaluate_corpus
+from quality.parser_regression import evaluate_corpus
 
 
 class TestParserRegression(unittest.TestCase):

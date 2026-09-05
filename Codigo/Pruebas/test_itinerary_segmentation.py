@@ -4,7 +4,7 @@ import os
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
 
-from curriculum_validator import (
+from quality.curriculum_validator import (
     detect_curriculum_itineraries,
     get_curriculum_completeness_status,
     is_curriculum_complete,

@@ -13,18 +13,18 @@ from bs4 import BeautifulSoup
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
 
 import main
-import config
-import downloader
+from core import config
+from core import downloader
 import parsers
-import checkpoint
-import error_logger
-import metrics
-import univ_web_crawler
-import fase1_parte2_web_crawler
-import spa_crawler
-import asignaturas_crawler
-import precios_crawler
-import runtime_capabilities
+from core import checkpoint
+from core import error_logger
+from core import metrics
+from pipelines import parte2_web_crawler as fase1_parte2_web_crawler
+from pipelines import parte2_web_crawler
+from parsers import spa_engine as spa_crawler
+from pipelines import parte4_asignaturas
+from pipelines import parte3_precios
+from core import capabilities
 
 
 class TestPhase1AuditV2Fixes(unittest.TestCase):

@@ -1,6 +1,6 @@
 import unittest
 
-from boe_pdf_parser import _extract_rows_from_positioned_lines
+from parsers.boe_pdf import _extract_rows_from_positioned_lines
 
 
 class BoeLegacyRowTests(unittest.TestCase):

@@ -8,7 +8,7 @@ import re
 import urllib.parse
 from bs4 import BeautifulSoup
 
-from sanitizers import (
+from utils.sanitizers import (
     classify_subject_caracter,
     curriculum_element_key,
     detect_academic_language,
@@ -18,7 +18,7 @@ from sanitizers import (
     sanitize_string_value,
     sanitize_subject_name,
 )
-from downloader import is_same_or_subdomain
+from core.downloader import is_same_or_subdomain
 from parsers.html_tables import extract_html_subjects
 
 logger = logging.getLogger(__name__)

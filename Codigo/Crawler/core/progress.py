@@ -4,13 +4,13 @@ import requests
 import threading
 import queue
 from datetime import datetime
-from config import (
+from core.config import (
     ADMIN_API_KEY,
     API_PROGRESS_URL,
     PROGRESS_JSON,
     PROGRESS_POST_TIMEOUT_SECONDS,
 )
-from checkpoint import atomic_json_dump
+from core.checkpoint import atomic_json_dump
 
 logger = logging.getLogger('ProgressEmitter')
 

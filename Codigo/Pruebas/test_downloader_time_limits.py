@@ -3,7 +3,7 @@ from unittest.mock import MagicMock, patch
 
 import requests
 
-from downloader import DegreeTimeoutException, HTTP2ResponseWrapper, HostCircuitOpenException, RUCTDownloader
+from core.downloader import DegreeTimeoutException, HTTP2ResponseWrapper, HostCircuitOpenException, RUCTDownloader
 
 
 class _FakeHTTPXResponse:

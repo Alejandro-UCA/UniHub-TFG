@@ -12,7 +12,7 @@ import json
 import os
 import sys
 
-from config import SQLITE_CONNECT_TIMEOUT
+from core.config import SQLITE_CONNECT_TIMEOUT
 from utils.sqlite_recovery import (
     inspect_sqlite_database,
     is_sqlite_corruption,

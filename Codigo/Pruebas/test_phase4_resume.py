@@ -9,8 +9,8 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler"))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
-import cancellation
-import fase1_parte4_asignaturas as phase4
+from core import cancellation
+import pipelines.parte4_asignaturas as phase4
 
 
 class Phase4ResumeTests(unittest.TestCase):

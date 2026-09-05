@@ -18,8 +18,8 @@ _CRAWLER_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Cr
 if _CRAWLER_DIR not in sys.path:
     sys.path.insert(0, _CRAWLER_DIR)
 
-from data_quality import assess_plan_quality
-from fase1_parte2_web_crawler import propagate_interuniversity_and_shared_boe_plans
+from quality.data_quality import assess_plan_quality
+from pipelines.parte2_web_crawler import propagate_interuniversity_and_shared_boe_plans
 
 
 def _digest(value) -> str:

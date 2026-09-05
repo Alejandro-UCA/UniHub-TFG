@@ -6,8 +6,8 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler"))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
-from downloader import RUCTDownloader, is_valid_http_url, normalize_url
-from fase1_parte4_asignaturas import resolve_candidate_subject_guide_urls
+from core.downloader import RUCTDownloader, is_valid_http_url, normalize_url
+from pipelines.parte4_asignaturas import resolve_candidate_subject_guide_urls
 
 
 class URLValidationTests(unittest.TestCase):

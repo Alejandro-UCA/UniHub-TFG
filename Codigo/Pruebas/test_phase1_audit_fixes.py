@@ -12,10 +12,10 @@ from parsers import (
     is_spurious_or_administrative_subject,
     unreverse_text
 )
-from asignaturas_crawler import SubjectGuideCache, resolve_candidate_subject_guide_urls
-from downloader import RUCTDownloader, normalize_url
-from fase1_parte2_web_crawler import normalize_url as parte2_normalize_url
-from fase1_parte2_web_crawler import is_valid_web_url
+from pipelines.parte4_asignaturas import SubjectGuideCache, resolve_candidate_subject_guide_urls
+from core.downloader import RUCTDownloader, normalize_url
+from pipelines.parte2_web_crawler import normalize_url as parte2_normalize_url
+from pipelines.parte2_web_crawler import is_valid_web_url
 
 
 class TestPhase1AuditFixes(unittest.TestCase):

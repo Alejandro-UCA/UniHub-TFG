@@ -5,7 +5,7 @@ import time
 from collections import defaultdict
 
 sys.path.append('d:/Proyecto/Codigo/Crawler')
-from univ_web_crawler import UniversityWebCrawler
+from pipelines.parte2_web_crawler import UniversityWebCrawler
 from parsers import is_curriculum_complete, compute_curriculum_total_ects, get_required_degree_credits
 
 PLANES_DIR = 'd:/Proyecto/Codigo/Crawler/Datos/planes_estudio'

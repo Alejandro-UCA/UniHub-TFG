@@ -8,15 +8,15 @@ from unittest.mock import patch
 CRAWLER_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler"))
 sys.path.insert(0, CRAWLER_DIR)
 
-import fase1_parte2_web_crawler as phase2
-import fase1_parte3_precios as phase3
-import fase1_parte4_asignaturas as phase4
-from fase1_parte2_web_crawler import (
+import pipelines.parte2_web_crawler as phase2
+import pipelines.parte3_precios as phase3
+import pipelines.parte4_asignaturas as phase4
+from pipelines.parte2_web_crawler import (
     are_degree_titles_compatible,
     is_authorized_external_academic_hub,
 )
-import spa_crawler
-from fase1_parte4_asignaturas import SubjectGuideCache
+from parsers import spa_engine
+from pipelines.parte4_asignaturas import SubjectGuideCache
 
 
 class TestPhasePersistenceResilience(unittest.TestCase):

@@ -2,7 +2,7 @@ import re
 import unicodedata
 from functools import lru_cache
 from bs4 import BeautifulSoup
-from config import (
+from core.config import (
     HEADER_KEYWORDS,
     INVALID_SUBJECT_KEYWORDS,
     INVALID_METADATA_LABELS,

@@ -1,6 +1,6 @@
 import unittest
 
-from web_source_recovery import (
+from extractors.web_source_recovery import (
     classify_source_failure,
     currentness_score,
     is_explicitly_historical,

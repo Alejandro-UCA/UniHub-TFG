@@ -20,7 +20,7 @@ from datetime import datetime, timezone
 from urllib.parse import urlparse, urlunparse
 from bs4 import BeautifulSoup
 
-from config import (
+from core.config import (
     MAX_RESPONSE_SIZE_BYTES,
     SUBJECT_GUIDE_DISCOVERY_MAX_FILES,
     SUBJECT_GUIDE_DISCOVERY_MAX_ROOTS,
@@ -29,8 +29,8 @@ from config import (
     SUBJECT_GUIDE_DISCOVERY_CACHE_TTL_SECONDS,
     SUBJECT_GUIDE_DISCOVERY_ENABLE_SPA,
 )
-from checkpoint import atomic_json_dump
-from downloader import is_same_or_subdomain, normalize_url
+from core.checkpoint import atomic_json_dump
+from core.downloader import is_same_or_subdomain, normalize_url
 
 logger = logging.getLogger(__name__)
 
@@ -647,7 +647,7 @@ def build_subject_guide_discovery_index(
             if not hub_records and SUBJECT_GUIDE_DISCOVERY_ENABLE_SPA:
                 spa_attempts += 1
                 try:
-                    from spa_crawler import SPALayoutCrawler
+                    from parsers.spa_engine import SPALayoutCrawler
                     rendered = SPALayoutCrawler.get_shared_instance().render_spa_page(hub_url)
                     rendered_html = str(rendered or "")
                     if rendered_html and len(rendered_html.encode("utf-8")) <= MAX_RESPONSE_SIZE_BYTES:

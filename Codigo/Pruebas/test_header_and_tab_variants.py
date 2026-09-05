@@ -4,8 +4,8 @@ import sys
 import os
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'Crawler')))
-from univ_web_crawler import extract_html_subjects, is_valid_curricular_table
-from config import ACADEMIC_SUBPAGE_KEYWORDS, INVALID_METADATA_LABELS
+from pipelines.parte2_web_crawler import extract_html_subjects, is_valid_curricular_table
+from core.config import ACADEMIC_SUBPAGE_KEYWORDS, INVALID_METADATA_LABELS
 
 
 

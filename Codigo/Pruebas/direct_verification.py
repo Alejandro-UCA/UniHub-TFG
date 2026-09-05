@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import urllib.request
 
 sys.path.append('d:/Proyecto/Codigo/Crawler')
-from univ_web_crawler import (
+from pipelines.parte2_web_crawler import (
     is_valid_curricular_table,
     extract_html_subjects,
     score_academic_candidate_url,

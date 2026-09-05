@@ -1,6 +1,6 @@
 import unittest
 
-from fase1_parte2_web_crawler import merge_persisted_discovery_evidence
+from pipelines.parte2_web_crawler import merge_persisted_discovery_evidence
 
 
 class PersistedDiscoveryEvidenceTests(unittest.TestCase):

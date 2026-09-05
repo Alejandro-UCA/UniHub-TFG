@@ -4,8 +4,8 @@ import unittest
 
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
-from downloader import RUCTDownloader, is_same_or_subdomain
-from fase1_parte2_web_crawler import is_same_or_subdomain as web_crawler_is_same_or_subdomain
+from core.downloader import RUCTDownloader, is_same_or_subdomain
+from pipelines.parte2_web_crawler import is_same_or_subdomain as web_crawler_is_same_or_subdomain
 
 
 class TestDownloaderDomainBoundaries(unittest.TestCase):

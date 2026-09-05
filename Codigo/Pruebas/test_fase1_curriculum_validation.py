@@ -330,7 +330,7 @@ class TestCurriculumCompletenessValidation(unittest.TestCase):
 
     def test_15_score_academic_candidate_url_priority(self):
         """Verifica que el ranking de URLs priorice catálogos de grados y degrade servicios/administración a la prioridad más baja."""
-        from univ_web_crawler import score_academic_candidate_url
+        from pipelines.parte2_web_crawler import score_academic_candidate_url
         
         # 1. Catálogo oficial de Grados -> Prioridad Máxima (100)
         score_catalogo = score_academic_candidate_url(
@@ -366,7 +366,7 @@ class TestCurriculumCompletenessValidation(unittest.TestCase):
     def test_16_anti_grade_table_filtering(self):
         """Verifica que las tablas de equivalencia de notas (Suspenso, Aprobado...) y formularios sean rechazadas."""
         from bs4 import BeautifulSoup
-        from univ_web_crawler import extract_html_subjects, is_valid_curricular_table
+        from pipelines.parte2_web_crawler import extract_html_subjects, is_valid_curricular_table
 
         # 1. Tabla de equivalencia de calificaciones (debe rechazarse)
         html_grade = """
@@ -425,7 +425,7 @@ class TestCurriculumCompletenessValidation(unittest.TestCase):
     def test_17_multilingual_url_and_table_support(self):
         """Verifica que el ranking semántico y la extracción de tablas reconozca Catalán, Gallego, Euskera e Inglés."""
         from bs4 import BeautifulSoup
-        from univ_web_crawler import score_academic_candidate_url, extract_html_subjects, is_valid_curricular_table
+        from pipelines.parte2_web_crawler import score_academic_candidate_url, extract_html_subjects, is_valid_curricular_table
 
         # 1. Priorización de URLs multilingües (Catalán, Gallego, Euskera, Inglés)
         score_ca = score_academic_candidate_url("https://www.uab.cat/web/graus-i-dobles-graus", "Graus i Dobles Graus", "Grado")

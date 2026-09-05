@@ -9,7 +9,7 @@ import collections
 from datetime import datetime
 import pdfplumber
 
-from config import (
+from core.config import (
     BOE_SCHEMA_CONCEPT_VOCABULARY,
     BOE_SPURIOUS_MARKERS,
     GRADO_STANDARD_ECTS,
@@ -89,7 +89,7 @@ _RE_DYNAMIC_COURSE_FIRST_NO_CHARACTER = re.compile(
     r"(?P<ects>\d+(?:[.,]\d+)?)\b(?:\s+.*)?$",
     re.IGNORECASE,
 )
-from sanitizers import (
+from utils.sanitizers import (
     unreverse_text,
     sanitize_subject_name,
     curriculum_element_key,
@@ -814,7 +814,7 @@ def _build_document_model(raw_pdf: bytes, original_input, pdf_sha256: str = "") 
     # OCR es una modalidad de lectura para documentos imagen, no una segunda
     # estrategia de extracción de asignaturas.
     try:
-        from ocr_parser import OCRPDFParser
+        from parsers.ocr import OCRPDFParser
         ocr_text = OCRPDFParser().extract_text_via_ocr(original_input)
         if len((ocr_text or "").strip()) >= 50:
             result = ([{"text": ocr_text, "lines": [line.strip() for line in ocr_text.splitlines() if line.strip()], "positioned_lines": [], "tables": []}], ocr_text)

@@ -7,8 +7,8 @@ from unittest.mock import patch
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
 
-import main_fase_1
-import run_manifest
+from pipelines import main
+from core import manifest
 
 
 class _Noop:
@@ -159,7 +159,7 @@ class TestPipelineManifest(unittest.TestCase):
         progress.set_failed.assert_not_called()
 
     def test_cancellation_finishes_manifest_with_resumable_status(self):
-        import cancellation
+        from core import cancellation
         cancellation.clear_shutdown()
         try:
             def cancel_part(_part, **_kwargs):

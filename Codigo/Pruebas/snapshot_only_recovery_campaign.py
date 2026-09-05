@@ -11,8 +11,8 @@ from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "Codigo" / "Crawler"))
-from boe_pdf_parser import parse_boe_pdf  # noqa: E402
-from fase1_parte2_web_crawler import extract_html_subjects  # noqa: E402
+from parsers.boe_pdf import parse_boe_pdf  # noqa: E402
+from pipelines.parte2_web_crawler import extract_html_subjects  # noqa: E402
 from in_memory_web_snapshot import InMemoryWebSnapshot, SnapshotMiss, assert_snapshot_only  # noqa: E402
 
 

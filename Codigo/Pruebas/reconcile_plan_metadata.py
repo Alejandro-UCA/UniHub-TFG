@@ -7,8 +7,8 @@ import hashlib
 import json
 from pathlib import Path
 
-from checkpoint import atomic_json_dump, load_json_safe
-from data_quality import assess_plan_quality, synchronize_plan_quality_metadata
+from core.checkpoint import atomic_json_dump, load_json_safe
+from quality.data_quality import assess_plan_quality, synchronize_plan_quality_metadata
 
 
 def _digest(value) -> str:

@@ -2,12 +2,12 @@ import os
 import sys
 import unittest
 
-from curriculum_validator import get_curriculum_completeness_status
+from quality.curriculum_validator import get_curriculum_completeness_status
 
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
 
-from data_quality import (
+from quality.data_quality import (
     QUALITY_NO_VERIFIED_DATA,
     QUALITY_PARTIAL,
     QUALITY_PENDING_REVIEW,

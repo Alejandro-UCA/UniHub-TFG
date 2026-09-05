@@ -24,13 +24,13 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "Codigo" / "Crawler"))
 sys.path.insert(0, str(ROOT / "Codigo" / "Pruebas"))
 
-from boe_pdf_parser import parse_boe_pdf  # noqa: E402
-from curriculum_recovery import infer_declared_total_ects  # noqa: E402
-from data_quality import apply_plan_quality, assess_plan_quality  # noqa: E402
-from degree_persistence import _stable_degree_snapshot_hash  # noqa: E402
-from payload_contract import validate_degree_payload  # noqa: E402
-from curriculum_validator import is_doctorate_program  # noqa: E402
-from fase1_parte2_web_crawler import (  # noqa: E402
+from parsers.boe_pdf import parse_boe_pdf  # noqa: E402
+from extractors.curriculum_recovery import infer_declared_total_ects  # noqa: E402
+from quality.data_quality import apply_plan_quality, assess_plan_quality  # noqa: E402
+from utils.degree_persistence import _stable_degree_snapshot_hash  # noqa: E402
+from quality.payload_contract import validate_degree_payload  # noqa: E402
+from quality.curriculum_validator import is_doctorate_program  # noqa: E402
+from pipelines.parte2_web_crawler import (  # noqa: E402
     build_html_curriculum_payload,
     extract_html_subjects,
     is_html_page_matching_degree,

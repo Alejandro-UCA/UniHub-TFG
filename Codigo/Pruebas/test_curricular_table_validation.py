@@ -4,7 +4,7 @@ import sys
 import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
-from univ_web_crawler import is_valid_curricular_table, extract_html_subjects
+from pipelines.parte2_web_crawler import is_valid_curricular_table, extract_html_subjects
 
 class TestCurricularTableValidation(unittest.TestCase):
     """

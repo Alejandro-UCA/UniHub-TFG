@@ -3,7 +3,7 @@
 import re
 from collections import defaultdict
 
-from config import (
+from core.config import (
     ESPECIALES_GRADO_ECTS,
     GRADO_STANDARD_ECTS,
     MASTER_MIN_ECTS,

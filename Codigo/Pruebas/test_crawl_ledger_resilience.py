@@ -7,8 +7,8 @@ from unittest.mock import patch
 
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
-import crawl_ledger as ledger_module
-from crawl_ledger import CrawlLedger
+import core.crawl_ledger as ledger_module
+from core.crawl_ledger import CrawlLedger
 
 
 class TestCrawlLedgerResilience(unittest.TestCase):

@@ -3,7 +3,7 @@ import unittest
 from pathlib import Path
 
 from bs4 import BeautifulSoup
-from fase1_parte2_web_crawler import extract_html_subjects
+from pipelines.parte2_web_crawler import extract_html_subjects
 
 
 class InternshipRowsTests(unittest.TestCase):

@@ -8,7 +8,7 @@ from pathlib import Path
 import time
 from urllib.parse import urlsplit
 
-from downloader import RUCTDownloader
+from core.downloader import RUCTDownloader
 from in_memory_web_snapshot import DiskWebSnapshot, SnapshotEntry
 
 ROOT = Path(__file__).resolve().parents[2]

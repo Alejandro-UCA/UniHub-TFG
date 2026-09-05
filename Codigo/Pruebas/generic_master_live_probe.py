@@ -16,21 +16,21 @@ CRAWLER = ROOT / "Codigo" / "Crawler"
 if str(CRAWLER) not in sys.path:
     sys.path.insert(0, str(CRAWLER))
 
-from checkpoint import load_json_safe
-from curriculum_recovery import (
+from core.checkpoint import load_json_safe
+from extractors.curriculum_recovery import (
     discover_related_academic_origins,
     generic_curriculum_path_candidates,
     matches_academic_level,
 )
-from data_quality import assess_plan_quality
-from fase1_parte2_web_crawler import (
+from quality.data_quality import assess_plan_quality
+from pipelines.parte2_web_crawler import (
     RUCTDownloader,
     ensure_https_url,
     extract_html_subjects,
     infer_declared_total_ects,
     is_html_page_matching_degree,
 )
-from robots_policy import RobotsPolicy
+from core.robots_policy import RobotsPolicy
 
 
 def _records(per_bucket: int) -> list[dict]:

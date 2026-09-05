@@ -7,8 +7,8 @@ import shutil
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
 
-from ruct_xls_parser import extract_participating_universities
-from fase1_parte2_web_crawler import (
+from parsers.ruct_catalog import extract_participating_universities
+from pipelines.parte2_web_crawler import (
     normalize_joint_title,
     propagate_interuniversity_and_shared_boe_plans,
 )

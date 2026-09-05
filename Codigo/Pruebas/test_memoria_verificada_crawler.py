@@ -4,7 +4,7 @@ import sys
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'Crawler')))
 
-from config import (
+from core.config import (
     MEMORIA_VERIFICADA_KEYWORDS,
     HUB_ACADEMIC_KEYWORDS,
     HUB_AND_SPOKE_MAX_HUBS,
@@ -12,7 +12,7 @@ from config import (
     HUB_AND_SPOKE_MAX_HOPS,
     WEB_SEARCH_SUBPAGES_LIMIT
 )
-from univ_web_crawler import score_academic_candidate_url
+from pipelines.parte2_web_crawler import score_academic_candidate_url
 
 
 class TestMemoriaVerificadaCrawler(unittest.TestCase):

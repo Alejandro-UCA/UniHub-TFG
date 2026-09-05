@@ -15,7 +15,7 @@ import logging
 from pathlib import Path
 from typing import Iterable, Sequence
 
-from config import (
+from core.config import (
     ADMIN_API_KEY,
     API_SYNC_TIMEOUT_SECONDS,
     API_SYNC_URL,
@@ -69,8 +69,8 @@ def resolve_target_universities(
     university_type: str | None = None,
 ) -> tuple[str, ...]:
     """Resuelve códigos, nombres y filtros de tipo hacia una tupla de códigos RUCT de 3 dígitos."""
-    from checkpoint import load_json_safe
-    from config import UNIVERSIDADES_JSON
+    from core.checkpoint import load_json_safe
+    from core.config import UNIVERSIDADES_JSON
 
     univ_list = universities_data
     if univ_list is None and os.path.exists(UNIVERSIDADES_JSON):

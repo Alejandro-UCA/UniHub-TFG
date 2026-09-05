@@ -13,7 +13,7 @@ from datetime import datetime, timezone
 _CRAWLER_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler"))
 if _CRAWLER_DIR not in sys.path:
     sys.path.insert(0, _CRAWLER_DIR)
-from data_quality import assess_plan_quality
+from quality.data_quality import assess_plan_quality
 
 
 TARGET_QUERIES = (

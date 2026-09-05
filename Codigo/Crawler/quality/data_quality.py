@@ -7,7 +7,7 @@ from copy import deepcopy
 from datetime import datetime, timezone
 from urllib.parse import urldefrag, urlsplit, urlunsplit
 
-from curriculum_validator import get_curriculum_completeness_status, is_doctorate_program
+from quality.curriculum_validator import get_curriculum_completeness_status, is_doctorate_program
 
 
 QUALITY_VERIFIED_BOE = "verificado_boe"

@@ -47,7 +47,7 @@ from core.config import (
     ROBOTS_POLICY_MAX_TIMEOUT,
 )
 from core.robots_policy import RobotsPolicy
-from web_source_recovery import is_trusted_institutional_redirect
+from extractors.web_source_recovery import is_trusted_institutional_redirect
 try:
     from core.crawl_ledger import CrawlLedger
 except Exception:

@@ -225,26 +225,22 @@ class TestModularArchitecture(unittest.TestCase):
         self.assertTrue(callable(run_all_phase1))
 
     def test_10_backwards_compatible_facades(self):
-        """Verifica que las fachadas históricas de la raíz de Crawler son 100% funcionales."""
-        import config
-        import sanitizers
-        import curriculum_validator
-        import boe_pdf_parser
-        import ruct_xls_parser
-        import data_quality
-        import downloader
-        import checkpoint
-        import fase1_parte2_web_crawler
+        """Verifica que la arquitectura modular y limpia en subpaquetes es 100% funcional."""
+        from core import config, checkpoint, downloader
+        from utils import sanitizers
+        from quality import curriculum_validator, data_quality
+        from parsers import boe_pdf, ruct_catalog
+        from pipelines import parte2_web_crawler
 
         self.assertTrue(hasattr(config, "DATA_DIR"))
         self.assertTrue(hasattr(sanitizers, "sanitize_subject_name"))
         self.assertTrue(hasattr(curriculum_validator, "get_required_degree_credits"))
-        self.assertTrue(hasattr(boe_pdf_parser, "parse_boe_pdf"))
-        self.assertTrue(hasattr(ruct_xls_parser, "parse_degrees_xls"))
+        self.assertTrue(hasattr(boe_pdf, "parse_boe_pdf"))
+        self.assertTrue(hasattr(ruct_catalog, "parse_degrees_xls"))
         self.assertTrue(hasattr(data_quality, "apply_plan_quality"))
         self.assertTrue(hasattr(downloader, "RUCTDownloader"))
         self.assertTrue(hasattr(checkpoint, "CheckpointManager"))
-        self.assertTrue(hasattr(fase1_parte2_web_crawler, "extract_html_subjects"))
+        self.assertTrue(hasattr(parte2_web_crawler, "extract_html_subjects"))
 
 
 if __name__ == "__main__":

@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
 
-from boe_pdf_parser import (
+from parsers.boe_pdf import (
     detect_curricular_table_header,
     _extract_rows_from_table,
     extract_credit_summary,
@@ -16,18 +16,18 @@ from boe_pdf_parser import (
     _RE_DYNAMIC_TIPO_FIRST,
     _RE_DYNAMIC_CRED_FIRST,
 )
-from sanitizers import extract_subjects_from_card_blocks, normalize_cuatrimestre, classify_subject_caracter
-from fase1_parte2_web_crawler import (
+from utils.sanitizers import extract_subjects_from_card_blocks, normalize_cuatrimestre, classify_subject_caracter
+from pipelines.parte2_web_crawler import (
     UniversityWebCrawler,
     extract_html_subjects,
     is_valid_curricular_table,
     _is_relevant_title_candidate,
     is_html_page_matching_degree,
 )
-from fase1_parte3_precios import compute_degree_price, classify_degree_experimental_tier
-from subject_guide_discovery import rank_discovered_guide_urls, _STRONG_GUIDE_MARKERS
-from curriculum_validator import get_required_degree_credits, get_curriculum_completeness_status
-from fase1_parte4_asignaturas import (
+from pipelines.parte3_precios import compute_degree_price, classify_degree_experimental_tier
+from extractors.subject_guides import rank_discovered_guide_urls, _STRONG_GUIDE_MARKERS
+from quality.curriculum_validator import get_required_degree_credits, get_curriculum_completeness_status
+from pipelines.parte4_asignaturas import (
     _normalize_evaluation_breakdown,
     parse_generic_eees_subject_guide,
     _subject_guide_identity_matches,
@@ -506,7 +506,7 @@ class TestPhase1PrecisionEnhancements(unittest.TestCase):
             with open(plan_path, "w", encoding="utf-8") as handle:
                 json.dump({"plan_estudios": None}, handle)
             with patch(
-                "fase1_parte2_web_crawler.find_plan_filepath",
+                "pipelines.parte2_web_crawler.find_plan_filepath",
                 return_value=plan_path,
             ):
                 stats = crawler._crawl_university_degrees(
@@ -579,7 +579,7 @@ class TestPhase1PrecisionEnhancements(unittest.TestCase):
                     handle,
                 )
             with patch(
-                "fase1_parte2_web_crawler.find_plan_filepath",
+                "pipelines.parte2_web_crawler.find_plan_filepath",
                 return_value=plan_path,
             ):
                 stats = crawler._crawl_university_degrees(

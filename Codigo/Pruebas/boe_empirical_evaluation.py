@@ -17,10 +17,10 @@ from collections.abc import Iterable
 
 from bs4 import BeautifulSoup
 
-from boe_pdf_parser import parse_boe_pdf
-from curriculum_validator import get_curriculum_completeness_status
-from downloader import RUCTDownloader
-from sanitizers import curriculum_element_key, is_spurious_or_administrative_subject, sanitize_subject_name
+from parsers.boe_pdf import parse_boe_pdf
+from quality.curriculum_validator import get_curriculum_completeness_status
+from core.downloader import RUCTDownloader
+from utils.sanitizers import curriculum_element_key, is_spurious_or_administrative_subject, sanitize_subject_name
 
 
 EMPIRICAL_BOE_CASES = (

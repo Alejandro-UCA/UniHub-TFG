@@ -10,7 +10,7 @@ from parsers import (
     compute_curriculum_total_ects,
     is_spurious_or_administrative_subject
 )
-from univ_web_crawler import is_same_or_subdomain, extract_html_subjects
+from pipelines.parte2_web_crawler import is_same_or_subdomain, extract_html_subjects
 
 class TestCardBlocksAndSubdomains(unittest.TestCase):
     

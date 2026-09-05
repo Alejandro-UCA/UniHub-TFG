@@ -7,7 +7,7 @@ from unittest.mock import patch
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
 
-from boe_pdf_parser import clean_curricular_elements, parse_boe_pdf, clear_document_model_cache
+from parsers.boe_pdf import clean_curricular_elements, parse_boe_pdf, clear_document_model_cache
 
 
 class _Table:

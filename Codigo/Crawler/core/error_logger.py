@@ -5,8 +5,8 @@ import threading
 import time
 import contextlib
 from datetime import datetime
-from config import ERRORES_JSON
-from checkpoint import atomic_json_dump
+from core.config import ERRORES_JSON
+from core.checkpoint import atomic_json_dump
 
 logger = logging.getLogger("crawler_error_logger")
 
@@ -14,8 +14,7 @@ class ErrorLogger:
     _lock = threading.Lock()
 
     def __init__(self, filepath=None):
-        import config
-        self.filepath = filepath or config.ERRORES_JSON
+        self.filepath = filepath or ERRORES_JSON
         self._last_mtime = 0.0
         self.errors = self._load_errors()
 

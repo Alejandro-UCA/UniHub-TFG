@@ -20,7 +20,7 @@ except RuntimeError:
 
 logger = logging.getLogger("fase1_parte1_ruct_boe")
 
-from config import (
+from core.config import (
     UNIVERSIDADES_JSON,
     TITULACIONES_JSON,
     ERRORES_JSON,
@@ -62,7 +62,7 @@ from config import (
     get_plan_filepath,
     find_plan_filepath
 )
-from downloader import (
+from core.downloader import (
     RUCTDownloader,
     RobotsDeniedException,
     SkipUniversityException,
@@ -77,19 +77,19 @@ from parsers import (
     get_curriculum_completeness_status,
     merge_chronological_boe_curricula
 )
-from checkpoint import (
+from core.checkpoint import (
     CheckpointManager,
     atomic_json_dump,
     load_json_safe
 )
-from error_logger import ErrorLogger
-from metrics import MetricsTracker
-from degree_persistence import save_degree_payload
-from progress_emitter import ProgressEmitter
-from phase_common import cleanup_temporary_files, format_ruct_url
-from cancellation import raise_if_shutdown_requested
-from crawl_ledger import CrawlLedger
-from boe_search_discovery import (
+from core.error_logger import ErrorLogger
+from core.metrics import MetricsTracker
+from utils.degree_persistence import save_degree_payload
+from core.progress import ProgressEmitter
+from pipelines.common import cleanup_temporary_files, format_ruct_url
+from core.cancellation import raise_if_shutdown_requested
+from core.crawl_ledger import CrawlLedger
+from extractors.boe_discovery import (
     needs_boe_curriculum_search,
     discover_boe_candidates,
     discover_boe_candidates_from_summary,
@@ -680,7 +680,7 @@ def run_phase1_part1(
 
                 degrees_to_process = list(reversed(active_degrees))
                 if degree_title_filter:
-                    from phase_common import matches_degree_title
+                    from pipelines.common import matches_degree_title
                     degrees_to_process = [d for d in degrees_to_process if matches_degree_title(d.get("titulo"), degree_title_filter)]
                 if limit_degrees is not None:
                     degrees_to_process = degrees_to_process[:max(0, limit_degrees)]

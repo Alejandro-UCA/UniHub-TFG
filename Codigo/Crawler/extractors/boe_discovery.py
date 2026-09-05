@@ -21,7 +21,7 @@ from urllib.parse import quote_plus, urljoin, urlparse
 
 from bs4 import BeautifulSoup
 
-from config import (
+from core.config import (
     BOE_SEARCH_DISCOVERY_ENABLED,
     BOE_SEARCH_DISCOVERY_MAX_DOCUMENTS,
     BOE_SEARCH_DISCOVERY_MAX_QUERIES,
@@ -32,7 +32,7 @@ from config import (
     BOE_SUMMARY_DISCOVERY_MAX_ITEMS,
     BOE_SUMMARY_DISCOVERY_DELAY,
 )
-from downloader import normalize_url
+from core.downloader import normalize_url
 
 logger = logging.getLogger(__name__)
 
@@ -47,7 +47,7 @@ def needs_boe_curriculum_search(candidates, existing_record) -> bool:
         return True
     if not isinstance(existing_record, dict) or not existing_record:
         return False
-    from data_quality import assess_plan_quality
+    from quality.data_quality import assess_plan_quality
     return not assess_plan_quality(existing_record, existing_record.get('origen_fuente')).get('publicable')
 
 BOE_SEARCH_URL = "https://www.boe.es/buscar/redirector.php"

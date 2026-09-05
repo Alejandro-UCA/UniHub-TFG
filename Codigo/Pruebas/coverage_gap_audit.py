@@ -6,7 +6,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'Codigo' / 'Crawler'))
-from data_quality import assess_plan_quality
+from quality.data_quality import assess_plan_quality
 from in_memory_web_snapshot import InMemoryWebSnapshot, SnapshotMiss
 
 DATA = ROOT / 'Codigo' / 'Crawler' / 'Datos'

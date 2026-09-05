@@ -11,7 +11,7 @@ from collections import OrderedDict
 from bs4 import BeautifulSoup
 import requests
 
-from config import (
+from core.config import (
     USER_AGENT,
     HTTP_TIMEOUT,
     SPA_ACCORDION_CLICK_DELAY,
@@ -25,7 +25,7 @@ from config import (
     SPA_RENDER_CACHE_TTL_SECONDS,
     SPA_RENDER_CACHE_MAX_BYTES,
 )
-from robots_policy import RobotsPolicy
+from core.robots_policy import RobotsPolicy
 
 logger = logging.getLogger("spa_crawler")
 
@@ -159,7 +159,7 @@ class SPALayoutCrawler:
                         "--no-zygote",
                     ],
                 }
-                from runtime_capabilities import find_browser_executable
+                from core.capabilities import find_browser_executable
                 executable_path = find_browser_executable()
                 if executable_path:
                     launch_options["executable_path"] = executable_path

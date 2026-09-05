@@ -13,14 +13,14 @@ import os
 from datetime import datetime, timezone
 from typing import Any
 
-from checkpoint import atomic_json_dump
-from config import (
+from core.checkpoint import atomic_json_dump
+from core.config import (
     DEGREE_HISTORY_DIR,
     DEGREE_HISTORY_ENABLED,
     get_plan_filepath,
 )
-from data_quality import apply_plan_quality, source_record
-from payload_contract import validate_degree_payload
+from quality.data_quality import apply_plan_quality, source_record
+from quality.payload_contract import validate_degree_payload
 from utils.text_utils import detect_academic_language
 
 logger = logging.getLogger(__name__)

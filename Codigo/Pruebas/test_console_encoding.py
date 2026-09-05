@@ -7,7 +7,7 @@ ROOT = r"D:\Proyecto\Codigo\Crawler"
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
-from console_encoding import configure_console_encoding
+from utils.console_encoding import configure_console_encoding
 
 
 class ConsoleEncodingTests(unittest.TestCase):

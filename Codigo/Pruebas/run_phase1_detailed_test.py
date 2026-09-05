@@ -7,17 +7,17 @@ from datetime import datetime
 
 sys.path.insert(0, r"d:\Proyecto\Codigo\Crawler")
 
-from config import (
+from core.config import (
     UNIVERSIDADES_JSON, TITULACIONES_JSON, PLANES_DIR,
     TEMP_PDF_DIR, URL_ESTUDIOS_UNIV_TEMPLATE, URL_DETALLE_ESTUDIO_TEMPLATE
 )
-from downloader import RUCTDownloader, SkipUniversityException
-from error_logger import ErrorLogger
-from checkpoint import CheckpointManager, atomic_json_dump
-from metrics import PerformanceTracker
+from core.downloader import RUCTDownloader, SkipUniversityException
+from core.error_logger import ErrorLogger
+from core.checkpoint import CheckpointManager, atomic_json_dump
+from core.metrics import PerformanceTracker
 from parsers import parse_degrees_xls, parse_degree_detail_html, parse_boe_pdf
-from univ_web_crawler import UniversityWebCrawler
-from precios_crawler import run_phase1_part3
+from pipelines.parte2_web_crawler import UniversityWebCrawler
+from pipelines.parte3_precios import run_phase1_part3
 
 REPORT_MD = r"d:\Proyecto\Codigo\Pruebas\ResultadosPruebaFase1.md"
 REPORT_JSON = r"d:\Proyecto\Codigo\Pruebas\ResultadosPruebaFase1.json"

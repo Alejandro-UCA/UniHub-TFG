@@ -5,7 +5,7 @@ from __future__ import annotations
 from datetime import datetime, timezone
 import re
 import unicodedata
-from config import SUBJECT_GUIDE_QUALITY_WEIGHTS
+from core.config import SUBJECT_GUIDE_QUALITY_WEIGHTS
 
 
 def _non_empty(value) -> bool:

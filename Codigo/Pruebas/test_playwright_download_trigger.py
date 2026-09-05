@@ -4,7 +4,7 @@ import unittest
 from unittest.mock import MagicMock, patch
 
 sys.path.append('d:/Proyecto/Codigo/Crawler')
-from spa_crawler import RenderResult, SPALayoutCrawler
+from parsers.spa_engine import RenderResult, SPALayoutCrawler
 
 class TestPlaywrightDownloadTriggerPatternA(unittest.TestCase):
     def test_render_result_str_subclass_compatibility(self):

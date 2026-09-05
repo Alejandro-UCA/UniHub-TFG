@@ -17,12 +17,12 @@ CRAWLER = ROOT / "Codigo" / "Crawler"
 if str(CRAWLER) not in sys.path:
     sys.path.insert(0, str(CRAWLER))
 
-from checkpoint import load_json_safe
-from config import find_plan_filepath
-from curriculum_recovery import matches_academic_level
-from data_quality import assess_plan_quality
-from fase1_parte2_web_crawler import UniversityWebCrawler
-from web_source_recovery import is_explicitly_historical
+from core.checkpoint import load_json_safe
+from core.config import find_plan_filepath
+from extractors.curriculum_recovery import matches_academic_level
+from quality.data_quality import assess_plan_quality
+from pipelines.parte2_web_crawler import UniversityWebCrawler
+from extractors.web_source_recovery import is_explicitly_historical
 
 
 def _digest(value) -> str:

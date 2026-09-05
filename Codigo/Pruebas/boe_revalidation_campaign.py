@@ -14,9 +14,9 @@ CRAWLER_DIR = BASE_DIR / "Codigo" / "Crawler"
 if str(CRAWLER_DIR) not in sys.path:
     sys.path.insert(0, str(CRAWLER_DIR))
 
-from config import PLANES_DIR, find_plan_filepath  # noqa: E402
-from fase1_parte1_ruct_boe import run_phase1_part1  # noqa: E402
-from data_quality import assess_plan_quality  # noqa: E402
+from core.config import PLANES_DIR, find_plan_filepath  # noqa: E402
+from pipelines.parte1_ruct_boe import run_phase1_part1  # noqa: E402
+from quality.data_quality import assess_plan_quality  # noqa: E402
 
 
 def _digest(value) -> str:

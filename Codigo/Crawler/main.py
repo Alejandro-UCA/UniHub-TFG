@@ -1,20 +1,23 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Fachada de Compatibilidad hacia Atrás para el Punto de Entrada del Crawler.
-Delega en el nuevo orquestador global 'main_fase_1.py' y los controladores de parte especializados.
-"""
+"""Punto de entrada principal para el rastreador / crawler de UniHub (Fase 1)."""
 
-from main_fase_1 import (
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+
+# Asegurar que el directorio raíz del crawler esté en sys.path
+_crawler_root = str(Path(__file__).resolve().parent)
+if _crawler_root not in sys.path:
+    sys.path.insert(0, _crawler_root)
+
+from pipelines.main import (
     main,
     run_all_phase1,
     run_crawler,
     run_phase1,
 )
-from fase1_parte1_ruct_boe import (
-    pdf_parser_consumer,
-    run_phase1_part1
-)
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

@@ -19,7 +19,7 @@ CRAWLER_DIR = os.path.join(BASE_DIR, "Crawler")
 if CRAWLER_DIR not in sys.path:
     sys.path.insert(0, CRAWLER_DIR)
 
-from config import (
+from core.config import (
     PLANES_DIR,
     TEMP_PDF_DIR,
     UNIVERSIDADES_JSON,
@@ -29,10 +29,10 @@ from config import (
     ERRORES_JSON,
     find_plan_filepath,
 )
-from fase1_parte1_ruct_boe import run_phase1_part1, cleanup_temporary_files
-from metrics import PerformanceTracker
+from pipelines.parte1_ruct_boe import run_phase1_part1, cleanup_temporary_files
+from core.metrics import PerformanceTracker
 from parsers import get_curriculum_completeness_status
-from progress_emitter import ProgressEmitter
+from core.progress import ProgressEmitter
 
 
 def execute_real_phase1_part1(limit_universities=2, limit_degrees=3, max_workers=2, force=True):

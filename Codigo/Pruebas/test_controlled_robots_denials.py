@@ -9,9 +9,9 @@ from unittest.mock import patch
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
 
-from downloader import RobotsDeniedException, RUCTDownloader
-from error_logger import ErrorLogger
-from metrics import MetricsTracker
+from core.downloader import RobotsDeniedException, RUCTDownloader
+from core.error_logger import ErrorLogger
+from core.metrics import MetricsTracker
 
 
 class TestControlledRobotsDenials(unittest.TestCase):

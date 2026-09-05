@@ -7,9 +7,9 @@ import json
 from collections import defaultdict
 from pathlib import Path
 
-from data_quality import assess_plan_quality
-from fase1_parte2_web_crawler import UniversityWebCrawler
-from robots_policy import RobotsPolicy
+from quality.data_quality import assess_plan_quality
+from pipelines.parte2_web_crawler import UniversityWebCrawler
+from core.robots_policy import RobotsPolicy
 
 
 def _snapshot(path: Path) -> dict:

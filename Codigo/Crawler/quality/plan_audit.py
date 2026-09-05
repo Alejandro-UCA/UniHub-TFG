@@ -6,7 +6,7 @@ import json
 import os
 from collections import Counter
 
-from phase_common import iter_plan_files
+from pipelines.common import iter_plan_files
 
 
 REQUIRED_IDENTITY_FIELDS = (

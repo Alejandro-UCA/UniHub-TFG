@@ -10,8 +10,8 @@ CRAWLER_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Cra
 if CRAWLER_DIR not in sys.path:
     sys.path.insert(0, CRAWLER_DIR)
 
-from plan_quality_audit import audit_plan_records
-from fase1_parte4_asignaturas import (
+from quality.plan_audit import audit_plan_records
+from pipelines.parte4_asignaturas import (
     resolve_candidate_subject_guide_urls,
     is_plausible_subject_code,
     _enrich_structured_learning_guide_from_lines,
@@ -20,18 +20,18 @@ from fase1_parte4_asignaturas import (
     _looks_like_signed_learning_guide,
     _subject_guide_identity_matches,
 )
-from subject_guide_discovery import (
+from extractors.subject_guides import (
     build_subject_guide_discovery_index,
     derive_subject_guide_urls_from_routes,
     extract_academic_link_records,
     parse_sitemap_locations,
     rank_discovered_guide_urls,
 )
-from subject_guide_quality import assess_subject_guide_quality
-from univ_web_crawler import extract_html_subjects, is_valid_curricular_table
-from config import ORGANIC_EXTERNAL_DOMAIN_DENYLIST
+from quality.subject_guide_quality import assess_subject_guide_quality
+from pipelines.parte2_web_crawler import extract_html_subjects, is_valid_curricular_table
+from core.config import ORGANIC_EXTERNAL_DOMAIN_DENYLIST
 from bs4 import BeautifulSoup
-import fase1_parte4_asignaturas as phase4
+import pipelines.parte4_asignaturas as phase4
 
 
 class TestUcaCoverageAndProfiles(unittest.TestCase):
@@ -121,7 +121,7 @@ class TestUcaCoverageAndProfiles(unittest.TestCase):
         rendered = type("Rendered", (str,), {})(
             "<html><body><a href='/guias/algebra-123456.pdf'>Guía docente Álgebra</a></body></html>"
         )
-        with patch("spa_crawler.SPALayoutCrawler.get_shared_instance") as get_instance:
+        with patch("parsers.spa_engine.SPALayoutCrawler.get_shared_instance") as get_instance:
             get_instance.return_value.render_spa_page.return_value = rendered
             result = build_subject_guide_discovery_index(
                 _Downloader(), "https://spa-test.example", max_roots=1, max_files=18, max_urls=10
@@ -167,12 +167,12 @@ class TestUcaCoverageAndProfiles(unittest.TestCase):
             def extract_text_via_ocr(self, _payload):
                 return "Nombre: Álgebra Lineal\nCódigo: 123456\nCONTENIDOS\nTema 1. Vectores"
 
-        import ocr_parser
+        from parsers import ocr
         with patch.object(phase4.pypdf, "PdfReader", _Reader), \
                 patch.object(phase4, "SUBJECT_GUIDE_PDF_OCR_ENABLED", True), \
                 patch.object(phase4, "SUBJECT_GUIDE_PDF_OCR_MIN_TEXT_CHARS", 20), \
-                patch.object(ocr_parser, "OCR_AVAILABLE", True), \
-                patch.object(ocr_parser, "OCRPDFParser", _OCR):
+                patch.object(ocr, "OCR_AVAILABLE", True), \
+                patch.object(ocr, "OCRPDFParser", _OCR):
             result = phase4.parse_subject_guide_pdf_stream(b"%PDF-test", "https://uni.example/guia.pdf")
         self.assertTrue(result["ocr_usado"])
         self.assertEqual(result["metodo_extraccion"], "ocr")

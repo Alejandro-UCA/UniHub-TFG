@@ -12,9 +12,9 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..",
 
 from bs4 import BeautifulSoup
 import pypdf
-import fase1_parte4_asignaturas as phase4
+import pipelines.parte4_asignaturas as phase4
 
-from asignaturas_crawler import (
+from pipelines.parte4_asignaturas import (
     parse_tabular_subject_guide,
     parse_generic_eees_subject_guide,
     parse_subject_guide,
@@ -534,7 +534,7 @@ class TestSubjectGuideCrawler(unittest.TestCase):
                     expired_cache.close()
 
     def test_normalize_evaluation_breakdown(self):
-        from fase1_parte4_asignaturas import _normalize_evaluation_breakdown
+        from pipelines.parte4_asignaturas import _normalize_evaluation_breakdown
         guide = {
             "sistema_evaluacion": [
                 {"tarea": "Examen final escrito", "instrumentos": "Prueba objetiva", "ponderacion_porcentaje": 60.0},
@@ -548,7 +548,7 @@ class TestSubjectGuideCrawler(unittest.TestCase):
         self.assertEqual(breakdown["evaluacion_continua_porcentaje"], 10.0)
 
     def test_infer_subject_guide_language(self):
-        from fase1_parte4_asignaturas import _infer_subject_guide_language
+        from pipelines.parte4_asignaturas import _infer_subject_guide_language
         ca_guide = {
             "nombre_asignatura": "Estructures de Dades i Algorismes",
             "temario": [{"titulo": "Pla docent i continguts de lassignatura", "contenidos": []}],

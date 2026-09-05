@@ -3,8 +3,8 @@ import os
 import json
 
 sys.path.append('d:/Proyecto/Codigo/Crawler')
-from univ_web_crawler import UniversityWebCrawler
-from downloader import RUCTDownloader
+from pipelines.parte2_web_crawler import UniversityWebCrawler
+from core.downloader import RUCTDownloader
 
 crawler = UniversityWebCrawler()
 

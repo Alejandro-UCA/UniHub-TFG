@@ -9,8 +9,8 @@ from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
-from curriculum_validator import get_curriculum_completeness_status
-from data_quality import assess_plan_quality
+from quality.curriculum_validator import get_curriculum_completeness_status
+from quality.data_quality import assess_plan_quality
 
 
 ROOT = Path(__file__).resolve().parents[2]

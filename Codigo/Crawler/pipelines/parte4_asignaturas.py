@@ -17,7 +17,7 @@ from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
 from bs4 import BeautifulSoup
 import pypdf
 
-from config import (
+from core.config import (
     PLANES_DIR,
     UNIVERSIDADES_JSON,
     USER_AGENT,
@@ -45,7 +45,7 @@ from config import (
     SUBJECT_GUIDE_PDF_OCR_DPI,
     SUBJECT_GUIDE_PDF_OCR_MIN_TEXT_CHARS,
 )
-from downloader import (
+from core.downloader import (
     RUCTDownloader,
     HostCircuitOpenException,
     SkipUniversityException,
@@ -53,21 +53,21 @@ from downloader import (
     is_valid_http_url,
     is_same_or_subdomain,
 )
-from checkpoint import atomic_json_dump, load_json_safe
-from data_quality import apply_plan_quality, assess_plan_quality
+from core.checkpoint import atomic_json_dump, load_json_safe
+from quality.data_quality import apply_plan_quality, assess_plan_quality
 from parsers import sanitize_subject_name, classify_subject_caracter, detect_academic_language
-from univ_web_crawler import is_spurious_or_administrative_subject
-from phase_common import iter_plan_files
-from curriculum_recovery import matches_academic_level
-from cancellation import CrawlerCancelled, raise_if_shutdown_requested, is_shutdown_requested
-from crawl_ledger import CrawlLedger
-from sqlite_recovery import is_sqlite_corruption, quarantine_corrupt_sqlite
-from subject_guide_discovery import (
+from pipelines.parte2_web_crawler import is_spurious_or_administrative_subject
+from pipelines.common import iter_plan_files
+from extractors.curriculum_recovery import matches_academic_level
+from core.cancellation import CrawlerCancelled, raise_if_shutdown_requested, is_shutdown_requested
+from core.crawl_ledger import CrawlLedger
+from utils.sqlite_recovery import is_sqlite_corruption, quarantine_corrupt_sqlite
+from extractors.subject_guides import (
     build_subject_guide_discovery_index,
     derive_subject_guide_urls_from_routes,
     rank_discovered_guide_urls,
 )
-from subject_guide_quality import annotate_subject_guide_quality, assess_subject_guide_quality
+from quality.subject_guide_quality import annotate_subject_guide_quality, assess_subject_guide_quality
 
 logger = logging.getLogger(__name__)
 
@@ -1749,7 +1749,7 @@ def parse_subject_guide_pdf_stream(pdf_bytes: bytes, url: str) -> dict:
             and time.perf_counter() - parse_started < max(0.1, SUBJECT_GUIDE_PDF_PARSE_TIMEOUT_SECONDS)
         ):
             try:
-                from ocr_parser import OCRPDFParser, OCR_AVAILABLE
+                from parsers.ocr import OCRPDFParser, OCR_AVAILABLE
                 if OCR_AVAILABLE:
                     ocr_text = OCRPDFParser(
                         dpi=max(72, SUBJECT_GUIDE_PDF_OCR_DPI),
@@ -2860,7 +2860,7 @@ def _process_single_university_guides(
                         enable_spa_fallback = os.getenv("CRAWLER_P4_ENABLE_SPA_FALLBACK", "1").strip().lower() not in {"0", "false", "no"}
                         if enable_spa_fallback and "application/pdf" not in c_type.lower() and (not identity_ok or not has_content):
                             try:
-                                from spa_crawler import SPALayoutCrawler
+                                from parsers.spa_engine import SPALayoutCrawler
                                 spa_result = SPALayoutCrawler.get_shared_instance().render_spa_page(c_url)
                                 if getattr(spa_result, "is_download", False) and getattr(spa_result, "content_bytes", b""):
                                     rendered_body = spa_result.content_bytes
@@ -3065,7 +3065,7 @@ def _process_university_guides_isolated(
         )
     finally:
         try:
-            from spa_crawler import SPALayoutCrawler
+            from parsers.spa_engine import SPALayoutCrawler
             SPALayoutCrawler.close_thread_instance()
         except Exception as close_error:
             logger.debug("No se pudo cerrar la instancia SPA de la universidad %s: %s", u_code, close_error)
@@ -3153,7 +3153,7 @@ def run_phase1_part4(
 
             u_code = data.get("universidad_codigo", "000")
             if degree_title_filter:
-                from phase_common import matches_degree_title
+                from pipelines.common import matches_degree_title
                 if not matches_degree_title(data.get("titulo"), degree_title_filter):
                     continue
             if degree_level_filter and not matches_academic_level(

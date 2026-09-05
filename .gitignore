@@ -35,6 +35,8 @@ Codigo/Crawler/Datos/logs/
 Codigo/Crawler/Datos/parser_corpus/
 Codigo/Crawler/Datos/sqlite_recovery/
 Codigo/Crawler/Datos/web_snapshots/
+Codigo/Crawler/Datos/seed_backups/
+Codigo/Crawler/Datos/backup/
 Codigo/Pruebas/reporte_*.json
 
 # Secretos y configuración local

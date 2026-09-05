@@ -74,15 +74,14 @@ El proyecto se estructura en cuatro subsistemas de ingeniería altamente desacop
 * Conexión a Internet para la descarga inicial de imágenes base oficiales.
 
 ### 1. Iniciar el Proyecto
-En Windows, simplemente haz doble clic en:
-`cmd
-iniciar_proyecto.bat
-`
-O de forma manual por terminal:
-`ash
+* **En Windows:** Haz doble clic en `iniciar_proyecto.bat`.
+* **En Linux / macOS:** Ejecuta en terminal `./iniciar_proyecto.sh` (o `bash iniciar_proyecto.sh`).
+
+O de forma directa y agnóstica por terminal con Docker Compose v2:
+```bash
 docker compose -f Codigo/Docker/docker-compose.yml up --build -d
-`
-El orquestador construirá las imágenes, iniciará los contenedores y esperará a que todos los healthchecks pasen a estado saludable (healthy).
+```
+El orquestador construirá las imágenes, iniciará los 4 contenedores (`unihub_db`, `unihub_api`, `unihub_www`, `unihub_crawler`) y verificará que todos los healthchecks pasen a estado saludable (`healthy`).
 
 ### 2. Acceso a los Servicios
 * 🌐 **Portal Web Frontend (Fase 3):** [http://localhost](http://localhost) (puerto 80)
@@ -92,8 +91,12 @@ El orquestador construirá las imágenes, iniciará los contenedores y esperará
 * 🩺 **Healthcheck de API y DB:** [http://localhost:8000/api/v1/salud](http://localhost:8000/api/v1/salud)
 
 ### 3. Detener o Limpiar el Proyecto
-* **Detener los contenedores:** Doble clic en detener_proyecto.bat (o docker compose down).
-* **Limpiar datos y cachés volátiles:** Doble clic en limpiar_datos.bat (garantiza la preservación inmutable de las 3 semillas maestras oficiales).
+* **Detener los contenedores:**
+  * Windows: `detener_proyecto.bat`
+  * Linux / macOS: `./detener_proyecto.sh` (o `docker compose -f Codigo/Docker/docker-compose.yml down`)
+* **Limpiar datos y cachés volátiles:**
+  * Windows: `limpiar_datos.bat`
+  * Linux / macOS: `./limpiar_datos.sh` (garantiza la preservación inmutable de las 3 semillas maestras oficiales)
 
 ---
 
@@ -130,8 +133,11 @@ El sistema incluye **38 suites completas de pruebas automatizadas** que abarcan 
 │   ├── main.tex              # Archivo maestro LaTeX con plantilla oficial ESI-UCA
 │   └── sections/             # Capítulos de Análisis, Requisitos, Diseño, Implementación, etc.
 ├── iniciar_proyecto.bat      # Script de arranque en un solo clic para Windows
-├── detener_proyecto.bat      # Script de apagado ordenado de contenedores
-└── limpiar_datos.bat         # Script de purga segura de cachés respetando semillas
+├── iniciar_proyecto.sh       # Script de arranque para Linux / macOS
+├── detener_proyecto.bat      # Script de apagado ordenado para Windows
+├── detener_proyecto.sh       # Script de apagado ordenado para Linux / macOS
+├── limpiar_datos.bat         # Script de purga segura de cachés para Windows
+└── limpiar_datos.sh          # Script de purga segura de cachés para Linux / macOS
 `
 
 ---

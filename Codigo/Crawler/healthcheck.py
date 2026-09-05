@@ -38,7 +38,16 @@ def main() -> int:
         return 0
 
     if status == "running":
-        max_running_age = float(os.getenv("CRAWLER_HEALTH_RUNNING_MAX_SECONDS", "21600"))
+        # Comprobar el latido en vivo (heartbeat) de progreso_en_vivo.json
+        progress_path = os.path.join(os.path.dirname(latest), "..", "progreso_en_vivo.json")
+        if os.path.exists(progress_path):
+            try:
+                if time.time() - os.path.getmtime(progress_path) <= 600:
+                    return 0
+            except OSError:
+                pass
+
+        max_running_age = float(os.getenv("CRAWLER_HEALTH_RUNNING_MAX_SECONDS", "86400"))
         if time.time() - os.path.getmtime(latest) <= max_running_age:
             return 0
 

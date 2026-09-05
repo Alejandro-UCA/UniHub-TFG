@@ -7,8 +7,7 @@ Este documento resume los procedimientos mínimos para ejecutar y auditar la Fas
 Desde `D:\Proyecto`, instalar las dependencias en un entorno aislado y ejecutar la batería completa:
 
 ```powershell
-$env:PYTHONPATH='D:\Proyecto\.testdeps'
-& 'C:\Users\aleja\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m unittest discover -s Codigo\Pruebas -p 'test*.py' -v
+.venv\Scripts\python.exe -m unittest discover -s Codigo\Pruebas -p "test*.py" -v
 ```
 
 La suite cubre parsers BOE/HTML/PDF, estrategias genéricas, persistencia, concurrencia, robots.txt, seguridad de la API, contrato de publicación y frontend.
@@ -16,7 +15,7 @@ La suite cubre parsers BOE/HTML/PDF, estrategias genéricas, persistencia, concu
 El diagnóstico de capacidades se puede consultar con:
 
 ```powershell
-& 'C:\Users\aleja\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' Codigo\Crawler\runtime_capabilities.py
+.venv\Scripts\python.exe Codigo\Crawler\core\capabilities.py
 ```
 
 La imagen Docker del crawler instala Chromium y Tesseract con idiomas
@@ -42,13 +41,13 @@ prioriza planes verificados y con asignaturas reales. Para asignaturas sin códi
 La caché SQLite es aceleradora; los JSON de planes son la referencia persistida del crawler. Antes de reparar una caché, detener las ejecuciones del crawler y realizar un diagnóstico de solo lectura:
 
 ```powershell
-& 'C:\Users\aleja\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' Codigo\Crawler\cache_recovery.py Codigo\Crawler\Datos\unihub_cache.sqlite3
+.venv\Scripts\python.exe Codigo\Crawler\utils\cache_recovery.py Codigo\Crawler\Datos\unihub_cache.sqlite3
 ```
 
 Si el diagnóstico confirma corrupción, la reparación conserva el fichero original y sus acompañantes WAL/SHM en una cuarentena recuperable, y crea una base nueva en la ruta original:
 
 ```powershell
-& 'C:\Users\aleja\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' Codigo\Crawler\cache_recovery.py Codigo\Crawler\Datos\unihub_cache.sqlite3 --repair
+.venv\Scripts\python.exe Codigo\Crawler\utils\cache_recovery.py Codigo\Crawler\Datos\unihub_cache.sqlite3 --repair
 ```
 
 No se debe borrar manualmente una caché corrupta ni sustituir un plan verificado por un candidato parcial. La persistencia aplica el mismo principio mediante el control de calidad y la cuarentena de candidatos.

@@ -1,0 +1,97 @@
+"""Subpaquete de motores de parsing independientes del Crawler UniHub."""
+
+from __future__ import annotations
+
+from config import (
+    SPANISH_STOP_WORDS,
+    UMBRELLA_BRANCH_WORDS,
+)
+from sanitizers import (
+    RE_MULTIPLE_SPACES,
+    classify_subject_caracter,
+    curriculum_element_key,
+    detect_academic_language,
+    extract_subjects_from_card_blocks,
+    is_spurious_or_administrative_subject,
+    is_valid_curricular_table,
+    normalize_cuatrimestre,
+    normalize_curso,
+    sanitize_string_value,
+    sanitize_subject_name,
+    unreverse_text,
+)
+from quality.curriculum_validator import (
+    compute_curriculum_total_ects,
+    get_curriculum_completeness_status,
+    get_required_degree_credits,
+    is_curriculum_complete,
+    is_doctorate_program,
+)
+from parsers.ruct_catalog import (
+    clean_excel_code,
+    extract_link_context_priority,
+    parse_degree_detail_html,
+    parse_degrees_xls,
+    parse_universities_xls,
+)
+from parsers.boe_pdf import (
+    RE_CREDIT_SUMMARY,
+    RE_DEGREE_SECTION_MARKERS,
+    RE_ECTS_NUMBER,
+    RE_HEADER_GARBAGE,
+    RE_PREAMBLE_REJECTION,
+    RE_SUMMARY_LABEL,
+    RE_TABLE_HEADER_NOISE,
+    _RE_DYNAMIC_CRED_FIRST,
+    _RE_DYNAMIC_TIPO_FIRST,
+    extract_degree_core_keywords,
+    is_section_matching,
+    merge_chronological_boe_curricula,
+    parse_boe_pdf,
+    parse_boe_text_curriculum_dynamic,
+    parse_header_schema,
+)
+from parsers.schema_org import extract_schema_org_curriculum
+
+__all__ = [
+    "extract_schema_org_curriculum",
+    "RE_CREDIT_SUMMARY",
+    "RE_DEGREE_SECTION_MARKERS",
+    "RE_ECTS_NUMBER",
+    "RE_HEADER_GARBAGE",
+    "RE_MULTIPLE_SPACES",
+    "RE_PREAMBLE_REJECTION",
+    "RE_SUMMARY_LABEL",
+    "RE_TABLE_HEADER_NOISE",
+    "SPANISH_STOP_WORDS",
+    "UMBRELLA_BRANCH_WORDS",
+    "_RE_DYNAMIC_CRED_FIRST",
+    "_RE_DYNAMIC_TIPO_FIRST",
+    "classify_subject_caracter",
+    "clean_excel_code",
+    "compute_curriculum_total_ects",
+    "curriculum_element_key",
+    "detect_academic_language",
+    "extract_degree_core_keywords",
+    "extract_link_context_priority",
+    "extract_subjects_from_card_blocks",
+    "get_curriculum_completeness_status",
+    "get_required_degree_credits",
+    "is_curriculum_complete",
+    "is_doctorate_program",
+    "is_section_matching",
+    "is_spurious_or_administrative_subject",
+    "is_valid_curricular_table",
+    "merge_chronological_boe_curricula",
+    "normalize_cuatrimestre",
+    "normalize_curso",
+    "parse_boe_pdf",
+    "parse_boe_text_curriculum_dynamic",
+    "parse_degree_detail_html",
+    "parse_degrees_xls",
+    "parse_header_schema",
+    "parse_universities_xls",
+    "sanitize_string_value",
+    "sanitize_subject_name",
+    "unreverse_text",
+]

@@ -13,6 +13,17 @@ class TestCurricularTableValidation(unittest.TestCase):
     2. Rechaza el 100% de las tablas administrativas, de cookies, DPO, convalidaciones y baremos.
     """
 
+    def test_rejects_legacy_current_plan_adaptation_table(self):
+        html = """
+        <table>
+            <tr><th>PLAN DE ESTUDIOS de la LICENCIATURA</th><th>Nuevo plan de estudios</th></tr>
+            <tr><td>Derecho Civil</td><td>12</td><td>FB</td></tr>
+            <tr><td>Derecho Penal</td><td>12</td><td>OB</td></tr>
+        </table>
+        """
+        soup = BeautifulSoup(html, "html.parser")
+        self.assertFalse(is_valid_curricular_table(soup.table))
+
     # --- CONTROLES POSITIVOS: Tablas auténticas de asignaturas ---
     def test_positive_spanish_uca(self):
         html = """
@@ -33,6 +44,33 @@ class TestCurricularTableValidation(unittest.TestCase):
         self.assertEqual(len(subjects), 4)
         self.assertEqual(subjects[0]["nombre_elemento"], "Fundamentos de Programación")
         self.assertEqual(subjects[0]["creditos_ects"], "6")
+
+    def test_positive_parallel_layout_without_explicit_headers(self):
+        html = """
+        <table>
+            <tr><td>PRIMER CURSO</td></tr>
+            <tr><td>Primer Semestre</td><td>Segundo Semestre</td></tr>
+            <tr><td>Álgebra Lineal</td><td>6</td><td>Cálculo</td><td>6</td></tr>
+            <tr><td>Programación</td><td>6</td><td>Física</td><td>6</td></tr>
+        </table>
+        """
+        soup = BeautifulSoup(html, "html.parser")
+        self.assertTrue(is_valid_curricular_table(soup.table))
+        subjects = extract_html_subjects(soup)
+        self.assertEqual(4, len(subjects))
+        self.assertEqual({"Álgebra Lineal", "Cálculo", "Programación", "Física"}, {item["nombre_elemento"] for item in subjects})
+
+    def test_recovers_subject_when_rows_prepend_an_identifier_not_in_header(self):
+        html = """
+        <table>
+            <tr><th>Asignatura</th><th>Tipo</th><th>Créditos</th></tr>
+            <tr><td>123456</td><td>Fundamentos de Programación</td><td>OB</td><td>6</td></tr>
+            <tr><td>123457</td><td>Sistemas Operativos</td><td>OB</td><td>6</td></tr>
+        </table>
+        """
+        soup = BeautifulSoup(html, "html.parser")
+        subjects = extract_html_subjects(soup)
+        self.assertEqual(["Fundamentos de Programación", "Sistemas Operativos"], [item["nombre_elemento"] for item in subjects])
 
     def test_positive_catalan_uab(self):
         html = """
@@ -185,6 +223,28 @@ class TestCurricularTableValidation(unittest.TestCase):
         soup = BeautifulSoup(html, "html.parser")
         subjects = extract_html_subjects(soup)
         self.assertEqual(len(subjects), 0, "No debe extraer filas de resumen modular de 60/172 ECTS como asignaturas individuales")
+
+    def test_negative_professor_and_pricing_tables_with_embedded_numbers(self):
+        """No debe confundir números de personal o tarifas con créditos ECTS."""
+        html = """
+        <table>
+          <tr><th>Profesor</th><th>Descripción</th><th>Perfil</th></tr>
+          <tr><td>Nombre Apellido</td><td>Doctor desde 2018, 12 años de experiencia</td><td>Ver perfil</td></tr>
+          <tr><td>Otra Persona</td><td>Coordinación académica</td><td>Ver perfil</td></tr>
+          <tr><td>Tercera Persona</td><td>Investigación y docencia</td><td>Ver perfil</td></tr>
+        </table>
+        <table>
+          <tr><th>Modalidad</th><th>Importe</th></tr>
+          <tr><td>Presencial</td><td>1.600,00 €</td></tr>
+          <tr><td>Precio total</td><td>8.000,00 €</td></tr>
+        </table>
+        """
+        soup = BeautifulSoup(html, "html.parser")
+        self.assertEqual(
+            [is_valid_curricular_table(table) for table in soup.find_all("table")],
+            [False, False],
+        )
+        self.assertEqual(extract_html_subjects(soup), [])
 
 if __name__ == "__main__":
     unittest.main()

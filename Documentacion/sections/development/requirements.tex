@@ -4,15 +4,18 @@ En este capítulo se presentan los objetivos del sistema y el catálogo completo
 El objetivo de negocio principal es ofrecer un portal público centralizado de enseñanza superior en España, facilitando la transparencia, la comparativa de planes de estudio BOE y el acceso a la oferta universitaria pública y privada.
 
 \section{Objetivos del Sistema}
-1. Automatizar la extracción periódica de universidades y titulaciones vigentes (Grados, Másteres y Doctorados).
-2. Homogenizar y almacenar relacionalmente los datos en PostgreSQL ordenando públicamente primero las universidades públicas y posteriormente las privadas.
-3. Exponer una API REST documentada en FastAPI con control de permisos y métricas físicas cgroup.
-4. Construir un portal web interactivo con estética corporativa de la Universidad de Cádiz (UCA), paginación configurable (5, 10, 20, 50, 100) y ocultación de códigos internos.
-5. Proporcionar un buscador por geolocalización (cercanía en km con distancia integrada directamente en tarjetas).
-6. Recolectar métricas de uso y clasificar las 6 universidades más visitadas en "Universidades Destacadas".
-7. Incorporar el apartado "Sobre Nosotros" (TFG Alejandro Ramos Rodríguez, UCA).
-8. Aislar el panel de control del Administrador de la Web tras la ruta manual \texttt{/admin}.
-9. Desplegar la infraestructura mediante contenedores Docker orquestados con persistencia garantizada.
+Para dar respuesta a los objetivos de negocio, el sistema establece los siguientes objetivos técnicos estructurados:
+\begin{enumerate}
+    \item Automatizar la extracción periódica de universidades y titulaciones vigentes (Grados, Másteres y Doctorados) desde fuentes oficiales (RUCT, BOE, SIIU y webs institucionales).
+    \item Homogeneizar y almacenar relacionalmente los datos en PostgreSQL ordenando prioritariamente primero las universidades públicas y posteriormente las privadas.
+    \item Exponer una API REST documentada en FastAPI con control de permisos por roles (\texttt{unihub\_api\_user} de solo lectura) y telemetría de recursos físicos cgroup.
+    \item Construir un portal web interactivo con estética corporativa de la Universidad de Cádiz (UCA), paginación configurable (5, 10, 20, 50, 100) y ocultación de códigos internos de gestión.
+    \item Proporcionar un buscador por geolocalización (cercanía en kilómetros mediante la fórmula de Haversine con distancia integrada directamente en las tarjetas de grado).
+    \item Recolectar métricas de uso y clasificar dinámicamente las 6 universidades más visitadas en la sección destacada de la portada.
+    \item Incorporar el apartado institucional ``Sobre Nosotros'' con la memoria y créditos del TFG (Alejandro Ramos Rodríguez, Universidad de Cádiz).
+    \item Aislar el panel de control del Administrador de la Web tras la ruta manual protegida \texttt{/admin}.
+    \item Desplegar la infraestructura completa mediante contenedores Docker orquestados con Docker Compose y persistencia garantizada en volúmenes dedicados.
+\end{enumerate}
 
 \section{Requisitos funcionales}
 \begin{itemize}

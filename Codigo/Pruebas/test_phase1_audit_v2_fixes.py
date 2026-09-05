@@ -6,7 +6,8 @@ import tempfile
 import unittest
 import threading
 import concurrent.futures
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
+from bs4 import BeautifulSoup
 
 # Agregar paths para importar modulos de Crawler
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
@@ -61,6 +62,250 @@ class TestPhase1AuditV2Fixes(unittest.TestCase):
             allowed, delay = crawler.check_robots_allowed("https://university.example")
         self.assertTrue(allowed)
         self.assertIsNone(delay)
+
+    def test_01d_part2_recovery_preserves_existing_pricing_metadata(self):
+        target = {
+            "precio_credito_ects": 21.5,
+            "precio_estimado_anual": 1290.0,
+        }
+        recovered = {"precio_credito_ects": 22.0}
+        catalog = {"precio_credito_2": 23.0}
+
+        fase1_parte2_web_crawler.merge_preserved_pricing(
+            target,
+            recovered=recovered,
+            catalog=catalog,
+        )
+
+        self.assertEqual(target["precio_credito_ects"], 22.0)
+        self.assertEqual(target["precio_credito_2"], 23.0)
+        self.assertEqual(target["precio_estimado_anual"], 1290.0)
+
+    def test_01e_shared_plan_propagation_refreshes_quality_and_source(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source_path = os.path.join(directory, "001", "source.json")
+            target_path = os.path.join(directory, "002", "target.json")
+            os.makedirs(os.path.dirname(source_path), exist_ok=True)
+            os.makedirs(os.path.dirname(target_path), exist_ok=True)
+            shared_plan = {
+                "resumen_creditos": {"Créditos Totales": "240"},
+                "elementos_curriculares": [
+                    {"nombre_elemento": f"Asignatura {index}", "creditos_ects": 6}
+                    for index in range(40)
+                ],
+            }
+            with open(source_path, "w", encoding="utf-8") as handle:
+                json.dump(
+                    {
+                        "codigo_estudio": "SOURCE",
+                        "titulo": "Grado en Datos",
+                        "nivel_academico": "Grado",
+                        "universidad_codigo": "001",
+                        "universidad_nombre": "Universidad Fuente",
+                        "boe_url": "https://www.boe.es/boe/dias/2024/01/01/pdfs/BOE-A-2024-1.pdf",
+                        "web_fuente_directa_url": "https://source.example/otro-programa",
+                        "origen_fuente": "boe",
+                        "estado_fuente": "verificada",
+                        "plan_estudios": shared_plan,
+                    },
+                    handle,
+                )
+            with open(target_path, "w", encoding="utf-8") as handle:
+                json.dump(
+                    {
+                        "codigo_estudio": "TARGET",
+                        "titulo": "Grado en Datos",
+                        "nivel_academico": "Grado",
+                        "universidad_codigo": "002",
+                        "universidad_nombre": "Universidad Destino",
+                        "boe_url": "https://www.boe.es/boe/dias/2024/01/01/pdfs/BOE-A-2024-1.pdf",
+                        "plan_estudios": None,
+                    },
+                    handle,
+                )
+
+            result = fase1_parte2_web_crawler.propagate_interuniversity_and_shared_boe_plans(directory)
+
+            with open(target_path, encoding="utf-8") as handle:
+                target = json.load(handle)
+            self.assertEqual(result["total_propagated"], 1)
+            self.assertTrue((target.get("calidad_datos") or {}).get("publicable"))
+            self.assertEqual(target.get("estado_fuente"), "verificada")
+            self.assertIsNone(target.get("web_fuente_directa_url"))
+            self.assertTrue(target.get("fuentes"))
+
+            target_mtime = os.stat(target_path).st_mtime_ns
+            time.sleep(0.01)
+            second_result = fase1_parte2_web_crawler.propagate_interuniversity_and_shared_boe_plans(directory)
+            self.assertEqual(second_result["total_propagated"], 0)
+            self.assertEqual(os.stat(target_path).st_mtime_ns, target_mtime)
+
+    def test_01e2_quality_reconciliation_keeps_partial_plan_data(self):
+        with tempfile.TemporaryDirectory() as directory:
+            plan_path = os.path.join(directory, "001", "PARTIAL.json")
+            os.makedirs(os.path.dirname(plan_path), exist_ok=True)
+            partial_plan = {
+                "resumen_creditos": {"Créditos Totales": "60"},
+                "elementos_curriculares": [
+                    {"nombre_elemento": f"Materia {index}", "creditos_ects": 6}
+                    for index in range(3)
+                ],
+            }
+            with open(plan_path, "w", encoding="utf-8") as handle:
+                json.dump(
+                    {
+                        "codigo_estudio": "PARTIAL",
+                        "titulo": "Máster en Datos",
+                        "nivel_academico": "Máster",
+                        "universidad_codigo": "001",
+                        "universidad_nombre": "Universidad de Prueba",
+                        "boe_url": "https://www.boe.es/boe/dias/2024/01/01/pdfs/BOE-A-2024-2.pdf",
+                        "origen_fuente": "boe",
+                        "estado_fuente": "verificada",
+                        "estado_calidad": "verificado_boe",
+                        "calidad_datos": {"publicable": True},
+                        "plan_estudios": partial_plan,
+                    },
+                    handle,
+                )
+
+            fase1_parte2_web_crawler.propagate_interuniversity_and_shared_boe_plans(directory)
+
+            with open(plan_path, encoding="utf-8") as handle:
+                after = json.load(handle)
+            self.assertIsInstance(after.get("plan_estudios"), dict)
+            self.assertFalse((after.get("calidad_datos") or {}).get("publicable"))
+            self.assertEqual(after.get("estado_fuente"), "candidata_no_publicable")
+            self.assertEqual(len(after["plan_estudios"]["elementos_curriculares"]), 3)
+
+    def test_01e3_incompatible_web_source_collision_is_quarantined(self):
+        with tempfile.TemporaryDirectory() as directory:
+            shared_url = "https://university.example/catalogo/plan"
+            for index, title in enumerate(("Máster en Datos", "Máster en Historia"), start=1):
+                path = os.path.join(directory, "001", f"RECORD{index}.json")
+                os.makedirs(os.path.dirname(path), exist_ok=True)
+                with open(path, "w", encoding="utf-8") as handle:
+                    json.dump(
+                        {
+                            "codigo_estudio": f"RECORD{index}",
+                            "titulo": title,
+                            "nivel_academico": "Máster",
+                            "universidad_codigo": "001",
+                            "universidad_nombre": "Universidad de Prueba",
+                            "web_fuente_directa_url": shared_url,
+                            "origen_fuente": "web_oficial_universidad",
+                            "plan_estudios": {
+                                "elementos_curriculares": [
+                                    {"nombre_elemento": "Materia", "creditos_ects": 6}
+                                ]
+                            },
+                        },
+                        handle,
+                    )
+
+            fase1_parte2_web_crawler.propagate_interuniversity_and_shared_boe_plans(directory)
+
+            for index in (1, 2):
+                path = os.path.join(directory, "001", f"RECORD{index}.json")
+                with open(path, encoding="utf-8") as handle:
+                    after = json.load(handle)
+                self.assertIsNone(after.get("web_fuente_directa_url"))
+                self.assertTrue(after.get("fuentes_rechazadas"))
+                self.assertIsInstance(after.get("plan_estudios"), dict)
+
+    def test_01f_part2_degree_limit_prioritizes_pending_records(self):
+        universities = [{"codigo": "001", "nombre": "Universidad de Prueba", "web": "https://uni.example"}]
+        degrees = [
+            {"codigo_estudio": "DONE", "titulo": "Grado Resuelto", "nivel_academico": "Grado"},
+            {"codigo_estudio": "PENDING", "titulo": "Grado Pendiente", "nivel_academico": "Grado"},
+        ]
+        with tempfile.TemporaryDirectory() as directory:
+            universities_path = os.path.join(directory, "universidades.json")
+            titles_path = os.path.join(directory, "titulaciones.json")
+            with open(universities_path, "w", encoding="utf-8") as handle:
+                json.dump(universities, handle)
+            with open(titles_path, "w", encoding="utf-8") as handle:
+                json.dump({"001": {"titulaciones_vigentes": degrees}}, handle)
+
+            fake_crawler = fase1_parte2_web_crawler.UniversityWebCrawler.__new__(
+                fase1_parte2_web_crawler.UniversityWebCrawler
+            )
+            fake_crawler.process_university_web = MagicMock(
+                return_value={
+                    "missing_degrees_count": 1,
+                    "resolved_degrees_count": 0,
+                    "robots_allowed": True,
+                }
+            )
+            fake_crawler.ledger = MagicMock()
+            fake_crawler.checkpoint = MagicMock()
+
+            with patch.object(fase1_parte2_web_crawler, "UNIVERSIDADES_JSON", universities_path), \
+                 patch.object(fase1_parte2_web_crawler, "TITULACIONES_JSON", titles_path), \
+                 patch.object(fase1_parte2_web_crawler, "UniversityWebCrawler", return_value=fake_crawler), \
+                 patch.object(fase1_parte2_web_crawler, "find_plan_filepath", side_effect=lambda _u, code: os.path.join(directory, f"{code}.json")), \
+                 patch.object(fase1_parte2_web_crawler, "needs_web_resolution", side_effect=lambda path, force=False: "PENDING" in path), \
+                 patch.object(fase1_parte2_web_crawler, "propagate_interuniversity_and_shared_boe_plans", return_value={"total_propagated": 0}):
+                result = fase1_parte2_web_crawler.run_phase1_part2(
+                    limit_universities=1,
+                    limit_degrees=1,
+                    max_workers=1,
+                )
+
+            self.assertEqual(result["status"], "completed")
+            passed_catalog = fake_crawler.process_university_web.call_args.args[1]
+            selected = passed_catalog["001"]["titulaciones_vigentes"]
+            self.assertEqual([item["codigo_estudio"] for item in selected], ["PENDING"])
+
+    def test_01g_hub_budget_scales_with_pending_cohort(self):
+        self.assertEqual(fase1_parte2_web_crawler.adaptive_hub_budget(0, 200), 0)
+        self.assertEqual(fase1_parte2_web_crawler.adaptive_hub_budget(1, 200), 1)
+        self.assertEqual(fase1_parte2_web_crawler.adaptive_hub_budget(20, 200), 11)
+        self.assertEqual(fase1_parte2_web_crawler.adaptive_hub_budget(200, 100), 100)
+
+    def test_http_protocol_fallback_preserves_host_and_path(self):
+        self.assertEqual(
+            fase1_parte2_web_crawler.http_protocol_fallback_url(
+                "https://legacy.example.edu/catalogo"
+            ),
+            "http://legacy.example.edu/catalogo",
+        )
+        self.assertEqual(
+            fase1_parte2_web_crawler.http_protocol_fallback_url("http://example.edu"),
+            "",
+        )
+
+    def test_curriculum_url_identity_requires_two_discriminative_terms(self):
+        unrelated = BeautifulSoup(
+            "<html><head><title>Global Law</title></head>"
+            "<body><h1>Global Law</h1><h2>Social Sciences and Law</h2></body></html>",
+            "html.parser",
+        )
+        self.assertFalse(
+            fase1_parte2_web_crawler.is_html_page_matching_degree(
+                unrelated,
+                "Máster Universitario en Antropología Social y Cultural por la "
+                "Universidad de Prueba; National University of Example",
+                "Universidad de Prueba",
+                "https://university.example/international/social-sciences-and-law/global-law",
+                allow_curriculum_url_identity=True,
+            )
+        )
+
+        matching = BeautifulSoup(
+            "<html><head><title>Ficha</title></head><body><h1>Ficha</h1></body></html>",
+            "html.parser",
+        )
+        self.assertTrue(
+            fase1_parte2_web_crawler.is_html_page_matching_degree(
+                matching,
+                "Máster Universitario en Antropología Social y Cultural por la "
+                "Universidad de Prueba; National University of Example",
+                "Universidad de Prueba",
+                "https://university.example/master-anthropology-social-cultural",
+                allow_curriculum_url_identity=True,
+            )
+        )
 
     def test_02_spa_crawler_re_import(self):
         """Verifica que spa_crawler tenga el modulo re disponible para sanitizar nombres de archivo."""

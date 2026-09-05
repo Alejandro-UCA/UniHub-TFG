@@ -1,5 +1,5 @@
 import unittest
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 import requests
 
@@ -41,6 +41,44 @@ class DownloaderTimeLimitTests(unittest.TestCase):
             wrapped = HTTP2ResponseWrapper(response, response.url, max_duration=60.0)
             with self.assertRaises(requests.Timeout):
                 list(wrapped.iter_content())
+
+    def test_courtesy_delay_cannot_outlive_degree_budget(self):
+        downloader = RUCTDownloader(respect_robots=False, enable_http2=False)
+        try:
+            downloader.set_degree_context("degree-budget-test")
+            downloader._degree_started_at = 0.0
+            with patch("downloader.WEB_DEGREE_TIMEOUT_SECONDS", 10.0), \
+                    patch("downloader.time.monotonic", return_value=9.5), \
+                    patch("downloader.time.sleep") as sleep:
+                with self.assertRaises(DegreeTimeoutException):
+                    downloader._sleep_with_degree_budget(30.0)
+            sleep.assert_called_once_with(0.5)
+        finally:
+            downloader.close()
+
+    def test_variant_failure_closes_the_original_ledger_attempt(self):
+        ledger = MagicMock()
+        downloader = RUCTDownloader(
+            delay=0,
+            max_retries=1,
+            respect_robots=False,
+            enable_http2=False,
+            ledger=ledger,
+        )
+        response = requests.Response()
+        response.status_code = 404
+        response.url = "https://example.test/plan"
+        response.headers = {}
+        response._content = b"not found"
+        try:
+            with patch.object(downloader.session, "get", return_value=response):
+                with self.assertRaises(requests.HTTPError):
+                    downloader._request_with_retry("https://example.test/plan")
+            ledger.record_response.assert_called_once()
+            self.assertEqual(ledger.record_response.call_args.args[0], "https://example.test/plan")
+            self.assertEqual(ledger.record_response.call_args.kwargs["status"], "failed")
+        finally:
+            downloader.close()
 
     def test_tls_host_failures_are_classified_for_global_circuit_breaker(self):
         error = requests.exceptions.SSLError(

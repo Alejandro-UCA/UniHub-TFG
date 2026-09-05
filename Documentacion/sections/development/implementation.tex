@@ -16,10 +16,90 @@ El marco tecnológico de construcción incluye:
 \end{itemize}
 
 \section{Código Fuente y Estructura Modular}
-El código fuente del proyecto se organiza de forma modular bajo el directorio \texttt{Codigo/}:
+El código fuente del proyecto se organiza de forma modular y desacoplada bajo el directorio raíz \texttt{Codigo/}, estructurado en cuatro grandes fases técnicas interconectadas mediante contratos formales de datos. Con el objetivo de clarificar tanto para la evaluación del tribunal como para la defensa pública del proyecto la secuencia operativa interna del sistema y las dependencias entre subsistemas, la Figura~\ref{fig:arquitectura_modular_unihub} ilustra la arquitectura integral del flujo de datos en \textbf{UniHub}.
+
+\begin{figure}[htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{
+\begin{tikzpicture}[
+    >=Stealth,
+    font=\sffamily\footnotesize,
+    source/.style={draw=orange!85!black, fill=orange!12, thick, rounded corners=4pt, minimum width=3.3cm, minimum height=1.0cm, align=center},
+    subpkg/.style={draw=teal!85!black, fill=teal!10, thick, rounded corners=4pt, minimum width=3.3cm, minimum height=1.0cm, align=center},
+    pipe/.style={draw=blue!80!black, fill=blue!10, thick, rounded corners=4pt, minimum width=3.3cm, minimum height=1.0cm, align=center},
+    persist/.style={draw=purple!80!black, fill=purple!10, thick, rounded corners=4pt, minimum width=3.6cm, minimum height=1.0cm, align=center},
+    phase/.style={draw=cyan!80!black, fill=cyan!10, thick, rounded corners=4pt, minimum width=3.6cm, minimum height=1.0cm, align=center},
+    groupbox/.style={draw=gray!50, fill=gray!4, dashed, rounded corners=6pt, inner sep=8pt},
+    conn/.style={->, thick, draw=gray!75!black},
+    flow/.style={->, thick, draw=blue!75!black}
+]
+
+    % NIVEL 1: FUENTES OFICIALES
+    \node[source] (src_ruct) at (0, 10) {\textbf{RUCT Ministerial}\\Catálogos XLS y Fichas};
+    \node[source] (src_boe) at (4.2, 10) {\textbf{Agencia BOE}\\Resoluciones PDF};
+    \node[source] (src_web) at (8.4, 10) {\textbf{Portales Web Univ.}\\HTML5, Cards, SPA};
+    \node[source] (src_siiu) at (12.6, 10) {\textbf{SIIU / CCAA / Privadas}\\Precios y Tarifarios};
+
+    % NIVEL 2A: SUBPAQUETES CANÓNICOS FASE 1
+    \node[subpkg] (pkg_core) at (0, 7.7) {\textbf{core / utils}\\HTTP/2, Rate Limit,\\Checkpoint, WAL};
+    \node[subpkg] (pkg_parsers) at (4.2, 7.7) {\textbf{parsers / extractors}\\Parser BOE, OCR,\\Tablas, Doctorados};
+    \node[subpkg] (pkg_quality) at (8.4, 7.7) {\textbf{quality / lexicon}\\Validador RD 822,\\Léxico Cooficial};
+    \node[subpkg] (pkg_cleanup) at (12.6, 7.7) {\textbf{utils.data\_cleanup}\\Motor de Limpieza,\\Semillas Inmutables};
+
+    % NIVEL 2B: PIPELINES ESPECIALIZADOS
+    \node[pipe] (pipe1) at (0, 5.4) {\textbf{Parte 1: RUCT+BOE}\\Catálogo, Mallas PDF,\\Resoluciones Multi-Plan};
+    \node[pipe] (pipe2) at (4.2, 5.4) {\textbf{Parte 2: Rescate Web}\\DOM, Acordeones, SPA,\\Doctorado RD 99/2011};
+    \node[pipe] (pipe3) at (8.4, 5.4) {\textbf{Parte 3: Tarifas}\\Precios ECTS SIIU,\\51 Univ. Privadas};
+    \node[pipe] (pipe4) at (12.6, 5.4) {\textbf{Parte 4: Guías EEES}\\Temarios, Evaluación,\\Poda Anti-404};
+
+    % NIVEL 3: PERSISTENCIA LOCAL Y SEMILLAS
+    \node[persist] (seed_data) at (3.2, 3.2) {\textbf{Semillas Maestras Inmutables}\\\texttt{universidades.json}\\ \texttt{titulaciones\_*.json}};
+    \node[persist] (planes_json) at (9.4, 3.2) {\textbf{Almacén JSON Atómico}\\\texttt{planes\_estudio/*.json}\\ + SQLite WAL Ledger};
+
+    % NIVEL 4: FASES 2, 3 Y 4
+    \node[phase] (api_backend) at (1.2, 1.0) {\textbf{Fase 2: API REST}\\FastAPI + ETL Loader\\PostgreSQL 16 (JSONB, RBAC)};
+    \node[phase] (spa_frontend) at (6.3, 1.0) {\textbf{Fase 3: Interfaz Web}\\React 19 + Vite 8, PlanModal,\\Calculadora de Matrícula};
+    \node[phase] (docker_orch) at (11.4, 1.0) {\textbf{Fase 4: Orquestación}\\Docker Compose v2, Nginx,\\Healthchecks Multi-Servicio};
+
+    % CAJAS DE AGRUPACIÓN VISUAL
+    \begin{scope}[on background layer]
+        \node[groupbox, fit=(src_ruct) (src_siiu), label=above:{\small\textbf{Fuentes Oficiales Externas}}] {};
+        \node[groupbox, fit=(pkg_core) (pipe4), label=above:{\small\textbf{Fase 1: Motor Modular de Ingesta y Crawler (\texttt{Codigo/Crawler/})}}] {};
+        \node[groupbox, fit=(seed_data) (planes_json), label=above:{\small\textbf{Capa de Persistencia Atómica y Limpieza}}] {};
+        \node[groupbox, fit=(api_backend) (docker_orch), label=above:{\small\textbf{Fases 2, 3 y 4: Persistencia Relacional, Exposición y Despliegue}}] {};
+    \end{scope}
+
+    % CONEXIONES DE FLUJO
+    \draw[conn] (src_ruct) -- (pkg_core);
+    \draw[conn] (src_boe) -- (pkg_parsers);
+    \draw[conn] (src_web) -- (pkg_parsers);
+    \draw[conn] (src_siiu) -- (pkg_cleanup);
+
+    \draw[conn] (pkg_core) -- (pipe1);
+    \draw[conn] (pkg_parsers) -- (pipe2);
+    \draw[conn] (pkg_quality) -- (pipe3);
+    \draw[conn] (pkg_cleanup) -- (pipe4);
+
+    \draw[flow] (pipe1) -- (planes_json);
+    \draw[flow] (pipe2) -- (planes_json);
+    \draw[flow] (pipe3) -- (planes_json);
+    \draw[flow] (pipe4) -- (planes_json);
+    \draw[flow] (seed_data) -- (pipe1);
+    \draw[flow] (seed_data) -- (pipe3);
+
+    \draw[flow] (planes_json) -- (api_backend);
+    \draw[flow] (api_backend) -- (spa_frontend);
+    \draw[flow] (docker_orch) -- (api_backend);
+    \draw[flow] (docker_orch) -- (spa_frontend);
+
+\end{tikzpicture}
+}
+\caption{Estructura modular y flujo interno de procesamiento de datos en UniHub.}
+\label{fig:arquitectura_modular_unihub}
+\end{figure}
 
 \subsection{Fase 1: Módulo de Ingesta y Crawler (\texttt{Codigo/Crawler/})}
-El sistema de ingesta de la Fase 1 se estructura en cuatro partes desacopladas y especializadas:
+El sistema de ingesta de la Fase 1 se encuentra estructurado en \textbf{siete subpaquetes modulares canónicos} (\texttt{core}, \texttt{lexicon}, \texttt{parsers}, \texttt{extractors}, \texttt{quality}, \texttt{utils} y \texttt{pipelines}), los cuales desacoplan las responsabilidades funcionales y proporcionan fachadas de compatibilidad hacia atrás en la raíz del módulo. El flujo operativo se orquesta a través de cuatro partes principales de ejecución:
 
 \subsubsection{Fase 1 - Parte 1: Ingesta del RUCT y Parser PDF del BOE}
 \begin{itemize}
@@ -122,16 +202,36 @@ El sistema de ingesta de la Fase 1 se estructura en cuatro partes desacopladas y
     \item \texttt{checkpoint.py}: Gestor atómico del estado del rastreo. Mantiene el estado de reanudación en \texttt{checkpoint.json} y utiliza SQLite WAL para el ledger de peticiones y la caché. La escritura se agrupa en puntos de control para evitar operaciones de disco innecesarias.
 \end{itemize}
 
-\subsubsection{Mecanismos de Rendimiento, Reanudación y Cortesía}
-La Fase 1 incorpora mecanismos orientados a reducir trabajo repetido sin alterar la semántica de los datos ni el comportamiento respetuoso frente a los servidores externos:
+\subsubsection{Subpaquetes Canónicos de la Fase 1 (\texttt{Codigo/Crawler/})}
+Para garantizar el principio de responsabilidad única, alta cohesión y mínimo acoplamiento, la Fase 1 se estructura en siete subpaquetes especializados:
 \begin{itemize}
-    \item \textbf{Paralelismo acotado y Productor-Consumidor:} La Parte 1 desacopla descargas y análisis de PDF mediante trabajadores configurables. La precarga RUCT se limita por \texttt{ASYNC\_PREFETCH\_WORKERS} y \texttt{RUCT\_PREFETCH\_LOOKAHEAD}.
-    \item \textbf{Transferencia híbrida y Caché SHA-256 de PDF:} Los documentos pequeños se procesan en memoria y la caché LRU evita reanalizar el mismo PDF cuando contiene varios planes.
-    \item \textbf{Modelo profundo y Extracción Geométrica Condicional:} El parser analiza la geometría de palabras solo en páginas relevantes del PDF, reservando el análisis plano para preámbulos.
-    \item \textbf{Caché y ledger:} Las respuestas HTTP, sus validadores y huellas SHA-256 se registran en SQLite WAL. Esto permite reanudar y revalidar fuentes sin repetir solicitudes cuando la caché es válida.
-    \item \textbf{Caché negativa de Guías Docentes:} Omite peticiones a enlaces 404/410 en $0\text{ ms}$ desde el almacén SQLite WAL.
-    \item \textbf{Rastreo web responsable y Circuit Breaker:} Las Partes 2 y 4 agrupan el trabajo por universidad, consultan \texttt{robots.txt} con caché LRU, respetan retardos por dominio y aíslan temporalmente dominios que registran incidencias continuadas.
-    \item \textbf{Renderizado condicional:} Playwright se reserva para portales cuyo HTML estático no aporta información curricular suficiente ($<3$ asignaturas).
+    \item \textbf{\texttt{core/}: Núcleo de Red y Control Transaccional:} Centraliza la configuración desacoplada (\texttt{config.py}), el cliente HTTP/2 resiliente con negociación ALPN y *Circuit Breaker* (\texttt{downloader.py}), el gestor de estados incrementales (\texttt{checkpoint.py}) y las salvaguardas de cancelación cooperativa (\texttt{cancellation.py}).
+    \item \textbf{\texttt{lexicon/}: Léxico Académico y Tarifarios Oficiales:} Agrupa las matrices de precios públicos autonómicos SIIU y el catálogo oficial de 51 universidades privadas españolas (\texttt{pricing\_tables.py}), junto al catálogo de palabras clave normativas y patrones multilingües (\texttt{academic\_keywords.py}).
+    \item \textbf{\texttt{parsers/}: Análisis de Documentos y Formatos Oficiales:} Contiene el parser profundo de resoluciones PDF del BOE con modelo de páginas y detección geométrica (\texttt{boe\_pdf\_parser.py}), el motor OCR condicional con liberación garantizada de recursos nativos C++ (\texttt{ocr\_parser.py}), y los parsers de fichas ministeriales RUCT (\texttt{parsers.py}, \texttt{ruct\_xls\_parser.py}).
+    \item \textbf{\texttt{extractors/}: Extractores Web y de Contenidos Curriculares:} Reúne los extractores especializados de tablas HTML con propagación de celdas fusionadas (\texttt{html\_tables.py}), acordeones y tarjetas visuales (\texttt{html\_cards.py}), widgets asíncronos y endpoints REST (\texttt{dynamic\_widgets.py}), programas de doctorado conforme al RD 99/2011 (\texttt{doctoral.py}), y concordancia de planes web con resúmenes del BOE (\texttt{curriculum\_recovery.py}).
+    \item \textbf{\texttt{quality/}: Validación Curricular y Control de Integridad:} Implementa las reglas de negocio de los RD 822/2021 y RD 1393/2007 en \texttt{curriculum\_validator.py} (discriminando estados \texttt{completo\_normativo}, \texttt{parcial\_revisable}, etc.), la auditoría de calidad global en \texttt{data\_quality.py} y la validación de guías en \texttt{subject\_guide\_quality.py}.
+    \item \textbf{\texttt{utils/}: Persistencia Atómica, Utilidades y Limpieza:} Proporciona volcados JSON seguros con reemplazo atómico (\texttt{atomic\_json\_dump}), registro transaccional en SQLite WAL (\texttt{crawl\_ledger.py}), desacoplamiento de telemetría mediante colas (\texttt{progress\_emitter.py}), desinfección léxica anti-mojibake (\texttt{sanitizers.py}) y el Motor de Limpieza de Datos (\texttt{data\_cleanup.py}).
+    \item \textbf{\texttt{pipelines/}: Motores Orquestadores de las Cuatro Partes:} Aloja los flujos ejecutables de cada fase (\texttt{parte1\_ruct\_boe.py}, \texttt{parte2\_web\_crawler.py}, \texttt{parte3\_precios.py}, \texttt{parte4\_asignaturas.py}), exponiendo fachadas de compatibilidad hacia atrás en la raíz de \texttt{Codigo/Crawler/}.
+\end{itemize}
+
+\subsubsection{Mejoras Forenses en la Recolección de Datos}
+Para maximizar la cobertura nacional y resolver las casuísticas anómalas identificadas en la auditoría forense del sistema universitario español, se diseñaron e implementaron seis mejoras técnicas esenciales:
+\begin{enumerate}
+    \item \textbf{Extracción y Validación Universal de Doctorados Oficiales (RD 99/2011):} Dado que los programas de doctorado carecen de mallas lectivas estructuradas en créditos ECTS, se diseñó un flujo de rescate agnóstico en \texttt{doctoral.py} y \texttt{curriculum\_validator.py}. El módulo localiza y recorre subpáginas de investigación (\texttt{lineas-de-investigacion}, \texttt{equipos}), extrayendo las líneas científicas acreditadas mediante tres patrones universales (listas HTML, subtítulos H4/H5 y tablas estructuradas), identificando la Escuela de Doctorado y recopilando las actividades formativas transversales, validándolos bajo el estado de calidad \texttt{doctorado\_verificado}.
+    \item \textbf{Propagación Matricial por \texttt{rowspan} e Inferencia Secuencial de Curso:} En portales universitarios cuyas tablas curriculares agrupan asignaturas mediante celdas verticales fusionadas (\texttt{rowspan}), la función \texttt{normalize\_table\_rows\_with\_spans} en \texttt{html\_tables.py} reconstruye una cuadrícula bidimensional propagando el curso y cuatrimestre a todas las filas dependientes. Asimismo, para tablas planas sin división temporal, \texttt{infer\_missing\_courses\_in\_curriculum} deduce el curso de forma secuencial limitando cada nivel a un máximo de 60 ECTS.
+    \item \textbf{Concordancia Web Asistida por Plantilla de Distribución del BOE:} Mediante \texttt{matches\_boe\_credit\_distribution} en \texttt{curriculum\_recovery.py}, las mallas curriculares rescatadas de la web universitaria se contrastan contra el cuadro de distribución de créditos publicado en la orden del BOE (Formación Básica, Obligatorias, Optativas, Prácticas y TFG). Si la suma de materias troncales y obligatorias coincide con el mandato ministerial, el plan se valida con máxima certeza sin penalizar la ausencia de desglose de optatividad libre.
+    \item \textbf{Poda Inteligente de Subdominios Ciegos y Prevención de Errores HTTP 404:} En \texttt{subject\_guide\_discovery.py} y \texttt{parte4\_asignaturas.py}, se eliminó el sondeo especulativo sobre subdominios genéricos inexistentes (\texttt{secretaria.}, \texttt{cv1.cpd.}, \texttt{sia.}, etc.). El crawler aprende los hosts legítimos observados durante la fase de descubrimiento (\texttt{discovered\_host\_counts}) y restringe las consultas exclusivamente al portal institucional canónico o a subdominios verificados, reduciendo drásticamente las peticiones fallidas a la red.
+    \item \textbf{Recuperación ante Anomalías HTTP/2 (\emph{Illegal Status Line}):} Determinados servidores web universitarios (como el portal institucional de \texttt{unirioja.es}) presentan pasarelas desactualizadas que cierran bruscamente tramas HTTP/2 o emiten respuestas de cabecera malformadas (\texttt{BadStatusLine}). Se introdujo en \texttt{downloader.py} la detección proactiva mediante \texttt{is\_transient\_network\_error}, forzando la conmutación automática e inmediata a conexiones HTTP/1.1 para garantizar la ingesta sin interrupciones.
+    \item \textbf{Ampliación del Catálogo de Tarifas para 51 Universidades Privadas:} Se enriqueció en \texttt{pricing\_tables.py} la matriz \texttt{OFFICIAL\_PRIVATE\_UNIVERSITIES\_PRICES\_CATALOG} incorporando los honorarios y prospectos oficiales de 51 universidades privadas (UNAV, Comillas, Deusto, UNIR, UOC, UAX, Nebrija, CEU, Loyola, ESIC, UDIT, etc.), estratificados por nivel formativo (Grado, Máster, Doctorado) y rama de conocimiento (Salud, Ciencias e Ingeniería, Ciencias Sociales y Humanidades).
+\end{enumerate}
+
+\subsubsection{Motor de Limpieza de Datos y Garantía de Arranque en Frío}
+Para asegurar que el sistema pueda reiniciarse desde cero absoluto sin arrastrar artefactos obsoletos ni comprometer la información de origen, se implementó el Motor de Limpieza de Datos en \texttt{utils/data\_cleanup.py}, ejecutable a través de la herramienta por consola \texttt{limpieza\_datos.py} o mediante los modificadores \texttt{--clean} y \texttt{--clean-dry-run} en \texttt{main\_fase\_1.py}:
+\begin{itemize}
+    \item \textbf{Invariabilidad y Protección de Semillas Maestras:} Se establece una separación rigurosa entre las semillas originales del sistema (\texttt{universidades.json}, \texttt{titulaciones\_universidad.json} y \texttt{precios\_ccaa.json}) y los artefactos volátiles generados por la ejecución. Antes de cualquier purga, el motor verifica la existencia e integridad criptográfica SHA-256 de las semillas y genera automáticamente una copia de seguridad determinista con marca temporal en el directorio \texttt{backup/}.
+    \item \textbf{Simulación Preventiva (\emph{Dry-Run}):} Permite inspeccionar en consola el censo exhaustivo de ficheros y directorios que serían purgados sin realizar ninguna modificación física en disco, garantizando la supervisión del operador.
+    \item \textbf{Purga Atómica de Artefactos Volátiles:} Elimina de forma segura los planes generados en \texttt{planes\_estudio/}, el archivo incremental \texttt{checkpoint.json}, las bases de datos transaccionales SQLite WAL (\texttt{crawl\_ledger.sqlite3}, \texttt{cache\_guias\_docentes.db}), los ficheros de log y los cerrojos huérfanos de proceso (\texttt{etl\_running.lock}).
+    \item \textbf{Resiliencia para Arranque en Frío (\emph{Cold-Start Resilience}):} Certifica que, tras la limpieza completa, todos los pipelines y módulos del sistema se inicialicen limpiamente sin errores de lectura, bloqueos por cerrojos residuales ni estados inconsistentes.
 \end{itemize}
 
 \subsection{Fase 2: Módulo de API REST y Persistencia (\texttt{Codigo/API/})}

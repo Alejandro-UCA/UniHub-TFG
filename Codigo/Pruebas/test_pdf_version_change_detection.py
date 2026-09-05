@@ -3,13 +3,14 @@ import os
 import tempfile
 import json
 import unittest
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, patch
 from pypdf import PdfWriter
 
 import sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
 
 from boe_pdf_parser import parse_boe_pdf
+import degree_persistence
 from degree_persistence import save_degree_payload
 from crawl_ledger import CrawlLedger
 from downloader import RUCTDownloader
@@ -25,9 +26,32 @@ class TestPdfVersionChangeDetection(unittest.TestCase):
         self.temp_dir = tempfile.TemporaryDirectory()
         self.db_path = os.path.join(self.temp_dir.name, "test_ledger.sqlite3")
         self.ledger = CrawlLedger(db_path=self.db_path)
+        self.history_dir = os.path.join(self.temp_dir.name, "history")
+
+        # La persistencia mantiene una copia particionada para producción. En
+        # una prueba, ambas rutas deben permanecer dentro del temporal: de lo
+        # contrario, un código de fixture puede coincidir con uno real y
+        # contaminar el conjunto de datos del piloto.
+        self._persistence_patches = [
+            patch.object(
+                degree_persistence,
+                "get_plan_filepath",
+                side_effect=lambda u_code, d_code, **_kwargs: os.path.join(
+                    self.temp_dir.name,
+                    "partitioned",
+                    str(u_code or "unknown").zfill(3),
+                    f"{d_code}.json",
+                ),
+            ),
+            patch.object(degree_persistence, "DEGREE_HISTORY_DIR", self.history_dir),
+        ]
+        for active_patch in self._persistence_patches:
+            active_patch.start()
 
     def tearDown(self):
         self.ledger.close()
+        for active_patch in reversed(self._persistence_patches):
+            active_patch.stop()
         self.temp_dir.cleanup()
 
     def _create_sample_pdf(self, title: str, extra_text: str = "") -> bytes:

@@ -34,10 +34,37 @@ El alcance del proyecto abarca cuatro fases de ingeniería de software independi
 \end{description}
 
 \section{Organización del documento}
-La presente memoria se estructura en las siguientes secciones principales:
+La presente memoria técnica se estructura formalmente en cuatro partes principales, desglosadas en los siguientes capítulos y anexos:
+
 \begin{itemize}
-    \item \textbf{Prolegómeno:} Introducción, antecedentes del dominio universitario y plan de gestión de proyecto.
-    \item \textbf{Desarrollo:} Catálogo de requisitos, análisis UML, diseño arquitectónico (patrón C4/capas), implementación en código de cada fase, pruebas ejecutadas y despliegue del sistema Docker.
-    \item \textbf{Epílogo:} Conclusiones generales, lecciones aprendidas y líneas de trabajo futuro.
-    \item \textbf{Anexos:} Manuales de usuario, guía de desarrollador y ejemplos de tablas e imágenes.
+    \item \textbf{Parte I: Prolegómeno}
+    \begin{itemize}
+        \item \textbf{Capítulo 1: Introducción.} Expone la motivación de partida, el alcance técnico del sistema distribuido en cuatro fases, el glosario de términos clave y la organización global de la memoria.
+        \item \textbf{Capítulo 2: Antecedentes.} Analiza el contexto universitario español, la normativa de ordenación académica (RD 822/2021 y RD 99/2011), las fuentes oficiales de datos (RUCT, BOE, SIIU) y el estado del arte de las plataformas existentes.
+        \item \textbf{Capítulo 3: Plan de gestión de proyecto.} Detalla la metodología ágil adoptada, el desglose de dedicación temporal mediante diagrama de Gantt (450 horas de trabajo normativo), el presupuesto económico pormenorizado (recursos humanos, equipamiento, licencias e IA generativa, suministros), la matriz de gestión de riesgos y la estrategia de aseguramiento de la calidad y CI/CD.
+    \end{itemize}
+
+    \item \textbf{Parte II: Desarrollo}
+    \begin{itemize}
+        \item \textbf{Capítulo 4: Requisitos del Sistema.} Especifica los objetivos de negocio y de sistema, junto con el catálogo exhaustivo de requisitos funcionales (RF-01 a RF-17), requisitos no funcionales, requisitos de información y reglas de negocio.
+        \item \textbf{Capítulo 5: Análisis del Sistema.} Modela formalmente el sistema mediante diagramas de casos de uso y diagramas de interacción y secuencia para la extracción de planes, sincronización ETL y navegación web.
+        \item \textbf{Capítulo 6: Diseño del Sistema.} Describe la arquitectura global bajo el modelo C4 y arquitectura por capas, el diseño relacional de la base de datos en PostgreSQL, la especificación de la API REST y el diseño de la interfaz de usuario con la identidad visual corporativa de la UCA.
+        \item \textbf{Capítulo 7: Construcción del Sistema.} Detalla la implementación en código del software, profundizando en la arquitectura modular del crawler (Fase 1) en 7 subpaquetes y 4 pipelines, el motor de ingesta y carga ETL en PostgreSQL (Fase 2), la API REST en FastAPI (Fase 3), el portal web reactivo en React 19 + Vite (Fase 4), y los mecanismos de resiliencia y limpieza segura de datos.
+        \item \textbf{Capítulo 8: Pruebas del Sistema.} Expone el plan de verificación integral de calidad, documentando la batería de 38 suites de pruebas unitarias automatizadas, pruebas de integración de API, evaluaciones empíricas contra resoluciones del BOE y benchmarks de rendimiento.
+        \item \textbf{Capítulo 9: Despliegue del Sistema.} Describe la infraestructura de contenerización con Docker y Docker Compose, la topología de red aislada, los volúmenes persistentes y las políticas de despliegue y monitorización.
+    \end{itemize}
+
+    \item \textbf{Parte III: Epílogo}
+    \begin{itemize}
+        \item \textbf{Capítulo 10: Conclusiones.} Evalúa el grado de consecución de los objetivos planteados, sintetiza las lecciones aprendidas durante el ciclo de vida del proyecto y propone las líneas de trabajo futuro para la evolución de la plataforma.
+        \item \textbf{Capítulo 11: Información sobre Licencia.} Detalla el marco legal y de propiedad intelectual aplicable, adoptando licencias de software libre y código abierto (FOSS).
+    \end{itemize}
+
+    \item \textbf{Parte IV: Anexos}
+    \begin{itemize}
+        \item \textbf{Anexo A: Manual del desarrollador.} Guía paso a paso para la instalación del entorno local, ejecución de suites de pruebas y directrices de contribución.
+        \item \textbf{Anexo B: Manual de usuario.} Manual de uso interactivo de la plataforma UniHub para estudiantes, investigadores y administradores.
+        \item \textbf{Anexo C: Glosario de Términos y Acrónimos Técnicos.} Diccionario extendido de terminología académica, legal e informática.
+        \item \textbf{Anexo D: Esquema Físico DDL de Base de Datos.} Sentencias SQL DDL completas de creación de tablas, restricciones de integridad referencial e índices de optimización.
+    \end{itemize}
 \end{itemize}

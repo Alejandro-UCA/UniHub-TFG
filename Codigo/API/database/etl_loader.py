@@ -26,6 +26,19 @@ PUBLISHABLE_PLAN_QUALITY_STATUSES = frozenset({
     "pendiente_revision",
 })
 
+VERIFIED_PLAN_QUALITY_STATUSES = frozenset({
+    "completo",
+    "completo_normativo",
+    "verificado_boe",
+    "verificado_web",
+    "verificado_universidad",
+    "verificado_administracion",
+    "verificado_programa_doctoral",
+    "doctorado_verificado",
+    "doctorado_estructural",
+    "doctorado_oficial",
+})
+
 
 def _update_if_present(instance, attribute: str, payload: dict, key: str) -> None:
     """Actualiza un campo solo cuando la fuente aporta un valor explícito."""
@@ -453,10 +466,20 @@ def run_etl() -> bool:
                             pass
 
                     raw_plan_data = p_data.get("plan_estudios")
+                    candidate_plan_data = p_data.get("candidato_plan_estudios")
                     quality_status = str(p_data.get("estado_calidad") or "").strip().lower()
-                    has_plan_snapshot = _has_authoritative_plan_snapshot(raw_plan_data, quality_status)
                     quality_metadata = p_data.get("calidad_datos") if isinstance(p_data.get("calidad_datos"), dict) else None
                     plan_obj = existing_plans_dict.get(d_code)
+                    existing_plan_is_verified = bool(
+                        plan_obj and str(plan_obj.estado_calidad or "").strip().lower() in VERIFIED_PLAN_QUALITY_STATUSES
+                    )
+                    if not isinstance(raw_plan_data, dict) and isinstance(candidate_plan_data, dict) and not existing_plan_is_verified:
+                        # Los candidatos parciales son evidencia útil para la
+                        # WWW, pero nunca sustituyen a un plan ya verificado.
+                        raw_plan_data = candidate_plan_data
+                        if quality_status not in PUBLISHABLE_PLAN_QUALITY_STATUSES or quality_status in {"sin_datos_verificados", ""}:
+                            quality_status = "pendiente_revision"
+                    has_plan_snapshot = _has_authoritative_plan_snapshot(raw_plan_data, quality_status)
                     if not plan_obj:
                         plan_obj = PlanEstudios(
                             codigo_estudio=d_code,
@@ -467,7 +490,7 @@ def run_etl() -> bool:
                             estado_calidad=quality_status or "sin_datos_verificados",
                             motivos_calidad=quality_metadata,
                             fuente_verificada_url=(quality_metadata or {}).get("fuente_url") if has_plan_snapshot else None,
-                            verificado_en=datetime.now() if has_plan_snapshot else None,
+                            verificado_en=datetime.now() if has_plan_snapshot and quality_status in VERIFIED_PLAN_QUALITY_STATUSES else None,
                             fecha_procesado=datetime.now(),
                             tipo_estructura=raw_plan_data.get("tipo_estructura") if has_plan_snapshot else None,
                             ects_exigidos=str(raw_plan_data.get("ects_exigidos")) if has_plan_snapshot and raw_plan_data.get("ects_exigidos") is not None else None,
@@ -485,7 +508,7 @@ def run_etl() -> bool:
                             plan_obj.estado_calidad = quality_status
                             plan_obj.motivos_calidad = quality_metadata
                             plan_obj.fuente_verificada_url = (quality_metadata or {}).get("fuente_url")
-                            plan_obj.verificado_en = datetime.now()
+                            plan_obj.verificado_en = datetime.now() if quality_status in VERIFIED_PLAN_QUALITY_STATUSES else None
                             plan_obj.fecha_procesado = datetime.now()
                             plan_obj.tipo_estructura = raw_plan_data.get("tipo_estructura") or plan_obj.tipo_estructura
                             if p_data.get("programa_doctoral"):

@@ -1,7 +1,7 @@
 import os
 import sys
 import unittest
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
@@ -35,6 +35,38 @@ class TestSpaRenderOptimizations(unittest.TestCase):
             crawler.render_spa_page("https://universidad.example/empty")
 
         self.assertEqual(fallback.call_count, 2)
+
+    def test_browser_launch_and_page_operations_share_render_timeout(self):
+        crawler = spa_crawler.SPALayoutCrawler(timeout=7)
+        browser = MagicMock()
+        browser.is_connected.return_value = True
+        context = MagicMock()
+        page = MagicMock()
+        page.content.return_value = "<html></html>"
+        context.new_page.return_value = page
+        browser.new_context.return_value = context
+
+        with patch.object(spa_crawler, "PLAYWRIGHT_AVAILABLE", True), \
+             patch.object(crawler, "_ensure_browser", return_value=browser), \
+             patch.object(crawler._robots_policy, "check", return_value=(True, None)):
+            crawler.render_spa_page("https://universidad.example/plan")
+
+        expected_timeout = 7_000
+        context.set_default_timeout.assert_called_once_with(expected_timeout)
+        context.set_default_navigation_timeout.assert_called_once_with(expected_timeout)
+        page.set_default_timeout.assert_called_once_with(expected_timeout)
+        page.set_default_navigation_timeout.assert_called_once_with(expected_timeout)
+
+    def test_browser_launch_receives_render_timeout(self):
+        crawler = spa_crawler.SPALayoutCrawler(timeout=7)
+        playwright = MagicMock()
+        playwright.chromium.launch.return_value = MagicMock()
+        with patch.object(spa_crawler, "PLAYWRIGHT_AVAILABLE", True), \
+             patch.object(spa_crawler, "sync_playwright") as sync:
+            sync.return_value.start.return_value = playwright
+            crawler._ensure_browser()
+
+        self.assertEqual(playwright.chromium.launch.call_args.kwargs["timeout"], 7_000)
 
 
 if __name__ == "__main__":

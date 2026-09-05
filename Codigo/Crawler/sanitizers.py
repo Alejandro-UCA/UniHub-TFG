@@ -280,6 +280,9 @@ def is_spurious_or_administrative_subject(text: str, ects_val: float = None, car
 
     if t_low.startswith(("http://", "https://")) or "www." in t_low:
         return True
+    # «Gestión de despachos» es una materia; «Despacho 302» es un contacto.
+    if re.search(r"\bdespacho\s*(?:n[úu]m(?:ero)?\.?\s*)?[:#-]?\s*\d+\b", t_low) or t_low == "despacho":
+        return True
     if re.match(r"^(?:FBA|FB|OBL|OB|OPT|OP|PE|PEX|TFG|TFM|EXT|OIN|DER|HAU)\s+\d+\s+\d+$", t_clean, re.I):
         return True
 
@@ -311,6 +314,7 @@ def is_spurious_or_administrative_subject(text: str, ects_val: float = None, car
         r"^(?:curso\s+[1-6]|primer\s+curso|segundo\s+curso|tercer\s+curso|cuarto\s+curso)",
         r"^\d+\s+optativas?(?:\s+de\s+(?:menci[oó]n|itinerario))?$",
         r"^(?:menci[oó]n|itinerarios?|especialidad|orientaci[oó]n|perfil)(?:\s+(?:en|de|sobre|para)\b|\s*:|$)",
+        r"^(?:centro|modalidad|idioma|cuota|precio|importe|coste|matr[ií]cula|plazas|duraci[oó]n)\b",
         r"(?:se\s+ofertar[aá]n|car[aá]cter\s+optativo|a\s+elegir\s+entre|oferta\s+de\s+optativas)",
         r"^(?:grado|graduado|graduada|m[aá]ster|doctorado|programa\s+de\s+doctorado)\s+en\b",
         r"^(?:el\s+rector|la\s+rectora|facultad\s+de|escuela\s+de|campus\s+de|centro\s+de|departamento\s+de|departament\s+de|secci[oó]n\s+departamental|instituto\s+universitario|[aá]rea\s+de\s+conocimiento)\b",
@@ -364,6 +368,22 @@ def is_valid_curricular_table(table_tag) -> bool:
     if any(m in txt for m in discard_markers):
         return False
 
+    # Una tabla de adaptación entre un plan histórico y el vigente puede
+    # contener filas y créditos plausibles, pero no representa el currículo
+    # que debe publicarse para el título actual. Sólo se descarta cuando
+    # aparecen marcadores emparejados de plan anterior y nuevo, para no
+    # rechazar tablas curriculares que mencionen un plan de forma incidental.
+    legacy_current_pairs = (
+        ("plan de estudios de la licenciatura", "nuevo plan de estudios"),
+        ("plan anterior", "nuevo plan"),
+        ("plan antiguo", "plan nuevo"),
+        ("previous plan", "new plan"),
+        ("ancien plan", "nouveau plan"),
+        ("pla anterior", "nou pla"),
+    )
+    if any(old_marker in txt and new_marker in txt for old_marker, new_marker in legacy_current_pairs):
+        return False
+
     rows = table_tag.find_all("tr")
     header_text = " ".join(
         cell.get_text(" ", strip=True).lower()
@@ -385,6 +405,7 @@ def is_valid_curricular_table(table_tag) -> bool:
 
     explicit_subject_rows = 0
     rows_with_credits = 0
+    explicit_credit_cells = 0
     rows_with_character = 0
     scan_rows = rows[1:] if (rows and any(cell.name == "th" for cell in rows[0].find_all(["th", "td"]))) else rows
     for row in scan_rows:
@@ -394,7 +415,22 @@ def is_valid_curricular_table(table_tag) -> bool:
         row_text = " ".join(cells).lower()
         if any(re.search(rf"\b{re.escape(marker)}\b", row_text) for marker in subject_headers):
             explicit_subject_rows += 1
-        if any(re.search(r"\b(?:[1-9]|[12]\d|30)(?:[.,]\d+)?\s*(?:ects|cr[eé]ditos?|credits?)?\b", cell, re.IGNORECASE) for cell in cells):
+        row_has_explicit_credit = False
+        for cell in cells:
+            # Un número incrustado en una descripción (un año, una página,
+            # una tarifa o el nombre de un docente) no es evidencia de ECTS.
+            # Sólo se considera crédito una celda aislada con un valor dentro
+            # del rango curricular, opcionalmente acompañada de su unidad.
+            if re.fullmatch(
+                r"\s*(?:[1-9]|[12]\d|30)(?:[.,]\d+)?\s*"
+                r"(?:ects|cr[eé]ditos?|credits?)?\s*",
+                cell,
+                re.IGNORECASE,
+            ):
+                row_has_explicit_credit = True
+                explicit_credit_cells += 1
+                break
+        if row_has_explicit_credit:
             rows_with_credits += 1
         if any(re.search(r"\b(?:FB|OB|OP|B|O|PE|TFG|TFM|TR|BA|OT|DER|OIN|HAU|OPT|OBL)\b", cell, re.IGNORECASE) for cell in cells):
             rows_with_character += 1
@@ -416,13 +452,57 @@ def is_valid_curricular_table(table_tag) -> bool:
                 if any(ck in t_txt for ck in ["curso", "curs", "ano", "año", "ikasturtea", "maila", "semestre", "cuatrimestre", "quadrimestre", "year", "term"]):
                     has_adjacent_course_heading = True
 
+    has_explicit_credit_header = any(
+        marker in header_text
+        for marker in ("crédito", "credito", "crèdits", "credits", "credit", "ects", "kredituak", "kreditu")
+    )
     is_valid_structural_table = (
         (has_subject_header and has_curricular_header)
-        or (has_curricular_header and rows_with_credits >= 2)
-        or (rows_with_credits >= 2 and (rows_with_character >= 1 or has_adjacent_course_heading))
+        or (has_subject_header and has_explicit_credit_header and rows_with_credits >= 2)
+        or (
+            rows_with_credits >= 2
+            and (
+                has_explicit_credit_header
+                or rows_with_character >= 1
+                or has_adjacent_course_heading
+            )
+        )
         or (explicit_subject_rows >= 2 and rows_with_credits >= 2)
-        or (rows_with_credits >= 3 and len(rows) >= 3)
     )
+    if not is_valid_structural_table:
+        # Fallback para tablas curriculares paralelas sin cabecera explícita:
+        # algunas maquetas colocan dos asignaturas y sus cargas en cada fila,
+        # precedidas solo por «curso»/«semestre». Se exigen varias filas con
+        # al menos dos nombres y dos cargas plausibles para no convertir
+        # listados administrativos de números en asignaturas.
+        context_markers = (
+            "curso", "curs", "año", "ano", "semestre", "cuatrimestre",
+            "asignatura", "assignatura", "materia", "crédito", "credito",
+            "ects", "subject", "course",
+        )
+        has_curriculum_context = any(marker in txt for marker in context_markers)
+        parallel_rows = 0
+        for row in rows[1:]:
+            cells = [cell.get_text(" ", strip=True) for cell in row.find_all(["td", "th"])]
+            if not cells:
+                continue
+            numeric_cells = 0
+            text_cells = 0
+            for cell in cells:
+                compact = re.sub(r"\s+", " ", cell).strip()
+                if re.fullmatch(r"(?:\d{1,2}(?:[.,]\d{1,2})?)", compact):
+                    try:
+                        if 1.0 <= float(compact.replace(",", ".")) <= 30.0:
+                            numeric_cells += 1
+                            continue
+                    except ValueError:
+                        pass
+                if len(compact) >= 4 and not compact.isdigit():
+                    text_cells += 1
+            if numeric_cells >= 2 and text_cells >= 2:
+                parallel_rows += 1
+        if has_curriculum_context and parallel_rows >= 2:
+            return True
     return is_valid_structural_table
 
 

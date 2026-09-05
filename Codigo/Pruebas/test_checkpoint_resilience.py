@@ -3,6 +3,7 @@ import os
 import sys
 import tempfile
 import unittest
+from datetime import datetime, timedelta
 
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
@@ -10,6 +11,43 @@ from checkpoint import CheckpointManager
 
 
 class TestCheckpointResilience(unittest.TestCase):
+    def test_robots_denial_can_expire_for_incremental_revalidation(self):
+        with tempfile.TemporaryDirectory() as directory:
+            blocked_parent = os.path.join(directory, "not_a_directory")
+            with open(blocked_parent, "wb"):
+                pass
+            manager = CheckpointManager(
+                filepath=os.path.join(directory, "checkpoint.json"),
+                db_path=os.path.join(blocked_parent, "checkpoint.sqlite3"),
+            )
+            try:
+                manager.mark_robots_denied_university("001", "https://uni.example")
+                self.assertTrue(manager.is_robots_denied_university("001", max_age_seconds=60))
+                manager.state["robots_denied_universities"]["001"]["timestamp"] = (
+                    datetime.now() - timedelta(hours=2)
+                ).isoformat()
+                manager.flush()
+                self.assertFalse(manager.is_robots_denied_university("001", max_age_seconds=60))
+            finally:
+                manager.close()
+
+    def test_legacy_robots_denial_without_timestamp_does_not_block_with_ttl(self):
+        with tempfile.TemporaryDirectory() as directory:
+            json_path = os.path.join(directory, "checkpoint.json")
+            with open(json_path, "w", encoding="utf-8") as handle:
+                json.dump(
+                    {"robots_denied_universities": {"001": {"web_url": "https://uni.example"}}},
+                    handle,
+                )
+            manager = CheckpointManager(
+                filepath=json_path,
+                db_path=os.path.join(directory, "checkpoint.sqlite3"),
+            )
+            try:
+                self.assertFalse(manager.is_robots_denied_university("001", max_age_seconds=60))
+            finally:
+                manager.close()
+
     def test_corrupt_database_falls_back_to_json_without_raising(self):
         with tempfile.TemporaryDirectory() as directory:
             db_path = os.path.join(directory, "corrupt.sqlite3")

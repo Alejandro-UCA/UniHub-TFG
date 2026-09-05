@@ -296,6 +296,117 @@ class TestFase1Parte1ExecutionCollector(unittest.TestCase):
         self.assertGreater(tracker.errores_detectados, 0)
         self.assertTrue(os.path.exists(self.errors_json))
 
+    def test_checkpoint_does_not_freeze_incomplete_existing_plan(self):
+        """Las marcas de BOE al día/negativas no congelan un plan incompleto."""
+        university = {
+            "codigo": "025",
+            "nombre": "Universidad de Prueba",
+            "tipo": "Pública",
+        }
+        degree = {
+            "codigo_estudio": "2500100",
+            "titulo": "Grado en Informática",
+            "nivel_academico": "Grado",
+        }
+        latest_url = "https://www.boe.es/boe/dias/2024/05/15/pdfs/BOE-A-2024-1000.pdf"
+        latest_date = "2024-05-15"
+        plan_path = parte1.get_plan_filepath("025", "2500100")
+        with open(plan_path, "w", encoding="utf-8") as handle:
+            json.dump(
+                {
+                    **degree,
+                    "universidad_codigo": "025",
+                    "universidad_nombre": "Universidad de Prueba",
+                    "plan_estudios": {
+                        "elementos_curriculares": [
+                            {"nombre_elemento": "Parcial", "creditos_ects": 6}
+                        ]
+                    },
+                    "boe_url": latest_url,
+                    "estado_fuente": "candidata_no_publicable",
+                },
+                handle,
+            )
+        checkpoint = checkpoint_module.CheckpointManager()
+        checkpoint.update_degree_record("2500100", latest_url, latest_date, "2026-09-04T00:00:00")
+        checkpoint.mark_non_study_plan_pdf(latest_url)
+        checkpoint.close()
+
+        complete_plan = {
+            "total_elementos": 40,
+            "resumen_creditos": {"Créditos Totales": "240"},
+            "elementos_curriculares": [
+                {"nombre_elemento": f"Asignatura {i}", "creditos_ects": 6}
+                for i in range(40)
+            ],
+        }
+        tracker = MetricsTracker(filepath=self.stats_json)
+        emitter = ProgressEmitter()
+        import threading
+
+        class MockThreadProcess(threading.Thread):
+            def __init__(self, target=None, args=(), name=None, daemon=None):
+                super().__init__(target=target, args=args, name=name, daemon=daemon)
+                self.exitcode = 0
+
+            def terminate(self):
+                pass
+
+        def fetch_text(_url):
+            return "<html><body>Ficha oficial</body></html>"
+
+        with patch("multiprocessing.Process", MockThreadProcess), \
+             patch("fase1_parte1_ruct_boe.mp.Process", MockThreadProcess), \
+             patch("fase1_parte1_ruct_boe.parse_universities_xls", return_value=[university]), \
+             patch("fase1_parte1_ruct_boe.parse_degrees_xls", return_value=[degree]), \
+             patch("fase1_parte1_ruct_boe.parse_degree_detail_html", return_value={
+                 "is_extinct": False,
+                 "latest_boe_url": latest_url,
+                 "boe_date": latest_date,
+                 "all_boe_candidates": [{"url": latest_url, "priority": 100, "boe_date": latest_date}],
+             }), \
+             patch("fase1_parte1_ruct_boe.parse_boe_pdf", return_value=complete_plan), \
+             patch("downloader.RUCTDownloader.fetch_content", return_value=b"pdf" * 100), \
+             patch("downloader.RUCTDownloader.fetch_text", side_effect=fetch_text), \
+             patch.object(parte1.logger, "info"):
+            result = parte1.run_phase1_part1(
+                limit_universities=1,
+                limit_degrees=1,
+                force=False,
+                max_workers=1,
+                metrics_tracker=tracker,
+                progress_emitter=emitter,
+            )
+
+        with open(plan_path, encoding="utf-8") as handle:
+            saved = json.load(handle)
+        self.assertEqual(result["status"], "completed")
+        self.assertEqual(len(saved["plan_estudios"]["elementos_curriculares"]), 40)
+
+    def test_processed_university_reopens_when_any_plan_is_pending(self):
+        """Una universidad marcada como procesada se reabre si conserva un plan pendiente."""
+        degree = {
+            "codigo_estudio": "2500100",
+            "titulo": "Grado en Informática",
+            "nivel_academico": "Grado",
+        }
+        plan_path = parte1.get_plan_filepath("025", "2500100")
+        with open(plan_path, "w", encoding="utf-8") as handle:
+            json.dump({"plan_estudios": None}, handle)
+        catalog = {"025": {"titulaciones_vigentes": [degree]}}
+        self.assertTrue(parte1._university_has_pending_curricula("025", catalog))
+
+        complete_plan = {
+            "elementos_curriculares": [
+                {"nombre_elemento": f"Asignatura {i}", "creditos_ects": 6}
+                for i in range(40)
+            ],
+            "resumen_creditos": {"Créditos Totales": "240"},
+        }
+        with open(plan_path, "w", encoding="utf-8") as handle:
+            json.dump({"plan_estudios": complete_plan, "estado_fuente": "verificada"}, handle)
+        self.assertFalse(parte1._university_has_pending_curricula("025", catalog))
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -3,7 +3,7 @@ import sys
 import os
 from bs4 import BeautifulSoup
 
-sys.path.insert(0, os.path.abspath('Codigo/Crawler'))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Crawler")))
 
 from parsers import (
     is_spurious_or_administrative_subject,
@@ -11,7 +11,11 @@ from parsers import (
     classify_subject_caracter,
     unreverse_text
 )
-from univ_web_crawler import is_valid_curricular_table, is_html_page_matching_degree
+from univ_web_crawler import (
+    is_valid_curricular_table,
+    is_html_page_matching_degree,
+    is_source_url_level_compatible,
+)
 
 class TestDeepForensicAuditor(unittest.TestCase):
 
@@ -132,6 +136,20 @@ class TestDeepForensicAuditor(unittest.TestCase):
         """
         soup_curr = BeautifulSoup(html_curriculum, "html.parser").find("table")
         self.assertTrue(is_valid_curricular_table(soup_curr), "Debe aceptar tabla curricular genuina")
+
+    def test_rejects_explicitly_cross_level_source_url(self):
+        self.assertFalse(
+            is_source_url_level_compatible(
+                "https://example.edu/es/grados/estudios-literarios/como-accedo.html",
+                "Máster",
+            )
+        )
+        self.assertTrue(
+            is_source_url_level_compatible(
+                "https://example.edu/es/estudios/master/estudios-literarios",
+                "Máster",
+            )
+        )
 
 
 if __name__ == "__main__":

@@ -57,5 +57,6 @@ from boe_pdf_parser import (
     RE_TABLE_HEADER_NOISE,
     RE_ECTS_NUMBER,
     _RE_DYNAMIC_TIPO_FIRST,
-    _RE_DYNAMIC_CRED_FIRST
+    _RE_DYNAMIC_CRED_FIRST,
+    merge_chronological_boe_curricula
 )

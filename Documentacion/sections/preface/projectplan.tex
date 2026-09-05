@@ -124,10 +124,19 @@ Fase 5 & Redacción de memoria técnica, diagramación UML y revisión & 40 h & 
 \label{fig:diagrama_gantt}
 \end{figure}
 
+\section{Gestión de riesgos}
+Durante el ciclo de vida del proyecto se identificaron, categorizaron y mitigaron los siguientes riesgos principales:
+\begin{itemize}
+    \item \textbf{R-01: Modificaciones en las plantillas web o cortes de red.} Impacto: Alto. Mitigación: Parsers dinámicos con captura de excepciones, registro forense en \texttt{errores\_crawler.json} y mecanismos de cortocircuito ante caídas prolongadas.
+    \item \textbf{R-02: Sobrescritura accidental de datos completos con registros parciales.} Impacto: Crítico. Mitigación: Verificación obligatoria de completitud curricular ($\sum \text{ECTS} \ge \text{ECTS}_{\text{exigidos}}$) antes de actualizar la persistencia en base de datos.
+    \item \textbf{R-03: Pérdida de persistencia al reiniciar o apagar contenedores Docker.} Impacto: Crítico. Mitigación: Asignación de volúmenes nominales persistentes (\texttt{unihub\_postgres\_data}) y bind mounts hacia el host.
+    \item \textbf{R-04: Degradación del rendimiento de la API ante consultas concurrentes.} Impacto: Medio. Mitigación: Creación de índices B-Tree en columnas clave (\texttt{codigo\_estudio}, \texttt{universidad\_codigo}), rol de solo lectura y agrupaciones pre-agregadas en la base de datos.
+\end{itemize}
+
 \section{Presupuesto y desglose de costes}
 El análisis económico del proyecto contempla los costes directos de recursos humanos, equipamiento hardware, software y suministros indirectos, conforme a las tarifas habituales en ingeniería de software. Las horas de dedicación reflejan fielmente el esfuerzo requerido de \textbf{450 horas} (18 créditos ECTS $\times$ 25 h/crédito).
 
-En la Tabla~\ref{tab:presupuesto_costes} se detallan todos los conceptos presupuestarios del proyecto.
+En la Tabla~\ref{tab:presupuesto_costes} se detallan todos los conceptos presupuestarios del proyecto, incluyendo el coste de las herramientas de inteligencia artificial generativa empleadas como soporte en tareas de codificación, pruebas y documentación técnica.
 
 \begin{table}[htbp]
 \centering
@@ -155,30 +164,32 @@ En la Tabla~\ref{tab:presupuesto_costes} se detallan todos los conceptos presupu
 \midrule
 \multicolumn{4}{l}{\textbf{3. Software, Frameworks y Licencias}} \\
 \quad Pila FOSS (Python, PostgreSQL, FastAPI, React, Docker) & Licencias Open Source & 0,00\,\euro & 0,00\,\euro \\
-\textbf{Subtotal Software} & & & \textbf{0,00\,\euro} \\
+\quad Suscripción a herramientas de IA generativa (asistencia técnica) & 4 meses & 20,00\,\euro/mes & 80,00\,\euro \\
+\textbf{Subtotal Software} & & & \textbf{80,00\,\euro} \\
 \midrule
 \multicolumn{4}{l}{\textbf{4. Costes Indirectos y Suministros (Energía y Conectividad)}} \\
 \quad Conexión a Internet de banda ancha (4 meses) & 4 meses & 35,00\,\euro/mes & 140,00\,\euro \\
 \quad Consumo eléctrico imputable al desarrollo & 4 meses & 27,50\,\euro/mes & 110,00\,\euro \\
 \textbf{Subtotal Costes Indirectos} & & & \textbf{250,00\,\euro} \\
 \midrule
-\textbf{Base Imponible (Coste Total Directo e Indirecto)} & & & \textbf{13.880,00\,\euro} \\
-\textbf{Impuesto sobre el Valor Añadido (IVA 21\,\%)} & & & \textbf{2.914,80\,\euro} \\
+\textbf{Base Imponible (Coste Total Directo e Indirecto)} & & & \textbf{13.960,00\,\euro} \\
+\textbf{Impuesto sobre el Valor Añadido (IVA 21\,\%)} & & & \textbf{2.931,60\,\euro} \\
 \midrule
-\textbf{Presupuesto Total del Proyecto} & & & \textbf{16.794,80\,\euro} \\
+\textbf{Presupuesto Total del Proyecto} & & & \textbf{16.891,60\,\euro} \\
 \bottomrule
 \end{tabular}%
 }
 \end{table}
 
-\section{Gestión de riesgos}
-Se identificaron y mitigaron los siguientes riesgos principales:
-\begin{itemize}
-    \item \textbf{R-01: Modificaciones en las plantillas web o cortes de red.} Impacto: Alto. Mitigación: Parsers dinámicos con captura de excepciones, registro forense en \texttt{errores\_crawler.json} y mecanismos de cortocircuito ante caídas prolongadas.
-    \item \textbf{R-02: Sobrescritura accidental de datos completos con registros parciales.} Impacto: Crítico. Mitigación: Verificación obligatoria de completitud curricular ($\sum \text{ECTS} \ge \text{ECTS}_{\text{exigidos}}$) antes de actualizar la persistencia en base de datos.
-    \item \textbf{R-03: Pérdida de persistencia al reiniciar o apagar contenedores Docker.} Impacto: Crítico. Mitigación: Asignación de volúmenes nominales persistentes (\texttt{unihub\_postgres\_data}) y bind mounts hacia el host.
-    \item \textbf{R-04: Degradación del rendimiento de la API ante consultas concurrentes.} Impacto: Medio. Mitigación: Creación de índices B-Tree en columnas clave (\texttt{codigo\_estudio}, \texttt{universidad\_codigo}), rol de solo lectura y agrupaciones pre-agregadas en la base de datos.
-\end{itemize}
-
 \section{Aseguramiento de la calidad y gestión de la configuración}
-El aseguramiento de la calidad se apoya en una batería integral de 407 pruebas automatizadas que cubren todas las fases del ciclo de vida (crawler, lógica DDL, API REST, simulación de matrícula, geolocalización y contenerización). El control de versiones se gestiona mediante Git bajo un flujo de trabajo de commits atómicos e independientes asociados a funcionalidades concretas.
+El aseguramiento de la calidad se apoya en un pipeline automatizado de integración continua (CI) y una batería exhaustiva de pruebas unitarias y de integración que cubren todas las fases del sistema.
+
+El control de versiones se gestiona rigurosamente mediante \textbf{Git} sobre un repositorio privado en \textbf{GitHub}, aplicando una política de ramas de desarrollo y confirmaciones (\emph{commits}) atómicas, trazables y redactadas en inglés con descripciones formales de alcance técnico.
+
+El flujo de integración continua (\emph{Continuous Integration} / CI) implementa las siguientes etapas automatizadas de verificación previa a cualquier consolidación o despliegue:
+\begin{enumerate}
+    \item \textbf{Auditoría de Sintaxis y Análisis Estático:} Verificación obligatoria de compilación en caliente mediante \texttt{python -m compileall -q} para todos los módulos de \texttt{Codigo/Crawler/}, \texttt{Codigo/API/} y \texttt{Codigo/Pruebas/}, impidiendo cualquier error de importación o regresión sintáctica.
+    \item \textbf{Ejecución Automatizada de Suites de Pruebas:} Lanzamiento del \emph{test runner} de regresión con 38 suites automatizadas independientes ejecutadas en entorno aislado, validando la resiliencia transaccional SQLite WAL, el motor de circuitos HTTP/2, la normalización de tablas curriculares con \emph{rowspan}, la preservación inmutable de semillas maestras y el arranque en frío.
+    \item \textbf{Verificación de Empaquetado Frontend de Producción:} Compilación desatendida del cliente web mediante \texttt{npm run build} (Vite + React) en \texttt{Codigo/WWW/}, garantizando la ausencia de errores en el empaquetado de componentes JSX y estilos.
+    \item \textbf{Verificación de Salud de Contenedores Docker:} Monitorización de los estados de servicio mediante directivas \texttt{healthcheck} configuradas en \texttt{docker-compose.yml} para PostgreSQL, FastAPI y Nginx.
+\end{enumerate}

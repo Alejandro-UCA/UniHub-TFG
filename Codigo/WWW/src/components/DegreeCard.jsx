@@ -52,9 +52,13 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
   const displayedPrice = annualPrice ?? sixtyEctsEstimate;
   const priceLabel = annualPrice !== null ? 'año' : '60 ECTS';
   const planQualityStatus = degree.estado_calidad_plan || '';
+  const hasPlanEvidence = Boolean(
+    degree.plan_incompleto || degree.tiene_plan_verificado || degree.web_fuente_directa_url || planQualityStatus
+  );
   const isIncompletePlan = Boolean(
     degree.plan_incompleto || (planQualityStatus && !degree.tiene_plan_verificado)
   );
+  const isPlanNotLoaded = !degree.tiene_plan_verificado && !isIncompletePlan;
   const planQualityLabel = {
     pendiente_revision: 'Pendiente de revisión',
     parcial: 'Datos parciales',
@@ -114,6 +118,11 @@ export default React.memo(function DegreeCard({ degree, onSelectDegree }) {
             {isIncompletePlan && (
               <span className="badge" style={{ background: 'rgba(245, 158, 11, 0.16)', color: '#B45309', border: '1px solid rgba(245, 158, 11, 0.4)', fontSize: '0.7rem', fontWeight: 700 }}>
                 ⚠️ Datos incompletos
+              </span>
+            )}
+            {isPlanNotLoaded && hasPlanEvidence && (
+              <span className="badge" style={{ background: 'rgba(148, 163, 184, 0.16)', color: '#475569', border: '1px solid rgba(100, 116, 139, 0.35)', fontSize: '0.7rem', fontWeight: 700 }}>
+                ◌ Plan pendiente de carga
               </span>
             )}
           </div>

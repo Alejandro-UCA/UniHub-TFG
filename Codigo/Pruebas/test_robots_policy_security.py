@@ -55,6 +55,13 @@ class TestRobotsPolicySecurity(unittest.TestCase):
         self.assertEqual(get.call_count, 4)
         self.assertEqual(self.policy.explain("http://example.edu/path"), "robots_redireccion_fuera_del_origen")
 
+    def test_negative_robots_result_is_temporarily_reused(self):
+        with patch.object(robots_policy.requests, "get", side_effect=requests.RequestException("network down")) as get:
+            self.assertFalse(self.policy.check("https://example.edu/path")[0])
+            self.assertFalse(self.policy.check("https://example.edu/other")[0])
+        self.assertEqual(get.call_count, 3)
+        self.assertTrue(self.policy.explain("https://example.edu/path").startswith("cacheado_negativo:"))
+
 
 if __name__ == "__main__":
     unittest.main()

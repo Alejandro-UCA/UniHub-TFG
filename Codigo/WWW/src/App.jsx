@@ -473,7 +473,7 @@ export default function App() {
                 color: 'var(--uca-blue)',
                 marginBottom: '1.5rem'
               }}>
-                <span>🎓 Filtrando titulaciones de: <strong>{univCodeMap[selectedUnivCodigo]?.nombre || `Universidad ${selectedUnivCodigo}`}</strong></span>
+                <span>🎓 Filtrando titulaciones de: <strong>{univCodeMap[selectedUnivCodigo]?.nombre || 'Universidad seleccionada'}</strong></span>
                 <button 
                   onClick={() => setSelectedUnivCodigo('')}
                   style={{

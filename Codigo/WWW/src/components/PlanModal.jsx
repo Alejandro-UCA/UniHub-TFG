@@ -111,7 +111,7 @@ export default function PlanModal({ degree, onClose }) {
   const boeUrl = getSafeUrl(planData?.boe_url || degree.boe_url);
   const verifiedSourceUrl = getSafeUrl(planData?.fuente_verificada_url || degree.fuente_verificada_url);
   const directSourceUrl = getSafeUrl(degree.web_fuente_directa_url);
-  const sourceUrl = boeUrl || verifiedSourceUrl || (isIncompletePlan ? directSourceUrl : null);
+  const sourceUrl = boeUrl || verifiedSourceUrl || directSourceUrl;
   const sourceTitle = boeUrl
     ? (isVerifiedPlan ? 'Boletín Oficial del Estado (BOE)' : 'BOE (referencia; pendiente de verificación)')
     : isVerifiedPlan ? 'Fuente oficial verificada' : 'Fuente de referencia (pendiente de verificación)';
@@ -119,6 +119,11 @@ export default function PlanModal({ degree, onClose }) {
     ? (isVerifiedPlan ? 'Documento oficial con la resolución de verificación del título.' : 'Documento localizado, todavía pendiente de validación completa.')
     : isVerifiedPlan ? 'Página oficial empleada para verificar el plan de estudios.' : 'Enlace de referencia para completar la verificación del plan.';
   const boeFecha = planData?.boe_fecha || degree.boe_fecha;
+  const degreeStatus = degree.estado || 'Estado registral no disponible';
+  const degreeLevel = degree.nivel_academico || 'Nivel académico no disponible';
+  const hasReferenceData = Boolean(
+    degree.codigo_estudio || degree.universidad_nombre || degree.web_fuente_directa_url || degree.estado_calidad_plan
+  );
 
   const isMaster = (degree.nivel_academico || '').toLowerCase().includes('máster') || (degree.nivel_academico || '').toLowerCase().includes('master');
   const isDoctor = (degree.nivel_academico || '').toLowerCase().includes('doctor') || 
@@ -290,21 +295,63 @@ export default function PlanModal({ degree, onClose }) {
               <div style={{ fontSize: '0.85rem' }}>Analizando asignaturas, créditos ECTS y estructura oficial...</div>
             </div>
           ) : isPlanUnavailable ? (
-            <div style={{
-              padding: '1.5rem',
-              background: 'rgba(245, 158, 11, 0.10)',
-              border: '1px solid rgba(245, 158, 11, 0.35)',
-              borderRadius: 'var(--radius-md)',
-              color: 'var(--text-main)'
-            }}>
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                <AlertTriangle size={22} color="#B45309" style={{ flexShrink: 0, marginTop: '2px' }} />
-                <div>
-                  <h3 style={{ fontSize: '1rem', fontWeight: 800, marginBottom: '0.4rem' }}>Plan de estudios no disponible</h3>
-                  <p style={{ margin: 0, fontSize: '0.9rem', lineHeight: 1.55 }}>
-                    No se ha podido cargar un plan de estudios para esta titulación. Consulta la fuente oficial de la universidad para obtener más información.
-                  </p>
+            <div>
+              <div style={{
+                padding: '1.25rem 1.35rem',
+                background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.14) 0%, rgba(148, 163, 184, 0.08) 100%)',
+                border: '1px solid rgba(245, 158, 11, 0.38)',
+                borderRadius: 'var(--radius-md)',
+                color: 'var(--text-main)',
+                marginBottom: '1.25rem'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                  <AlertTriangle size={22} color="#B45309" style={{ flexShrink: 0, marginTop: '2px' }} />
+                  <div>
+                    <h3 style={{ fontSize: '1.05rem', fontWeight: 800, marginBottom: '0.4rem' }}>Dossier provisional: plan pendiente</h3>
+                    <p style={{ margin: 0, fontSize: '0.9rem', lineHeight: 1.55 }}>
+                      El registro oficial de la titulación sí está identificado, pero todavía no existe un plan curricular verificable disponible para mostrar. Esta ficha sirve para orientar la recuperación; no debe interpretarse como validación académica.
+                    </p>
+                  </div>
                 </div>
+              </div>
+
+              {hasReferenceData && (
+                <div style={{ marginBottom: '1.5rem' }}>
+                  <h3 style={{ fontSize: '1.05rem', fontWeight: 700, marginBottom: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <FileText size={18} color="var(--uca-cyan)" /> Ficha registral y estado de cobertura
+                  </h3>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '0.75rem' }}>
+                    {[
+                      ['Nivel académico', degreeLevel],
+                      ['Estado registral', degreeStatus],
+                      ['Validación del plan', qualityStatusLabel],
+                      ['Desglose curricular', 'Pendiente de obtención'],
+                      ['Guías docentes', 'Pendientes de plan curricular'],
+                    ].map(([label, value]) => (
+                      <div key={label} style={{ background: 'var(--bg-main)', padding: '0.8rem 0.9rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)' }}>
+                        <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 700, marginBottom: '0.25rem' }}>{label}</div>
+                        <div style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--text-main)', lineHeight: 1.35 }}>{value}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <div style={{
+                padding: '1rem 1.1rem',
+                background: 'rgba(0, 132, 200, 0.06)',
+                border: '1px solid rgba(0, 132, 200, 0.2)',
+                borderRadius: 'var(--radius-md)',
+                fontSize: '0.86rem',
+                lineHeight: 1.55,
+                color: 'var(--text-main)'
+              }}>
+                <strong>Qué falta para completar esta ficha:</strong>
+                <ul style={{ margin: '0.5rem 0 0', paddingLeft: '1.2rem', color: 'var(--text-muted)' }}>
+                  <li>Localizar una fuente curricular oficial accesible.</li>
+                  <li>Comprobar identidad, vigencia y carga ECTS.</li>
+                  <li>Recuperar el desglose de asignaturas y sus guías docentes.</li>
+                </ul>
               </div>
             </div>
           ) : (

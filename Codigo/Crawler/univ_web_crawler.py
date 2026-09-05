@@ -12,6 +12,7 @@ from fase1_parte2_web_crawler import (
     parse_price_value,
     build_html_curriculum_payload,
     is_html_page_matching_degree,
+    is_source_url_level_compatible,
     is_valid_web_url,
     is_same_or_subdomain,
     is_spider_trap_or_spurious_url,

@@ -14,6 +14,38 @@ from parsers import (
 
 class TestCurriculumCompletenessValidation(unittest.TestCase):
 
+    def test_05_declared_subtotal_does_not_override_inflated_rows(self):
+        elementos = [
+            {"nombre_elemento": f"Asignatura {index}", "creditos_ects": 6, "caracter": "OB"}
+            for index in range(40)
+        ]
+        deg = {
+            "titulo": "Grado en una disciplina",
+            "nivel_academico": "Grado",
+            "plan_estudios": {
+                "resumen_creditos": {"Créditos Totales": 150},
+                "elementos_curriculares": elementos,
+            },
+        }
+        status = get_curriculum_completeness_status(deg)
+        self.assertFalse(status["is_complete"])
+        self.assertEqual(status["status"], "inconsistencia_total_declarado")
+
+    def test_06_historical_plan_marker_is_not_a_current_curriculum(self):
+        degree = {
+            "titulo": "Grado en Derecho",
+            "nivel_academico": "Grado",
+            "plan_estudios": {
+                "elementos_curriculares": [
+                    {"nombre_elemento": "PLAN DE ESTUDIOS de la LICENCIATURA", "creditos_ects": 0},
+                    {"nombre_elemento": "Asignatura histórica", "creditos_ects": 240},
+                ],
+            },
+        }
+        status = get_curriculum_completeness_status(degree)
+        self.assertFalse(status["is_complete"])
+        self.assertEqual(status["status"], "tabla_plan_historico")
+
     def test_01_grado_standard_complete(self):
         """Un Grado estándar de 240 ECTS con 40 asignaturas de 6 ECTS (240 ECTS) es COMPLETO."""
         elementos = [{"nombre_elemento": f"Asignatura {i}", "creditos_ects": 6.0} for i in range(40)]
@@ -138,6 +170,16 @@ class TestCurriculumCompletenessValidation(unittest.TestCase):
             "plan_estudios": {"elementos_curriculares": elementos_60}
         }
         self.assertTrue(is_curriculum_complete(deg_60))
+
+    def test_08b_corrupted_master_label_still_uses_master_threshold(self):
+        """La clasificacion no depende de que el acento se haya decodificado bien."""
+        self.assertEqual(
+            get_required_degree_credits(
+                "M�ster - normativa academica",
+                "M�ster Universitario en Anal�tica de Datos",
+            ),
+            60.0,
+        )
 
     def test_09_doctorado_structural_validation(self):
         """Un Doctorado solo es estructuralmente completo si aporta elementos verificables."""
